@@ -8,5 +8,19 @@ The language has no "reserved words" which means it doesn't care if an identifie
 The language began with an emphasis on the grammar, the grammar structure was carefully designed and refined to provide the extensibility features needed. The grammar is mostly influenced by the PL/I language but is not a clone of PL/I, it also borrows ideas from Algol and Pascal, it is not an Object Orineted language. It can be characterized as a language that follows a keyword based pattern, all statements (except assignment statements) begin with a language keyword followed by optional and 
 mandatory attributes.
 
+## Goals
 
+The goals of this language project include:
+
+* To make it easier to develop code that must manipulate data at an arbitrary bit level. 
+* Supporting bit strings with flexible alignment and padding and field ordering control. 
+* Have no reserved words.
+* Support multiple keyword sets for different cultures.
+* Use keywords and "end" to delimit statement blocks.
+* Support easy to read numeric literals and number bases.
+* Support strings as a data type.
+* Provide language functions and intrinsics.
+* Eliminate pointer arithemtic.
+* Support both pointer and offset as language types.
+* Provide powerful preprocessing features.
 
