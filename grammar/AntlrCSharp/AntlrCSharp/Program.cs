@@ -16,6 +16,12 @@ namespace AntlrCSharp
             //
             //TextReader source = File.OpenText(@"..\..\..\..\..\Antlr\test1.nr");
 
+            if (true & false)
+                ;
+
+            if (true && false)
+                ;
+
             var regex = new Regex(PLI_INCLUDE_REGEX);
 
             //TextReader source = ReadFile(@"test_3.nr");

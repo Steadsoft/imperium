@@ -51,6 +51,9 @@ procedure main(x)
 	   return;
 	end;
 
+	if funca(1) ?| funcb(2) then
+	   return;
+    end;
 
 	call reset;
 

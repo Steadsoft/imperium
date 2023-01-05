@@ -14,7 +14,7 @@
 
 /* Multiple languages: https://stackoverflow.com/questions/40325774/antlr4-dynamic-token-type */
 
-grammar Post;
+grammar Imperium;
 
 /*
  @lexer::header
@@ -83,9 +83,9 @@ subscript: expression;
 
 subscript_commalist: subscript (COMMA subscript)*;
 
-expression: expression_9 | expression '|:' expression_9;
+expression: expression_9 | expression '?|' expression_9;
 
-expression_9: expression_8 | expression_9 '&:' expression_8;
+expression_9: expression_8 | expression_9 '?&' expression_8;
 
 expression_8:
 	expression_7
@@ -410,6 +410,7 @@ POWER: '**';
 COLON: ':';
 DQUOTE: '"';
 QUOTE: '\'';
+QMARK: '?';
 
 /* Fixed the numeric literals:
  

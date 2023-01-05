@@ -31,7 +31,7 @@ public class PostParser extends Parser {
 		LSEP=83, BIN=84, OCT=85, DEC=86, HEX=87, ARROW=88, DOT=89, COMMA=90, LPAR=91, 
 		RPAR=92, LBRACK=93, RBRACK=94, LBRACE=95, RBRACE=96, EQUALS=97, TIMES=98, 
 		DIVIDE=99, PLUS=100, MINUS=101, SEMICOLON=102, POWER=103, COLON=104, DQUOTE=105, 
-		QUOTE=106;
+		QUOTE=106, QMARK=107;
 	public static final int
 		RULE_translation_unit = 0, RULE_procedure_stmt = 1, RULE_stmt_block = 2, 
 		RULE_terminator = 3, RULE_label_stmt = 4, RULE_nonexecutable_stmt = 5, 
@@ -81,7 +81,7 @@ public class PostParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'%'", "'include'", "'.inc'", "'|:'", "'&:'", "'|'", "'~'", "'&'", 
+			null, "'%'", "'include'", "'.inc'", "'?|'", "'?&'", "'|'", "'~'", "'&'", 
 			"'||'", "'>'", "'>='", "'<'", "'<='", "'~>'", "'~='", "'~<'", "'>>'", 
 			"'<<'", "'>>>'", "'<<<'", null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
@@ -90,7 +90,7 @@ public class PostParser extends Parser {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, "'->'", 
 			"'.'", "','", "'('", "')'", "'['", "']'", "'{'", "'}'", "'='", "'*'", 
-			"'/'", "'+'", "'-'", "';'", "'**'", "':'", "'\"'", "'''"
+			"'/'", "'+'", "'-'", "';'", "'**'", "':'", "'\"'", "'''", "'?'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -109,7 +109,7 @@ public class PostParser extends Parser {
 			"OCTAL_PATTERN", "HEXADECIMAL_PATTERN", "DECIMAL_PATTERN", "LSEP", "BIN", 
 			"OCT", "DEC", "HEX", "ARROW", "DOT", "COMMA", "LPAR", "RPAR", "LBRACK", 
 			"RBRACK", "LBRACE", "RBRACE", "EQUALS", "TIMES", "DIVIDE", "PLUS", "MINUS", 
-			"SEMICOLON", "POWER", "COLON", "DQUOTE", "QUOTE"
+			"SEMICOLON", "POWER", "COLON", "DQUOTE", "QUOTE", "QMARK"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -6591,7 +6591,7 @@ public class PostParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001j\u02d5\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001k\u02d5\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+

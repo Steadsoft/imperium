@@ -51,7 +51,7 @@ public partial class PostParser : Parser {
 		LSEP=83, BIN=84, OCT=85, DEC=86, HEX=87, ARROW=88, DOT=89, COMMA=90, LPAR=91, 
 		RPAR=92, LBRACK=93, RBRACK=94, LBRACE=95, RBRACE=96, EQUALS=97, TIMES=98, 
 		DIVIDE=99, PLUS=100, MINUS=101, SEMICOLON=102, POWER=103, COLON=104, DQUOTE=105, 
-		QUOTE=106;
+		QUOTE=106, QMARK=107;
 	public const int
 		RULE_translation_unit = 0, RULE_procedure_stmt = 1, RULE_stmt_block = 2, 
 		RULE_terminator = 3, RULE_label_stmt = 4, RULE_nonexecutable_stmt = 5, 
@@ -97,7 +97,7 @@ public partial class PostParser : Parser {
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'%'", "'include'", "'.inc'", "'|:'", "'&:'", "'|'", "'~'", "'&'", 
+		null, "'%'", "'include'", "'.inc'", "'?|'", "'?&'", "'|'", "'~'", "'&'", 
 		"'||'", "'>'", "'>='", "'<'", "'<='", "'~>'", "'~='", "'~<'", "'>>'", 
 		"'<<'", "'>>>'", "'<<<'", null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
@@ -106,7 +106,7 @@ public partial class PostParser : Parser {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, "'->'", 
 		"'.'", "','", "'('", "')'", "'['", "']'", "'{'", "'}'", "'='", "'*'", 
-		"'/'", "'+'", "'-'", "';'", "'**'", "':'", "'\"'", "'''"
+		"'/'", "'+'", "'-'", "';'", "'**'", "':'", "'\"'", "'''", "'?'"
 	};
 	private static readonly string[] _SymbolicNames = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
@@ -122,7 +122,7 @@ public partial class PostParser : Parser {
 		"OCTAL_PATTERN", "HEXADECIMAL_PATTERN", "DECIMAL_PATTERN", "LSEP", "BIN", 
 		"OCT", "DEC", "HEX", "ARROW", "DOT", "COMMA", "LPAR", "RPAR", "LBRACK", 
 		"RBRACK", "LBRACE", "RBRACE", "EQUALS", "TIMES", "DIVIDE", "PLUS", "MINUS", 
-		"SEMICOLON", "POWER", "COLON", "DQUOTE", "QUOTE"
+		"SEMICOLON", "POWER", "COLON", "DQUOTE", "QUOTE", "QMARK"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -6910,7 +6910,7 @@ public partial class PostParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,106,725,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
+		4,1,107,725,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
 		7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,14,
 		2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,21,
 		2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,2,27,7,27,2,28,7,28,
