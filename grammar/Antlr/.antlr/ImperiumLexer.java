@@ -1,4 +1,4 @@
-// Generated from d:\Git\GitHub\Steadsoft\imperium\grammar\Antlr\Post.g4 by ANTLR 4.9.2
+// Generated from d:\Git\GitHub\Steadsoft\imperium\grammar\Antlr\Imperium.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -140,7 +140,7 @@ public class ImperiumLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Post.g4"; }
+	public String getGrammarFileName() { return "Imperium.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

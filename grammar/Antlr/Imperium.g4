@@ -14,7 +14,7 @@
 
 /* Multiple languages: https://stackoverflow.com/questions/40325774/antlr4-dynamic-token-type */
 
-grammar Imperium;
+grammar Imperium; // Latin for "control"
 
 /*
  @lexer::header
