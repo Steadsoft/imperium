@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Antlr\PostBaseListener.cs" Link="PostBaseListener.cs" />
+    <Compile Include="..\..\Antlr\PostBaseVisitor.cs" Link="PostBaseVisitor.cs" />
+    <Compile Include="..\..\Antlr\PostLexer.cs" Link="PostLexer.cs" />
+    <Compile Include="..\..\Antlr\PostListener.cs" Link="PostListener.cs" />
+    <Compile Include="..\..\Antlr\PostParser.cs" Link="PostParser.cs" />
+    <Compile Include="..\..\Antlr\PostVisitor.cs" Link="PostVisitor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Antlr\elif.post" Link="elif.post" />
+    <None Include="..\..\Antlr\literals.post" Link="literals.post" />
+    <None Include="..\..\Antlr\Post.g4" Link="Post.g4" />
+    <None Include="..\..\Antlr\test1.post" Link="test1.post" />
+    <None Include="..\..\Antlr\test2.post" Link="test2.post" />
+    <None Include="..\..\Antlr\test_3.post" Link="test_3.post" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.11.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,41 @@
+proc test(x)
+
+	dcl counter binary;
+
+	def mystruct  /* stuff like static and so on illegal for struct members */
+		range bin(15),
+		fixed string(32),  /* trailing comma optional. */
+	end;
+
+	base_address = 0000 1F00 C000 0000:h ;
+
+	// dcl Popcount intrinsic; // pos
+
+
+
+
+
+value = DEF ABC 2DC0 6BA0:h * 100;
+
+call reboot(FACE DEFB 10C0:H + 239:H);
+
+
+
+value = 100 123.45;
+
+value = 1011 FC4.7F:h;
+
+value = 1010 1010;
+
+value = 123:d;
+
+value = 1010_1010:b;
+
+octal = 765:o;
+
+
+
+end;
+
+
+

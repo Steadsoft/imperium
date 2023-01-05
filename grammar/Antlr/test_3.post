@@ -1,0 +1,120 @@
+﻿/*  % include 'ABC.inc' ; */
+	
+procedure main(x)
+
+	def mystruct  /* stuff like static and so on illegal for struct members */
+		range bin(15),
+		fixed string(32),  /* trailing comma optional. */
+	end;
+
+	dcl base_address pointer;
+
+
+	// dcl Popcount intrinsic; // pos
+
+
+	dcl counter(1:10,1:10,1:10) binary decimal fixed float;
+	dcl range fixed float dec (12,4);
+	dcl volume fixed dec (if,then);
+	dcl name string(256) varying;
+	dcl mask(32) bit(8);
+
+	 dcl stuff mystruct; 
+
+	/* declare some variables named the same as keywords */
+
+	dcl dcl dec based(counter);  /* dcl is a keyword ! */
+
+    dcl realm binary;
+
+	declare goto binary; /* goto is a keyword ! */
+
+	a = 4 + ((7 + 9) * 2);
+
+	base_address = 0000 1F00 C000 0000:h ;
+
+	if count > 100 then
+	   call do_something;
+	elif count < 0 then
+	   call do_something_else;
+	   call do_whatever;
+	elif count > max then
+	   call where_done(max);
+	   if we_are_still_here then
+	      return;
+	   elif we_did_not_crash then
+	      call crash;
+	   else
+	      call stop; 
+	   end;
+	else
+	   return;
+	end;
+
+
+	call reset;
+
+{retry}
+
+	counter = 100;
+
+	goto call; /* call is a keyword ! */
+
+	loop
+		call sleep;
+	end;
+
+	loop until (a > b)
+		call sleep;
+	end;
+
+{key_loop}
+
+	loop while (a > b)
+		call sleep;
+		endloop key_loop;
+	end;
+
+{trialer}
+
+	loop while (until > b) until (eof)
+		call sleep;
+		endloop trialer;
+		reloop trialer;
+	end;
+
+	call declare; /* declare is a keyword */
+
+	call declare (1,2,3);
+
+	return (123);
+
+	if rate = 100:b then
+	   call reboot(0);
+	   go to end;
+	else
+	   depth = 44;
+	   end = then + else;
+	   return (123:o);
+	end;
+
+	if count > 100 then
+	   call do_something;
+	elif count < 0 then
+	   call do_something_else(count);
+	elif count > max then
+	   call where_done(elif);
+	end;
+
+	proc reboot(a,b,c) coroutine returns string(32) 
+
+		arg a(*,*) binary;
+		argument b decimal;
+
+	end;
+
+end;
+
+/* ignore %include 'BCD.inc'; */
+
+
