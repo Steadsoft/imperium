@@ -16,6 +16,8 @@
 
 lexer grammar ImperiumKeywords;
 
+import ImperiumLexer;
+
 // BEGIN - Culture dependent keywords
 
 CALL: ('call');

@@ -16,7 +16,7 @@
 
 parser grammar ImperiumParser; // Latin for "control"
 
-options { tokenVocab = ImperiumLexer;}
+options { tokenVocab = ImperiumKeywords;}
 
 translation_unit:
 	BYTE_ORDER_MARK? preprocessor_stmt? procedure_stmt;

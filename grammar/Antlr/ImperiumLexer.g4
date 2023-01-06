@@ -18,7 +18,7 @@ lexer grammar ImperiumLexer; // Latin for "control"
 
 
 // BEGIN - Culture dependent keywords
-
+/*
 CALL: ('call');
 GOTO: ('goto'); //{langcode=="en"}? ('goto') | {langcode=="fr"}? ('goto'); 
 GO: ('go');
@@ -64,7 +64,7 @@ ENDLOOP: ('endloop');
 RELOOP: ('reloop');
 INCLUDE: ('include');
 INC: ('inc');
-
+*/
 // END - Culture dependent keywords
 
 COMMENT: '/*' (COMMENT | .)*? '*/' -> channel(2);
