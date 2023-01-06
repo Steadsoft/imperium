@@ -40,15 +40,15 @@ namespace AntlrCSharp
 
             var tree = noresParser.translation_unit();
 
-            var listener = new TestListener();
+            //var listener = new TestListener();
 
-            var visitior = new ImperiumBaseVisitor<int>();
+            //var visitior = new ImperiumBaseVisitor<int>();
 
-            visitior.VisitTranslation_unit(tree);
+            //visitior.VisitTranslation_unit(tree);
 
             ParseTreeWalker walker = new ParseTreeWalker();
 
-            walker.Walk(listener, tree);
+           // walker.Walk(listener, tree);
 
             Console.WriteLine(tree.ToStringTree());
         }

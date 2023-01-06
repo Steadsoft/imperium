@@ -1,6 +1,7 @@
 lexer grammar ImperiumKeywords;
 
 import ImperiumLexer;
+
 ISNOTAKEYWORD: {langcode=="en"}? ('0') | {langcode=="fr"}? ('0') | {langcode=="he"}? ('0') ;
 ALIGNED: {langcode=="en"}? ('aligned') | {langcode=="fr"}? ('aligned') | {langcode=="he"}? ('aligned') ;
 ARGUMENT: {langcode=="en"}? ('argument') | {langcode=="fr"}? ('argument') | {langcode=="he"}? ('argument') ;
