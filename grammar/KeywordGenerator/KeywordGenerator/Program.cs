@@ -18,14 +18,20 @@ namespace KeywordGenerator
                 {
                     if (!output.ContainsKey(keyword_pair.Key))
                     {
-                        output[keyword_pair.Key] = $"{keyword_pair.Value} {language.Key}";
+                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper()}: [langcode==!{language.Key}!]? ('{keyword_pair.Value}') | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
                     }
                     else
                     {
-                        output[keyword_pair.Key] = output[keyword_pair.Key] + $" {keyword_pair.Value} {language.Key}";
+                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"[langcode==!{language.Key}!]? ('{keyword_pair.Value}') | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
                     }
                 }
             }
+
+            foreach (var entry in output)
+            {
+                output[entry.Key] = entry.Value.Trim(' ').Trim('|') + ";";            
+            }
+
 
         }
     }
