@@ -32,7 +32,18 @@ namespace KeywordGenerator
                 output[entry.Key] = entry.Value.Trim(' ').Trim('|') + ";";            
             }
 
+            var file = File.CreateText(@"..\..\..\..\..\antlr\ImperiumKeywords.g4");
 
+            file.WriteLine("lexer grammar ImperiumKeywords;");
+            file.WriteLine();
+            file.WriteLine("import ImperiumLexer;");
+
+            foreach (var kv in output)
+            {
+                file.WriteLine(kv.Value);
+            }
+            
+            file.Close(); ;
         }
     }
 }
