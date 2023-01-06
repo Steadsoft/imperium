@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 
 namespace KeywordGenerator
 {
@@ -18,11 +19,11 @@ namespace KeywordGenerator
                 {
                     if (!output.ContainsKey(keyword_pair.Key))
                     {
-                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper()}: [langcode==!{language.Key}!]? ('{keyword_pair.Value}') | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
+                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper()}: [langcode==!{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
                     }
                     else
                     {
-                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"[langcode==!{language.Key}!]? ('{keyword_pair.Value}') | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
+                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"[langcode==!{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
                     }
                 }
             }
@@ -44,6 +45,26 @@ namespace KeywordGenerator
             }
             
             file.Close(); ;
+        }
+
+        // If a keyword def include a full and an abbreviation or alias, pull them out here
+        private static string ExtractMultiples(string input)
+        {
+            if (input.Contains(',') == false)
+                return $"'{input}'";
+
+            StringBuilder builder = new StringBuilder();
+
+            var parts = input.Split(',');
+
+            foreach (var part in parts)
+
+            {
+                builder.Append($"'{part}' | ");
+            }
+
+            return builder.ToString().Trim().Trim('|').Trim();
+
         }
     }
 }

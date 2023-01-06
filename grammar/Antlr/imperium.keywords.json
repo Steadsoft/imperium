@@ -16,7 +16,7 @@
     "Cofunction":"cofunction",
     "Coroutine": "coroutine",
     "Decimal": "decimal",
-    "Declare": "declare",
+    "Declare": "declare, dcl",
     "Define": "define",
     "Defined": "defined",
     "Elif": "elif",

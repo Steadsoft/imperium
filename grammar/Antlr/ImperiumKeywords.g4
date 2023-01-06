@@ -17,7 +17,7 @@ CHARACTER: {langcode=="en"}? ('character') ;
 COFUNCTION: {langcode=="en"}? ('cofunction') ;
 COROUTINE: {langcode=="en"}? ('coroutine') | {langcode=="fr"}? ('coroutine') | {langcode=="he"}? ('coroutine') ;
 DECIMAL: {langcode=="en"}? ('decimal') | {langcode=="fr"}? ('décimal') | {langcode=="he"}? ('decimal') ;
-DECLARE: {langcode=="en"}? ('declare') | {langcode=="fr"}? ('déclarer') | {langcode=="he"}? ('declare') ;
+DECLARE: {langcode=="en"}? ('declare' | ' dcl') | {langcode=="fr"}? ('déclarer') | {langcode=="he"}? ('declare') ;
 DEFINE: {langcode=="en"}? ('define') | {langcode=="fr"}? ('define') | {langcode=="he"}? ('define') ;
 DEFINED: {langcode=="en"}? ('defined') ;
 ELIF: {langcode=="en"}? ('elif') ;
