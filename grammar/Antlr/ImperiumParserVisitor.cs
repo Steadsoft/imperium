@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from Imperium.g4 by ANTLR 4.11.1
+// Generated from ImperiumParser.g4 by ANTLR 4.11.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -30,7 +30,7 @@ using IToken = Antlr4.Runtime.IToken;
 /// <typeparam name="Result">The return type of the visit operation.</typeparam>
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.11.1")]
 [System.CLSCompliant(false)]
-public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
+public interface IImperiumParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.translation_unit"/>.
 	/// </summary>
@@ -512,13 +512,6 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitINTR([NotNull] ImperiumParser.INTRContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>IDENT</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitIDENT([NotNull] ImperiumParser.IDENTContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.precision"/>.
 	/// </summary>

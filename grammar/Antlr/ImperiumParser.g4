@@ -14,20 +14,9 @@
 
 /* Multiple languages: https://stackoverflow.com/questions/40325774/antlr4-dynamic-token-type */
 
-grammar Imperium; // Latin for "control"
+parser grammar ImperiumParser; // Latin for "control"
 
-/*
- @lexer::header
- {
- import java.util.Map;
- }
- */
-
-@lexer::members {
-    public String langcode = "en";
-
-    /* private Map<String, Integer> words; */
-}
+options { tokenVocab = ImperiumLexer;}
 
 translation_unit:
 	BYTE_ORDER_MARK? preprocessor_stmt? procedure_stmt;
@@ -61,7 +50,7 @@ executable_stmt:
 	;
 
 
-preprocessor_stmt: '%' 'include' QUOTE identifier '.inc' QUOTE;
+preprocessor_stmt: PERCNT INCLUDE QUOTE identifier DOT INC QUOTE;
 
 assign_stmt: reference EQUALS expression; //SEMICOLON
 
@@ -83,21 +72,21 @@ subscript: expression;
 
 subscript_commalist: subscript (COMMA subscript)*;
 
-expression: expression_9 | expression '?|' expression_9;
+expression: expression_9 | expression SHORT_OR expression_9;
 
-expression_9: expression_8 | expression_9 '?&' expression_8;
+expression_9: expression_8 | expression_9 SHORT_AND expression_8;
 
 expression_8:
 	expression_7
-	| expression_8 ('|' | '~') expression_7;
+	| expression_8 (OR | TILDE) expression_7;
 
-expression_7: expression_6 | expression_7 '&' expression_6;
+expression_7: expression_6 | expression_7 AND expression_6;
 
 expression_6:
 	expression_5
 	| expression_6 comparison_operator expression_5;
 
-expression_5: expression_4 | expression_5 '||' expression_4;
+expression_5: expression_4 | expression_5 CONC expression_4;
 
 expression_4:
 	expression_3
@@ -121,19 +110,19 @@ parenthesized_expression: '(' expression ')';
 
 primitive_expression: numeric_literal | reference;
 
-prefix_operator: '+' | '-' | '~';
+prefix_operator: PLUS | MINUS | TILDE;
 
 comparison_operator:
-	'>'
-	| '>='
-	| '='
-	| '<'
-	| '<='
-	| '~>'
-	| '~='
-	| '~<';
+	GT
+	| GTE
+	| EQUALS
+	| LT
+	| LTE
+	| TGT
+	| TEQ
+	| TLT;
 
-shift_operator: '>>' | '<<' | '>>>' | '<<<';
+shift_operator: GTGT | LTLT | GTGTGT | LTLTLT;
 
 identifier:
 	keyword			# KEYWD
@@ -230,8 +219,8 @@ data_attribute: (BINARY (precision)?)	# BIN
 	| COROUTINE							# COR
 	| COFUNCTION						# COF
 	| BUILTIN							# BLTN
-	| INTRINSIC							# INTR
-	| identifier						# IDENT; // a user defined type would match here. 
+	| INTRINSIC							# INTR;
+	// | identifier						# IDENT; // a user defined type would match here. 
 
 precision: LPAR number_of_digits (COMMA scale_factor)? RPAR;
 
@@ -290,11 +279,6 @@ define_stmt: // defines a type, like a structure
 		COMMA identifier type_info
 	)* (COMMA)? END;
 
-COMMENT: '/*' (COMMENT | .)*? '*/' -> channel(2);
-LINE_COMMENT: '//' .*? '\n' -> channel(HIDDEN);
-WS: (' ')+ -> skip;
-NEWLINE: [\r\n]+ -> skip;
-TAB: ('\t')+ -> skip;
 
 /*
  GOTO: 
@@ -324,149 +308,3 @@ octal_literal: (OCTAL_PATTERN);
 decimal_literal: (DECIMAL_PATTERN);
 
 binary_literal: (BINARY_PATTERN);
-
-BYTE_ORDER_MARK: '\u00EF' '\u00BB' '\u00BF';
-
-CALL: ('call');
-GOTO: ('goto');
-GO: ('go');
-TO: ('to');
-PROCEDURE: ('procedure' | 'proc');
-PROC: ('proc');
-END: ('end');
-DECLARE: ('declare' | 'dcl');
-ARGUMENT: ('argument' | 'arg');
-DEFINE: ('define' | 'def');
-BINARY: ('binary' | 'bin');
-DECIMAL: ('decimal' | 'dec');
-AUTOMATIC: ('automatic' | 'auto');
-BUILTIN: ('builtin');
-INTRINSIC: ('intrinsic');
-STATIC: ('static');
-VARIABLE: ('variable');
-BASED: ('based');
-DEFINED: ('defined');
-INTERNAL: ('internal');
-EXTERNAL: ('external');
-RETURN: ('return');
-IF: ('if');
-THEN: ('then');
-ELSE: ('else');
-ELIF: ('elif');
-RETURNS: ('returns');
-POINTER: ('pointer' | 'ptr');
-BIT: ('bit');
-CHARACTER: ('character' | 'char');
-ENTRY: ('entry');
-FIXED: ('fixed');
-FLOAT: ('float');
-OFFSET: ('offset' | 'ofx');
-STRING: ('string');
-VARYING: ('varying' | 'var');
-COROUTINE: ('coroutine' | 'cor');
-COFUNCTION: ('cofunction' | 'cof');
-LOOP: ('loop');
-WHILE: ('while');
-UNTIL: ('until');
-ENDLOOP: ('endloop');
-RELOOP: ('reloop');
-BASE_B: (':b' | ':B');
-BASE_O: (':o' | ':O');
-BASE_D: (':d' | ':D');
-BASE_H: (':h' | ':H');
-FRAC_B: ('.' [0-1]+);
-FRAC_D: ('.' [0-9]+);
-FRAC_O: ('.' [0-7]+);
-FRAC_H: ('.' [0-9a-fA-F]+);
-
-IDENTIFIER: [a-zA-Z_]+;
-BINARY_PATTERN: (BIN (LSEP BIN)*)+ FRAC_B? BASE_B;
-OCTAL_PATTERN: (OCT (LSEP OCT)*)+ FRAC_O? BASE_O;
-HEXADECIMAL_PATTERN: (HEX (LSEP HEX)*)+ FRAC_H? BASE_H;
-DECIMAL_PATTERN: (DEC (LSEP DEC)*)+ FRAC_D? BASE_D?;
-LSEP: (' ' | '_');
-
-BIN: [0-1];
-OCT: [0-7];
-DEC: [0-9];
-HEX: [0-9a-fA-F];
-
-ARROW: '->';
-DOT: '.';
-COMMA: ',';
-LPAR: '(';
-RPAR: ')';
-LBRACK: '[';
-RBRACK: ']';
-LBRACE: '{';
-RBRACE: '}';
-EQUALS: '=';
-TIMES: '*';
-DIVIDE: '/';
-PLUS: '+';
-MINUS: '-';
-SEMICOLON: ';';
-POWER: '**';
-COLON: ':';
-DQUOTE: '"';
-QUOTE: '\'';
-QMARK: '?';
-
-/* Fixed the numeric literals:
- 
- // DELETE THIS CONTENT IF YOU PUT COMBINED GRAMMAR IN Parser TAB
- lexer grammar ExprLexer;
- 
- BIN: ([0-1]|' ')+ BASE_B;
- OCT: ([0-7]|' ')+ BASE_O;
- HEX: ([0-9a-f]|'
- ')+ BASE_H ; 
- DEC: ([0-9]|' ')+ BASE_D?; 
- 
- DOT: '.';
- NL: '\n' ;
- DOT: '.';
- NL: '\n' ;
- 
- BASE_B: (':b' | ':B') ;
- BASE_O: (':o' | ':O') ;
- BASE_D: (':d' | ':D') ;
- BASE_H: (':h' | ':H') ;
- 
- 
- parser grammar ExprParser;
- options { tokenVocab=ExprLexer; }
- 
- program
- : (literal NL)* EOF
- ;
- 
- literal
- : bin 
- | oct 
- | dec 
- | hex 
- ;
- 
- bin : (BIN) ;
- 
- oct : (OCT) ;
- 
- dec : (DEC) ;
- 
- hex : (HEX) ;
- 
- With tests:
- 
- 123 665
- 1123 5543:o
- f56:h
- 1101:b
- 239 445 333 44344 85:d
- 1011
- 1100 1010 0001:b
- 
- tested in: http://lab.antlr.org/
- 
- 
- */

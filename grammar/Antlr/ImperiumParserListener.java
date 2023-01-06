@@ -5,7 +5,7 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  * This interface defines a complete listener for a parse tree produced by
  * {@link ImperiumParser}.
  */
-public interface ImperiumListener extends ParseTreeListener {
+public interface ImperiumParserListener extends ParseTreeListener {
 	/**
 	 * Enter a parse tree produced by {@link ImperiumParser#translation_unit}.
 	 * @param ctx the parse tree
@@ -818,18 +818,6 @@ public interface ImperiumListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitINTR(ImperiumParser.INTRContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code IDENT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterIDENT(ImperiumParser.IDENTContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code IDENT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitIDENT(ImperiumParser.IDENTContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ImperiumParser#precision}.
 	 * @param ctx the parse tree

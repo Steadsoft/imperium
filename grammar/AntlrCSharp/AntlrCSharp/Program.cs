@@ -1,5 +1,6 @@
 ﻿using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -11,30 +12,29 @@ namespace AntlrCSharp
             $@"call = 1234{Environment.NewLine}ball = 1234{Environment.NewLine}";
         private static string C_INCLUDE_REGEX = @"\#include\s*(<([^""<>|\b]+)>|""([^""<>|\b]+)"")";
         private static string PLI_INCLUDE_REGEX = @"% *include +(<([^'<>|\b]+)>|'([^'<>|\b]+)')";
+
+        private static Dictionary<string, Dictionary<string, string>> language_dictionary = new();
+
         static void Main(string[] args)
         {
+            //ImperiumLexer.keywords = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(File.ReadAllText(@"..\..\..\..\..\Antlr\lingua.keywords")).ToDictionary(x => x.Key, x => x.Value.ToDictionary(x => x.Value, x => x.Key));
+
             //
             //TextReader source = File.OpenText(@"..\..\..\..\..\Antlr\test1.nr");
-
-            if (true & false)
-                ;
-
-            if (true && false)
-                ;
 
             var regex = new Regex(PLI_INCLUDE_REGEX);
 
             //TextReader source = ReadFile(@"test_3.nr");
 
-            NestedSourceReader reader = new NestedSourceReader("test_3.nr", regex, ReadFile);
+            NestedSourceReader reader = new NestedSourceReader("test_3.ipl", regex, ReadFile);
+
+            //ImperiumLexer.langcode = "fr";
 
             AntlrInputStream inputStream = new AntlrInputStream(reader);
-            PostLexer noresLexer = new PostLexer(inputStream);
-
-            noresLexer.langcode = "en"; // set as needed.
+            ImperiumLexer noresLexer = new ImperiumLexer(inputStream);
 
             CommonTokenStream commonTokenStream = new CommonTokenStream(noresLexer);
-            PostParser noresParser = new PostParser(commonTokenStream);
+            ImperiumParser noresParser = new ImperiumParser(commonTokenStream);
 
             noresParser.BuildParseTree = true;
 
@@ -42,7 +42,7 @@ namespace AntlrCSharp
 
             var listener = new TestListener();
 
-            var visitior = new PostBaseVisitor<int>();
+            var visitior = new ImperiumBaseVisitor<int>();
 
             visitior.VisitTranslation_unit(tree);
 
@@ -51,8 +51,6 @@ namespace AntlrCSharp
             walker.Walk(listener, tree);
 
             Console.WriteLine(tree.ToStringTree());
-
-            await x;
         }
 
         private static TextReader ReadFile (string Filename, Regex Regex)
@@ -73,11 +71,6 @@ namespace AntlrCSharp
                 return File.OpenText($@"..\..\..\..\..\Antlr\{Filename}");
             }
         }
-
-    }
-
-    public class await
-    {
 
     }
 

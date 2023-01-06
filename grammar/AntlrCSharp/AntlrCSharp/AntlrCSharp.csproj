@@ -8,21 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\Antlr\PostBaseListener.cs" Link="PostBaseListener.cs" />
-    <Compile Include="..\..\Antlr\PostBaseVisitor.cs" Link="PostBaseVisitor.cs" />
-    <Compile Include="..\..\Antlr\PostLexer.cs" Link="PostLexer.cs" />
-    <Compile Include="..\..\Antlr\PostListener.cs" Link="PostListener.cs" />
-    <Compile Include="..\..\Antlr\PostParser.cs" Link="PostParser.cs" />
-    <Compile Include="..\..\Antlr\PostVisitor.cs" Link="PostVisitor.cs" />
+    <Compile Include="..\..\Antlr\ImperiumLexer.cs" Link="ImperiumLexer.cs" />
+    <Compile Include="..\..\Antlr\ImperiumParser.cs" Link="ImperiumParser.cs" />
+    <Compile Include="..\..\Antlr\ImperiumParserBaseListener.cs" Link="ImperiumParserBaseListener.cs" />
+    <Compile Include="..\..\Antlr\ImperiumParserBaseVisitor.cs" Link="ImperiumParserBaseVisitor.cs" />
+    <Compile Include="..\..\Antlr\ImperiumParserListener.cs" Link="ImperiumParserListener.cs" />
+    <Compile Include="..\..\Antlr\ImperiumParserVisitor.cs" Link="ImperiumParserVisitor.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\Antlr\elif.post" Link="elif.post" />
     <None Include="..\..\Antlr\literals.post" Link="literals.post" />
-    <None Include="..\..\Antlr\Post.g4" Link="Post.g4" />
-    <None Include="..\..\Antlr\test1.post" Link="test1.post" />
-    <None Include="..\..\Antlr\test2.post" Link="test2.post" />
-    <None Include="..\..\Antlr\test_3.post" Link="test_3.post" />
+    <None Include="..\..\Antlr\Imperium.g4" Link="Imperium.g4" />
+    <None Include="..\..\Antlr\test1.ipl" Link="test1.ipl" />
+    <None Include="..\..\Antlr\test2.ipl" Link="test2.ipl" />
+    <None Include="..\..\Antlr\test_3.ipl" Link="test_3.ipl" />
   </ItemGroup>
 
   <ItemGroup>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from Imperium.g4 by ANTLR 4.11.1
+// Generated from ImperiumParser.g4 by ANTLR 4.11.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -36,22 +36,22 @@ public partial class ImperiumParser : Parser {
 	protected static DFA[] decisionToDFA;
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
-		T__17=18, T__18=19, T__19=20, COMMENT=21, LINE_COMMENT=22, WS=23, NEWLINE=24, 
-		TAB=25, BYTE_ORDER_MARK=26, CALL=27, GOTO=28, GO=29, TO=30, PROCEDURE=31, 
-		PROC=32, END=33, DECLARE=34, ARGUMENT=35, DEFINE=36, BINARY=37, DECIMAL=38, 
-		AUTOMATIC=39, BUILTIN=40, INTRINSIC=41, STATIC=42, VARIABLE=43, BASED=44, 
-		DEFINED=45, INTERNAL=46, EXTERNAL=47, RETURN=48, IF=49, THEN=50, ELSE=51, 
-		ELIF=52, RETURNS=53, POINTER=54, BIT=55, CHARACTER=56, ENTRY=57, FIXED=58, 
-		FLOAT=59, OFFSET=60, STRING=61, VARYING=62, COROUTINE=63, COFUNCTION=64, 
-		LOOP=65, WHILE=66, UNTIL=67, ENDLOOP=68, RELOOP=69, BASE_B=70, BASE_O=71, 
-		BASE_D=72, BASE_H=73, FRAC_B=74, FRAC_D=75, FRAC_O=76, FRAC_H=77, IDENTIFIER=78, 
-		BINARY_PATTERN=79, OCTAL_PATTERN=80, HEXADECIMAL_PATTERN=81, DECIMAL_PATTERN=82, 
-		LSEP=83, BIN=84, OCT=85, DEC=86, HEX=87, ARROW=88, DOT=89, COMMA=90, LPAR=91, 
-		RPAR=92, LBRACK=93, RBRACK=94, LBRACE=95, RBRACE=96, EQUALS=97, TIMES=98, 
-		DIVIDE=99, PLUS=100, MINUS=101, SEMICOLON=102, POWER=103, COLON=104, DQUOTE=105, 
-		QUOTE=106, QMARK=107;
+		COMMENT=1, LINE_COMMENT=2, WS=3, NEWLINE=4, TAB=5, BYTE_ORDER_MARK=6, 
+		CALL=7, GOTO=8, GO=9, TO=10, PROCEDURE=11, PROC=12, END=13, DECLARE=14, 
+		ARGUMENT=15, DEFINE=16, BINARY=17, DECIMAL=18, AUTOMATIC=19, BUILTIN=20, 
+		INTRINSIC=21, STATIC=22, VARIABLE=23, BASED=24, DEFINED=25, INTERNAL=26, 
+		EXTERNAL=27, RETURN=28, IF=29, THEN=30, ELSE=31, ELIF=32, RETURNS=33, 
+		POINTER=34, BIT=35, CHARACTER=36, ENTRY=37, FIXED=38, FLOAT=39, OFFSET=40, 
+		STRING=41, VARYING=42, COROUTINE=43, COFUNCTION=44, LOOP=45, WHILE=46, 
+		UNTIL=47, ENDLOOP=48, RELOOP=49, INCLUDE=50, INC=51, BASE_B=52, BASE_O=53, 
+		BASE_D=54, BASE_H=55, FRAC_B=56, FRAC_D=57, FRAC_O=58, FRAC_H=59, IDENTIFIER=60, 
+		BINARY_PATTERN=61, OCTAL_PATTERN=62, HEXADECIMAL_PATTERN=63, DECIMAL_PATTERN=64, 
+		LSEP=65, BIN=66, OCT=67, DEC=68, HEX=69, SHORT_OR=70, OR=71, AND=72, SHORT_AND=73, 
+		ARROW=74, DOT=75, COMMA=76, LPAR=77, RPAR=78, LBRACK=79, RBRACK=80, LBRACE=81, 
+		RBRACE=82, EQUALS=83, TIMES=84, DIVIDE=85, PLUS=86, MINUS=87, SEMICOLON=88, 
+		POWER=89, COLON=90, DQUOTE=91, QUOTE=92, QMARK=93, PERCNT=94, TILDE=95, 
+		CONC=96, GT=97, LT=98, GTE=99, LTE=100, TGT=101, TEQ=102, TLT=103, GTGT=104, 
+		LTLT=105, GTGTGT=106, LTLTLT=107;
 	public const int
 		RULE_translation_unit = 0, RULE_procedure_stmt = 1, RULE_stmt_block = 2, 
 		RULE_terminator = 3, RULE_label_stmt = 4, RULE_nonexecutable_stmt = 5, 
@@ -97,32 +97,33 @@ public partial class ImperiumParser : Parser {
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'%'", "'include'", "'.inc'", "'?|'", "'?&'", "'|'", "'~'", "'&'", 
-		"'||'", "'>'", "'>='", "'<'", "'<='", "'~>'", "'~='", "'~<'", "'>>'", 
-		"'<<'", "'>>>'", "'<<<'", null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, null, null, "'->'", 
-		"'.'", "','", "'('", "')'", "'['", "']'", "'{'", "'}'", "'='", "'*'", 
-		"'/'", "'+'", "'-'", "';'", "'**'", "':'", "'\"'", "'''", "'?'"
+		null, null, null, null, null, null, null, null, null, null, null, null, 
+		null, null, null, null, null, null, null, null, null, null, "'?|'", "'|'", 
+		"'&'", "'?&'", "'->'", "'.'", "','", "'('", "')'", "'['", "']'", "'{'", 
+		"'}'", "'='", "'*'", "'/'", "'+'", "'-'", "';'", "'**'", "':'", "'\"'", 
+		"'''", "'?'", "'%'", "'~'", "'||'", "'>'", "'<'", "'>='", "'<='", "'~>'", 
+		"'~='", "'<~'", "'>>'", "'<<'", "'>>>'", "'<<<'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, "COMMENT", "LINE_COMMENT", 
-		"WS", "NEWLINE", "TAB", "BYTE_ORDER_MARK", "CALL", "GOTO", "GO", "TO", 
-		"PROCEDURE", "PROC", "END", "DECLARE", "ARGUMENT", "DEFINE", "BINARY", 
-		"DECIMAL", "AUTOMATIC", "BUILTIN", "INTRINSIC", "STATIC", "VARIABLE", 
-		"BASED", "DEFINED", "INTERNAL", "EXTERNAL", "RETURN", "IF", "THEN", "ELSE", 
-		"ELIF", "RETURNS", "POINTER", "BIT", "CHARACTER", "ENTRY", "FIXED", "FLOAT", 
-		"OFFSET", "STRING", "VARYING", "COROUTINE", "COFUNCTION", "LOOP", "WHILE", 
-		"UNTIL", "ENDLOOP", "RELOOP", "BASE_B", "BASE_O", "BASE_D", "BASE_H", 
-		"FRAC_B", "FRAC_D", "FRAC_O", "FRAC_H", "IDENTIFIER", "BINARY_PATTERN", 
-		"OCTAL_PATTERN", "HEXADECIMAL_PATTERN", "DECIMAL_PATTERN", "LSEP", "BIN", 
-		"OCT", "DEC", "HEX", "ARROW", "DOT", "COMMA", "LPAR", "RPAR", "LBRACK", 
+		null, "COMMENT", "LINE_COMMENT", "WS", "NEWLINE", "TAB", "BYTE_ORDER_MARK", 
+		"CALL", "GOTO", "GO", "TO", "PROCEDURE", "PROC", "END", "DECLARE", "ARGUMENT", 
+		"DEFINE", "BINARY", "DECIMAL", "AUTOMATIC", "BUILTIN", "INTRINSIC", "STATIC", 
+		"VARIABLE", "BASED", "DEFINED", "INTERNAL", "EXTERNAL", "RETURN", "IF", 
+		"THEN", "ELSE", "ELIF", "RETURNS", "POINTER", "BIT", "CHARACTER", "ENTRY", 
+		"FIXED", "FLOAT", "OFFSET", "STRING", "VARYING", "COROUTINE", "COFUNCTION", 
+		"LOOP", "WHILE", "UNTIL", "ENDLOOP", "RELOOP", "INCLUDE", "INC", "BASE_B", 
+		"BASE_O", "BASE_D", "BASE_H", "FRAC_B", "FRAC_D", "FRAC_O", "FRAC_H", 
+		"IDENTIFIER", "BINARY_PATTERN", "OCTAL_PATTERN", "HEXADECIMAL_PATTERN", 
+		"DECIMAL_PATTERN", "LSEP", "BIN", "OCT", "DEC", "HEX", "SHORT_OR", "OR", 
+		"AND", "SHORT_AND", "ARROW", "DOT", "COMMA", "LPAR", "RPAR", "LBRACK", 
 		"RBRACK", "LBRACE", "RBRACE", "EQUALS", "TIMES", "DIVIDE", "PLUS", "MINUS", 
-		"SEMICOLON", "POWER", "COLON", "DQUOTE", "QUOTE", "QMARK"
+		"SEMICOLON", "POWER", "COLON", "DQUOTE", "QUOTE", "QMARK", "PERCNT", "TILDE", 
+		"CONC", "GT", "LT", "GTE", "LTE", "TGT", "TEQ", "TLT", "GTGT", "LTLT", 
+		"GTGTGT", "LTLTLT"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -135,7 +136,7 @@ public partial class ImperiumParser : Parser {
 		}
 	}
 
-	public override string GrammarFileName { get { return "Imperium.g4"; } }
+	public override string GrammarFileName { get { return "ImperiumParser.g4"; } }
 
 	public override string[] RuleNames { get { return ruleNames; } }
 
@@ -171,17 +172,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_translation_unit; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterTranslation_unit(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitTranslation_unit(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitTranslation_unit(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -208,7 +209,7 @@ public partial class ImperiumParser : Parser {
 			State = 150;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if (_la==T__0) {
+			if (_la==PERCNT) {
 				{
 				State = 149;
 				preprocessor_stmt();
@@ -251,17 +252,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_procedure_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterProcedure_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitProcedure_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitProcedure_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -323,17 +324,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_stmt_block; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterStmt_block(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitStmt_block(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitStmt_block(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -348,7 +349,6 @@ public partial class ImperiumParser : Parser {
 			State = 177;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
-			case T__0:
 			case CALL:
 			case GOTO:
 			case GO:
@@ -385,6 +385,7 @@ public partial class ImperiumParser : Parser {
 			case RELOOP:
 			case IDENTIFIER:
 			case LBRACE:
+			case PERCNT:
 				EnterOuterAlt(_localctx, 1);
 				{
 				State = 165;
@@ -456,17 +457,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_terminator; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterTerminator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitTerminator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitTerminator(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -507,17 +508,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_label_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterLabel_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitLabel_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitLabel_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -568,17 +569,17 @@ public partial class ImperiumParser : Parser {
 		public PREContext(Nonexecutable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterPRE(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitPRE(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPRE(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -590,17 +591,17 @@ public partial class ImperiumParser : Parser {
 		public DEFContext(Nonexecutable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterDEF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitDEF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitDEF(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -612,17 +613,17 @@ public partial class ImperiumParser : Parser {
 		public DCLContext(Nonexecutable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterDCL(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitDCL(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitDCL(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -636,7 +637,7 @@ public partial class ImperiumParser : Parser {
 			State = 188;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
-			case T__0:
+			case PERCNT:
 				_localctx = new PREContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
@@ -698,17 +699,17 @@ public partial class ImperiumParser : Parser {
 		public RETContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterRET(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitRET(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitRET(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -723,17 +724,17 @@ public partial class ImperiumParser : Parser {
 		public CALLContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterCALL(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitCALL(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitCALL(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -748,17 +749,17 @@ public partial class ImperiumParser : Parser {
 		public GOTOContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterGOTO(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitGOTO(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitGOTO(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -770,17 +771,17 @@ public partial class ImperiumParser : Parser {
 		public PROCContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterPROC(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitPROC(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPROC(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -795,17 +796,17 @@ public partial class ImperiumParser : Parser {
 		public AGAINContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterAGAIN(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitAGAIN(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitAGAIN(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -820,17 +821,17 @@ public partial class ImperiumParser : Parser {
 		public LOOPContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterLOOP(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitLOOP(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitLOOP(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -845,17 +846,17 @@ public partial class ImperiumParser : Parser {
 		public LEAVEContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterLEAVE(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitLEAVE(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitLEAVE(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -870,17 +871,17 @@ public partial class ImperiumParser : Parser {
 		public ASSIGNContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterASSIGN(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitASSIGN(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitASSIGN(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -895,17 +896,17 @@ public partial class ImperiumParser : Parser {
 		public IFContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterIF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitIF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitIF(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1086,6 +1087,8 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class Preprocessor_stmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PERCNT() { return GetToken(ImperiumParser.PERCNT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INCLUDE() { return GetToken(ImperiumParser.INCLUDE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] QUOTE() { return GetTokens(ImperiumParser.QUOTE); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode QUOTE(int i) {
 			return GetToken(ImperiumParser.QUOTE, i);
@@ -1093,6 +1096,8 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
 			return GetRuleContext<IdentifierContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOT() { return GetToken(ImperiumParser.DOT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INC() { return GetToken(ImperiumParser.INC, 0); }
 		public Preprocessor_stmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1100,17 +1105,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_preprocessor_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterPreprocessor_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitPreprocessor_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPreprocessor_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1124,16 +1129,18 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			State = 225;
-			Match(T__0);
+			Match(PERCNT);
 			State = 226;
-			Match(T__1);
+			Match(INCLUDE);
 			State = 227;
 			Match(QUOTE);
 			State = 228;
 			identifier();
 			State = 229;
-			Match(T__2);
+			Match(DOT);
 			State = 230;
+			Match(INC);
+			State = 231;
 			Match(QUOTE);
 			}
 		}
@@ -1163,17 +1170,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_assign_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterAssign_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitAssign_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitAssign_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1186,11 +1193,11 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 232;
-			reference(0);
 			State = 233;
-			Match(EQUALS);
+			reference(0);
 			State = 234;
+			Match(EQUALS);
+			State = 235;
 			expression(0);
 			}
 		}
@@ -1227,17 +1234,17 @@ public partial class ImperiumParser : Parser {
 		public BASIC_REFContext(ReferenceContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterBASIC_REF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitBASIC_REF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBASIC_REF(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1256,17 +1263,17 @@ public partial class ImperiumParser : Parser {
 		public PTR_REFContext(ReferenceContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterPTR_REF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitPTR_REF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPTR_REF(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1293,21 +1300,21 @@ public partial class ImperiumParser : Parser {
 			Context = _localctx;
 			_prevctx = _localctx;
 
-			State = 237;
+			State = 238;
 			basic_reference();
-			State = 239;
+			State = 240;
 			ErrorHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(TokenStream,15,Context) ) {
 			case 1:
 				{
-				State = 238;
+				State = 239;
 				arguments_list();
 				}
 				break;
 			}
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 249;
+			State = 250;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,17,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -1319,18 +1326,18 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new PTR_REFContext(new ReferenceContext(_parentctx, _parentState));
 					PushNewRecursionContext(_localctx, _startState, RULE_reference);
-					State = 241;
-					if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
 					State = 242;
-					Match(ARROW);
+					if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
 					State = 243;
+					Match(ARROW);
+					State = 244;
 					basic_reference();
-					State = 245;
+					State = 246;
 					ErrorHandler.Sync(this);
 					switch ( Interpreter.AdaptivePredict(TokenStream,16,Context) ) {
 					case 1:
 						{
-						State = 244;
+						State = 245;
 						arguments_list();
 						}
 						break;
@@ -1338,7 +1345,7 @@ public partial class ImperiumParser : Parser {
 					}
 					} 
 				}
-				State = 251;
+				State = 252;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,17,Context);
 			}
@@ -1371,17 +1378,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_arguments; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterArguments(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitArguments(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitArguments(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1395,23 +1402,23 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 252;
+			State = 253;
 			Match(LPAR);
-			State = 254;
+			State = 255;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			do {
 				{
 				{
-				State = 253;
+				State = 254;
 				subscript_commalist();
 				}
 				}
-				State = 256;
+				State = 257;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
-			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & -278039137091456L) != 0 || (((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & 206293155903L) != 0 );
-			State = 258;
+			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & -1151795604965163136L) != 0 || (((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & 2160074753L) != 0 );
+			State = 259;
 			Match(RPAR);
 			}
 		}
@@ -1440,17 +1447,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_arguments_list; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterArguments_list(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitArguments_list(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitArguments_list(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1464,7 +1471,7 @@ public partial class ImperiumParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 261;
+			State = 262;
 			ErrorHandler.Sync(this);
 			_alt = 1;
 			do {
@@ -1472,7 +1479,7 @@ public partial class ImperiumParser : Parser {
 				case 1:
 					{
 					{
-					State = 260;
+					State = 261;
 					arguments();
 					}
 					}
@@ -1480,7 +1487,7 @@ public partial class ImperiumParser : Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 263;
+				State = 264;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,19,Context);
 			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
@@ -1511,17 +1518,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_basic_reference; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterBasic_reference(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitBasic_reference(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBasic_reference(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1534,17 +1541,17 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 266;
+			State = 267;
 			ErrorHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(TokenStream,20,Context) ) {
 			case 1:
 				{
-				State = 265;
+				State = 266;
 				structure_qualification_list();
 				}
 				break;
 			}
-			State = 268;
+			State = 269;
 			identifier();
 			}
 		}
@@ -1574,17 +1581,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_structure_qualification; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterStructure_qualification(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitStructure_qualification(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitStructure_qualification(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1598,19 +1605,19 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 270;
+			State = 271;
 			identifier();
-			State = 272;
+			State = 273;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 271;
+				State = 272;
 				arguments();
 				}
 			}
 
-			State = 274;
+			State = 275;
 			Match(DOT);
 			}
 		}
@@ -1639,17 +1646,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_structure_qualification_list; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterStructure_qualification_list(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitStructure_qualification_list(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitStructure_qualification_list(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1663,7 +1670,7 @@ public partial class ImperiumParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 277;
+			State = 278;
 			ErrorHandler.Sync(this);
 			_alt = 1;
 			do {
@@ -1671,7 +1678,7 @@ public partial class ImperiumParser : Parser {
 				case 1:
 					{
 					{
-					State = 276;
+					State = 277;
 					structure_qualification();
 					}
 					}
@@ -1679,7 +1686,7 @@ public partial class ImperiumParser : Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 279;
+				State = 280;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,22,Context);
 			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
@@ -1707,17 +1714,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_subscript; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterSubscript(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitSubscript(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitSubscript(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1730,7 +1737,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 281;
+			State = 282;
 			expression(0);
 			}
 		}
@@ -1763,17 +1770,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_subscript_commalist; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterSubscript_commalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitSubscript_commalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitSubscript_commalist(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1787,21 +1794,21 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 283;
+			State = 284;
 			subscript();
-			State = 288;
+			State = 289;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 284;
-				Match(COMMA);
 				State = 285;
+				Match(COMMA);
+				State = 286;
 				subscript();
 				}
 				}
-				State = 290;
+				State = 291;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -1825,6 +1832,7 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SHORT_OR() { return GetToken(ImperiumParser.SHORT_OR, 0); }
 		public ExpressionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1832,17 +1840,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_expression; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterExpression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitExpression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1865,11 +1873,11 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 292;
+			State = 293;
 			expression_9(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 299;
+			State = 300;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -1881,16 +1889,16 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new ExpressionContext(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression);
-					State = 294;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 295;
-					Match(T__3);
+					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 296;
+					Match(SHORT_OR);
+					State = 297;
 					expression_9(0);
 					}
 					} 
 				}
-				State = 301;
+				State = 302;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
 			}
@@ -1914,6 +1922,7 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Expression_9Context expression_9() {
 			return GetRuleContext<Expression_9Context>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SHORT_AND() { return GetToken(ImperiumParser.SHORT_AND, 0); }
 		public Expression_9Context(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1921,17 +1930,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_expression_9; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterExpression_9(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitExpression_9(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression_9(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1954,11 +1963,11 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 303;
+			State = 304;
 			expression_8(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 310;
+			State = 311;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,25,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -1970,16 +1979,16 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_9Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_9);
-					State = 305;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 306;
-					Match(T__4);
+					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 307;
+					Match(SHORT_AND);
+					State = 308;
 					expression_8(0);
 					}
 					} 
 				}
-				State = 312;
+				State = 313;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,25,Context);
 			}
@@ -2003,6 +2012,8 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Expression_8Context expression_8() {
 			return GetRuleContext<Expression_8Context>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OR() { return GetToken(ImperiumParser.OR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TILDE() { return GetToken(ImperiumParser.TILDE, 0); }
 		public Expression_8Context(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -2010,17 +2021,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_expression_8; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterExpression_8(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitExpression_8(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression_8(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2044,11 +2055,11 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 314;
+			State = 315;
 			expression_7(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 321;
+			State = 322;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,26,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -2060,23 +2071,23 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_8Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_8);
-					State = 316;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 317;
+					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
+					State = 318;
 					_la = TokenStream.LA(1);
-					if ( !(_la==T__5 || _la==T__6) ) {
+					if ( !(_la==OR || _la==TILDE) ) {
 					ErrorHandler.RecoverInline(this);
 					}
 					else {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 318;
+					State = 319;
 					expression_7(0);
 					}
 					} 
 				}
-				State = 323;
+				State = 324;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,26,Context);
 			}
@@ -2100,6 +2111,7 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Expression_7Context expression_7() {
 			return GetRuleContext<Expression_7Context>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AND() { return GetToken(ImperiumParser.AND, 0); }
 		public Expression_7Context(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -2107,17 +2119,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_expression_7; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterExpression_7(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitExpression_7(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression_7(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2140,11 +2152,11 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 325;
+			State = 326;
 			expression_6(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 332;
+			State = 333;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,27,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -2156,16 +2168,16 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_7Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_7);
-					State = 327;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 328;
-					Match(T__7);
+					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 329;
+					Match(AND);
+					State = 330;
 					expression_6(0);
 					}
 					} 
 				}
-				State = 334;
+				State = 335;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,27,Context);
 			}
@@ -2199,17 +2211,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_expression_6; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterExpression_6(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitExpression_6(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression_6(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2232,11 +2244,11 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 336;
+			State = 337;
 			expression_5(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 344;
+			State = 345;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,28,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -2248,16 +2260,16 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_6Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_6);
-					State = 338;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 339;
-					comparison_operator();
+					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 340;
+					comparison_operator();
+					State = 341;
 					expression_5(0);
 					}
 					} 
 				}
-				State = 346;
+				State = 347;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,28,Context);
 			}
@@ -2281,6 +2293,7 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Expression_5Context expression_5() {
 			return GetRuleContext<Expression_5Context>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CONC() { return GetToken(ImperiumParser.CONC, 0); }
 		public Expression_5Context(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -2288,17 +2301,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_expression_5; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterExpression_5(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitExpression_5(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression_5(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2321,11 +2334,11 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 348;
+			State = 349;
 			expression_4(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 355;
+			State = 356;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,29,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -2337,16 +2350,16 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_5Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_5);
-					State = 350;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 351;
-					Match(T__8);
+					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 352;
+					Match(CONC);
+					State = 353;
 					expression_4(0);
 					}
 					} 
 				}
-				State = 357;
+				State = 358;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,29,Context);
 			}
@@ -2379,17 +2392,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_expression_4; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterExpression_4(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitExpression_4(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression_4(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2413,11 +2426,11 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 359;
+			State = 360;
 			expression_3(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 366;
+			State = 367;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,30,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -2429,9 +2442,9 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_4Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_4);
-					State = 361;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 362;
+					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
+					State = 363;
 					_la = TokenStream.LA(1);
 					if ( !(_la==PLUS || _la==MINUS) ) {
 					ErrorHandler.RecoverInline(this);
@@ -2440,12 +2453,12 @@ public partial class ImperiumParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 363;
+					State = 364;
 					expression_3(0);
 					}
 					} 
 				}
-				State = 368;
+				State = 369;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,30,Context);
 			}
@@ -2478,17 +2491,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_expression_3; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterExpression_3(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitExpression_3(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression_3(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2512,11 +2525,11 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 370;
+			State = 371;
 			expression_2();
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 377;
+			State = 378;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,31,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -2528,9 +2541,9 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_3Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_3);
-					State = 372;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
 					State = 373;
+					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
+					State = 374;
 					_la = TokenStream.LA(1);
 					if ( !(_la==TIMES || _la==DIVIDE) ) {
 					ErrorHandler.RecoverInline(this);
@@ -2539,12 +2552,12 @@ public partial class ImperiumParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 374;
+					State = 375;
 					expression_2();
 					}
 					} 
 				}
-				State = 379;
+				State = 380;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,31,Context);
 			}
@@ -2581,17 +2594,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_expression_2; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterExpression_2(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitExpression_2(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression_2(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2602,34 +2615,34 @@ public partial class ImperiumParser : Parser {
 		Expression_2Context _localctx = new Expression_2Context(Context, State);
 		EnterRule(_localctx, 50, RULE_expression_2);
 		try {
-			State = 384;
+			State = 385;
 			ErrorHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(TokenStream,32,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 380;
+				State = 381;
 				primitive_expression();
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 381;
+				State = 382;
 				prefix_expression();
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 382;
+				State = 383;
 				parenthesized_expression();
 				}
 				break;
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 383;
+				State = 384;
 				expression_1();
 				}
 				break;
@@ -2664,17 +2677,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_expression_1; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterExpression_1(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitExpression_1(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression_1(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2687,7 +2700,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 388;
+			State = 389;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case CALL:
@@ -2730,22 +2743,22 @@ public partial class ImperiumParser : Parser {
 			case HEXADECIMAL_PATTERN:
 			case DECIMAL_PATTERN:
 				{
-				State = 386;
+				State = 387;
 				primitive_expression();
 				}
 				break;
 			case LPAR:
 				{
-				State = 387;
+				State = 388;
 				parenthesized_expression();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			State = 390;
-			Match(POWER);
 			State = 391;
+			Match(POWER);
+			State = 392;
 			expression_2();
 			}
 		}
@@ -2774,17 +2787,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_prefix_expression; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterPrefix_expression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitPrefix_expression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPrefix_expression(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2797,9 +2810,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 393;
-			prefix_operator();
 			State = 394;
+			prefix_operator();
+			State = 395;
 			expression_2();
 			}
 		}
@@ -2827,17 +2840,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_parenthesized_expression; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterParenthesized_expression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitParenthesized_expression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitParenthesized_expression(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2850,11 +2863,11 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 396;
-			Match(LPAR);
 			State = 397;
-			expression(0);
+			Match(LPAR);
 			State = 398;
+			expression(0);
+			State = 399;
 			Match(RPAR);
 			}
 		}
@@ -2883,17 +2896,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_primitive_expression; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterPrimitive_expression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitPrimitive_expression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPrimitive_expression(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2904,7 +2917,7 @@ public partial class ImperiumParser : Parser {
 		Primitive_expressionContext _localctx = new Primitive_expressionContext(Context, State);
 		EnterRule(_localctx, 58, RULE_primitive_expression);
 		try {
-			State = 402;
+			State = 403;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case BINARY_PATTERN:
@@ -2913,7 +2926,7 @@ public partial class ImperiumParser : Parser {
 			case DECIMAL_PATTERN:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 400;
+				State = 401;
 				numeric_literal();
 				}
 				break;
@@ -2954,7 +2967,7 @@ public partial class ImperiumParser : Parser {
 			case IDENTIFIER:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 401;
+				State = 402;
 				reference(0);
 				}
 				break;
@@ -2976,6 +2989,7 @@ public partial class ImperiumParser : Parser {
 	public partial class Prefix_operatorContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PLUS() { return GetToken(ImperiumParser.PLUS, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MINUS() { return GetToken(ImperiumParser.MINUS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TILDE() { return GetToken(ImperiumParser.TILDE, 0); }
 		public Prefix_operatorContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -2983,17 +2997,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_prefix_operator; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterPrefix_operator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitPrefix_operator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPrefix_operator(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3007,9 +3021,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 404;
+			State = 405;
 			_la = TokenStream.LA(1);
-			if ( !(_la==T__6 || _la==PLUS || _la==MINUS) ) {
+			if ( !((((_la - 86)) & ~0x3f) == 0 && ((1L << (_la - 86)) & 515L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3030,7 +3044,14 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class Comparison_operatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GT() { return GetToken(ImperiumParser.GT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GTE() { return GetToken(ImperiumParser.GTE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUALS() { return GetToken(ImperiumParser.EQUALS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LT() { return GetToken(ImperiumParser.LT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LTE() { return GetToken(ImperiumParser.LTE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TGT() { return GetToken(ImperiumParser.TGT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TEQ() { return GetToken(ImperiumParser.TEQ, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TLT() { return GetToken(ImperiumParser.TLT, 0); }
 		public Comparison_operatorContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -3038,17 +3059,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_comparison_operator; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterComparison_operator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitComparison_operator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitComparison_operator(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3062,9 +3083,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 406;
+			State = 407;
 			_la = TokenStream.LA(1);
-			if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 130048L) != 0 || _la==EQUALS) ) {
+			if ( !((((_la - 83)) & ~0x3f) == 0 && ((1L << (_la - 83)) & 2080769L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3085,6 +3106,10 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class Shift_operatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GTGT() { return GetToken(ImperiumParser.GTGT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LTLT() { return GetToken(ImperiumParser.LTLT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GTGTGT() { return GetToken(ImperiumParser.GTGTGT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LTLTLT() { return GetToken(ImperiumParser.LTLTLT, 0); }
 		public Shift_operatorContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -3092,17 +3117,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_shift_operator; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterShift_operator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitShift_operator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitShift_operator(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3116,9 +3141,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 408;
+			State = 409;
 			_la = TokenStream.LA(1);
-			if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 1966080L) != 0) ) {
+			if ( !((((_la - 104)) & ~0x3f) == 0 && ((1L << (_la - 104)) & 15L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3155,17 +3180,17 @@ public partial class ImperiumParser : Parser {
 		public Identifier_IDENTIFIERContext(IdentifierContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterIdentifier_IDENTIFIER(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitIdentifier_IDENTIFIER(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitIdentifier_IDENTIFIER(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3177,17 +3202,17 @@ public partial class ImperiumParser : Parser {
 		public KEYWDContext(IdentifierContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterKEYWD(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitKEYWD(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitKEYWD(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3198,7 +3223,7 @@ public partial class ImperiumParser : Parser {
 		IdentifierContext _localctx = new IdentifierContext(Context, State);
 		EnterRule(_localctx, 66, RULE_identifier);
 		try {
-			State = 412;
+			State = 413;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case CALL:
@@ -3238,7 +3263,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new KEYWDContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 410;
+				State = 411;
 				keyword();
 				}
 				break;
@@ -3246,7 +3271,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new Identifier_IDENTIFIERContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 411;
+				State = 412;
 				Match(IDENTIFIER);
 				}
 				break;
@@ -3307,17 +3332,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_keyword; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterKeyword(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitKeyword(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitKeyword(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3331,9 +3356,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 414;
+			State = 415;
 			_la = TokenStream.LA(1);
-			if ( !((((_la - 27)) & ~0x3f) == 0 && ((1L << (_la - 27)) & 8796090950655L) != 0) ) {
+			if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 1125899641683840L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3365,17 +3390,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_call_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterCall_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitCall_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitCall_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3388,9 +3413,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 416;
-			Match(CALL);
 			State = 417;
+			Match(CALL);
+			State = 418;
 			reference(0);
 			}
 		}
@@ -3419,17 +3444,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_goto_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterGoto_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitGoto_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitGoto_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3442,27 +3467,27 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 422;
+			State = 423;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case GOTO:
 				{
-				State = 419;
+				State = 420;
 				Match(GOTO);
 				}
 				break;
 			case GO:
 				{
-				State = 420;
-				Match(GO);
 				State = 421;
+				Match(GO);
+				State = 422;
 				Match(TO);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			State = 424;
+			State = 425;
 			reference(0);
 			}
 		}
@@ -3486,17 +3511,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_end_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterEnd_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitEnd_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitEnd_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3509,7 +3534,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 426;
+			State = 427;
 			Match(END);
 			}
 		}
@@ -3534,17 +3559,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_endloop_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterEndloop_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitEndloop_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitEndloop_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3558,14 +3583,14 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 428;
+			State = 429;
 			Match(ENDLOOP);
-			State = 430;
+			State = 431;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==IDENTIFIER) {
 				{
-				State = 429;
+				State = 430;
 				Match(IDENTIFIER);
 				}
 			}
@@ -3593,17 +3618,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_reloop_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterReloop_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitReloop_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitReloop_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3617,14 +3642,14 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 432;
+			State = 433;
 			Match(RELOOP);
-			State = 434;
+			State = 435;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==IDENTIFIER) {
 				{
-				State = 433;
+				State = 434;
 				Match(IDENTIFIER);
 				}
 			}
@@ -3658,17 +3683,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_declare_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterDeclare_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitDeclare_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitDeclare_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3682,7 +3707,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 436;
+			State = 437;
 			_la = TokenStream.LA(1);
 			if ( !(_la==DECLARE || _la==ARGUMENT) ) {
 			ErrorHandler.RecoverInline(this);
@@ -3691,9 +3716,9 @@ public partial class ImperiumParser : Parser {
 				ErrorHandler.ReportMatch(this);
 			    Consume();
 			}
-			State = 437;
-			identifier();
 			State = 438;
+			identifier();
+			State = 439;
 			type_info();
 			}
 		}
@@ -3725,17 +3750,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_type_info; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterType_info(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitType_info(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitType_info(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3747,34 +3772,31 @@ public partial class ImperiumParser : Parser {
 		EnterRule(_localctx, 82, RULE_type_info);
 		int _la;
 		try {
-			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 441;
+			State = 442;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 440;
+				State = 441;
 				dimension_suffix();
 				}
 			}
 
-			State = 446;
+			State = 447;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,40,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					State = 443;
-					attribute();
-					}
-					} 
+			_la = TokenStream.LA(1);
+			while (((_la) & ~0x3f) == 0 && ((1L << _la) & 35167259197440L) != 0) {
+				{
+				{
+				State = 444;
+				attribute();
 				}
-				State = 448;
+				}
+				State = 449;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,40,Context);
+				_la = TokenStream.LA(1);
 			}
 			}
 		}
@@ -3802,17 +3824,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_dimension_suffix; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterDimension_suffix(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitDimension_suffix(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitDimension_suffix(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3825,11 +3847,11 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 449;
-			Match(LPAR);
 			State = 450;
-			bound_pair_commalist();
+			Match(LPAR);
 			State = 451;
+			bound_pair_commalist();
+			State = 452;
 			Match(RPAR);
 			}
 		}
@@ -3860,17 +3882,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_bound_pair; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterBound_pair(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitBound_pair(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBound_pair(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -3881,10 +3903,9 @@ public partial class ImperiumParser : Parser {
 		Bound_pairContext _localctx = new Bound_pairContext(Context, State);
 		EnterRule(_localctx, 86, RULE_bound_pair);
 		try {
-			State = 460;
+			State = 461;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
-			case T__6:
 			case CALL:
 			case GOTO:
 			case GO:
@@ -3927,28 +3948,29 @@ public partial class ImperiumParser : Parser {
 			case LPAR:
 			case PLUS:
 			case MINUS:
+			case TILDE:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 456;
+				State = 457;
 				ErrorHandler.Sync(this);
 				switch ( Interpreter.AdaptivePredict(TokenStream,41,Context) ) {
 				case 1:
 					{
-					State = 453;
-					lower_bound();
 					State = 454;
+					lower_bound();
+					State = 455;
 					Match(COLON);
 					}
 					break;
 				}
-				State = 458;
+				State = 459;
 				upper_bound();
 				}
 				break;
 			case TIMES:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 459;
+				State = 460;
 				Match(TIMES);
 				}
 				break;
@@ -3985,17 +4007,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_bound_pair_commalist; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterBound_pair_commalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitBound_pair_commalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBound_pair_commalist(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4009,21 +4031,21 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 462;
+			State = 463;
 			bound_pair();
-			State = 467;
+			State = 468;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 463;
-				Match(COMMA);
 				State = 464;
+				Match(COMMA);
+				State = 465;
 				bound_pair();
 				}
 				}
-				State = 469;
+				State = 470;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -4051,17 +4073,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_lower_bound; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterLower_bound(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitLower_bound(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitLower_bound(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4074,7 +4096,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 470;
+			State = 471;
 			expression(0);
 			}
 		}
@@ -4100,17 +4122,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_upper_bound; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterUpper_bound(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitUpper_bound(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitUpper_bound(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4123,7 +4145,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 472;
+			State = 473;
 			expression(0);
 			}
 		}
@@ -4159,17 +4181,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_attribute; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterAttribute(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitAttribute(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitAttribute(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4182,48 +4204,48 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 481;
+			State = 482;
 			ErrorHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(TokenStream,44,Context) ) {
 			case 1:
 				{
-				State = 474;
+				State = 475;
 				data_attribute();
 				}
 				break;
 			case 2:
 				{
-				State = 475;
+				State = 476;
 				Match(AUTOMATIC);
 				}
 				break;
 			case 3:
 				{
-				State = 476;
+				State = 477;
 				Match(BUILTIN);
 				}
 				break;
 			case 4:
 				{
-				State = 477;
+				State = 478;
 				Match(STATIC);
 				}
 				break;
 			case 5:
 				{
-				State = 478;
+				State = 479;
 				Match(VARIABLE);
 				}
 				break;
 			case 6:
 				{
-				State = 479;
+				State = 480;
 				based();
 				}
 				break;
 			case 7:
 				{
-				State = 480;
+				State = 481;
 				defined();
 				}
 				break;
@@ -4258,17 +4280,17 @@ public partial class ImperiumParser : Parser {
 		public INTRContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterINTR(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitINTR(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitINTR(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4281,17 +4303,17 @@ public partial class ImperiumParser : Parser {
 		public DECContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterDEC(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitDEC(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitDEC(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4304,17 +4326,17 @@ public partial class ImperiumParser : Parser {
 		public BINContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterBIN(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitBIN(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBIN(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4324,17 +4346,17 @@ public partial class ImperiumParser : Parser {
 		public CORContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterCOR(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitCOR(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitCOR(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4344,17 +4366,17 @@ public partial class ImperiumParser : Parser {
 		public CHARContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterCHAR(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitCHAR(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitCHAR(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4364,17 +4386,17 @@ public partial class ImperiumParser : Parser {
 		public ENTContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterENT(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitENT(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitENT(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4387,17 +4409,17 @@ public partial class ImperiumParser : Parser {
 		public BITContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterBIT(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitBIT(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBIT(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4407,17 +4429,17 @@ public partial class ImperiumParser : Parser {
 		public OFFContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterOFF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitOFF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitOFF(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4427,17 +4449,17 @@ public partial class ImperiumParser : Parser {
 		public VNGContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterVNG(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitVNG(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitVNG(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4447,17 +4469,17 @@ public partial class ImperiumParser : Parser {
 		public PTRContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterPTR(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitPTR(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPTR(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4467,17 +4489,17 @@ public partial class ImperiumParser : Parser {
 		public FLTContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterFLT(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitFLT(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitFLT(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4490,17 +4512,17 @@ public partial class ImperiumParser : Parser {
 		public STRContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterSTR(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitSTR(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitSTR(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4510,40 +4532,18 @@ public partial class ImperiumParser : Parser {
 		public FIXContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterFIX(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitFIX(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitFIX(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class IDENTContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
-			return GetRuleContext<IdentifierContext>(0);
-		}
-		public IDENTContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterIDENT(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitIDENT(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIDENT(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -4552,17 +4552,17 @@ public partial class ImperiumParser : Parser {
 		public COFContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterCOF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitCOF(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitCOF(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4572,17 +4572,17 @@ public partial class ImperiumParser : Parser {
 		public BLTNContext(Data_attributeContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterBLTN(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitBLTN(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBLTN(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4596,20 +4596,20 @@ public partial class ImperiumParser : Parser {
 		try {
 			State = 507;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,47,Context) ) {
-			case 1:
+			switch (TokenStream.LA(1)) {
+			case BINARY:
 				_localctx = new BINContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
 				{
-				State = 483;
+				State = 484;
 				Match(BINARY);
-				State = 485;
+				State = 486;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==LPAR) {
 					{
-					State = 484;
+					State = 485;
 					precision();
 					}
 				}
@@ -4617,19 +4617,19 @@ public partial class ImperiumParser : Parser {
 				}
 				}
 				break;
-			case 2:
+			case DECIMAL:
 				_localctx = new DECContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
 				{
-				State = 487;
+				State = 488;
 				Match(DECIMAL);
-				State = 489;
+				State = 490;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==LPAR) {
 					{
-					State = 488;
+					State = 489;
 					precision();
 					}
 				}
@@ -4637,126 +4637,120 @@ public partial class ImperiumParser : Parser {
 				}
 				}
 				break;
-			case 3:
+			case POINTER:
 				_localctx = new PTRContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 491;
+				State = 492;
 				Match(POINTER);
 				}
 				break;
-			case 4:
+			case BIT:
 				_localctx = new BITContext(_localctx);
 				EnterOuterAlt(_localctx, 4);
 				{
 				{
-				State = 492;
-				Match(BIT);
 				State = 493;
+				Match(BIT);
+				State = 494;
 				max_length();
 				}
 				}
 				break;
-			case 5:
+			case CHARACTER:
 				_localctx = new CHARContext(_localctx);
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 494;
+				State = 495;
 				Match(CHARACTER);
 				}
 				break;
-			case 6:
+			case STRING:
 				_localctx = new STRContext(_localctx);
 				EnterOuterAlt(_localctx, 6);
 				{
 				{
-				State = 495;
-				Match(STRING);
 				State = 496;
+				Match(STRING);
+				State = 497;
 				max_length();
 				}
 				}
 				break;
-			case 7:
+			case ENTRY:
 				_localctx = new ENTContext(_localctx);
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 497;
+				State = 498;
 				Match(ENTRY);
 				}
 				break;
-			case 8:
+			case FIXED:
 				_localctx = new FIXContext(_localctx);
 				EnterOuterAlt(_localctx, 8);
 				{
-				State = 498;
+				State = 499;
 				Match(FIXED);
 				}
 				break;
-			case 9:
+			case FLOAT:
 				_localctx = new FLTContext(_localctx);
 				EnterOuterAlt(_localctx, 9);
 				{
-				State = 499;
+				State = 500;
 				Match(FLOAT);
 				}
 				break;
-			case 10:
+			case OFFSET:
 				_localctx = new OFFContext(_localctx);
 				EnterOuterAlt(_localctx, 10);
 				{
-				State = 500;
+				State = 501;
 				Match(OFFSET);
 				}
 				break;
-			case 11:
+			case VARYING:
 				_localctx = new VNGContext(_localctx);
 				EnterOuterAlt(_localctx, 11);
 				{
-				State = 501;
+				State = 502;
 				Match(VARYING);
 				}
 				break;
-			case 12:
+			case COROUTINE:
 				_localctx = new CORContext(_localctx);
 				EnterOuterAlt(_localctx, 12);
 				{
-				State = 502;
+				State = 503;
 				Match(COROUTINE);
 				}
 				break;
-			case 13:
+			case COFUNCTION:
 				_localctx = new COFContext(_localctx);
 				EnterOuterAlt(_localctx, 13);
 				{
-				State = 503;
+				State = 504;
 				Match(COFUNCTION);
 				}
 				break;
-			case 14:
+			case BUILTIN:
 				_localctx = new BLTNContext(_localctx);
 				EnterOuterAlt(_localctx, 14);
 				{
-				State = 504;
+				State = 505;
 				Match(BUILTIN);
 				}
 				break;
-			case 15:
+			case INTRINSIC:
 				_localctx = new INTRContext(_localctx);
 				EnterOuterAlt(_localctx, 15);
 				{
-				State = 505;
+				State = 506;
 				Match(INTRINSIC);
 				}
 				break;
-			case 16:
-				_localctx = new IDENTContext(_localctx);
-				EnterOuterAlt(_localctx, 16);
-				{
-				State = 506;
-				identifier();
-				}
-				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -4787,17 +4781,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_precision; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterPrecision(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitPrecision(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPrecision(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4856,17 +4850,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_number_of_digits; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterNumber_of_digits(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitNumber_of_digits(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitNumber_of_digits(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -4958,17 +4952,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_scale_factor; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterScale_factor(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitScale_factor(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitScale_factor(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5062,17 +5056,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_max_length; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterMax_length(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitMax_length(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitMax_length(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5168,17 +5162,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_based; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterBased(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitBased(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBased(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5235,17 +5229,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_defined; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterDefined(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitDefined(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitDefined(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5305,17 +5299,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_entry_information; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterEntry_information(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitEntry_information(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitEntry_information(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5418,17 +5412,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_coprocedure_specifier; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterCoprocedure_specifier(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitCoprocedure_specifier(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitCoprocedure_specifier(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5484,17 +5478,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_parameter_name_commalist; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterParameter_name_commalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitParameter_name_commalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitParameter_name_commalist(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5555,17 +5549,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_returns_descriptor; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterReturns_descriptor(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitReturns_descriptor(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitReturns_descriptor(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5609,17 +5603,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_return_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterReturn_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitReturn_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitReturn_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5697,17 +5691,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_if_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterIf_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitIf_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitIf_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5835,17 +5829,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_then_clause; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterThen_clause(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitThen_clause(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitThen_clause(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5898,17 +5892,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_else_clause; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterElse_clause(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitElse_clause(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitElse_clause(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -5987,17 +5981,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_elif_clause; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterElif_clause(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitElif_clause(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitElif_clause(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6101,17 +6095,17 @@ public partial class ImperiumParser : Parser {
 		public WHILE_UNTILContext(Loop_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterWHILE_UNTIL(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitWHILE_UNTIL(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitWHILE_UNTIL(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6142,17 +6136,17 @@ public partial class ImperiumParser : Parser {
 		public UNTIL_WHILEContext(Loop_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterUNTIL_WHILE(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitUNTIL_WHILE(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitUNTIL_WHILE(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6177,17 +6171,17 @@ public partial class ImperiumParser : Parser {
 		public BASIC_LOOPContext(Loop_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterBASIC_LOOP(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitBASIC_LOOP(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBASIC_LOOP(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6349,17 +6343,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_while_option; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterWhile_option(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitWhile_option(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitWhile_option(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6407,17 +6401,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_until_option; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterUntil_option(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitUntil_option(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitUntil_option(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6477,17 +6471,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_define_stmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterDefine_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitDefine_stmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitDefine_stmt(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6577,17 +6571,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_numeric_literal; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterNumeric_literal(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitNumeric_literal(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitNumeric_literal(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6653,17 +6647,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_hexadecimal_literal; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterHexadecimal_literal(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitHexadecimal_literal(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitHexadecimal_literal(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6702,17 +6696,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_octal_literal; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterOctal_literal(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitOctal_literal(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitOctal_literal(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6751,17 +6745,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_decimal_literal; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterDecimal_literal(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitDecimal_literal(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitDecimal_literal(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6800,17 +6794,17 @@ public partial class ImperiumParser : Parser {
 		public override int RuleIndex { get { return RULE_binary_literal; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.EnterBinary_literal(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
+			IImperiumParserListener typedListener = listener as IImperiumParserListener;
 			if (typedListener != null) typedListener.ExitBinary_literal(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			IImperiumParserVisitor<TResult> typedVisitor = visitor as IImperiumParserVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBinary_literal(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -6926,233 +6920,233 @@ public partial class ImperiumParser : Parser {
 		5,1,5,1,5,3,5,189,8,5,1,6,3,6,192,8,6,1,6,1,6,3,6,196,8,6,1,6,1,6,3,6,
 		200,8,6,1,6,1,6,1,6,3,6,205,8,6,1,6,1,6,3,6,209,8,6,1,6,1,6,3,6,213,8,
 		6,1,6,1,6,3,6,217,8,6,1,6,1,6,3,6,221,8,6,1,6,3,6,224,8,6,1,7,1,7,1,7,
-		1,7,1,7,1,7,1,7,1,8,1,8,1,8,1,8,1,9,1,9,1,9,3,9,240,8,9,1,9,1,9,1,9,1,
-		9,3,9,246,8,9,5,9,248,8,9,10,9,12,9,251,9,9,1,10,1,10,4,10,255,8,10,11,
-		10,12,10,256,1,10,1,10,1,11,4,11,262,8,11,11,11,12,11,263,1,12,3,12,267,
-		8,12,1,12,1,12,1,13,1,13,3,13,273,8,13,1,13,1,13,1,14,4,14,278,8,14,11,
-		14,12,14,279,1,15,1,15,1,16,1,16,1,16,5,16,287,8,16,10,16,12,16,290,9,
-		16,1,17,1,17,1,17,1,17,1,17,1,17,5,17,298,8,17,10,17,12,17,301,9,17,1,
-		18,1,18,1,18,1,18,1,18,1,18,5,18,309,8,18,10,18,12,18,312,9,18,1,19,1,
-		19,1,19,1,19,1,19,1,19,5,19,320,8,19,10,19,12,19,323,9,19,1,20,1,20,1,
-		20,1,20,1,20,1,20,5,20,331,8,20,10,20,12,20,334,9,20,1,21,1,21,1,21,1,
-		21,1,21,1,21,1,21,5,21,343,8,21,10,21,12,21,346,9,21,1,22,1,22,1,22,1,
-		22,1,22,1,22,5,22,354,8,22,10,22,12,22,357,9,22,1,23,1,23,1,23,1,23,1,
-		23,1,23,5,23,365,8,23,10,23,12,23,368,9,23,1,24,1,24,1,24,1,24,1,24,1,
-		24,5,24,376,8,24,10,24,12,24,379,9,24,1,25,1,25,1,25,1,25,3,25,385,8,25,
-		1,26,1,26,3,26,389,8,26,1,26,1,26,1,26,1,27,1,27,1,27,1,28,1,28,1,28,1,
-		28,1,29,1,29,3,29,403,8,29,1,30,1,30,1,31,1,31,1,32,1,32,1,33,1,33,3,33,
-		413,8,33,1,34,1,34,1,35,1,35,1,35,1,36,1,36,1,36,3,36,423,8,36,1,36,1,
-		36,1,37,1,37,1,38,1,38,3,38,431,8,38,1,39,1,39,3,39,435,8,39,1,40,1,40,
-		1,40,1,40,1,41,3,41,442,8,41,1,41,5,41,445,8,41,10,41,12,41,448,9,41,1,
-		42,1,42,1,42,1,42,1,43,1,43,1,43,3,43,457,8,43,1,43,1,43,3,43,461,8,43,
-		1,44,1,44,1,44,5,44,466,8,44,10,44,12,44,469,9,44,1,45,1,45,1,46,1,46,
-		1,47,1,47,1,47,1,47,1,47,1,47,1,47,3,47,482,8,47,1,48,1,48,3,48,486,8,
-		48,1,48,1,48,3,48,490,8,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,
-		1,48,1,48,1,48,1,48,1,48,1,48,1,48,3,48,508,8,48,1,49,1,49,1,49,1,49,3,
-		49,514,8,49,1,49,1,49,1,50,1,50,3,50,520,8,50,1,51,1,51,3,51,524,8,51,
-		1,52,1,52,1,52,3,52,529,8,52,1,52,1,52,1,53,1,53,1,53,1,53,1,53,3,53,538,
-		8,53,1,54,1,54,1,54,1,54,1,54,3,54,545,8,54,1,55,3,55,548,8,55,1,55,3,
-		55,551,8,55,1,55,3,55,554,8,55,1,55,3,55,557,8,55,1,55,3,55,560,8,55,3,
-		55,562,8,55,1,56,1,56,1,57,1,57,1,57,1,57,5,57,570,8,57,10,57,12,57,573,
-		9,57,1,57,1,57,1,58,1,58,1,58,1,59,1,59,1,59,1,59,1,59,3,59,585,8,59,1,
-		60,1,60,1,60,1,60,4,60,591,8,60,11,60,12,60,592,1,60,3,60,596,8,60,1,60,
-		1,60,1,60,1,60,1,60,1,60,4,60,604,8,60,11,60,12,60,605,1,60,4,60,609,8,
-		60,11,60,12,60,610,1,60,1,60,3,60,615,8,60,1,61,1,61,1,61,1,61,1,62,1,
-		62,1,62,1,62,4,62,625,8,62,11,62,12,62,626,1,63,1,63,1,63,1,63,1,63,1,
-		63,4,63,635,8,63,11,63,12,63,636,1,63,3,63,640,8,63,1,64,1,64,1,64,1,64,
-		4,64,646,8,64,11,64,12,64,647,1,64,1,64,1,64,1,64,1,64,3,64,655,8,64,1,
-		64,1,64,1,64,4,64,660,8,64,11,64,12,64,661,1,64,1,64,1,64,1,64,1,64,3,
-		64,669,8,64,1,64,1,64,1,64,4,64,674,8,64,11,64,12,64,675,1,64,1,64,3,64,
-		680,8,64,1,65,1,65,1,65,1,65,1,65,1,66,1,66,1,66,1,66,1,66,1,67,1,67,1,
-		67,1,67,1,67,1,67,1,67,1,67,1,67,5,67,701,8,67,10,67,12,67,704,9,67,1,
-		67,3,67,707,8,67,1,67,1,67,1,68,1,68,1,68,1,68,3,68,715,8,68,1,69,1,69,
-		1,70,1,70,1,71,1,71,1,72,1,72,1,72,0,9,18,34,36,38,40,42,44,46,48,73,0,
-		2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,
-		52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,
-		100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134,
-		136,138,140,142,144,0,9,1,0,6,7,1,0,100,101,1,0,98,99,2,0,7,7,100,101,
-		2,0,10,16,97,97,1,0,17,20,3,0,27,36,40,41,48,69,1,0,34,35,1,0,63,64,762,
-		0,147,1,0,0,0,2,154,1,0,0,0,4,177,1,0,0,0,6,179,1,0,0,0,8,181,1,0,0,0,
-		10,188,1,0,0,0,12,223,1,0,0,0,14,225,1,0,0,0,16,232,1,0,0,0,18,236,1,0,
-		0,0,20,252,1,0,0,0,22,261,1,0,0,0,24,266,1,0,0,0,26,270,1,0,0,0,28,277,
-		1,0,0,0,30,281,1,0,0,0,32,283,1,0,0,0,34,291,1,0,0,0,36,302,1,0,0,0,38,
-		313,1,0,0,0,40,324,1,0,0,0,42,335,1,0,0,0,44,347,1,0,0,0,46,358,1,0,0,
-		0,48,369,1,0,0,0,50,384,1,0,0,0,52,388,1,0,0,0,54,393,1,0,0,0,56,396,1,
-		0,0,0,58,402,1,0,0,0,60,404,1,0,0,0,62,406,1,0,0,0,64,408,1,0,0,0,66,412,
-		1,0,0,0,68,414,1,0,0,0,70,416,1,0,0,0,72,422,1,0,0,0,74,426,1,0,0,0,76,
-		428,1,0,0,0,78,432,1,0,0,0,80,436,1,0,0,0,82,441,1,0,0,0,84,449,1,0,0,
-		0,86,460,1,0,0,0,88,462,1,0,0,0,90,470,1,0,0,0,92,472,1,0,0,0,94,481,1,
-		0,0,0,96,507,1,0,0,0,98,509,1,0,0,0,100,519,1,0,0,0,102,523,1,0,0,0,104,
-		525,1,0,0,0,106,532,1,0,0,0,108,539,1,0,0,0,110,547,1,0,0,0,112,563,1,
-		0,0,0,114,565,1,0,0,0,116,576,1,0,0,0,118,579,1,0,0,0,120,614,1,0,0,0,
-		122,616,1,0,0,0,124,620,1,0,0,0,126,628,1,0,0,0,128,679,1,0,0,0,130,681,
-		1,0,0,0,132,686,1,0,0,0,134,691,1,0,0,0,136,714,1,0,0,0,138,716,1,0,0,
-		0,140,718,1,0,0,0,142,720,1,0,0,0,144,722,1,0,0,0,146,148,5,26,0,0,147,
-		146,1,0,0,0,147,148,1,0,0,0,148,150,1,0,0,0,149,151,3,14,7,0,150,149,1,
-		0,0,0,150,151,1,0,0,0,151,152,1,0,0,0,152,153,3,2,1,0,153,1,1,0,0,0,154,
-		155,5,31,0,0,155,156,3,66,33,0,156,157,3,110,55,0,157,158,3,4,2,0,158,
-		159,3,74,37,0,159,3,1,0,0,0,160,161,3,10,5,0,161,162,3,6,3,0,162,164,1,
-		0,0,0,163,160,1,0,0,0,164,167,1,0,0,0,165,163,1,0,0,0,165,166,1,0,0,0,
-		166,173,1,0,0,0,167,165,1,0,0,0,168,169,3,12,6,0,169,170,3,6,3,0,170,172,
-		1,0,0,0,171,168,1,0,0,0,172,175,1,0,0,0,173,171,1,0,0,0,173,174,1,0,0,
-		0,174,178,1,0,0,0,175,173,1,0,0,0,176,178,3,6,3,0,177,165,1,0,0,0,177,
-		176,1,0,0,0,178,5,1,0,0,0,179,180,5,102,0,0,180,7,1,0,0,0,181,182,5,95,
-		0,0,182,183,3,66,33,0,183,184,5,96,0,0,184,9,1,0,0,0,185,189,3,14,7,0,
-		186,189,3,80,40,0,187,189,3,134,67,0,188,185,1,0,0,0,188,186,1,0,0,0,188,
-		187,1,0,0,0,189,11,1,0,0,0,190,192,3,8,4,0,191,190,1,0,0,0,191,192,1,0,
-		0,0,192,193,1,0,0,0,193,224,3,16,8,0,194,196,3,8,4,0,195,194,1,0,0,0,195,
-		196,1,0,0,0,196,197,1,0,0,0,197,224,3,70,35,0,198,200,3,8,4,0,199,198,
-		1,0,0,0,199,200,1,0,0,0,200,201,1,0,0,0,201,224,3,72,36,0,202,224,3,2,
-		1,0,203,205,3,8,4,0,204,203,1,0,0,0,204,205,1,0,0,0,205,206,1,0,0,0,206,
-		224,3,118,59,0,207,209,3,8,4,0,208,207,1,0,0,0,208,209,1,0,0,0,209,210,
-		1,0,0,0,210,224,3,120,60,0,211,213,3,8,4,0,212,211,1,0,0,0,212,213,1,0,
-		0,0,213,214,1,0,0,0,214,224,3,128,64,0,215,217,3,8,4,0,216,215,1,0,0,0,
-		216,217,1,0,0,0,217,218,1,0,0,0,218,224,3,76,38,0,219,221,3,8,4,0,220,
-		219,1,0,0,0,220,221,1,0,0,0,221,222,1,0,0,0,222,224,3,78,39,0,223,191,
-		1,0,0,0,223,195,1,0,0,0,223,199,1,0,0,0,223,202,1,0,0,0,223,204,1,0,0,
-		0,223,208,1,0,0,0,223,212,1,0,0,0,223,216,1,0,0,0,223,220,1,0,0,0,224,
-		13,1,0,0,0,225,226,5,1,0,0,226,227,5,2,0,0,227,228,5,106,0,0,228,229,3,
-		66,33,0,229,230,5,3,0,0,230,231,5,106,0,0,231,15,1,0,0,0,232,233,3,18,
-		9,0,233,234,5,97,0,0,234,235,3,34,17,0,235,17,1,0,0,0,236,237,6,9,-1,0,
-		237,239,3,24,12,0,238,240,3,22,11,0,239,238,1,0,0,0,239,240,1,0,0,0,240,
-		249,1,0,0,0,241,242,10,2,0,0,242,243,5,88,0,0,243,245,3,24,12,0,244,246,
-		3,22,11,0,245,244,1,0,0,0,245,246,1,0,0,0,246,248,1,0,0,0,247,241,1,0,
-		0,0,248,251,1,0,0,0,249,247,1,0,0,0,249,250,1,0,0,0,250,19,1,0,0,0,251,
-		249,1,0,0,0,252,254,5,91,0,0,253,255,3,32,16,0,254,253,1,0,0,0,255,256,
-		1,0,0,0,256,254,1,0,0,0,256,257,1,0,0,0,257,258,1,0,0,0,258,259,5,92,0,
-		0,259,21,1,0,0,0,260,262,3,20,10,0,261,260,1,0,0,0,262,263,1,0,0,0,263,
-		261,1,0,0,0,263,264,1,0,0,0,264,23,1,0,0,0,265,267,3,28,14,0,266,265,1,
-		0,0,0,266,267,1,0,0,0,267,268,1,0,0,0,268,269,3,66,33,0,269,25,1,0,0,0,
-		270,272,3,66,33,0,271,273,3,20,10,0,272,271,1,0,0,0,272,273,1,0,0,0,273,
-		274,1,0,0,0,274,275,5,89,0,0,275,27,1,0,0,0,276,278,3,26,13,0,277,276,
-		1,0,0,0,278,279,1,0,0,0,279,277,1,0,0,0,279,280,1,0,0,0,280,29,1,0,0,0,
-		281,282,3,34,17,0,282,31,1,0,0,0,283,288,3,30,15,0,284,285,5,90,0,0,285,
-		287,3,30,15,0,286,284,1,0,0,0,287,290,1,0,0,0,288,286,1,0,0,0,288,289,
-		1,0,0,0,289,33,1,0,0,0,290,288,1,0,0,0,291,292,6,17,-1,0,292,293,3,36,
-		18,0,293,299,1,0,0,0,294,295,10,1,0,0,295,296,5,4,0,0,296,298,3,36,18,
-		0,297,294,1,0,0,0,298,301,1,0,0,0,299,297,1,0,0,0,299,300,1,0,0,0,300,
-		35,1,0,0,0,301,299,1,0,0,0,302,303,6,18,-1,0,303,304,3,38,19,0,304,310,
-		1,0,0,0,305,306,10,1,0,0,306,307,5,5,0,0,307,309,3,38,19,0,308,305,1,0,
-		0,0,309,312,1,0,0,0,310,308,1,0,0,0,310,311,1,0,0,0,311,37,1,0,0,0,312,
-		310,1,0,0,0,313,314,6,19,-1,0,314,315,3,40,20,0,315,321,1,0,0,0,316,317,
-		10,1,0,0,317,318,7,0,0,0,318,320,3,40,20,0,319,316,1,0,0,0,320,323,1,0,
-		0,0,321,319,1,0,0,0,321,322,1,0,0,0,322,39,1,0,0,0,323,321,1,0,0,0,324,
-		325,6,20,-1,0,325,326,3,42,21,0,326,332,1,0,0,0,327,328,10,1,0,0,328,329,
-		5,8,0,0,329,331,3,42,21,0,330,327,1,0,0,0,331,334,1,0,0,0,332,330,1,0,
-		0,0,332,333,1,0,0,0,333,41,1,0,0,0,334,332,1,0,0,0,335,336,6,21,-1,0,336,
-		337,3,44,22,0,337,344,1,0,0,0,338,339,10,1,0,0,339,340,3,62,31,0,340,341,
-		3,44,22,0,341,343,1,0,0,0,342,338,1,0,0,0,343,346,1,0,0,0,344,342,1,0,
-		0,0,344,345,1,0,0,0,345,43,1,0,0,0,346,344,1,0,0,0,347,348,6,22,-1,0,348,
-		349,3,46,23,0,349,355,1,0,0,0,350,351,10,1,0,0,351,352,5,9,0,0,352,354,
-		3,46,23,0,353,350,1,0,0,0,354,357,1,0,0,0,355,353,1,0,0,0,355,356,1,0,
-		0,0,356,45,1,0,0,0,357,355,1,0,0,0,358,359,6,23,-1,0,359,360,3,48,24,0,
-		360,366,1,0,0,0,361,362,10,1,0,0,362,363,7,1,0,0,363,365,3,48,24,0,364,
-		361,1,0,0,0,365,368,1,0,0,0,366,364,1,0,0,0,366,367,1,0,0,0,367,47,1,0,
-		0,0,368,366,1,0,0,0,369,370,6,24,-1,0,370,371,3,50,25,0,371,377,1,0,0,
-		0,372,373,10,1,0,0,373,374,7,2,0,0,374,376,3,50,25,0,375,372,1,0,0,0,376,
-		379,1,0,0,0,377,375,1,0,0,0,377,378,1,0,0,0,378,49,1,0,0,0,379,377,1,0,
-		0,0,380,385,3,58,29,0,381,385,3,54,27,0,382,385,3,56,28,0,383,385,3,52,
-		26,0,384,380,1,0,0,0,384,381,1,0,0,0,384,382,1,0,0,0,384,383,1,0,0,0,385,
-		51,1,0,0,0,386,389,3,58,29,0,387,389,3,56,28,0,388,386,1,0,0,0,388,387,
-		1,0,0,0,389,390,1,0,0,0,390,391,5,103,0,0,391,392,3,50,25,0,392,53,1,0,
-		0,0,393,394,3,60,30,0,394,395,3,50,25,0,395,55,1,0,0,0,396,397,5,91,0,
-		0,397,398,3,34,17,0,398,399,5,92,0,0,399,57,1,0,0,0,400,403,3,136,68,0,
-		401,403,3,18,9,0,402,400,1,0,0,0,402,401,1,0,0,0,403,59,1,0,0,0,404,405,
-		7,3,0,0,405,61,1,0,0,0,406,407,7,4,0,0,407,63,1,0,0,0,408,409,7,5,0,0,
-		409,65,1,0,0,0,410,413,3,68,34,0,411,413,5,78,0,0,412,410,1,0,0,0,412,
-		411,1,0,0,0,413,67,1,0,0,0,414,415,7,6,0,0,415,69,1,0,0,0,416,417,5,27,
-		0,0,417,418,3,18,9,0,418,71,1,0,0,0,419,423,5,28,0,0,420,421,5,29,0,0,
-		421,423,5,30,0,0,422,419,1,0,0,0,422,420,1,0,0,0,423,424,1,0,0,0,424,425,
-		3,18,9,0,425,73,1,0,0,0,426,427,5,33,0,0,427,75,1,0,0,0,428,430,5,68,0,
-		0,429,431,5,78,0,0,430,429,1,0,0,0,430,431,1,0,0,0,431,77,1,0,0,0,432,
-		434,5,69,0,0,433,435,5,78,0,0,434,433,1,0,0,0,434,435,1,0,0,0,435,79,1,
-		0,0,0,436,437,7,7,0,0,437,438,3,66,33,0,438,439,3,82,41,0,439,81,1,0,0,
-		0,440,442,3,84,42,0,441,440,1,0,0,0,441,442,1,0,0,0,442,446,1,0,0,0,443,
-		445,3,94,47,0,444,443,1,0,0,0,445,448,1,0,0,0,446,444,1,0,0,0,446,447,
-		1,0,0,0,447,83,1,0,0,0,448,446,1,0,0,0,449,450,5,91,0,0,450,451,3,88,44,
-		0,451,452,5,92,0,0,452,85,1,0,0,0,453,454,3,90,45,0,454,455,5,104,0,0,
-		455,457,1,0,0,0,456,453,1,0,0,0,456,457,1,0,0,0,457,458,1,0,0,0,458,461,
-		3,92,46,0,459,461,5,98,0,0,460,456,1,0,0,0,460,459,1,0,0,0,461,87,1,0,
-		0,0,462,467,3,86,43,0,463,464,5,90,0,0,464,466,3,86,43,0,465,463,1,0,0,
-		0,466,469,1,0,0,0,467,465,1,0,0,0,467,468,1,0,0,0,468,89,1,0,0,0,469,467,
-		1,0,0,0,470,471,3,34,17,0,471,91,1,0,0,0,472,473,3,34,17,0,473,93,1,0,
-		0,0,474,482,3,96,48,0,475,482,5,39,0,0,476,482,5,40,0,0,477,482,5,42,0,
-		0,478,482,5,43,0,0,479,482,3,106,53,0,480,482,3,108,54,0,481,474,1,0,0,
-		0,481,475,1,0,0,0,481,476,1,0,0,0,481,477,1,0,0,0,481,478,1,0,0,0,481,
-		479,1,0,0,0,481,480,1,0,0,0,482,95,1,0,0,0,483,485,5,37,0,0,484,486,3,
-		98,49,0,485,484,1,0,0,0,485,486,1,0,0,0,486,508,1,0,0,0,487,489,5,38,0,
-		0,488,490,3,98,49,0,489,488,1,0,0,0,489,490,1,0,0,0,490,508,1,0,0,0,491,
-		508,5,54,0,0,492,493,5,55,0,0,493,508,3,104,52,0,494,508,5,56,0,0,495,
-		496,5,61,0,0,496,508,3,104,52,0,497,508,5,57,0,0,498,508,5,58,0,0,499,
-		508,5,59,0,0,500,508,5,60,0,0,501,508,5,62,0,0,502,508,5,63,0,0,503,508,
-		5,64,0,0,504,508,5,40,0,0,505,508,5,41,0,0,506,508,3,66,33,0,507,483,1,
-		0,0,0,507,487,1,0,0,0,507,491,1,0,0,0,507,492,1,0,0,0,507,494,1,0,0,0,
-		507,495,1,0,0,0,507,497,1,0,0,0,507,498,1,0,0,0,507,499,1,0,0,0,507,500,
-		1,0,0,0,507,501,1,0,0,0,507,502,1,0,0,0,507,503,1,0,0,0,507,504,1,0,0,
-		0,507,505,1,0,0,0,507,506,1,0,0,0,508,97,1,0,0,0,509,510,5,91,0,0,510,
-		513,3,100,50,0,511,512,5,90,0,0,512,514,3,102,51,0,513,511,1,0,0,0,513,
-		514,1,0,0,0,514,515,1,0,0,0,515,516,5,92,0,0,516,99,1,0,0,0,517,520,3,
-		142,71,0,518,520,3,66,33,0,519,517,1,0,0,0,519,518,1,0,0,0,520,101,1,0,
-		0,0,521,524,3,142,71,0,522,524,3,66,33,0,523,521,1,0,0,0,523,522,1,0,0,
-		0,524,103,1,0,0,0,525,528,5,91,0,0,526,529,3,142,71,0,527,529,3,66,33,
-		0,528,526,1,0,0,0,528,527,1,0,0,0,529,530,1,0,0,0,530,531,5,92,0,0,531,
-		105,1,0,0,0,532,537,5,44,0,0,533,534,5,91,0,0,534,535,3,18,9,0,535,536,
-		5,92,0,0,536,538,1,0,0,0,537,533,1,0,0,0,537,538,1,0,0,0,538,107,1,0,0,
-		0,539,544,5,45,0,0,540,541,5,91,0,0,541,542,3,18,9,0,542,543,5,92,0,0,
-		543,545,1,0,0,0,544,540,1,0,0,0,544,545,1,0,0,0,545,109,1,0,0,0,546,548,
-		3,114,57,0,547,546,1,0,0,0,547,548,1,0,0,0,548,561,1,0,0,0,549,551,3,116,
-		58,0,550,549,1,0,0,0,550,551,1,0,0,0,551,553,1,0,0,0,552,554,3,112,56,
-		0,553,552,1,0,0,0,553,554,1,0,0,0,554,562,1,0,0,0,555,557,3,112,56,0,556,
-		555,1,0,0,0,556,557,1,0,0,0,557,559,1,0,0,0,558,560,3,116,58,0,559,558,
-		1,0,0,0,559,560,1,0,0,0,560,562,1,0,0,0,561,550,1,0,0,0,561,556,1,0,0,
-		0,562,111,1,0,0,0,563,564,7,8,0,0,564,113,1,0,0,0,565,566,5,91,0,0,566,
-		571,3,66,33,0,567,568,5,90,0,0,568,570,3,66,33,0,569,567,1,0,0,0,570,573,
-		1,0,0,0,571,569,1,0,0,0,571,572,1,0,0,0,572,574,1,0,0,0,573,571,1,0,0,
-		0,574,575,5,92,0,0,575,115,1,0,0,0,576,577,5,53,0,0,577,578,3,96,48,0,
-		578,117,1,0,0,0,579,584,5,48,0,0,580,581,5,91,0,0,581,582,3,34,17,0,582,
-		583,5,92,0,0,583,585,1,0,0,0,584,580,1,0,0,0,584,585,1,0,0,0,585,119,1,
-		0,0,0,586,590,3,122,61,0,587,588,3,12,6,0,588,589,3,6,3,0,589,591,1,0,
-		0,0,590,587,1,0,0,0,591,592,1,0,0,0,592,590,1,0,0,0,592,593,1,0,0,0,593,
-		595,1,0,0,0,594,596,3,124,62,0,595,594,1,0,0,0,595,596,1,0,0,0,596,597,
-		1,0,0,0,597,598,3,74,37,0,598,615,1,0,0,0,599,603,3,122,61,0,600,601,3,
-		12,6,0,601,602,3,6,3,0,602,604,1,0,0,0,603,600,1,0,0,0,604,605,1,0,0,0,
-		605,603,1,0,0,0,605,606,1,0,0,0,606,608,1,0,0,0,607,609,3,126,63,0,608,
-		607,1,0,0,0,609,610,1,0,0,0,610,608,1,0,0,0,610,611,1,0,0,0,611,612,1,
-		0,0,0,612,613,3,74,37,0,613,615,1,0,0,0,614,586,1,0,0,0,614,599,1,0,0,
-		0,615,121,1,0,0,0,616,617,5,49,0,0,617,618,3,34,17,0,618,619,5,50,0,0,
-		619,123,1,0,0,0,620,624,5,51,0,0,621,622,3,12,6,0,622,623,3,6,3,0,623,
-		625,1,0,0,0,624,621,1,0,0,0,625,626,1,0,0,0,626,624,1,0,0,0,626,627,1,
-		0,0,0,627,125,1,0,0,0,628,629,5,52,0,0,629,630,3,34,17,0,630,634,5,50,
-		0,0,631,632,3,12,6,0,632,633,3,6,3,0,633,635,1,0,0,0,634,631,1,0,0,0,635,
-		636,1,0,0,0,636,634,1,0,0,0,636,637,1,0,0,0,637,639,1,0,0,0,638,640,3,
-		124,62,0,639,638,1,0,0,0,639,640,1,0,0,0,640,127,1,0,0,0,641,645,5,65,
-		0,0,642,643,3,12,6,0,643,644,3,6,3,0,644,646,1,0,0,0,645,642,1,0,0,0,646,
-		647,1,0,0,0,647,645,1,0,0,0,647,648,1,0,0,0,648,649,1,0,0,0,649,650,3,
-		74,37,0,650,680,1,0,0,0,651,652,5,65,0,0,652,654,3,130,65,0,653,655,3,
-		132,66,0,654,653,1,0,0,0,654,655,1,0,0,0,655,659,1,0,0,0,656,657,3,12,
-		6,0,657,658,3,6,3,0,658,660,1,0,0,0,659,656,1,0,0,0,660,661,1,0,0,0,661,
-		659,1,0,0,0,661,662,1,0,0,0,662,663,1,0,0,0,663,664,3,74,37,0,664,680,
-		1,0,0,0,665,666,5,65,0,0,666,668,3,132,66,0,667,669,3,130,65,0,668,667,
-		1,0,0,0,668,669,1,0,0,0,669,673,1,0,0,0,670,671,3,12,6,0,671,672,3,6,3,
-		0,672,674,1,0,0,0,673,670,1,0,0,0,674,675,1,0,0,0,675,673,1,0,0,0,675,
-		676,1,0,0,0,676,677,1,0,0,0,677,678,3,74,37,0,678,680,1,0,0,0,679,641,
-		1,0,0,0,679,651,1,0,0,0,679,665,1,0,0,0,680,129,1,0,0,0,681,682,5,66,0,
-		0,682,683,5,91,0,0,683,684,3,34,17,0,684,685,5,92,0,0,685,131,1,0,0,0,
-		686,687,5,67,0,0,687,688,5,91,0,0,688,689,3,34,17,0,689,690,5,92,0,0,690,
-		133,1,0,0,0,691,692,5,36,0,0,692,693,3,66,33,0,693,694,3,66,33,0,694,695,
-		3,82,41,0,695,702,1,0,0,0,696,697,5,90,0,0,697,698,3,66,33,0,698,699,3,
-		82,41,0,699,701,1,0,0,0,700,696,1,0,0,0,701,704,1,0,0,0,702,700,1,0,0,
-		0,702,703,1,0,0,0,703,706,1,0,0,0,704,702,1,0,0,0,705,707,5,90,0,0,706,
-		705,1,0,0,0,706,707,1,0,0,0,707,708,1,0,0,0,708,709,5,33,0,0,709,135,1,
-		0,0,0,710,715,3,144,72,0,711,715,3,140,70,0,712,715,3,138,69,0,713,715,
-		3,142,71,0,714,710,1,0,0,0,714,711,1,0,0,0,714,712,1,0,0,0,714,713,1,0,
-		0,0,715,137,1,0,0,0,716,717,5,81,0,0,717,139,1,0,0,0,718,719,5,80,0,0,
-		719,141,1,0,0,0,720,721,5,82,0,0,721,143,1,0,0,0,722,723,5,79,0,0,723,
-		145,1,0,0,0,79,147,150,165,173,177,188,191,195,199,204,208,212,216,220,
-		223,239,245,249,256,263,266,272,279,288,299,310,321,332,344,355,366,377,
-		384,388,402,412,422,430,434,441,446,456,460,467,481,485,489,507,513,519,
-		523,528,537,544,547,550,553,556,559,561,571,584,592,595,605,610,614,626,
-		636,639,647,654,661,668,675,679,702,706,714
+		1,7,1,7,1,7,1,7,1,7,1,8,1,8,1,8,1,8,1,9,1,9,1,9,3,9,241,8,9,1,9,1,9,1,
+		9,1,9,3,9,247,8,9,5,9,249,8,9,10,9,12,9,252,9,9,1,10,1,10,4,10,256,8,10,
+		11,10,12,10,257,1,10,1,10,1,11,4,11,263,8,11,11,11,12,11,264,1,12,3,12,
+		268,8,12,1,12,1,12,1,13,1,13,3,13,274,8,13,1,13,1,13,1,14,4,14,279,8,14,
+		11,14,12,14,280,1,15,1,15,1,16,1,16,1,16,5,16,288,8,16,10,16,12,16,291,
+		9,16,1,17,1,17,1,17,1,17,1,17,1,17,5,17,299,8,17,10,17,12,17,302,9,17,
+		1,18,1,18,1,18,1,18,1,18,1,18,5,18,310,8,18,10,18,12,18,313,9,18,1,19,
+		1,19,1,19,1,19,1,19,1,19,5,19,321,8,19,10,19,12,19,324,9,19,1,20,1,20,
+		1,20,1,20,1,20,1,20,5,20,332,8,20,10,20,12,20,335,9,20,1,21,1,21,1,21,
+		1,21,1,21,1,21,1,21,5,21,344,8,21,10,21,12,21,347,9,21,1,22,1,22,1,22,
+		1,22,1,22,1,22,5,22,355,8,22,10,22,12,22,358,9,22,1,23,1,23,1,23,1,23,
+		1,23,1,23,5,23,366,8,23,10,23,12,23,369,9,23,1,24,1,24,1,24,1,24,1,24,
+		1,24,5,24,377,8,24,10,24,12,24,380,9,24,1,25,1,25,1,25,1,25,3,25,386,8,
+		25,1,26,1,26,3,26,390,8,26,1,26,1,26,1,26,1,27,1,27,1,27,1,28,1,28,1,28,
+		1,28,1,29,1,29,3,29,404,8,29,1,30,1,30,1,31,1,31,1,32,1,32,1,33,1,33,3,
+		33,414,8,33,1,34,1,34,1,35,1,35,1,35,1,36,1,36,1,36,3,36,424,8,36,1,36,
+		1,36,1,37,1,37,1,38,1,38,3,38,432,8,38,1,39,1,39,3,39,436,8,39,1,40,1,
+		40,1,40,1,40,1,41,3,41,443,8,41,1,41,5,41,446,8,41,10,41,12,41,449,9,41,
+		1,42,1,42,1,42,1,42,1,43,1,43,1,43,3,43,458,8,43,1,43,1,43,3,43,462,8,
+		43,1,44,1,44,1,44,5,44,467,8,44,10,44,12,44,470,9,44,1,45,1,45,1,46,1,
+		46,1,47,1,47,1,47,1,47,1,47,1,47,1,47,3,47,483,8,47,1,48,1,48,3,48,487,
+		8,48,1,48,1,48,3,48,491,8,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,
+		48,1,48,1,48,1,48,1,48,1,48,1,48,3,48,508,8,48,1,49,1,49,1,49,1,49,3,49,
+		514,8,49,1,49,1,49,1,50,1,50,3,50,520,8,50,1,51,1,51,3,51,524,8,51,1,52,
+		1,52,1,52,3,52,529,8,52,1,52,1,52,1,53,1,53,1,53,1,53,1,53,3,53,538,8,
+		53,1,54,1,54,1,54,1,54,1,54,3,54,545,8,54,1,55,3,55,548,8,55,1,55,3,55,
+		551,8,55,1,55,3,55,554,8,55,1,55,3,55,557,8,55,1,55,3,55,560,8,55,3,55,
+		562,8,55,1,56,1,56,1,57,1,57,1,57,1,57,5,57,570,8,57,10,57,12,57,573,9,
+		57,1,57,1,57,1,58,1,58,1,58,1,59,1,59,1,59,1,59,1,59,3,59,585,8,59,1,60,
+		1,60,1,60,1,60,4,60,591,8,60,11,60,12,60,592,1,60,3,60,596,8,60,1,60,1,
+		60,1,60,1,60,1,60,1,60,4,60,604,8,60,11,60,12,60,605,1,60,4,60,609,8,60,
+		11,60,12,60,610,1,60,1,60,3,60,615,8,60,1,61,1,61,1,61,1,61,1,62,1,62,
+		1,62,1,62,4,62,625,8,62,11,62,12,62,626,1,63,1,63,1,63,1,63,1,63,1,63,
+		4,63,635,8,63,11,63,12,63,636,1,63,3,63,640,8,63,1,64,1,64,1,64,1,64,4,
+		64,646,8,64,11,64,12,64,647,1,64,1,64,1,64,1,64,1,64,3,64,655,8,64,1,64,
+		1,64,1,64,4,64,660,8,64,11,64,12,64,661,1,64,1,64,1,64,1,64,1,64,3,64,
+		669,8,64,1,64,1,64,1,64,4,64,674,8,64,11,64,12,64,675,1,64,1,64,3,64,680,
+		8,64,1,65,1,65,1,65,1,65,1,65,1,66,1,66,1,66,1,66,1,66,1,67,1,67,1,67,
+		1,67,1,67,1,67,1,67,1,67,1,67,5,67,701,8,67,10,67,12,67,704,9,67,1,67,
+		3,67,707,8,67,1,67,1,67,1,68,1,68,1,68,1,68,3,68,715,8,68,1,69,1,69,1,
+		70,1,70,1,71,1,71,1,72,1,72,1,72,0,9,18,34,36,38,40,42,44,46,48,73,0,2,
+		4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,
+		54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,
+		102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134,136,
+		138,140,142,144,0,9,2,0,71,71,95,95,1,0,86,87,1,0,84,85,2,0,86,87,95,95,
+		2,0,83,83,97,103,1,0,104,107,3,0,7,16,20,21,28,49,1,0,14,15,1,0,43,44,
+		761,0,147,1,0,0,0,2,154,1,0,0,0,4,177,1,0,0,0,6,179,1,0,0,0,8,181,1,0,
+		0,0,10,188,1,0,0,0,12,223,1,0,0,0,14,225,1,0,0,0,16,233,1,0,0,0,18,237,
+		1,0,0,0,20,253,1,0,0,0,22,262,1,0,0,0,24,267,1,0,0,0,26,271,1,0,0,0,28,
+		278,1,0,0,0,30,282,1,0,0,0,32,284,1,0,0,0,34,292,1,0,0,0,36,303,1,0,0,
+		0,38,314,1,0,0,0,40,325,1,0,0,0,42,336,1,0,0,0,44,348,1,0,0,0,46,359,1,
+		0,0,0,48,370,1,0,0,0,50,385,1,0,0,0,52,389,1,0,0,0,54,394,1,0,0,0,56,397,
+		1,0,0,0,58,403,1,0,0,0,60,405,1,0,0,0,62,407,1,0,0,0,64,409,1,0,0,0,66,
+		413,1,0,0,0,68,415,1,0,0,0,70,417,1,0,0,0,72,423,1,0,0,0,74,427,1,0,0,
+		0,76,429,1,0,0,0,78,433,1,0,0,0,80,437,1,0,0,0,82,442,1,0,0,0,84,450,1,
+		0,0,0,86,461,1,0,0,0,88,463,1,0,0,0,90,471,1,0,0,0,92,473,1,0,0,0,94,482,
+		1,0,0,0,96,507,1,0,0,0,98,509,1,0,0,0,100,519,1,0,0,0,102,523,1,0,0,0,
+		104,525,1,0,0,0,106,532,1,0,0,0,108,539,1,0,0,0,110,547,1,0,0,0,112,563,
+		1,0,0,0,114,565,1,0,0,0,116,576,1,0,0,0,118,579,1,0,0,0,120,614,1,0,0,
+		0,122,616,1,0,0,0,124,620,1,0,0,0,126,628,1,0,0,0,128,679,1,0,0,0,130,
+		681,1,0,0,0,132,686,1,0,0,0,134,691,1,0,0,0,136,714,1,0,0,0,138,716,1,
+		0,0,0,140,718,1,0,0,0,142,720,1,0,0,0,144,722,1,0,0,0,146,148,5,6,0,0,
+		147,146,1,0,0,0,147,148,1,0,0,0,148,150,1,0,0,0,149,151,3,14,7,0,150,149,
+		1,0,0,0,150,151,1,0,0,0,151,152,1,0,0,0,152,153,3,2,1,0,153,1,1,0,0,0,
+		154,155,5,11,0,0,155,156,3,66,33,0,156,157,3,110,55,0,157,158,3,4,2,0,
+		158,159,3,74,37,0,159,3,1,0,0,0,160,161,3,10,5,0,161,162,3,6,3,0,162,164,
+		1,0,0,0,163,160,1,0,0,0,164,167,1,0,0,0,165,163,1,0,0,0,165,166,1,0,0,
+		0,166,173,1,0,0,0,167,165,1,0,0,0,168,169,3,12,6,0,169,170,3,6,3,0,170,
+		172,1,0,0,0,171,168,1,0,0,0,172,175,1,0,0,0,173,171,1,0,0,0,173,174,1,
+		0,0,0,174,178,1,0,0,0,175,173,1,0,0,0,176,178,3,6,3,0,177,165,1,0,0,0,
+		177,176,1,0,0,0,178,5,1,0,0,0,179,180,5,88,0,0,180,7,1,0,0,0,181,182,5,
+		81,0,0,182,183,3,66,33,0,183,184,5,82,0,0,184,9,1,0,0,0,185,189,3,14,7,
+		0,186,189,3,80,40,0,187,189,3,134,67,0,188,185,1,0,0,0,188,186,1,0,0,0,
+		188,187,1,0,0,0,189,11,1,0,0,0,190,192,3,8,4,0,191,190,1,0,0,0,191,192,
+		1,0,0,0,192,193,1,0,0,0,193,224,3,16,8,0,194,196,3,8,4,0,195,194,1,0,0,
+		0,195,196,1,0,0,0,196,197,1,0,0,0,197,224,3,70,35,0,198,200,3,8,4,0,199,
+		198,1,0,0,0,199,200,1,0,0,0,200,201,1,0,0,0,201,224,3,72,36,0,202,224,
+		3,2,1,0,203,205,3,8,4,0,204,203,1,0,0,0,204,205,1,0,0,0,205,206,1,0,0,
+		0,206,224,3,118,59,0,207,209,3,8,4,0,208,207,1,0,0,0,208,209,1,0,0,0,209,
+		210,1,0,0,0,210,224,3,120,60,0,211,213,3,8,4,0,212,211,1,0,0,0,212,213,
+		1,0,0,0,213,214,1,0,0,0,214,224,3,128,64,0,215,217,3,8,4,0,216,215,1,0,
+		0,0,216,217,1,0,0,0,217,218,1,0,0,0,218,224,3,76,38,0,219,221,3,8,4,0,
+		220,219,1,0,0,0,220,221,1,0,0,0,221,222,1,0,0,0,222,224,3,78,39,0,223,
+		191,1,0,0,0,223,195,1,0,0,0,223,199,1,0,0,0,223,202,1,0,0,0,223,204,1,
+		0,0,0,223,208,1,0,0,0,223,212,1,0,0,0,223,216,1,0,0,0,223,220,1,0,0,0,
+		224,13,1,0,0,0,225,226,5,94,0,0,226,227,5,50,0,0,227,228,5,92,0,0,228,
+		229,3,66,33,0,229,230,5,75,0,0,230,231,5,51,0,0,231,232,5,92,0,0,232,15,
+		1,0,0,0,233,234,3,18,9,0,234,235,5,83,0,0,235,236,3,34,17,0,236,17,1,0,
+		0,0,237,238,6,9,-1,0,238,240,3,24,12,0,239,241,3,22,11,0,240,239,1,0,0,
+		0,240,241,1,0,0,0,241,250,1,0,0,0,242,243,10,2,0,0,243,244,5,74,0,0,244,
+		246,3,24,12,0,245,247,3,22,11,0,246,245,1,0,0,0,246,247,1,0,0,0,247,249,
+		1,0,0,0,248,242,1,0,0,0,249,252,1,0,0,0,250,248,1,0,0,0,250,251,1,0,0,
+		0,251,19,1,0,0,0,252,250,1,0,0,0,253,255,5,77,0,0,254,256,3,32,16,0,255,
+		254,1,0,0,0,256,257,1,0,0,0,257,255,1,0,0,0,257,258,1,0,0,0,258,259,1,
+		0,0,0,259,260,5,78,0,0,260,21,1,0,0,0,261,263,3,20,10,0,262,261,1,0,0,
+		0,263,264,1,0,0,0,264,262,1,0,0,0,264,265,1,0,0,0,265,23,1,0,0,0,266,268,
+		3,28,14,0,267,266,1,0,0,0,267,268,1,0,0,0,268,269,1,0,0,0,269,270,3,66,
+		33,0,270,25,1,0,0,0,271,273,3,66,33,0,272,274,3,20,10,0,273,272,1,0,0,
+		0,273,274,1,0,0,0,274,275,1,0,0,0,275,276,5,75,0,0,276,27,1,0,0,0,277,
+		279,3,26,13,0,278,277,1,0,0,0,279,280,1,0,0,0,280,278,1,0,0,0,280,281,
+		1,0,0,0,281,29,1,0,0,0,282,283,3,34,17,0,283,31,1,0,0,0,284,289,3,30,15,
+		0,285,286,5,76,0,0,286,288,3,30,15,0,287,285,1,0,0,0,288,291,1,0,0,0,289,
+		287,1,0,0,0,289,290,1,0,0,0,290,33,1,0,0,0,291,289,1,0,0,0,292,293,6,17,
+		-1,0,293,294,3,36,18,0,294,300,1,0,0,0,295,296,10,1,0,0,296,297,5,70,0,
+		0,297,299,3,36,18,0,298,295,1,0,0,0,299,302,1,0,0,0,300,298,1,0,0,0,300,
+		301,1,0,0,0,301,35,1,0,0,0,302,300,1,0,0,0,303,304,6,18,-1,0,304,305,3,
+		38,19,0,305,311,1,0,0,0,306,307,10,1,0,0,307,308,5,73,0,0,308,310,3,38,
+		19,0,309,306,1,0,0,0,310,313,1,0,0,0,311,309,1,0,0,0,311,312,1,0,0,0,312,
+		37,1,0,0,0,313,311,1,0,0,0,314,315,6,19,-1,0,315,316,3,40,20,0,316,322,
+		1,0,0,0,317,318,10,1,0,0,318,319,7,0,0,0,319,321,3,40,20,0,320,317,1,0,
+		0,0,321,324,1,0,0,0,322,320,1,0,0,0,322,323,1,0,0,0,323,39,1,0,0,0,324,
+		322,1,0,0,0,325,326,6,20,-1,0,326,327,3,42,21,0,327,333,1,0,0,0,328,329,
+		10,1,0,0,329,330,5,72,0,0,330,332,3,42,21,0,331,328,1,0,0,0,332,335,1,
+		0,0,0,333,331,1,0,0,0,333,334,1,0,0,0,334,41,1,0,0,0,335,333,1,0,0,0,336,
+		337,6,21,-1,0,337,338,3,44,22,0,338,345,1,0,0,0,339,340,10,1,0,0,340,341,
+		3,62,31,0,341,342,3,44,22,0,342,344,1,0,0,0,343,339,1,0,0,0,344,347,1,
+		0,0,0,345,343,1,0,0,0,345,346,1,0,0,0,346,43,1,0,0,0,347,345,1,0,0,0,348,
+		349,6,22,-1,0,349,350,3,46,23,0,350,356,1,0,0,0,351,352,10,1,0,0,352,353,
+		5,96,0,0,353,355,3,46,23,0,354,351,1,0,0,0,355,358,1,0,0,0,356,354,1,0,
+		0,0,356,357,1,0,0,0,357,45,1,0,0,0,358,356,1,0,0,0,359,360,6,23,-1,0,360,
+		361,3,48,24,0,361,367,1,0,0,0,362,363,10,1,0,0,363,364,7,1,0,0,364,366,
+		3,48,24,0,365,362,1,0,0,0,366,369,1,0,0,0,367,365,1,0,0,0,367,368,1,0,
+		0,0,368,47,1,0,0,0,369,367,1,0,0,0,370,371,6,24,-1,0,371,372,3,50,25,0,
+		372,378,1,0,0,0,373,374,10,1,0,0,374,375,7,2,0,0,375,377,3,50,25,0,376,
+		373,1,0,0,0,377,380,1,0,0,0,378,376,1,0,0,0,378,379,1,0,0,0,379,49,1,0,
+		0,0,380,378,1,0,0,0,381,386,3,58,29,0,382,386,3,54,27,0,383,386,3,56,28,
+		0,384,386,3,52,26,0,385,381,1,0,0,0,385,382,1,0,0,0,385,383,1,0,0,0,385,
+		384,1,0,0,0,386,51,1,0,0,0,387,390,3,58,29,0,388,390,3,56,28,0,389,387,
+		1,0,0,0,389,388,1,0,0,0,390,391,1,0,0,0,391,392,5,89,0,0,392,393,3,50,
+		25,0,393,53,1,0,0,0,394,395,3,60,30,0,395,396,3,50,25,0,396,55,1,0,0,0,
+		397,398,5,77,0,0,398,399,3,34,17,0,399,400,5,78,0,0,400,57,1,0,0,0,401,
+		404,3,136,68,0,402,404,3,18,9,0,403,401,1,0,0,0,403,402,1,0,0,0,404,59,
+		1,0,0,0,405,406,7,3,0,0,406,61,1,0,0,0,407,408,7,4,0,0,408,63,1,0,0,0,
+		409,410,7,5,0,0,410,65,1,0,0,0,411,414,3,68,34,0,412,414,5,60,0,0,413,
+		411,1,0,0,0,413,412,1,0,0,0,414,67,1,0,0,0,415,416,7,6,0,0,416,69,1,0,
+		0,0,417,418,5,7,0,0,418,419,3,18,9,0,419,71,1,0,0,0,420,424,5,8,0,0,421,
+		422,5,9,0,0,422,424,5,10,0,0,423,420,1,0,0,0,423,421,1,0,0,0,424,425,1,
+		0,0,0,425,426,3,18,9,0,426,73,1,0,0,0,427,428,5,13,0,0,428,75,1,0,0,0,
+		429,431,5,48,0,0,430,432,5,60,0,0,431,430,1,0,0,0,431,432,1,0,0,0,432,
+		77,1,0,0,0,433,435,5,49,0,0,434,436,5,60,0,0,435,434,1,0,0,0,435,436,1,
+		0,0,0,436,79,1,0,0,0,437,438,7,7,0,0,438,439,3,66,33,0,439,440,3,82,41,
+		0,440,81,1,0,0,0,441,443,3,84,42,0,442,441,1,0,0,0,442,443,1,0,0,0,443,
+		447,1,0,0,0,444,446,3,94,47,0,445,444,1,0,0,0,446,449,1,0,0,0,447,445,
+		1,0,0,0,447,448,1,0,0,0,448,83,1,0,0,0,449,447,1,0,0,0,450,451,5,77,0,
+		0,451,452,3,88,44,0,452,453,5,78,0,0,453,85,1,0,0,0,454,455,3,90,45,0,
+		455,456,5,90,0,0,456,458,1,0,0,0,457,454,1,0,0,0,457,458,1,0,0,0,458,459,
+		1,0,0,0,459,462,3,92,46,0,460,462,5,84,0,0,461,457,1,0,0,0,461,460,1,0,
+		0,0,462,87,1,0,0,0,463,468,3,86,43,0,464,465,5,76,0,0,465,467,3,86,43,
+		0,466,464,1,0,0,0,467,470,1,0,0,0,468,466,1,0,0,0,468,469,1,0,0,0,469,
+		89,1,0,0,0,470,468,1,0,0,0,471,472,3,34,17,0,472,91,1,0,0,0,473,474,3,
+		34,17,0,474,93,1,0,0,0,475,483,3,96,48,0,476,483,5,19,0,0,477,483,5,20,
+		0,0,478,483,5,22,0,0,479,483,5,23,0,0,480,483,3,106,53,0,481,483,3,108,
+		54,0,482,475,1,0,0,0,482,476,1,0,0,0,482,477,1,0,0,0,482,478,1,0,0,0,482,
+		479,1,0,0,0,482,480,1,0,0,0,482,481,1,0,0,0,483,95,1,0,0,0,484,486,5,17,
+		0,0,485,487,3,98,49,0,486,485,1,0,0,0,486,487,1,0,0,0,487,508,1,0,0,0,
+		488,490,5,18,0,0,489,491,3,98,49,0,490,489,1,0,0,0,490,491,1,0,0,0,491,
+		508,1,0,0,0,492,508,5,34,0,0,493,494,5,35,0,0,494,508,3,104,52,0,495,508,
+		5,36,0,0,496,497,5,41,0,0,497,508,3,104,52,0,498,508,5,37,0,0,499,508,
+		5,38,0,0,500,508,5,39,0,0,501,508,5,40,0,0,502,508,5,42,0,0,503,508,5,
+		43,0,0,504,508,5,44,0,0,505,508,5,20,0,0,506,508,5,21,0,0,507,484,1,0,
+		0,0,507,488,1,0,0,0,507,492,1,0,0,0,507,493,1,0,0,0,507,495,1,0,0,0,507,
+		496,1,0,0,0,507,498,1,0,0,0,507,499,1,0,0,0,507,500,1,0,0,0,507,501,1,
+		0,0,0,507,502,1,0,0,0,507,503,1,0,0,0,507,504,1,0,0,0,507,505,1,0,0,0,
+		507,506,1,0,0,0,508,97,1,0,0,0,509,510,5,77,0,0,510,513,3,100,50,0,511,
+		512,5,76,0,0,512,514,3,102,51,0,513,511,1,0,0,0,513,514,1,0,0,0,514,515,
+		1,0,0,0,515,516,5,78,0,0,516,99,1,0,0,0,517,520,3,142,71,0,518,520,3,66,
+		33,0,519,517,1,0,0,0,519,518,1,0,0,0,520,101,1,0,0,0,521,524,3,142,71,
+		0,522,524,3,66,33,0,523,521,1,0,0,0,523,522,1,0,0,0,524,103,1,0,0,0,525,
+		528,5,77,0,0,526,529,3,142,71,0,527,529,3,66,33,0,528,526,1,0,0,0,528,
+		527,1,0,0,0,529,530,1,0,0,0,530,531,5,78,0,0,531,105,1,0,0,0,532,537,5,
+		24,0,0,533,534,5,77,0,0,534,535,3,18,9,0,535,536,5,78,0,0,536,538,1,0,
+		0,0,537,533,1,0,0,0,537,538,1,0,0,0,538,107,1,0,0,0,539,544,5,25,0,0,540,
+		541,5,77,0,0,541,542,3,18,9,0,542,543,5,78,0,0,543,545,1,0,0,0,544,540,
+		1,0,0,0,544,545,1,0,0,0,545,109,1,0,0,0,546,548,3,114,57,0,547,546,1,0,
+		0,0,547,548,1,0,0,0,548,561,1,0,0,0,549,551,3,116,58,0,550,549,1,0,0,0,
+		550,551,1,0,0,0,551,553,1,0,0,0,552,554,3,112,56,0,553,552,1,0,0,0,553,
+		554,1,0,0,0,554,562,1,0,0,0,555,557,3,112,56,0,556,555,1,0,0,0,556,557,
+		1,0,0,0,557,559,1,0,0,0,558,560,3,116,58,0,559,558,1,0,0,0,559,560,1,0,
+		0,0,560,562,1,0,0,0,561,550,1,0,0,0,561,556,1,0,0,0,562,111,1,0,0,0,563,
+		564,7,8,0,0,564,113,1,0,0,0,565,566,5,77,0,0,566,571,3,66,33,0,567,568,
+		5,76,0,0,568,570,3,66,33,0,569,567,1,0,0,0,570,573,1,0,0,0,571,569,1,0,
+		0,0,571,572,1,0,0,0,572,574,1,0,0,0,573,571,1,0,0,0,574,575,5,78,0,0,575,
+		115,1,0,0,0,576,577,5,33,0,0,577,578,3,96,48,0,578,117,1,0,0,0,579,584,
+		5,28,0,0,580,581,5,77,0,0,581,582,3,34,17,0,582,583,5,78,0,0,583,585,1,
+		0,0,0,584,580,1,0,0,0,584,585,1,0,0,0,585,119,1,0,0,0,586,590,3,122,61,
+		0,587,588,3,12,6,0,588,589,3,6,3,0,589,591,1,0,0,0,590,587,1,0,0,0,591,
+		592,1,0,0,0,592,590,1,0,0,0,592,593,1,0,0,0,593,595,1,0,0,0,594,596,3,
+		124,62,0,595,594,1,0,0,0,595,596,1,0,0,0,596,597,1,0,0,0,597,598,3,74,
+		37,0,598,615,1,0,0,0,599,603,3,122,61,0,600,601,3,12,6,0,601,602,3,6,3,
+		0,602,604,1,0,0,0,603,600,1,0,0,0,604,605,1,0,0,0,605,603,1,0,0,0,605,
+		606,1,0,0,0,606,608,1,0,0,0,607,609,3,126,63,0,608,607,1,0,0,0,609,610,
+		1,0,0,0,610,608,1,0,0,0,610,611,1,0,0,0,611,612,1,0,0,0,612,613,3,74,37,
+		0,613,615,1,0,0,0,614,586,1,0,0,0,614,599,1,0,0,0,615,121,1,0,0,0,616,
+		617,5,29,0,0,617,618,3,34,17,0,618,619,5,30,0,0,619,123,1,0,0,0,620,624,
+		5,31,0,0,621,622,3,12,6,0,622,623,3,6,3,0,623,625,1,0,0,0,624,621,1,0,
+		0,0,625,626,1,0,0,0,626,624,1,0,0,0,626,627,1,0,0,0,627,125,1,0,0,0,628,
+		629,5,32,0,0,629,630,3,34,17,0,630,634,5,30,0,0,631,632,3,12,6,0,632,633,
+		3,6,3,0,633,635,1,0,0,0,634,631,1,0,0,0,635,636,1,0,0,0,636,634,1,0,0,
+		0,636,637,1,0,0,0,637,639,1,0,0,0,638,640,3,124,62,0,639,638,1,0,0,0,639,
+		640,1,0,0,0,640,127,1,0,0,0,641,645,5,45,0,0,642,643,3,12,6,0,643,644,
+		3,6,3,0,644,646,1,0,0,0,645,642,1,0,0,0,646,647,1,0,0,0,647,645,1,0,0,
+		0,647,648,1,0,0,0,648,649,1,0,0,0,649,650,3,74,37,0,650,680,1,0,0,0,651,
+		652,5,45,0,0,652,654,3,130,65,0,653,655,3,132,66,0,654,653,1,0,0,0,654,
+		655,1,0,0,0,655,659,1,0,0,0,656,657,3,12,6,0,657,658,3,6,3,0,658,660,1,
+		0,0,0,659,656,1,0,0,0,660,661,1,0,0,0,661,659,1,0,0,0,661,662,1,0,0,0,
+		662,663,1,0,0,0,663,664,3,74,37,0,664,680,1,0,0,0,665,666,5,45,0,0,666,
+		668,3,132,66,0,667,669,3,130,65,0,668,667,1,0,0,0,668,669,1,0,0,0,669,
+		673,1,0,0,0,670,671,3,12,6,0,671,672,3,6,3,0,672,674,1,0,0,0,673,670,1,
+		0,0,0,674,675,1,0,0,0,675,673,1,0,0,0,675,676,1,0,0,0,676,677,1,0,0,0,
+		677,678,3,74,37,0,678,680,1,0,0,0,679,641,1,0,0,0,679,651,1,0,0,0,679,
+		665,1,0,0,0,680,129,1,0,0,0,681,682,5,46,0,0,682,683,5,77,0,0,683,684,
+		3,34,17,0,684,685,5,78,0,0,685,131,1,0,0,0,686,687,5,47,0,0,687,688,5,
+		77,0,0,688,689,3,34,17,0,689,690,5,78,0,0,690,133,1,0,0,0,691,692,5,16,
+		0,0,692,693,3,66,33,0,693,694,3,66,33,0,694,695,3,82,41,0,695,702,1,0,
+		0,0,696,697,5,76,0,0,697,698,3,66,33,0,698,699,3,82,41,0,699,701,1,0,0,
+		0,700,696,1,0,0,0,701,704,1,0,0,0,702,700,1,0,0,0,702,703,1,0,0,0,703,
+		706,1,0,0,0,704,702,1,0,0,0,705,707,5,76,0,0,706,705,1,0,0,0,706,707,1,
+		0,0,0,707,708,1,0,0,0,708,709,5,13,0,0,709,135,1,0,0,0,710,715,3,144,72,
+		0,711,715,3,140,70,0,712,715,3,138,69,0,713,715,3,142,71,0,714,710,1,0,
+		0,0,714,711,1,0,0,0,714,712,1,0,0,0,714,713,1,0,0,0,715,137,1,0,0,0,716,
+		717,5,63,0,0,717,139,1,0,0,0,718,719,5,62,0,0,719,141,1,0,0,0,720,721,
+		5,64,0,0,721,143,1,0,0,0,722,723,5,61,0,0,723,145,1,0,0,0,79,147,150,165,
+		173,177,188,191,195,199,204,208,212,216,220,223,240,246,250,257,264,267,
+		273,280,289,300,311,322,333,345,356,367,378,385,389,403,413,423,431,435,
+		442,447,457,461,468,482,486,490,507,513,519,523,528,537,544,547,550,553,
+		556,559,561,571,584,592,595,605,610,614,626,636,639,647,654,661,668,675,
+		679,702,706,714
 	};
 
 	public static readonly ATN _ATN =

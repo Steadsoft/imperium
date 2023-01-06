@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from Imperium.g4 by ANTLR 4.11.1
+// Generated from ImperiumParser.g4 by ANTLR 4.11.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -19,1105 +19,1313 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
+
 using Antlr4.Runtime.Misc;
-using IParseTreeListener = Antlr4.Runtime.Tree.IParseTreeListener;
+using IErrorNode = Antlr4.Runtime.Tree.IErrorNode;
+using ITerminalNode = Antlr4.Runtime.Tree.ITerminalNode;
 using IToken = Antlr4.Runtime.IToken;
+using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 
 /// <summary>
-/// This interface defines a complete listener for a parse tree produced by
-/// <see cref="ImperiumParser"/>.
+/// This class provides an empty implementation of <see cref="IImperiumParserListener"/>,
+/// which can be extended to create a listener which only needs to handle a subset
+/// of the available methods.
 /// </summary>
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.11.1")]
+[System.Diagnostics.DebuggerNonUserCode]
 [System.CLSCompliant(false)]
-public interface IImperiumListener : IParseTreeListener {
+public partial class ImperiumParserBaseListener : IImperiumParserListener {
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.translation_unit"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterTranslation_unit([NotNull] ImperiumParser.Translation_unitContext context);
+	public virtual void EnterTranslation_unit([NotNull] ImperiumParser.Translation_unitContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.translation_unit"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitTranslation_unit([NotNull] ImperiumParser.Translation_unitContext context);
+	public virtual void ExitTranslation_unit([NotNull] ImperiumParser.Translation_unitContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.procedure_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterProcedure_stmt([NotNull] ImperiumParser.Procedure_stmtContext context);
+	public virtual void EnterProcedure_stmt([NotNull] ImperiumParser.Procedure_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.procedure_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitProcedure_stmt([NotNull] ImperiumParser.Procedure_stmtContext context);
+	public virtual void ExitProcedure_stmt([NotNull] ImperiumParser.Procedure_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.stmt_block"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterStmt_block([NotNull] ImperiumParser.Stmt_blockContext context);
+	public virtual void EnterStmt_block([NotNull] ImperiumParser.Stmt_blockContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.stmt_block"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitStmt_block([NotNull] ImperiumParser.Stmt_blockContext context);
+	public virtual void ExitStmt_block([NotNull] ImperiumParser.Stmt_blockContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.terminator"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterTerminator([NotNull] ImperiumParser.TerminatorContext context);
+	public virtual void EnterTerminator([NotNull] ImperiumParser.TerminatorContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.terminator"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitTerminator([NotNull] ImperiumParser.TerminatorContext context);
+	public virtual void ExitTerminator([NotNull] ImperiumParser.TerminatorContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.label_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterLabel_stmt([NotNull] ImperiumParser.Label_stmtContext context);
+	public virtual void EnterLabel_stmt([NotNull] ImperiumParser.Label_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.label_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitLabel_stmt([NotNull] ImperiumParser.Label_stmtContext context);
+	public virtual void ExitLabel_stmt([NotNull] ImperiumParser.Label_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>PRE</c>
 	/// labeled alternative in <see cref="ImperiumParser.nonexecutable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterPRE([NotNull] ImperiumParser.PREContext context);
+	public virtual void EnterPRE([NotNull] ImperiumParser.PREContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>PRE</c>
 	/// labeled alternative in <see cref="ImperiumParser.nonexecutable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitPRE([NotNull] ImperiumParser.PREContext context);
+	public virtual void ExitPRE([NotNull] ImperiumParser.PREContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>DCL</c>
 	/// labeled alternative in <see cref="ImperiumParser.nonexecutable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDCL([NotNull] ImperiumParser.DCLContext context);
+	public virtual void EnterDCL([NotNull] ImperiumParser.DCLContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>DCL</c>
 	/// labeled alternative in <see cref="ImperiumParser.nonexecutable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDCL([NotNull] ImperiumParser.DCLContext context);
+	public virtual void ExitDCL([NotNull] ImperiumParser.DCLContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>DEF</c>
 	/// labeled alternative in <see cref="ImperiumParser.nonexecutable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDEF([NotNull] ImperiumParser.DEFContext context);
+	public virtual void EnterDEF([NotNull] ImperiumParser.DEFContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>DEF</c>
 	/// labeled alternative in <see cref="ImperiumParser.nonexecutable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDEF([NotNull] ImperiumParser.DEFContext context);
+	public virtual void ExitDEF([NotNull] ImperiumParser.DEFContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>ASSIGN</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterASSIGN([NotNull] ImperiumParser.ASSIGNContext context);
+	public virtual void EnterASSIGN([NotNull] ImperiumParser.ASSIGNContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>ASSIGN</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitASSIGN([NotNull] ImperiumParser.ASSIGNContext context);
+	public virtual void ExitASSIGN([NotNull] ImperiumParser.ASSIGNContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>CALL</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterCALL([NotNull] ImperiumParser.CALLContext context);
+	public virtual void EnterCALL([NotNull] ImperiumParser.CALLContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>CALL</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitCALL([NotNull] ImperiumParser.CALLContext context);
+	public virtual void ExitCALL([NotNull] ImperiumParser.CALLContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>GOTO</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterGOTO([NotNull] ImperiumParser.GOTOContext context);
+	public virtual void EnterGOTO([NotNull] ImperiumParser.GOTOContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>GOTO</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitGOTO([NotNull] ImperiumParser.GOTOContext context);
+	public virtual void ExitGOTO([NotNull] ImperiumParser.GOTOContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>PROC</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterPROC([NotNull] ImperiumParser.PROCContext context);
+	public virtual void EnterPROC([NotNull] ImperiumParser.PROCContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>PROC</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitPROC([NotNull] ImperiumParser.PROCContext context);
+	public virtual void ExitPROC([NotNull] ImperiumParser.PROCContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>RET</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterRET([NotNull] ImperiumParser.RETContext context);
+	public virtual void EnterRET([NotNull] ImperiumParser.RETContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>RET</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitRET([NotNull] ImperiumParser.RETContext context);
+	public virtual void ExitRET([NotNull] ImperiumParser.RETContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>IF</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterIF([NotNull] ImperiumParser.IFContext context);
+	public virtual void EnterIF([NotNull] ImperiumParser.IFContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>IF</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitIF([NotNull] ImperiumParser.IFContext context);
+	public virtual void ExitIF([NotNull] ImperiumParser.IFContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>LOOP</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterLOOP([NotNull] ImperiumParser.LOOPContext context);
+	public virtual void EnterLOOP([NotNull] ImperiumParser.LOOPContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>LOOP</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitLOOP([NotNull] ImperiumParser.LOOPContext context);
+	public virtual void ExitLOOP([NotNull] ImperiumParser.LOOPContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>LEAVE</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterLEAVE([NotNull] ImperiumParser.LEAVEContext context);
+	public virtual void EnterLEAVE([NotNull] ImperiumParser.LEAVEContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>LEAVE</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitLEAVE([NotNull] ImperiumParser.LEAVEContext context);
+	public virtual void ExitLEAVE([NotNull] ImperiumParser.LEAVEContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>AGAIN</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAGAIN([NotNull] ImperiumParser.AGAINContext context);
+	public virtual void EnterAGAIN([NotNull] ImperiumParser.AGAINContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>AGAIN</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAGAIN([NotNull] ImperiumParser.AGAINContext context);
+	public virtual void ExitAGAIN([NotNull] ImperiumParser.AGAINContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.preprocessor_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterPreprocessor_stmt([NotNull] ImperiumParser.Preprocessor_stmtContext context);
+	public virtual void EnterPreprocessor_stmt([NotNull] ImperiumParser.Preprocessor_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.preprocessor_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitPreprocessor_stmt([NotNull] ImperiumParser.Preprocessor_stmtContext context);
+	public virtual void ExitPreprocessor_stmt([NotNull] ImperiumParser.Preprocessor_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.assign_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAssign_stmt([NotNull] ImperiumParser.Assign_stmtContext context);
+	public virtual void EnterAssign_stmt([NotNull] ImperiumParser.Assign_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.assign_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAssign_stmt([NotNull] ImperiumParser.Assign_stmtContext context);
+	public virtual void ExitAssign_stmt([NotNull] ImperiumParser.Assign_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>BASIC_REF</c>
 	/// labeled alternative in <see cref="ImperiumParser.reference"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBASIC_REF([NotNull] ImperiumParser.BASIC_REFContext context);
+	public virtual void EnterBASIC_REF([NotNull] ImperiumParser.BASIC_REFContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>BASIC_REF</c>
 	/// labeled alternative in <see cref="ImperiumParser.reference"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBASIC_REF([NotNull] ImperiumParser.BASIC_REFContext context);
+	public virtual void ExitBASIC_REF([NotNull] ImperiumParser.BASIC_REFContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>PTR_REF</c>
 	/// labeled alternative in <see cref="ImperiumParser.reference"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterPTR_REF([NotNull] ImperiumParser.PTR_REFContext context);
+	public virtual void EnterPTR_REF([NotNull] ImperiumParser.PTR_REFContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>PTR_REF</c>
 	/// labeled alternative in <see cref="ImperiumParser.reference"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitPTR_REF([NotNull] ImperiumParser.PTR_REFContext context);
+	public virtual void ExitPTR_REF([NotNull] ImperiumParser.PTR_REFContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.arguments"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterArguments([NotNull] ImperiumParser.ArgumentsContext context);
+	public virtual void EnterArguments([NotNull] ImperiumParser.ArgumentsContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.arguments"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitArguments([NotNull] ImperiumParser.ArgumentsContext context);
+	public virtual void ExitArguments([NotNull] ImperiumParser.ArgumentsContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.arguments_list"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterArguments_list([NotNull] ImperiumParser.Arguments_listContext context);
+	public virtual void EnterArguments_list([NotNull] ImperiumParser.Arguments_listContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.arguments_list"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitArguments_list([NotNull] ImperiumParser.Arguments_listContext context);
+	public virtual void ExitArguments_list([NotNull] ImperiumParser.Arguments_listContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.basic_reference"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBasic_reference([NotNull] ImperiumParser.Basic_referenceContext context);
+	public virtual void EnterBasic_reference([NotNull] ImperiumParser.Basic_referenceContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.basic_reference"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBasic_reference([NotNull] ImperiumParser.Basic_referenceContext context);
+	public virtual void ExitBasic_reference([NotNull] ImperiumParser.Basic_referenceContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.structure_qualification"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterStructure_qualification([NotNull] ImperiumParser.Structure_qualificationContext context);
+	public virtual void EnterStructure_qualification([NotNull] ImperiumParser.Structure_qualificationContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.structure_qualification"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitStructure_qualification([NotNull] ImperiumParser.Structure_qualificationContext context);
+	public virtual void ExitStructure_qualification([NotNull] ImperiumParser.Structure_qualificationContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.structure_qualification_list"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterStructure_qualification_list([NotNull] ImperiumParser.Structure_qualification_listContext context);
+	public virtual void EnterStructure_qualification_list([NotNull] ImperiumParser.Structure_qualification_listContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.structure_qualification_list"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitStructure_qualification_list([NotNull] ImperiumParser.Structure_qualification_listContext context);
+	public virtual void ExitStructure_qualification_list([NotNull] ImperiumParser.Structure_qualification_listContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.subscript"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterSubscript([NotNull] ImperiumParser.SubscriptContext context);
+	public virtual void EnterSubscript([NotNull] ImperiumParser.SubscriptContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.subscript"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitSubscript([NotNull] ImperiumParser.SubscriptContext context);
+	public virtual void ExitSubscript([NotNull] ImperiumParser.SubscriptContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.subscript_commalist"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterSubscript_commalist([NotNull] ImperiumParser.Subscript_commalistContext context);
+	public virtual void EnterSubscript_commalist([NotNull] ImperiumParser.Subscript_commalistContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.subscript_commalist"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitSubscript_commalist([NotNull] ImperiumParser.Subscript_commalistContext context);
+	public virtual void ExitSubscript_commalist([NotNull] ImperiumParser.Subscript_commalistContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression([NotNull] ImperiumParser.ExpressionContext context);
+	public virtual void EnterExpression([NotNull] ImperiumParser.ExpressionContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression([NotNull] ImperiumParser.ExpressionContext context);
+	public virtual void ExitExpression([NotNull] ImperiumParser.ExpressionContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.expression_9"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression_9([NotNull] ImperiumParser.Expression_9Context context);
+	public virtual void EnterExpression_9([NotNull] ImperiumParser.Expression_9Context context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.expression_9"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression_9([NotNull] ImperiumParser.Expression_9Context context);
+	public virtual void ExitExpression_9([NotNull] ImperiumParser.Expression_9Context context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.expression_8"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression_8([NotNull] ImperiumParser.Expression_8Context context);
+	public virtual void EnterExpression_8([NotNull] ImperiumParser.Expression_8Context context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.expression_8"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression_8([NotNull] ImperiumParser.Expression_8Context context);
+	public virtual void ExitExpression_8([NotNull] ImperiumParser.Expression_8Context context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.expression_7"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression_7([NotNull] ImperiumParser.Expression_7Context context);
+	public virtual void EnterExpression_7([NotNull] ImperiumParser.Expression_7Context context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.expression_7"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression_7([NotNull] ImperiumParser.Expression_7Context context);
+	public virtual void ExitExpression_7([NotNull] ImperiumParser.Expression_7Context context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.expression_6"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression_6([NotNull] ImperiumParser.Expression_6Context context);
+	public virtual void EnterExpression_6([NotNull] ImperiumParser.Expression_6Context context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.expression_6"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression_6([NotNull] ImperiumParser.Expression_6Context context);
+	public virtual void ExitExpression_6([NotNull] ImperiumParser.Expression_6Context context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.expression_5"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression_5([NotNull] ImperiumParser.Expression_5Context context);
+	public virtual void EnterExpression_5([NotNull] ImperiumParser.Expression_5Context context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.expression_5"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression_5([NotNull] ImperiumParser.Expression_5Context context);
+	public virtual void ExitExpression_5([NotNull] ImperiumParser.Expression_5Context context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.expression_4"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression_4([NotNull] ImperiumParser.Expression_4Context context);
+	public virtual void EnterExpression_4([NotNull] ImperiumParser.Expression_4Context context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.expression_4"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression_4([NotNull] ImperiumParser.Expression_4Context context);
+	public virtual void ExitExpression_4([NotNull] ImperiumParser.Expression_4Context context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.expression_3"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression_3([NotNull] ImperiumParser.Expression_3Context context);
+	public virtual void EnterExpression_3([NotNull] ImperiumParser.Expression_3Context context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.expression_3"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression_3([NotNull] ImperiumParser.Expression_3Context context);
+	public virtual void ExitExpression_3([NotNull] ImperiumParser.Expression_3Context context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.expression_2"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression_2([NotNull] ImperiumParser.Expression_2Context context);
+	public virtual void EnterExpression_2([NotNull] ImperiumParser.Expression_2Context context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.expression_2"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression_2([NotNull] ImperiumParser.Expression_2Context context);
+	public virtual void ExitExpression_2([NotNull] ImperiumParser.Expression_2Context context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.expression_1"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExpression_1([NotNull] ImperiumParser.Expression_1Context context);
+	public virtual void EnterExpression_1([NotNull] ImperiumParser.Expression_1Context context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.expression_1"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExpression_1([NotNull] ImperiumParser.Expression_1Context context);
+	public virtual void ExitExpression_1([NotNull] ImperiumParser.Expression_1Context context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.prefix_expression"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterPrefix_expression([NotNull] ImperiumParser.Prefix_expressionContext context);
+	public virtual void EnterPrefix_expression([NotNull] ImperiumParser.Prefix_expressionContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.prefix_expression"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitPrefix_expression([NotNull] ImperiumParser.Prefix_expressionContext context);
+	public virtual void ExitPrefix_expression([NotNull] ImperiumParser.Prefix_expressionContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.parenthesized_expression"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterParenthesized_expression([NotNull] ImperiumParser.Parenthesized_expressionContext context);
+	public virtual void EnterParenthesized_expression([NotNull] ImperiumParser.Parenthesized_expressionContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.parenthesized_expression"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitParenthesized_expression([NotNull] ImperiumParser.Parenthesized_expressionContext context);
+	public virtual void ExitParenthesized_expression([NotNull] ImperiumParser.Parenthesized_expressionContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.primitive_expression"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterPrimitive_expression([NotNull] ImperiumParser.Primitive_expressionContext context);
+	public virtual void EnterPrimitive_expression([NotNull] ImperiumParser.Primitive_expressionContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.primitive_expression"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitPrimitive_expression([NotNull] ImperiumParser.Primitive_expressionContext context);
+	public virtual void ExitPrimitive_expression([NotNull] ImperiumParser.Primitive_expressionContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.prefix_operator"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterPrefix_operator([NotNull] ImperiumParser.Prefix_operatorContext context);
+	public virtual void EnterPrefix_operator([NotNull] ImperiumParser.Prefix_operatorContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.prefix_operator"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitPrefix_operator([NotNull] ImperiumParser.Prefix_operatorContext context);
+	public virtual void ExitPrefix_operator([NotNull] ImperiumParser.Prefix_operatorContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.comparison_operator"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterComparison_operator([NotNull] ImperiumParser.Comparison_operatorContext context);
+	public virtual void EnterComparison_operator([NotNull] ImperiumParser.Comparison_operatorContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.comparison_operator"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitComparison_operator([NotNull] ImperiumParser.Comparison_operatorContext context);
+	public virtual void ExitComparison_operator([NotNull] ImperiumParser.Comparison_operatorContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.shift_operator"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterShift_operator([NotNull] ImperiumParser.Shift_operatorContext context);
+	public virtual void EnterShift_operator([NotNull] ImperiumParser.Shift_operatorContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.shift_operator"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitShift_operator([NotNull] ImperiumParser.Shift_operatorContext context);
+	public virtual void ExitShift_operator([NotNull] ImperiumParser.Shift_operatorContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>KEYWD</c>
 	/// labeled alternative in <see cref="ImperiumParser.identifier"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterKEYWD([NotNull] ImperiumParser.KEYWDContext context);
+	public virtual void EnterKEYWD([NotNull] ImperiumParser.KEYWDContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>KEYWD</c>
 	/// labeled alternative in <see cref="ImperiumParser.identifier"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitKEYWD([NotNull] ImperiumParser.KEYWDContext context);
+	public virtual void ExitKEYWD([NotNull] ImperiumParser.KEYWDContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>identifier_IDENTIFIER</c>
 	/// labeled alternative in <see cref="ImperiumParser.identifier"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterIdentifier_IDENTIFIER([NotNull] ImperiumParser.Identifier_IDENTIFIERContext context);
+	public virtual void EnterIdentifier_IDENTIFIER([NotNull] ImperiumParser.Identifier_IDENTIFIERContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>identifier_IDENTIFIER</c>
 	/// labeled alternative in <see cref="ImperiumParser.identifier"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitIdentifier_IDENTIFIER([NotNull] ImperiumParser.Identifier_IDENTIFIERContext context);
+	public virtual void ExitIdentifier_IDENTIFIER([NotNull] ImperiumParser.Identifier_IDENTIFIERContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.keyword"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterKeyword([NotNull] ImperiumParser.KeywordContext context);
+	public virtual void EnterKeyword([NotNull] ImperiumParser.KeywordContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.keyword"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitKeyword([NotNull] ImperiumParser.KeywordContext context);
+	public virtual void ExitKeyword([NotNull] ImperiumParser.KeywordContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.call_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterCall_stmt([NotNull] ImperiumParser.Call_stmtContext context);
+	public virtual void EnterCall_stmt([NotNull] ImperiumParser.Call_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.call_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitCall_stmt([NotNull] ImperiumParser.Call_stmtContext context);
+	public virtual void ExitCall_stmt([NotNull] ImperiumParser.Call_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.goto_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterGoto_stmt([NotNull] ImperiumParser.Goto_stmtContext context);
+	public virtual void EnterGoto_stmt([NotNull] ImperiumParser.Goto_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.goto_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitGoto_stmt([NotNull] ImperiumParser.Goto_stmtContext context);
+	public virtual void ExitGoto_stmt([NotNull] ImperiumParser.Goto_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.end_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterEnd_stmt([NotNull] ImperiumParser.End_stmtContext context);
+	public virtual void EnterEnd_stmt([NotNull] ImperiumParser.End_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.end_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitEnd_stmt([NotNull] ImperiumParser.End_stmtContext context);
+	public virtual void ExitEnd_stmt([NotNull] ImperiumParser.End_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.endloop_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterEndloop_stmt([NotNull] ImperiumParser.Endloop_stmtContext context);
+	public virtual void EnterEndloop_stmt([NotNull] ImperiumParser.Endloop_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.endloop_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitEndloop_stmt([NotNull] ImperiumParser.Endloop_stmtContext context);
+	public virtual void ExitEndloop_stmt([NotNull] ImperiumParser.Endloop_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.reloop_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterReloop_stmt([NotNull] ImperiumParser.Reloop_stmtContext context);
+	public virtual void EnterReloop_stmt([NotNull] ImperiumParser.Reloop_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.reloop_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitReloop_stmt([NotNull] ImperiumParser.Reloop_stmtContext context);
+	public virtual void ExitReloop_stmt([NotNull] ImperiumParser.Reloop_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.declare_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDeclare_stmt([NotNull] ImperiumParser.Declare_stmtContext context);
+	public virtual void EnterDeclare_stmt([NotNull] ImperiumParser.Declare_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.declare_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDeclare_stmt([NotNull] ImperiumParser.Declare_stmtContext context);
+	public virtual void ExitDeclare_stmt([NotNull] ImperiumParser.Declare_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.type_info"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterType_info([NotNull] ImperiumParser.Type_infoContext context);
+	public virtual void EnterType_info([NotNull] ImperiumParser.Type_infoContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.type_info"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitType_info([NotNull] ImperiumParser.Type_infoContext context);
+	public virtual void ExitType_info([NotNull] ImperiumParser.Type_infoContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.dimension_suffix"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDimension_suffix([NotNull] ImperiumParser.Dimension_suffixContext context);
+	public virtual void EnterDimension_suffix([NotNull] ImperiumParser.Dimension_suffixContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.dimension_suffix"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDimension_suffix([NotNull] ImperiumParser.Dimension_suffixContext context);
+	public virtual void ExitDimension_suffix([NotNull] ImperiumParser.Dimension_suffixContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.bound_pair"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBound_pair([NotNull] ImperiumParser.Bound_pairContext context);
+	public virtual void EnterBound_pair([NotNull] ImperiumParser.Bound_pairContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.bound_pair"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBound_pair([NotNull] ImperiumParser.Bound_pairContext context);
+	public virtual void ExitBound_pair([NotNull] ImperiumParser.Bound_pairContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.bound_pair_commalist"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBound_pair_commalist([NotNull] ImperiumParser.Bound_pair_commalistContext context);
+	public virtual void EnterBound_pair_commalist([NotNull] ImperiumParser.Bound_pair_commalistContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.bound_pair_commalist"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBound_pair_commalist([NotNull] ImperiumParser.Bound_pair_commalistContext context);
+	public virtual void ExitBound_pair_commalist([NotNull] ImperiumParser.Bound_pair_commalistContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.lower_bound"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterLower_bound([NotNull] ImperiumParser.Lower_boundContext context);
+	public virtual void EnterLower_bound([NotNull] ImperiumParser.Lower_boundContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.lower_bound"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitLower_bound([NotNull] ImperiumParser.Lower_boundContext context);
+	public virtual void ExitLower_bound([NotNull] ImperiumParser.Lower_boundContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.upper_bound"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterUpper_bound([NotNull] ImperiumParser.Upper_boundContext context);
+	public virtual void EnterUpper_bound([NotNull] ImperiumParser.Upper_boundContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.upper_bound"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitUpper_bound([NotNull] ImperiumParser.Upper_boundContext context);
+	public virtual void ExitUpper_bound([NotNull] ImperiumParser.Upper_boundContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAttribute([NotNull] ImperiumParser.AttributeContext context);
+	public virtual void EnterAttribute([NotNull] ImperiumParser.AttributeContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAttribute([NotNull] ImperiumParser.AttributeContext context);
+	public virtual void ExitAttribute([NotNull] ImperiumParser.AttributeContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>BIN</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBIN([NotNull] ImperiumParser.BINContext context);
+	public virtual void EnterBIN([NotNull] ImperiumParser.BINContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>BIN</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBIN([NotNull] ImperiumParser.BINContext context);
+	public virtual void ExitBIN([NotNull] ImperiumParser.BINContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>DEC</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDEC([NotNull] ImperiumParser.DECContext context);
+	public virtual void EnterDEC([NotNull] ImperiumParser.DECContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>DEC</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDEC([NotNull] ImperiumParser.DECContext context);
+	public virtual void ExitDEC([NotNull] ImperiumParser.DECContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>PTR</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterPTR([NotNull] ImperiumParser.PTRContext context);
+	public virtual void EnterPTR([NotNull] ImperiumParser.PTRContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>PTR</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitPTR([NotNull] ImperiumParser.PTRContext context);
+	public virtual void ExitPTR([NotNull] ImperiumParser.PTRContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>BIT</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBIT([NotNull] ImperiumParser.BITContext context);
+	public virtual void EnterBIT([NotNull] ImperiumParser.BITContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>BIT</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBIT([NotNull] ImperiumParser.BITContext context);
+	public virtual void ExitBIT([NotNull] ImperiumParser.BITContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>CHAR</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterCHAR([NotNull] ImperiumParser.CHARContext context);
+	public virtual void EnterCHAR([NotNull] ImperiumParser.CHARContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>CHAR</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitCHAR([NotNull] ImperiumParser.CHARContext context);
+	public virtual void ExitCHAR([NotNull] ImperiumParser.CHARContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>STR</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterSTR([NotNull] ImperiumParser.STRContext context);
+	public virtual void EnterSTR([NotNull] ImperiumParser.STRContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>STR</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitSTR([NotNull] ImperiumParser.STRContext context);
+	public virtual void ExitSTR([NotNull] ImperiumParser.STRContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>ENT</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterENT([NotNull] ImperiumParser.ENTContext context);
+	public virtual void EnterENT([NotNull] ImperiumParser.ENTContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>ENT</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitENT([NotNull] ImperiumParser.ENTContext context);
+	public virtual void ExitENT([NotNull] ImperiumParser.ENTContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>FIX</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterFIX([NotNull] ImperiumParser.FIXContext context);
+	public virtual void EnterFIX([NotNull] ImperiumParser.FIXContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>FIX</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitFIX([NotNull] ImperiumParser.FIXContext context);
+	public virtual void ExitFIX([NotNull] ImperiumParser.FIXContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>FLT</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterFLT([NotNull] ImperiumParser.FLTContext context);
+	public virtual void EnterFLT([NotNull] ImperiumParser.FLTContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>FLT</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitFLT([NotNull] ImperiumParser.FLTContext context);
+	public virtual void ExitFLT([NotNull] ImperiumParser.FLTContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>OFF</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterOFF([NotNull] ImperiumParser.OFFContext context);
+	public virtual void EnterOFF([NotNull] ImperiumParser.OFFContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>OFF</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitOFF([NotNull] ImperiumParser.OFFContext context);
+	public virtual void ExitOFF([NotNull] ImperiumParser.OFFContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>VNG</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterVNG([NotNull] ImperiumParser.VNGContext context);
+	public virtual void EnterVNG([NotNull] ImperiumParser.VNGContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>VNG</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitVNG([NotNull] ImperiumParser.VNGContext context);
+	public virtual void ExitVNG([NotNull] ImperiumParser.VNGContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>COR</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterCOR([NotNull] ImperiumParser.CORContext context);
+	public virtual void EnterCOR([NotNull] ImperiumParser.CORContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>COR</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitCOR([NotNull] ImperiumParser.CORContext context);
+	public virtual void ExitCOR([NotNull] ImperiumParser.CORContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>COF</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterCOF([NotNull] ImperiumParser.COFContext context);
+	public virtual void EnterCOF([NotNull] ImperiumParser.COFContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>COF</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitCOF([NotNull] ImperiumParser.COFContext context);
+	public virtual void ExitCOF([NotNull] ImperiumParser.COFContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>BLTN</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBLTN([NotNull] ImperiumParser.BLTNContext context);
+	public virtual void EnterBLTN([NotNull] ImperiumParser.BLTNContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>BLTN</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBLTN([NotNull] ImperiumParser.BLTNContext context);
+	public virtual void ExitBLTN([NotNull] ImperiumParser.BLTNContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>INTR</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterINTR([NotNull] ImperiumParser.INTRContext context);
+	public virtual void EnterINTR([NotNull] ImperiumParser.INTRContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>INTR</c>
 	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitINTR([NotNull] ImperiumParser.INTRContext context);
-	/// <summary>
-	/// Enter a parse tree produced by the <c>IDENT</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterIDENT([NotNull] ImperiumParser.IDENTContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>IDENT</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitIDENT([NotNull] ImperiumParser.IDENTContext context);
+	public virtual void ExitINTR([NotNull] ImperiumParser.INTRContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.precision"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterPrecision([NotNull] ImperiumParser.PrecisionContext context);
+	public virtual void EnterPrecision([NotNull] ImperiumParser.PrecisionContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.precision"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitPrecision([NotNull] ImperiumParser.PrecisionContext context);
+	public virtual void ExitPrecision([NotNull] ImperiumParser.PrecisionContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.number_of_digits"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterNumber_of_digits([NotNull] ImperiumParser.Number_of_digitsContext context);
+	public virtual void EnterNumber_of_digits([NotNull] ImperiumParser.Number_of_digitsContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.number_of_digits"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitNumber_of_digits([NotNull] ImperiumParser.Number_of_digitsContext context);
+	public virtual void ExitNumber_of_digits([NotNull] ImperiumParser.Number_of_digitsContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.scale_factor"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterScale_factor([NotNull] ImperiumParser.Scale_factorContext context);
+	public virtual void EnterScale_factor([NotNull] ImperiumParser.Scale_factorContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.scale_factor"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitScale_factor([NotNull] ImperiumParser.Scale_factorContext context);
+	public virtual void ExitScale_factor([NotNull] ImperiumParser.Scale_factorContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.max_length"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterMax_length([NotNull] ImperiumParser.Max_lengthContext context);
+	public virtual void EnterMax_length([NotNull] ImperiumParser.Max_lengthContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.max_length"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitMax_length([NotNull] ImperiumParser.Max_lengthContext context);
+	public virtual void ExitMax_length([NotNull] ImperiumParser.Max_lengthContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.based"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBased([NotNull] ImperiumParser.BasedContext context);
+	public virtual void EnterBased([NotNull] ImperiumParser.BasedContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.based"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBased([NotNull] ImperiumParser.BasedContext context);
+	public virtual void ExitBased([NotNull] ImperiumParser.BasedContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.defined"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDefined([NotNull] ImperiumParser.DefinedContext context);
+	public virtual void EnterDefined([NotNull] ImperiumParser.DefinedContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.defined"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDefined([NotNull] ImperiumParser.DefinedContext context);
+	public virtual void ExitDefined([NotNull] ImperiumParser.DefinedContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.entry_information"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterEntry_information([NotNull] ImperiumParser.Entry_informationContext context);
+	public virtual void EnterEntry_information([NotNull] ImperiumParser.Entry_informationContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.entry_information"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitEntry_information([NotNull] ImperiumParser.Entry_informationContext context);
+	public virtual void ExitEntry_information([NotNull] ImperiumParser.Entry_informationContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.coprocedure_specifier"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterCoprocedure_specifier([NotNull] ImperiumParser.Coprocedure_specifierContext context);
+	public virtual void EnterCoprocedure_specifier([NotNull] ImperiumParser.Coprocedure_specifierContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.coprocedure_specifier"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitCoprocedure_specifier([NotNull] ImperiumParser.Coprocedure_specifierContext context);
+	public virtual void ExitCoprocedure_specifier([NotNull] ImperiumParser.Coprocedure_specifierContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.parameter_name_commalist"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterParameter_name_commalist([NotNull] ImperiumParser.Parameter_name_commalistContext context);
+	public virtual void EnterParameter_name_commalist([NotNull] ImperiumParser.Parameter_name_commalistContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.parameter_name_commalist"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitParameter_name_commalist([NotNull] ImperiumParser.Parameter_name_commalistContext context);
+	public virtual void ExitParameter_name_commalist([NotNull] ImperiumParser.Parameter_name_commalistContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.returns_descriptor"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterReturns_descriptor([NotNull] ImperiumParser.Returns_descriptorContext context);
+	public virtual void EnterReturns_descriptor([NotNull] ImperiumParser.Returns_descriptorContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.returns_descriptor"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitReturns_descriptor([NotNull] ImperiumParser.Returns_descriptorContext context);
+	public virtual void ExitReturns_descriptor([NotNull] ImperiumParser.Returns_descriptorContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.return_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterReturn_stmt([NotNull] ImperiumParser.Return_stmtContext context);
+	public virtual void EnterReturn_stmt([NotNull] ImperiumParser.Return_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.return_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitReturn_stmt([NotNull] ImperiumParser.Return_stmtContext context);
+	public virtual void ExitReturn_stmt([NotNull] ImperiumParser.Return_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.if_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterIf_stmt([NotNull] ImperiumParser.If_stmtContext context);
+	public virtual void EnterIf_stmt([NotNull] ImperiumParser.If_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.if_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitIf_stmt([NotNull] ImperiumParser.If_stmtContext context);
+	public virtual void ExitIf_stmt([NotNull] ImperiumParser.If_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.then_clause"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterThen_clause([NotNull] ImperiumParser.Then_clauseContext context);
+	public virtual void EnterThen_clause([NotNull] ImperiumParser.Then_clauseContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.then_clause"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitThen_clause([NotNull] ImperiumParser.Then_clauseContext context);
+	public virtual void ExitThen_clause([NotNull] ImperiumParser.Then_clauseContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.else_clause"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterElse_clause([NotNull] ImperiumParser.Else_clauseContext context);
+	public virtual void EnterElse_clause([NotNull] ImperiumParser.Else_clauseContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.else_clause"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitElse_clause([NotNull] ImperiumParser.Else_clauseContext context);
+	public virtual void ExitElse_clause([NotNull] ImperiumParser.Else_clauseContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.elif_clause"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterElif_clause([NotNull] ImperiumParser.Elif_clauseContext context);
+	public virtual void EnterElif_clause([NotNull] ImperiumParser.Elif_clauseContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.elif_clause"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitElif_clause([NotNull] ImperiumParser.Elif_clauseContext context);
+	public virtual void ExitElif_clause([NotNull] ImperiumParser.Elif_clauseContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>BASIC_LOOP</c>
 	/// labeled alternative in <see cref="ImperiumParser.loop_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBASIC_LOOP([NotNull] ImperiumParser.BASIC_LOOPContext context);
+	public virtual void EnterBASIC_LOOP([NotNull] ImperiumParser.BASIC_LOOPContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>BASIC_LOOP</c>
 	/// labeled alternative in <see cref="ImperiumParser.loop_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBASIC_LOOP([NotNull] ImperiumParser.BASIC_LOOPContext context);
+	public virtual void ExitBASIC_LOOP([NotNull] ImperiumParser.BASIC_LOOPContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>WHILE_UNTIL</c>
 	/// labeled alternative in <see cref="ImperiumParser.loop_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterWHILE_UNTIL([NotNull] ImperiumParser.WHILE_UNTILContext context);
+	public virtual void EnterWHILE_UNTIL([NotNull] ImperiumParser.WHILE_UNTILContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>WHILE_UNTIL</c>
 	/// labeled alternative in <see cref="ImperiumParser.loop_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitWHILE_UNTIL([NotNull] ImperiumParser.WHILE_UNTILContext context);
+	public virtual void ExitWHILE_UNTIL([NotNull] ImperiumParser.WHILE_UNTILContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>UNTIL_WHILE</c>
 	/// labeled alternative in <see cref="ImperiumParser.loop_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterUNTIL_WHILE([NotNull] ImperiumParser.UNTIL_WHILEContext context);
+	public virtual void EnterUNTIL_WHILE([NotNull] ImperiumParser.UNTIL_WHILEContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>UNTIL_WHILE</c>
 	/// labeled alternative in <see cref="ImperiumParser.loop_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitUNTIL_WHILE([NotNull] ImperiumParser.UNTIL_WHILEContext context);
+	public virtual void ExitUNTIL_WHILE([NotNull] ImperiumParser.UNTIL_WHILEContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.while_option"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterWhile_option([NotNull] ImperiumParser.While_optionContext context);
+	public virtual void EnterWhile_option([NotNull] ImperiumParser.While_optionContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.while_option"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitWhile_option([NotNull] ImperiumParser.While_optionContext context);
+	public virtual void ExitWhile_option([NotNull] ImperiumParser.While_optionContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.until_option"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterUntil_option([NotNull] ImperiumParser.Until_optionContext context);
+	public virtual void EnterUntil_option([NotNull] ImperiumParser.Until_optionContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.until_option"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitUntil_option([NotNull] ImperiumParser.Until_optionContext context);
+	public virtual void ExitUntil_option([NotNull] ImperiumParser.Until_optionContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.define_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDefine_stmt([NotNull] ImperiumParser.Define_stmtContext context);
+	public virtual void EnterDefine_stmt([NotNull] ImperiumParser.Define_stmtContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.define_stmt"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDefine_stmt([NotNull] ImperiumParser.Define_stmtContext context);
+	public virtual void ExitDefine_stmt([NotNull] ImperiumParser.Define_stmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.numeric_literal"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterNumeric_literal([NotNull] ImperiumParser.Numeric_literalContext context);
+	public virtual void EnterNumeric_literal([NotNull] ImperiumParser.Numeric_literalContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.numeric_literal"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitNumeric_literal([NotNull] ImperiumParser.Numeric_literalContext context);
+	public virtual void ExitNumeric_literal([NotNull] ImperiumParser.Numeric_literalContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.hexadecimal_literal"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterHexadecimal_literal([NotNull] ImperiumParser.Hexadecimal_literalContext context);
+	public virtual void EnterHexadecimal_literal([NotNull] ImperiumParser.Hexadecimal_literalContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.hexadecimal_literal"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitHexadecimal_literal([NotNull] ImperiumParser.Hexadecimal_literalContext context);
+	public virtual void ExitHexadecimal_literal([NotNull] ImperiumParser.Hexadecimal_literalContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.octal_literal"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterOctal_literal([NotNull] ImperiumParser.Octal_literalContext context);
+	public virtual void EnterOctal_literal([NotNull] ImperiumParser.Octal_literalContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.octal_literal"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitOctal_literal([NotNull] ImperiumParser.Octal_literalContext context);
+	public virtual void ExitOctal_literal([NotNull] ImperiumParser.Octal_literalContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.decimal_literal"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDecimal_literal([NotNull] ImperiumParser.Decimal_literalContext context);
+	public virtual void EnterDecimal_literal([NotNull] ImperiumParser.Decimal_literalContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.decimal_literal"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDecimal_literal([NotNull] ImperiumParser.Decimal_literalContext context);
+	public virtual void ExitDecimal_literal([NotNull] ImperiumParser.Decimal_literalContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.binary_literal"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterBinary_literal([NotNull] ImperiumParser.Binary_literalContext context);
+	public virtual void EnterBinary_literal([NotNull] ImperiumParser.Binary_literalContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by <see cref="ImperiumParser.binary_literal"/>.
+	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitBinary_literal([NotNull] ImperiumParser.Binary_literalContext context);
+	public virtual void ExitBinary_literal([NotNull] ImperiumParser.Binary_literalContext context) { }
+
+	/// <inheritdoc/>
+	/// <remarks>The default implementation does nothing.</remarks>
+	public virtual void EnterEveryRule([NotNull] ParserRuleContext context) { }
+	/// <inheritdoc/>
+	/// <remarks>The default implementation does nothing.</remarks>
+	public virtual void ExitEveryRule([NotNull] ParserRuleContext context) { }
+	/// <inheritdoc/>
+	/// <remarks>The default implementation does nothing.</remarks>
+	public virtual void VisitTerminal([NotNull] ITerminalNode node) { }
+	/// <inheritdoc/>
+	/// <remarks>The default implementation does nothing.</remarks>
+	public virtual void VisitErrorNode([NotNull] IErrorNode node) { }
 }

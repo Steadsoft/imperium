@@ -5,12 +5,12 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link ImperiumListener},
+ * This class provides an empty implementation of {@link ImperiumParserListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
 @SuppressWarnings("CheckReturnValue")
-public class ImperiumBaseListener implements ImperiumListener {
+public class ImperiumParserBaseListener implements ImperiumParserListener {
 	/**
 	 * {@inheritDoc}
 	 *
@@ -911,18 +911,6 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitINTR(ImperiumParser.INTRContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterIDENT(ImperiumParser.IDENTContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIDENT(ImperiumParser.IDENTContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

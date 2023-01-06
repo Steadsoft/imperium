@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from Imperium.g4 by ANTLR 4.11.1
+// Generated from ImperiumParser.g4 by ANTLR 4.11.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -25,7 +25,7 @@ using IToken = Antlr4.Runtime.IToken;
 using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 
 /// <summary>
-/// This class provides an empty implementation of <see cref="IImperiumVisitor{Result}"/>,
+/// This class provides an empty implementation of <see cref="IImperiumParserVisitor{Result}"/>,
 /// which can be extended to create a visitor which only needs to handle a subset
 /// of the available methods.
 /// </summary>
@@ -33,7 +33,7 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.11.1")]
 [System.Diagnostics.DebuggerNonUserCode]
 [System.CLSCompliant(false)]
-public partial class ImperiumBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, IImperiumVisitor<Result> {
+public partial class ImperiumParserBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, IImperiumParserVisitor<Result> {
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.translation_unit"/>.
 	/// <para>
@@ -815,17 +815,6 @@ public partial class ImperiumBaseVisitor<Result> : AbstractParseTreeVisitor<Resu
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	public virtual Result VisitINTR([NotNull] ImperiumParser.INTRContext context) { return VisitChildren(context); }
-	/// <summary>
-	/// Visit a parse tree produced by the <c>IDENT</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// <para>
-	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
-	/// on <paramref name="context"/>.
-	/// </para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	public virtual Result VisitIDENT([NotNull] ImperiumParser.IDENTContext context) { return VisitChildren(context); }
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.precision"/>.
 	/// <para>

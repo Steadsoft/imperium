@@ -19,7 +19,7 @@ procedure main(x)
 	dcl name string(256) varying;
 	dcl mask(32) bit(8);
 
-	 dcl stuff mystruct; 
+	 //dcl stuff mystruct; 
 
 	/* declare some variables named the same as keywords */
 

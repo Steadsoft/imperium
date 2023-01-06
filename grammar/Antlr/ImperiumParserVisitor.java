@@ -8,7 +8,7 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
-public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
+public interface ImperiumParserVisitor<T> extends ParseTreeVisitor<T> {
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#translation_unit}.
 	 * @param ctx the parse tree
@@ -490,13 +490,6 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitINTR(ImperiumParser.INTRContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IDENT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIDENT(ImperiumParser.IDENTContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#precision}.
 	 * @param ctx the parse tree
