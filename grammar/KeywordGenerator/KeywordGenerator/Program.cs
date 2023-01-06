@@ -13,7 +13,7 @@ namespace KeywordGenerator
 
             Dictionary<string,string> output = new Dictionary<string,string>();
 
-            foreach (var language in language_dictionary)
+            foreach (var language in language_dictionary.OrderBy(e => e.Key))
             {
                 foreach (var keyword_pair in language_dictionary[language.Key])
                 {
