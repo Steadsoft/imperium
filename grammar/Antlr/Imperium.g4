@@ -147,7 +147,6 @@ keyword:
 	CALL
 	| GOTO
 	| PROCEDURE
-	| PROC
 	| END
 	| DECLARE
 	| DEFINE
@@ -327,49 +326,75 @@ binary_literal: (BINARY_PATTERN);
 
 BYTE_ORDER_MARK: '\u00EF' '\u00BB' '\u00BF';
 
-CALL: ('call');
-GOTO: ('goto');
-GO: ('go');
-TO: ('to');
-PROCEDURE: ('procedure' | 'proc');
-PROC: ('proc');
-END: ('end');
-DECLARE: ('declare' | 'dcl');
-ARGUMENT: ('argument' | 'arg');
-DEFINE: ('define' | 'def');
-BINARY: ('binary' | 'bin');
-DECIMAL: ('decimal' | 'dec');
-AUTOMATIC: ('automatic' | 'auto');
-BUILTIN: ('builtin');
-INTRINSIC: ('intrinsic');
-STATIC: ('static');
-VARIABLE: ('variable');
-BASED: ('based');
-DEFINED: ('defined');
-INTERNAL: ('internal');
-EXTERNAL: ('external');
-RETURN: ('return');
-IF: ('if');
-THEN: ('then');
-ELSE: ('else');
-ELIF: ('elif');
-RETURNS: ('returns');
-POINTER: ('pointer' | 'ptr');
-BIT: ('bit');
-CHARACTER: ('character' | 'char');
-ENTRY: ('entry');
-FIXED: ('fixed');
-FLOAT: ('float');
-OFFSET: ('offset' | 'ofx');
-STRING: ('string');
-VARYING: ('varying' | 'var');
-COROUTINE: ('coroutine' | 'cor');
-COFUNCTION: ('cofunction' | 'cof');
-LOOP: ('loop');
-WHILE: ('while');
-UNTIL: ('until');
-ENDLOOP: ('endloop');
-RELOOP: ('reloop');
+
+ALIGNED: {langcode=="en"}? ('aligned') | {langcode=="fr"}? ('aligned') | {langcode=="he"}? ('aligned') ;
+ARGUMENT: {langcode=="en"}? ('argument' | 'arg') | {langcode=="fr"}? ('argument') | {langcode=="he"}? ('argument') ;
+AUTOMATIC: {langcode=="en"}? ('automatic') ;
+BASED: {langcode=="en"}? ('based') ;
+BINARY: {langcode=="en"}? ('binary' | 'bin') | {langcode=="fr"}? ('binaire') | {langcode=="he"}? ('binary') ;
+BIT: {langcode=="en"}? ('bit') ;
+BOOLEAN: {langcode=="en"}? ('boolean') | {langcode=="fr"}? ('booléenne') | {langcode=="he"}? ('boolean') ;
+BUILTIN: {langcode=="en"}? ('builtin') | {langcode=="fr"}? ('intégré') | {langcode=="he"}? ('builtin') ;
+BY: {langcode=="en"}? ('by') | {langcode=="fr"}? ('by') | {langcode=="he"}? ('by') ;
+BYPASS: {langcode=="en"}? ('bypass') | {langcode=="fr"}? ('bypass') ;
+CALL: {langcode=="en"}? ('call') | {langcode=="fr"}? ('appeler') | {langcode=="he"}? ('call') ;
+CHARACTER: {langcode=="en"}? ('character' | 'char') ;
+COFUNCTION: {langcode=="en"}? ('cofunction') ;
+COROUTINE: {langcode=="en"}? ('coroutine') | {langcode=="fr"}? ('coroutine') | {langcode=="he"}? ('coroutine') ;
+DECIMAL: {langcode=="en"}? ('decimal' | 'dec') | {langcode=="fr"}? ('décimal') | {langcode=="he"}? ('decimal') ;
+DECLARE: {langcode=="en"}? ('declare' | 'dcl') | {langcode=="fr"}? ('déclarer') | {langcode=="he"}? ('declare') ;
+DEFINE: {langcode=="en"}? ('define' | 'def') | {langcode=="fr"}? ('define') | {langcode=="he"}? ('define') ;
+DEFINED: {langcode=="en"}? ('defined') ;
+ELIF: {langcode=="en"}? ('elif') ;
+ELSE: {langcode=="en"}? ('else') | {langcode=="fr"}? ('else') | {langcode=="he"}? ('אחרת') ;
+END: {langcode=="en"}? ('end') | {langcode=="fr"}? ('fin') | {langcode=="he"}? ('end') ;
+ENDLOOP: {langcode=="en"}? ('endloop') ;
+ENTRY: {langcode=="en"}? ('entry') ;
+ENUM: {langcode=="en"}? ('enum') | {langcode=="fr"}? ('enum') | {langcode=="he"}? ('enum') ;
+FIXED: {langcode=="en"}? ('fixed') | {langcode=="fr"}? ('fixe') | {langcode=="he"}? ('fixed') ;
+FLOAT: {langcode=="en"}? ('float') | {langcode=="fr"}? ('flottant') | {langcode=="he"}? ('float') ;
+FUNCTION: {langcode=="en"}? ('function' | 'func') | {langcode=="fr"}? ('fonction') | {langcode=="he"}? ('function') ;
+GO: {langcode=="en"}? ('go') ;
+GOTO: {langcode=="en"}? ('goto') | {langcode=="fr"}? ('goto') | {langcode=="he"}? ('goto') ;
+IF: {langcode=="en"}? ('if') | {langcode=="fr"}? ('si') | {langcode=="he"}? ('אם') ;
+INC: {langcode=="en"}? ('inc') ;
+INCLUDE: {langcode=="en"}? ('include' | 'inc') ;
+INTERNAL: {langcode=="en"}? ('internal') | {langcode=="fr"}? ('interne') | {langcode=="he"}? ('internal') ;
+INTERRUPT: {langcode=="en"}? ('interrupt') | {langcode=="fr"}? ('interrompre') | {langcode=="he"}? ('interrupt') ;
+INTRINSIC: {langcode=="en"}? ('intrinsic') ;
+LANGUAGE: {langcode=="en"}? ('lingua') | {langcode=="fr"}? ('lingua') | {langcode=="he"}? ('lingua') ;
+LOOP: {langcode=="en"}? ('loop') | {langcode=="fr"}? ('boucle') | {langcode=="he"}? ('loop') ;
+NAMESPACE: {langcode=="en"}? ('namespace') | {langcode=="fr"}? ('namespace') | {langcode=="he"}? ('namespace') ;
+OFFSET: {langcode=="en"}? ('offset') | {langcode=="fr"}? ('offset') | {langcode=="he"}? ('offset') ;
+OUT: {langcode=="en"}? ('out') | {langcode=="fr"}? ('depuis') | {langcode=="he"}? ('out') ;
+PAD: {langcode=="en"}? ('pad') | {langcode=="fr"}? ('pad') | {langcode=="he"}? ('pad') ;
+POINTER: {langcode=="en"}? ('pointer' | 'ptr') | {langcode=="fr"}? ('pointer') | {langcode=="he"}? ('pointer') ;
+PRIVATE: {langcode=="en"}? ('private') | {langcode=="fr"}? ('privé') | {langcode=="he"}? ('private') ;
+PROCEDURE: {langcode=="en"}? ('procedure' | 'proc') | {langcode=="fr"}? ('procédé') | {langcode=="he"}? ('procedure') ;
+PUBLIC: {langcode=="en"}? ('public') | {langcode=="fr"}? ('public') | {langcode=="he"}? ('public') ;
+READONLY: {langcode=="en"}? ('readonly') | {langcode=="fr"}? ('readonly') | {langcode=="he"}? ('readonly') ;
+REF: {langcode=="en"}? ('ref') | {langcode=="fr"}? ('ref') | {langcode=="he"}? ('ref') ;
+RELOOP: {langcode=="en"}? ('reloop') ;
+RETURN: {langcode=="en"}? ('return') | {langcode=="fr"}? ('retour') | {langcode=="he"}? ('return') ;
+RETURNS: {langcode=="en"}? ('returns') ;
+RETURNON: {langcode=="en"}? ('returnon') | {langcode=="fr"}? ('retour si') | {langcode=="he"}? ('returnon') ;
+SINGLET: {langcode=="en"}? ('singlet') | {langcode=="fr"}? ('singlet') | {langcode=="he"}? ('singlet') ;
+STATIC: {langcode=="en"}? ('static') | {langcode=="fr"}? ('static') | {langcode=="he"}? ('static') ;
+STRING: {langcode=="en"}? ('string') | {langcode=="fr"}? ('chaîne') | {langcode=="he"}? ('string') ;
+STRUCTURE: {langcode=="en"}? ('structure' | 'struct') | {langcode=="fr"}? ('structure') | {langcode=="he"}? ('structure') ;
+THEN: {langcode=="en"}? ('then') ;
+TO: {langcode=="en"}? ('to') | {langcode=="fr"}? ('to') | {langcode=="he"}? ('to') ;
+TYPE: {langcode=="en"}? ('type') | {langcode=="fr"}? ('type') | {langcode=="he"}? ('type') ;
+UNALIGNED: {langcode=="en"}? ('unaligned') | {langcode=="fr"}? ('unaligned') | {langcode=="he"}? ('unaligned') ;
+UNTIL: {langcode=="en"}? ('until') | {langcode=="fr"}? ('avant') | {langcode=="he"}? ('until') ;
+USING: {langcode=="en"}? ('using') | {langcode=="fr"}? ('using') | {langcode=="he"}? ('using') ;
+WHILE: {langcode=="en"}? ('while') | {langcode=="fr"}? ('tandis que') | {langcode=="he"}? ('כלעוד') ;
+VARIABLE: {langcode=="en"}? ('variable') ;
+VARYING: {langcode=="en"}? ('varying') | {langcode=="fr"}? ('varying') | {langcode=="he"}? ('varying') ;
+YIELD: {langcode=="en"}? ('yield') | {langcode=="fr"}? ('donner') | {langcode=="he"}? ('yield') ;
+
+
+
 BASE_B: (':b' | ':B');
 BASE_O: (':o' | ':O');
 BASE_D: (':d' | ':D');

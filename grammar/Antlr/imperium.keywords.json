@@ -1,10 +1,10 @@
 {
   "en": {
     "Aligned": "aligned",
-    "Argument": "argument",
+    "Argument": "argument,arg",
     "Automatic": "automatic",
     "Based":"based",
-    "Binary": "binary, bin",
+    "Binary": "binary,bin",
     "Bit":"bit",
     "Boolean": "boolean",
     "Builtin": "builtin",
@@ -14,9 +14,9 @@
     "Character":"character, char",
     "Cofunction":"cofunction",
     "Coroutine": "coroutine",
-    "Decimal": "decimal, dec",
-    "Declare": "declare, dcl",
-    "Define": "define, def",
+    "Decimal": "decimal,dec",
+    "Declare": "declare,dcl",
+    "Define": "define,def",
     "Defined": "defined",
     "Elif": "elif",
     "Else": "else",
@@ -26,7 +26,7 @@
     "Enum": "enum",
     "Fixed": "fixed",
     "Float": "float",
-    "Function": "function",
+    "Function": "function,func",
     "Go": "go",
     "Goto": "goto",
     "If": "if",
@@ -41,7 +41,7 @@
     "Offset": "offset",
     "Out": "out",
     "Pad": "pad",
-    "Pointer": "pointer",
+    "Pointer": "pointer,ptr",
     "Private": "private",
     "Procedure": "procedure, proc",
     "Public": "public",
@@ -54,7 +54,7 @@
     "Singlet": "singlet",
     "Static": "static",
     "String": "string",
-    "Structure": "structure",
+    "Structure": "structure,struct",
     "Then": "then",
     "To": "to",
     "Type": "type",
@@ -64,16 +64,7 @@
     "While": "while",
     "Variable":"variable",
     "Varying": "varying",
-    "Yield": "yield",
-    "Arg": "arg",
-    "Bin": "bin",
-    "Dcl": "dcl",
-    "Dec": "dec",
-    "Def": "def",
-    "Func": "func",
-    "Proc": "proc",
-    "Ptr": "ptr",
-    "Struct": "struct"
+    "Yield": "yield"
   },
 
   "fr": {
@@ -124,16 +115,8 @@
     "Using": "using",
     "While": "tandis que",
     "Varying": "varying",
-    "Yield": "donner",
-    "Arg": "arg",
-    "Bin": "bin",
-    "Dcl": "dcl",
-    "Dec": "déc",
-    "Def": "def",
-    "Func": "fonc",
-    "Proc": "proc",
-    "Ptr": "ptr",
-    "Struct": "struct"
+    "Yield": "donner"
+
   },
   "he": {
     "Aligned": "aligned",
@@ -182,15 +165,7 @@
     "Using": "using",
     "While": "כלעוד",
     "Varying": "varying",
-    "Yield": "yield",
-    "Arg": "arg",
-    "Bin": "bin",
-    "Dcl": "dcl",
-    "Dec": "dec",
-    "Def": "def",
-    "Func": "func",
-    "Proc": "proc",
-    "Ptr": "ptr",
-    "Struct": "struct"
+    "Yield": "yield"
+
   }
 }
