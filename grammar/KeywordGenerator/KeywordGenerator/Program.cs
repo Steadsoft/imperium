@@ -19,11 +19,11 @@ namespace KeywordGenerator
                 {
                     if (!output.ContainsKey(keyword_pair.Key))
                     {
-                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper()}: [langcode==!{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
+                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper()}: [KeywordLanguageCode == !{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
                     }
                     else
                     {
-                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"[langcode==!{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
+                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"[KeywordLanguageCode == !{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
                     }
                 }
             }

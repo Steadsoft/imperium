@@ -26,19 +26,19 @@ namespace AntlrCSharp
 
             //TextReader source = ReadFile(@"test_3.nr");
 
-            NestedSourceReader reader = new NestedSourceReader("test_3.ipl", regex, ReadFile);
-
-            //ImperiumLexer.langcode = "fr";
+            NestedSourceReader reader = new NestedSourceReader("parser_test.fr.ipl", regex, ReadFile);
 
             AntlrInputStream inputStream = new AntlrInputStream(reader);
-            ImperiumLexer noresLexer = new ImperiumLexer(inputStream);
+            ImperiumLexer imperium_lexer = new ImperiumLexer(inputStream);
 
-            CommonTokenStream commonTokenStream = new CommonTokenStream(noresLexer);
-            ImperiumParser noresParser = new ImperiumParser(commonTokenStream);
+            imperium_lexer.KeywordLanguageCode = "fr";
 
-            noresParser.BuildParseTree = true;
+            CommonTokenStream commonTokenStream = new CommonTokenStream(imperium_lexer);
+            ImperiumParser imperium_parser = new ImperiumParser(commonTokenStream);
 
-            var tree = noresParser.translation_unit();
+            imperium_parser.BuildParseTree = true;
+
+            var tree = imperium_parser.translation_unit();
 
             //var listener = new TestListener();
 
@@ -53,7 +53,7 @@ namespace AntlrCSharp
             Console.WriteLine(tree.ToStringTree());
         }
 
-        private static TextReader ReadFile (string Filename, Regex Regex)
+        private static TextReader? ReadFile (string Filename, Regex Regex)
         {
             if (Regex.IsMatch(Filename))
             {

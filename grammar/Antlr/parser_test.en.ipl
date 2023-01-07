@@ -1,0 +1,10 @@
+procedure English (X)
+
+	dcl counter binary(15);
+
+	if counter = 0 then
+	   return;
+	end;
+
+end;
+

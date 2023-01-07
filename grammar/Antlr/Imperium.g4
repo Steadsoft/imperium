@@ -336,7 +336,7 @@ CHARACTER: {langcode=="en"}? ('character' | 'char') ;
 COFUNCTION: {langcode=="en"}? ('cofunction') ;
 COROUTINE: {langcode=="en"}? ('coroutine') | {langcode=="fr"}? ('coroutine') | {langcode=="he"}? ('coroutine') | {langcode=="nl"}? ('co-routine') ;
 DECIMAL: {langcode=="en"}? ('decimal' | 'dec') | {langcode=="fr"}? ('décimal') | {langcode=="he"}? ('decimal') | {langcode=="nl"}? ('decimaal') ;
-DECLARE: {langcode=="en"}? ('declare' | 'dcl') | {langcode=="fr"}? ('déclarer') | {langcode=="he"}? ('declare') | {langcode=="nl"}? ('declareer') ;
+DECLARE: {langcode=="en"}? ('declare' | 'dcl') | {langcode=="fr"}? ('doclarer') | {langcode=="he"}? ('declare') | {langcode=="nl"}? ('declareer') ;
 DEFINE: {langcode=="en"}? ('define' | 'def') | {langcode=="fr"}? ('define') | {langcode=="he"}? ('define') ;
 DEFINED: {langcode=="en"}? ('defined') ;
 ELIF: {langcode=="en"}? ('elif') ;
@@ -364,7 +364,7 @@ OUT: {langcode=="en"}? ('out') | {langcode=="fr"}? ('depuis') | {langcode=="he"}
 PAD: {langcode=="en"}? ('pad') | {langcode=="fr"}? ('pad') | {langcode=="he"}? ('pad') ;
 POINTER: {langcode=="en"}? ('pointer' | 'ptr') | {langcode=="fr"}? ('pointer') | {langcode=="he"}? ('pointer') ;
 PRIVATE: {langcode=="en"}? ('private') | {langcode=="fr"}? ('privé') | {langcode=="he"}? ('private') | {langcode=="nl"}? ('private') ;
-PROCEDURE: {langcode=="en"}? ('procedure' | 'proc') | {langcode=="fr"}? ('procédé') | {langcode=="he"}? ('procedure') | {langcode=="nl"}? ('procedure') ;
+PROCEDURE: {langcode=="en"}? ('procedure' | 'proc') | {langcode=="fr"}? ('procede') | {langcode=="he"}? ('procedure') | {langcode=="nl"}? ('procedure') ;
 PUBLIC: {langcode=="en"}? ('public') | {langcode=="fr"}? ('public') | {langcode=="he"}? ('public') | {langcode=="nl"}? ('publiek') ;
 READONLY: {langcode=="en"}? ('readonly') | {langcode=="fr"}? ('readonly') | {langcode=="he"}? ('readonly') | {langcode=="nl"}? ('alleen-lezen') ;
 REF: {langcode=="en"}? ('ref') | {langcode=="fr"}? ('ref') | {langcode=="he"}? ('ref') | {langcode=="nl"}? ('referentie') ;
@@ -376,7 +376,7 @@ SINGLET: {langcode=="en"}? ('singlet') | {langcode=="fr"}? ('singlet') | {langco
 STATIC: {langcode=="en"}? ('static') | {langcode=="fr"}? ('static') | {langcode=="he"}? ('static') | {langcode=="nl"}? ('statisch') ;
 STRING: {langcode=="en"}? ('string') | {langcode=="fr"}? ('chaîne') | {langcode=="he"}? ('string') | {langcode=="nl"}? ('string') ;
 STRUCTURE: {langcode=="en"}? ('structure' | 'struct') | {langcode=="fr"}? ('structure') | {langcode=="he"}? ('structure') | {langcode=="nl"}? ('structuur') ;
-THEN: {langcode=="en"}? ('then') ;
+THEN: {langcode=="en"}? ('then') | {langcode=="fr"}? ('then') ;
 TO: {langcode=="en"}? ('to') | {langcode=="fr"}? ('to') | {langcode=="he"}? ('to') | {langcode=="nl"}? ('tot') ;
 TYPE: {langcode=="en"}? ('type') | {langcode=="fr"}? ('type') | {langcode=="he"}? ('type') | {langcode=="nl"}? ('type') ;
 UNALIGNED: {langcode=="en"}? ('unaligned') | {langcode=="fr"}? ('unaligned') | {langcode=="he"}? ('unaligned') ;

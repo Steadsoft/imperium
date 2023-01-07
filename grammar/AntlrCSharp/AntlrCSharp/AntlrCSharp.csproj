@@ -8,19 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\Antlr\ImperiumKeywords.cs" Link="ImperiumKeywords.cs" />
     <Compile Include="..\..\Antlr\ImperiumLexer.cs" Link="ImperiumLexer.cs" />
     <Compile Include="..\..\Antlr\ImperiumParser.cs" Link="ImperiumParser.cs" />
-    <Compile Include="..\..\Antlr\ImperiumParserBaseListener.cs" Link="ImperiumParserBaseListener.cs" />
-    <Compile Include="..\..\Antlr\ImperiumParserBaseVisitor.cs" Link="ImperiumParserBaseVisitor.cs" />
-    <Compile Include="..\..\Antlr\ImperiumParserListener.cs" Link="ImperiumParserListener.cs" />
-    <Compile Include="..\..\Antlr\ImperiumParserVisitor.cs" Link="ImperiumParserVisitor.cs" />
+    <Compile Include="..\..\Antlr\ImperiumBaseListener.cs" Link="ImperiumBaseListener.cs" />
+    <Compile Include="..\..\Antlr\ImperiumBaseVisitor.cs" Link="ImperiumBaseVisitor.cs" />
+    <Compile Include="..\..\Antlr\ImperiumListener.cs" Link="ImperiumListener.cs" />
+    <Compile Include="..\..\Antlr\ImperiumVisitor.cs" Link="ImperiumVisitor.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\Antlr\elif.post" Link="elif.post" />
     <None Include="..\..\Antlr\literals.post" Link="literals.post" />
     <None Include="..\..\Antlr\Imperium.g4" Link="Imperium.g4" />
+    <None Include="D:\Git\GitHub\Steadsoft\imperium\grammar\Antlr\parser_test.fr.ipl" Link="parser_test.fr.ipl" />
     <None Include="..\..\Antlr\test1.ipl" Link="test1.ipl" />
     <None Include="..\..\Antlr\test2.ipl" Link="test2.ipl" />
     <None Include="..\..\Antlr\test_3.ipl" Link="test_3.ipl" />
