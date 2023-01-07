@@ -140,7 +140,7 @@ public class ImperiumLexer extends Lexer {
 	}
 
 
-	    public String KeywordLanguageCode = "fr";
+	    public String KeywordLanguageCode = "en";
 
 	    /* private Map<String, Integer> words; */
 

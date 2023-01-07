@@ -16,7 +16,7 @@ grammar Imperium; // Latin for "control"
  */
 
 @lexer::members {
-    public String KeywordLanguageCode = "fr";
+    public String KeywordLanguageCode = "en";
 
     /* private Map<String, Integer> words; */
 }
