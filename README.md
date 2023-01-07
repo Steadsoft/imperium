@@ -23,6 +23,7 @@ The goals of this language project include:
 * Eliminate pointer arithemtic.
 * Support both pointer and offset as language types.
 * Provide powerful preprocessing features.
+* Make it easy to work with big or little "endian" targets.
 
 ## Basic Characteristics
 
