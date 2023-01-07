@@ -5,7 +5,7 @@ Imperium is a programming language that emphasizes readability, extensibility, i
 
 The language has no "reserved words" which means it doesn't care if an identifier happens to also be the same as a language keyword, adding new keywords is easy because backward compatibility is always ensured. The language also supports international use, it can be used with English, French, Dutch and other keyword sets and additional language keyword sets can be easily added.
 
-The language began with an emphasis on the grammar, the grammar structure was carefully designed and refined to provide the extensibility features needed. The grammar is mostly influenced by the PL/I language but is not a clone of PL/I, it also borrows ideas from Algol and Pascal, it is not an Object Orineted language. It can be characterized as a language that follows a keyword based pattern, all statements (except assignment statements) begin with a language keyword followed by optional and 
+The language began with an emphasis on the grammar, the grammar structure was carefully designed and refined to provide the extensibility features needed. The grammar is mostly influenced by the PL/I language but is not a clone of PL/I, it also borrows ideas from Algol and Pascal and Oberon, it is not an Object Orineted language. It can be characterized as a language that follows a keyword based pattern, all statements (except assignment statements) begin with a language keyword followed by optional and 
 mandatory attributes.
 
 ## Goals
