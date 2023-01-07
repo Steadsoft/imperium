@@ -11,6 +11,24 @@ namespace KeywordGenerator
 
             var language_dictionary = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(File.ReadAllText(@"..\..\..\..\..\antlr\imperium.keywords.json"));//.ToDictionary(x => x.Key, x => x.Value.ToDictionary(x => x.Value, x => x.Key));
 
+            var expected = language_dictionary["en"].Count();
+
+            Console.WriteLine($"Language 'en' contains {expected} entries.");
+
+            foreach (var dict in language_dictionary.Where(ld => ld.Key != "en"))
+            {
+                if (dict.Value.Count() < expected)
+                    Console.WriteLine($"Language '{dict.Key}' contains too few entries ({dict.Value.Count()}).");
+
+                if (dict.Value.Count() > expected)
+                    Console.WriteLine($"Language '{dict.Key}' contains too many entries ({dict.Value.Count()}).");
+
+                if (dict.Value.Count() == expected)
+                    Console.WriteLine($"Language '{dict.Key}' contains the correct number of entries ({expected}).");
+
+
+            }
+
             Dictionary<string,string> output = new Dictionary<string,string>();
 
             foreach (var language in language_dictionary.OrderBy(e => e.Key))

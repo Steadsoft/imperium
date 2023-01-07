@@ -1,26 +1,25 @@
-/*
-procede French (X)
 
-	doclarer counter binaire(15);	
+procédé French (X)
 
-	si counter > 0 then
-	   appeler escaper;
-	else
+	déclarer counter binaire(15);	
+
+	si counter > 0 ensuite
+	   appeler retour;
+	autre
 	   retour;
 	fin;
 
 fin;
-*/
+
 
 procedure English (X)
 
 	declare counter binary(15);	
 
 	if counter > 0 then
-	   call escaper;
+	   call retour;
 	else
 	   return;
 	end;
 
 end;
-
