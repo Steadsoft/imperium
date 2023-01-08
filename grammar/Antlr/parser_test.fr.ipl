@@ -9,6 +9,10 @@ procédé French (X)
 	   retour;
 	fin;
 
+	boucle tandis que (a > b)
+	   goto place;
+	fin;
+
 fin;
 */
 
@@ -21,6 +25,10 @@ procedure English (X)
 	   call retour;
 	else
 	   return;
+	end;
+
+	loop while (a > b)
+	   go to place;
 	end;
 
 end;
