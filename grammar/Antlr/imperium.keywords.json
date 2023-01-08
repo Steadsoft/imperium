@@ -1,5 +1,15 @@
+/*------------------------------------------------------------------------*/
+/* Each language must define the same number of keywords as English.      */
+/* Abbreviations for keywords are permitted by using a comma as the       */
+/* separator.                                                             */
+/* The left hand names are standardized but always converted to upper     */
+/* case when the grammar text is generated, these names are referenced    */
+/* by the grammar's parsing rules.                                        */
+/*------------------------------------------------------------------------*/
+
 {
-  "en": {
+   
+  "en": { // English
     "Aligned": "aligned",
     "Argument": "argument, arg",
     "Automatic": "automatic, auto",
@@ -66,8 +76,7 @@
     "Varying": "varying",
     "Yield": "yield"
   },
-
-  "fr": {
+  "fr": { // French
     "Aligned": "aligned",
     "Argument": "argument",
     "Automatic": "automatic",
@@ -135,7 +144,7 @@
     "Yield": "donner"
 
   },
-  "he": {
+  "he": { // Hebrew
     "Aligned": "aligned",
     "Argument": "argument",
     "Binary": "binary",
@@ -185,8 +194,7 @@
     "Yield": "yield"
 
   },
-
-  "nl": {
+  "nl": { // Dutch
     "Argument": "argument",
     "Binary": "binair",
     "Boolean": "boolean",

@@ -9,7 +9,9 @@ namespace KeywordGenerator
         {
             // load the dictionary.
 
-            var language_dictionary = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(File.ReadAllText(@"..\..\..\..\..\antlr\imperium.keywords.json"));//.ToDictionary(x => x.Key, x => x.Value.ToDictionary(x => x.Value, x => x.Key));
+            JsonSerializerOptions options = new JsonSerializerOptions() { ReadCommentHandling = JsonCommentHandling.Skip };
+
+            var language_dictionary = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(File.ReadAllText(@"..\..\..\..\..\antlr\imperium.keywords.json"), options);//.ToDictionary(x => x.Key, x => x.Value.ToDictionary(x => x.Value, x => x.Key));
 
             var expected = language_dictionary["en"].Count();
 
