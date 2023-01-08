@@ -1,4 +1,4 @@
-/*
+
 procédé French (X)
 
 	déclarer counter binaire(15);	
@@ -10,13 +10,11 @@ procédé French (X)
 	fin;
 
 	boucle tandis que (a > b)
-	   goto place;
+	   aller à place;
 	fin;
 
 fin;
-*/
-
-
+/*
 procedure English (X)
 
 	declare counter binary(15);	
@@ -32,3 +30,4 @@ procedure English (X)
 	end;
 
 end;
+*/
