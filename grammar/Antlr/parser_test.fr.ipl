@@ -1,4 +1,4 @@
-
+/*
 procédé French (X)
 
 	déclarer counter binaire(15);	
@@ -14,6 +14,8 @@ procédé French (X)
 	fin;
 
 fin;
+*/
+
 /*
 procedure English (X)
 
@@ -31,3 +33,19 @@ procedure English (X)
 
 end;
 */
+
+routine German (X)
+
+	deklarieren counter binär(15);	
+
+	wenn counter > 0 dann
+	   aufrufen retour;
+	anders
+	   rückkehr;
+	ende;
+
+	wiederholen solang (a > b)
+	   gehen place;
+	ende;
+
+ende;

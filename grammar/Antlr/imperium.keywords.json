@@ -8,7 +8,7 @@
 /*------------------------------------------------------------------------*/
 
 {
-   
+
   "en": { // English
     "Aligned": "aligned",
     "Argument": "argument, arg",
@@ -232,5 +232,74 @@
     "While": "zolang",
     "Varying": "varierend",
     "Yield": "opbrengst"
+  },
+
+  "de": { // German
+    "Aligned": "ausgerichtet",
+    "Argument": "argument",
+    "Automatic": "automatisch, auto",
+    "Based": "based",
+    "Binary": "binär",
+    "Bit": "bit",
+    "Boolean": "boolesch",
+    "Builtin": "eingebaut",
+    "By": "by",
+    "Bypass": "bypass",
+    "Call": "aufrufen",
+    "Character": "character",
+    "Cofunction": "cofunction",
+    "Coroutine": "coroutine",
+    "Decimal": "dezimal",
+    "Declare": "deklarieren",
+    "Define": "define",
+    "Defined": "defined",
+    "Elif": "elif",
+    "Else": "anders",
+    "End": "ende",
+    "Endloop": "ende wiederholen",
+    "Entry": "entry",
+    "Enum": "enum",
+    "Fixed": "stationär",
+    "Float": "flottant",
+    "Function": "fonction",
+    "Goto": "gehen",
+    "If": "wenn",
+    "Inc": "inc",
+    "Include": "enthalten",
+    "Internal": "intern",
+    "Interrupt": "unterbrechen",
+    "Intrinsic": "intrinsisch",
+    "Language": "lingua",
+    "Loop": "wiederholen",
+    "Namespace": "namespace",
+    "Offset": "offset",
+    "Out": "depuis",
+    "Pad": "pad",
+    "Pointer": "pointer",
+    "Private": "privé",
+    "Procedure": "routine",
+    "Public": "öffentlich",
+    "Readonly": "readonly",
+    "Ref": "ref",
+    "Reloop": "reloop",
+    "Return": "rückkehr",
+    "Returns": "rückkehrs",
+    "Returnon": "retour_si",
+    "Singlet": "singlet",
+    "Static": "static",
+    "String": "text",
+    "Structure": "structure",
+    "Then": "dann",
+    "To": "to",
+    "Type": "art",
+    "Unaligned": "unaligned",
+    "Until": "bis",
+    "Using": "using",
+    "While": "solang",
+    "Variable": "variable",
+    "Varying": "varying",
+    "Yield": "abtreten"
+
   }
+
 }
