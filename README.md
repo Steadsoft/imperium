@@ -100,7 +100,11 @@ Because of this behavior it was decided that the project will formally support t
 
 ## Keyword Dictionaries
 
-We appreciate and encourage contributions to the [keyword dictionaries](https://github.com/Steadsoft/imperium/blob/main/grammar/Antlr/imperium.keywords.json), either fresh new language entries or additions, corrections or improvmements to an existing one, just create a Pull Request and it will be readily considered. It is also valuable to define reasonbale abbreviations where this makes sense in the target language, though this only makes sense for keywords with either a long spelling or where the abbrevation is commonly understood or intuitive in the target language. For example the keyword `Binary` has English keywords of `binary` and `bin`, also lowercase keywords are preferred but if there's a target langauge cultural justification to do otherwise then this will be considered, a check is made to esnure no keyword/abbreviation appears more than once in any language.
+We appreciate and encourage contributions to the [keyword dictionaries](https://github.com/Steadsoft/imperium/blob/main/grammar/Antlr/imperium.keywords.json), either fresh new language entries or additions, corrections or improvmements to an existing one, just create a Pull Request and it will be readily considered. 
+
+It is also valuable to define reasonbale abbreviations where this makes sense in the target language, though this only makes sense for keywords with either a long spelling or where the abbrevation is commonly understood or intuitive in the target language. 
+
+For example the keyword `Binary` has English keywords of `binary` and `bin`, also lowercase keywords are preferred but if there's a target langauge cultural justification to do otherwise then this will be considered, a check is made to esnure no keyword/abbreviation appears more than once in any language.
 
 
 
