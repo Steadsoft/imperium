@@ -94,7 +94,10 @@ routine German (X)
 ende;
 ```
 
-Each of these generates an identical parse tree, each was parsed by the same parser and an argumnet defining the language "en", "fr" or "de". You can see that the English fragment uses `call` to invoke a procddure named `retour`. But `retour` *just happens to be* French for the keyword `return` (in English) yet there's no problem because the language has no reserved words, it doesn't care how identifiers are spelled.
+Each of these generates an identical parse tree, each was parsed by the same parser and an argumnet defining the language keywords code "en", "fr" or "de". You can see that the English fragment uses `call` to invoke a procddure named `retour`. But `retour` *just happens to be* French for the keyword `return` (in English) yet there's no problem because the language has no reserved words, it doesn't care how identifiers are spelled.
+
+Because of this behavior it was decided that the project will formally support the goal of being culture agnostic, so over time it's expected that the keyword dictionaries will grow and mature and cover a broad range of alphabets and human written langauges.
+
 
 
 
