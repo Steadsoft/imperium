@@ -98,6 +98,9 @@ Each of these generates an identical parse tree, each was parsed by the same par
 
 Because of this behavior it was decided that the project will formally support the goal of being culture agnostic, so over time it's expected that the keyword dictionaries will grow and mature and cover a broad range of alphabets and human written langauges.
 
+We appreciate and encourage contributions to the keyword dictionaries, either fresh new language entries or additions, corrections or improvmements to existing one. It is also valuable to define reasonbale abbreviations where this makes sense in the target language, though this only makes sense for keywords with either a long spelling or where the abbrevation is commonly understood in the target language. For example the keyword `Binary` has English keywords of `binary` and `bin`, also lowercase keywords are preferred but if there's a target langauge cultural justification to do otherwise then this will be considered, a check is made to esnure no keyword/abbreviation appears more than once in any language.
+
+
 
 
 
