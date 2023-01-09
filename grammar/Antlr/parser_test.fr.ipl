@@ -16,7 +16,7 @@ procédé French (X)
 	fin;
 
 fin;
-*/
+
 
 procedure English (X)
 
@@ -36,7 +36,7 @@ procedure English (X)
 
 end;
 
-/*
+
 routine German (X)
 
 	deklarieren counter binär(15);	
@@ -55,3 +55,21 @@ routine German (X)
 
 ende;
 */
+
+процедура Russian (X)
+
+		объявлять counter бинарный(15);
+
+		counter = FACE B034 D85F BAD7:H;
+
+		если counter > 0 затем
+		   вызов retour;
+		еще
+		   возвращаться;
+		конец;
+
+        повторять в то время как (a > b)
+			ходят в place;
+		конец;
+
+конец;	
