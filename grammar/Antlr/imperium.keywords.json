@@ -1,7 +1,9 @@
 /*------------------------------------------------------------------------*/
-/* Each language must define the same number of keywords as English.      */
+/* Each language must define the same number of abstract keywords as      */
+/* English.                                                               */
 /* Abbreviations for keywords are permitted by using a comma as the       */
-/* separator.                                                             */
+/* separator, additional abbreviations are optional and need not be       */
+/* present in the English dictionary.                                     */
 /* The left hand names are standardized but always converted to upper     */
 /* case when the grammar text is generated, these names are referenced    */
 /* by the grammar's parsing rules.                                        */
