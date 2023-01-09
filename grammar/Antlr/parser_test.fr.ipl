@@ -63,13 +63,13 @@ ende;
 		counter = FACE B034 D85F BAD7:H;
 
 		если counter > 0 то
-		   вызвать retour;
+		   вызов retour;
 		еще
 		   возврат;
 		конец;
 
         повторять в то время как (a > b)
-			ходят в place;
+			 перейти к place;
 		конец;
 
 конец;	
