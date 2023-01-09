@@ -41,7 +41,7 @@ procédé French (X)
 
 	déclarer counter binaire(15);	
 
-      counter = FACE B034 D85F BAD7:H;
+        counter = FACE B034 D85F BAD7:H;
 
 	si counter > 0 ensuite
 	   appeler retour; // call the tour analyzer on the map.
@@ -60,7 +60,7 @@ procedure English (X)
 
 	declare counter binary(15);	
  
-  counter = FACE B034 D85F BAD7:H;
+        counter = FACE B034 D85F BAD7:H;
 
 	if counter > 0 then
 	   call retour; // call the tour analyzer on the map.
@@ -79,7 +79,7 @@ routine German (X)
 
 	deklarieren counter binär(15);	
 
-  counter = FACE B034 D85F BAD7:H;
+        counter = FACE B034 D85F BAD7:H;
 
 	wenn counter > 0 dann
 	   aufrufen retour; // call the tour analyzer on the map.
