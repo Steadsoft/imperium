@@ -106,7 +106,7 @@ It is also valuable to define reasonbale abbreviations where this makes sense in
 
 For example the keyword `Binary` has English keywords of `binary` and `bin`, also lowercase keywords are preferred but if there's a target langauge cultural justification to do otherwise then this will be considered, a check is made to esnure no keyword/abbreviation appears more than once in any language.
 
-Because this is very early stage development, changes to existing keywords is very feasible, nobody is likely to be negatively impacted.
+Because this is very early stage development, changes to existing keywords is very feasible, nobody is likely to be negatively impacted if some keyword gets replaced/changed.
 
 
 
