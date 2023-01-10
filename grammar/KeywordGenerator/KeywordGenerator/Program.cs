@@ -68,11 +68,11 @@ namespace KeywordGenerator
                 {
                     if (!output.ContainsKey(keyword_pair.Key))
                     {
-                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper() + ":"} {Environment.NewLine}{padder}[KeywordLanguageCode == !{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"') + Environment.NewLine;
+                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper() + ":"} {Environment.NewLine}{padder}[Lexicon(!{language.Key}!)]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"') + Environment.NewLine;
                     }
                     else
                     {
-                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"{padder}[KeywordLanguageCode == !{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"') + Environment.NewLine;
+                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"{padder}[Lexicon(!{language.Key}!)]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"') + Environment.NewLine;
                     }
                 }
             }
