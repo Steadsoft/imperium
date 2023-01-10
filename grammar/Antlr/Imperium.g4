@@ -10,13 +10,18 @@ grammar Imperium; // Latin for "control"
 
 @lexer::members {
     
-	// This code MUST compile fine as Java and C#
+	// This code MUST compile for both Java and C#
 
-	public String KeywordLexiconCode = "ru";
+	private String KeywordLexiconCode = "en";
 
 	public Boolean Lexicon(String Code)
 	{
 		return Code == KeywordLexiconCode;
+	}
+
+	public void SetLexicon(String Code)
+	{
+		KeywordLexiconCode = Code;
 	}
 }
 
@@ -35,7 +40,7 @@ terminator: SEMICOLON;
 label_stmt: LBRACE identifier RBRACE;
 
 nonexecutable_stmt:
-	preprocessor_stmt	# PRE
+	  preprocessor_stmt	# PRE
 	| declare_stmt		# DCL
 	| define_stmt		# DEF;
  
@@ -52,7 +57,8 @@ executable_stmt:
 	;
 
 
-preprocessor_stmt: '%' 'include' QUOTE identifier '.inc' QUOTE;
+preprocessor_stmt: '%' 'include' QUOTE identifier '.inc' QUOTE SEMICOLON |
+                   '%' 'lexicon' LPAR identifier RPAR SEMICOLON;
 
 assign_stmt: reference EQUALS expression; //SEMICOLON
 
