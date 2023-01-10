@@ -15,6 +15,8 @@ namespace KeywordGenerator
 
             var expected = language_dictionary["en"].Count();
 
+            var longest_keyword = language_dictionary["en"].Keys.Select(k => k.Length).Max() + 1; // get length of longest key to help us create a uniformly spaced layout of Antlr terms.
+
             Console.WriteLine($"Language 'en' contains {expected} entries.");
 
             foreach (var dict in language_dictionary.Where(ld => ld.Key != "en"))
@@ -58,24 +60,26 @@ namespace KeywordGenerator
 
             Dictionary<string,string> output = new Dictionary<string,string>();
 
+            string padder = " ".PadRight(longest_keyword);
+
             foreach (var language in language_dictionary.OrderBy(e => e.Key))
             {
                 foreach (var keyword_pair in language_dictionary[language.Key])
                 {
                     if (!output.ContainsKey(keyword_pair.Key))
                     {
-                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper()}: [KeywordLanguageCode == !{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
+                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper() + ":"} {Environment.NewLine}{padder}[KeywordLanguageCode == !{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"') + Environment.NewLine;
                     }
                     else
                     {
-                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"[KeywordLanguageCode == !{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"');
+                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"{padder}[KeywordLanguageCode == !{language.Key}!]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"') + Environment.NewLine;
                     }
                 }
             }
 
             foreach (var entry in output)
             {
-                output[entry.Key] = entry.Value.Trim(' ').Trim('|') + ";";            
+                output[entry.Key] = entry.Value.TrimEnd('\n').TrimEnd('\r').TrimEnd(' ').TrimEnd('|') + ";";            
             }
 
 
@@ -109,7 +113,6 @@ namespace KeywordGenerator
             var parts = input.Split(',');
 
             foreach (var part in parts)
-
             {
                 builder.Append($"'{part.TrimStart().TrimEnd()}' | ");
             }

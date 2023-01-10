@@ -77,6 +77,7 @@
     "Varying": "varying",
     "Yield": "yield"
   },
+
   "fr": { // French
     "Aligned": "aligné",
     "Argument": "argument",
@@ -142,8 +143,8 @@
     "Variable": "variable",
     "Varying": "varying",
     "Yield": "donner"
-
   },
+
   "he": { // Hebrew
     "Aligned": "aligned",
     "Argument": "argument",
@@ -192,8 +193,8 @@
     "While": "כלעוד",
     "Varying": "varying",
     "Yield": "yield"
-
   },
+
   "nl": { // Dutch
     "Argument": "argument",
     "Binary": "binair",
@@ -301,8 +302,8 @@
     "Variable": "variable",
     "Varying": "varying",
     "Yield": "abtreten"
-
   },
+
   "ru": { // Russian
     "Aligned": "выровнены",
     "Argument": "argument, arg",
@@ -368,6 +369,72 @@
     "Variable": "variable",
     "Varying": "varying",
     "Yield": "yield"
-  }
+  },
 
+  "bg": { // Bulgarian
+    "Aligned": "выровнены",
+    "Argument": "argument, arg",
+    "Automatic": "автоматический, auto",
+    "Based": "based",
+    "Binary": "двоичен",
+    "Bit": "бит",
+    "Boolean": "boolean, bool",
+    "Builtin": "builtin",
+    "By": "by",
+    "Bypass": "bypass",
+    "Call": "вызов",
+    "Character": "character, char",
+    "Cofunction": "cofunction",
+    "Coroutine": "coroutine",
+    "Decimal": "decimal, dec",
+    "Declare": "обявявам",
+    "Define": "define, def",
+    "Defined": "defined",
+    "Elif": "elif",
+    "Else": "друго",
+    "End": "конец",
+    "Endloop": "endloop",
+    "Entry": "entry",
+    "Enum": "enum",
+    "Fixed": "fixed",
+    "Float": "float",
+    "Function": "function, func",
+    "Goto": "перейти к",
+    "If": "ако",
+    "Inc": "inc",
+    "Include": "include",
+    "Internal": "internal",
+    "Interrupt": "interrupt",
+    "Intrinsic": "intrinsic",
+    "Language": "lingua",
+    "Loop": "повторете",
+    "Namespace": "namespace",
+    "Offset": "offset",
+    "Out": "out",
+    "Pad": "pad",
+    "Pointer": "pointer, ptr",
+    "Private": "private",
+    "Procedure": "процедура",
+    "Public": "public",
+    "Readonly": "readonly",
+    "Ref": "ref",
+    "Reloop": "reloop",
+    "Return": "возврат",
+    "Returns": "returns",
+    "Returnon": "returnon",
+    "Singlet": "singlet",
+    "Static": "static",
+    "String": "string",
+    "Structure": "structure, struct",
+    "Then": "тогава",
+    "To": "to",
+    "Type": "type",
+    "Unaligned": "unaligned",
+    "Until": "пока",
+    "Using": "using",
+    "While": "докато",
+    "Variable": "variable",
+    "Varying": "varying",
+    "Yield": "yield"
+  }
 }
