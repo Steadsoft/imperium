@@ -8,13 +8,6 @@
 
 grammar Imperium; // Latin for "control"
 
-/*
- @lexer::header
- {
- import java.util.Map;
- }
- */
-
 @lexer::members {
     
 	// This code MUST compile fine as Java and C#
@@ -195,7 +188,7 @@ bound_pair: (lower_bound COLON)? upper_bound | TIMES;
 
 bound_pair_commalist: bound_pair (COMMA bound_pair)*;
 
-// See page 208 Subset G standard. Lower bound must be <= upper (but this is not a grammar issue,
+// See page 208 PL/I Subset G standard. Lower bound must be <= upper (but this is not a grammar issue,
 // just a note for us)
 
 lower_bound: expression;
@@ -291,21 +284,6 @@ LINE_COMMENT: '//' .*? '\n' -> channel(HIDDEN);
 WS: (' ')+ -> skip;
 NEWLINE: [\r\n]+ -> skip;
 TAB: ('\t')+ -> skip;
-
-/*
- GOTO: 
- {langcode=="en"}? 'goto' |
- {langcode=="fr"}? 'aller' 
- ;
- GO: 
- {langcode=="en"}? 'go' |
- {langcode=="fr"}? 'aller' 
- ;
- TO: 
- {langcode=="en"}? 'to' |
- {langcode=="fr"}? '�' 
- ;
- */
 
 numeric_literal:
 	binary_literal
@@ -839,62 +817,3 @@ COLON: ':';
 DQUOTE: '"';
 QUOTE: '\'';
 QMARK: '?';
-
-/* Fixed the numeric literals:
- 
- // DELETE THIS CONTENT IF YOU PUT COMBINED GRAMMAR IN Parser TAB
- lexer grammar ExprLexer;
- 
- BIN: ([0-1]|' ')+ BASE_B;
- OCT: ([0-7]|' ')+ BASE_O;
- HEX: ([0-9a-f]|'
- ')+ BASE_H ; 
- DEC: ([0-9]|' ')+ BASE_D?; 
- 
- DOT: '.';
- NL: '\n' ;
- DOT: '.';
- NL: '\n' ;
- 
- BASE_B: (':b' | ':B') ;
- BASE_O: (':o' | ':O') ;
- BASE_D: (':d' | ':D') ;
- BASE_H: (':h' | ':H') ;
- 
- 
- parser grammar ExprParser;
- options { tokenVocab=ExprLexer; }
- 
- program
- : (literal NL)* EOF
- ;
- 
- literal
- : bin 
- | oct 
- | dec 
- | hex 
- ;
- 
- bin : (BIN) ;
- 
- oct : (OCT) ;
- 
- dec : (DEC) ;
- 
- hex : (HEX) ;
- 
- With tests:
- 
- 123 665
- 1123 5543:o
- f56:h
- 1101:b
- 239 445 333 44344 85:d
- 1011
- 1100 1010 0001:b
- 
- tested in: http://lab.antlr.org/
- 
- 
- */
