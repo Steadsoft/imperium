@@ -5,6 +5,8 @@ namespace KeywordGenerator
 {
     internal class Program
     {
+        private static int longest;
+
         static void Main(string[] args)
         {
             // load the dictionary.
@@ -56,6 +58,10 @@ namespace KeywordGenerator
                 }
             }
 
+            // get the length of the longest keyword across all lexicons, we use to the develop a uniform padding for the generated output.
+
+            longest = 4 + language_dictionary.Values.SelectMany(v => v.Values).SelectMany(v => v.Split(',')).Select(keyword => keyword.Trim().Length).Max();
+
             if ( dupes_present )
             {
                 Console.WriteLine("Keyword file creation aborted.");
@@ -72,11 +78,11 @@ namespace KeywordGenerator
                 {
                     if (!output.ContainsKey(keyword_pair.Key))
                     {
-                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper() + ":"} {Environment.NewLine}{padder}[Lexicon(!{language.Key}!)]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"') + Environment.NewLine;
+                        output[keyword_pair.Key] = $"{keyword_pair.Key.ToUpper() + ":"} {Environment.NewLine}{padder}[Lexicon(!{language.Key}!)]? {ExtractMultiples(keyword_pair.Value)} | ".Replace('[','{').Replace(']', '}').Replace('!', '"') + Environment.NewLine;
                     }
                     else
                     {
-                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"{padder}[Lexicon(!{language.Key}!)]? ({ExtractMultiples(keyword_pair.Value)}) | ".Replace('[','{').Replace(']', '}').Replace('!', '"') + Environment.NewLine;
+                        output[keyword_pair.Key] = output[keyword_pair.Key] + $"{padder}[Lexicon(!{language.Key}!)]? {ExtractMultiples(keyword_pair.Value)} | ".Replace('[','{').Replace(']', '}').Replace('!', '"') + Environment.NewLine;
                     }
                 }
             }
@@ -123,7 +129,7 @@ namespace KeywordGenerator
         {
 
             if (input.Contains(',') == false)
-                return $"'{input}'";
+                return $"('{input}')".PadRight(longest+1);
 
             StringBuilder builder = new StringBuilder();
 
@@ -131,10 +137,12 @@ namespace KeywordGenerator
 
             foreach (var part in parts)
             {
-                builder.Append($"'{part.TrimStart().TrimEnd()}' | ");
+                var text = $"'{part.TrimStart().TrimEnd()}'";
+
+                builder.Append($"{text.PadRight(longest)} | ");
             }
 
-            return builder.ToString().Trim().Trim('|').Trim();
+            return $"({builder.ToString().Trim().Trim('|').Trim()})";
 
         }
     }
