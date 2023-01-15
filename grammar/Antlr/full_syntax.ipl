@@ -1,0 +1,103 @@
+procedure main (arg);
+
+    /* This is sample code */
+
+    dcl name string(32);
+    dcl I bin(15);
+    dcl J bin(15);
+    dcl S bin(31);
+    dcl A(1024) bit(8); // 1 KByte
+    dcl root ptr;
+    dcl status bin(15);
+
+    type_a = "Γεια σου string literals can be single quoted like this";
+
+    type_b = ""or double quoted like this, with embedded single quoted text "like this" see?"";
+
+    name = ""demonstration_network_controller"" ;
+
+    title = ""This is the "best in class" 
+    
+    language system"" ;
+
+    call sys$announce_device(name, status);
+
+    if status ~= 0 then
+       return;
+    end;
+
+    Καλημέρα = "How do you do";
+
+    Ευχαριστώ = "Many thanks";
+
+    call sys$install_platform(title);
+
+    root = sys$get_system_bootroot(name);
+
+    call sys$validate_authority(root);
+
+    goto cycle_loop;
+
+@cycle_loop;
+
+    I = 100;
+
+    if I > 0 then
+       goto cycle_loop;
+    end;
+    
+    I = sys$get_updated_count(J);
+
+@setpoint(0);
+
+    loop while (I >= J)
+       I = get_updated_count(J);
+    end loop;
+
+    if I = 123 & J = 321 then
+       I = 0;
+       goto setpoint(I); // never pass non-zero !!
+    elif J + I > J * I then
+       goto cycle_loop;
+    elif J = sqrt(100) then
+       return;
+    end if;
+
+    call get_latest_faulting_stack(S);
+
+    if S ~= 0 then
+       call sys$stack_crawler(S);
+    end;
+
+    /* set S to the sentinel for the next operation */
+
+    S = F5D3 03A2:H; // we need to ensure this sentinel is not allocated to any other device types
+
+    call sys$reinitialize_firmware_table(S);
+
+    call sys$sleep (1024);
+
+    goto cycle_loop ;
+
+/* Crawl the stack chain looking for the designated handler */
+procedure sys$stack_crawler (handler_id) recursive;
+
+    arg handler_id bin(31);
+
+end;
+
+/* Only call this if we kmow there's no active services still running */
+procedure sys$reinitialize_firmware_table(table);
+
+    arg table bin(31);
+
+end proc;
+
+procedure sys$timer_callback (context) interrupt;
+
+    arg context pointer;
+
+end proc;
+
+end proc;
+
