@@ -1,7 +1,11 @@
 
-""String"number"1"" ;
+""
+String"number"1
+"" ;
 
-"im a single quoted string";
+"
+im a single  ; quoted string
+";
 
 """
 I'm a very quoted string look ""embed me""
