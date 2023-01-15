@@ -70,15 +70,16 @@ nonexecutable_stmt:
 	| define_stmt		# DEF;
  
 executable_stmt:
-	  label_stmt? assign_stmt	  # ASSIGN
-	| label_stmt? call_stmt		  # CALL
-	| label_stmt? goto_stmt		  # GOTO
-	| procedure_stmt			      # PROC
-	| label_stmt? return_stmt	  # RET
-	| label_stmt? if_stmt		    # IF
-	| label_stmt? loop_stmt		  # LOOP
-	| label_stmt? endloop_stmt  # LEAVE
-	| label_stmt? reloop_stmt   # AGAIN 
+	  label_stmt      # LABEL
+  | assign_stmt	    # ASSIGN
+	| call_stmt		    # CALL
+	| goto_stmt		    # GOTO
+	| procedure_stmt  # PROC
+	| return_stmt	    # RET
+	| if_stmt		      # IF
+	| loop_stmt		    # LOOP
+	| endloop_stmt    # LEAVE
+	| reloop_stmt     # AGAIN 
 	;
 
 preprocessor_stmt: PCNT 'include' SQUOTE identifier '.inc' SQUOTE SEMICOLON |
@@ -902,7 +903,7 @@ fragment FRAC_O: ('.' [0-7]+);
 fragment FRAC_H: ('.' [0-9a-fA-F]+);
 
 LABEL:      '@' [a-zA-Z_]+ ;
-IDENTIFIER: [$a-zA-Z_]+ ; // { ReverseLexeme();}; This can be used to 'correct' consumed identifiers, comments etc when reading source in reverse.
+IDENTIFIER: [$a-zA-Z_\u0370-\u03ff]+ ; // { ReverseLexeme();}; This can be used to 'correct' consumed identifiers, comments etc when reading source in reverse.
 BINARY_PATTERN: (BIN (LSEP BIN)*)+ FRAC_B? BASE_B;
 OCTAL_PATTERN: (OCT (LSEP OCT)*)+ FRAC_O? BASE_O;
 HEXADECIMAL_PATTERN: (HEX (LSEP HEX)*)+ FRAC_H? BASE_H;
