@@ -3,5 +3,9 @@
 
 "im a single quoted string";
 
+"""
+I'm a very quoted string look ""embed me""
+""" ;
+
 
 
