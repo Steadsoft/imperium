@@ -16,9 +16,9 @@
 /*------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------*/
-/* Keyword translation info kindly contributed by:                           	*/
-/* English (en) - Hugh Gleaves                                               	*/
-/* Dutch (nl)   - Gabor de Mooij (https://github.com/gabordemooij/citrine)   	*/
+/* Keyword translation info kindly contributed by:                           	  */
+/* English (en) - Hugh Gleaves                                               	  */
+/* Dutch (nl)   - Gabor de Mooij (https://github.com/gabordemooij/citrine)   	  */
 /*------------------------------------------------------------------------------*/
 
 grammar Imperium; // Latin for "control"
@@ -54,7 +54,7 @@ translation_unit:
 	BYTE_ORDER_MARK? preprocessor_stmt? procedure_stmt;
 
 procedure_stmt:
-	PROCEDURE identifier entry_information SEMICOLON stmt_block end_stmt;
+	PROCEDURE identifier entry_information SEMICOLON stmt_block end_stmt PROCEDURE?;
 
 stmt_block
     : (nonexecutable_stmt terminator)* (executable_stmt terminator)*
@@ -70,13 +70,13 @@ nonexecutable_stmt:
 	| define_stmt		# DEF;
  
 executable_stmt:
-	  label_stmt? assign_stmt	# ASSIGN
-	| label_stmt? call_stmt		# CALL
-	| label_stmt? goto_stmt		# GOTO
-	| procedure_stmt			# PROC
-	| label_stmt? return_stmt	# RET
-	| label_stmt? if_stmt		# IF
-	| label_stmt? loop_stmt		# LOOP
+	  label_stmt? assign_stmt	  # ASSIGN
+	| label_stmt? call_stmt		  # CALL
+	| label_stmt? goto_stmt		  # GOTO
+	| procedure_stmt			      # PROC
+	| label_stmt? return_stmt	  # RET
+	| label_stmt? if_stmt		    # IF
+	| label_stmt? loop_stmt		  # LOOP
 	| label_stmt? endloop_stmt  # LEAVE
 	| label_stmt? reloop_stmt   # AGAIN 
 	;
@@ -285,9 +285,9 @@ returns_descriptor:
 
 return_stmt: RETURN (LPAR expression RPAR)?;
 
-if_stmt:
-	then_clause (executable_stmt terminator)+ else_clause? end_stmt
-	| then_clause (executable_stmt terminator)+ elif_clause+ end_stmt;
+if_stmt
+  :	then_clause (executable_stmt terminator)+ else_clause? end_stmt IF?
+	| then_clause (executable_stmt terminator)+ elif_clause+ end_stmt IF?;
 
 then_clause: IF expression THEN;
 
@@ -297,13 +297,13 @@ elif_clause:
 	ELIF expression THEN (executable_stmt terminator)+ else_clause?;
 
 loop_stmt:
-	LOOP  (executable_stmt terminator)+ end_stmt # BASIC_LOOP
+	LOOP  (executable_stmt terminator)+ end_stmt LOOP? # BASIC_LOOP
 	| LOOP  while_option until_option? (
 		executable_stmt terminator
-	)+ end_stmt # WHILE_UNTIL
+	)+ end_stmt LOOP? # WHILE_UNTIL
 	| LOOP  until_option while_option? (
 		executable_stmt terminator
-	)+ end_stmt # UNTIL_WHILE;
+	)+ end_stmt LOOP? # UNTIL_WHILE;
 
 while_option: WHILE LPAR expression RPAR;
 
