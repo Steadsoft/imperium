@@ -1,14 +1,15 @@
 
 ""
-String"number"1
+String "number" 1
 "" ;
 
 "
-im a single  ; quoted string
+I'm a single  ; quoted string
 ";
 
 """
-I'm a very quoted string look ""embed me""
+I'm a very quoted string 
+look ""embed me""
 """ ;
 
 
