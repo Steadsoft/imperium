@@ -18,7 +18,7 @@
 | `arrays` 			| Yes 		| Yes		| Yes
 | `custom array bounds` 	| No 		| Yes		| Yes
 | `field order` 		| Lexical 	| Lexical	| Custom
-| `pad type`			| No		| No		| Yes
+| `'pad' data type`			| No		| No		| Yes
 | `string literals`		| Yes		| Yes		| Yes
 | `raw string literals`         | No		| No		| Yes
 | `reserved words`		| Yes		| No		| No
