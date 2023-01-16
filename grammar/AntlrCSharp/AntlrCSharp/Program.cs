@@ -31,7 +31,7 @@ namespace AntlrCSharp
             AntlrInputStream inputStream = new AntlrInputStream(reader);
             ImperiumLexer imperium_lexer = new ImperiumLexer(inputStream);
 
-            imperium_lexer.KeywordLanguageCode = "fr";
+            imperium_lexer.SetLexicon("en");
 
             CommonTokenStream commonTokenStream = new CommonTokenStream(imperium_lexer);
             ImperiumParser imperium_parser = new ImperiumParser(commonTokenStream);
@@ -40,17 +40,18 @@ namespace AntlrCSharp
 
             var tree = imperium_parser.translation_unit();
 
-            //var listener = new TestListener();
+            var listener = new ImperiumCompilerListener();
 
-            //var visitior = new ImperiumBaseVisitor<int>();
+            var visitior = new AntlrCSharp.ImperiumVisitor();
 
-            //visitior.VisitTranslation_unit(tree);
+            visitior.VisitTranslation_unit(tree);
 
             ParseTreeWalker walker = new ParseTreeWalker();
 
-           // walker.Walk(listener, tree);
+            walker.Walk(listener, tree);
 
             Console.WriteLine(tree.ToStringTree());
+
         }
 
         private static TextReader? ReadFile (string Filename, Regex Regex)

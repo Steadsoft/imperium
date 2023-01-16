@@ -10,7 +10,7 @@ procedure main (arg);
     dcl root ptr;
     dcl status bin(15);
 
-    type_a = "Γεια σου string literals can be single quoted like this";
+    type_a = "Even Greek Γεια σου string literals can be single quoted like this";
 
     type_b = ""or double quoted like this, with embedded single quoted text "like this" see?"";
 
@@ -66,6 +66,7 @@ procedure main (arg);
     call get_latest_faulting_stack(S);
 
     if S ~= 0 then
+       /* Crawl the stack chain looking for the designated handler */
        call sys$stack_crawler(S);
     end;
 
@@ -79,7 +80,10 @@ procedure main (arg);
 
     goto cycle_loop ;
 
-/* Crawl the stack chain looking for the designated handler */
+//-------------------------------------------------------
+// This proc walks the stack 'upwards' to see if there
+// is a handler defined for the specified fault IDENT
+//-------------------------------------------------------
 procedure sys$stack_crawler (handler_id) recursive;
 
     arg handler_id bin(31);

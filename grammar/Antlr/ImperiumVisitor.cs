@@ -83,6 +83,13 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitDEF([NotNull] ImperiumParser.DEFContext context);
 	/// <summary>
+	/// Visit a parse tree produced by the <c>LABEL</c>
+	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitLABEL([NotNull] ImperiumParser.LABELContext context);
+	/// <summary>
 	/// Visit a parse tree produced by the <c>ASSIGN</c>
 	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
 	/// </summary>
@@ -568,6 +575,12 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitCoprocedure_specifier([NotNull] ImperiumParser.Coprocedure_specifierContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.handler_specifier"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitHandler_specifier([NotNull] ImperiumParser.Handler_specifierContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.parameter_name_commalist"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -648,6 +661,12 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitDefine_stmt([NotNull] ImperiumParser.Define_stmtContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.string_literal"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitString_literal([NotNull] ImperiumParser.String_literalContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.numeric_literal"/>.
 	/// </summary>

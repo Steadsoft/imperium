@@ -36,25 +36,25 @@ public partial class ImperiumParser : Parser {
 	protected static DFA[] decisionToDFA;
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
-		T__17=18, T__18=19, T__19=20, COMMENT=21, LINE_COMMENT=22, WS=23, NEWLINE=24, 
-		TAB=25, BYTE_ORDER_MARK=26, ALIGNED=27, ARGUMENT=28, AUTOMATIC=29, BASED=30, 
-		BINARY=31, BIT=32, BOOLEAN=33, BUILTIN=34, BY=35, BYPASS=36, CALL=37, 
-		CHARACTER=38, COFUNCTION=39, COROUTINE=40, DECIMAL=41, DECLARE=42, DEFINE=43, 
-		DEFINED=44, ELIF=45, ELSE=46, END=47, ENDLOOP=48, ENTRY=49, ENUM=50, FIXED=51, 
-		FLOAT=52, FUNCTION=53, GO=54, GOTO=55, IF=56, INC=57, INCLUDE=58, INTERNAL=59, 
-		INTERRUPT=60, INTRINSIC=61, LANGUAGE=62, LOOP=63, NAMESPACE=64, OFFSET=65, 
-		OUT=66, PAD=67, POINTER=68, PRIVATE=69, PROCEDURE=70, PUBLIC=71, READONLY=72, 
-		REF=73, RELOOP=74, RETURN=75, RETURNS=76, RETURNON=77, SINGLET=78, STATIC=79, 
-		STRING=80, STRUCTURE=81, THEN=82, TO=83, TYPE=84, UNALIGNED=85, UNTIL=86, 
-		USING=87, WHILE=88, VARIABLE=89, VARYING=90, YIELD=91, BASE_B=92, BASE_O=93, 
-		BASE_D=94, BASE_H=95, FRAC_B=96, FRAC_D=97, FRAC_O=98, FRAC_H=99, IDENTIFIER=100, 
-		BINARY_PATTERN=101, OCTAL_PATTERN=102, HEXADECIMAL_PATTERN=103, DECIMAL_PATTERN=104, 
-		LSEP=105, BIN=106, OCT=107, DEC=108, HEX=109, ARROW=110, DOT=111, COMMA=112, 
-		LPAR=113, RPAR=114, LBRACK=115, RBRACK=116, LBRACE=117, RBRACE=118, EQUALS=119, 
-		TIMES=120, DIVIDE=121, PLUS=122, MINUS=123, SEMICOLON=124, POWER=125, 
-		COLON=126, DQUOTE=127, QUOTE=128, QMARK=129;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, COMMENT=6, LINE_COMMENT=7, WS=8, 
+		NEWLINE=9, TAB=10, STRING_LITERAL_3=11, STRING_LITERAL_2=12, STRING_LITERAL_1=13, 
+		BYTE_ORDER_MARK=14, ALIGNED=15, ARGUMENT=16, AUTOMATIC=17, BASED=18, BINARY=19, 
+		BIT=20, BOOLEAN=21, BUILTIN=22, BY=23, BYPASS=24, CALL=25, CHARACTER=26, 
+		COFUNCTION=27, COROUTINE=28, DECIMAL=29, DECLARE=30, DEFINE=31, DEFINED=32, 
+		ELIF=33, ELSE=34, END=35, ENDLOOP=36, ENTRY=37, ENUM=38, FIXED=39, FLOAT=40, 
+		FUNCTION=41, GOTO=42, IF=43, INC=44, INCLUDE=45, INTERNAL=46, INTERRUPT=47, 
+		INTRINSIC=48, LANGUAGE=49, LOOP=50, NAMESPACE=51, OFFSET=52, OUT=53, PAD=54, 
+		POINTER=55, PRIVATE=56, PROCEDURE=57, PUBLIC=58, READONLY=59, REF=60, 
+		RELOOP=61, RETURN=62, RETURNS=63, RETURNON=64, SINGLET=65, STATIC=66, 
+		STRING=67, STRUCTURE=68, THEN=69, TO=70, TYPE=71, UNALIGNED=72, UNTIL=73, 
+		USING=74, WHILE=75, VARIABLE=76, VARYING=77, YIELD=78, ALIAS=79, RECURSIVE=80, 
+		LABEL=81, IDENTIFIER=82, BINARY_PATTERN=83, OCTAL_PATTERN=84, HEXADECIMAL_PATTERN=85, 
+		DECIMAL_PATTERN=86, RARROW=87, DOT=88, COMMA=89, LPAR=90, RPAR=91, LBRACK=92, 
+		RBRACK=93, LBRACE=94, RBRACE=95, EQUALS=96, TIMES=97, DIVIDE=98, PLUS=99, 
+		MINUS=100, SEMICOLON=101, POWER=102, COLON=103, TRIQUOTE=104, DIQUOTE=105, 
+		QUOTE=106, SQUOTE=107, NOT=108, GT=109, LT=110, GTE=111, LTE=112, NGT=113, 
+		NLT=114, NE=115, PCNT=116, AND=117, OR=118, SCAND=119, SCOR=120, CONC=121, 
+		LSHF=122, RSHF=123;
 	public const int
 		RULE_translation_unit = 0, RULE_procedure_stmt = 1, RULE_stmt_block = 2, 
 		RULE_terminator = 3, RULE_label_stmt = 4, RULE_nonexecutable_stmt = 5, 
@@ -73,12 +73,12 @@ public partial class ImperiumParser : Parser {
 		RULE_bound_pair_commalist = 44, RULE_lower_bound = 45, RULE_upper_bound = 46, 
 		RULE_attribute = 47, RULE_data_attribute = 48, RULE_precision = 49, RULE_number_of_digits = 50, 
 		RULE_scale_factor = 51, RULE_max_length = 52, RULE_based = 53, RULE_defined = 54, 
-		RULE_entry_information = 55, RULE_coprocedure_specifier = 56, RULE_parameter_name_commalist = 57, 
-		RULE_returns_descriptor = 58, RULE_return_stmt = 59, RULE_if_stmt = 60, 
-		RULE_then_clause = 61, RULE_else_clause = 62, RULE_elif_clause = 63, RULE_loop_stmt = 64, 
-		RULE_while_option = 65, RULE_until_option = 66, RULE_define_stmt = 67, 
-		RULE_numeric_literal = 68, RULE_hexadecimal_literal = 69, RULE_octal_literal = 70, 
-		RULE_decimal_literal = 71, RULE_binary_literal = 72;
+		RULE_entry_information = 55, RULE_coprocedure_specifier = 56, RULE_handler_specifier = 57, 
+		RULE_parameter_name_commalist = 58, RULE_returns_descriptor = 59, RULE_return_stmt = 60, 
+		RULE_if_stmt = 61, RULE_then_clause = 62, RULE_else_clause = 63, RULE_elif_clause = 64, 
+		RULE_loop_stmt = 65, RULE_while_option = 66, RULE_until_option = 67, RULE_define_stmt = 68, 
+		RULE_string_literal = 69, RULE_numeric_literal = 70, RULE_hexadecimal_literal = 71, 
+		RULE_octal_literal = 72, RULE_decimal_literal = 73, RULE_binary_literal = 74;
 	public static readonly string[] ruleNames = {
 		"translation_unit", "procedure_stmt", "stmt_block", "terminator", "label_stmt", 
 		"nonexecutable_stmt", "executable_stmt", "preprocessor_stmt", "assign_stmt", 
@@ -92,45 +92,45 @@ public partial class ImperiumParser : Parser {
 		"type_info", "dimension_suffix", "bound_pair", "bound_pair_commalist", 
 		"lower_bound", "upper_bound", "attribute", "data_attribute", "precision", 
 		"number_of_digits", "scale_factor", "max_length", "based", "defined", 
-		"entry_information", "coprocedure_specifier", "parameter_name_commalist", 
+		"entry_information", "coprocedure_specifier", "handler_specifier", "parameter_name_commalist", 
 		"returns_descriptor", "return_stmt", "if_stmt", "then_clause", "else_clause", 
 		"elif_clause", "loop_stmt", "while_option", "until_option", "define_stmt", 
-		"numeric_literal", "hexadecimal_literal", "octal_literal", "decimal_literal", 
-		"binary_literal"
+		"string_literal", "numeric_literal", "hexadecimal_literal", "octal_literal", 
+		"decimal_literal", "binary_literal"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'%'", "'include'", "'.inc'", "'?|'", "'?&'", "'|'", "'~'", "'&'", 
-		"'||'", "'>'", "'>='", "'<'", "'<='", "'~>'", "'~='", "'~<'", "'>>'", 
-		"'<<'", "'>>>'", "'<<<'", null, null, null, null, null, null, null, null, 
+		null, "'include'", "'.inc'", "'lexicon'", "'>>>'", "'<<<'", null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, "'->'", "'.'", "','", 
-		"'('", "')'", "'['", "']'", "'{'", "'}'", "'='", "'*'", "'/'", "'+'", 
-		"'-'", "';'", "'**'", "':'", "'\"'", "'''", "'?'"
+		null, null, null, null, null, null, null, "'->'", "'.'", "','", "'('", 
+		"')'", "'['", "']'", "'{'", "'}'", "'='", "'*'", "'/'", "'+'", "'-'", 
+		"';'", "'**'", "':'", "'\"\"\"'", "'\"\"'", "'\"'", "'''", "'~'", "'>'", 
+		"'<'", "'>='", "'<='", "'~>'", "'~<'", "'~='", "'%'", "'&'", "'|'", "'?&'", 
+		"'?|'", "'||'", "'<<'", "'>>'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, "COMMENT", "LINE_COMMENT", 
-		"WS", "NEWLINE", "TAB", "BYTE_ORDER_MARK", "ALIGNED", "ARGUMENT", "AUTOMATIC", 
-		"BASED", "BINARY", "BIT", "BOOLEAN", "BUILTIN", "BY", "BYPASS", "CALL", 
-		"CHARACTER", "COFUNCTION", "COROUTINE", "DECIMAL", "DECLARE", "DEFINE", 
-		"DEFINED", "ELIF", "ELSE", "END", "ENDLOOP", "ENTRY", "ENUM", "FIXED", 
-		"FLOAT", "FUNCTION", "GO", "GOTO", "IF", "INC", "INCLUDE", "INTERNAL", 
-		"INTERRUPT", "INTRINSIC", "LANGUAGE", "LOOP", "NAMESPACE", "OFFSET", "OUT", 
-		"PAD", "POINTER", "PRIVATE", "PROCEDURE", "PUBLIC", "READONLY", "REF", 
-		"RELOOP", "RETURN", "RETURNS", "RETURNON", "SINGLET", "STATIC", "STRING", 
-		"STRUCTURE", "THEN", "TO", "TYPE", "UNALIGNED", "UNTIL", "USING", "WHILE", 
-		"VARIABLE", "VARYING", "YIELD", "BASE_B", "BASE_O", "BASE_D", "BASE_H", 
-		"FRAC_B", "FRAC_D", "FRAC_O", "FRAC_H", "IDENTIFIER", "BINARY_PATTERN", 
-		"OCTAL_PATTERN", "HEXADECIMAL_PATTERN", "DECIMAL_PATTERN", "LSEP", "BIN", 
-		"OCT", "DEC", "HEX", "ARROW", "DOT", "COMMA", "LPAR", "RPAR", "LBRACK", 
+		null, null, null, null, null, null, "COMMENT", "LINE_COMMENT", "WS", "NEWLINE", 
+		"TAB", "STRING_LITERAL_3", "STRING_LITERAL_2", "STRING_LITERAL_1", "BYTE_ORDER_MARK", 
+		"ALIGNED", "ARGUMENT", "AUTOMATIC", "BASED", "BINARY", "BIT", "BOOLEAN", 
+		"BUILTIN", "BY", "BYPASS", "CALL", "CHARACTER", "COFUNCTION", "COROUTINE", 
+		"DECIMAL", "DECLARE", "DEFINE", "DEFINED", "ELIF", "ELSE", "END", "ENDLOOP", 
+		"ENTRY", "ENUM", "FIXED", "FLOAT", "FUNCTION", "GOTO", "IF", "INC", "INCLUDE", 
+		"INTERNAL", "INTERRUPT", "INTRINSIC", "LANGUAGE", "LOOP", "NAMESPACE", 
+		"OFFSET", "OUT", "PAD", "POINTER", "PRIVATE", "PROCEDURE", "PUBLIC", "READONLY", 
+		"REF", "RELOOP", "RETURN", "RETURNS", "RETURNON", "SINGLET", "STATIC", 
+		"STRING", "STRUCTURE", "THEN", "TO", "TYPE", "UNALIGNED", "UNTIL", "USING", 
+		"WHILE", "VARIABLE", "VARYING", "YIELD", "ALIAS", "RECURSIVE", "LABEL", 
+		"IDENTIFIER", "BINARY_PATTERN", "OCTAL_PATTERN", "HEXADECIMAL_PATTERN", 
+		"DECIMAL_PATTERN", "RARROW", "DOT", "COMMA", "LPAR", "RPAR", "LBRACK", 
 		"RBRACK", "LBRACE", "RBRACE", "EQUALS", "TIMES", "DIVIDE", "PLUS", "MINUS", 
-		"SEMICOLON", "POWER", "COLON", "DQUOTE", "QUOTE", "QMARK"
+		"SEMICOLON", "POWER", "COLON", "TRIQUOTE", "DIQUOTE", "QUOTE", "SQUOTE", 
+		"NOT", "GT", "LT", "GTE", "LTE", "NGT", "NLT", "NE", "PCNT", "AND", "OR", 
+		"SCAND", "SCOR", "CONC", "LSHF", "RSHF"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -203,27 +203,27 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 147;
+			State = 151;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==BYTE_ORDER_MARK) {
 				{
-				State = 146;
+				State = 150;
 				Match(BYTE_ORDER_MARK);
 				}
 			}
 
-			State = 150;
+			State = 154;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if (_la==T__0) {
+			if (_la==PCNT) {
 				{
-				State = 149;
+				State = 153;
 				preprocessor_stmt();
 				}
 			}
 
-			State = 152;
+			State = 156;
 			procedure_stmt();
 			}
 		}
@@ -239,13 +239,17 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class Procedure_stmtContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PROCEDURE() { return GetToken(ImperiumParser.PROCEDURE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] PROCEDURE() { return GetTokens(ImperiumParser.PROCEDURE); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PROCEDURE(int i) {
+			return GetToken(ImperiumParser.PROCEDURE, i);
+		}
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
 			return GetRuleContext<IdentifierContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public Entry_informationContext entry_information() {
 			return GetRuleContext<Entry_informationContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public Stmt_blockContext stmt_block() {
 			return GetRuleContext<Stmt_blockContext>(0);
 		}
@@ -279,19 +283,32 @@ public partial class ImperiumParser : Parser {
 	public Procedure_stmtContext procedure_stmt() {
 		Procedure_stmtContext _localctx = new Procedure_stmtContext(Context, State);
 		EnterRule(_localctx, 2, RULE_procedure_stmt);
+		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 154;
-			Match(PROCEDURE);
-			State = 155;
-			identifier();
-			State = 156;
-			entry_information();
-			State = 157;
-			stmt_block();
 			State = 158;
+			Match(PROCEDURE);
+			State = 159;
+			identifier();
+			State = 160;
+			entry_information();
+			State = 161;
+			Match(SEMICOLON);
+			State = 162;
+			stmt_block();
+			State = 163;
 			end_stmt();
+			State = 165;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==PROCEDURE) {
+				{
+				State = 164;
+				Match(PROCEDURE);
+				}
+			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -353,94 +370,57 @@ public partial class ImperiumParser : Parser {
 		EnterRule(_localctx, 4, RULE_stmt_block);
 		try {
 			int _alt;
-			State = 177;
+			State = 184;
 			ErrorHandler.Sync(this);
-			switch (TokenStream.LA(1)) {
-			case T__0:
-			case ARGUMENT:
-			case BIT:
-			case BUILTIN:
-			case CALL:
-			case CHARACTER:
-			case COFUNCTION:
-			case COROUTINE:
-			case DECLARE:
-			case DEFINE:
-			case ELIF:
-			case ELSE:
-			case END:
-			case ENDLOOP:
-			case ENTRY:
-			case FIXED:
-			case FLOAT:
-			case GO:
-			case GOTO:
-			case IF:
-			case INTRINSIC:
-			case LOOP:
-			case OFFSET:
-			case POINTER:
-			case PROCEDURE:
-			case RELOOP:
-			case RETURN:
-			case RETURNS:
-			case STRING:
-			case THEN:
-			case TO:
-			case UNTIL:
-			case WHILE:
-			case VARYING:
-			case IDENTIFIER:
-			case LBRACE:
+			switch ( Interpreter.AdaptivePredict(TokenStream,5,Context) ) {
+			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 165;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,2,Context);
-				while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-					if ( _alt==1 ) {
-						{
-						{
-						State = 160;
-						nonexecutable_stmt();
-						State = 161;
-						terminator();
-						}
-						} 
-					}
-					State = 167;
-					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,2,Context);
-				}
-				State = 173;
+				State = 172;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,3,Context);
 				while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
+						State = 167;
+						nonexecutable_stmt();
 						State = 168;
-						executable_stmt();
-						State = 169;
 						terminator();
 						}
 						} 
 					}
-					State = 175;
+					State = 174;
 					ErrorHandler.Sync(this);
 					_alt = Interpreter.AdaptivePredict(TokenStream,3,Context);
 				}
+				State = 180;
+				ErrorHandler.Sync(this);
+				_alt = Interpreter.AdaptivePredict(TokenStream,4,Context);
+				while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
+					if ( _alt==1 ) {
+						{
+						{
+						State = 175;
+						executable_stmt();
+						State = 176;
+						terminator();
+						}
+						} 
+					}
+					State = 182;
+					ErrorHandler.Sync(this);
+					_alt = Interpreter.AdaptivePredict(TokenStream,4,Context);
+				}
 				}
 				break;
-			case SEMICOLON:
+			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 176;
+				State = 183;
 				terminator();
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -486,7 +466,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 179;
+			State = 186;
 			Match(SEMICOLON);
 			}
 		}
@@ -502,11 +482,12 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class Label_stmtContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LBRACE() { return GetToken(ImperiumParser.LBRACE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
-			return GetRuleContext<IdentifierContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LABEL() { return GetToken(ImperiumParser.LABEL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public Decimal_literalContext decimal_literal() {
+			return GetRuleContext<Decimal_literalContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RBRACE() { return GetToken(ImperiumParser.RBRACE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
 		public Label_stmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -534,15 +515,26 @@ public partial class ImperiumParser : Parser {
 	public Label_stmtContext label_stmt() {
 		Label_stmtContext _localctx = new Label_stmtContext(Context, State);
 		EnterRule(_localctx, 8, RULE_label_stmt);
+		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 181;
-			Match(LBRACE);
-			State = 182;
-			identifier();
-			State = 183;
-			Match(RBRACE);
+			State = 188;
+			Match(LABEL);
+			State = 193;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==LPAR) {
+				{
+				State = 189;
+				Match(LPAR);
+				State = 190;
+				decimal_literal();
+				State = 191;
+				Match(RPAR);
+				}
+			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -640,14 +632,14 @@ public partial class ImperiumParser : Parser {
 		Nonexecutable_stmtContext _localctx = new Nonexecutable_stmtContext(Context, State);
 		EnterRule(_localctx, 10, RULE_nonexecutable_stmt);
 		try {
-			State = 188;
+			State = 198;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
-			case T__0:
+			case PCNT:
 				_localctx = new PREContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 185;
+				State = 195;
 				preprocessor_stmt();
 				}
 				break;
@@ -656,7 +648,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new DCLContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 186;
+				State = 196;
 				declare_stmt();
 				}
 				break;
@@ -664,7 +656,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new DEFContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 187;
+				State = 197;
 				define_stmt();
 				}
 				break;
@@ -699,9 +691,6 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Return_stmtContext return_stmt() {
 			return GetRuleContext<Return_stmtContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Label_stmtContext label_stmt() {
-			return GetRuleContext<Label_stmtContext>(0);
-		}
 		public RETContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
@@ -724,9 +713,6 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Call_stmtContext call_stmt() {
 			return GetRuleContext<Call_stmtContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Label_stmtContext label_stmt() {
-			return GetRuleContext<Label_stmtContext>(0);
-		}
 		public CALLContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
@@ -748,9 +734,6 @@ public partial class ImperiumParser : Parser {
 	public partial class GOTOContext : Executable_stmtContext {
 		[System.Diagnostics.DebuggerNonUserCode] public Goto_stmtContext goto_stmt() {
 			return GetRuleContext<Goto_stmtContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Label_stmtContext label_stmt() {
-			return GetRuleContext<Label_stmtContext>(0);
 		}
 		public GOTOContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
@@ -796,9 +779,6 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Reloop_stmtContext reloop_stmt() {
 			return GetRuleContext<Reloop_stmtContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Label_stmtContext label_stmt() {
-			return GetRuleContext<Label_stmtContext>(0);
-		}
 		public AGAINContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
@@ -820,9 +800,6 @@ public partial class ImperiumParser : Parser {
 	public partial class LOOPContext : Executable_stmtContext {
 		[System.Diagnostics.DebuggerNonUserCode] public Loop_stmtContext loop_stmt() {
 			return GetRuleContext<Loop_stmtContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Label_stmtContext label_stmt() {
-			return GetRuleContext<Label_stmtContext>(0);
 		}
 		public LOOPContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
@@ -846,9 +823,6 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Endloop_stmtContext endloop_stmt() {
 			return GetRuleContext<Endloop_stmtContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Label_stmtContext label_stmt() {
-			return GetRuleContext<Label_stmtContext>(0);
-		}
 		public LEAVEContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
@@ -867,12 +841,31 @@ public partial class ImperiumParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
+	public partial class LABELContext : Executable_stmtContext {
+		[System.Diagnostics.DebuggerNonUserCode] public Label_stmtContext label_stmt() {
+			return GetRuleContext<Label_stmtContext>(0);
+		}
+		public LABELContext(Executable_stmtContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterLABEL(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitLABEL(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLABEL(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
 	public partial class ASSIGNContext : Executable_stmtContext {
 		[System.Diagnostics.DebuggerNonUserCode] public Assign_stmtContext assign_stmt() {
 			return GetRuleContext<Assign_stmtContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Label_stmtContext label_stmt() {
-			return GetRuleContext<Label_stmtContext>(0);
 		}
 		public ASSIGNContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
@@ -895,9 +888,6 @@ public partial class ImperiumParser : Parser {
 	public partial class IFContext : Executable_stmtContext {
 		[System.Diagnostics.DebuggerNonUserCode] public If_stmtContext if_stmt() {
 			return GetRuleContext<If_stmtContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Label_stmtContext label_stmt() {
-			return GetRuleContext<Label_stmtContext>(0);
 		}
 		public IFContext(Executable_stmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
@@ -922,160 +912,87 @@ public partial class ImperiumParser : Parser {
 	public Executable_stmtContext executable_stmt() {
 		Executable_stmtContext _localctx = new Executable_stmtContext(Context, State);
 		EnterRule(_localctx, 12, RULE_executable_stmt);
-		int _la;
 		try {
-			State = 223;
+			State = 210;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,14,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,8,Context) ) {
 			case 1:
-				_localctx = new ASSIGNContext(_localctx);
+				_localctx = new LABELContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 191;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LBRACE) {
-					{
-					State = 190;
-					label_stmt();
-					}
-				}
-
-				State = 193;
-				assign_stmt();
+				State = 200;
+				label_stmt();
 				}
 				break;
 			case 2:
-				_localctx = new CALLContext(_localctx);
+				_localctx = new ASSIGNContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 195;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LBRACE) {
-					{
-					State = 194;
-					label_stmt();
-					}
-				}
-
-				State = 197;
-				call_stmt();
+				State = 201;
+				assign_stmt();
 				}
 				break;
 			case 3:
-				_localctx = new GOTOContext(_localctx);
+				_localctx = new CALLContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 199;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LBRACE) {
-					{
-					State = 198;
-					label_stmt();
-					}
-				}
-
-				State = 201;
-				goto_stmt();
+				State = 202;
+				call_stmt();
 				}
 				break;
 			case 4:
-				_localctx = new PROCContext(_localctx);
+				_localctx = new GOTOContext(_localctx);
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 202;
-				procedure_stmt();
+				State = 203;
+				goto_stmt();
 				}
 				break;
 			case 5:
-				_localctx = new RETContext(_localctx);
+				_localctx = new PROCContext(_localctx);
 				EnterOuterAlt(_localctx, 5);
 				{
 				State = 204;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LBRACE) {
-					{
-					State = 203;
-					label_stmt();
-					}
-				}
-
-				State = 206;
-				return_stmt();
+				procedure_stmt();
 				}
 				break;
 			case 6:
-				_localctx = new IFContext(_localctx);
+				_localctx = new RETContext(_localctx);
 				EnterOuterAlt(_localctx, 6);
 				{
-				State = 208;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LBRACE) {
-					{
-					State = 207;
-					label_stmt();
-					}
-				}
-
-				State = 210;
-				if_stmt();
+				State = 205;
+				return_stmt();
 				}
 				break;
 			case 7:
-				_localctx = new LOOPContext(_localctx);
+				_localctx = new IFContext(_localctx);
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 212;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LBRACE) {
-					{
-					State = 211;
-					label_stmt();
-					}
-				}
-
-				State = 214;
-				loop_stmt();
+				State = 206;
+				if_stmt();
 				}
 				break;
 			case 8:
-				_localctx = new LEAVEContext(_localctx);
+				_localctx = new LOOPContext(_localctx);
 				EnterOuterAlt(_localctx, 8);
 				{
-				State = 216;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LBRACE) {
-					{
-					State = 215;
-					label_stmt();
-					}
-				}
-
-				State = 218;
-				endloop_stmt();
+				State = 207;
+				loop_stmt();
 				}
 				break;
 			case 9:
-				_localctx = new AGAINContext(_localctx);
+				_localctx = new LEAVEContext(_localctx);
 				EnterOuterAlt(_localctx, 9);
 				{
-				State = 220;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LBRACE) {
-					{
-					State = 219;
-					label_stmt();
-					}
+				State = 208;
+				endloop_stmt();
 				}
-
-				State = 222;
+				break;
+			case 10:
+				_localctx = new AGAINContext(_localctx);
+				EnterOuterAlt(_localctx, 10);
+				{
+				State = 209;
 				reloop_stmt();
 				}
 				break;
@@ -1093,13 +1010,17 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class Preprocessor_stmtContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] QUOTE() { return GetTokens(ImperiumParser.QUOTE); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode QUOTE(int i) {
-			return GetToken(ImperiumParser.QUOTE, i);
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PCNT() { return GetToken(ImperiumParser.PCNT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] SQUOTE() { return GetTokens(ImperiumParser.SQUOTE); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SQUOTE(int i) {
+			return GetToken(ImperiumParser.SQUOTE, i);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
 			return GetRuleContext<IdentifierContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
 		public Preprocessor_stmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1128,20 +1049,45 @@ public partial class ImperiumParser : Parser {
 		Preprocessor_stmtContext _localctx = new Preprocessor_stmtContext(Context, State);
 		EnterRule(_localctx, 14, RULE_preprocessor_stmt);
 		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 225;
-			Match(T__0);
-			State = 226;
-			Match(T__1);
 			State = 227;
-			Match(QUOTE);
-			State = 228;
-			identifier();
-			State = 229;
-			Match(T__2);
-			State = 230;
-			Match(QUOTE);
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,9,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 212;
+				Match(PCNT);
+				State = 213;
+				Match(T__0);
+				State = 214;
+				Match(SQUOTE);
+				State = 215;
+				identifier();
+				State = 216;
+				Match(T__1);
+				State = 217;
+				Match(SQUOTE);
+				State = 218;
+				Match(SEMICOLON);
+				}
+				break;
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 220;
+				Match(PCNT);
+				State = 221;
+				Match(T__2);
+				State = 222;
+				Match(LPAR);
+				State = 223;
+				identifier();
+				State = 224;
+				Match(RPAR);
+				State = 225;
+				Match(SEMICOLON);
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -1193,11 +1139,11 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 232;
+			State = 229;
 			reference(0);
-			State = 233;
+			State = 230;
 			Match(EQUALS);
-			State = 234;
+			State = 231;
 			expression(0);
 			}
 		}
@@ -1253,7 +1199,7 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ReferenceContext reference() {
 			return GetRuleContext<ReferenceContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ARROW() { return GetToken(ImperiumParser.ARROW, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RARROW() { return GetToken(ImperiumParser.RARROW, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public Basic_referenceContext basic_reference() {
 			return GetRuleContext<Basic_referenceContext>(0);
 		}
@@ -1300,23 +1246,23 @@ public partial class ImperiumParser : Parser {
 			Context = _localctx;
 			_prevctx = _localctx;
 
-			State = 237;
+			State = 234;
 			basic_reference();
-			State = 239;
+			State = 236;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,15,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,10,Context) ) {
 			case 1:
 				{
-				State = 238;
+				State = 235;
 				arguments_list();
 				}
 				break;
 			}
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 249;
+			State = 246;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,17,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,12,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
@@ -1326,18 +1272,18 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new PTR_REFContext(new ReferenceContext(_parentctx, _parentState));
 					PushNewRecursionContext(_localctx, _startState, RULE_reference);
-					State = 241;
+					State = 238;
 					if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
-					State = 242;
-					Match(ARROW);
-					State = 243;
+					State = 239;
+					Match(RARROW);
+					State = 240;
 					basic_reference();
-					State = 245;
+					State = 242;
 					ErrorHandler.Sync(this);
-					switch ( Interpreter.AdaptivePredict(TokenStream,16,Context) ) {
+					switch ( Interpreter.AdaptivePredict(TokenStream,11,Context) ) {
 					case 1:
 						{
-						State = 244;
+						State = 241;
 						arguments_list();
 						}
 						break;
@@ -1345,9 +1291,9 @@ public partial class ImperiumParser : Parser {
 					}
 					} 
 				}
-				State = 251;
+				State = 248;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,17,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,12,Context);
 			}
 			}
 		}
@@ -1402,23 +1348,23 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 252;
+			State = 249;
 			Match(LPAR);
-			State = 254;
+			State = 251;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			do {
 				{
 				{
-				State = 253;
+				State = 250;
 				subscript_commalist();
 				}
 				}
-				State = 256;
+				State = 253;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
-			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & -6783566845631790976L) != 0 || (((_la - 65)) & ~0x3f) == 0 && ((1L << (_la - 65)) & 432628104400637481L) != 0 );
-			State = 258;
+			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & -2119772936183138304L) != 0 || (((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & 2211917563213L) != 0 );
+			State = 255;
 			Match(RPAR);
 			}
 		}
@@ -1471,7 +1417,7 @@ public partial class ImperiumParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 261;
+			State = 258;
 			ErrorHandler.Sync(this);
 			_alt = 1;
 			do {
@@ -1479,7 +1425,7 @@ public partial class ImperiumParser : Parser {
 				case 1:
 					{
 					{
-					State = 260;
+					State = 257;
 					arguments();
 					}
 					}
@@ -1487,9 +1433,9 @@ public partial class ImperiumParser : Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 263;
+				State = 260;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,19,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,14,Context);
 			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
@@ -1541,17 +1487,17 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 266;
+			State = 263;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,20,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,15,Context) ) {
 			case 1:
 				{
-				State = 265;
+				State = 262;
 				structure_qualification_list();
 				}
 				break;
 			}
-			State = 268;
+			State = 265;
 			identifier();
 			}
 		}
@@ -1605,19 +1551,19 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 270;
+			State = 267;
 			identifier();
-			State = 272;
+			State = 269;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 271;
+				State = 268;
 				arguments();
 				}
 			}
 
-			State = 274;
+			State = 271;
 			Match(DOT);
 			}
 		}
@@ -1670,7 +1616,7 @@ public partial class ImperiumParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 277;
+			State = 274;
 			ErrorHandler.Sync(this);
 			_alt = 1;
 			do {
@@ -1678,7 +1624,7 @@ public partial class ImperiumParser : Parser {
 				case 1:
 					{
 					{
-					State = 276;
+					State = 273;
 					structure_qualification();
 					}
 					}
@@ -1686,9 +1632,9 @@ public partial class ImperiumParser : Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 279;
+				State = 276;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,22,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,17,Context);
 			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
@@ -1737,7 +1683,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 281;
+			State = 278;
 			expression(0);
 			}
 		}
@@ -1794,21 +1740,21 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 283;
+			State = 280;
 			subscript();
-			State = 288;
+			State = 285;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 284;
+				State = 281;
 				Match(COMMA);
-				State = 285;
+				State = 282;
 				subscript();
 				}
 				}
-				State = 290;
+				State = 287;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -1832,6 +1778,7 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SCOR() { return GetToken(ImperiumParser.SCOR, 0); }
 		public ExpressionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1872,13 +1819,13 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 292;
+			State = 289;
 			expression_9(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 299;
+			State = 296;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,19,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
@@ -1888,18 +1835,18 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new ExpressionContext(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression);
-					State = 294;
+					State = 291;
 					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 295;
-					Match(T__3);
-					State = 296;
+					State = 292;
+					Match(SCOR);
+					State = 293;
 					expression_9(0);
 					}
 					} 
 				}
-				State = 301;
+				State = 298;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,19,Context);
 			}
 			}
 		}
@@ -1921,6 +1868,7 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Expression_9Context expression_9() {
 			return GetRuleContext<Expression_9Context>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SCAND() { return GetToken(ImperiumParser.SCAND, 0); }
 		public Expression_9Context(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1961,13 +1909,13 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 303;
+			State = 300;
 			expression_8(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 310;
+			State = 307;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,25,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,20,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
@@ -1977,18 +1925,18 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_9Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_9);
-					State = 305;
+					State = 302;
 					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 306;
-					Match(T__4);
-					State = 307;
+					State = 303;
+					Match(SCAND);
+					State = 304;
 					expression_8(0);
 					}
 					} 
 				}
-				State = 312;
+				State = 309;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,25,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,20,Context);
 			}
 			}
 		}
@@ -2010,6 +1958,8 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Expression_8Context expression_8() {
 			return GetRuleContext<Expression_8Context>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OR() { return GetToken(ImperiumParser.OR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOT() { return GetToken(ImperiumParser.NOT, 0); }
 		public Expression_8Context(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -2051,13 +2001,13 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 314;
+			State = 311;
 			expression_7(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 321;
+			State = 318;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,26,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,21,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
@@ -2067,25 +2017,25 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_8Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_8);
-					State = 316;
+					State = 313;
 					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 317;
+					State = 314;
 					_la = TokenStream.LA(1);
-					if ( !(_la==T__5 || _la==T__6) ) {
+					if ( !(_la==NOT || _la==OR) ) {
 					ErrorHandler.RecoverInline(this);
 					}
 					else {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 318;
+					State = 315;
 					expression_7(0);
 					}
 					} 
 				}
-				State = 323;
+				State = 320;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,26,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,21,Context);
 			}
 			}
 		}
@@ -2107,6 +2057,7 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Expression_7Context expression_7() {
 			return GetRuleContext<Expression_7Context>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AND() { return GetToken(ImperiumParser.AND, 0); }
 		public Expression_7Context(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -2147,13 +2098,13 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 325;
+			State = 322;
 			expression_6(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 332;
+			State = 329;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,27,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,22,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
@@ -2163,18 +2114,18 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_7Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_7);
-					State = 327;
+					State = 324;
 					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 328;
-					Match(T__7);
-					State = 329;
+					State = 325;
+					Match(AND);
+					State = 326;
 					expression_6(0);
 					}
 					} 
 				}
-				State = 334;
+				State = 331;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,27,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,22,Context);
 			}
 			}
 		}
@@ -2239,13 +2190,13 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 336;
+			State = 333;
 			expression_5(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 344;
+			State = 341;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,28,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,23,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
@@ -2255,18 +2206,18 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_6Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_6);
-					State = 338;
+					State = 335;
 					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 339;
+					State = 336;
 					comparison_operator();
-					State = 340;
+					State = 337;
 					expression_5(0);
 					}
 					} 
 				}
-				State = 346;
+				State = 343;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,28,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,23,Context);
 			}
 			}
 		}
@@ -2288,6 +2239,7 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Expression_5Context expression_5() {
 			return GetRuleContext<Expression_5Context>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CONC() { return GetToken(ImperiumParser.CONC, 0); }
 		public Expression_5Context(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -2328,13 +2280,13 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 348;
+			State = 345;
 			expression_4(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 355;
+			State = 352;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,29,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
@@ -2344,18 +2296,18 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_5Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_5);
-					State = 350;
+					State = 347;
 					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 351;
-					Match(T__8);
-					State = 352;
+					State = 348;
+					Match(CONC);
+					State = 349;
 					expression_4(0);
 					}
 					} 
 				}
-				State = 357;
+				State = 354;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,29,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
 			}
 			}
 		}
@@ -2420,13 +2372,13 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 359;
+			State = 356;
 			expression_3(0);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 366;
+			State = 363;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,30,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,25,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
@@ -2436,9 +2388,9 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_4Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_4);
-					State = 361;
+					State = 358;
 					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 362;
+					State = 359;
 					_la = TokenStream.LA(1);
 					if ( !(_la==PLUS || _la==MINUS) ) {
 					ErrorHandler.RecoverInline(this);
@@ -2447,14 +2399,14 @@ public partial class ImperiumParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 363;
+					State = 360;
 					expression_3(0);
 					}
 					} 
 				}
-				State = 368;
+				State = 365;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,30,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,25,Context);
 			}
 			}
 		}
@@ -2519,13 +2471,13 @@ public partial class ImperiumParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 370;
+			State = 367;
 			expression_2();
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 377;
+			State = 374;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,31,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,26,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
@@ -2535,9 +2487,9 @@ public partial class ImperiumParser : Parser {
 					{
 					_localctx = new Expression_3Context(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_expression_3);
-					State = 372;
+					State = 369;
 					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 373;
+					State = 370;
 					_la = TokenStream.LA(1);
 					if ( !(_la==TIMES || _la==DIVIDE) ) {
 					ErrorHandler.RecoverInline(this);
@@ -2546,14 +2498,14 @@ public partial class ImperiumParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 374;
+					State = 371;
 					expression_2();
 					}
 					} 
 				}
-				State = 379;
+				State = 376;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,31,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,26,Context);
 			}
 			}
 		}
@@ -2609,34 +2561,34 @@ public partial class ImperiumParser : Parser {
 		Expression_2Context _localctx = new Expression_2Context(Context, State);
 		EnterRule(_localctx, 50, RULE_expression_2);
 		try {
-			State = 384;
+			State = 381;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,32,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,27,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 380;
+				State = 377;
 				primitive_expression();
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 381;
+				State = 378;
 				prefix_expression();
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 382;
+				State = 379;
 				parenthesized_expression();
 				}
 				break;
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 383;
+				State = 380;
 				expression_1();
 				}
 				break;
@@ -2694,9 +2646,12 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 388;
+			State = 385;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
+			case STRING_LITERAL_3:
+			case STRING_LITERAL_2:
+			case STRING_LITERAL_1:
 			case ARGUMENT:
 			case BIT:
 			case BUILTIN:
@@ -2713,7 +2668,6 @@ public partial class ImperiumParser : Parser {
 			case ENTRY:
 			case FIXED:
 			case FLOAT:
-			case GO:
 			case GOTO:
 			case IF:
 			case INTRINSIC:
@@ -2736,22 +2690,22 @@ public partial class ImperiumParser : Parser {
 			case HEXADECIMAL_PATTERN:
 			case DECIMAL_PATTERN:
 				{
-				State = 386;
+				State = 383;
 				primitive_expression();
 				}
 				break;
 			case LPAR:
 				{
-				State = 387;
+				State = 384;
 				parenthesized_expression();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			State = 390;
+			State = 387;
 			Match(POWER);
-			State = 391;
+			State = 388;
 			expression_2();
 			}
 		}
@@ -2803,9 +2757,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 393;
+			State = 390;
 			prefix_operator();
-			State = 394;
+			State = 391;
 			expression_2();
 			}
 		}
@@ -2856,11 +2810,11 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 396;
+			State = 393;
 			Match(LPAR);
-			State = 397;
+			State = 394;
 			expression(0);
-			State = 398;
+			State = 395;
 			Match(RPAR);
 			}
 		}
@@ -2878,6 +2832,9 @@ public partial class ImperiumParser : Parser {
 	public partial class Primitive_expressionContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public Numeric_literalContext numeric_literal() {
 			return GetRuleContext<Numeric_literalContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public String_literalContext string_literal() {
+			return GetRuleContext<String_literalContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ReferenceContext reference() {
 			return GetRuleContext<ReferenceContext>(0);
@@ -2910,7 +2867,7 @@ public partial class ImperiumParser : Parser {
 		Primitive_expressionContext _localctx = new Primitive_expressionContext(Context, State);
 		EnterRule(_localctx, 58, RULE_primitive_expression);
 		try {
-			State = 402;
+			State = 400;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case BINARY_PATTERN:
@@ -2919,8 +2876,17 @@ public partial class ImperiumParser : Parser {
 			case DECIMAL_PATTERN:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 400;
+				State = 397;
 				numeric_literal();
+				}
+				break;
+			case STRING_LITERAL_3:
+			case STRING_LITERAL_2:
+			case STRING_LITERAL_1:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 398;
+				string_literal();
 				}
 				break;
 			case ARGUMENT:
@@ -2939,7 +2905,6 @@ public partial class ImperiumParser : Parser {
 			case ENTRY:
 			case FIXED:
 			case FLOAT:
-			case GO:
 			case GOTO:
 			case IF:
 			case INTRINSIC:
@@ -2957,9 +2922,9 @@ public partial class ImperiumParser : Parser {
 			case WHILE:
 			case VARYING:
 			case IDENTIFIER:
-				EnterOuterAlt(_localctx, 2);
+				EnterOuterAlt(_localctx, 3);
 				{
-				State = 401;
+				State = 399;
 				reference(0);
 				}
 				break;
@@ -2981,6 +2946,7 @@ public partial class ImperiumParser : Parser {
 	public partial class Prefix_operatorContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PLUS() { return GetToken(ImperiumParser.PLUS, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MINUS() { return GetToken(ImperiumParser.MINUS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOT() { return GetToken(ImperiumParser.NOT, 0); }
 		public Prefix_operatorContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -3012,9 +2978,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 404;
+			State = 402;
 			_la = TokenStream.LA(1);
-			if ( !(_la==T__6 || _la==PLUS || _la==MINUS) ) {
+			if ( !((((_la - 99)) & ~0x3f) == 0 && ((1L << (_la - 99)) & 515L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3035,7 +3001,14 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class Comparison_operatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GT() { return GetToken(ImperiumParser.GT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GTE() { return GetToken(ImperiumParser.GTE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUALS() { return GetToken(ImperiumParser.EQUALS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LT() { return GetToken(ImperiumParser.LT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LTE() { return GetToken(ImperiumParser.LTE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NGT() { return GetToken(ImperiumParser.NGT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NE() { return GetToken(ImperiumParser.NE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NLT() { return GetToken(ImperiumParser.NLT, 0); }
 		public Comparison_operatorContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -3067,9 +3040,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 406;
+			State = 404;
 			_la = TokenStream.LA(1);
-			if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 130048L) != 0 || _la==EQUALS) ) {
+			if ( !((((_la - 96)) & ~0x3f) == 0 && ((1L << (_la - 96)) & 1040385L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3090,6 +3063,8 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class Shift_operatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RSHF() { return GetToken(ImperiumParser.RSHF, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LSHF() { return GetToken(ImperiumParser.LSHF, 0); }
 		public Shift_operatorContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -3121,9 +3096,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 408;
+			State = 406;
 			_la = TokenStream.LA(1);
-			if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 1966080L) != 0) ) {
+			if ( !(_la==T__3 || _la==T__4 || _la==LSHF || _la==RSHF) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3203,7 +3178,7 @@ public partial class ImperiumParser : Parser {
 		IdentifierContext _localctx = new IdentifierContext(Context, State);
 		EnterRule(_localctx, 66, RULE_identifier);
 		try {
-			State = 412;
+			State = 410;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case ARGUMENT:
@@ -3222,7 +3197,6 @@ public partial class ImperiumParser : Parser {
 			case ENTRY:
 			case FIXED:
 			case FLOAT:
-			case GO:
 			case GOTO:
 			case IF:
 			case INTRINSIC:
@@ -3242,7 +3216,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new KEYWDContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 410;
+				State = 408;
 				keyword();
 				}
 				break;
@@ -3250,7 +3224,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new Identifier_IDENTIFIERContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 411;
+				State = 409;
 				Match(IDENTIFIER);
 				}
 				break;
@@ -3281,7 +3255,6 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode THEN() { return GetToken(ImperiumParser.THEN, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ELSE() { return GetToken(ImperiumParser.ELSE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ELIF() { return GetToken(ImperiumParser.ELIF, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GO() { return GetToken(ImperiumParser.GO, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TO() { return GetToken(ImperiumParser.TO, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RETURNS() { return GetToken(ImperiumParser.RETURNS, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ARGUMENT() { return GetToken(ImperiumParser.ARGUMENT, 0); }
@@ -3334,9 +3307,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 414;
+			State = 412;
 			_la = TokenStream.LA(1);
-			if ( !((((_la - 28)) & ~0x3f) == 0 && ((1L << (_la - 28)) & 6111882953996820049L) != 0) ) {
+			if ( !((((_la - 16)) & ~0x3f) == 0 && ((1L << (_la - 16)) & 3055941476979498577L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3391,9 +3364,9 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 416;
+			State = 414;
 			Match(CALL);
-			State = 417;
+			State = 415;
 			reference(0);
 			}
 		}
@@ -3409,12 +3382,16 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class Goto_stmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GOTO() { return GetToken(ImperiumParser.GOTO, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER() { return GetToken(ImperiumParser.IDENTIFIER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public Decimal_literalContext decimal_literal() {
+			return GetRuleContext<Decimal_literalContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ReferenceContext reference() {
 			return GetRuleContext<ReferenceContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GOTO() { return GetToken(ImperiumParser.GOTO, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GO() { return GetToken(ImperiumParser.GO, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TO() { return GetToken(ImperiumParser.TO, 0); }
 		public Goto_stmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -3443,30 +3420,42 @@ public partial class ImperiumParser : Parser {
 		Goto_stmtContext _localctx = new Goto_stmtContext(Context, State);
 		EnterRule(_localctx, 72, RULE_goto_stmt);
 		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 422;
+			State = 426;
 			ErrorHandler.Sync(this);
-			switch (TokenStream.LA(1)) {
-			case GOTO:
+			switch ( Interpreter.AdaptivePredict(TokenStream,31,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
 				{
-				State = 419;
+				{
+				State = 417;
 				Match(GOTO);
-				}
-				break;
-			case GO:
-				{
+				State = 418;
+				Match(IDENTIFIER);
+				State = 419;
+				Match(LPAR);
 				State = 420;
-				Match(GO);
+				decimal_literal();
 				State = 421;
-				Match(TO);
+				Match(RPAR);
+				}
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			State = 424;
-			reference(0);
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				{
+				State = 423;
+				Match(GOTO);
+				State = 424;
+				reference(0);
+				}
+				}
+				break;
+			case 3:
+				EnterOuterAlt(_localctx, 3);
+				{
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -3512,7 +3501,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 426;
+			State = 428;
 			Match(END);
 			}
 		}
@@ -3561,14 +3550,14 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 428;
-			Match(ENDLOOP);
 			State = 430;
+			Match(ENDLOOP);
+			State = 432;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==IDENTIFIER) {
 				{
-				State = 429;
+				State = 431;
 				Match(IDENTIFIER);
 				}
 			}
@@ -3620,14 +3609,14 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 432;
-			Match(RELOOP);
 			State = 434;
+			Match(RELOOP);
+			State = 436;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==IDENTIFIER) {
 				{
-				State = 433;
+				State = 435;
 				Match(IDENTIFIER);
 				}
 			}
@@ -3685,7 +3674,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 436;
+			State = 438;
 			_la = TokenStream.LA(1);
 			if ( !(_la==ARGUMENT || _la==DECLARE) ) {
 			ErrorHandler.RecoverInline(this);
@@ -3694,9 +3683,9 @@ public partial class ImperiumParser : Parser {
 				ErrorHandler.ReportMatch(this);
 			    Consume();
 			}
-			State = 437;
+			State = 439;
 			identifier();
-			State = 438;
+			State = 440;
 			type_info();
 			}
 		}
@@ -3753,31 +3742,31 @@ public partial class ImperiumParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 441;
+			State = 443;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 440;
+				State = 442;
 				dimension_suffix();
 				}
 			}
 
-			State = 446;
+			State = 448;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,40,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,35,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					State = 443;
+					State = 445;
 					attribute();
 					}
 					} 
 				}
-				State = 448;
+				State = 450;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,40,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,35,Context);
 			}
 			}
 		}
@@ -3828,11 +3817,11 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 449;
-			Match(LPAR);
-			State = 450;
-			bound_pair_commalist();
 			State = 451;
+			Match(LPAR);
+			State = 452;
+			bound_pair_commalist();
+			State = 453;
 			Match(RPAR);
 			}
 		}
@@ -3884,10 +3873,12 @@ public partial class ImperiumParser : Parser {
 		Bound_pairContext _localctx = new Bound_pairContext(Context, State);
 		EnterRule(_localctx, 86, RULE_bound_pair);
 		try {
-			State = 460;
+			State = 462;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
-			case T__6:
+			case STRING_LITERAL_3:
+			case STRING_LITERAL_2:
+			case STRING_LITERAL_1:
 			case ARGUMENT:
 			case BIT:
 			case BUILTIN:
@@ -3904,7 +3895,6 @@ public partial class ImperiumParser : Parser {
 			case ENTRY:
 			case FIXED:
 			case FLOAT:
-			case GO:
 			case GOTO:
 			case IF:
 			case INTRINSIC:
@@ -3929,28 +3919,29 @@ public partial class ImperiumParser : Parser {
 			case LPAR:
 			case PLUS:
 			case MINUS:
+			case NOT:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 456;
+				State = 458;
 				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,41,Context) ) {
+				switch ( Interpreter.AdaptivePredict(TokenStream,36,Context) ) {
 				case 1:
 					{
-					State = 453;
+					State = 455;
 					lower_bound();
-					State = 454;
+					State = 456;
 					Match(COLON);
 					}
 					break;
 				}
-				State = 458;
+				State = 460;
 				upper_bound();
 				}
 				break;
 			case TIMES:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 459;
+				State = 461;
 				Match(TIMES);
 				}
 				break;
@@ -4011,21 +4002,21 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 462;
+			State = 464;
 			bound_pair();
-			State = 467;
+			State = 469;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 463;
+				State = 465;
 				Match(COMMA);
-				State = 464;
+				State = 466;
 				bound_pair();
 				}
 				}
-				State = 469;
+				State = 471;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -4076,7 +4067,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 470;
+			State = 472;
 			expression(0);
 			}
 		}
@@ -4125,7 +4116,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 472;
+			State = 474;
 			expression(0);
 			}
 		}
@@ -4184,48 +4175,48 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 481;
+			State = 483;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,44,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,39,Context) ) {
 			case 1:
 				{
-				State = 474;
+				State = 476;
 				data_attribute();
 				}
 				break;
 			case 2:
 				{
-				State = 475;
+				State = 477;
 				Match(AUTOMATIC);
 				}
 				break;
 			case 3:
 				{
-				State = 476;
+				State = 478;
 				Match(BUILTIN);
 				}
 				break;
 			case 4:
 				{
-				State = 477;
+				State = 479;
 				Match(STATIC);
 				}
 				break;
 			case 5:
 				{
-				State = 478;
+				State = 480;
 				Match(VARIABLE);
 				}
 				break;
 			case 6:
 				{
-				State = 479;
+				State = 481;
 				based();
 				}
 				break;
 			case 7:
 				{
-				State = 480;
+				State = 482;
 				defined();
 				}
 				break;
@@ -4596,22 +4587,22 @@ public partial class ImperiumParser : Parser {
 		EnterRule(_localctx, 96, RULE_data_attribute);
 		int _la;
 		try {
-			State = 507;
+			State = 509;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,47,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,42,Context) ) {
 			case 1:
 				_localctx = new BINContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
 				{
-				State = 483;
-				Match(BINARY);
 				State = 485;
+				Match(BINARY);
+				State = 487;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==LPAR) {
 					{
-					State = 484;
+					State = 486;
 					precision();
 					}
 				}
@@ -4624,14 +4615,14 @@ public partial class ImperiumParser : Parser {
 				EnterOuterAlt(_localctx, 2);
 				{
 				{
-				State = 487;
-				Match(DECIMAL);
 				State = 489;
+				Match(DECIMAL);
+				State = 491;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==LPAR) {
 					{
-					State = 488;
+					State = 490;
 					precision();
 					}
 				}
@@ -4643,7 +4634,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new PTRContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 491;
+				State = 493;
 				Match(POINTER);
 				}
 				break;
@@ -4652,9 +4643,9 @@ public partial class ImperiumParser : Parser {
 				EnterOuterAlt(_localctx, 4);
 				{
 				{
-				State = 492;
+				State = 494;
 				Match(BIT);
-				State = 493;
+				State = 495;
 				max_length();
 				}
 				}
@@ -4663,7 +4654,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new CHARContext(_localctx);
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 494;
+				State = 496;
 				Match(CHARACTER);
 				}
 				break;
@@ -4672,9 +4663,9 @@ public partial class ImperiumParser : Parser {
 				EnterOuterAlt(_localctx, 6);
 				{
 				{
-				State = 495;
+				State = 497;
 				Match(STRING);
-				State = 496;
+				State = 498;
 				max_length();
 				}
 				}
@@ -4683,7 +4674,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new ENTContext(_localctx);
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 497;
+				State = 499;
 				Match(ENTRY);
 				}
 				break;
@@ -4691,7 +4682,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new FIXContext(_localctx);
 				EnterOuterAlt(_localctx, 8);
 				{
-				State = 498;
+				State = 500;
 				Match(FIXED);
 				}
 				break;
@@ -4699,7 +4690,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new FLTContext(_localctx);
 				EnterOuterAlt(_localctx, 9);
 				{
-				State = 499;
+				State = 501;
 				Match(FLOAT);
 				}
 				break;
@@ -4707,7 +4698,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new OFFContext(_localctx);
 				EnterOuterAlt(_localctx, 10);
 				{
-				State = 500;
+				State = 502;
 				Match(OFFSET);
 				}
 				break;
@@ -4715,7 +4706,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new VNGContext(_localctx);
 				EnterOuterAlt(_localctx, 11);
 				{
-				State = 501;
+				State = 503;
 				Match(VARYING);
 				}
 				break;
@@ -4723,7 +4714,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new CORContext(_localctx);
 				EnterOuterAlt(_localctx, 12);
 				{
-				State = 502;
+				State = 504;
 				Match(COROUTINE);
 				}
 				break;
@@ -4731,7 +4722,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new COFContext(_localctx);
 				EnterOuterAlt(_localctx, 13);
 				{
-				State = 503;
+				State = 505;
 				Match(COFUNCTION);
 				}
 				break;
@@ -4739,7 +4730,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new BLTNContext(_localctx);
 				EnterOuterAlt(_localctx, 14);
 				{
-				State = 504;
+				State = 506;
 				Match(BUILTIN);
 				}
 				break;
@@ -4747,7 +4738,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new INTRContext(_localctx);
 				EnterOuterAlt(_localctx, 15);
 				{
-				State = 505;
+				State = 507;
 				Match(INTRINSIC);
 				}
 				break;
@@ -4755,7 +4746,7 @@ public partial class ImperiumParser : Parser {
 				_localctx = new IDENTContext(_localctx);
 				EnterOuterAlt(_localctx, 16);
 				{
-				State = 506;
+				State = 508;
 				identifier();
 				}
 				break;
@@ -4813,23 +4804,23 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 509;
+			State = 511;
 			Match(LPAR);
-			State = 510;
+			State = 512;
 			number_of_digits();
-			State = 513;
+			State = 515;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==COMMA) {
 				{
-				State = 511;
+				State = 513;
 				Match(COMMA);
-				State = 512;
+				State = 514;
 				scale_factor();
 				}
 			}
 
-			State = 515;
+			State = 517;
 			Match(RPAR);
 			}
 		}
@@ -4881,12 +4872,12 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 519;
+			State = 521;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case DECIMAL_PATTERN:
 				{
-				State = 517;
+				State = 519;
 				decimal_literal();
 				}
 				break;
@@ -4906,7 +4897,6 @@ public partial class ImperiumParser : Parser {
 			case ENTRY:
 			case FIXED:
 			case FLOAT:
-			case GO:
 			case GOTO:
 			case IF:
 			case INTRINSIC:
@@ -4925,7 +4915,7 @@ public partial class ImperiumParser : Parser {
 			case VARYING:
 			case IDENTIFIER:
 				{
-				State = 518;
+				State = 520;
 				identifier();
 				}
 				break;
@@ -4982,12 +4972,12 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 523;
+			State = 525;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case DECIMAL_PATTERN:
 				{
-				State = 521;
+				State = 523;
 				decimal_literal();
 				}
 				break;
@@ -5007,7 +4997,6 @@ public partial class ImperiumParser : Parser {
 			case ENTRY:
 			case FIXED:
 			case FLOAT:
-			case GO:
 			case GOTO:
 			case IF:
 			case INTRINSIC:
@@ -5026,7 +5015,7 @@ public partial class ImperiumParser : Parser {
 			case VARYING:
 			case IDENTIFIER:
 				{
-				State = 522;
+				State = 524;
 				identifier();
 				}
 				break;
@@ -5085,14 +5074,14 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 525;
+			State = 527;
 			Match(LPAR);
-			State = 528;
+			State = 530;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case DECIMAL_PATTERN:
 				{
-				State = 526;
+				State = 528;
 				decimal_literal();
 				}
 				break;
@@ -5112,7 +5101,6 @@ public partial class ImperiumParser : Parser {
 			case ENTRY:
 			case FIXED:
 			case FLOAT:
-			case GO:
 			case GOTO:
 			case IF:
 			case INTRINSIC:
@@ -5131,14 +5119,14 @@ public partial class ImperiumParser : Parser {
 			case VARYING:
 			case IDENTIFIER:
 				{
-				State = 527;
+				State = 529;
 				identifier();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			State = 530;
+			State = 532;
 			Match(RPAR);
 			}
 		}
@@ -5191,18 +5179,18 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 532;
+			State = 534;
 			Match(BASED);
-			State = 537;
+			State = 539;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 533;
-				Match(LPAR);
-				State = 534;
-				reference(0);
 				State = 535;
+				Match(LPAR);
+				State = 536;
+				reference(0);
+				State = 537;
 				Match(RPAR);
 				}
 			}
@@ -5258,18 +5246,18 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 539;
+			State = 541;
 			Match(DEFINED);
-			State = 544;
+			State = 546;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 540;
-				Match(LPAR);
-				State = 541;
-				reference(0);
 				State = 542;
+				Match(LPAR);
+				State = 543;
+				reference(0);
+				State = 544;
 				Match(RPAR);
 				}
 			}
@@ -5297,6 +5285,10 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Coprocedure_specifierContext coprocedure_specifier() {
 			return GetRuleContext<Coprocedure_specifierContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public Handler_specifierContext handler_specifier() {
+			return GetRuleContext<Handler_specifierContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RECURSIVE() { return GetToken(ImperiumParser.RECURSIVE, 0); }
 		public Entry_informationContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -5328,68 +5320,91 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 547;
+			State = 549;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 546;
+				State = 548;
 				parameter_name_commalist();
 				}
 			}
 
-			State = 561;
+			State = 567;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,59,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,55,Context) ) {
 			case 1:
 				{
 				{
-				State = 550;
+				State = 552;
 				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,55,Context) ) {
-				case 1:
+				_la = TokenStream.LA(1);
+				if (_la==RETURNS) {
 					{
-					State = 549;
+					State = 551;
 					returns_descriptor();
 					}
-					break;
 				}
-				State = 553;
+
+				State = 555;
 				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,56,Context) ) {
-				case 1:
+				_la = TokenStream.LA(1);
+				if (_la==COFUNCTION || _la==COROUTINE) {
 					{
-					State = 552;
+					State = 554;
 					coprocedure_specifier();
 					}
-					break;
 				}
+
 				}
 				}
 				break;
 			case 2:
 				{
 				{
-				State = 556;
+				State = 559;
 				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,57,Context) ) {
-				case 1:
+				switch (TokenStream.LA(1)) {
+				case COFUNCTION:
+				case COROUTINE:
 					{
-					State = 555;
+					State = 557;
 					coprocedure_specifier();
 					}
 					break;
-				}
-				State = 559;
-				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,58,Context) ) {
-				case 1:
+				case INTERRUPT:
 					{
 					State = 558;
-					returns_descriptor();
+					handler_specifier();
 					}
 					break;
+				case RETURNS:
+				case RECURSIVE:
+				case SEMICOLON:
+					break;
+				default:
+					break;
 				}
+				State = 562;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==RECURSIVE) {
+					{
+					State = 561;
+					Match(RECURSIVE);
+					}
+				}
+
+				State = 565;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==RETURNS) {
+					{
+					State = 564;
+					returns_descriptor();
+					}
+				}
+
 				}
 				}
 				break;
@@ -5441,7 +5456,7 @@ public partial class ImperiumParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 563;
+			State = 569;
 			_la = TokenStream.LA(1);
 			if ( !(_la==COFUNCTION || _la==COROUTINE) ) {
 			ErrorHandler.RecoverInline(this);
@@ -5450,6 +5465,53 @@ public partial class ImperiumParser : Parser {
 				ErrorHandler.ReportMatch(this);
 			    Consume();
 			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class Handler_specifierContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INTERRUPT() { return GetToken(ImperiumParser.INTERRUPT, 0); }
+		public Handler_specifierContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_handler_specifier; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterHandler_specifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitHandler_specifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitHandler_specifier(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public Handler_specifierContext handler_specifier() {
+		Handler_specifierContext _localctx = new Handler_specifierContext(Context, State);
+		EnterRule(_localctx, 114, RULE_handler_specifier);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 571;
+			Match(INTERRUPT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -5502,32 +5564,32 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Parameter_name_commalistContext parameter_name_commalist() {
 		Parameter_name_commalistContext _localctx = new Parameter_name_commalistContext(Context, State);
-		EnterRule(_localctx, 114, RULE_parameter_name_commalist);
+		EnterRule(_localctx, 116, RULE_parameter_name_commalist);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 565;
+			State = 573;
 			Match(LPAR);
-			State = 566;
+			State = 574;
 			identifier();
-			State = 571;
+			State = 579;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 567;
+				State = 575;
 				Match(COMMA);
-				State = 568;
+				State = 576;
 				identifier();
 				}
 				}
-				State = 573;
+				State = 581;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 574;
+			State = 582;
 			Match(RPAR);
 			}
 		}
@@ -5573,13 +5635,13 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Returns_descriptorContext returns_descriptor() {
 		Returns_descriptorContext _localctx = new Returns_descriptorContext(Context, State);
-		EnterRule(_localctx, 116, RULE_returns_descriptor);
+		EnterRule(_localctx, 118, RULE_returns_descriptor);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 576;
+			State = 584;
 			Match(RETURNS);
-			State = 577;
+			State = 585;
 			data_attribute();
 			}
 		}
@@ -5627,23 +5689,23 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Return_stmtContext return_stmt() {
 		Return_stmtContext _localctx = new Return_stmtContext(Context, State);
-		EnterRule(_localctx, 118, RULE_return_stmt);
+		EnterRule(_localctx, 120, RULE_return_stmt);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 579;
+			State = 587;
 			Match(RETURN);
-			State = 584;
+			State = 592;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 580;
+				State = 588;
 				Match(LPAR);
-				State = 581;
+				State = 589;
 				expression(0);
-				State = 582;
+				State = 590;
 				Match(RPAR);
 				}
 			}
@@ -5683,6 +5745,7 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Else_clauseContext else_clause() {
 			return GetRuleContext<Else_clauseContext>(0);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IF() { return GetToken(ImperiumParser.IF, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public Elif_clauseContext[] elif_clause() {
 			return GetRuleContexts<Elif_clauseContext>();
 		}
@@ -5715,19 +5778,19 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public If_stmtContext if_stmt() {
 		If_stmtContext _localctx = new If_stmtContext(Context, State);
-		EnterRule(_localctx, 120, RULE_if_stmt);
+		EnterRule(_localctx, 122, RULE_if_stmt);
 		int _la;
 		try {
 			int _alt;
-			State = 614;
+			State = 626;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,66,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,64,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 586;
+				State = 594;
 				then_clause();
-				State = 590;
+				State = 598;
 				ErrorHandler.Sync(this);
 				_alt = 1;
 				do {
@@ -5735,9 +5798,9 @@ public partial class ImperiumParser : Parser {
 					case 1:
 						{
 						{
-						State = 587;
+						State = 595;
 						executable_stmt();
-						State = 588;
+						State = 596;
 						terminator();
 						}
 						}
@@ -5745,30 +5808,40 @@ public partial class ImperiumParser : Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					State = 592;
+					State = 600;
 					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,62,Context);
+					_alt = Interpreter.AdaptivePredict(TokenStream,58,Context);
 				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-				State = 595;
+				State = 603;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==ELSE) {
 					{
-					State = 594;
+					State = 602;
 					else_clause();
 					}
 				}
 
-				State = 597;
+				State = 605;
 				end_stmt();
+				State = 607;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==IF) {
+					{
+					State = 606;
+					Match(IF);
+					}
+				}
+
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 599;
+				State = 609;
 				then_clause();
-				State = 603;
+				State = 613;
 				ErrorHandler.Sync(this);
 				_alt = 1;
 				do {
@@ -5776,9 +5849,9 @@ public partial class ImperiumParser : Parser {
 					case 1:
 						{
 						{
-						State = 600;
+						State = 610;
 						executable_stmt();
-						State = 601;
+						State = 611;
 						terminator();
 						}
 						}
@@ -5786,26 +5859,36 @@ public partial class ImperiumParser : Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					State = 605;
+					State = 615;
 					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,64,Context);
+					_alt = Interpreter.AdaptivePredict(TokenStream,61,Context);
 				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-				State = 608;
+				State = 618;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				do {
 					{
 					{
-					State = 607;
+					State = 617;
 					elif_clause();
 					}
 					}
-					State = 610;
+					State = 620;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				} while ( _la==ELIF );
-				State = 612;
+				State = 622;
 				end_stmt();
+				State = 624;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==IF) {
+					{
+					State = 623;
+					Match(IF);
+					}
+				}
+
 				}
 				break;
 			}
@@ -5853,15 +5936,15 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Then_clauseContext then_clause() {
 		Then_clauseContext _localctx = new Then_clauseContext(Context, State);
-		EnterRule(_localctx, 122, RULE_then_clause);
+		EnterRule(_localctx, 124, RULE_then_clause);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 616;
+			State = 628;
 			Match(IF);
-			State = 617;
+			State = 629;
 			expression(0);
-			State = 618;
+			State = 630;
 			Match(THEN);
 			}
 		}
@@ -5916,14 +5999,14 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Else_clauseContext else_clause() {
 		Else_clauseContext _localctx = new Else_clauseContext(Context, State);
-		EnterRule(_localctx, 124, RULE_else_clause);
+		EnterRule(_localctx, 126, RULE_else_clause);
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 620;
+			State = 632;
 			Match(ELSE);
-			State = 624;
+			State = 636;
 			ErrorHandler.Sync(this);
 			_alt = 1;
 			do {
@@ -5931,9 +6014,9 @@ public partial class ImperiumParser : Parser {
 				case 1:
 					{
 					{
-					State = 621;
+					State = 633;
 					executable_stmt();
-					State = 622;
+					State = 634;
 					terminator();
 					}
 					}
@@ -5941,9 +6024,9 @@ public partial class ImperiumParser : Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 626;
+				State = 638;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,67,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,65,Context);
 			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
@@ -6005,19 +6088,19 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Elif_clauseContext elif_clause() {
 		Elif_clauseContext _localctx = new Elif_clauseContext(Context, State);
-		EnterRule(_localctx, 126, RULE_elif_clause);
+		EnterRule(_localctx, 128, RULE_elif_clause);
 		int _la;
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 628;
+			State = 640;
 			Match(ELIF);
-			State = 629;
+			State = 641;
 			expression(0);
-			State = 630;
+			State = 642;
 			Match(THEN);
-			State = 634;
+			State = 646;
 			ErrorHandler.Sync(this);
 			_alt = 1;
 			do {
@@ -6025,9 +6108,9 @@ public partial class ImperiumParser : Parser {
 				case 1:
 					{
 					{
-					State = 631;
+					State = 643;
 					executable_stmt();
-					State = 632;
+					State = 644;
 					terminator();
 					}
 					}
@@ -6035,16 +6118,16 @@ public partial class ImperiumParser : Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 636;
+				State = 648;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,68,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,66,Context);
 			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-			State = 639;
+			State = 651;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==ELSE) {
 				{
-				State = 638;
+				State = 650;
 				else_clause();
 				}
 			}
@@ -6075,7 +6158,10 @@ public partial class ImperiumParser : Parser {
 		}
 	}
 	public partial class WHILE_UNTILContext : Loop_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP() { return GetToken(ImperiumParser.LOOP, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] LOOP() { return GetTokens(ImperiumParser.LOOP); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP(int i) {
+			return GetToken(ImperiumParser.LOOP, i);
+		}
 		[System.Diagnostics.DebuggerNonUserCode] public While_optionContext while_option() {
 			return GetRuleContext<While_optionContext>(0);
 		}
@@ -6116,7 +6202,10 @@ public partial class ImperiumParser : Parser {
 		}
 	}
 	public partial class UNTIL_WHILEContext : Loop_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP() { return GetToken(ImperiumParser.LOOP, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] LOOP() { return GetTokens(ImperiumParser.LOOP); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP(int i) {
+			return GetToken(ImperiumParser.LOOP, i);
+		}
 		[System.Diagnostics.DebuggerNonUserCode] public Until_optionContext until_option() {
 			return GetRuleContext<Until_optionContext>(0);
 		}
@@ -6157,7 +6246,10 @@ public partial class ImperiumParser : Parser {
 		}
 	}
 	public partial class BASIC_LOOPContext : Loop_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP() { return GetToken(ImperiumParser.LOOP, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] LOOP() { return GetTokens(ImperiumParser.LOOP); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP(int i) {
+			return GetToken(ImperiumParser.LOOP, i);
+		}
 		[System.Diagnostics.DebuggerNonUserCode] public End_stmtContext end_stmt() {
 			return GetRuleContext<End_stmtContext>(0);
 		}
@@ -6195,19 +6287,20 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Loop_stmtContext loop_stmt() {
 		Loop_stmtContext _localctx = new Loop_stmtContext(Context, State);
-		EnterRule(_localctx, 128, RULE_loop_stmt);
+		EnterRule(_localctx, 130, RULE_loop_stmt);
+		int _la;
 		try {
 			int _alt;
-			State = 679;
+			State = 697;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,75,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,76,Context) ) {
 			case 1:
 				_localctx = new BASIC_LOOPContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 641;
+				State = 653;
 				Match(LOOP);
-				State = 645;
+				State = 657;
 				ErrorHandler.Sync(this);
 				_alt = 1;
 				do {
@@ -6215,9 +6308,9 @@ public partial class ImperiumParser : Parser {
 					case 1:
 						{
 						{
-						State = 642;
+						State = 654;
 						executable_stmt();
-						State = 643;
+						State = 655;
 						terminator();
 						}
 						}
@@ -6225,73 +6318,39 @@ public partial class ImperiumParser : Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					State = 647;
+					State = 659;
 					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,70,Context);
+					_alt = Interpreter.AdaptivePredict(TokenStream,68,Context);
 				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-				State = 649;
+				State = 661;
 				end_stmt();
+				State = 663;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==LOOP) {
+					{
+					State = 662;
+					Match(LOOP);
+					}
+				}
+
 				}
 				break;
 			case 2:
 				_localctx = new WHILE_UNTILContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 651;
-				Match(LOOP);
-				State = 652;
-				while_option();
-				State = 654;
-				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,71,Context) ) {
-				case 1:
-					{
-					State = 653;
-					until_option();
-					}
-					break;
-				}
-				State = 659;
-				ErrorHandler.Sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						State = 656;
-						executable_stmt();
-						State = 657;
-						terminator();
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
-					}
-					State = 661;
-					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,72,Context);
-				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-				State = 663;
-				end_stmt();
-				}
-				break;
-			case 3:
-				_localctx = new UNTIL_WHILEContext(_localctx);
-				EnterOuterAlt(_localctx, 3);
-				{
 				State = 665;
 				Match(LOOP);
 				State = 666;
-				until_option();
+				while_option();
 				State = 668;
 				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,73,Context) ) {
+				switch ( Interpreter.AdaptivePredict(TokenStream,70,Context) ) {
 				case 1:
 					{
 					State = 667;
-					while_option();
+					until_option();
 					}
 					break;
 				}
@@ -6315,10 +6374,74 @@ public partial class ImperiumParser : Parser {
 					}
 					State = 675;
 					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,74,Context);
+					_alt = Interpreter.AdaptivePredict(TokenStream,71,Context);
 				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
 				State = 677;
 				end_stmt();
+				State = 679;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==LOOP) {
+					{
+					State = 678;
+					Match(LOOP);
+					}
+				}
+
+				}
+				break;
+			case 3:
+				_localctx = new UNTIL_WHILEContext(_localctx);
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 681;
+				Match(LOOP);
+				State = 682;
+				until_option();
+				State = 684;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,73,Context) ) {
+				case 1:
+					{
+					State = 683;
+					while_option();
+					}
+					break;
+				}
+				State = 689;
+				ErrorHandler.Sync(this);
+				_alt = 1;
+				do {
+					switch (_alt) {
+					case 1:
+						{
+						{
+						State = 686;
+						executable_stmt();
+						State = 687;
+						terminator();
+						}
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
+					}
+					State = 691;
+					ErrorHandler.Sync(this);
+					_alt = Interpreter.AdaptivePredict(TokenStream,74,Context);
+				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
+				State = 693;
+				end_stmt();
+				State = 695;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==LOOP) {
+					{
+					State = 694;
+					Match(LOOP);
+					}
+				}
+
 				}
 				break;
 			}
@@ -6367,17 +6490,17 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public While_optionContext while_option() {
 		While_optionContext _localctx = new While_optionContext(Context, State);
-		EnterRule(_localctx, 130, RULE_while_option);
+		EnterRule(_localctx, 132, RULE_while_option);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 681;
+			State = 699;
 			Match(WHILE);
-			State = 682;
+			State = 700;
 			Match(LPAR);
-			State = 683;
+			State = 701;
 			expression(0);
-			State = 684;
+			State = 702;
 			Match(RPAR);
 			}
 		}
@@ -6425,17 +6548,17 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Until_optionContext until_option() {
 		Until_optionContext _localctx = new Until_optionContext(Context, State);
-		EnterRule(_localctx, 132, RULE_until_option);
+		EnterRule(_localctx, 134, RULE_until_option);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 686;
+			State = 704;
 			Match(UNTIL);
-			State = 687;
+			State = 705;
 			Match(LPAR);
-			State = 688;
+			State = 706;
 			expression(0);
-			State = 689;
+			State = 707;
 			Match(RPAR);
 			}
 		}
@@ -6495,54 +6618,111 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Define_stmtContext define_stmt() {
 		Define_stmtContext _localctx = new Define_stmtContext(Context, State);
-		EnterRule(_localctx, 134, RULE_define_stmt);
+		EnterRule(_localctx, 136, RULE_define_stmt);
 		int _la;
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 691;
+			State = 709;
 			Match(DEFINE);
-			State = 692;
+			State = 710;
 			identifier();
 			{
-			State = 693;
+			State = 711;
 			identifier();
-			State = 694;
+			State = 712;
 			type_info();
 			}
-			State = 702;
+			State = 720;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,76,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,77,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					State = 696;
+					State = 714;
 					Match(COMMA);
-					State = 697;
+					State = 715;
 					identifier();
-					State = 698;
+					State = 716;
 					type_info();
 					}
 					} 
 				}
-				State = 704;
+				State = 722;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,76,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,77,Context);
 			}
-			State = 706;
+			State = 724;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==COMMA) {
 				{
-				State = 705;
+				State = 723;
 				Match(COMMA);
 				}
 			}
 
-			State = 708;
+			State = 726;
 			Match(END);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class String_literalContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING_LITERAL_3() { return GetToken(ImperiumParser.STRING_LITERAL_3, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING_LITERAL_2() { return GetToken(ImperiumParser.STRING_LITERAL_2, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING_LITERAL_1() { return GetToken(ImperiumParser.STRING_LITERAL_1, 0); }
+		public String_literalContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_string_literal; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterString_literal(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitString_literal(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitString_literal(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public String_literalContext string_literal() {
+		String_literalContext _localctx = new String_literalContext(Context, State);
+		EnterRule(_localctx, 138, RULE_string_literal);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 728;
+			_la = TokenStream.LA(1);
+			if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 14336L) != 0) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -6595,36 +6775,36 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Numeric_literalContext numeric_literal() {
 		Numeric_literalContext _localctx = new Numeric_literalContext(Context, State);
-		EnterRule(_localctx, 136, RULE_numeric_literal);
+		EnterRule(_localctx, 140, RULE_numeric_literal);
 		try {
-			State = 714;
+			State = 734;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case BINARY_PATTERN:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 710;
+				State = 730;
 				binary_literal();
 				}
 				break;
 			case OCTAL_PATTERN:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 711;
+				State = 731;
 				octal_literal();
 				}
 				break;
 			case HEXADECIMAL_PATTERN:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 712;
+				State = 732;
 				hexadecimal_literal();
 				}
 				break;
 			case DECIMAL_PATTERN:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 713;
+				State = 733;
 				decimal_literal();
 				}
 				break;
@@ -6671,12 +6851,12 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Hexadecimal_literalContext hexadecimal_literal() {
 		Hexadecimal_literalContext _localctx = new Hexadecimal_literalContext(Context, State);
-		EnterRule(_localctx, 138, RULE_hexadecimal_literal);
+		EnterRule(_localctx, 142, RULE_hexadecimal_literal);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 716;
+			State = 736;
 			Match(HEXADECIMAL_PATTERN);
 			}
 			}
@@ -6720,12 +6900,12 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Octal_literalContext octal_literal() {
 		Octal_literalContext _localctx = new Octal_literalContext(Context, State);
-		EnterRule(_localctx, 140, RULE_octal_literal);
+		EnterRule(_localctx, 144, RULE_octal_literal);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 718;
+			State = 738;
 			Match(OCTAL_PATTERN);
 			}
 			}
@@ -6769,12 +6949,12 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Decimal_literalContext decimal_literal() {
 		Decimal_literalContext _localctx = new Decimal_literalContext(Context, State);
-		EnterRule(_localctx, 142, RULE_decimal_literal);
+		EnterRule(_localctx, 146, RULE_decimal_literal);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 720;
+			State = 740;
 			Match(DECIMAL_PATTERN);
 			}
 			}
@@ -6818,12 +6998,12 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Binary_literalContext binary_literal() {
 		Binary_literalContext _localctx = new Binary_literalContext(Context, State);
-		EnterRule(_localctx, 144, RULE_binary_literal);
+		EnterRule(_localctx, 148, RULE_binary_literal);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 722;
+			State = 742;
 			Match(BINARY_PATTERN);
 			}
 			}
@@ -6909,7 +7089,7 @@ public partial class ImperiumParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,129,725,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
+		4,1,123,745,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
 		7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,14,
 		2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,21,
 		2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,2,27,7,27,2,28,7,28,
@@ -6919,241 +7099,248 @@ public partial class ImperiumParser : Parser {
 		2,50,7,50,2,51,7,51,2,52,7,52,2,53,7,53,2,54,7,54,2,55,7,55,2,56,7,56,
 		2,57,7,57,2,58,7,58,2,59,7,59,2,60,7,60,2,61,7,61,2,62,7,62,2,63,7,63,
 		2,64,7,64,2,65,7,65,2,66,7,66,2,67,7,67,2,68,7,68,2,69,7,69,2,70,7,70,
-		2,71,7,71,2,72,7,72,1,0,3,0,148,8,0,1,0,3,0,151,8,0,1,0,1,0,1,1,1,1,1,
-		1,1,1,1,1,1,1,1,2,1,2,1,2,5,2,164,8,2,10,2,12,2,167,9,2,1,2,1,2,1,2,5,
-		2,172,8,2,10,2,12,2,175,9,2,1,2,3,2,178,8,2,1,3,1,3,1,4,1,4,1,4,1,4,1,
-		5,1,5,1,5,3,5,189,8,5,1,6,3,6,192,8,6,1,6,1,6,3,6,196,8,6,1,6,1,6,3,6,
-		200,8,6,1,6,1,6,1,6,3,6,205,8,6,1,6,1,6,3,6,209,8,6,1,6,1,6,3,6,213,8,
-		6,1,6,1,6,3,6,217,8,6,1,6,1,6,3,6,221,8,6,1,6,3,6,224,8,6,1,7,1,7,1,7,
-		1,7,1,7,1,7,1,7,1,8,1,8,1,8,1,8,1,9,1,9,1,9,3,9,240,8,9,1,9,1,9,1,9,1,
-		9,3,9,246,8,9,5,9,248,8,9,10,9,12,9,251,9,9,1,10,1,10,4,10,255,8,10,11,
-		10,12,10,256,1,10,1,10,1,11,4,11,262,8,11,11,11,12,11,263,1,12,3,12,267,
-		8,12,1,12,1,12,1,13,1,13,3,13,273,8,13,1,13,1,13,1,14,4,14,278,8,14,11,
-		14,12,14,279,1,15,1,15,1,16,1,16,1,16,5,16,287,8,16,10,16,12,16,290,9,
-		16,1,17,1,17,1,17,1,17,1,17,1,17,5,17,298,8,17,10,17,12,17,301,9,17,1,
-		18,1,18,1,18,1,18,1,18,1,18,5,18,309,8,18,10,18,12,18,312,9,18,1,19,1,
-		19,1,19,1,19,1,19,1,19,5,19,320,8,19,10,19,12,19,323,9,19,1,20,1,20,1,
-		20,1,20,1,20,1,20,5,20,331,8,20,10,20,12,20,334,9,20,1,21,1,21,1,21,1,
-		21,1,21,1,21,1,21,5,21,343,8,21,10,21,12,21,346,9,21,1,22,1,22,1,22,1,
-		22,1,22,1,22,5,22,354,8,22,10,22,12,22,357,9,22,1,23,1,23,1,23,1,23,1,
-		23,1,23,5,23,365,8,23,10,23,12,23,368,9,23,1,24,1,24,1,24,1,24,1,24,1,
-		24,5,24,376,8,24,10,24,12,24,379,9,24,1,25,1,25,1,25,1,25,3,25,385,8,25,
-		1,26,1,26,3,26,389,8,26,1,26,1,26,1,26,1,27,1,27,1,27,1,28,1,28,1,28,1,
-		28,1,29,1,29,3,29,403,8,29,1,30,1,30,1,31,1,31,1,32,1,32,1,33,1,33,3,33,
-		413,8,33,1,34,1,34,1,35,1,35,1,35,1,36,1,36,1,36,3,36,423,8,36,1,36,1,
-		36,1,37,1,37,1,38,1,38,3,38,431,8,38,1,39,1,39,3,39,435,8,39,1,40,1,40,
-		1,40,1,40,1,41,3,41,442,8,41,1,41,5,41,445,8,41,10,41,12,41,448,9,41,1,
-		42,1,42,1,42,1,42,1,43,1,43,1,43,3,43,457,8,43,1,43,1,43,3,43,461,8,43,
-		1,44,1,44,1,44,5,44,466,8,44,10,44,12,44,469,9,44,1,45,1,45,1,46,1,46,
-		1,47,1,47,1,47,1,47,1,47,1,47,1,47,3,47,482,8,47,1,48,1,48,3,48,486,8,
-		48,1,48,1,48,3,48,490,8,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,
-		1,48,1,48,1,48,1,48,1,48,1,48,1,48,3,48,508,8,48,1,49,1,49,1,49,1,49,3,
-		49,514,8,49,1,49,1,49,1,50,1,50,3,50,520,8,50,1,51,1,51,3,51,524,8,51,
-		1,52,1,52,1,52,3,52,529,8,52,1,52,1,52,1,53,1,53,1,53,1,53,1,53,3,53,538,
-		8,53,1,54,1,54,1,54,1,54,1,54,3,54,545,8,54,1,55,3,55,548,8,55,1,55,3,
-		55,551,8,55,1,55,3,55,554,8,55,1,55,3,55,557,8,55,1,55,3,55,560,8,55,3,
-		55,562,8,55,1,56,1,56,1,57,1,57,1,57,1,57,5,57,570,8,57,10,57,12,57,573,
-		9,57,1,57,1,57,1,58,1,58,1,58,1,59,1,59,1,59,1,59,1,59,3,59,585,8,59,1,
-		60,1,60,1,60,1,60,4,60,591,8,60,11,60,12,60,592,1,60,3,60,596,8,60,1,60,
-		1,60,1,60,1,60,1,60,1,60,4,60,604,8,60,11,60,12,60,605,1,60,4,60,609,8,
-		60,11,60,12,60,610,1,60,1,60,3,60,615,8,60,1,61,1,61,1,61,1,61,1,62,1,
-		62,1,62,1,62,4,62,625,8,62,11,62,12,62,626,1,63,1,63,1,63,1,63,1,63,1,
-		63,4,63,635,8,63,11,63,12,63,636,1,63,3,63,640,8,63,1,64,1,64,1,64,1,64,
-		4,64,646,8,64,11,64,12,64,647,1,64,1,64,1,64,1,64,1,64,3,64,655,8,64,1,
-		64,1,64,1,64,4,64,660,8,64,11,64,12,64,661,1,64,1,64,1,64,1,64,1,64,3,
-		64,669,8,64,1,64,1,64,1,64,4,64,674,8,64,11,64,12,64,675,1,64,1,64,3,64,
-		680,8,64,1,65,1,65,1,65,1,65,1,65,1,66,1,66,1,66,1,66,1,66,1,67,1,67,1,
-		67,1,67,1,67,1,67,1,67,1,67,1,67,5,67,701,8,67,10,67,12,67,704,9,67,1,
-		67,3,67,707,8,67,1,67,1,67,1,68,1,68,1,68,1,68,3,68,715,8,68,1,69,1,69,
-		1,70,1,70,1,71,1,71,1,72,1,72,1,72,0,9,18,34,36,38,40,42,44,46,48,73,0,
-		2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,
-		52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,
-		100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134,
-		136,138,140,142,144,0,9,1,0,6,7,1,0,122,123,1,0,120,121,2,0,7,7,122,123,
-		2,0,10,16,119,119,1,0,17,20,19,0,28,28,32,32,34,34,37,40,42,43,45,49,51,
-		52,54,56,61,61,63,63,65,65,68,68,70,70,74,76,80,80,82,83,86,86,88,88,90,
-		90,2,0,28,28,42,42,1,0,39,40,762,0,147,1,0,0,0,2,154,1,0,0,0,4,177,1,0,
-		0,0,6,179,1,0,0,0,8,181,1,0,0,0,10,188,1,0,0,0,12,223,1,0,0,0,14,225,1,
-		0,0,0,16,232,1,0,0,0,18,236,1,0,0,0,20,252,1,0,0,0,22,261,1,0,0,0,24,266,
-		1,0,0,0,26,270,1,0,0,0,28,277,1,0,0,0,30,281,1,0,0,0,32,283,1,0,0,0,34,
-		291,1,0,0,0,36,302,1,0,0,0,38,313,1,0,0,0,40,324,1,0,0,0,42,335,1,0,0,
-		0,44,347,1,0,0,0,46,358,1,0,0,0,48,369,1,0,0,0,50,384,1,0,0,0,52,388,1,
-		0,0,0,54,393,1,0,0,0,56,396,1,0,0,0,58,402,1,0,0,0,60,404,1,0,0,0,62,406,
-		1,0,0,0,64,408,1,0,0,0,66,412,1,0,0,0,68,414,1,0,0,0,70,416,1,0,0,0,72,
-		422,1,0,0,0,74,426,1,0,0,0,76,428,1,0,0,0,78,432,1,0,0,0,80,436,1,0,0,
-		0,82,441,1,0,0,0,84,449,1,0,0,0,86,460,1,0,0,0,88,462,1,0,0,0,90,470,1,
-		0,0,0,92,472,1,0,0,0,94,481,1,0,0,0,96,507,1,0,0,0,98,509,1,0,0,0,100,
-		519,1,0,0,0,102,523,1,0,0,0,104,525,1,0,0,0,106,532,1,0,0,0,108,539,1,
-		0,0,0,110,547,1,0,0,0,112,563,1,0,0,0,114,565,1,0,0,0,116,576,1,0,0,0,
-		118,579,1,0,0,0,120,614,1,0,0,0,122,616,1,0,0,0,124,620,1,0,0,0,126,628,
-		1,0,0,0,128,679,1,0,0,0,130,681,1,0,0,0,132,686,1,0,0,0,134,691,1,0,0,
-		0,136,714,1,0,0,0,138,716,1,0,0,0,140,718,1,0,0,0,142,720,1,0,0,0,144,
-		722,1,0,0,0,146,148,5,26,0,0,147,146,1,0,0,0,147,148,1,0,0,0,148,150,1,
-		0,0,0,149,151,3,14,7,0,150,149,1,0,0,0,150,151,1,0,0,0,151,152,1,0,0,0,
-		152,153,3,2,1,0,153,1,1,0,0,0,154,155,5,70,0,0,155,156,3,66,33,0,156,157,
-		3,110,55,0,157,158,3,4,2,0,158,159,3,74,37,0,159,3,1,0,0,0,160,161,3,10,
-		5,0,161,162,3,6,3,0,162,164,1,0,0,0,163,160,1,0,0,0,164,167,1,0,0,0,165,
-		163,1,0,0,0,165,166,1,0,0,0,166,173,1,0,0,0,167,165,1,0,0,0,168,169,3,
-		12,6,0,169,170,3,6,3,0,170,172,1,0,0,0,171,168,1,0,0,0,172,175,1,0,0,0,
-		173,171,1,0,0,0,173,174,1,0,0,0,174,178,1,0,0,0,175,173,1,0,0,0,176,178,
-		3,6,3,0,177,165,1,0,0,0,177,176,1,0,0,0,178,5,1,0,0,0,179,180,5,124,0,
-		0,180,7,1,0,0,0,181,182,5,117,0,0,182,183,3,66,33,0,183,184,5,118,0,0,
-		184,9,1,0,0,0,185,189,3,14,7,0,186,189,3,80,40,0,187,189,3,134,67,0,188,
-		185,1,0,0,0,188,186,1,0,0,0,188,187,1,0,0,0,189,11,1,0,0,0,190,192,3,8,
-		4,0,191,190,1,0,0,0,191,192,1,0,0,0,192,193,1,0,0,0,193,224,3,16,8,0,194,
-		196,3,8,4,0,195,194,1,0,0,0,195,196,1,0,0,0,196,197,1,0,0,0,197,224,3,
-		70,35,0,198,200,3,8,4,0,199,198,1,0,0,0,199,200,1,0,0,0,200,201,1,0,0,
-		0,201,224,3,72,36,0,202,224,3,2,1,0,203,205,3,8,4,0,204,203,1,0,0,0,204,
-		205,1,0,0,0,205,206,1,0,0,0,206,224,3,118,59,0,207,209,3,8,4,0,208,207,
-		1,0,0,0,208,209,1,0,0,0,209,210,1,0,0,0,210,224,3,120,60,0,211,213,3,8,
-		4,0,212,211,1,0,0,0,212,213,1,0,0,0,213,214,1,0,0,0,214,224,3,128,64,0,
-		215,217,3,8,4,0,216,215,1,0,0,0,216,217,1,0,0,0,217,218,1,0,0,0,218,224,
-		3,76,38,0,219,221,3,8,4,0,220,219,1,0,0,0,220,221,1,0,0,0,221,222,1,0,
-		0,0,222,224,3,78,39,0,223,191,1,0,0,0,223,195,1,0,0,0,223,199,1,0,0,0,
-		223,202,1,0,0,0,223,204,1,0,0,0,223,208,1,0,0,0,223,212,1,0,0,0,223,216,
-		1,0,0,0,223,220,1,0,0,0,224,13,1,0,0,0,225,226,5,1,0,0,226,227,5,2,0,0,
-		227,228,5,128,0,0,228,229,3,66,33,0,229,230,5,3,0,0,230,231,5,128,0,0,
-		231,15,1,0,0,0,232,233,3,18,9,0,233,234,5,119,0,0,234,235,3,34,17,0,235,
-		17,1,0,0,0,236,237,6,9,-1,0,237,239,3,24,12,0,238,240,3,22,11,0,239,238,
-		1,0,0,0,239,240,1,0,0,0,240,249,1,0,0,0,241,242,10,2,0,0,242,243,5,110,
-		0,0,243,245,3,24,12,0,244,246,3,22,11,0,245,244,1,0,0,0,245,246,1,0,0,
-		0,246,248,1,0,0,0,247,241,1,0,0,0,248,251,1,0,0,0,249,247,1,0,0,0,249,
-		250,1,0,0,0,250,19,1,0,0,0,251,249,1,0,0,0,252,254,5,113,0,0,253,255,3,
-		32,16,0,254,253,1,0,0,0,255,256,1,0,0,0,256,254,1,0,0,0,256,257,1,0,0,
-		0,257,258,1,0,0,0,258,259,5,114,0,0,259,21,1,0,0,0,260,262,3,20,10,0,261,
-		260,1,0,0,0,262,263,1,0,0,0,263,261,1,0,0,0,263,264,1,0,0,0,264,23,1,0,
-		0,0,265,267,3,28,14,0,266,265,1,0,0,0,266,267,1,0,0,0,267,268,1,0,0,0,
-		268,269,3,66,33,0,269,25,1,0,0,0,270,272,3,66,33,0,271,273,3,20,10,0,272,
-		271,1,0,0,0,272,273,1,0,0,0,273,274,1,0,0,0,274,275,5,111,0,0,275,27,1,
-		0,0,0,276,278,3,26,13,0,277,276,1,0,0,0,278,279,1,0,0,0,279,277,1,0,0,
-		0,279,280,1,0,0,0,280,29,1,0,0,0,281,282,3,34,17,0,282,31,1,0,0,0,283,
-		288,3,30,15,0,284,285,5,112,0,0,285,287,3,30,15,0,286,284,1,0,0,0,287,
-		290,1,0,0,0,288,286,1,0,0,0,288,289,1,0,0,0,289,33,1,0,0,0,290,288,1,0,
-		0,0,291,292,6,17,-1,0,292,293,3,36,18,0,293,299,1,0,0,0,294,295,10,1,0,
-		0,295,296,5,4,0,0,296,298,3,36,18,0,297,294,1,0,0,0,298,301,1,0,0,0,299,
-		297,1,0,0,0,299,300,1,0,0,0,300,35,1,0,0,0,301,299,1,0,0,0,302,303,6,18,
-		-1,0,303,304,3,38,19,0,304,310,1,0,0,0,305,306,10,1,0,0,306,307,5,5,0,
-		0,307,309,3,38,19,0,308,305,1,0,0,0,309,312,1,0,0,0,310,308,1,0,0,0,310,
-		311,1,0,0,0,311,37,1,0,0,0,312,310,1,0,0,0,313,314,6,19,-1,0,314,315,3,
-		40,20,0,315,321,1,0,0,0,316,317,10,1,0,0,317,318,7,0,0,0,318,320,3,40,
-		20,0,319,316,1,0,0,0,320,323,1,0,0,0,321,319,1,0,0,0,321,322,1,0,0,0,322,
-		39,1,0,0,0,323,321,1,0,0,0,324,325,6,20,-1,0,325,326,3,42,21,0,326,332,
-		1,0,0,0,327,328,10,1,0,0,328,329,5,8,0,0,329,331,3,42,21,0,330,327,1,0,
-		0,0,331,334,1,0,0,0,332,330,1,0,0,0,332,333,1,0,0,0,333,41,1,0,0,0,334,
-		332,1,0,0,0,335,336,6,21,-1,0,336,337,3,44,22,0,337,344,1,0,0,0,338,339,
-		10,1,0,0,339,340,3,62,31,0,340,341,3,44,22,0,341,343,1,0,0,0,342,338,1,
-		0,0,0,343,346,1,0,0,0,344,342,1,0,0,0,344,345,1,0,0,0,345,43,1,0,0,0,346,
-		344,1,0,0,0,347,348,6,22,-1,0,348,349,3,46,23,0,349,355,1,0,0,0,350,351,
-		10,1,0,0,351,352,5,9,0,0,352,354,3,46,23,0,353,350,1,0,0,0,354,357,1,0,
-		0,0,355,353,1,0,0,0,355,356,1,0,0,0,356,45,1,0,0,0,357,355,1,0,0,0,358,
-		359,6,23,-1,0,359,360,3,48,24,0,360,366,1,0,0,0,361,362,10,1,0,0,362,363,
-		7,1,0,0,363,365,3,48,24,0,364,361,1,0,0,0,365,368,1,0,0,0,366,364,1,0,
-		0,0,366,367,1,0,0,0,367,47,1,0,0,0,368,366,1,0,0,0,369,370,6,24,-1,0,370,
-		371,3,50,25,0,371,377,1,0,0,0,372,373,10,1,0,0,373,374,7,2,0,0,374,376,
-		3,50,25,0,375,372,1,0,0,0,376,379,1,0,0,0,377,375,1,0,0,0,377,378,1,0,
-		0,0,378,49,1,0,0,0,379,377,1,0,0,0,380,385,3,58,29,0,381,385,3,54,27,0,
-		382,385,3,56,28,0,383,385,3,52,26,0,384,380,1,0,0,0,384,381,1,0,0,0,384,
-		382,1,0,0,0,384,383,1,0,0,0,385,51,1,0,0,0,386,389,3,58,29,0,387,389,3,
-		56,28,0,388,386,1,0,0,0,388,387,1,0,0,0,389,390,1,0,0,0,390,391,5,125,
-		0,0,391,392,3,50,25,0,392,53,1,0,0,0,393,394,3,60,30,0,394,395,3,50,25,
-		0,395,55,1,0,0,0,396,397,5,113,0,0,397,398,3,34,17,0,398,399,5,114,0,0,
-		399,57,1,0,0,0,400,403,3,136,68,0,401,403,3,18,9,0,402,400,1,0,0,0,402,
-		401,1,0,0,0,403,59,1,0,0,0,404,405,7,3,0,0,405,61,1,0,0,0,406,407,7,4,
-		0,0,407,63,1,0,0,0,408,409,7,5,0,0,409,65,1,0,0,0,410,413,3,68,34,0,411,
-		413,5,100,0,0,412,410,1,0,0,0,412,411,1,0,0,0,413,67,1,0,0,0,414,415,7,
-		6,0,0,415,69,1,0,0,0,416,417,5,37,0,0,417,418,3,18,9,0,418,71,1,0,0,0,
-		419,423,5,55,0,0,420,421,5,54,0,0,421,423,5,83,0,0,422,419,1,0,0,0,422,
-		420,1,0,0,0,423,424,1,0,0,0,424,425,3,18,9,0,425,73,1,0,0,0,426,427,5,
-		47,0,0,427,75,1,0,0,0,428,430,5,48,0,0,429,431,5,100,0,0,430,429,1,0,0,
-		0,430,431,1,0,0,0,431,77,1,0,0,0,432,434,5,74,0,0,433,435,5,100,0,0,434,
-		433,1,0,0,0,434,435,1,0,0,0,435,79,1,0,0,0,436,437,7,7,0,0,437,438,3,66,
-		33,0,438,439,3,82,41,0,439,81,1,0,0,0,440,442,3,84,42,0,441,440,1,0,0,
-		0,441,442,1,0,0,0,442,446,1,0,0,0,443,445,3,94,47,0,444,443,1,0,0,0,445,
-		448,1,0,0,0,446,444,1,0,0,0,446,447,1,0,0,0,447,83,1,0,0,0,448,446,1,0,
-		0,0,449,450,5,113,0,0,450,451,3,88,44,0,451,452,5,114,0,0,452,85,1,0,0,
-		0,453,454,3,90,45,0,454,455,5,126,0,0,455,457,1,0,0,0,456,453,1,0,0,0,
-		456,457,1,0,0,0,457,458,1,0,0,0,458,461,3,92,46,0,459,461,5,120,0,0,460,
-		456,1,0,0,0,460,459,1,0,0,0,461,87,1,0,0,0,462,467,3,86,43,0,463,464,5,
-		112,0,0,464,466,3,86,43,0,465,463,1,0,0,0,466,469,1,0,0,0,467,465,1,0,
-		0,0,467,468,1,0,0,0,468,89,1,0,0,0,469,467,1,0,0,0,470,471,3,34,17,0,471,
-		91,1,0,0,0,472,473,3,34,17,0,473,93,1,0,0,0,474,482,3,96,48,0,475,482,
-		5,29,0,0,476,482,5,34,0,0,477,482,5,79,0,0,478,482,5,89,0,0,479,482,3,
-		106,53,0,480,482,3,108,54,0,481,474,1,0,0,0,481,475,1,0,0,0,481,476,1,
-		0,0,0,481,477,1,0,0,0,481,478,1,0,0,0,481,479,1,0,0,0,481,480,1,0,0,0,
-		482,95,1,0,0,0,483,485,5,31,0,0,484,486,3,98,49,0,485,484,1,0,0,0,485,
-		486,1,0,0,0,486,508,1,0,0,0,487,489,5,41,0,0,488,490,3,98,49,0,489,488,
-		1,0,0,0,489,490,1,0,0,0,490,508,1,0,0,0,491,508,5,68,0,0,492,493,5,32,
-		0,0,493,508,3,104,52,0,494,508,5,38,0,0,495,496,5,80,0,0,496,508,3,104,
-		52,0,497,508,5,49,0,0,498,508,5,51,0,0,499,508,5,52,0,0,500,508,5,65,0,
-		0,501,508,5,90,0,0,502,508,5,40,0,0,503,508,5,39,0,0,504,508,5,34,0,0,
-		505,508,5,61,0,0,506,508,3,66,33,0,507,483,1,0,0,0,507,487,1,0,0,0,507,
-		491,1,0,0,0,507,492,1,0,0,0,507,494,1,0,0,0,507,495,1,0,0,0,507,497,1,
-		0,0,0,507,498,1,0,0,0,507,499,1,0,0,0,507,500,1,0,0,0,507,501,1,0,0,0,
-		507,502,1,0,0,0,507,503,1,0,0,0,507,504,1,0,0,0,507,505,1,0,0,0,507,506,
-		1,0,0,0,508,97,1,0,0,0,509,510,5,113,0,0,510,513,3,100,50,0,511,512,5,
-		112,0,0,512,514,3,102,51,0,513,511,1,0,0,0,513,514,1,0,0,0,514,515,1,0,
-		0,0,515,516,5,114,0,0,516,99,1,0,0,0,517,520,3,142,71,0,518,520,3,66,33,
-		0,519,517,1,0,0,0,519,518,1,0,0,0,520,101,1,0,0,0,521,524,3,142,71,0,522,
-		524,3,66,33,0,523,521,1,0,0,0,523,522,1,0,0,0,524,103,1,0,0,0,525,528,
-		5,113,0,0,526,529,3,142,71,0,527,529,3,66,33,0,528,526,1,0,0,0,528,527,
-		1,0,0,0,529,530,1,0,0,0,530,531,5,114,0,0,531,105,1,0,0,0,532,537,5,30,
-		0,0,533,534,5,113,0,0,534,535,3,18,9,0,535,536,5,114,0,0,536,538,1,0,0,
-		0,537,533,1,0,0,0,537,538,1,0,0,0,538,107,1,0,0,0,539,544,5,44,0,0,540,
-		541,5,113,0,0,541,542,3,18,9,0,542,543,5,114,0,0,543,545,1,0,0,0,544,540,
-		1,0,0,0,544,545,1,0,0,0,545,109,1,0,0,0,546,548,3,114,57,0,547,546,1,0,
-		0,0,547,548,1,0,0,0,548,561,1,0,0,0,549,551,3,116,58,0,550,549,1,0,0,0,
-		550,551,1,0,0,0,551,553,1,0,0,0,552,554,3,112,56,0,553,552,1,0,0,0,553,
-		554,1,0,0,0,554,562,1,0,0,0,555,557,3,112,56,0,556,555,1,0,0,0,556,557,
-		1,0,0,0,557,559,1,0,0,0,558,560,3,116,58,0,559,558,1,0,0,0,559,560,1,0,
-		0,0,560,562,1,0,0,0,561,550,1,0,0,0,561,556,1,0,0,0,562,111,1,0,0,0,563,
-		564,7,8,0,0,564,113,1,0,0,0,565,566,5,113,0,0,566,571,3,66,33,0,567,568,
-		5,112,0,0,568,570,3,66,33,0,569,567,1,0,0,0,570,573,1,0,0,0,571,569,1,
-		0,0,0,571,572,1,0,0,0,572,574,1,0,0,0,573,571,1,0,0,0,574,575,5,114,0,
-		0,575,115,1,0,0,0,576,577,5,76,0,0,577,578,3,96,48,0,578,117,1,0,0,0,579,
-		584,5,75,0,0,580,581,5,113,0,0,581,582,3,34,17,0,582,583,5,114,0,0,583,
-		585,1,0,0,0,584,580,1,0,0,0,584,585,1,0,0,0,585,119,1,0,0,0,586,590,3,
-		122,61,0,587,588,3,12,6,0,588,589,3,6,3,0,589,591,1,0,0,0,590,587,1,0,
-		0,0,591,592,1,0,0,0,592,590,1,0,0,0,592,593,1,0,0,0,593,595,1,0,0,0,594,
-		596,3,124,62,0,595,594,1,0,0,0,595,596,1,0,0,0,596,597,1,0,0,0,597,598,
-		3,74,37,0,598,615,1,0,0,0,599,603,3,122,61,0,600,601,3,12,6,0,601,602,
-		3,6,3,0,602,604,1,0,0,0,603,600,1,0,0,0,604,605,1,0,0,0,605,603,1,0,0,
-		0,605,606,1,0,0,0,606,608,1,0,0,0,607,609,3,126,63,0,608,607,1,0,0,0,609,
-		610,1,0,0,0,610,608,1,0,0,0,610,611,1,0,0,0,611,612,1,0,0,0,612,613,3,
-		74,37,0,613,615,1,0,0,0,614,586,1,0,0,0,614,599,1,0,0,0,615,121,1,0,0,
-		0,616,617,5,56,0,0,617,618,3,34,17,0,618,619,5,82,0,0,619,123,1,0,0,0,
-		620,624,5,46,0,0,621,622,3,12,6,0,622,623,3,6,3,0,623,625,1,0,0,0,624,
-		621,1,0,0,0,625,626,1,0,0,0,626,624,1,0,0,0,626,627,1,0,0,0,627,125,1,
-		0,0,0,628,629,5,45,0,0,629,630,3,34,17,0,630,634,5,82,0,0,631,632,3,12,
-		6,0,632,633,3,6,3,0,633,635,1,0,0,0,634,631,1,0,0,0,635,636,1,0,0,0,636,
-		634,1,0,0,0,636,637,1,0,0,0,637,639,1,0,0,0,638,640,3,124,62,0,639,638,
-		1,0,0,0,639,640,1,0,0,0,640,127,1,0,0,0,641,645,5,63,0,0,642,643,3,12,
-		6,0,643,644,3,6,3,0,644,646,1,0,0,0,645,642,1,0,0,0,646,647,1,0,0,0,647,
-		645,1,0,0,0,647,648,1,0,0,0,648,649,1,0,0,0,649,650,3,74,37,0,650,680,
-		1,0,0,0,651,652,5,63,0,0,652,654,3,130,65,0,653,655,3,132,66,0,654,653,
-		1,0,0,0,654,655,1,0,0,0,655,659,1,0,0,0,656,657,3,12,6,0,657,658,3,6,3,
-		0,658,660,1,0,0,0,659,656,1,0,0,0,660,661,1,0,0,0,661,659,1,0,0,0,661,
-		662,1,0,0,0,662,663,1,0,0,0,663,664,3,74,37,0,664,680,1,0,0,0,665,666,
-		5,63,0,0,666,668,3,132,66,0,667,669,3,130,65,0,668,667,1,0,0,0,668,669,
-		1,0,0,0,669,673,1,0,0,0,670,671,3,12,6,0,671,672,3,6,3,0,672,674,1,0,0,
-		0,673,670,1,0,0,0,674,675,1,0,0,0,675,673,1,0,0,0,675,676,1,0,0,0,676,
-		677,1,0,0,0,677,678,3,74,37,0,678,680,1,0,0,0,679,641,1,0,0,0,679,651,
-		1,0,0,0,679,665,1,0,0,0,680,129,1,0,0,0,681,682,5,88,0,0,682,683,5,113,
-		0,0,683,684,3,34,17,0,684,685,5,114,0,0,685,131,1,0,0,0,686,687,5,86,0,
-		0,687,688,5,113,0,0,688,689,3,34,17,0,689,690,5,114,0,0,690,133,1,0,0,
-		0,691,692,5,43,0,0,692,693,3,66,33,0,693,694,3,66,33,0,694,695,3,82,41,
-		0,695,702,1,0,0,0,696,697,5,112,0,0,697,698,3,66,33,0,698,699,3,82,41,
-		0,699,701,1,0,0,0,700,696,1,0,0,0,701,704,1,0,0,0,702,700,1,0,0,0,702,
-		703,1,0,0,0,703,706,1,0,0,0,704,702,1,0,0,0,705,707,5,112,0,0,706,705,
-		1,0,0,0,706,707,1,0,0,0,707,708,1,0,0,0,708,709,5,47,0,0,709,135,1,0,0,
-		0,710,715,3,144,72,0,711,715,3,140,70,0,712,715,3,138,69,0,713,715,3,142,
-		71,0,714,710,1,0,0,0,714,711,1,0,0,0,714,712,1,0,0,0,714,713,1,0,0,0,715,
-		137,1,0,0,0,716,717,5,103,0,0,717,139,1,0,0,0,718,719,5,102,0,0,719,141,
-		1,0,0,0,720,721,5,104,0,0,721,143,1,0,0,0,722,723,5,101,0,0,723,145,1,
-		0,0,0,79,147,150,165,173,177,188,191,195,199,204,208,212,216,220,223,239,
-		245,249,256,263,266,272,279,288,299,310,321,332,344,355,366,377,384,388,
-		402,412,422,430,434,441,446,456,460,467,481,485,489,507,513,519,523,528,
-		537,544,547,550,553,556,559,561,571,584,592,595,605,610,614,626,636,639,
-		647,654,661,668,675,679,702,706,714
+		2,71,7,71,2,72,7,72,2,73,7,73,2,74,7,74,1,0,3,0,152,8,0,1,0,3,0,155,8,
+		0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,166,8,1,1,2,1,2,1,2,5,2,171,
+		8,2,10,2,12,2,174,9,2,1,2,1,2,1,2,5,2,179,8,2,10,2,12,2,182,9,2,1,2,3,
+		2,185,8,2,1,3,1,3,1,4,1,4,1,4,1,4,1,4,3,4,194,8,4,1,5,1,5,1,5,3,5,199,
+		8,5,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,3,6,211,8,6,1,7,1,7,1,7,1,
+		7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,3,7,228,8,7,1,8,1,8,1,8,
+		1,8,1,9,1,9,1,9,3,9,237,8,9,1,9,1,9,1,9,1,9,3,9,243,8,9,5,9,245,8,9,10,
+		9,12,9,248,9,9,1,10,1,10,4,10,252,8,10,11,10,12,10,253,1,10,1,10,1,11,
+		4,11,259,8,11,11,11,12,11,260,1,12,3,12,264,8,12,1,12,1,12,1,13,1,13,3,
+		13,270,8,13,1,13,1,13,1,14,4,14,275,8,14,11,14,12,14,276,1,15,1,15,1,16,
+		1,16,1,16,5,16,284,8,16,10,16,12,16,287,9,16,1,17,1,17,1,17,1,17,1,17,
+		1,17,5,17,295,8,17,10,17,12,17,298,9,17,1,18,1,18,1,18,1,18,1,18,1,18,
+		5,18,306,8,18,10,18,12,18,309,9,18,1,19,1,19,1,19,1,19,1,19,1,19,5,19,
+		317,8,19,10,19,12,19,320,9,19,1,20,1,20,1,20,1,20,1,20,1,20,5,20,328,8,
+		20,10,20,12,20,331,9,20,1,21,1,21,1,21,1,21,1,21,1,21,1,21,5,21,340,8,
+		21,10,21,12,21,343,9,21,1,22,1,22,1,22,1,22,1,22,1,22,5,22,351,8,22,10,
+		22,12,22,354,9,22,1,23,1,23,1,23,1,23,1,23,1,23,5,23,362,8,23,10,23,12,
+		23,365,9,23,1,24,1,24,1,24,1,24,1,24,1,24,5,24,373,8,24,10,24,12,24,376,
+		9,24,1,25,1,25,1,25,1,25,3,25,382,8,25,1,26,1,26,3,26,386,8,26,1,26,1,
+		26,1,26,1,27,1,27,1,27,1,28,1,28,1,28,1,28,1,29,1,29,1,29,3,29,401,8,29,
+		1,30,1,30,1,31,1,31,1,32,1,32,1,33,1,33,3,33,411,8,33,1,34,1,34,1,35,1,
+		35,1,35,1,36,1,36,1,36,1,36,1,36,1,36,1,36,1,36,1,36,3,36,427,8,36,1,37,
+		1,37,1,38,1,38,3,38,433,8,38,1,39,1,39,3,39,437,8,39,1,40,1,40,1,40,1,
+		40,1,41,3,41,444,8,41,1,41,5,41,447,8,41,10,41,12,41,450,9,41,1,42,1,42,
+		1,42,1,42,1,43,1,43,1,43,3,43,459,8,43,1,43,1,43,3,43,463,8,43,1,44,1,
+		44,1,44,5,44,468,8,44,10,44,12,44,471,9,44,1,45,1,45,1,46,1,46,1,47,1,
+		47,1,47,1,47,1,47,1,47,1,47,3,47,484,8,47,1,48,1,48,3,48,488,8,48,1,48,
+		1,48,3,48,492,8,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,
+		48,1,48,1,48,1,48,1,48,1,48,3,48,510,8,48,1,49,1,49,1,49,1,49,3,49,516,
+		8,49,1,49,1,49,1,50,1,50,3,50,522,8,50,1,51,1,51,3,51,526,8,51,1,52,1,
+		52,1,52,3,52,531,8,52,1,52,1,52,1,53,1,53,1,53,1,53,1,53,3,53,540,8,53,
+		1,54,1,54,1,54,1,54,1,54,3,54,547,8,54,1,55,3,55,550,8,55,1,55,3,55,553,
+		8,55,1,55,3,55,556,8,55,1,55,1,55,3,55,560,8,55,1,55,3,55,563,8,55,1,55,
+		3,55,566,8,55,3,55,568,8,55,1,56,1,56,1,57,1,57,1,58,1,58,1,58,1,58,5,
+		58,578,8,58,10,58,12,58,581,9,58,1,58,1,58,1,59,1,59,1,59,1,60,1,60,1,
+		60,1,60,1,60,3,60,593,8,60,1,61,1,61,1,61,1,61,4,61,599,8,61,11,61,12,
+		61,600,1,61,3,61,604,8,61,1,61,1,61,3,61,608,8,61,1,61,1,61,1,61,1,61,
+		4,61,614,8,61,11,61,12,61,615,1,61,4,61,619,8,61,11,61,12,61,620,1,61,
+		1,61,3,61,625,8,61,3,61,627,8,61,1,62,1,62,1,62,1,62,1,63,1,63,1,63,1,
+		63,4,63,637,8,63,11,63,12,63,638,1,64,1,64,1,64,1,64,1,64,1,64,4,64,647,
+		8,64,11,64,12,64,648,1,64,3,64,652,8,64,1,65,1,65,1,65,1,65,4,65,658,8,
+		65,11,65,12,65,659,1,65,1,65,3,65,664,8,65,1,65,1,65,1,65,3,65,669,8,65,
+		1,65,1,65,1,65,4,65,674,8,65,11,65,12,65,675,1,65,1,65,3,65,680,8,65,1,
+		65,1,65,1,65,3,65,685,8,65,1,65,1,65,1,65,4,65,690,8,65,11,65,12,65,691,
+		1,65,1,65,3,65,696,8,65,3,65,698,8,65,1,66,1,66,1,66,1,66,1,66,1,67,1,
+		67,1,67,1,67,1,67,1,68,1,68,1,68,1,68,1,68,1,68,1,68,1,68,1,68,5,68,719,
+		8,68,10,68,12,68,722,9,68,1,68,3,68,725,8,68,1,68,1,68,1,69,1,69,1,70,
+		1,70,1,70,1,70,3,70,735,8,70,1,71,1,71,1,72,1,72,1,73,1,73,1,74,1,74,1,
+		74,0,9,18,34,36,38,40,42,44,46,48,75,0,2,4,6,8,10,12,14,16,18,20,22,24,
+		26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,
+		74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,
+		116,118,120,122,124,126,128,130,132,134,136,138,140,142,144,146,148,0,
+		10,2,0,108,108,118,118,1,0,99,100,1,0,97,98,2,0,99,100,108,108,2,0,96,
+		96,109,115,2,0,4,5,122,123,19,0,16,16,20,20,22,22,25,28,30,31,33,37,39,
+		40,42,43,48,48,50,50,52,52,55,55,57,57,61,63,67,67,69,70,73,73,75,75,77,
+		77,2,0,16,16,30,30,1,0,27,28,1,0,11,13,785,0,151,1,0,0,0,2,158,1,0,0,0,
+		4,184,1,0,0,0,6,186,1,0,0,0,8,188,1,0,0,0,10,198,1,0,0,0,12,210,1,0,0,
+		0,14,227,1,0,0,0,16,229,1,0,0,0,18,233,1,0,0,0,20,249,1,0,0,0,22,258,1,
+		0,0,0,24,263,1,0,0,0,26,267,1,0,0,0,28,274,1,0,0,0,30,278,1,0,0,0,32,280,
+		1,0,0,0,34,288,1,0,0,0,36,299,1,0,0,0,38,310,1,0,0,0,40,321,1,0,0,0,42,
+		332,1,0,0,0,44,344,1,0,0,0,46,355,1,0,0,0,48,366,1,0,0,0,50,381,1,0,0,
+		0,52,385,1,0,0,0,54,390,1,0,0,0,56,393,1,0,0,0,58,400,1,0,0,0,60,402,1,
+		0,0,0,62,404,1,0,0,0,64,406,1,0,0,0,66,410,1,0,0,0,68,412,1,0,0,0,70,414,
+		1,0,0,0,72,426,1,0,0,0,74,428,1,0,0,0,76,430,1,0,0,0,78,434,1,0,0,0,80,
+		438,1,0,0,0,82,443,1,0,0,0,84,451,1,0,0,0,86,462,1,0,0,0,88,464,1,0,0,
+		0,90,472,1,0,0,0,92,474,1,0,0,0,94,483,1,0,0,0,96,509,1,0,0,0,98,511,1,
+		0,0,0,100,521,1,0,0,0,102,525,1,0,0,0,104,527,1,0,0,0,106,534,1,0,0,0,
+		108,541,1,0,0,0,110,549,1,0,0,0,112,569,1,0,0,0,114,571,1,0,0,0,116,573,
+		1,0,0,0,118,584,1,0,0,0,120,587,1,0,0,0,122,626,1,0,0,0,124,628,1,0,0,
+		0,126,632,1,0,0,0,128,640,1,0,0,0,130,697,1,0,0,0,132,699,1,0,0,0,134,
+		704,1,0,0,0,136,709,1,0,0,0,138,728,1,0,0,0,140,734,1,0,0,0,142,736,1,
+		0,0,0,144,738,1,0,0,0,146,740,1,0,0,0,148,742,1,0,0,0,150,152,5,14,0,0,
+		151,150,1,0,0,0,151,152,1,0,0,0,152,154,1,0,0,0,153,155,3,14,7,0,154,153,
+		1,0,0,0,154,155,1,0,0,0,155,156,1,0,0,0,156,157,3,2,1,0,157,1,1,0,0,0,
+		158,159,5,57,0,0,159,160,3,66,33,0,160,161,3,110,55,0,161,162,5,101,0,
+		0,162,163,3,4,2,0,163,165,3,74,37,0,164,166,5,57,0,0,165,164,1,0,0,0,165,
+		166,1,0,0,0,166,3,1,0,0,0,167,168,3,10,5,0,168,169,3,6,3,0,169,171,1,0,
+		0,0,170,167,1,0,0,0,171,174,1,0,0,0,172,170,1,0,0,0,172,173,1,0,0,0,173,
+		180,1,0,0,0,174,172,1,0,0,0,175,176,3,12,6,0,176,177,3,6,3,0,177,179,1,
+		0,0,0,178,175,1,0,0,0,179,182,1,0,0,0,180,178,1,0,0,0,180,181,1,0,0,0,
+		181,185,1,0,0,0,182,180,1,0,0,0,183,185,3,6,3,0,184,172,1,0,0,0,184,183,
+		1,0,0,0,185,5,1,0,0,0,186,187,5,101,0,0,187,7,1,0,0,0,188,193,5,81,0,0,
+		189,190,5,90,0,0,190,191,3,146,73,0,191,192,5,91,0,0,192,194,1,0,0,0,193,
+		189,1,0,0,0,193,194,1,0,0,0,194,9,1,0,0,0,195,199,3,14,7,0,196,199,3,80,
+		40,0,197,199,3,136,68,0,198,195,1,0,0,0,198,196,1,0,0,0,198,197,1,0,0,
+		0,199,11,1,0,0,0,200,211,3,8,4,0,201,211,3,16,8,0,202,211,3,70,35,0,203,
+		211,3,72,36,0,204,211,3,2,1,0,205,211,3,120,60,0,206,211,3,122,61,0,207,
+		211,3,130,65,0,208,211,3,76,38,0,209,211,3,78,39,0,210,200,1,0,0,0,210,
+		201,1,0,0,0,210,202,1,0,0,0,210,203,1,0,0,0,210,204,1,0,0,0,210,205,1,
+		0,0,0,210,206,1,0,0,0,210,207,1,0,0,0,210,208,1,0,0,0,210,209,1,0,0,0,
+		211,13,1,0,0,0,212,213,5,116,0,0,213,214,5,1,0,0,214,215,5,107,0,0,215,
+		216,3,66,33,0,216,217,5,2,0,0,217,218,5,107,0,0,218,219,5,101,0,0,219,
+		228,1,0,0,0,220,221,5,116,0,0,221,222,5,3,0,0,222,223,5,90,0,0,223,224,
+		3,66,33,0,224,225,5,91,0,0,225,226,5,101,0,0,226,228,1,0,0,0,227,212,1,
+		0,0,0,227,220,1,0,0,0,228,15,1,0,0,0,229,230,3,18,9,0,230,231,5,96,0,0,
+		231,232,3,34,17,0,232,17,1,0,0,0,233,234,6,9,-1,0,234,236,3,24,12,0,235,
+		237,3,22,11,0,236,235,1,0,0,0,236,237,1,0,0,0,237,246,1,0,0,0,238,239,
+		10,2,0,0,239,240,5,87,0,0,240,242,3,24,12,0,241,243,3,22,11,0,242,241,
+		1,0,0,0,242,243,1,0,0,0,243,245,1,0,0,0,244,238,1,0,0,0,245,248,1,0,0,
+		0,246,244,1,0,0,0,246,247,1,0,0,0,247,19,1,0,0,0,248,246,1,0,0,0,249,251,
+		5,90,0,0,250,252,3,32,16,0,251,250,1,0,0,0,252,253,1,0,0,0,253,251,1,0,
+		0,0,253,254,1,0,0,0,254,255,1,0,0,0,255,256,5,91,0,0,256,21,1,0,0,0,257,
+		259,3,20,10,0,258,257,1,0,0,0,259,260,1,0,0,0,260,258,1,0,0,0,260,261,
+		1,0,0,0,261,23,1,0,0,0,262,264,3,28,14,0,263,262,1,0,0,0,263,264,1,0,0,
+		0,264,265,1,0,0,0,265,266,3,66,33,0,266,25,1,0,0,0,267,269,3,66,33,0,268,
+		270,3,20,10,0,269,268,1,0,0,0,269,270,1,0,0,0,270,271,1,0,0,0,271,272,
+		5,88,0,0,272,27,1,0,0,0,273,275,3,26,13,0,274,273,1,0,0,0,275,276,1,0,
+		0,0,276,274,1,0,0,0,276,277,1,0,0,0,277,29,1,0,0,0,278,279,3,34,17,0,279,
+		31,1,0,0,0,280,285,3,30,15,0,281,282,5,89,0,0,282,284,3,30,15,0,283,281,
+		1,0,0,0,284,287,1,0,0,0,285,283,1,0,0,0,285,286,1,0,0,0,286,33,1,0,0,0,
+		287,285,1,0,0,0,288,289,6,17,-1,0,289,290,3,36,18,0,290,296,1,0,0,0,291,
+		292,10,1,0,0,292,293,5,120,0,0,293,295,3,36,18,0,294,291,1,0,0,0,295,298,
+		1,0,0,0,296,294,1,0,0,0,296,297,1,0,0,0,297,35,1,0,0,0,298,296,1,0,0,0,
+		299,300,6,18,-1,0,300,301,3,38,19,0,301,307,1,0,0,0,302,303,10,1,0,0,303,
+		304,5,119,0,0,304,306,3,38,19,0,305,302,1,0,0,0,306,309,1,0,0,0,307,305,
+		1,0,0,0,307,308,1,0,0,0,308,37,1,0,0,0,309,307,1,0,0,0,310,311,6,19,-1,
+		0,311,312,3,40,20,0,312,318,1,0,0,0,313,314,10,1,0,0,314,315,7,0,0,0,315,
+		317,3,40,20,0,316,313,1,0,0,0,317,320,1,0,0,0,318,316,1,0,0,0,318,319,
+		1,0,0,0,319,39,1,0,0,0,320,318,1,0,0,0,321,322,6,20,-1,0,322,323,3,42,
+		21,0,323,329,1,0,0,0,324,325,10,1,0,0,325,326,5,117,0,0,326,328,3,42,21,
+		0,327,324,1,0,0,0,328,331,1,0,0,0,329,327,1,0,0,0,329,330,1,0,0,0,330,
+		41,1,0,0,0,331,329,1,0,0,0,332,333,6,21,-1,0,333,334,3,44,22,0,334,341,
+		1,0,0,0,335,336,10,1,0,0,336,337,3,62,31,0,337,338,3,44,22,0,338,340,1,
+		0,0,0,339,335,1,0,0,0,340,343,1,0,0,0,341,339,1,0,0,0,341,342,1,0,0,0,
+		342,43,1,0,0,0,343,341,1,0,0,0,344,345,6,22,-1,0,345,346,3,46,23,0,346,
+		352,1,0,0,0,347,348,10,1,0,0,348,349,5,121,0,0,349,351,3,46,23,0,350,347,
+		1,0,0,0,351,354,1,0,0,0,352,350,1,0,0,0,352,353,1,0,0,0,353,45,1,0,0,0,
+		354,352,1,0,0,0,355,356,6,23,-1,0,356,357,3,48,24,0,357,363,1,0,0,0,358,
+		359,10,1,0,0,359,360,7,1,0,0,360,362,3,48,24,0,361,358,1,0,0,0,362,365,
+		1,0,0,0,363,361,1,0,0,0,363,364,1,0,0,0,364,47,1,0,0,0,365,363,1,0,0,0,
+		366,367,6,24,-1,0,367,368,3,50,25,0,368,374,1,0,0,0,369,370,10,1,0,0,370,
+		371,7,2,0,0,371,373,3,50,25,0,372,369,1,0,0,0,373,376,1,0,0,0,374,372,
+		1,0,0,0,374,375,1,0,0,0,375,49,1,0,0,0,376,374,1,0,0,0,377,382,3,58,29,
+		0,378,382,3,54,27,0,379,382,3,56,28,0,380,382,3,52,26,0,381,377,1,0,0,
+		0,381,378,1,0,0,0,381,379,1,0,0,0,381,380,1,0,0,0,382,51,1,0,0,0,383,386,
+		3,58,29,0,384,386,3,56,28,0,385,383,1,0,0,0,385,384,1,0,0,0,386,387,1,
+		0,0,0,387,388,5,102,0,0,388,389,3,50,25,0,389,53,1,0,0,0,390,391,3,60,
+		30,0,391,392,3,50,25,0,392,55,1,0,0,0,393,394,5,90,0,0,394,395,3,34,17,
+		0,395,396,5,91,0,0,396,57,1,0,0,0,397,401,3,140,70,0,398,401,3,138,69,
+		0,399,401,3,18,9,0,400,397,1,0,0,0,400,398,1,0,0,0,400,399,1,0,0,0,401,
+		59,1,0,0,0,402,403,7,3,0,0,403,61,1,0,0,0,404,405,7,4,0,0,405,63,1,0,0,
+		0,406,407,7,5,0,0,407,65,1,0,0,0,408,411,3,68,34,0,409,411,5,82,0,0,410,
+		408,1,0,0,0,410,409,1,0,0,0,411,67,1,0,0,0,412,413,7,6,0,0,413,69,1,0,
+		0,0,414,415,5,25,0,0,415,416,3,18,9,0,416,71,1,0,0,0,417,418,5,42,0,0,
+		418,419,5,82,0,0,419,420,5,90,0,0,420,421,3,146,73,0,421,422,5,91,0,0,
+		422,427,1,0,0,0,423,424,5,42,0,0,424,427,3,18,9,0,425,427,1,0,0,0,426,
+		417,1,0,0,0,426,423,1,0,0,0,426,425,1,0,0,0,427,73,1,0,0,0,428,429,5,35,
+		0,0,429,75,1,0,0,0,430,432,5,36,0,0,431,433,5,82,0,0,432,431,1,0,0,0,432,
+		433,1,0,0,0,433,77,1,0,0,0,434,436,5,61,0,0,435,437,5,82,0,0,436,435,1,
+		0,0,0,436,437,1,0,0,0,437,79,1,0,0,0,438,439,7,7,0,0,439,440,3,66,33,0,
+		440,441,3,82,41,0,441,81,1,0,0,0,442,444,3,84,42,0,443,442,1,0,0,0,443,
+		444,1,0,0,0,444,448,1,0,0,0,445,447,3,94,47,0,446,445,1,0,0,0,447,450,
+		1,0,0,0,448,446,1,0,0,0,448,449,1,0,0,0,449,83,1,0,0,0,450,448,1,0,0,0,
+		451,452,5,90,0,0,452,453,3,88,44,0,453,454,5,91,0,0,454,85,1,0,0,0,455,
+		456,3,90,45,0,456,457,5,103,0,0,457,459,1,0,0,0,458,455,1,0,0,0,458,459,
+		1,0,0,0,459,460,1,0,0,0,460,463,3,92,46,0,461,463,5,97,0,0,462,458,1,0,
+		0,0,462,461,1,0,0,0,463,87,1,0,0,0,464,469,3,86,43,0,465,466,5,89,0,0,
+		466,468,3,86,43,0,467,465,1,0,0,0,468,471,1,0,0,0,469,467,1,0,0,0,469,
+		470,1,0,0,0,470,89,1,0,0,0,471,469,1,0,0,0,472,473,3,34,17,0,473,91,1,
+		0,0,0,474,475,3,34,17,0,475,93,1,0,0,0,476,484,3,96,48,0,477,484,5,17,
+		0,0,478,484,5,22,0,0,479,484,5,66,0,0,480,484,5,76,0,0,481,484,3,106,53,
+		0,482,484,3,108,54,0,483,476,1,0,0,0,483,477,1,0,0,0,483,478,1,0,0,0,483,
+		479,1,0,0,0,483,480,1,0,0,0,483,481,1,0,0,0,483,482,1,0,0,0,484,95,1,0,
+		0,0,485,487,5,19,0,0,486,488,3,98,49,0,487,486,1,0,0,0,487,488,1,0,0,0,
+		488,510,1,0,0,0,489,491,5,29,0,0,490,492,3,98,49,0,491,490,1,0,0,0,491,
+		492,1,0,0,0,492,510,1,0,0,0,493,510,5,55,0,0,494,495,5,20,0,0,495,510,
+		3,104,52,0,496,510,5,26,0,0,497,498,5,67,0,0,498,510,3,104,52,0,499,510,
+		5,37,0,0,500,510,5,39,0,0,501,510,5,40,0,0,502,510,5,52,0,0,503,510,5,
+		77,0,0,504,510,5,28,0,0,505,510,5,27,0,0,506,510,5,22,0,0,507,510,5,48,
+		0,0,508,510,3,66,33,0,509,485,1,0,0,0,509,489,1,0,0,0,509,493,1,0,0,0,
+		509,494,1,0,0,0,509,496,1,0,0,0,509,497,1,0,0,0,509,499,1,0,0,0,509,500,
+		1,0,0,0,509,501,1,0,0,0,509,502,1,0,0,0,509,503,1,0,0,0,509,504,1,0,0,
+		0,509,505,1,0,0,0,509,506,1,0,0,0,509,507,1,0,0,0,509,508,1,0,0,0,510,
+		97,1,0,0,0,511,512,5,90,0,0,512,515,3,100,50,0,513,514,5,89,0,0,514,516,
+		3,102,51,0,515,513,1,0,0,0,515,516,1,0,0,0,516,517,1,0,0,0,517,518,5,91,
+		0,0,518,99,1,0,0,0,519,522,3,146,73,0,520,522,3,66,33,0,521,519,1,0,0,
+		0,521,520,1,0,0,0,522,101,1,0,0,0,523,526,3,146,73,0,524,526,3,66,33,0,
+		525,523,1,0,0,0,525,524,1,0,0,0,526,103,1,0,0,0,527,530,5,90,0,0,528,531,
+		3,146,73,0,529,531,3,66,33,0,530,528,1,0,0,0,530,529,1,0,0,0,531,532,1,
+		0,0,0,532,533,5,91,0,0,533,105,1,0,0,0,534,539,5,18,0,0,535,536,5,90,0,
+		0,536,537,3,18,9,0,537,538,5,91,0,0,538,540,1,0,0,0,539,535,1,0,0,0,539,
+		540,1,0,0,0,540,107,1,0,0,0,541,546,5,32,0,0,542,543,5,90,0,0,543,544,
+		3,18,9,0,544,545,5,91,0,0,545,547,1,0,0,0,546,542,1,0,0,0,546,547,1,0,
+		0,0,547,109,1,0,0,0,548,550,3,116,58,0,549,548,1,0,0,0,549,550,1,0,0,0,
+		550,567,1,0,0,0,551,553,3,118,59,0,552,551,1,0,0,0,552,553,1,0,0,0,553,
+		555,1,0,0,0,554,556,3,112,56,0,555,554,1,0,0,0,555,556,1,0,0,0,556,568,
+		1,0,0,0,557,560,3,112,56,0,558,560,3,114,57,0,559,557,1,0,0,0,559,558,
+		1,0,0,0,559,560,1,0,0,0,560,562,1,0,0,0,561,563,5,80,0,0,562,561,1,0,0,
+		0,562,563,1,0,0,0,563,565,1,0,0,0,564,566,3,118,59,0,565,564,1,0,0,0,565,
+		566,1,0,0,0,566,568,1,0,0,0,567,552,1,0,0,0,567,559,1,0,0,0,568,111,1,
+		0,0,0,569,570,7,8,0,0,570,113,1,0,0,0,571,572,5,47,0,0,572,115,1,0,0,0,
+		573,574,5,90,0,0,574,579,3,66,33,0,575,576,5,89,0,0,576,578,3,66,33,0,
+		577,575,1,0,0,0,578,581,1,0,0,0,579,577,1,0,0,0,579,580,1,0,0,0,580,582,
+		1,0,0,0,581,579,1,0,0,0,582,583,5,91,0,0,583,117,1,0,0,0,584,585,5,63,
+		0,0,585,586,3,96,48,0,586,119,1,0,0,0,587,592,5,62,0,0,588,589,5,90,0,
+		0,589,590,3,34,17,0,590,591,5,91,0,0,591,593,1,0,0,0,592,588,1,0,0,0,592,
+		593,1,0,0,0,593,121,1,0,0,0,594,598,3,124,62,0,595,596,3,12,6,0,596,597,
+		3,6,3,0,597,599,1,0,0,0,598,595,1,0,0,0,599,600,1,0,0,0,600,598,1,0,0,
+		0,600,601,1,0,0,0,601,603,1,0,0,0,602,604,3,126,63,0,603,602,1,0,0,0,603,
+		604,1,0,0,0,604,605,1,0,0,0,605,607,3,74,37,0,606,608,5,43,0,0,607,606,
+		1,0,0,0,607,608,1,0,0,0,608,627,1,0,0,0,609,613,3,124,62,0,610,611,3,12,
+		6,0,611,612,3,6,3,0,612,614,1,0,0,0,613,610,1,0,0,0,614,615,1,0,0,0,615,
+		613,1,0,0,0,615,616,1,0,0,0,616,618,1,0,0,0,617,619,3,128,64,0,618,617,
+		1,0,0,0,619,620,1,0,0,0,620,618,1,0,0,0,620,621,1,0,0,0,621,622,1,0,0,
+		0,622,624,3,74,37,0,623,625,5,43,0,0,624,623,1,0,0,0,624,625,1,0,0,0,625,
+		627,1,0,0,0,626,594,1,0,0,0,626,609,1,0,0,0,627,123,1,0,0,0,628,629,5,
+		43,0,0,629,630,3,34,17,0,630,631,5,69,0,0,631,125,1,0,0,0,632,636,5,34,
+		0,0,633,634,3,12,6,0,634,635,3,6,3,0,635,637,1,0,0,0,636,633,1,0,0,0,637,
+		638,1,0,0,0,638,636,1,0,0,0,638,639,1,0,0,0,639,127,1,0,0,0,640,641,5,
+		33,0,0,641,642,3,34,17,0,642,646,5,69,0,0,643,644,3,12,6,0,644,645,3,6,
+		3,0,645,647,1,0,0,0,646,643,1,0,0,0,647,648,1,0,0,0,648,646,1,0,0,0,648,
+		649,1,0,0,0,649,651,1,0,0,0,650,652,3,126,63,0,651,650,1,0,0,0,651,652,
+		1,0,0,0,652,129,1,0,0,0,653,657,5,50,0,0,654,655,3,12,6,0,655,656,3,6,
+		3,0,656,658,1,0,0,0,657,654,1,0,0,0,658,659,1,0,0,0,659,657,1,0,0,0,659,
+		660,1,0,0,0,660,661,1,0,0,0,661,663,3,74,37,0,662,664,5,50,0,0,663,662,
+		1,0,0,0,663,664,1,0,0,0,664,698,1,0,0,0,665,666,5,50,0,0,666,668,3,132,
+		66,0,667,669,3,134,67,0,668,667,1,0,0,0,668,669,1,0,0,0,669,673,1,0,0,
+		0,670,671,3,12,6,0,671,672,3,6,3,0,672,674,1,0,0,0,673,670,1,0,0,0,674,
+		675,1,0,0,0,675,673,1,0,0,0,675,676,1,0,0,0,676,677,1,0,0,0,677,679,3,
+		74,37,0,678,680,5,50,0,0,679,678,1,0,0,0,679,680,1,0,0,0,680,698,1,0,0,
+		0,681,682,5,50,0,0,682,684,3,134,67,0,683,685,3,132,66,0,684,683,1,0,0,
+		0,684,685,1,0,0,0,685,689,1,0,0,0,686,687,3,12,6,0,687,688,3,6,3,0,688,
+		690,1,0,0,0,689,686,1,0,0,0,690,691,1,0,0,0,691,689,1,0,0,0,691,692,1,
+		0,0,0,692,693,1,0,0,0,693,695,3,74,37,0,694,696,5,50,0,0,695,694,1,0,0,
+		0,695,696,1,0,0,0,696,698,1,0,0,0,697,653,1,0,0,0,697,665,1,0,0,0,697,
+		681,1,0,0,0,698,131,1,0,0,0,699,700,5,75,0,0,700,701,5,90,0,0,701,702,
+		3,34,17,0,702,703,5,91,0,0,703,133,1,0,0,0,704,705,5,73,0,0,705,706,5,
+		90,0,0,706,707,3,34,17,0,707,708,5,91,0,0,708,135,1,0,0,0,709,710,5,31,
+		0,0,710,711,3,66,33,0,711,712,3,66,33,0,712,713,3,82,41,0,713,720,1,0,
+		0,0,714,715,5,89,0,0,715,716,3,66,33,0,716,717,3,82,41,0,717,719,1,0,0,
+		0,718,714,1,0,0,0,719,722,1,0,0,0,720,718,1,0,0,0,720,721,1,0,0,0,721,
+		724,1,0,0,0,722,720,1,0,0,0,723,725,5,89,0,0,724,723,1,0,0,0,724,725,1,
+		0,0,0,725,726,1,0,0,0,726,727,5,35,0,0,727,137,1,0,0,0,728,729,7,9,0,0,
+		729,139,1,0,0,0,730,735,3,148,74,0,731,735,3,144,72,0,732,735,3,142,71,
+		0,733,735,3,146,73,0,734,730,1,0,0,0,734,731,1,0,0,0,734,732,1,0,0,0,734,
+		733,1,0,0,0,735,141,1,0,0,0,736,737,5,85,0,0,737,143,1,0,0,0,738,739,5,
+		84,0,0,739,145,1,0,0,0,740,741,5,86,0,0,741,147,1,0,0,0,742,743,5,83,0,
+		0,743,149,1,0,0,0,80,151,154,165,172,180,184,193,198,210,227,236,242,246,
+		253,260,263,269,276,285,296,307,318,329,341,352,363,374,381,385,400,410,
+		426,432,436,443,448,458,462,469,483,487,491,509,515,521,525,530,539,546,
+		549,552,555,559,562,565,567,579,592,600,603,607,615,620,624,626,638,648,
+		651,659,663,668,675,679,684,691,695,697,720,724,734
 	};
 
 	public static readonly ATN _ATN =

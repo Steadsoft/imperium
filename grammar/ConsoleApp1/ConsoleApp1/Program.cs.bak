@@ -1,0 +1,56 @@
+﻿using System.Diagnostics.Metrics;
+using System.Runtime.CompilerServices;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        private static string control =
+        """
+    I am text
+    so am I
+	"";
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine(control);
+
+            Console.WriteLine("Hello, World!");
+
+            Actions<bool> action = new();
+
+            action.Add(false, BneMethod);
+            action.Add(true, BeqMethod);
+
+            action[2 == 5]();
+
+        }
+
+        private static void BeqMethod()
+        {
+            ;
+        }
+
+        private static void BneMethod()
+        {
+            ;
+        }
+    }
+
+    public class Actions<T> where T : notnull
+    {
+        private Dictionary<T,Action> actions = new Dictionary<T,Action>();
+        public void Add(T Key,Action Action)
+        {
+            actions[Key] = Action;
+        }
+        public Action this[T Index]
+        {
+            get 
+            { 
+                return actions[Index];
+            }
+        }
+    }
+    
+}

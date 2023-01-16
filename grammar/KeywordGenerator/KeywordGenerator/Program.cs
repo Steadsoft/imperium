@@ -11,6 +11,11 @@ namespace KeywordGenerator
         {
             // load the dictionary.
 
+            var sss = 
+                """
+                I am some text and "so am I"
+                """;
+
             var inpath = Path.GetFullPath(@"..\..\..\..\..\antlr\imperium.keywords.json");
             var outpath = Path.GetFullPath(@"..\..\..\..\..\antlr\ImperiumKeywords.txt");
 

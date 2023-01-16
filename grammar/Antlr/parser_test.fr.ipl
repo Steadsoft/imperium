@@ -1,3 +1,6 @@
+
+%lexicon(en); // tells the compiler which lexicon to use for this source file.
+
 /*
 procédé French (X)
 
@@ -16,13 +19,13 @@ procédé French (X)
 	fin;
 
 fin;
+*/
 
-
-procedure English (X)
+procedure English (X);
 
 	declare counter binary(15);	
  
-    counter = FACE B034 D85F BAD7:H;
+        counter = FACE B034 D85F BAD7:H;
 
 	if counter > 0 then
 	   call retour;
@@ -30,13 +33,42 @@ procedure English (X)
 	   return;
 	end;
 
-	loop while (a > b)
+	text = "khsAKJSHakshAJK"
+	SHajkhda:QKDHAKSDJAH";
+
+	loop while (a > "aaa")
 	   go to place;
+	end;
+		
+end;
+
+/*
+
+procedure Japanese (X)
+
+    // has Object-Verb rather than Verb-Object
+	declare counter binary(15);	
+ 
+    counter = FACE B034 D85F BAD7:H;
+
+	if counter > 0 then
+	   //call retour;
+	   retor call;
+	else
+	   return;
+	end;
+
+	loop while (a > b)
+	   //go to place;
+	   place goto;
 	end;
 
 end;
 
 
+*/
+
+/*
 routine German (X)
 
 	deklarieren counter binär(15);	
@@ -54,7 +86,7 @@ routine German (X)
 	ende;
 
 ende;
-*/
+
 
 процедура Russian (X)
 
@@ -73,3 +105,4 @@ ende;
 		конец;
 
 конец;	
+*/
