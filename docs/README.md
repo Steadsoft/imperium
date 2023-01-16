@@ -50,8 +50,8 @@
 | `logical shift right op`      |       | No  | Yes
 | `arithmetic shift left op`    |       | No  | Yes
 | `arithmetic shift right op`   |       | No  | Yes
-| `rotate left op`              | No    | No  | Yes <@
-| `rotate right op`             | No    | No  | Yes >@
+| `rotate left op`              | No    | No  | Yes `<@`
+| `rotate right op`             | No    | No  | Yes `>@`
 | `interrupt attribute`         | Putative    | No  | Yes
 | `variable parameter sizes`        | No   | Yes | Yes
 | `block delimters`             | Braces | Keyword/End | Keyword/End
