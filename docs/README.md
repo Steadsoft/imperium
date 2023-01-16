@@ -22,7 +22,7 @@
 | `string literals`		| Yes		| Yes		| Yes
 | `raw string literals`         | No		| No		| Yes
 | `reserved words`		| Yes		| No		| No
-| `internaational keywords`	| No		| No		| Yes
+| `international keywords`	| No		| No		| Yes
 | `deafult initialization`      | No		| Option	| Option
 | `fixed evaluation order`      | No		| No		| Yes
 | `exception support`           | No		| Yes		| Yes
