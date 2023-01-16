@@ -57,7 +57,7 @@
 | `variable parameter sizes`        | No   | Yes | Yes
 | `block delimters`             | Braces | Keyword/End | Keyword/End
 | `set notation` (Oberon)       | No    | No    | Yes
-| `assignment methods`          | > 10  | `=`     | `=`
+| `assignment operators`          | > 10  | `=`     | `=`
 
 
 
