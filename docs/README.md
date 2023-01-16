@@ -1,5 +1,5 @@
 # Imperium
-## Criteria for a systems programming language
+## Criteria desirable for a systems programming language
 
 
 | Capability 			| C 		| PL/I 		| IPL
