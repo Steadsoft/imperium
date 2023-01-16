@@ -28,7 +28,7 @@
 | `exception support`           | No		| Yes		| Yes
 | `retryable exceptions`        | No    | No    | Yes
 | `builtin functions`           | No    | Yes   | Yes
-| 'intrinsic attribute`         | No    | No    | Yes
+| `intrinsic attribute`         | No    | No    | Yes
 | `hex literals`                | Yes   | No    | Yes
 | `octal literals`              | Yes   | No    | Yes
 | `bin literals`                | Yes   | No    | Yes
