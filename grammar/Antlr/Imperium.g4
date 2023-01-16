@@ -1,16 +1,16 @@
 /*------------------------------------------------------------------------------*/
-/*        This is the grammar for the Imperium programming language 	 		*/
+/*        This is the grammar for the Imperium programming language 	 		      */
 /*------------------------------------------------------------------------------*/
 /* It's based primarily on the PL/I grammar because that has no reserved words. */
 /* This grammar supports keywords for multiple cultures, this is dobe by having */
 /* a JSON lexicon file that defines the literal text for each keyword for each  */
-/* languyage.	 																*/
-/*			 																	*/
+/* languyage.	 																                                  */
+/*			 																	                                      */
 /* No reserved words means an identifier can be the same as a keyword and the   */
 /* text will still parse correctly. We do this to facilitate the addition of    */
 /* new keywords in future releases of the language.                             */
-/*										 										*/
-/* This also means that if an identifier happens to also match a keyword in  	*/
+/*										 										                                      */
+/* This also means that if an identifier happens to also match a keyword in  	  */
 /* one of the other supported keyword lexicon languages, then the text will     */
 /* nevertheless compile without any issues.                                     */
 /*------------------------------------------------------------------------------*/
@@ -66,8 +66,8 @@ label_stmt: LABEL (LPAR decimal_literal RPAR)?;
 
 nonexecutable_stmt:
 	  preprocessor_stmt	# PRE
-	| declare_stmt		# DCL
-	| define_stmt		# DEF;
+	| declare_stmt		  # DCL
+	| define_stmt		    # DEF;
  
 executable_stmt:
 	  label_stmt      # LABEL
@@ -105,43 +105,68 @@ subscript: expression;
 
 subscript_commalist: subscript (COMMA subscript)*;
 
-expression: expression_9 | expression SCOR expression_9;
+expression
+  : expression_10 
+  | expression SCOR expression_9;
 
-expression_9: expression_8 | expression_9 SCAND expression_8;
+expression_10
+  : expression_9 
+  | expression_10 SCAND expression_9
+  ;
 
-expression_8:
-	expression_7
-	| expression_8 (OR | NOT) expression_7;
+expression_9
+  :	expression_8
+	| expression_9 (OR | NOT) expression_8
+  ;
 
-expression_7: expression_6 | expression_7 AND expression_6;
+expression_8
+  : expression_7 
+  | expression_8 AND expression_7
+  ;
 
-expression_6:
-	expression_5
-	| expression_6 comparison_operator expression_5;
+expression_7
+  :	expression_6
+	| expression_7 comparison_operator expression_6
+  ;
 
-expression_5: expression_4 | expression_5 CONC expression_4;
+expression_6
+  : expression_5 
+  | expression_6 CONC expression_5
+  ;
 
-expression_4:
-	expression_3
-	| expression_4 (PLUS | MINUS) expression_3;
+expression_5
+  : expression_4
+  | expression_5 (ROL | ROR) expression_4
+  ;
 
-expression_3:
-	expression_2
-	| expression_3 (TIMES | DIVIDE) expression_2;
+expression_4
+  :	expression_3
+	| expression_4 (PLUS | MINUS) expression_3
+  ;
 
-expression_2:
-	primitive_expression
+expression_3
+  :	expression_2
+	| expression_3 (TIMES | DIVIDE) expression_2
+  ;
+
+expression_2
+  :	primitive_expression
 	| prefix_expression
 	| parenthesized_expression
-	| expression_1;
+	| expression_1
+  ;
 
-expression_1: (primitive_expression | parenthesized_expression) POWER expression_2;
+expression_1
+  : (primitive_expression | parenthesized_expression) POWER expression_2;
 
 prefix_expression: prefix_operator expression_2;
 
 parenthesized_expression: LPAR expression RPAR;
 
-primitive_expression: numeric_literal | string_literal | reference;
+primitive_expression
+  : numeric_literal 
+  | string_literal 
+  | reference;
 
 prefix_operator: PLUS | MINUS | NOT;
 
@@ -155,18 +180,18 @@ comparison_operator:
 	| NE
 	| NLT;
 
-shift_operator: RSHF | LSHF | '>>>' | '<<<';
+shift_operator: LOGICAL_R_SHIFT | LOGICAL_L_SHIFT | ARITH_R_SHIFT ;
 
-identifier:
-	keyword			# KEYWD
+identifier
+  :	keyword			# KEYWD
 	| IDENTIFIER	# identifier_IDENTIFIER;
 
 /***********************************/
 /* Add new keywords here as needed */
 /***********************************/
 
-keyword:
-	CALL
+keyword
+  :	CALL
 	| GOTO
 	| PROCEDURE
 	| END
@@ -933,7 +958,7 @@ SEMICOLON:	';';
 POWER: 		'**';
 COLON: 		':';
 TRIQUOTE: '"""';
-DIQUOTE:  '""';
+DIQUOTE:  '""'; 
 QUOTE: 	  '"';
 SQUOTE: 	'\'';
 NOT:   		'~';
@@ -950,5 +975,10 @@ OR:     	'|';
 SCAND:  	'?&'; 	// short-circuit AND
 SCOR:   	'?|';  	// short-circuit OR
 CONC:   	'||';	// concatenate
-LSHF:   	'<<';
-RSHF:   	'>>';
+
+LOGICAL_L_SHIFT:   	'<<';   // logical: left bit lost rite bit becomes zero
+LOGICAL_R_SHIFT:   	'>>';   // logical: rite bit lost left bit becomes zero
+ARITH_R_SHIFT:      '>>>';  // arithmetic: rite bit lost left bit is copy of sign bit
+
+ROL:      '<@<';
+ROR:      '>@>';

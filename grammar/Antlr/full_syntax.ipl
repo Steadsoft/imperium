@@ -17,7 +17,7 @@ procedure main (arg);
     name = ""demonstration_network_controller"" ;
 
     title = ""This is the "best in class" 
-    
+    multiline literal 
     language system"" ;
 
     call sys$announce_device(name, status);
@@ -53,6 +53,10 @@ procedure main (arg);
     loop while (I >= J)
        I = get_updated_count(J);
     end loop;
+
+    a = a >@> 2;
+
+    a = a <@< 2;
 
     if I = 123 & J = 321 then
        I = 0;
