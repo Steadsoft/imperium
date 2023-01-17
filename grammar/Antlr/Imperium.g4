@@ -50,27 +50,29 @@ grammar Imperium; // Latin for "control"
 	}
 }
 
-translation_unit:
-	BYTE_ORDER_MARK? preprocessor_stmt? procedure_stmt;
+translation_unit
+  :	BYTE_ORDER_MARK? preprocessor_stmt? procedure_stmt;
 
-procedure_stmt:
-	PROCEDURE identifier entry_information SEMICOLON stmt_block end_stmt PROCEDURE?;
+procedure_stmt
+  :	PROCEDURE identifier entry_information SEMICOLON stmt_block end_stmt PROCEDURE?;
 
 stmt_block
-    : (nonexecutable_stmt terminator)* (executable_stmt terminator)*
+  : (nonexecutable_stmt terminator)* (executable_stmt terminator)*
 	| terminator;
 
-terminator: SEMICOLON;
+terminator
+  : SEMICOLON;
 
-label_stmt: LABEL (LPAR decimal_literal RPAR)?;
+label_stmt
+  : LABEL (LPAR decimal_literal RPAR)?;
 
-nonexecutable_stmt:
-	  preprocessor_stmt	# PRE
+nonexecutable_stmt
+  : preprocessor_stmt	# PRE
 	| declare_stmt		  # DCL
 	| define_stmt		    # DEF;
  
-executable_stmt:
-	  label_stmt      # LABEL
+executable_stmt
+  : label_stmt      # LABEL
   | assign_stmt	    # ASSIGN
 	| call_stmt		    # CALL
 	| goto_stmt		    # GOTO
@@ -82,28 +84,37 @@ executable_stmt:
 	| reloop_stmt     # AGAIN 
 	;
 
-preprocessor_stmt: PCNT 'include' SQUOTE identifier '.inc' SQUOTE SEMICOLON |
-                   PCNT 'lexicon' LPAR identifier RPAR SEMICOLON;
+preprocessor_stmt
+  : PCNT 'include' SQUOTE identifier '.inc' SQUOTE SEMICOLON 
+  | PCNT 'lexicon' LPAR identifier RPAR SEMICOLON;
 
-assign_stmt: reference EQUALS expression; //SEMICOLON
+assign_stmt
+  : reference EQUALS expression; //SEMICOLON
 
-reference:
-	reference RARROW basic_reference arguments_list?	# PTR_REF
-	| basic_reference arguments_list?					# BASIC_REF;
+reference
+  :	reference RARROW basic_reference arguments_list?	# PTR_REF
+	| basic_reference arguments_list?					          # BASIC_REF;
 
-arguments: LPAR subscript_commalist+ RPAR;
+arguments
+  : LPAR subscript_commalist+ RPAR;
 
-arguments_list: arguments+;
+arguments_list
+  : arguments+;
 
-basic_reference: structure_qualification_list? identifier;
+basic_reference
+  : structure_qualification_list? identifier;
 
-structure_qualification: identifier arguments? DOT;
+structure_qualification
+  : identifier arguments? DOT;
 
-structure_qualification_list: structure_qualification+;
+structure_qualification_list
+  : structure_qualification+;
 
-subscript: expression;
+subscript
+  : expression;
 
-subscript_commalist: subscript (COMMA subscript)*;
+subscript_commalist
+  : subscript (COMMA subscript)*;
 
 expression
   : expression_10 
@@ -159,19 +170,24 @@ expression_2
 expression_1
   : (primitive_expression | parenthesized_expression) POWER expression_2;
 
-prefix_expression: prefix_operator expression_2;
+prefix_expression
+  : prefix_operator expression_2;
 
-parenthesized_expression: LPAR expression RPAR;
+parenthesized_expression
+  : LPAR expression RPAR;
 
 primitive_expression
   : numeric_literal 
   | string_literal 
   | reference;
 
-prefix_operator: PLUS | MINUS | NOT;
+prefix_operator
+  : PLUS 
+  | MINUS 
+  | NOT;
 
-comparison_operator:
-	  GT
+comparison_operator
+  : GT
 	| GTE
 	| EQUALS
 	| LT
@@ -180,15 +196,19 @@ comparison_operator:
 	| NE
 	| NLT;
 
-shift_operator: R_LOG_SHIFT | L_LOG_SHIFT | R_ART_SHIFT ;
+shift_operator
+  : R_LOG_SHIFT 
+  | L_LOG_SHIFT 
+  | R_ART_SHIFT ;
 
 identifier
   :	keyword			# KEYWD
 	| IDENTIFIER	# identifier_IDENTIFIER;
 
-/***********************************/
-/* Add new keywords here as needed */
-/***********************************/
+/*------------------------------------------------------------------------*/
+/* Add new keywords here as needed. If a keyword is not listed here then  */
+/* using it as an identifier will likely lead to parse errors.            */
+/*------------------------------------------------------------------------*/
 
 keyword
   :	CALL
@@ -224,148 +244,177 @@ keyword
 	| ENDLOOP
 	| RELOOP ;
 
-call_stmt: CALL reference;
+call_stmt
+  : CALL reference;
 
 goto_stmt
 	:	(GOTO IDENTIFIER LPAR decimal_literal RPAR)
-	|   (GOTO reference) |;
+	| (GOTO reference) |;
 
-end_stmt: END;
+end_stmt
+  : END;
 
-endloop_stmt: ENDLOOP IDENTIFIER? ;
+endloop_stmt
+  : ENDLOOP IDENTIFIER? ;
 
-reloop_stmt: RELOOP IDENTIFIER? ;
+reloop_stmt
+  : RELOOP IDENTIFIER? ;
 
-declare_stmt: (DECLARE | ARGUMENT) identifier type_info;
+declare_stmt
+  : (DECLARE | ARGUMENT) identifier type_info;
 
-type_info: dimension_suffix? attribute*;
+type_info
+  : dimension_suffix? attribute*;
 
-dimension_suffix: LPAR bound_pair_commalist RPAR;
+dimension_suffix
+  : LPAR bound_pair_commalist RPAR;
 
-bound_pair: (lower_bound COLON)? upper_bound | TIMES;
+bound_pair
+  : (lower_bound COLON)? upper_bound 
+  | TIMES;
 
-bound_pair_commalist: bound_pair (COMMA bound_pair)*;
+bound_pair_commalist
+  : bound_pair (COMMA bound_pair)*;
 
 // See page 208 PL/I Subset G standard. Lower bound must be <= upper (but this is not a grammar issue,
 // just a note for us)
 
-lower_bound: expression;
+lower_bound
+  : expression;
 
-upper_bound: expression;
+upper_bound
+  : expression;
 
-attribute: (
-		data_attribute
-		| AUTOMATIC
-		| BUILTIN
-		| STATIC
-		| VARIABLE
-		| based
-		| defined
-	);
+attribute
+    : (
+		  data_attribute
+		    | AUTOMATIC
+		    | BUILTIN
+		    | STATIC
+		    | VARIABLE
+		    | based
+		    | defined
+	    );
 
 data_attribute
-    : (BINARY (precision)?)				# BIN
+  : (BINARY (precision)?)				# BIN
 	| (DECIMAL (precision)?)			# DEC
-	| POINTER							# PTR
-	| (BIT max_length)					# BIT
-	| CHARACTER							# CHAR
-	| (STRING max_length)				# STR
-	| ENTRY								# ENT
-	| FIXED								# FIX
-	| FLOAT								# FLT
-	| OFFSET							# OFF
-	| VARYING							# VNG
-	| COROUTINE							# COR
-	| COFUNCTION						# COF
-	| BUILTIN							# BLTN
-	| INTRINSIC							# INTR
-	| identifier						# IDENT; // a user defined type would match here. 
+	| POINTER							        # PTR
+	| (BIT max_length)					  # BIT
+	| CHARACTER							      # CHAR
+	| (STRING max_length)				  # STR
+	| ENTRY								        # ENT
+	| FIXED								        # FIX
+	| FLOAT								        # FLT
+	| OFFSET							        # OFF
+	| VARYING							        # VNG
+	| COROUTINE							      # COR
+	| COFUNCTION						      # COF
+	| BUILTIN							        # BLTN
+	| INTRINSIC							      # INTR
+	| identifier						      # IDENT; // a user defined type would match here. 
 
-precision: LPAR number_of_digits (COMMA scale_factor)? RPAR;
+precision
+  : LPAR number_of_digits (COMMA scale_factor)? RPAR;
 
-number_of_digits: (decimal_literal | identifier);
+number_of_digits
+  : (decimal_literal | identifier);
 
-scale_factor: (decimal_literal | identifier);
+scale_factor
+  : (decimal_literal | identifier);
 
-max_length: LPAR (decimal_literal | identifier) RPAR;
+max_length
+  : LPAR (decimal_literal | identifier) RPAR;
 
-based: BASED (LPAR reference RPAR)?;
+based
+  : BASED (LPAR reference RPAR)?;
 
-defined: DEFINED (LPAR reference RPAR)?;
+defined
+  : DEFINED (LPAR reference RPAR)?;
 
-entry_information:
+entry_information
+  :
 	parameter_name_commalist? (
 		(returns_descriptor? coprocedure_specifier?)
 		| ((coprocedure_specifier | handler_specifier)? RECURSIVE? returns_descriptor?)
 	);
 
-coprocedure_specifier: (COROUTINE | COFUNCTION);
+coprocedure_specifier
+  : (COROUTINE | COFUNCTION);
 
-handler_specifier: INTERRUPT ;
+handler_specifier
+  : INTERRUPT ;
 
-parameter_name_commalist: LPAR identifier (COMMA identifier)* RPAR;
+parameter_name_commalist
+: LPAR identifier (COMMA identifier)* RPAR;
 
-returns_descriptor:
-	RETURNS data_attribute;
+returns_descriptor
+  :	RETURNS data_attribute;
 	// consider using keyword 'is' instead and forcing it to be right after the params...
 
-return_stmt: RETURN (LPAR expression RPAR)?;
+return_stmt
+  : RETURN (LPAR expression RPAR)?;
 
 if_stmt
   :	then_clause (executable_stmt terminator)+ else_clause? end_stmt IF?
 	| then_clause (executable_stmt terminator)+ elif_clause+ end_stmt IF?;
 
-then_clause: IF expression THEN;
+then_clause
+  : IF expression THEN;
 
-else_clause: ELSE (executable_stmt terminator)+;
+else_clause
+  : ELSE (executable_stmt terminator)+;
 
-elif_clause:
-	ELIF expression THEN (executable_stmt terminator)+ else_clause?;
+elif_clause
+  :	ELIF expression THEN (executable_stmt terminator)+ else_clause?;
 
-loop_stmt:
-	LOOP  (executable_stmt terminator)+ end_stmt LOOP? # BASIC_LOOP
-	| LOOP  while_option until_option? (
-		executable_stmt terminator
-	)+ end_stmt LOOP? # WHILE_UNTIL
-	| LOOP  until_option while_option? (
-		executable_stmt terminator
-	)+ end_stmt LOOP? # UNTIL_WHILE;
+loop_stmt
+  :	LOOP  (executable_stmt terminator)+ end_stmt LOOP? # BASIC_LOOP
+	| LOOP  while_option until_option? (executable_stmt terminator)+ end_stmt LOOP? # WHILE_UNTIL
+	| LOOP  until_option while_option? (executable_stmt terminator)+ end_stmt LOOP? # UNTIL_WHILE;
 
-while_option: WHILE LPAR expression RPAR;
+while_option
+  : WHILE LPAR expression RPAR;
 
-until_option: UNTIL LPAR expression RPAR;
+until_option
+  : UNTIL LPAR expression RPAR;
 
-define_stmt: // defines a type, like a structure
-	DEFINE identifier (identifier type_info) (
-		COMMA identifier type_info
-	)* (COMMA)? END;
+define_stmt // defines a type, like a structure
+  : DEFINE identifier (identifier type_info) (COMMA identifier type_info)* (COMMA)? END;
 
-COMMENT: '/*' (COMMENT | .)*? '*/' -> channel(2);
-LINE_COMMENT: '//' .*? '\n' -> channel(HIDDEN);
-WS: (' ')+ -> skip;
-NEWLINE: [\r\n]+ -> skip;
-TAB: ('\t')+ -> skip;
+string_literal
+  : STRING_LITERAL_3 
+  | STRING_LITERAL_2 
+  | STRING_LITERAL_1;
 
-string_literal: STRING_LITERAL_3 | STRING_LITERAL_2 | STRING_LITERAL_1;
-
-STRING_LITERAL_3: TRIQUOTE (.)*? TRIQUOTE;
-STRING_LITERAL_2: DIQUOTE  (.)*? DIQUOTE;
-STRING_LITERAL_1: QUOTE    (.)*? QUOTE;
-
-numeric_literal:
-	binary_literal
+numeric_literal
+  :	binary_literal
 	| octal_literal
 	| hexadecimal_literal
 	| decimal_literal;
 
-hexadecimal_literal: (HEXADECIMAL_PATTERN);
+hexadecimal_literal
+  : (HEXADECIMAL_PATTERN);
 
-octal_literal: (OCTAL_PATTERN);
+octal_literal
+  : (OCTAL_PATTERN);
 
-decimal_literal: (DECIMAL_PATTERN);
+decimal_literal
+  : (DECIMAL_PATTERN);
 
-binary_literal: (BINARY_PATTERN);
+binary_literal
+  : (BINARY_PATTERN);
 
+// LEXER TOKEN DEFINITIONS
+
+COMMENT:          '/*' (COMMENT | .)*? '*/' -> channel(2);
+LINE_COMMENT:     '//' .*? '\n' -> channel(HIDDEN);
+WS:               (' ')+ -> skip;
+NEWLINE:          [\r\n]+ -> skip;
+TAB:              ('\t')+ -> skip;
+STRING_LITERAL_3: TRIQUOTE (.)*? TRIQUOTE;
+STRING_LITERAL_2: DIQUOTE  (.)*? DIQUOTE;
+STRING_LITERAL_1: QUOTE    (.)*? QUOTE;
 BYTE_ORDER_MARK: '\u00EF' '\u00BB' '\u00BF';
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -918,6 +967,64 @@ RECURSIVE:
 
 /* End of generated Antlr4 keyword token definitions. */
 
+LABEL:                AT [a-zA-Z_]+ ;
+IDENTIFIER:           [$a-zA-Z_\u0370-\u03ff]+ ; // { ReverseLexeme();}; This can be used to 'correct' consumed identifiers, comments etc when reading source in reverse.
+BINARY_PATTERN:       (BIN (LSEP BIN)*)+ FRAC_B? BASE_B;
+OCTAL_PATTERN:        (OCT (LSEP OCT)*)+ FRAC_O? BASE_O;
+HEXADECIMAL_PATTERN:  (HEX (LSEP HEX)*)+ FRAC_H? BASE_H;
+DECIMAL_PATTERN:      (DEC (LSEP DEC)*)+ FRAC_D? BASE_D?;
+
+// SYMBOLS AND OPERATORS
+
+AT:           ('@');
+RARROW: 	    ('->');
+DOT:          ('.');
+COMMA:        (',');
+LPAR: 		    ('(');
+RPAR: 		    (')');
+LBRACK: 	    ('[');
+RBRACK: 	    (']');
+LBRACE: 	    ('{');
+RBRACE: 	    ('}');
+EQUALS: 	    ('=');
+TIMES: 		    ('*');
+DIVIDE: 	    ('/');
+PLUS: 		    ('+');
+MINUS: 		    ('-');
+SEMICOLON:	  (';');
+POWER: 		    ('**');
+COLON: 		    (':');
+TRIQUOTE:     ('"""');
+DIQUOTE:      ('""'); 
+QUOTE: 	      ('"');
+SQUOTE: 	    ('\'');
+NOT:   		    ('~');
+GT:    		    ('>');
+LT:    		    ('<');
+GTE:   		    ('>=');
+LTE:   		    ('<=');
+NGT:   		    ('~>');
+NLT:   		    ('~<');
+NE:    		    ('~=');
+PCNT:  		    ('%');
+AND:    	    ('&');
+OR:     	    ('|');
+SCAND:  	    ('?&'); 	// short-circuit AND
+SCOR:   	    ('?|');  	// short-circuit OR
+CONC:   	    ('||');   // concatenate
+L_LOG_SHIFT:  ('<<');   // logical: left bit lost rite bit becomes zero
+R_LOG_SHIFT:  ('>>');   // logical: rite bit lost left bit becomes zero
+R_ART_SHIFT:  ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit
+L_ROTATE:     ('<@<');
+R_ROTATE:     ('>@>');
+
+// LEXER FRAGMENTS
+
+fragment LSEP: (' ' | '_');
+fragment BIN: [0-1];
+fragment OCT: [0-7];
+fragment DEC: [0-9];
+fragment HEX: [0-9a-fA-F];
 fragment BASE_B: (':b' | ':B');
 fragment BASE_O: (':o' | ':O');
 fragment BASE_D: (':d' | ':D');
@@ -926,59 +1033,3 @@ fragment FRAC_B: ('.' [0-1]+);
 fragment FRAC_D: ('.' [0-9]+);
 fragment FRAC_O: ('.' [0-7]+);
 fragment FRAC_H: ('.' [0-9a-fA-F]+);
-
-LABEL:      '@' [a-zA-Z_]+ ;
-IDENTIFIER: [$a-zA-Z_\u0370-\u03ff]+ ; // { ReverseLexeme();}; This can be used to 'correct' consumed identifiers, comments etc when reading source in reverse.
-BINARY_PATTERN: (BIN (LSEP BIN)*)+ FRAC_B? BASE_B;
-OCTAL_PATTERN: (OCT (LSEP OCT)*)+ FRAC_O? BASE_O;
-HEXADECIMAL_PATTERN: (HEX (LSEP HEX)*)+ FRAC_H? BASE_H;
-DECIMAL_PATTERN: (DEC (LSEP DEC)*)+ FRAC_D? BASE_D?;
-fragment LSEP: (' ' | '_');
-
-fragment BIN: [0-1];
-fragment OCT: [0-7];
-fragment DEC: [0-9];
-fragment HEX: [0-9a-fA-F];
-
-RARROW: 	('->');
-DOT:      ('.');
-COMMA:    (',');
-LPAR: 		('(');
-RPAR: 		(')');
-LBRACK: 	('[');
-RBRACK: 	(']');
-LBRACE: 	('{');
-RBRACE: 	('}');
-EQUALS: 	('=');
-TIMES: 		('*');
-DIVIDE: 	('/');
-PLUS: 		('+');
-MINUS: 		('-');
-SEMICOLON:	(';');
-POWER: 		('**');
-COLON: 		(':');
-TRIQUOTE: ('"""');
-DIQUOTE:  ('""'); 
-QUOTE: 	  ('"');
-SQUOTE: 	('\'');
-NOT:   		('~');
-GT:    		('>');
-LT:    		('<');
-GTE:   		('>=');
-LTE:   		('<=');
-NGT:   		('~>');
-NLT:   		('~<');
-NE:    		('~=');
-PCNT:  		('%');
-AND:    	('&');
-OR:     	('|');
-SCAND:  	('?&'); 	// short-circuit AND
-SCOR:   	('?|');  	// short-circuit OR
-CONC:   	('||');	// concatenate
-
-L_LOG_SHIFT:   	('<<');   // logical: left bit lost rite bit becomes zero
-R_LOG_SHIFT:   	('>>');   // logical: rite bit lost left bit becomes zero
-R_ART_SHIFT:    ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit
-
-L_ROTATE:      '<@<';
-R_ROTATE:      '>@>';
