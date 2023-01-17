@@ -136,7 +136,7 @@ expression_6
 
 expression_5
   : expression_4
-  | expression_5 (ROL | ROR) expression_4
+  | expression_5 (L_ROTATE | R_ROTATE) expression_4
   ;
 
 expression_4
@@ -180,7 +180,7 @@ comparison_operator:
 	| NE
 	| NLT;
 
-shift_operator: LOGICAL_R_SHIFT | LOGICAL_L_SHIFT | ARITH_R_SHIFT ;
+shift_operator: R_LOG_SHIFT | L_LOG_SHIFT | R_ART_SHIFT ;
 
 identifier
   :	keyword			# KEYWD
@@ -940,45 +940,45 @@ fragment OCT: [0-7];
 fragment DEC: [0-9];
 fragment HEX: [0-9a-fA-F];
 
-RARROW: 	'->';
-DOT:      '.';
-COMMA:    ',';
-LPAR: 		'(';
-RPAR: 		')';
-LBRACK: 	'[';
-RBRACK: 	']';
-LBRACE: 	'{';
-RBRACE: 	'}';
-EQUALS: 	'=';
-TIMES: 		'*';
-DIVIDE: 	'/';
-PLUS: 		'+';
-MINUS: 		'-';
-SEMICOLON:	';';
-POWER: 		'**';
-COLON: 		':';
-TRIQUOTE: '"""';
-DIQUOTE:  '""'; 
-QUOTE: 	  '"';
-SQUOTE: 	'\'';
-NOT:   		'~';
-GT:    		'>';
-LT:    		'<';
-GTE:   		'>=';
-LTE:   		'<=';
-NGT:   		'~>';
-NLT:   		'~<';
-NE:    		'~=';
-PCNT:  		'%';
-AND:    	'&';
-OR:     	'|';
-SCAND:  	'?&'; 	// short-circuit AND
-SCOR:   	'?|';  	// short-circuit OR
-CONC:   	'||';	// concatenate
+RARROW: 	('->');
+DOT:      ('.');
+COMMA:    (',');
+LPAR: 		('(');
+RPAR: 		(')');
+LBRACK: 	('[');
+RBRACK: 	(']');
+LBRACE: 	('{');
+RBRACE: 	('}');
+EQUALS: 	('=');
+TIMES: 		('*');
+DIVIDE: 	('/');
+PLUS: 		('+');
+MINUS: 		('-');
+SEMICOLON:	(';');
+POWER: 		('**');
+COLON: 		(':');
+TRIQUOTE: ('"""');
+DIQUOTE:  ('""'); 
+QUOTE: 	  ('"');
+SQUOTE: 	('\'');
+NOT:   		('~');
+GT:    		('>');
+LT:    		('<');
+GTE:   		('>=');
+LTE:   		('<=');
+NGT:   		('~>');
+NLT:   		('~<');
+NE:    		('~=');
+PCNT:  		('%');
+AND:    	('&');
+OR:     	('|');
+SCAND:  	('?&'); 	// short-circuit AND
+SCOR:   	('?|');  	// short-circuit OR
+CONC:   	('||');	// concatenate
 
-LOGICAL_L_SHIFT:   	'<<';   // logical: left bit lost rite bit becomes zero
-LOGICAL_R_SHIFT:   	'>>';   // logical: rite bit lost left bit becomes zero
-ARITH_R_SHIFT:      '>>>';  // arithmetic: rite bit lost left bit is copy of sign bit
+L_LOG_SHIFT:   	('<<');   // logical: left bit lost rite bit becomes zero
+R_LOG_SHIFT:   	('>>');   // logical: rite bit lost left bit becomes zero
+R_ART_SHIFT:    ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit
 
-ROL:      '<@<';
-ROR:      '>@>';
+L_ROTATE:      '<@<';
+R_ROTATE:      '>@>';
