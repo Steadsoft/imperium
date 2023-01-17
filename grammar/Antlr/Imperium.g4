@@ -248,7 +248,7 @@ call_stmt
   : CALL reference;
 
 goto_stmt
-	:	(GOTO IDENTIFIER LPAR decimal_literal RPAR)
+	:	(GOTO IDENTIFIER LPAR expression RPAR)
 	| (GOTO reference) |;
 
 end_stmt
@@ -967,8 +967,8 @@ RECURSIVE:
 
 /* End of generated Antlr4 keyword token definitions. */
 
-LABEL:                AT [a-zA-Z_]+ ;
-IDENTIFIER:           [$a-zA-Z_\u0370-\u03ff] [$a-zA-Z_0-9\u0370-\u03ff]* ; // { ReverseLexeme();}; This can be used to 'correct' consumed identifiers, comments etc when reading source in reverse.
+LABEL:                (AT IDENTIFIER) ;
+IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*) ; 
 BINARY_PATTERN:       (BIN (LSEP BIN)*)+ FRAC_B? BASE_B;
 OCTAL_PATTERN:        (OCT (LSEP OCT)*)+ FRAC_O? BASE_O;
 HEXADECIMAL_PATTERN:  (HEX (LSEP HEX)*)+ FRAC_H? BASE_H;
@@ -1033,3 +1033,5 @@ fragment FRAC_B: ('.' [0-1]+);
 fragment FRAC_D: ('.' [0-9]+);
 fragment FRAC_O: ('.' [0-7]+);
 fragment FRAC_H: ('.' [0-9a-fA-F]+);
+fragment IDENTIFIER_START: [$a-zA-Z_\u0370-\u03ff];
+fragment IDENTIFIER_REST:  [$a-zA-Z_0-9\u0370-\u03ff];
