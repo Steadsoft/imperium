@@ -26,7 +26,7 @@ grammar Imperium; // Latin for "control"
 @lexer::members 
 {    
 	// This code MUST compile for both Java and C#
-    // Some constructs here require support code be
+  // Some constructs here require support code be
 	// defined as C# partial and extension classes.
     
 	private String KeywordLexiconCode = "en";
@@ -369,7 +369,7 @@ elif_clause
   :	ELIF expression THEN (executable_stmt terminator)+ else_clause?;
 
 loop_stmt
-  :	LOOP  (executable_stmt terminator)+ end_stmt LOOP? # BASIC_LOOP
+  :	LOOP  (executable_stmt terminator)+ end_stmt LOOP?                            # BASIC_LOOP
 	| LOOP  while_option until_option? (executable_stmt terminator)+ end_stmt LOOP? # WHILE_UNTIL
 	| LOOP  until_option while_option? (executable_stmt terminator)+ end_stmt LOOP? # UNTIL_WHILE;
 
@@ -968,7 +968,7 @@ RECURSIVE:
 /* End of generated Antlr4 keyword token definitions. */
 
 LABEL:                AT [a-zA-Z_]+ ;
-IDENTIFIER:           [$a-zA-Z_\u0370-\u03ff]+ ; // { ReverseLexeme();}; This can be used to 'correct' consumed identifiers, comments etc when reading source in reverse.
+IDENTIFIER:           [$a-zA-Z_\u0370-\u03ff] [$a-zA-Z_0-9\u0370-\u03ff]* ; // { ReverseLexeme();}; This can be used to 'correct' consumed identifiers, comments etc when reading source in reverse.
 BINARY_PATTERN:       (BIN (LSEP BIN)*)+ FRAC_B? BASE_B;
 OCTAL_PATTERN:        (OCT (LSEP OCT)*)+ FRAC_O? BASE_O;
 HEXADECIMAL_PATTERN:  (HEX (LSEP HEX)*)+ FRAC_H? BASE_H;
