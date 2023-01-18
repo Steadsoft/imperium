@@ -1,0 +1,28 @@
+ 
+ dcl validate_root_ptr external entry (pointer, bin(15,3));
+ 
+ sys$startup:
+    procedure (root_ptr, status);
+
+    dcl root_ptr pointer;
+    dcl status   bin(15);
+    dcl (if, else, then) char(1);
+
+    if root_ptr = NULL then
+       do;
+       status = 1234;
+       return;
+       end;
+
+    call validate_root_ptr(root_ptr, status);
+
+    if status ^= 0 then
+       return;
+
+    if if = else then
+       then = if;
+    else 
+       else = then;
+
+ end;
+ 
