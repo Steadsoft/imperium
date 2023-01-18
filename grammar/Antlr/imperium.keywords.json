@@ -14,6 +14,8 @@
   "en": { // English
     "Alias": "alias",
     "Aligned": "aligned",
+    "All": "all",
+    "Any": "any",
     "Argument": "argument, arg",
     "Automatic": "automatic, auto",
     "Based": "based",
@@ -51,6 +53,7 @@
     "Loop": "loop",
     "Namespace": "namespace",
     "Offset": "offset, ofx",
+    "Otherwise": "otherwise",
     "Out": "out",
     "Pad": "pad",
     "Pointer": "pointer, ptr",
@@ -64,6 +67,7 @@
     "Return": "return",
     "Returns": "returns",
     "Returnon": "returnon",
+    "Select":  "select",
     "Singlet": "singlet",
     "Static": "static",
     "String": "string",
@@ -77,6 +81,7 @@
     "While": "while",
     "Variable": "variable",
     "Varying": "varying",
+    "When": "when",
     "Yield": "yield"
   },
 

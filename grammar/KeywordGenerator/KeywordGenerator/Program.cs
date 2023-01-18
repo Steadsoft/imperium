@@ -106,7 +106,7 @@ namespace KeywordGenerator
             file.WriteLine(PaddedComment($"Output: {outpath}", 100, ' '));
             file.WriteLine(PaddedComment("", 100, ' '));
             file.WriteLine(PaddedComment($"Number of languages {num_languages}.",100,' '));
-            file.WriteLine(PaddedComment($"Expected number of entries per language {expected_num_entries}.", 100, ' '));
+            file.WriteLine(PaddedComment($"Expected number of keywords per language {expected_num_entries}.", 100, ' '));
             file.WriteLine(PaddedComment("", 100, '-'));
             file.WriteLine();
 
