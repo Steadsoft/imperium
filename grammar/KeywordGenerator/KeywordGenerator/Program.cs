@@ -110,7 +110,21 @@ namespace KeywordGenerator
             file.WriteLine(PaddedComment("", 100, '-'));
             file.WriteLine();
 
-            foreach (var kv in output)
+            file.WriteLine("keyword:");
+
+            var keywords = language_dictionary["en"].Keys.OrderBy(k => k);
+
+            file.WriteLine($"    {keywords.First().Trim().ToUpper()}");
+
+            foreach (var keyword in keywords.Skip(1))
+            {
+                file.WriteLine($"  | {keyword.Trim().ToUpper()}");
+            }
+
+            file.WriteLine("  ;");
+            file.WriteLine();
+
+            foreach (var kv in output.OrderBy(kv => kv.Key.ToUpper()))
             {
                 file.WriteLine(kv.Value);
             }

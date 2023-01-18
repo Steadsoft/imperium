@@ -10,6 +10,12 @@ procedure main (arg);
     dcl root ptr;
     dcl status bin(15);
 
+    lit = FACE;
+    lit = FACE:H;
+    lit = F123:h;
+    lit = F123;
+
+
     type_a = "Even Greek Γεια σου string literals can be single quoted like this";
 
     type_b = ""or double quoted like this, with embedded single quoted text "like this" see?"";
@@ -66,6 +72,8 @@ procedure main (arg);
     elif J = sqrt(100) then
        return;
     end if;
+
+    if = 100;
 
     call get_latest_faulting_stack(S);
 
