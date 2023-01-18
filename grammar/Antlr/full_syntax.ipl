@@ -88,7 +88,18 @@ procedure main (arg);
 
     call sys$reinitialize_firmware_table(S);
 
-    call sys$sleep (1024);
+    call sys$sleep (1024,state);
+
+    select (state)
+
+    when (1, validator(123))
+         return;
+    when (2)
+         call reset_dma;
+         return;
+    else
+         goto cycle_loop;
+    end;
 
     goto cycle_loop ;
 
