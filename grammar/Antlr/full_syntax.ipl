@@ -60,9 +60,9 @@ procedure main (arg);
        I = get_updated_count(J);
     end loop;
 
-    a = a >@> 2;
+    a = a @>> 2;
 
-    a = a <@< 2;
+    a = a <<@ 2;
 
     if I = 123 & J = 321 then
        I = 0;
@@ -92,7 +92,7 @@ procedure main (arg);
 
     select (state)
 
-    when (1, validator(123))
+    when all (1, validator(123))
          return;
     when (2)
          call reset_dma;

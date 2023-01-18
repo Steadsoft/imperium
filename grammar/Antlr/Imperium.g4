@@ -1098,8 +1098,8 @@ CONC:   	    ('||');   // concatenate
 L_LOG_SHIFT:  ('<<');   // logical: left bit lost rite bit becomes zero
 R_LOG_SHIFT:  ('>>');   // logical: rite bit lost left bit becomes zero
 R_ART_SHIFT:  ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit
-L_ROTATE:     ('<@<');
-R_ROTATE:     ('>@>');
+L_ROTATE:     ('<<@');  // rotate: left bit rotated out rite bit becomes that rotated left bit
+R_ROTATE:     ('@>>');  // rotate: rite bit rotated out left bit becomes that rotated rite bit
 
 // LEXER FRAGMENTS
 
