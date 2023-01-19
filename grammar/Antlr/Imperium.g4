@@ -1075,7 +1075,7 @@ DIVIDE: 	    ('/');
 PLUS: 		    ('+');
 MINUS: 		    ('-');
 SEMICOLON:	  (';');
-POWER: 		    ('**');
+POWER: 		    ('^');  // PL/I traditionally used ** but it never had/used ^ so we can leverage that instead.
 COLON: 		    (':');
 TRIQUOTE:     ('"""');
 DIQUOTE:      ('""'); 
@@ -1092,6 +1092,7 @@ NE:    		    ('~=');
 PCNT:  		    ('%');
 AND:    	    ('&');
 OR:     	    ('|');
+XOR:          ('<|>');  // excluisve OR
 SCAND:  	    ('?&'); 	// short-circuit AND
 SCOR:   	    ('?|');  	// short-circuit OR
 CONC:   	    ('||');   // concatenate
@@ -1100,6 +1101,7 @@ R_LOG_SHIFT:  ('>>');   // logical: rite bit lost left bit becomes zero
 R_ART_SHIFT:  ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit
 L_ROTATE:     ('<<@');  // rotate: left bit rotated out rite bit becomes that rotated left bit
 R_ROTATE:     ('@>>');  // rotate: rite bit rotated out left bit becomes that rotated rite bit
+RANGE:        ('..');   // used to represent a range from some start to some end
 
 // LEXER FRAGMENTS
 
