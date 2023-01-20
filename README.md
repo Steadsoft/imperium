@@ -1,4 +1,4 @@
-# Imperium
+# Imperium - IPL
 ## The home of the Imperium programming language
 
 Imperium ("IPL") is a computer programming language that emphasizes readability, extensibility, internationalization and pragmatism. The name "Imperium" is a Latin term meaning "control" in English. The language is designed to provide the developer with control, it is well suited for use on Microcontrollers for example by virtue of its range of memory defining features, padding and alignment as well as its support for "bit" data types enabling fine grained control over bit level memory layouts.
@@ -107,6 +107,34 @@ It is also valuable to define reasonbale abbreviations where this makes sense in
 For example the keyword `Binary` has English keywords of `binary` and `bin`, also lowercase keywords are preferred but if there's a target langauge cultural justification to do otherwise then this will be considered, a check is made to esnure no keyword/abbreviation appears more than once in any language.
 
 Because this is very early stage development, changes to existing keywords is very feasible, nobody is likely to be negatively impacted if some keyword gets replaced/changed.
+
+## Changes from standard PL/I
+
+Although the PL/I grammar provides the *foundation* for IPL, some changes have been made that are considered beneficial and improve readability. The grammar that was used as the basis for IPL is formally defined in the [ANSI X3.74-1987](https://webstore.ansi.org/standards/incits/ansix3741987r1998) standard document. Unfortunately that document isn't freely available. Each change was made after careful consideration, no change was made without a sound justification.
+
+This table describes the changes
+
+| Grammar fragment		| Description		
+| --- 				| :--- 		
+| `literals` 			| Space/Underscore allowed as a separator	
+| `literals`  			| New notaion introduced for terminating a literal 	
+| `select` 			| Semicolon after the `select` expression, has been removed
+| `if`                          | New optional keyword `elif` introduced
+| `do` `end`			| All keywords for block statements have no `do` and must be terminated by `end`
+| `labels`                      | All labels are identifiers prefixed by `@` there is no trailing `:` anymore
+| `procedure`                   | No longer named with a label but with an identifier following the `procedure` keyword
+| `procedure`                   | Fuctions use new keyword `function` as opposed to `procedure`
+| `end`				| The `end` for block statements can be followed by the block's keyword now
+| `operators`                   | Several new operators are added for shift, rotate and so on
+| `comparison`                  | Comparison chaining has been adopted
+| `comments`                    | Multiline and multiquoted comments are supported
+| `select`                      | The `otherwise` keyword replaced with `else`
+| `declare`                     | Argument declarations must now use `arg` or `argument`
+| `namespace`                   | Namespaces are now supported
+| `keywords`                    | All keywords are lower case and available for multiple cultures/languages
+| `identifiers` 		| Unicode charaters and the `$` symbol are supported
+| `do loops`                    | All loops begin with `loop` keyword with optional `while` `until` and so on.
+
 
 
 
