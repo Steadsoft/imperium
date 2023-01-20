@@ -1,130 +1,150 @@
-procedure main (arg);
 
-    /* This is sample code */
+namespace system.utilities;
 
-    dcl name string(32);
-    dcl I bin(15);
-    dcl J bin(15);
-    dcl S bin(31);
-    dcl A(1024) bit(8); // 1 KByte
-    dcl root ptr;
-    dcl status bin(15);
+   procedure main (arg);
 
-    lit = FACE;
-    lit = FACE:H;
-    lit = F123:h;
-    lit = F123;
+      /* This is sample code */
 
+      dcl name string(32);
+      dcl I bin(15);
+      dcl J bin(15);
+      dcl S bin(31);
+      dcl A(1024) bit(8); // 1 KByte
+      dcl root ptr;
+      dcl status bin(15);
+      dcl rate float dec(15);
 
-    type_a = "Even Greek Γεια σου string literals can be single quoted like this";
+      lit = FACE;
+      lit = FACE:H;
+      lit = F123:h;
+      lit = F123;
 
-    type_b = ""or double quoted like this, with embedded single quoted text "like this" see?"";
+      rate = 23 ^ 4 ;
 
-    name = ""demonstration_network_controller"" ;
+      type_a = "Even Greek Γεια σου string literals can be single quoted like this";
 
-    title = ""This is the "best in class" 
-    multiline literal 
-    language system"" ;
+      type_b = ""or double quoted like this, with embedded single quoted text "like this" see?"";
 
-    call sys$announce_device(name, status);
+      name = ""demonstration_network_controller"" ;
 
-    if status ~= 0 then
-       return;
-    end;
+      title = ""This is the "best in class" 
+      multiline literal 
+      language system"" ;
 
-    Καλημέρα = "How do you do";
+      call sys$announce_device(name, status);
 
-    Ευχαριστώ = "Many thanks";
-
-    call sys$install_platform(title);
-
-    root = sys$get_system_bootroot(name);
-
-    call sys$validate_authority(root);
-
-    goto cycle_loop;
-
-@cycle_loop;
-
-    I = 100;
-
-    if I > 0 then
-       goto cycle_loop;
-    end;
-    
-    I = sys$get_updated_count(J);
-
-@setpoint(0);
-
-    loop while (I >= J)
-       I = get_updated_count(J);
-    end loop;
-
-    a = a @>> 2;
-
-    a = a <<@ 2;
-
-    if I = 123 & J = 321 then
-       I = 0;
-       goto setpoint(I); // never pass non-zero !!
-    elif J + I > J * I then
-       goto cycle_loop;
-    elif J = sqrt(100) then
-       return;
-    end if;
-
-    if = 100;
-
-    call get_latest_faulting_stack(S);
-
-    if S ~= 0 then
-       /* Crawl the stack chain looking for the designated handler */
-       call sys$stack_crawler(S);
-    end;
-
-    /* set S to the sentinel for the next operation */
-
-    S = F5D3 03A2:H; // we need to ensure this sentinel is not allocated to any other device types
-
-    call sys$reinitialize_firmware_table(S);
-
-    call sys$sleep (1024,state);
-
-    select (state)
-
-    when all (1, validator(123))
+      if status ~= test > 100 then
          return;
-    when (2)
-         call reset_dma;
+      end;
+
+      if arg < roof < start then
          return;
-    else
+      end;
+
+      Καλημέρα = "How do you do";
+
+      Ευχαριστώ = "Many thanks";
+
+      call sys$install_platform(title);
+
+      root = sys$get_system_bootroot(name);
+
+      call sys$validate_authority(root);
+
+      goto cycle_loop;
+
+   @cycle_loop;
+
+      a = ~(b | c);
+
+      // t = x <|> y;
+
+      I = 100;
+
+      if I > 0 then
          goto cycle_loop;
-    end;
+      end;
+      
+      I = sys$get_updated_count(J);
 
-    goto cycle_loop ;
+   @setpoint(0);
 
-//-------------------------------------------------------
-// This proc walks the stack 'upwards' to see if there
-// is a handler defined for the specified fault IDENT
-//-------------------------------------------------------
-procedure sys$stack_crawler (handler_id) recursive;
+      loop while (I >= J)
+         I = get_updated_count(J);
+      end loop;
 
-    arg handler_id bin(31);
+      a = a @>> 2;
 
-end;
+      a = a <<@ 2;
 
-/* Only call this if we kmow there's no active services still running */
-procedure sys$reinitialize_firmware_table(table);
+      if I = 123 & J = 321 then
+         I = 0;
+         goto setpoint(I); // never pass non-zero !!
+      elif J + I > J * I then
+         goto cycle_loop;
+      elif J = sqrt(100) then
+         return;
+      end if;
 
-    arg table bin(31);
+      if = 100;
 
-end proc;
+      call get_latest_faulting_stack(S);
 
-procedure sys$timer_callback (context) interrupt;
+      if S ~= 0 then
+         // Crawl the stack chain looking for the designated handler 
+         call sys$stack_crawler(S);
+      end;
 
-    arg context pointer;
+      // set S to the sentinel for the next operation 
 
-end proc;
+      S = F5D3 03A2:H; // we need to ensure this sentinel is not allocated to any other device types
 
-end proc;
+      call sys$reinitialize_firmware_table(S);
+
+      call sys$sleep (1024,state);
+
+      select (state)
+         when all (1, validator(123))
+               return;
+         when (2)
+               call reset_dma;
+               return;
+         else
+               goto cycle_loop;
+      end;
+
+      goto cycle_loop ;
+
+      //-------------------------------------------------------
+      // This proc walks the stack 'upwards' to see if there
+      // is a handler defined for the specified fault IDENT
+      //-------------------------------------------------------
+      procedure sys$stack_crawler (handler_id) recursive;
+
+         arg handler_id bin(31);
+
+      end;
+
+      // Only call this if we kmow there's no active services still running 
+      procedure sys$reinitialize_firmware_table(table);
+
+         arg table bin(31);
+
+         arg = 23;
+
+      end proc;
+
+      procedure sys$timer_callback (context) interrupt;
+
+   
+
+         dcl aaa bin(15);
+
+            goto setpoint(0);
+
+      end proc;
+
+   end proc;
+
+end namespace;
 

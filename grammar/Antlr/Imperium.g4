@@ -51,7 +51,19 @@ grammar Imperium; // Latin for "control"
 }
 
 translation_unit
-  :	BYTE_ORDER_MARK? nonexecutable_stmt* procedure* EOF;
+  :	BYTE_ORDER_MARK? namespace* | stmt_block? EOF;
+
+namespace
+  : namespace_stmt stmt_block? namespace_end
+  | namespace_stmt namespace namespace_end
+  ;
+
+namespace_stmt
+  : NAMESPACE identifier (DOT identifier)* SEMICOLON
+  ;
+
+namespace_end
+  : END NAMESPACE? SEMICOLON;
 
 procedure
   :	procedure_stmt stmt_block? procedure_end

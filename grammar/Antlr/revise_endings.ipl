@@ -1,0 +1,42 @@
+    namespace test;
+
+    dcl root_ptr pointer;
+
+    procedure outer (arg);
+
+       dcl counter bin(15);
+       dcl window bin(31);
+
+        if counter = 123 then
+           return;
+        end;
+
+    end procedure;
+
+    procedure rerun (arg);
+
+        call s$system.memory.allocate_virgin(10 0000:H); // 1,048,576 in dec FYI
+
+    end procedure;
+
+end;
+
+namespace other;
+
+end;
+
+namespace s$system;
+
+    namespace memory;
+
+        procedure allocate_virgin(size);
+
+            arg size bin(31);
+
+        end;
+
+    end;
+
+end;
+
+
