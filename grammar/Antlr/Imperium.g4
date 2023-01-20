@@ -108,8 +108,8 @@ returns_descriptor
 
 stmt_block
   : nonexecutable_stmt+ 
-  | nonexecutable_stmt+ executable_stmt+
   | executable_stmt+
+  | nonexecutable_stmt+ executable_stmt+
   ;
 
 terminator
