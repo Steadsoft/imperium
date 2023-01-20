@@ -121,6 +121,7 @@ This table describes the changes
 | `literals`                    | Hexadecimal and Octal literals are supported
 | `select` 			| Semicolon after the `select` expression, has been removed
 | `if`                          | New optional keyword `elif` introduced
+| `do`                          | The `do` keyword has been removed from the language
 | `do` `end`			| All keywords for block statements have no `do` and must be terminated by `end`
 | `labels`                      | All labels are identifiers prefixed by `@` there is no trailing `:` anymore
 | `procedure`                   | No longer named with a label but with an identifier following the `procedure` keyword
