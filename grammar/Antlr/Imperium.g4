@@ -51,18 +51,27 @@ grammar Imperium; // Latin for "control"
 }
 
 translation_unit
-  :	BYTE_ORDER_MARK? nonexecutable_stmt* procedure*;
+  :	BYTE_ORDER_MARK? nonexecutable_stmt* procedure* EOF;
 
 procedure
   :	procedure_stmt stmt_block? procedure_end
-  | FUNCTION identifier proc_descriptor SEMICOLON stmt_block? END FUNCTION;
+  | function_stmt  stmt_block? function_end
+  ;
 
 procedure_stmt
   : PROCEDURE identifier proc_descriptor SEMICOLON 
   ;
 
+function_stmt
+  : FUNCTION identifier func_descriptor SEMICOLON 
+  ;
+
 procedure_end
   : END PROCEDURE? SEMICOLON
+  ;
+
+function_end
+  : END FUNCTION? SEMICOLON
   ;
 
 proc_descriptor
