@@ -116,7 +116,7 @@ terminator
   : SEMICOLON;
 
 label_stmt
-  : LABEL (LPAR decimal_literal RPAR)? SEMICOLON
+  : LABEL (LPAR decimal_literal RPAR)? 
   ;
 
 nonexecutable_stmt
@@ -136,7 +136,12 @@ executable_stmt
   | select_stmt     # SELECT
 	| endloop_stmt    # LEAVE
 	| reloop_stmt     # AGAIN 
+  | null_stmt       # NULL
 	;
+
+null_stmt
+  : SEMICOLON
+  ;
 
 assign_stmt
   : reference EQUALS expression SEMICOLON
@@ -360,9 +365,13 @@ return_stmt
   : RETURN (LPAR expression RPAR)? SEMICOLON;
 
 if_stmt
-  :	then_clause (executable_stmt)+ else_clause? END IF? SEMICOLON
-	| then_clause (executable_stmt)+ elif_clause+ END IF? SEMICOLON
+  :	then_clause (executable_stmt)+ else_clause? if_end
+	| then_clause (executable_stmt)+ elif_clause+ if_end
   ;
+
+if_end
+  : END IF? SEMICOLON
+  ;  
 
 then_clause
   : IF expression THEN;
@@ -374,9 +383,13 @@ elif_clause
   :	ELIF expression THEN (executable_stmt)+ else_clause?;
 
 loop_stmt
-  :	LOOP  (executable_stmt)+ END LOOP? SEMICOLON                           # BASIC_LOOP
-	| LOOP  while_option until_option? (executable_stmt)+ END LOOP? SEMICOLON # WHILE_UNTIL
-	| LOOP  until_option while_option? (executable_stmt)+ END LOOP? SEMICOLON # UNTIL_WHILE;
+  :	LOOP  (executable_stmt)+ loop_end                           # BASIC_LOOP
+	| LOOP  while_option until_option? (executable_stmt)+ loop_end # WHILE_UNTIL
+	| LOOP  until_option while_option? (executable_stmt)+ loop_end # UNTIL_WHILE;
+
+loop_end
+  : END LOOP? SEMICOLON
+  ;
 
 while_option
   : WHILE LPAR expression RPAR;
@@ -385,7 +398,11 @@ until_option
   : UNTIL LPAR expression RPAR;
 
 select_stmt
-  : select_clause when_clause* otherwise_clause? END SELECT? SEMICOLON
+  : select_clause when_clause* otherwise_clause? select_end
+  ;
+
+select_end
+  : END SELECT? SEMICOLON
   ;
 
 select_clause
