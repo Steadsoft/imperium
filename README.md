@@ -125,7 +125,7 @@ This table describes the changes
 | `do` `end`			| All keywords for block statements have no `do` and must be terminated by `end`
 | `labels`                      | All labels are identifiers prefixed by `@` there is no trailing `:` anymore
 | `procedure`                   | No longer named with a label but with an identifier following the `procedure` keyword
-| `procedure`                   | Fuctions use new keyword `function` as opposed to `procedure`
+| `procedure`                   | Fuctions now use new keyword `function` as opposed to `procedure`
 | `end`				| The `end` for block statements can be followed by the block's keyword now
 | `operators`                   | Several new operators are added for shift, rotate and so on
 | `comparison`                  | Comparison chaining has been adopted
