@@ -51,7 +51,7 @@ grammar Imperium; // Latin for "control"
 }
 
 translation_unit
-  :	BYTE_ORDER_MARK? preprocessor_stmt? procedure_stmt;
+  :	BYTE_ORDER_MARK? procedure_stmt;
 
 procedure_stmt
   :	PROCEDURE identifier proc_descriptor SEMICOLON stmt_block end_stmt PROCEDURE?
@@ -88,8 +88,7 @@ label_stmt
   : LABEL (LPAR decimal_literal RPAR)?;
 
 nonexecutable_stmt
-  : preprocessor_stmt	# PRE
-	| declare_stmt		  # DCL
+	: declare_stmt		  # DCL
 	| define_stmt		    # DEF;
  
 executable_stmt
@@ -105,10 +104,6 @@ executable_stmt
 	| endloop_stmt    # LEAVE
 	| reloop_stmt     # AGAIN 
 	;
-
-preprocessor_stmt
-  : PCNT 'include' SQUOTE identifier '.inc' SQUOTE SEMICOLON 
-  | PCNT 'lexicon' LPAR identifier RPAR SEMICOLON;
 
 assign_stmt
   : reference EQUALS expression; //SEMICOLON
