@@ -365,8 +365,8 @@ return_stmt
   : RETURN (LPAR expression RPAR)? SEMICOLON;
 
 if_stmt
-  :	then_clause (executable_stmt)+ else_clause? if_end
-	| then_clause (executable_stmt)+ elif_clause+ if_end
+  :	then_clause stmt_block else_clause? if_end
+	| then_clause stmt_block elif_clause+ if_end
   ;
 
 if_end
@@ -377,15 +377,15 @@ then_clause
   : IF expression THEN;
 
 else_clause
-  : ELSE (executable_stmt)+;
+  : ELSE stmt_block;
 
 elif_clause
-  :	ELIF expression THEN (executable_stmt)+ else_clause?;
+  :	ELIF expression THEN stmt_block else_clause?;
 
 loop_stmt
-  :	LOOP  (executable_stmt)+ loop_end                           # BASIC_LOOP
-	| LOOP  while_option until_option? (executable_stmt)+ loop_end # WHILE_UNTIL
-	| LOOP  until_option while_option? (executable_stmt)+ loop_end # UNTIL_WHILE;
+  :	LOOP  stmt_block loop_end                            # BASIC_LOOP
+	| LOOP  while_option until_option? stmt_block loop_end # WHILE_UNTIL
+	| LOOP  until_option while_option? stmt_block loop_end # UNTIL_WHILE;
 
 loop_end
   : END LOOP? SEMICOLON
@@ -410,11 +410,11 @@ select_clause
   ;
 
 when_clause
-  : WHEN (ANY | ALL)? LPAR (expression (COMMA expression)*) RPAR (executable_stmt)+
+  : WHEN (ANY | ALL)? LPAR (expression (COMMA expression)*) RPAR stmt_block
   ;
 
 otherwise_clause
-  : ELSE (executable_stmt)+
+  : ELSE stmt_block
   ;
 
 define_stmt // defines a type, like a structure
