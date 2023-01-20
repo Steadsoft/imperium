@@ -51,11 +51,19 @@ grammar Imperium; // Latin for "control"
 }
 
 translation_unit
-  :	BYTE_ORDER_MARK? procedure_stmt;
+  :	BYTE_ORDER_MARK? nonexecutable_stmt* procedure*;
+
+procedure
+  :	procedure_stmt stmt_block? procedure_end
+  | FUNCTION identifier proc_descriptor SEMICOLON stmt_block? END FUNCTION;
 
 procedure_stmt
-  :	PROCEDURE identifier proc_descriptor SEMICOLON stmt_block end_stmt PROCEDURE?
-  | FUNCTION identifier proc_descriptor SEMICOLON stmt_block end_stmt FUNCTION;
+  : PROCEDURE identifier proc_descriptor SEMICOLON 
+  ;
+
+procedure_end
+  : END PROCEDURE? SEMICOLON
+  ;
 
 proc_descriptor
   :
@@ -78,25 +86,29 @@ returns_descriptor
 	// consider using keyword 'is' instead and forcing it to be right after the params...
 
 stmt_block
-  : (nonexecutable_stmt terminator)* (executable_stmt terminator)*
-	| terminator;
+  : nonexecutable_stmt+ 
+  | nonexecutable_stmt+ executable_stmt+
+  | executable_stmt+
+  ;
 
 terminator
   : SEMICOLON;
 
 label_stmt
-  : LABEL (LPAR decimal_literal RPAR)?;
+  : LABEL (LPAR decimal_literal RPAR)? SEMICOLON
+  ;
 
 nonexecutable_stmt
 	: declare_stmt		  # DCL
-	| define_stmt		    # DEF;
+	//| define_stmt		    # DEF;
+  ;
  
 executable_stmt
   : label_stmt      # LABEL
   | assign_stmt	    # ASSIGN
 	| call_stmt		    # CALL
 	| goto_stmt		    # GOTO
-	| procedure_stmt  # PROC
+	| procedure       # PROC
 	| return_stmt	    # RET
 	| if_stmt		      # IF
 	| loop_stmt		    # LOOP
@@ -106,7 +118,8 @@ executable_stmt
 	;
 
 assign_stmt
-  : reference EQUALS expression; //SEMICOLON
+  : reference EQUALS expression SEMICOLON
+  ;
 
 reference
   :	reference RARROW basic_reference arguments_list?	# PTR_REF
@@ -223,14 +236,15 @@ identifier
 	| IDENTIFIER	# identifier_IDENTIFIER;
 
 call_stmt
-  : CALL reference;
+  : CALL reference SEMICOLON;
 
 goto_stmt
-	:	(GOTO IDENTIFIER LPAR expression RPAR)
-	| (GOTO reference) |;
+	:	(GOTO IDENTIFIER LPAR expression RPAR) SEMICOLON
+	| (GOTO reference) SEMICOLON
+  ;
 
-end_stmt
-  : END;
+//end_stmt
+//  : END;
 
 endloop_stmt
   : ENDLOOP IDENTIFIER? ;
@@ -239,7 +253,8 @@ reloop_stmt
   : RELOOP IDENTIFIER? ;
 
 declare_stmt
-  : (DECLARE | ARGUMENT) identifier type_info;
+  : (DECLARE | ARGUMENT) identifier type_info SEMICOLON
+  ;
 
 type_info
   : dimension_suffix? attribute*;
@@ -321,25 +336,26 @@ parameter_name_commalist
 : LPAR identifier (COMMA identifier)* RPAR;
 
 return_stmt
-  : RETURN (LPAR expression RPAR)?;
+  : RETURN (LPAR expression RPAR)? SEMICOLON;
 
 if_stmt
-  :	then_clause (executable_stmt terminator)+ else_clause? end_stmt IF?
-	| then_clause (executable_stmt terminator)+ elif_clause+ end_stmt IF?;
+  :	then_clause (executable_stmt)+ else_clause? END IF? SEMICOLON
+	| then_clause (executable_stmt)+ elif_clause+ END IF? SEMICOLON
+  ;
 
 then_clause
   : IF expression THEN;
 
 else_clause
-  : ELSE (executable_stmt terminator)+;
+  : ELSE (executable_stmt)+;
 
 elif_clause
-  :	ELIF expression THEN (executable_stmt terminator)+ else_clause?;
+  :	ELIF expression THEN (executable_stmt)+ else_clause?;
 
 loop_stmt
-  :	LOOP  (executable_stmt terminator)+ end_stmt LOOP?                            # BASIC_LOOP
-	| LOOP  while_option until_option? (executable_stmt terminator)+ end_stmt LOOP? # WHILE_UNTIL
-	| LOOP  until_option while_option? (executable_stmt terminator)+ end_stmt LOOP? # UNTIL_WHILE;
+  :	LOOP  (executable_stmt)+ END LOOP? SEMICOLON                           # BASIC_LOOP
+	| LOOP  while_option until_option? (executable_stmt)+ END LOOP? SEMICOLON # WHILE_UNTIL
+	| LOOP  until_option while_option? (executable_stmt)+ END LOOP? SEMICOLON # UNTIL_WHILE;
 
 while_option
   : WHILE LPAR expression RPAR;
@@ -348,7 +364,7 @@ until_option
   : UNTIL LPAR expression RPAR;
 
 select_stmt
-  : select_clause when_clause* otherwise_clause? end_stmt SELECT?
+  : select_clause when_clause* otherwise_clause? END SELECT? SEMICOLON
   ;
 
 select_clause
@@ -356,11 +372,11 @@ select_clause
   ;
 
 when_clause
-  : WHEN (ANY | ALL)? LPAR (expression (COMMA expression)*) RPAR (executable_stmt terminator)+
+  : WHEN (ANY | ALL)? LPAR (expression (COMMA expression)*) RPAR (executable_stmt)+
   ;
 
 otherwise_clause
-  : ELSE (executable_stmt terminator)+
+  : ELSE (executable_stmt)+
   ;
 
 define_stmt // defines a type, like a structure
