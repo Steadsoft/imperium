@@ -118,6 +118,7 @@ This table describes the changes
 | --- 				| :--- 		
 | `literals` 			| Space/Underscore allowed as a separator	
 | `literals`  			| New notaion introduced for terminating a literal 	
+| `literals`                    | Hexadecimal and Octal literals are supported
 | `select` 			| Semicolon after the `select` expression, has been removed
 | `if`                          | New optional keyword `elif` introduced
 | `do` `end`			| All keywords for block statements have no `do` and must be terminated by `end`
