@@ -277,7 +277,11 @@ reloop_stmt
 
 declare_stmt
   : (DECLARE | ARGUMENT) identifier AS identifier SEMICOLON
-  | (DECLARE | ARGUMENT) identifier type_info SEMICOLON
+  | (DECLARE | ARGUMENT) declaration_body SEMICOLON
+  ;
+
+declaration_body
+  : identifier type_info
   ;
 
 type_info
@@ -420,7 +424,7 @@ type_stmt // defines a type, like a structure
   ;
 
 enum_type
-  : ENUM (binary_enum | decimal_enum | string_enum | bit_enum)? COMMA enum_body END ENUM? SEMICOLON
+  : ENUM (binary_enum | decimal_enum | string_enum | bit_enum)? enum_body END ENUM? SEMICOLON
   ;
 
 binary_enum
@@ -448,7 +452,13 @@ enum_literal
   ;
 
 struct_type
-  : STRUCTURE SEMICOLON
+  : STRUCTURE structure_member (COMMA structure_member)* END STRUCTURE? SEMICOLON
+  ;
+
+structure_member
+  : declaration_body
+  | identifier AS identifier 
+  | identifier COMMA structure_member (COMMA structure_member)*
   ;
 
 string_literal

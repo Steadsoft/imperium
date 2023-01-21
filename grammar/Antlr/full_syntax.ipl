@@ -5,7 +5,40 @@ namespace system.utilities;
 
       /* This is sample code */
 
-      dcl name string(32);
+      type baud_rates enum string(31)
+           first = "telephone",
+           second,
+           third,
+           fourth
+      end;
+
+      type baud_rates enum bit(8)
+           first  = 1010 0011:b,
+           second = 1110 1101:b,
+           third  = 1101 0111:b,
+           fourth = 0010 1100:b
+      end;
+
+      type Header structure
+           counter   bin(15),
+           flags     bin(15),
+           table(8)  bin(8),
+           details,
+               cpu_id   bin(31),
+               cpu_rev  bin(15)
+      end;
+
+      type bootmap structure
+           header as Header,
+           label  string(32)
+      end;
+
+      dcl disk as bootmap;
+
+         
+
+      dcl rates as baud_rates;
+
       dcl I bin(15);
       dcl J bin(15);
       dcl S bin(31);
@@ -39,7 +72,7 @@ namespace system.utilities;
 
       if arg < roof < start then
          return;
-      end;
+         end;
 
       Καλημέρα = "How do you do";
 
@@ -53,7 +86,7 @@ namespace system.utilities;
 
       goto cycle_loop;
 
-   @cycle_loop;
+   @cycle_loop
 
       a = ~(b | c);
 
@@ -67,7 +100,7 @@ namespace system.utilities;
       
       I = sys$get_updated_count(J);
 
-   @setpoint(0);
+   @setpoint(0)
 
       loop while (I >= J)
          I = get_updated_count(J);
@@ -83,7 +116,7 @@ namespace system.utilities;
       elif J + I > J * I then
          goto cycle_loop;
       elif J = sqrt(100) then
-         return;
+         ;
       end if;
 
       if = 100;
@@ -109,6 +142,9 @@ namespace system.utilities;
          when (2)
                call reset_dma;
                return;
+         when (123)
+               when = select;
+               select = when;
          else
                goto cycle_loop;
       end;
@@ -143,6 +179,7 @@ namespace system.utilities;
             goto setpoint(0);
 
       end proc;
+   
 
    end proc;
 
