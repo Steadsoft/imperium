@@ -420,7 +420,31 @@ type_stmt // defines a type, like a structure
   ;
 
 enum_type
-  : ENUM ((BINARY LPAR decimal_literal RPAR) |(DECIMAL LPAR decimal_literal RPAR) | (STRING LPAR decimal_literal RPAR))? SEMICOLON
+  : ENUM (binary_enum | decimal_enum | string_enum | bit_enum)? COMMA enum_body END ENUM? SEMICOLON
+  ;
+
+binary_enum
+  : (BINARY LPAR decimal_literal RPAR)
+  ;
+
+decimal_enum
+  : (DECIMAL LPAR decimal_literal RPAR)
+  ;
+
+string_enum
+  : (STRING LPAR decimal_literal RPAR)
+  ;
+
+bit_enum
+  : (BIT LPAR decimal_literal RPAR)
+  ;
+
+enum_body
+  : identifier (EQUALS enum_literal)? (COMMA identifier (EQUALS enum_literal)?)*
+  ;
+
+enum_literal
+  : (decimal_literal | string_literal | binary_literal)
   ;
 
 struct_type
