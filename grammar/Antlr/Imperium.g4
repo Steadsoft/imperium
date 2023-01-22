@@ -257,6 +257,11 @@ shift_operator
   | L_LOG_SHIFT 
   | R_ART_SHIFT ;
 
+// Any parser rules that need to match and identifier, must match
+// against the 'identifier' rule and not the IDENTFIER token.
+// If this is not done then it will fails to parse correctly
+// of an identifer happens to be a keyword.
+
 identifier
   :	keyword			# KEYWD
 	| IDENTIFIER	# identifier_IDENTIFIER;
@@ -333,8 +338,8 @@ data_attribute
 	| COFUNCTION						      # COF
 	| BUILTIN							        # BLTN
 	| INTRINSIC							      # INTR
-	| identifier						      # IDENT; // a user defined type would match here. 
-
+  ;
+  
 precision
   : LPAR number_of_digits (COMMA scale_factor)? RPAR;
 
