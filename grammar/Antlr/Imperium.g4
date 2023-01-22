@@ -285,7 +285,7 @@ declaration_body
   ;
 
 type_info
-  : dimension_suffix? attribute*;
+  : dimension_suffix? attribute+;
 
 dimension_suffix
   : LPAR bound_pair_commalist RPAR;
@@ -452,13 +452,24 @@ enum_literal
   ;
 
 struct_type
-  : STRUCTURE structure_member (COMMA structure_member)* END STRUCTURE? SEMICOLON
+  : STRUCTURE struct_body END STRUCTURE? SEMICOLON
+  ;
+
+struct_body
+  : (struct_substruct | struct_member_list)*
+  ;
+
+struct_substruct
+  : IDENTIFIER COMMA struct_body SEMICOLON
+  ;
+
+struct_member_list
+  : structure_member (COMMA structure_member)* 
   ;
 
 structure_member
-  : declaration_body
-  | identifier AS identifier 
-  | identifier COMMA structure_member (COMMA structure_member)*
+  : identifier AS identifier 
+  | declaration_body
   ;
 
 string_literal

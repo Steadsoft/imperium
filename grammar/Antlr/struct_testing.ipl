@@ -1,0 +1,12 @@
+
+
+      type Header structure
+
+
+
+           details,  cpu_id   bin(31),  cpu_rev  bin(15);
+           
+           owner string(64)
+
+      end;
+
