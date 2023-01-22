@@ -265,15 +265,15 @@ call_stmt
   : CALL reference SEMICOLON;
 
 goto_stmt
-	:	(GOTO IDENTIFIER LPAR expression RPAR) SEMICOLON
+	:	(GOTO identifier LPAR expression RPAR) SEMICOLON
 	| (GOTO reference) SEMICOLON
   ;
 
 endloop_stmt
-  : ENDLOOP IDENTIFIER? ;
+  : ENDLOOP identifier? ;
 
 reloop_stmt
-  : RELOOP IDENTIFIER? ;
+  : RELOOP identifier? ;
 
 declare_stmt
   : (DECLARE | ARGUMENT) identifier AS identifier SEMICOLON
@@ -464,7 +464,7 @@ struct_member_list
   ;  
 
 struct_substruct
-  : IDENTIFIER STRUCTURE SEMICOLON struct_body END
+  : identifier STRUCTURE SEMICOLON struct_body END
   ;
 
 structure_member
