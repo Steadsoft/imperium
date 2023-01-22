@@ -5,38 +5,6 @@ namespace system.utilities;
 
       /* This is sample code */
 
-      type baud_rates enum string(31)
-           first = "telephone",
-           second,
-           third,
-           fourth
-      end;
-
-      type baud_rates enum bit(8)
-           first  = 1010 0011:b,
-           second = 1110 1101:b,
-           third  = 1101 0111:b,
-           fourth = 0010 1100:b
-      end;
-
-      type Header structure
-           counter   bin(15),
-           flags     bin(15),
-           table(8)  bin(8),
-           details,
-               cpu_id   bin(31),
-               cpu_rev  bin(15)
-      end;
-
-      type bootmap structure
-           header as Header,
-           label  string(32)
-      end;
-
-      dcl disk as bootmap;
-
-         
-
       dcl rates as baud_rates;
 
       dcl I bin(15);
@@ -46,6 +14,41 @@ namespace system.utilities;
       dcl root ptr;
       dcl status bin(15);
       dcl rate float dec(15);
+
+      type baud_rates enum string(31);
+           first = "telephone";
+           second;
+           third;
+           fourth;
+      end;
+
+      type baud_rates enum bit(8);
+           first  = 1010 0011:b;
+           second = 1110 1101:b;
+           third  = 1101 0111:b;
+           fourth = 0010 1100:b;
+      end;
+
+      type Outer                 structure;
+           cpu_id                bin(31);
+           Inner                 structure;
+                cpu_mode         bin(31); 
+                cpu_rev          bin(15);
+                large as         Header;
+                Flag_table       structure;
+                   root          pointer;
+                   depth         fixed bin(15);
+                end;   
+                label            string(64);
+           end;
+           owner                 string(64);
+           speed as              baud_rates;
+           counter               string(32);
+      end;
+
+      dcl disk as bootmap;      
+
+      disk.header.details.cpu_id = 3F0A:h;
 
       lit = FACE;
       lit = FACE:H;
@@ -102,7 +105,7 @@ namespace system.utilities;
 
    @setpoint(0)
 
-      loop while (I >= J)
+      loop while (I >= J);
          I = get_updated_count(J);
       end loop;
 
@@ -136,7 +139,7 @@ namespace system.utilities;
 
       call sys$sleep (1024,state);
 
-      select (state)
+      select (state);
          when all (1, validator(123))
                return;
          when (2)

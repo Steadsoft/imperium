@@ -1,12 +1,18 @@
 
 
-      type Header structure
-
-
-
-           details,  cpu_id   bin(31),  cpu_rev  bin(15);
-           
-           owner string(64)
-
+      type Outer                 structure;
+           cpu_id                bin(31);
+           Inner                 structure;
+                cpu_mode         bin(31); 
+                cpu_rev          bin(15);
+                large as         Header;
+                Flag_table       structure;
+                   root          pointer;
+                   depth         fixed bin(15);
+                end;   
+                label            string(64);
+           end;
+           owner                 string(64);
+           speed as              baud_rates;
+           counter               string(32);
       end;
-

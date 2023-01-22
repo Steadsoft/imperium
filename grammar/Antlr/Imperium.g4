@@ -385,9 +385,9 @@ elif_clause
   :	ELIF expression THEN stmt_block else_clause?;
 
 loop_stmt
-  :	LOOP  stmt_block loop_end                            # BASIC_LOOP
-	| LOOP  while_option until_option? stmt_block loop_end # WHILE_UNTIL
-	| LOOP  until_option while_option? stmt_block loop_end # UNTIL_WHILE;
+  :	LOOP  SEMICOLON stmt_block loop_end                            # BASIC_LOOP
+	| LOOP  while_option until_option? SEMICOLON stmt_block loop_end # WHILE_UNTIL
+	| LOOP  until_option while_option? SEMICOLON stmt_block loop_end # UNTIL_WHILE;
 
 loop_end
   : END LOOP? SEMICOLON
@@ -408,7 +408,7 @@ select_end
   ;
 
 select_clause
-  : SELECT (LPAR expression RPAR)? // PL/I has a SEMICOLON specfied here after the (expression), but there's no grammatical need so I'm dispensing with it
+  : SELECT (LPAR expression RPAR)? SEMICOLON // PL/I has a SEMICOLON specfied here after the (expression), but there's no grammatical need so I'm dispensing with it
   ;
 
 when_clause
@@ -424,7 +424,7 @@ type_stmt // defines a type, like a structure
   ;
 
 enum_type
-  : ENUM (binary_enum | decimal_enum | string_enum | bit_enum)? enum_body END ENUM? SEMICOLON
+  : ENUM (binary_enum | decimal_enum | string_enum | bit_enum)? SEMICOLON enum_body END ENUM? SEMICOLON
   ;
 
 binary_enum
@@ -444,7 +444,7 @@ bit_enum
   ;
 
 enum_body
-  : identifier (EQUALS enum_literal)? (COMMA identifier (EQUALS enum_literal)?)*
+  : identifier (EQUALS enum_literal)? SEMICOLON (identifier (EQUALS enum_literal)? SEMICOLON)*
   ;
 
 enum_literal
@@ -452,23 +452,24 @@ enum_literal
   ;
 
 struct_type
-  : STRUCTURE struct_body END STRUCTURE? SEMICOLON
+  : STRUCTURE SEMICOLON struct_body END STRUCTURE? SEMICOLON
   ;
 
 struct_body
-  : (struct_substruct | struct_member_list)*
-  ;
-
-struct_substruct
-  : IDENTIFIER COMMA struct_body SEMICOLON
+  : struct_member_list
   ;
 
 struct_member_list
-  : structure_member (COMMA structure_member)* 
+  : structure_member SEMICOLON (structure_member SEMICOLON)* 
+  ;  
+
+struct_substruct
+  : IDENTIFIER STRUCTURE SEMICOLON struct_body END
   ;
 
 structure_member
-  : identifier AS identifier 
+  : struct_substruct
+  | identifier AS identifier 
   | declaration_body
   ;
 
