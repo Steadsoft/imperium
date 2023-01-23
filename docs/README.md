@@ -59,6 +59,7 @@
 | `set notation` (Oberon)       | No    | No    | Yes
 | `assignment operators`          | > 10  | `=`     | `=`
 | `name spaces`                 | No   | No    | `scope`
+| `Unicode`                     | Putative | No | Yes
 
 
 
