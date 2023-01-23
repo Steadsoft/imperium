@@ -281,7 +281,7 @@ reloop_stmt
   : RELOOP identifier? ;
 
 declare_stmt
-  : (DECLARE | ARGUMENT) identifier AS identifier SEMICOLON
+  : (DECLARE | ARGUMENT) identifier dimension_suffix? AS identifier SEMICOLON
   | (DECLARE | ARGUMENT) declaration_body SEMICOLON
   ;
 
@@ -339,7 +339,7 @@ data_attribute
 	| BUILTIN							        # BLTN
 	| INTRINSIC							      # INTR
   ;
-  
+
 precision
   : LPAR number_of_digits (COMMA scale_factor)? RPAR;
 
@@ -425,7 +425,8 @@ otherwise_clause
   ;
 
 type_stmt // defines a type, like a structure
-  : TYPE identifier (enum_type | struct_type)
+  : TYPE identifier enum_type 
+  | TYPE identifier struct_type
   ;
 
 enum_type
@@ -469,12 +470,12 @@ struct_member_list
   ;  
 
 struct_substruct
-  : identifier STRUCTURE SEMICOLON struct_body END
+  : identifier dimension_suffix? STRUCTURE SEMICOLON struct_body END
   ;
 
 structure_member
-  : struct_substruct
-  | identifier AS identifier 
+  : struct_substruct 
+  | identifier dimension_suffix? AS identifier 
   | declaration_body
   ;
 

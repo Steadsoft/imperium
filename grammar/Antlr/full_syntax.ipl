@@ -29,27 +29,31 @@ namespace system.utilities;
            fourth = 0010 1100:b;
       end;
 
-      type Outer                 structure;
-           cpu_id                bin(31);
-           Inner                 structure;
-                cpu_mode         bin(31); 
-                cpu_rev          bin(15);
-                large as         Header;
-                Flag_table       structure;
-                   root          pointer;
-                   depth         fixed bin(15);
-                  structure     structure;
-                     goofy      pointer;
-                   end;
-                end;   
-                label            string(64);
-           end;
-           owner                 string(64);
-           speed as              baud_rates;
-           counter               string(32);
+      type outer             structure;  
+         cpu_id              bin(31);
+         inner               structure;
+            cpu_mode         bin(31); 
+            cpu_rev          bin(15);
+            large as         Header;
+            flag_table       structure;  
+               root          pointer;
+               depth         fixed bin(15);
+               structure     structure;
+                  goofy      pointer;
+               end;
+            end;   
+            label            string(64);
+         end;
+         owner               string(64);
+         speed(100) as       baud_rates;
+         counter             string(32);
       end;
 
-      dcl disk as bootmap;      
+      dcl disk(10) as bootmap;    
+
+      dcl block as outer;  
+
+      block.inner.flag_table.root = NULL;
 
       disk.header.details.cpu_id = 3F0A:h;
 
