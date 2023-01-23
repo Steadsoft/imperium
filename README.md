@@ -128,7 +128,19 @@ As in the PL/I language, labels can be subscripted:
       goto state(age);
    end;
 ```   
-   
+The `if` statement also utilizes chained comparison operators:
+
+```
+if arg < roof < start then
+ return;
+ end;
+```	 
+this is equivalent to:
+```
+if arg < roof & roof < start then
+ return;
+ end;
+```	 
        
 ## Culture Agnostic
 
