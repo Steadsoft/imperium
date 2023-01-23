@@ -133,7 +133,7 @@ As in the PL/I language, labels can be subscripted:
 ## Culture Agnostic
 
 Consider these three code fragments
-
+```
 procédé French (X)
 
 	déclarer counter binaire(15);	
