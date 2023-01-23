@@ -103,7 +103,7 @@ Labels use a different syntax too, one that offers slightly better readability:
 ```
 @here_we_go_again
    
-   if (count > MAX) then
+   if count > MAX then
       goto here_we_go_again;
    else
       count = get_the_latest();
