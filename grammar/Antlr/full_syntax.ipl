@@ -1,5 +1,9 @@
+uses system.os;
+uses hardware.cpu.arm;
 
-namespace system.utilities;
+scope system.utilities;
+
+   dcl master_table bin(31);
 
    procedure main (arg);
 
@@ -29,16 +33,25 @@ namespace system.utilities;
            fourth = 0010 1100:b;
       end;
 
-      type outer             structure;  
+      type flag_table         structure;  
+            root              pointer;
+            depth             fixed bin(15);
+               subunit        structure;
+                  goofy       pointer;
+               end;
+            end;   
+
+
+      type outer struct;  
          cpu_id              bin(31);
-         inner               structure;
+         inner struct;
             cpu_mode         bin(31); 
             cpu_rev          bin(15);
             large as         Header;
-            flag_table       structure;  
+            flag_table struct;  
                root          pointer;
                depth         fixed bin(15);
-               structure     structure;
+               subunit struct;
                   goofy      pointer;
                end;
             end;   
@@ -49,7 +62,7 @@ namespace system.utilities;
          counter             string(32);
       end;
 
-      dcl disk(10) as bootmap;    
+      dcl disk(10) as bootmap stack;    
 
       dcl block as outer;  
 
@@ -74,7 +87,7 @@ namespace system.utilities;
       multiline literal 
       language system"" ;
 
-      call sys$announce_device(name, status);
+      call sys$announce_device(name, status); // in system.os namespace
 
       if status ~= test > 100 then
          return;
@@ -193,5 +206,12 @@ namespace system.utilities;
 
    end proc;
 
-end namespace;
+end scope;
+
+scope system.kernel private ;
+
+
+
+end;
+
 
