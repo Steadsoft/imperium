@@ -31,11 +31,74 @@ The langauge is a compiled language, source files are UTF-8 and suffixed `.ipl` 
 
 Short circuit evaluation of AND and OR operators is at the discretion of the developer by use of the operators `?&` or `?|` meaning "only evaluate the right argument if the left argument evaluates to `true` or `false`" respectively.
 
+The language supports "names spaces" via the `scope` and `uses` keywords:
+
+```
+uses system.hardware;
+uses math.stats;
+
+scope gps.utilities;
+
+// Code goes here!
+
+end;
+```
+
+Structures and enumerated types are created using the `type` keyword which allows an alias name to be defined for them. Declaring instances of structures or enums is then done exclusively by uisng that type or alias.
+
+Numeric literals are very natuarl and easy to work with. They can contain embedded spaces or underscores and they terminate in an optional base definition, these are examples of assigning a literal constant to some variable:
+
+```
+speed = 12 000 000; // 12 million
+speed = 1010 1101:b;  // binary 173
+speed = D02C 6F73 FADE 03FC:h; // hex
+speed = 1010.1101:B; // binary fraction
+speed = F04D.84AC:H; // hex fraction
+speed = 263 604 650:O; // octal integer
+```
+The mainstay `DO` construct in PL/I was abandoned and an alternative grammar created that looks similar but has some advantages. Instead each keyword that can encapsulate a statement block, now has a matching end, for example:
+
+```
+if counter > last_count then
+   call reset_system;
+   log("System has been reset");
+end;
+```
+
+The `if` statement also now supports the `elif` keyword too:
+```
+if counter > last_count then
+   call reset_system;
+   log("System has been reset");
+elif counter < last_count then
+   log("Too early");
+else
+   log("You should never see this!");
+end;
+```
+Eliminating the `DO` meant that a new way to describe loops was required, that's done as show below, using the `loop` keyword:
+
+```
+loop while (I >= J);
+   I = get_updated_count(J);
+end loop;
+```
+The `loop` can appear alone or with optional `while` and/or `until` and these can be placed in any order, there's also the usual iterative form too. Note too how the `end` statements for these constructs can have an optional keyword appended that can be used to improve code readability.
+
+The `call` statement has no need of parentheses when the called procedure has no arguments, the very use of `call` makes it clear what the statement is doing. As expected, IPL includes operators for bit shifts and rotates:
+
+```
+a = b << c; // logical shift left
+a = b >> c; // logical shift right
+a = b >>> c; // arithmemtic shift right
+a = b <<@ 4; // rotate 4 bits to the left
+a = b @>> 6; // rotate 6 bits to the right
+```
+
+
 ## Culture Agnostic
 
 Consider these three code fragments
-
-```
 
 procédé French (X)
 
