@@ -94,8 +94,42 @@ a = b >>> c; // arithmemtic shift right
 a = b <<@ 4; // rotate 4 bits to the left
 a = b @>> 6; // rotate 6 bits to the right
 ```
+Each argument in an argument list is always evaluated strictly in left to right order. The same is true too for arrays or arrays of structures, wherever multiple subscripts are needed to fully define a reference, they are always evaluated left to right:
 
+```
+today_results = totals(get_totals(X)).subsets(get_subset(Y)).value;
+```
+Labels use a different syntax too, one that offers slightly better readability:
+```
+@here_we_go_again
+   
+   if (count > MAX) then
+      goto here_we_go_again;
+   else
+      count = get_the_latest();
+   end;
+```
+As in the PL/I language, labels can be subscripted:
 
+```
+@state(0)
+
+   call reset(age);
+   
+   if age > 0 then 
+      goto state(1);
+   end;
+   
+@state(1)
+
+   call try_again(age);
+   
+   if age < 1 then 
+      goto state(age);
+   end;
+```   
+   
+       
 ## Culture Agnostic
 
 Consider these three code fragments
