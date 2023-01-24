@@ -245,6 +245,12 @@ prefix_expression
 
 parenthesized_expression
   : LPAR expression RPAR
+  | REDAND expression RPAR
+  | REDOR expression RPAR
+  | REDXOR expression RPAR
+  | REDNAND expression RPAR
+  | REDNOR expression RPAR
+  | REDXNOR expression RPAR
   ;
 
 primitive_expression
@@ -1250,9 +1256,15 @@ NAND:         ('~&');
 NOR:          ('~|');  
 XOR:          ('^');    // excluisve bitwise OR
 XNOR:         ('~^');
+REDAND:       ('&(');
+REDOR:        ('|(');
+REDNAND:      ('~&(');
+REDNOR:       ('~|(');
+REDXOR:       ('^(');
+REDXNOR:      ('~^(');
 LOGAND:  	    ('&&'); 	// short-circuit, logical AND
 LOGOR:   	    ('||');  	// short-circuit, logical OR
-CONC:   	    ('++');   // concatenate
+CONC:   	    ('++');   // concatenate character strings or bit strings
 L_LOG_SHIFT:  ('<<');   // logical: left bit lost rite bit becomes zero
 R_LOG_SHIFT:  ('>>');   // logical: rite bit lost left bit becomes zero
 R_ART_SHIFT:  ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit

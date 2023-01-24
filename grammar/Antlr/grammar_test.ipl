@@ -72,6 +72,8 @@ procedure startup (root_ptr);
 
    field = input_4 ~& input_3 ~^ input_2 ~| input_1;
 
+   field = &(1010 1101:b) & ^(1101 0011:b) ~^ ~&(field);
+
    text = "I am the beginning and " ++ "the end";
 
 end;
