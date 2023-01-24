@@ -6,3 +6,4 @@
 * Should string literals use `'` or `"`?
 * Should we support a `text` type for 8-bit strings and `string` type for two-byte Unicode?
   - Shuold a `text` represent an array of `byte` and `string` represent an array of `char`?
+  - Consider the way .Net manages [encoding/decoding](https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding?view=net-7.0) as a reference.
