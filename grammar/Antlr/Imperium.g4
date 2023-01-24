@@ -4,7 +4,7 @@
 /* It's based primarily on the PL/I grammar because that has no reserved words. */
 /* This grammar supports keywords for multiple cultures, this is done by having */
 /* a JSON lexicon file that defines the literal text for each keyword for each  */
-/* language.	 																                                  */
+/* language.	 																                  fAND                */
 /*			 																	                                      */
 /* No reserved words means an identifier can be the same as a keyword and the   */
 /* text will still parse correctly. We do this to facilitate the addition of    */
@@ -92,25 +92,15 @@ function_end
   ;
 
 proc_descriptor
-  :
-	parameter_name_commalist? 
-    ( 
-      (coprocedure_specifier?)
-		| ((coprocedure_specifier | handler_specifier)? RECURSIVE?)
-    )
-    ;
+  :	parameter_name_commalist? ((coprocedure_specifier?) | ((coprocedure_specifier | handler_specifier)? RECURSIVE?))
+  ;
 
 func_descriptor
-  :
-	parameter_name_commalist? 
-    ( 
-      (returns_descriptor coprocedure_specifier?)
-		| ((coprocedure_specifier | handler_specifier)? RECURSIVE? returns_descriptor)
-    )
-    ;
+  :	parameter_name_commalist ((returns_descriptor coprocedure_specifier?) | ((coprocedure_specifier | handler_specifier)? RECURSIVE? returns_descriptor))
+  ;
 
 returns_descriptor
-  :	RETURNS data_attribute
+  :	RETURNS LPAR data_attribute RPAR
   ;
 	// consider using keyword 'is' instead and forcing it to be right after the params...
 
@@ -189,23 +179,28 @@ subscript_commalist
   ;
 
 expression
+  : expression_11 
+  | expression LOGOR expression_10 // Logical OR, short circuitable
+  ;
+
+expression_11
   : expression_10 
-  | expression SCOR expression_9
+  | expression_11 LOGAND expression_10 // Logical AND, short circuitable
   ;
 
 expression_10
-  : expression_9 
-  | expression_10 SCAND expression_9
+  :	expression_9
+	| expression_10 (OR | NOR | NOT) expression_9
   ;
 
 expression_9
-  :	expression_8
-	| expression_9 (OR | NOT) expression_8
+  : expression_8 
+  | expression_9 (XOR | XNOR) expression_8
   ;
 
 expression_8
   : expression_7 
-  | expression_8 AND expression_7
+  | expression_8 (AND | NAND) expression_7
   ;
 
 expression_7
@@ -220,7 +215,7 @@ expression_6
 
 expression_5
   : expression_4
-  | expression_5 (L_ROTATE | R_ROTATE) expression_4
+  | expression_5 (L_ROTATE | R_ROTATE | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT) expression_4
   ;
 
 expression_4
@@ -230,7 +225,7 @@ expression_4
 
 expression_3
   :	expression_2
-	| expression_3 (TIMES | DIVIDE) expression_2
+	| expression_3 (TIMES | DIVIDE | PCNT) expression_2
   ;
 
 expression_2
@@ -460,7 +455,7 @@ select_end
   ;
 
 select_clause
-  : SELECT (LPAR expression RPAR)? SEMICOLON // PL/I has a SEMICOLON specfied here after the (expression), but there's no grammatical need so I'm dispensing with it
+  : SELECT (LPAR expression RPAR)? SEMICOLON 
   ;
 
 when_clause
@@ -1234,7 +1229,7 @@ DIVIDE: 	    ('/');
 PLUS: 		    ('+');
 MINUS: 		    ('-');
 SEMICOLON:	  (';');
-POWER: 		    ('^');  // PL/I traditionally used ** but it never had/used ^ so we can leverage that instead.
+POWER: 		    ('**');  // PL/I traditionally used ** 
 COLON: 		    (':');
 TRIQUOTE:     ('"""');
 DIQUOTE:      ('""'); 
@@ -1251,10 +1246,13 @@ NE:    		    ('~=');
 PCNT:  		    ('%');
 AND:    	    ('&');
 OR:     	    ('|');
-XOR:          ('<|>');  // excluisve OR
-SCAND:  	    ('?&'); 	// short-circuit AND
-SCOR:   	    ('?|');  	// short-circuit OR
-CONC:   	    ('||');   // concatenate
+NAND:         ('~&');
+NOR:          ('~|');  
+XOR:          ('^');    // excluisve bitwise OR
+XNOR:         ('~^');
+LOGAND:  	    ('&&'); 	// short-circuit, logical AND
+LOGOR:   	    ('||');  	// short-circuit, logical OR
+CONC:   	    ('++');   // concatenate
 L_LOG_SHIFT:  ('<<');   // logical: left bit lost rite bit becomes zero
 R_LOG_SHIFT:  ('>>');   // logical: rite bit lost left bit becomes zero
 R_ART_SHIFT:  ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit

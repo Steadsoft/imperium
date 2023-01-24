@@ -1,0 +1,93 @@
+scope grammar.testing;
+
+type memory_map struct;
+     signature(8) bin(8);
+     free_space struct;
+        header  fixed binary(31);
+        bytes(40960)   bin(8);
+     end;
+end;
+
+dcl page (4096) bin(8) static;
+dcl stacks (1024) fixed dec(2) stack;
+
+type other_map struct;
+     signature(8) bin(8);
+     free_space struct;
+        header  fixed binary(31);
+        bytes(40960)   bin(8);
+     end;
+end;
+
+dcl buffer string(4096) defined (page);
+
+procedure startup (root_ptr);
+
+    arg root_ptr pointer;
+
+    dcl map as memory_map based (root_ptr);
+
+    if root_ptr = null then
+       call log("Invalid root pointer");
+       return;
+    end;
+
+    if map.signature ~= "This is a valid image" then
+       call log("Invalid map signature");
+       return;
+    end;
+
+   result = get_snapshot(root_ptr);
+
+   /*********************************************************************/
+   /* In the above you can see we must use 'call' to invoke a procedure */
+   /* and a function cannot have no arguments.                          */
+   /* So in a future version we could refer to these names like         */
+   /* call do_something(log);                                           */
+   /* call do_something(get_snapshot);                                  */
+   /* In each case there's no ambiguity that can arise because there's  */
+   /* no way passing these in that way, can be misconstrued as an       */
+   /* attempt to invoke them.                                           */
+   /*********************************************************************/
+
+   select (result);
+   when(1)
+      call log("It was 1");
+   when(2)
+      call log("It was 2");
+   else
+      call log("It was unexpected");
+   end;
+
+   /* IPL supports several bitwise operators   */
+   // |      OR
+   // &      AND
+   // ^      XOR
+   // ~|     NOR
+   // ~&     NAND 
+   // ~^     XNOR 
+
+
+   field = input_1 ^ input_2 & input_3 | input_4;
+
+   field = input_4 ~& input_3 ~^ input_2 ~| input_1;
+
+   text = "I am the beginning and " ++ "the end";
+
+end;
+
+function get_latest_data (arg_ptr) returns (pointer);
+
+   arg arg_ptr bin(31);
+
+end;   
+
+procedure get_todays_date (date);
+
+   arg date string(32);
+
+   date = "10 October 2023";
+
+end;
+
+end scope;
