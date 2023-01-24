@@ -12,3 +12,5 @@
 * Revise long-ish keywords
   - `returns`
   - 
+* Consider incorporatring support for Verliog's `reduction` operators.
+* 
