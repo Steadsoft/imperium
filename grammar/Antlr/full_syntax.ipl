@@ -1,6 +1,12 @@
 uses system.os;
 uses hardware.cpu.arm;
 
+/* 
+   A scope can be designated as private and that then means that 
+   every defintion of that scope in any other source files
+   must also be private, which is checked at compile time.
+*/
+
 scope system.utilities;
 
    dcl master_table bin(31);

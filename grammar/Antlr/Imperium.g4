@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------*/
-/*        This is the grammar for the Imperium programming language 	 		      */
+/*     This is the grammar for IPL - the Imperium programming language 	        */
 /*------------------------------------------------------------------------------*/
 /* It's based primarily on the PL/I grammar because that has no reserved words. */
 /* This grammar supports keywords for multiple cultures, this is done by having */
@@ -51,10 +51,11 @@ grammar Imperium; // Latin for "control"
 }
 
 translation_unit
-  :	BYTE_ORDER_MARK? uses* scope* | stmt_block? EOF;
+  :	BYTE_ORDER_MARK? uses* scope* | stmt_block? EOF
+  ;
 
 uses
- : USES identifier (DOT identifier)* SEMICOLON
+  : USES identifier (DOT identifier)* SEMICOLON
   ;
 scope
   : scope_stmt stmt_block? scope_end
@@ -66,7 +67,8 @@ scope_stmt
   ;
 
 scope_end
-  : END SCOPE? SEMICOLON;
+  : END SCOPE? SEMICOLON
+  ;
 
 procedure
   :	procedure_stmt stmt_block? procedure_end
@@ -95,7 +97,8 @@ proc_descriptor
     ( 
       (coprocedure_specifier?)
 		| ((coprocedure_specifier | handler_specifier)? RECURSIVE?)
-    );
+    )
+    ;
 
 func_descriptor
   :
@@ -103,10 +106,12 @@ func_descriptor
     ( 
       (returns_descriptor coprocedure_specifier?)
 		| ((coprocedure_specifier | handler_specifier)? RECURSIVE? returns_descriptor)
-    );
+    )
+    ;
 
 returns_descriptor
-  :	RETURNS data_attribute;
+  :	RETURNS data_attribute
+  ;
 	// consider using keyword 'is' instead and forcing it to be right after the params...
 
 stmt_block
@@ -116,7 +121,8 @@ stmt_block
   ;
 
 terminator
-  : SEMICOLON;
+  : SEMICOLON
+  ;
 
 label_stmt
   : LABEL (LPAR decimal_literal RPAR)? 
@@ -152,32 +158,40 @@ assign_stmt
 
 reference
   :	reference RARROW basic_reference arguments_list?	# PTR_REF
-	| basic_reference arguments_list?					          # BASIC_REF;
+	| basic_reference arguments_list?					          # BASIC_REF
+  ;
 
 arguments
-  : LPAR subscript_commalist+ RPAR;
+  : LPAR subscript_commalist+ RPAR
+  ;
 
 arguments_list
   : arguments+;
 
 basic_reference
-  : structure_qualification_list? identifier;
+  : structure_qualification_list? identifier
+  ;
 
 structure_qualification
-  : identifier arguments? DOT;
+  : identifier arguments? DOT
+  ;
 
 structure_qualification_list
-  : structure_qualification+;
+  : structure_qualification+
+  ;
 
 subscript
-  : expression;
+  : expression
+  ;
 
 subscript_commalist
-  : subscript (COMMA subscript)*;
+  : subscript (COMMA subscript)*
+  ;
 
 expression
   : expression_10 
-  | expression SCOR expression_9;
+  | expression SCOR expression_9
+  ;
 
 expression_10
   : expression_9 
@@ -227,23 +241,28 @@ expression_2
   ;
 
 expression_1
-  : (primitive_expression | parenthesized_expression) POWER expression_2;
+  : (primitive_expression | parenthesized_expression) POWER expression_2
+  ;
 
 prefix_expression
-  : prefix_operator expression_2;
+  : prefix_operator expression_2
+  ;
 
 parenthesized_expression
-  : LPAR expression RPAR;
+  : LPAR expression RPAR
+  ;
 
 primitive_expression
   : numeric_literal 
   | string_literal 
-  | reference;
+  | reference
+  ;
 
 prefix_operator
   : PLUS 
   | MINUS 
-  | NOT;
+  | NOT
+  ;
 
 comparison_operator
   : GT
@@ -253,24 +272,28 @@ comparison_operator
 	| LTE
 	| NGT
 	| NE
-	| NLT;
+	| NLT
+  ;
 
 shift_operator
   : R_LOG_SHIFT 
   | L_LOG_SHIFT 
-  | R_ART_SHIFT ;
+  | R_ART_SHIFT 
+  ;
 
 // Any parser rules that need to match and identifier, must match
 // against the 'identifier' rule and not the IDENTFIER token.
-// If this is not done then it will fails to parse correctly
-// of an identifer happens to be a keyword.
+// If this is not done then it might fail to parse correctly
+// if an identifer happens to be a keyword.
 
 identifier
   :	keyword			# KEYWD
-	| IDENTIFIER	# identifier_IDENTIFIER;
+	| IDENTIFIER	# identifier_IDENTIFIER
+  ;
 
 call_stmt
-  : CALL reference SEMICOLON;
+  : CALL reference SEMICOLON
+  ;
 
 goto_stmt
 	:	(GOTO identifier LPAR expression RPAR) SEMICOLON
@@ -278,10 +301,12 @@ goto_stmt
   ;
 
 endloop_stmt
-  : ENDLOOP identifier? ;
+  : ENDLOOP identifier? 
+  ;
 
 reloop_stmt
-  : RELOOP identifier? ;
+  : RELOOP identifier? 
+  ;
 
 declare_stmt
   : (DECLARE | ARGUMENT) identifier dimension_suffix? AS identifier memory_attribute? SEMICOLON
@@ -293,26 +318,32 @@ declaration_body
   ;
 
 type_info
-  : dimension_suffix? attribute+;
+  : dimension_suffix? attribute+
+  ;
 
 dimension_suffix
-  : LPAR bound_pair_commalist RPAR;
+  : LPAR bound_pair_commalist RPAR
+  ;
 
 bound_pair
   : (lower_bound COLON)? upper_bound 
-  | TIMES;
+  | TIMES
+  ;
 
 bound_pair_commalist
-  : bound_pair (COMMA bound_pair)*;
+  : bound_pair (COMMA bound_pair)*
+  ;
 
-// See page 208 PL/I Subset G standard. Lower bound must be <= upper (but this is not a grammar issue,
-// just a note for us)
+// See page 208 PL/I Subset G standard. Lower bound must be <= upper 
+// (but this is not a grammar issue, just a note)
 
 lower_bound
-  : expression;
+  : expression
+  ;
 
 upper_bound
-  : expression;
+  : expression
+  ;
 
 attribute
     : (data_attribute | BUILTIN | VARIABLE | memory_attribute)
@@ -341,35 +372,45 @@ data_attribute
   ;
 
 precision
-  : LPAR number_of_digits (COMMA scale_factor)? RPAR;
+  : LPAR number_of_digits (COMMA scale_factor)? RPAR
+  ;
 
 number_of_digits
-  : (decimal_literal | identifier);
+  : (decimal_literal | identifier)
+  ;
 
 scale_factor
-  : (decimal_literal | identifier);
+  : (decimal_literal | identifier)
+  ;
 
 max_length
-  : LPAR (decimal_literal | identifier) RPAR;
+  : LPAR (decimal_literal | identifier) RPAR
+  ;
 
 based
-  : BASED (LPAR reference RPAR)?;
+  : BASED (LPAR reference RPAR)?
+  ;
 
 defined
-  : DEFINED (LPAR reference RPAR)?;
+  : DEFINED (LPAR reference RPAR)?
+  ;
 
 
 coprocedure_specifier
-  : (COROUTINE | COFUNCTION);
+  : (COROUTINE | COFUNCTION)
+  ;
 
 handler_specifier
-  : INTERRUPT ;
+  : INTERRUPT 
+  ;
 
 parameter_name_commalist
-: LPAR identifier (COMMA identifier)* RPAR;
+  : LPAR identifier (COMMA identifier)* RPAR
+  ;
 
 return_stmt
-  : RETURN (LPAR expression RPAR)? SEMICOLON;
+  : RETURN (LPAR expression RPAR)? SEMICOLON
+  ;
 
 if_stmt
   :	then_clause stmt_block else_clause? if_end
@@ -381,28 +422,34 @@ if_end
   ;  
 
 then_clause
-  : IF expression THEN;
+  : IF expression THEN
+  ;
 
 else_clause
-  : ELSE stmt_block;
+  : ELSE stmt_block
+  ;
 
 elif_clause
-  :	ELIF expression THEN stmt_block else_clause?;
+  :	ELIF expression THEN stmt_block else_clause?
+  ;
 
 loop_stmt
   :	LOOP  SEMICOLON stmt_block loop_end                            # BASIC_LOOP
 	| LOOP  while_option until_option? SEMICOLON stmt_block loop_end # WHILE_UNTIL
-	| LOOP  until_option while_option? SEMICOLON stmt_block loop_end # UNTIL_WHILE;
+	| LOOP  until_option while_option? SEMICOLON stmt_block loop_end # UNTIL_WHILE
+  ;
 
 loop_end
   : END LOOP? SEMICOLON
   ;
 
 while_option
-  : WHILE LPAR expression RPAR;
+  : WHILE LPAR expression RPAR
+  ;
 
 until_option
-  : UNTIL LPAR expression RPAR;
+  : UNTIL LPAR expression RPAR
+  ;
 
 select_stmt
   : select_clause when_clause* otherwise_clause? select_end
@@ -482,25 +529,31 @@ structure_member
 string_literal
   : STRING_LITERAL_3 
   | STRING_LITERAL_2 
-  | STRING_LITERAL_1;
+  | STRING_LITERAL_1
+  ;
 
 numeric_literal
   :	binary_literal
 	| octal_literal
 	| hexadecimal_literal
-	| decimal_literal;
+	| decimal_literal
+  ;
 
 hexadecimal_literal
-  : (HEXADECIMAL_PATTERN);
+  : (HEXADECIMAL_PATTERN)
+  ;
 
 octal_literal
-  : (OCTAL_PATTERN);
+  : (OCTAL_PATTERN)
+  ;
 
 decimal_literal
-  : (DECIMAL_PATTERN);
+  : (DECIMAL_PATTERN)
+  ;
 
 binary_literal
-  : (BINARY_PATTERN);
+  : (BINARY_PATTERN)
+  ;
 
 // LEXER TOKEN DEFINITIONS
 
@@ -1156,8 +1209,8 @@ YIELD:
 
 /* End of generated Antlr4 keyword token definitions. */
 
-LABEL:                (AT IDENTIFIER) ;
-IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*) ; 
+LABEL:                (AT IDENTIFIER);
+IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*); 
 BINARY_PATTERN:       (BIN (LSEP BIN)*)+ FRAC_B? BASE_B;
 OCTAL_PATTERN:        (OCT (LSEP OCT)*)+ FRAC_O? BASE_O;
 HEXADECIMAL_PATTERN:  (HEX (LSEP HEX)*)+ FRAC_H? BASE_H;
