@@ -13,4 +13,10 @@
   - `returns`
   - 
 * Consider incorporatring support for Verliog's `reduction` operators.
-* 
+  - These operators seem very reasonable but their overall utility is an open question
+  - `&(<expression>)`
+  - `^(<expression>)`
+  - `|(<expression>)`
+  - `~&(<expression>)`
+  - `~^(<expression>)`
+  - `~|(<expression>)`
