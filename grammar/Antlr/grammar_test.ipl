@@ -11,7 +11,8 @@ end;
 dcl page (4096) bin(8) static;
 dcl stacks (1024) fixed dec(2) stack;
 
-dcl user_name string(32,1); // single byte string
+dcl user_name string(32) raw(8); // single byte string
+dcl user_name string(128) utf(32); // UTF-32 encoded string
 
 type other_map struct;
      signature(8) bin(8);
@@ -25,60 +26,66 @@ dcl buffer string(4096) defined (page);
 
 procedure startup (root_ptr);
 
-    arg root_ptr pointer;
+      arg root_ptr pointer;
 
-    dcl map as memory_map based (root_ptr);
+      dcl map as memory_map based (root_ptr);
 
-    if root_ptr = null then
-       call log("Invalid root pointer");
-       return;
-    end;
+      if root_ptr = null then
+         call log("Invalid root pointer");
+         return;
+      end;
 
-    if map.signature ~= "This is a valid image" then
-       call log("Invalid map signature");
-       return;
-    end;
+      if map.signature ~= "This is a valid image" then
+         call log("Invalid map signature");
+         return;
+      end;
 
-   result = get_snapshot(root_ptr);
+      result = get_snapshot(root_ptr);
 
-   /*********************************************************************/
-   /* In the above you can see we must use 'call' to invoke a procedure */
-   /* and a function cannot have no arguments.                          */
-   /* So in a future version we could refer to these names like         */
-   /* call do_something(log);                                           */
-   /* call do_something(get_snapshot);                                  */
-   /* In each case there's no ambiguity that can arise because there's  */
-   /* no way passing these in that way, can be misconstrued as an       */
-   /* attempt to invoke them.                                           */
-   /*********************************************************************/
+      /*********************************************************************/
+      /* In the above you can see we must use 'call' to invoke a procedure */
+      /* and a function cannot have no arguments.                          */
+      /* So in a future version we could refer to these names like         */
+      /* call do_something(log);                                           */
+      /* call do_something(get_snapshot);                                  */
+      /* In each case there's no ambiguity that can arise because there's  */
+      /* no way passing these in that way, can be misconstrued as an       */
+      /* attempt to invoke them.                                           */
+      /*********************************************************************/
 
-   select (result);
-   when(1)
-      call log("It was 1");
-   when(2)
-      call log("It was 2");
-   else
-      call log("It was unexpected");
-   end;
+      select (result);
+      when(1)
+         call log("It was 1");
+      when(2)
+         call log("It was 2");
+      else
+         call log("It was unexpected");
+      end;
 
-   /* IPL supports several bitwise operators   */
-   // |      OR
-   // &      AND
-   // ^      XOR
-   // ~|     NOR
-   // ~&     NAND 
-   // ~^     XNOR 
+      /* IPL supports several bitwise operators   */
+      // |      OR
+      // &      AND
+      // ^      XOR
+      // ~|     NOR
+      // ~&     NAND 
+      // ~^     XNOR 
 
 
-   field = input_1 ^ input_2 & input_3 | input_4;
+      field = input_1 ^ input_2 & input_3 | input_4;
 
-   field = input_4 ~& input_3 ~^ input_2 ~| input_1;
+      field = input_4 ~& input_3 ~^ input_2 ~| input_1;
 
-   field = &(1010 1101:b) & ^(1101 0011:b) ~^ ~&(field);
+      field = &(1010 1101:b) & ^(1101 0011:b) ~^ ~&(field);
 
-   text = "I am the beginning and " ++ "the end";
+      text = "I am the beginning and " ++ "the end";
 
-   a = arguer();
+      a = arguer();
+
+end;
+
+proc display_message (text);
+
+   arg text string(*) utf(16);
 
 end;
 
