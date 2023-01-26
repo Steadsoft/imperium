@@ -96,7 +96,7 @@ proc_descriptor
   ;
 
 func_descriptor
-  :	parameter_name_commalist ((returns_descriptor coprocedure_specifier?) | ((coprocedure_specifier | handler_specifier)? RECURSIVE? returns_descriptor))
+  :	parameter_name_commalist? ((returns_descriptor coprocedure_specifier?) | ((coprocedure_specifier | handler_specifier)? RECURSIVE? returns_descriptor))
   ;
 
 returns_descriptor
@@ -152,7 +152,7 @@ reference
   ;
 
 arguments
-  : LPAR subscript_commalist+ RPAR
+  : LPAR subscript_commalist? RPAR
   ;
 
 arguments_list
@@ -360,7 +360,7 @@ data_attribute
 	| POINTER							        # PTR
 	| (BIT max_length)					  # BIT
 	| CHARACTER							      # CHAR
-	| (STRING max_length)				  # STR
+	| (STRING max_string_length)	# STR
 	| ENTRY								        # ENT
 	| FIXED								        # FIX
 	| FLOAT								        # FLT
@@ -382,6 +382,10 @@ number_of_digits
 
 scale_factor
   : (decimal_literal | identifier)
+  ;
+
+max_string_length
+  : LPAR (decimal_literal | identifier) (COMMA decimal_literal)? RPAR
   ;
 
 max_length

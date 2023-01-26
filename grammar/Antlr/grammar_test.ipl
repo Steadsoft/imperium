@@ -11,6 +11,8 @@ end;
 dcl page (4096) bin(8) static;
 dcl stacks (1024) fixed dec(2) stack;
 
+dcl user_name string(32,1); // single byte string
+
 type other_map struct;
      signature(8) bin(8);
      free_space struct;
@@ -75,6 +77,8 @@ procedure startup (root_ptr);
    field = &(1010 1101:b) & ^(1101 0011:b) ~^ ~&(field);
 
    text = "I am the beginning and " ++ "the end";
+
+   a = arguer();
 
 end;
 
