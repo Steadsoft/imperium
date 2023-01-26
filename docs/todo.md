@@ -7,9 +7,10 @@
   - ~~Mathematically a function is a mapping, so if there's nothing to map why make it a function?~~
   - Allowing an empty argument list seems the less contentious way to do this.
 * Should string literals use `'` or `"`?
-* Should we support a `text` type for 8-bit strings and `string` type for two-byte Unicode?
-  - Should a `text` represent an array of `byte` and `string` represent an array of `char`?
-  - Consider the way .Net manages [encoding/decoding](https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding?view=net-7.0) as a reference.
+* ~~Should we support a `text` type for 8-bit strings and `string` type for two-byte Unicode?~~
+  - ~~Should a `text` represent an array of `byte` and `string` represent an array of `char`?~~
+  - ~~Consider the way .Net manages [encoding/decoding](https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding?view=net-7.0) as a reference.~~
+  - This has been decided and there are two new string declaration attributes `raw` and `utf` with a size argument.
 * Revise long-ish keywords
   - `returns`
   - 
