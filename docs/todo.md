@@ -11,7 +11,8 @@
   - Should a `text` represent an array of `byte` and `string` represent an array of `char`?
   - Consider the way .Net manages [encoding/decoding](https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding?view=net-7.0) as a reference.
   - A good compromise is to add attributes utf(8), utf(16) and utf(32).
-  - A utf(8) string will always contain single byte characters unless a mutibyte Unicode char is assigned to it so we get the storage minimization.
+  - A `utf(8)` string will always contain single byte characters unless a mutibyte Unicode char is assigned to it so we get the storage minimization.
+  - This means we'll have a `string(X)`; or `string(X) utf(Z)`; where Z is 8, 16 or 32, without the `utf` it defauts to `utf(8)`.
 * Revise long-ish keywords
   - `returns`
   - 
