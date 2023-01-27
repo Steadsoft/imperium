@@ -490,10 +490,15 @@ otherwise_clause
 type_stmt // defines a type, like a structure
   : TYPE identifier enum_type 
   | TYPE identifier struct_type
+  | TYPE identifier alias_type
   ;
 
 enum_type
   : ENUM (binary_enum | decimal_enum | string_enum | bit_enum)? SEMICOLON enum_body END ENUM? SEMICOLON
+  ;
+
+alias_type
+  : ALIAS attribute+ SEMICOLON
   ;
 
 binary_enum
