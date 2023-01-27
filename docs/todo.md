@@ -28,3 +28,4 @@
   - A general buffer can be declared as `dcl some_buffer(1024) byte(4);` for example.
   - Metadata describing its capacity will be retained, eliminating the need and risk of passing that around.
 * Introduce `alias` as a way to abbreviate type attributes.
+* Consider replacing the `type` keyword with simply `def`.
