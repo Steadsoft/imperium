@@ -1,6 +1,6 @@
 scope grammar.testing;
 
-type memory_map struct;
+def memory_map struct;
      signature(8) bin(8);
      free_space struct;
         header  fixed binary(31);
@@ -15,11 +15,11 @@ dcl user_name string(32) raw(8); // single byte string
 dcl user_name string(128) utf(32); // UTF-32 encoded string
 //dcl msg_buffer byte(1024);
 
-type window_title alias string(128) utf(32); 
+def window_title alias string(128) utf(32); 
 
 dcl main_title as window_title;
 
-type other_map struct;
+def other_map struct;
      signature(8) bin(8);
      free_space struct;
         header fixed binary(31);
