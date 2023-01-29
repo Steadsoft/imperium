@@ -36,15 +36,15 @@ procedure startup (root_ptr);
       dcl map as memory_map based (root_ptr);
 
       if then > else then 
-         else <- if;
+         else ⇐ if;
       elif if < then then
-         elif <- if;
+         elif ⇐ if;
       else
-         then <- goto;
-         elif <- else;
+         then ⇐ goto;
+         elif ⇐ else;
       end;
 
-      root_ptr <- null;
+      root_ptr ⇐ null;
 
       if root_ptr = null then
          call log("Invalid root pointer");
@@ -56,7 +56,7 @@ procedure startup (root_ptr);
          return;
       end;
 
-      result <- get_snapshot(root_ptr);
+      result ⇐ get_snapshot(root_ptr);
 
       /*********************************************************************/
       /* In the above you can see we must use 'call' to invoke a procedure */
@@ -87,15 +87,15 @@ procedure startup (root_ptr);
       // ~^     XNOR 
 
 
-      field <- input_1 ^ input_2 & input_3 | input_4;
+      field ⇐ input_1 ^ input_2 & input_3 | input_4;
 
-      field <- input_4 ~& input_3 ~^ input_2 ~| input_1;
+      field ⇐ input_4 ~& input_3 ~^ input_2 ~| input_1;
 
-      field <- &(1010 1101:b) & ^(1101 0011:b) ~^ ~&(field);
+      field ⇐ &(1010 1101:b) & ⊕(1101 0011:b) ~^ ~&(field);
 
-      text <- "I am the beginning and " ++ "the end";
+      text ⇐ "I am the beginning and " ++ "the end";
 
-      a <- arguer();
+      a ⇐ arguer();
 
 end;
 
@@ -115,7 +115,7 @@ procedure get_todays_date (date);
 
    arg date string(32);
 
-   date <- "10 October 2023";
+   date ⇐ "10 October 2023";
 
 end;
 

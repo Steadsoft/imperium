@@ -143,11 +143,11 @@ null_stmt
   ;
 
 assign_stmt
-  : reference ASSIGN expression SEMICOLON
+  : reference (ASSIGN_U | EQUALS) expression SEMICOLON
   ;
 
 reference
-  :	reference RARROW basic_reference arguments_list?	# PTR_REF
+  :	reference RARROW_U basic_reference arguments_list?	# PTR_REF
 	| basic_reference arguments_list?					          # BASIC_REF
   ;
 
@@ -195,7 +195,7 @@ expression_10
 
 expression_9
   : expression_8 
-  | expression_9 (XOR | XNOR) expression_8
+  | expression_9 (XOR_U | XNOR_U) expression_8
   ;
 
 expression_8
@@ -215,7 +215,7 @@ expression_6
 
 expression_5
   : expression_4
-  | expression_5 (L_ROTATE | R_ROTATE | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT) expression_4
+  | expression_5 (L_ROTATE_U | R_ROTATE_U | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT) expression_4
   ;
 
 expression_4
@@ -236,7 +236,7 @@ expression_2
   ;
 
 expression_1
-  : (primitive_expression | parenthesized_expression) POWER expression_2
+  : (primitive_expression | parenthesized_expression) POWER_U expression_2
   ;
 
 prefix_expression
@@ -247,10 +247,10 @@ parenthesized_expression
   : LPAR expression RPAR
   | REDAND expression RPAR
   | REDOR expression RPAR
-  | REDXOR expression RPAR
+  | REDXOR_U expression RPAR
   | REDNAND expression RPAR
   | REDNOR expression RPAR
-  | REDXNOR expression RPAR
+  | REDXNOR_U expression RPAR
   ;
 
 primitive_expression
@@ -272,7 +272,7 @@ comparison_operator
 	| LT
 	| LTE
 	| NGT
-	| NE
+	| NE_U
 	| NLT
   ;
 
@@ -1247,8 +1247,12 @@ DECIMAL_PATTERN:      (DEC (LSEP DEC)*)+ FRAC_D? BASE_D?;
 
 // SYMBOLS AND OPERATORS
 
+// There are some symbols that have a very natural Unicode character that better conveys their
+// meanings. These are included below, the grammar will accept either the Unicode or the ASCII 
+// forms. These are recognized by being name ending in _U
+
 AT:           ('@');
-RARROW: 	    ('->');
+RARROW_U:     ('->' | '➔'); // U+2794
 DOT:          ('.');
 COMMA:        (',');
 LPAR: 		    ('(');
@@ -1258,13 +1262,13 @@ RBRACK: 	    (']');
 LBRACE: 	    ('{');
 RBRACE: 	    ('}');
 EQUALS: 	    ('=');
-ASSIGN:       ('<-');
+ASSIGN_U:     ('⇐'); // U+21D0
 TIMES: 		    ('*');
 DIVIDE: 	    ('/');
 PLUS: 		    ('+');
 MINUS: 		    ('-');
 SEMICOLON:	  (';');
-POWER: 		    ('**');  // PL/I traditionally used ** 
+POWER_U: 		  ('**' | '🠕');  // U+1F815
 COLON: 		    (':');
 TRIQUOTE:     ('"""');
 DIQUOTE:      ('""'); 
@@ -1273,32 +1277,32 @@ SQUOTE: 	    ('\'');
 NOT:   		    ('~');
 GT:    		    ('>');
 LT:    		    ('<');
-GTE:   		    ('>=');
-LTE:   		    ('<=');
+GTE:   		    ('>=' |'≥');
+LTE:   		    ('<=' |'≤');
 NGT:   		    ('~>');
 NLT:   		    ('~<');
-NE:    		    ('~=');
+NE_U: 		    ('~=' | '≠');
 PCNT:  		    ('%');
 AND:    	    ('&');
 OR:     	    ('|');
 NAND:         ('~&');
 NOR:          ('~|');  
-XOR:          ('^');    // excluisve bitwise OR
-XNOR:         ('~^');
+XOR_U:        ('^'  | '⊕');    // U+2295 excluisve bitwise OR
+XNOR_U:       ('~^' | '~⊕');   // U+2295
 REDAND:       ('&(');
 REDOR:        ('|(');
 REDNAND:      ('~&(');
 REDNOR:       ('~|(');
-REDXOR:       ('^(');
-REDXNOR:      ('~^(');
+REDXOR_U:     ('^(' | '⊕(');    // U+2295
+REDXNOR_U:    ('~^(' | '~⊕('); // U+2295
 LOGAND:  	    ('&&'); 	// short-circuit, logical AND
 LOGOR:   	    ('||');  	// short-circuit, logical OR
 CONC:   	    ('++');   // concatenate character strings or bit strings
 L_LOG_SHIFT:  ('<<');   // logical: left bit lost rite bit becomes zero
 R_LOG_SHIFT:  ('>>');   // logical: rite bit lost left bit becomes zero
 R_ART_SHIFT:  ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit
-L_ROTATE:     ('<<@');  // rotate: left bit rotated out rite bit becomes that rotated left bit
-R_ROTATE:     ('@>>');  // rotate: rite bit rotated out left bit becomes that rotated rite bit
+L_ROTATE_U:   ('<<@' | '⧀');  // U+29C0 rotate: left bit rotated out rite bit becomes that rotated left bit
+R_ROTATE_U:   ('@>>' | '⧁');  // U+29C1 rotate: rite bit rotated out left bit becomes that rotated rite bit
 RANGE:        ('..');   // used to represent a range from some start to some end
 
 // LEXER FRAGMENTS
