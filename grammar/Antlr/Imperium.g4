@@ -143,7 +143,7 @@ null_stmt
   ;
 
 assign_stmt
-  : reference EQUALS expression SEMICOLON
+  : reference ASSIGN expression SEMICOLON
   ;
 
 reference
@@ -1258,6 +1258,7 @@ RBRACK: 	    (']');
 LBRACE: 	    ('{');
 RBRACE: 	    ('}');
 EQUALS: 	    ('=');
+ASSIGN:       ('<-');
 TIMES: 		    ('*');
 DIVIDE: 	    ('/');
 PLUS: 		    ('+');
