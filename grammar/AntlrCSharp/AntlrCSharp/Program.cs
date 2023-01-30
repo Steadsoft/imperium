@@ -17,6 +17,8 @@ namespace AntlrCSharp
 
         static void Main(string[] args)
         {
+
+
             //ImperiumLexer.keywords = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(File.ReadAllText(@"..\..\..\..\..\Antlr\lingua.keywords")).ToDictionary(x => x.Key, x => x.Value.ToDictionary(x => x.Value, x => x.Key));
 
             //
@@ -26,7 +28,7 @@ namespace AntlrCSharp
 
             //TextReader source = ReadFile(@"test_3.nr");
 
-            NestedSourceReader reader = new NestedSourceReader("parser_test.fr.ipl", regex, ReadFile);
+            NestedSourceReader reader = new NestedSourceReader("grammar_test.ipl", regex, ReadFile);
 
             AntlrInputStream inputStream = new AntlrInputStream(reader);
             ImperiumLexer imperium_lexer = new ImperiumLexer(inputStream);
@@ -34,7 +36,7 @@ namespace AntlrCSharp
             imperium_lexer.SetLexicon("en");
 
             CommonTokenStream commonTokenStream = new CommonTokenStream(imperium_lexer);
-            ImperiumParser imperium_parser = new ImperiumParser(commonTokenStream);
+            CustomParser imperium_parser = new CustomParser(commonTokenStream);
 
             imperium_parser.BuildParseTree = true;
 

@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Text.Json;
 
+
 namespace KeywordGenerator
 {
     internal class Program
@@ -10,6 +11,8 @@ namespace KeywordGenerator
         static void Main(string[] args)
         {
             // load the dictionary.
+
+            var unicode = "𒆇";
 
             var sss = 
                 """

@@ -9,9 +9,9 @@ namespace AntlrCSharp
 {
     internal class ImperiumCompilerListener : ImperiumBaseListener
     {
-        public override void ExitLOOP([NotNull] ImperiumParser.LOOPContext context)
-        {
-            base.ExitLOOP(context);
-        }
+        //public override void ExitLOOP([NotNull] ImperiumParser.Loop_Context context)
+        //{
+        //    base(context);
+        //}
     }
 }
