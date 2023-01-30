@@ -4,7 +4,7 @@ def memory_map struct;
      signature(8) bin(8);
      free_space struct;
         header  fixed binary(31);
-        bytes(40960)   bin(8);
+        bytes(40960 * 10)   bin(8);
      end;
 end;
 

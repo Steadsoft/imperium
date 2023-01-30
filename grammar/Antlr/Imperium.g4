@@ -4,7 +4,7 @@
 /* It's based primarily on the PL/I grammar because that has no reserved words. */
 /* This grammar supports keywords for multiple cultures, this is done by having */
 /* a JSON lexicon file that defines the literal text for each keyword for each  */
-/* language.	 																                  fAND                */
+/* language.	 															                                    */
 /*			 																	                                      */
 /* No reserved words means an identifier can be the same as a keyword and the   */
 /* text will still parse correctly. We do this to facilitate the addition of    */
@@ -104,10 +104,10 @@ returns_descriptor
   ;
 	// consider using keyword 'is' instead and forcing it to be right after the params...
 
-stmt_block
-  : nonexecutable_stmt+ 
-  | executable_stmt+
-  | nonexecutable_stmt+ executable_stmt+
+stmt_block 
+  : nonexecutable_stmt+                   
+  | executable_stmt+                      
+  | nonexecutable_stmt+ executable_stmt+  
   ;
 
 terminator
@@ -119,23 +119,23 @@ label_stmt
   ;
 
 nonexecutable_stmt
-	: declare_stmt	  # DCL
-	| def_stmt		    # DEF
+	: declare_stmt	  # Declare_
+	| def_stmt		    # Define_
   ;
  
 executable_stmt
-  : label_stmt      # LABEL
-  | assign_stmt	    # ASSIGN
-	| call_stmt		    # CALL
-	| goto_stmt		    # GOTO
-	| procedure       # PROC
-	| return_stmt	    # RET
-	| if_stmt		      # IF
-	| loop_stmt		    # LOOP
-  | select_stmt     # SELECT
-	| endloop_stmt    # LEAVE
-	| reloop_stmt     # AGAIN 
-  | null_stmt       # NULL
+  : label_stmt      # Label_
+  | assign_stmt	    # Assignemnt_
+	| call_stmt		    # Call_
+	| goto_stmt		    # Goto_
+	| procedure       # Procedure_
+	| return_stmt	    # Return_
+	| if_stmt		      # If_
+	| loop_stmt		    # Loop_
+  | select_stmt     # Select_
+	| endloop_stmt    # Leave_
+	| reloop_stmt     # Reloop_
+  | null_stmt       # Null_
 	;
 
 null_stmt
@@ -147,8 +147,8 @@ assign_stmt
   ;
 
 reference
-  :	reference RARROW_U basic_reference arguments_list?	# PTR_REF
-	| basic_reference arguments_list?					          # BASIC_REF
+  :	reference RARROW_U basic_reference arguments_list?	# PointerReference_
+	| basic_reference arguments_list?					            # BasicReference_
   ;
 
 arguments
@@ -225,7 +225,7 @@ expression_4
 
 expression_3
   :	expression_2
-	| expression_3 (TIMES | DIVIDE | PCNT) expression_2
+	| expression_3 (TIMES | DIVIDE_U | PCNT) expression_2
   ;
 
 expression_2
@@ -267,10 +267,10 @@ prefix_operator
 
 comparison_operator
   : GT
-	| GTE
+	| GTE_U
 	| EQUALS
 	| LT
-	| LTE
+	| LTE_U
 	| NGT
 	| NE_U
 	| NLT
@@ -288,8 +288,8 @@ shift_operator
 // if an identifer happens to be a keyword.
 
 identifier
-  :	keyword			# KEYWD
-	| IDENTIFIER	# identifier_IDENTIFIER
+  :	keyword			# Keyword_
+	| IDENTIFIER	# Identifier_
   ;
 
 call_stmt
@@ -351,25 +351,28 @@ attribute
     ;
 
 memory_attribute
-  : (STACK | STATIC | based | defined)
+  : STACK                       # MemoryAttributeStack
+  | STATIC                      # MemoryAttributeStatic
+  | based                       # MemoryAttributeBased
+  | defined                     # MemoryAttributeDefined
   ;
 
 data_attribute
-  : (BINARY (precision)?)				# BIN
-	| (DECIMAL (precision)?)			# DEC
-	| POINTER							        # PTR
-	| (BIT max_length)					  # BIT
-	| CHARACTER							      # CHAR
-	| string_attribute           	# STR
-	| ENTRY								        # ENT
-	| FIXED								        # FIX
-	| FLOAT								        # FLT
-	| OFFSET							        # OFF
-	| VARYING							        # VNG
-	| COROUTINE							      # COR
-	| COFUNCTION						      # COF
-	| BUILTIN							        # BLTN
-	| INTRINSIC							      # INTR
+  : (BINARY (precision)?)				# DataAttributeBinary_
+	| (DECIMAL (precision)?)			# DataAttributeDecimal_
+	| POINTER							        # DataAttributePointer_
+	| (BIT max_length)					  # DataAttributeBit_
+	| CHARACTER							      # DataAttributeCharacter_
+	| string_attribute           	# DataAttributeString_
+	| ENTRY								        # DataAttributeEntry_
+	| FIXED								        # DataAttributeFixed_
+	| FLOAT								        # DataAttributeFloat_
+	| OFFSET							        # DataAttributeOffset_
+	| VARYING							        # DataAttributeVarying_
+	| COROUTINE							      # DataAttributeCoroutine_
+	| COFUNCTION						      # DataAttributeCofunction_
+	| BUILTIN							        # DataAttributeBuiltin
+	| INTRINSIC							      # DataAttributeIntrinsic_
   ;
 
 string_attribute
@@ -1264,7 +1267,7 @@ RBRACE: 	    ('}');
 EQUALS: 	    ('=');
 ASSIGN_U:     ('⇐'); // U+21D0
 TIMES: 		    ('*');
-DIVIDE: 	    ('/');
+DIVIDE_U:     ('/' | '÷'); // U+00F7
 PLUS: 		    ('+');
 MINUS: 		    ('-');
 SEMICOLON:	  (';');
@@ -1277,8 +1280,8 @@ SQUOTE: 	    ('\'');
 NOT:   		    ('~');
 GT:    		    ('>');
 LT:    		    ('<');
-GTE:   		    ('>=' |'≥');
-LTE:   		    ('<=' |'≤');
+GTE_U:        ('>=' |'≥');
+LTE_U:   	    ('<=' |'≤');
 NGT:   		    ('~>');
 NLT:   		    ('~<');
 NE_U: 		    ('~=' | '≠');
@@ -1293,7 +1296,7 @@ REDAND:       ('&(');
 REDOR:        ('|(');
 REDNAND:      ('~&(');
 REDNOR:       ('~|(');
-REDXOR_U:     ('^(' | '⊕(');    // U+2295
+REDXOR_U:     ('^('  | '⊕(');   // U+2295
 REDXNOR_U:    ('~^(' | '~⊕('); // U+2295
 LOGAND:  	    ('&&'); 	// short-circuit, logical AND
 LOGOR:   	    ('||');  	// short-circuit, logical OR
