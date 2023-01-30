@@ -22,24 +22,32 @@ namespace AntlrCSharp
 
         public override object VisitDeclaration_body([NotNull] Declaration_bodyContext context)
         {
+            var name = (context.identifier() as Identifier_Context)?.IDENTIFIER()?.ToString();
 
-            var ti = context.children.Where(c => c is Type_infoContext).Cast<Type_infoContext>().Single();
+            var dims = context.type_info()?.dimension_suffix()?.bound_pair_commalist();
 
-            foreach (var x in ti.children.Where(z => z is Dimension_suffixContext).Cast<Dimension_suffixContext>())
+            if (dims != null)
             {
-                foreach (var bp in x.children.Where(w => w is Bound_pair_commalistContext).Cast<Bound_pair_commalistContext>())
+                int dim = 1;
+
+                foreach (var bp in dims.bound_pair())
                 {
-                    ;
+                    ValidateBound_pair(bp, name, context.Start.Line, dim);
+                    dim++;
                 }
             }
-
-
-
 
             return base.VisitDeclaration_body(context);
         }
 
         public override object VisitBound_pair([NotNull] Bound_pairContext context)
+        {
+            //ValidateBound_pair(context);
+
+            return base.VisitBound_pair(context);
+        }
+
+        private void ValidateBound_pair([NotNull] Bound_pairContext context, string Name, int Line, int Dim)
         {
             Int32 UpBound;
             Int32 LoBound;
@@ -51,13 +59,8 @@ namespace AntlrCSharp
                 if (Int32.TryParse(lower?.primitive_expression()?.numeric_literal()?.decimal_literal()?.DECIMAL_PATTERN()?.ToString(), out LoBound))
                 {
                     if (LoBound >= UpBound)
-                        Console.WriteLine($"The lower bound ({LoBound}) must be less than the upper bound ({UpBound}).");
+                        Console.WriteLine($"Line {Line} - Declaration of array '{Name}' - The lower bound ({LoBound}) must be less than the upper bound ({UpBound}) in dimension {Dim}.");
                 }
-
-
-
-
-             return base.VisitBound_pair(context);
         }
     }
 

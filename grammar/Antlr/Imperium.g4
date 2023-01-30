@@ -16,6 +16,14 @@
 /*------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------*/
+/*                                  IMPORTANT                                   */
+/*------------------------------------------------------------------------------*/
+/* Changing the names of any rules or hash tags in here might break any code    */
+/* that has been writte to traverse the parse tree, do not change rule names    */
+/* without due care and attention!                                              */
+/*------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------*/
 /* Keyword translation info kindly contributed by:                           	  */
 /* English (en) - Hugh Gleaves                                               	  */
 /* Dutch (nl)   - Gabor de Mooij (https://github.com/gabordemooij/citrine)   	  */
@@ -198,21 +206,44 @@ prefix_expression
   : prefix_operator expression
   ;
 
+bit_adjust_operator
+  : (L_ROTATE_U | R_ROTATE_U | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT)
+  ;
+
+addition_operator
+  : (PLUS | MINUS)
+  ;
+
+multiply_operator
+  : (TIMES | DIVIDE_U | PCNT)
+  ;
+
+bool_and_operator
+  : (AND | NAND)
+  ;
+
+bool_xor_operator
+  : (XOR_U | XNOR_U) 
+  ;
+
+bool_or_operator
+  : (OR | NOR | NOT)
+  ;
+
 expression
-  //: ((numeric_literal | string_literal | reference) | parenthesized_expression) POWER_U expression # A
-  : primitive_expression  #A
-  | parenthesized_expression  # B
-  | prefix_expression	 #AA
-  | expression (TIMES | DIVIDE_U | PCNT) expression # C
-  | expression (PLUS | MINUS) expression # D
-  | expression (L_ROTATE_U | R_ROTATE_U | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT) expression # E
-  | expression CONC expression # F
-  | expression comparison_operator expression # G
-  | expression (AND | NAND) expression # H
-  | expression (XOR_U | XNOR_U) expression # I
-  | expression (OR | NOR | NOT) expression # J
-  | expression LOGAND expression # K
-  | expression LOGOR expression # L
+  : primitive_expression                        # Expr_Primitive_                                                  
+  | parenthesized_expression                    # Expr_Parenthesized_
+  | prefix_expression	                          # Expr_Prefixed_
+  | expression multiply_operator expression     # Expr_MulDiv_
+  | expression addition_operator expression     # Expr_AddSub_
+  | expression bit_adjust_operator expression   # Expr_BitAdjust_
+  | expression CONC expression                  # Expr_Concat_
+  | expression comparison_operator expression   # Expr_Compare_
+  | expression bool_and_operator expression     # Expr_BoolAnd_
+  | expression bool_xor_operator expression     # Expr_BoolXor_
+  | expression bool_or_operator expression      # Expr_BoolOr_
+  | expression LOGAND expression                # Expre_LogAnd_
+  | expression LOGOR expression                 # Expr_LogOr_
   ;
 
 prefix_operator

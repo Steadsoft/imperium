@@ -1,7 +1,7 @@
 scope grammar.testing;
 
 def memory_map struct;
-     signature(8) bin(8);
+     signature(18:14, 10:5) bin(8);
      free_space struct;
         header  fixed binary(31);
         bytes(40960 * 10)   bin(8);
@@ -94,6 +94,8 @@ procedure startup (root_ptr);
       field ⇐ &(1010 1101:b) & ⊕(1101 0011:b) ~^ ~&(field);
 
       text ⇐ "I am the beginning and " ++ "the end";
+
+      result = a * b + c;
 
       a ⇐ arguer();
 
