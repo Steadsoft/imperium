@@ -8,6 +8,10 @@ def memory_map struct;
      end;
 end;
 
+dcl call string(32);
+dcl return bin(15);
+dcl binary decimal(10);
+
 dcl page (4096) bin(8) static;
 dcl stacks (1024) fixed dec(2) stack;
 //dcl io_buffer (4096) byte(1); // byte; is the same as byte(1);

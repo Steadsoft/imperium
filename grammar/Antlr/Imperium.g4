@@ -440,9 +440,11 @@ elif_clause
   ;
 
 loop_stmt
-  :	LOOP  SEMICOLON stmt_block loop_end                            # BASIC_LOOP
-	| LOOP  while_option until_option? SEMICOLON stmt_block loop_end # WHILE_UNTIL
-	| LOOP  until_option while_option? SEMICOLON stmt_block loop_end # UNTIL_WHILE
+  :	LOOP  SEMICOLON stmt_block loop_end                                   # LoopBasic_
+	| LOOP (
+          (while_option until_option? SEMICOLON stmt_block loop_end) 
+        | (until_option while_option? SEMICOLON stmt_block loop_end)
+        )                                                                 # LoopConditional_
   ;
 
 loop_end

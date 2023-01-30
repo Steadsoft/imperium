@@ -1,6 +1,7 @@
 ﻿using Antlr4.Runtime.Misc;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,21 @@ namespace AntlrCSharp
 
         public override object VisitDeclaration_body([NotNull] Declaration_bodyContext context)
         {
-            var name = (context.identifier() as Identifier_Context)?.IDENTIFIER()?.ToString();
+            string spelling = string.Empty;
+
+            if (context.identifier() is Identifier_Context)
+            {
+                spelling = (context.identifier() as Identifier_Context)?.IDENTIFIER()?.ToString();
+            }
+            else
+            if (context.identifier() is Keyword_Context)
+                {
+                var xx = (context.identifier() as Keyword_Context);
+                var zz = xx.keyword()?.children[0].ToString();
+                Console.WriteLine($"I: Line {context.Start.Line.ToString().PadRight(3)} - Declaration of '{zz}' - A language keyword has been used as an identifier.");
+                }
+
+
 
             var dims = context.type_info()?.dimension_suffix()?.bound_pair_commalist();
 
@@ -32,7 +47,7 @@ namespace AntlrCSharp
 
                 foreach (var bp in dims.bound_pair())
                 {
-                    ValidateBound_pair(bp, name, context.Start.Line, dim);
+                    ValidateBound_pair(bp, spelling, context.Start.Line, dim);
                     dim++;
                 }
             }
@@ -59,7 +74,7 @@ namespace AntlrCSharp
                 if (Int32.TryParse(lower?.primitive_expression()?.numeric_literal()?.decimal_literal()?.DECIMAL_PATTERN()?.ToString(), out LoBound))
                 {
                     if (LoBound >= UpBound)
-                        Console.WriteLine($"Line {Line} - Declaration of array '{Name}' - The lower bound ({LoBound}) must be less than the upper bound ({UpBound}) in dimension {Dim}.");
+                        Console.WriteLine($"E: Line {Line.ToString().PadRight(3)} - Declaration of array '{Name}' - The lower bound ({LoBound}) must be less than the upper bound ({UpBound}) in dimension {Dim}.");
                 }
         }
     }
