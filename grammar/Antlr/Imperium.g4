@@ -178,71 +178,6 @@ subscript_commalist
   : subscript (COMMA subscript)*
   ;
 
-expression
-  : expression_11 
-  | expression LOGOR expression_10 // Logical OR, short circuitable
-  ;
-
-expression_11
-  : expression_10 
-  | expression_11 LOGAND expression_10 // Logical AND, short circuitable
-  ;
-
-expression_10
-  :	expression_9
-	| expression_10 (OR | NOR | NOT) expression_9
-  ;
-
-expression_9
-  : expression_8 
-  | expression_9 (XOR_U | XNOR_U) expression_8
-  ;
-
-expression_8
-  : expression_7 
-  | expression_8 (AND | NAND) expression_7
-  ;
-
-expression_7
-  :	expression_6
-	| expression_7 comparison_operator expression_6
-  ;
-
-expression_6
-  : expression_5 
-  | expression_6 CONC expression_5
-  ;
-
-expression_5
-  : expression_4
-  | expression_5 (L_ROTATE_U | R_ROTATE_U | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT) expression_4
-  ;
-
-expression_4
-  :	expression_3
-	| expression_4 (PLUS | MINUS) expression_3
-  ;
-
-expression_3
-  :	expression_2
-	| expression_3 (TIMES | DIVIDE_U | PCNT) expression_2
-  ;
-
-expression_2
-  :	primitive_expression
-	| prefix_expression
-	| parenthesized_expression
-	| expression_1
-  ;
-
-expression_1
-  : (primitive_expression | parenthesized_expression) POWER_U expression_2
-  ;
-
-prefix_expression
-  : prefix_operator expression_2
-  ;
-
 parenthesized_expression
   : LPAR expression RPAR
   | REDAND expression RPAR
@@ -257,6 +192,27 @@ primitive_expression
   : numeric_literal 
   | string_literal 
   | reference
+  ;
+
+prefix_expression
+  : prefix_operator expression
+  ;
+
+expression
+  //: ((numeric_literal | string_literal | reference) | parenthesized_expression) POWER_U expression # A
+  : primitive_expression  #A
+  | parenthesized_expression  # B
+  | prefix_expression	 #AA
+  | expression (TIMES | DIVIDE_U | PCNT) expression # C
+  | expression (PLUS | MINUS) expression # D
+  | expression (L_ROTATE_U | R_ROTATE_U | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT) expression # E
+  | expression CONC expression # F
+  | expression comparison_operator expression # G
+  | expression (AND | NAND) expression # H
+  | expression (XOR_U | XNOR_U) expression # I
+  | expression (OR | NOR | NOT) expression # J
+  | expression LOGAND expression # K
+  | expression LOGOR expression # L
   ;
 
 prefix_operator
