@@ -1,4 +1,5 @@
-scope grammar.testing;
+
+scope grammar.testing.scope;
 
 def memory_map struct;
      signature(18:14, 10:5) bin(8);
@@ -126,3 +127,7 @@ procedure get_todays_date (date);
 end;
 
 end scope;
+
+scope this.isnot.used;
+
+end;

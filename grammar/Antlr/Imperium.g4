@@ -58,135 +58,135 @@ grammar Imperium; // Latin for "control"
 	}
 }
 
-translation_unit
-  :	BYTE_ORDER_MARK? uses* scope* | stmt_block? EOF
+translationUnit
+  :	BYTE_ORDER_MARK? uses* scope* | stmtBlock? EOF
   ;
 
 uses
   : USES identifier (DOT identifier)* SEMICOLON
   ;
 scope
-  : scope_stmt stmt_block? scope_end
-  | scope_stmt scope scope_end
+  : scopeStmt stmtBlock? scopeEnd
+  | scopeStmt scope scopeEnd
   ;
 
-scope_stmt
+scopeStmt
   : SCOPE identifier (DOT identifier)* PRIVATE? SEMICOLON
   ;
 
-scope_end
+scopeEnd
   : END SCOPE? SEMICOLON
   ;
 
 procedure
-  :	procedure_stmt stmt_block? procedure_end
-  | function_stmt  stmt_block? function_end
+  :	procedureStmt stmtBlock? procedureEnd
+  | functionStmt  stmtBlock? functionEnd
   ;
 
-procedure_stmt
-  : PROCEDURE identifier proc_descriptor SEMICOLON 
+procedureStmt
+  : PROCEDURE identifier procDescriptor SEMICOLON 
   ;
 
-function_stmt
-  : FUNCTION identifier func_descriptor SEMICOLON 
+functionStmt
+  : FUNCTION identifier funcDescriptor SEMICOLON 
   ;
 
-procedure_end
+procedureEnd
   : END PROCEDURE? SEMICOLON
   ;
 
-function_end
+functionEnd
   : END FUNCTION? SEMICOLON
   ;
 
-proc_descriptor
-  :	parameter_name_commalist? ((coprocedure_specifier?) | ((coprocedure_specifier | handler_specifier)? RECURSIVE?))
+procDescriptor
+  :	parameterNameCommalist? ((coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE?))
   ;
 
-func_descriptor
-  :	parameter_name_commalist? ((returns_descriptor coprocedure_specifier?) | ((coprocedure_specifier | handler_specifier)? RECURSIVE? returns_descriptor))
+funcDescriptor
+  :	parameterNameCommalist? ((returnsDescriptor coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE? returnsDescriptor))
   ;
 
-returns_descriptor
-  :	RETURNS LPAR data_attribute RPAR
+returnsDescriptor
+  :	RETURNS LPAR dataAttribute RPAR
   ;
 	// consider using keyword 'is' instead and forcing it to be right after the params...
 
-stmt_block 
-  : nonexecutable_stmt+                   
-  | executable_stmt+                      
-  | nonexecutable_stmt+ executable_stmt+  
+stmtBlock 
+  : nonexecutableStmt+                   
+  | executableStmt+                      
+  | nonexecutableStmt+ executableStmt+  
   ;
 
 terminator
   : SEMICOLON
   ;
 
-label_stmt
-  : LABEL (LPAR decimal_literal RPAR)? 
+labelStmt
+  : LABEL (LPAR decimalLiteral RPAR)? 
   ;
 
-nonexecutable_stmt
-	: declare_stmt	  # Declare_
-	| def_stmt		    # Define_
-  ;
+nonexecutableStmt
+	: declareStmt	  
+	| defineStmt		  
+   ;
  
-executable_stmt
-  : label_stmt      # Label_
-  | assign_stmt	    # Assignemnt_
-	| call_stmt		    # Call_
-	| goto_stmt		    # Goto_
-	| procedure       # Procedure_
-	| return_stmt	    # Return_
-	| if_stmt		      # If_
-	| loop_stmt		    # Loop_
-  | select_stmt     # Select_
-	| endloop_stmt    # Leave_
-	| reloop_stmt     # Reloop_
-  | null_stmt       # Null_
+executableStmt
+  : labelStmt      
+  | assignmentStmt	    
+	| callStmt		    
+	| gotoStmt		    
+	| procedure       
+	| returnStmt	    
+	| ifStmt		      
+	| loopStmt		    
+  | selectStmt     
+	| endloopStmt    
+	| reloopStmt     
+  | nullStmt       
 	;
 
-null_stmt
+nullStmt
   : SEMICOLON
   ;
 
-assign_stmt
+assignmentStmt
   : reference (ASSIGN_U | EQUALS) expression SEMICOLON
   ;
 
 reference
-  :	reference RARROW_U basic_reference arguments_list?	# PointerReference_
-	| basic_reference arguments_list?					            # BasicReference_
+  :	reference RARROW_U basicReference argumentsList?	
+	| basicReference argumentsList?					            
   ;
 
 arguments
-  : LPAR subscript_commalist? RPAR
+  : LPAR subscriptCommalist? RPAR
   ;
 
-arguments_list
+argumentsList
   : arguments+;
 
-basic_reference
-  : structure_qualification_list? identifier
+basicReference
+  : structureQualificationList? identifier
   ;
 
-structure_qualification
+structureQualification
   : identifier arguments? DOT
   ;
 
-structure_qualification_list
-  : structure_qualification+
+structureQualificationList
+  : structureQualification+
   ;
 
 subscript
   : expression
   ;
 
-subscript_commalist
+subscriptCommalist
   : subscript (COMMA subscript)*
   ;
 
-parenthesized_expression
+parenthesizedExpression
   : LPAR expression RPAR
   | REDAND expression RPAR
   | REDOR expression RPAR
@@ -196,63 +196,63 @@ parenthesized_expression
   | REDXNOR_U expression RPAR
   ;
 
-primitive_expression
-  : numeric_literal 
-  | string_literal 
+primitiveExpression
+  : numericLiteral 
+  | stringLiteral 
   | reference
   ;
 
-prefix_expression
-  : prefix_operator expression
+prefixExpression
+  : prefixOperator expression
   ;
 
-bit_adjust_operator
+bitAdjustOperator
   : (L_ROTATE_U | R_ROTATE_U | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT)
   ;
 
-addition_operator
+additionOperator
   : (PLUS | MINUS)
   ;
 
-multiply_operator
+multiplyOperator
   : (TIMES | DIVIDE_U | PCNT)
   ;
 
-bool_and_operator
+boolAndOperator
   : (AND | NAND)
   ;
 
-bool_xor_operator
+boolXorOperator
   : (XOR_U | XNOR_U) 
   ;
 
-bool_or_operator
+boolOrOperator
   : (OR | NOR | NOT)
   ;
 
 expression
-  : primitive_expression                        # Expr_Primitive_                                                  
-  | parenthesized_expression                    # Expr_Parenthesized_
-  | prefix_expression	                          # Expr_Prefixed_
-  | expression multiply_operator expression     # Expr_MulDiv_
-  | expression addition_operator expression     # Expr_AddSub_
-  | expression bit_adjust_operator expression   # Expr_BitAdjust_
-  | expression CONC expression                  # Expr_Concat_
-  | expression comparison_operator expression   # Expr_Compare_
-  | expression bool_and_operator expression     # Expr_BoolAnd_
-  | expression bool_xor_operator expression     # Expr_BoolXor_
-  | expression bool_or_operator expression      # Expr_BoolOr_
-  | expression LOGAND expression                # Expre_LogAnd_
-  | expression LOGOR expression                 # Expr_LogOr_
+  : primitiveExpression                       # ExprPrimitive                                              
+  | parenthesizedExpression                   # ExprParenthesized
+  | prefixExpression	                        # ExprPrefixed
+  | expression multiplyOperator expression    # ExprMulDiv
+  | expression additionOperator expression    # ExprAddSub
+  | expression bitAdjustOperator expression   # ExprBitAdjust
+  | expression CONC expression                # ExprConcat
+  | expression comparisonOperator expression  # ExprCompare
+  | expression boolAndOperator expression   # ExprBoolAnd
+  | expression boolXorOperator expression     # ExprBoolXor
+  | expression boolOrOperator expression      # ExprBoolOr
+  | expression LOGAND expression              # ExprLogAnd
+  | expression LOGOR expression               # ExprLogOr
   ;
 
-prefix_operator
+prefixOperator
   : PLUS 
   | MINUS 
   | NOT
   ;
 
-comparison_operator
+comparisonOperator
   : GT
 	| GTE_U
 	| EQUALS
@@ -263,7 +263,7 @@ comparison_operator
 	| NLT
   ;
 
-shift_operator
+shiftOperator
   : R_LOG_SHIFT 
   | L_LOG_SHIFT 
   | R_ART_SHIFT 
@@ -275,122 +275,122 @@ shift_operator
 // if an identifer happens to be a keyword.
 
 identifier
-  :	keyword			# Keyword_
-	| IDENTIFIER	# Identifier_
+  :	keyword			//# Keyword_
+	| IDENTIFIER	//# Identifier
   ;
 
-call_stmt
+callStmt
   : CALL reference SEMICOLON
   ;
 
-goto_stmt
+gotoStmt
 	:	(GOTO identifier LPAR expression RPAR) SEMICOLON
 	| (GOTO reference) SEMICOLON
   ;
 
-endloop_stmt
+endloopStmt
   : ENDLOOP identifier? 
   ;
 
-reloop_stmt
+reloopStmt
   : RELOOP identifier? 
   ;
 
-declare_stmt
-  : (DECLARE | ARGUMENT) identifier dimension_suffix? AS identifier memory_attribute? SEMICOLON
-  | (DECLARE | ARGUMENT) declaration_body SEMICOLON
+declareStmt
+  : (DECLARE | ARGUMENT) identifier dimensionSuffix? AS identifier memoryAttribute? SEMICOLON
+  | (DECLARE | ARGUMENT) declarationBody SEMICOLON
   ;
 
-declaration_body
-  : identifier type_info
+declarationBody
+  : identifier typeInfo
   ;
 
-type_info
-  : dimension_suffix? attribute+
+typeInfo
+  : dimensionSuffix? attribute+
   ;
 
-dimension_suffix
-  : LPAR bound_pair_commalist RPAR
+dimensionSuffix
+  : LPAR boundPairCommalist RPAR
   ;
 
-bound_pair
-  : (lower_bound COLON)? upper_bound 
+boundPair
+  : (lowerBound COLON)? upperBound 
   | TIMES
   ;
 
-bound_pair_commalist
-  : bound_pair (COMMA bound_pair)*
+boundPairCommalist
+  : boundPair (COMMA boundPair)*
   ;
 
 // See page 208 PL/I Subset G standard. Lower bound must be <= upper 
 // (but this is not a grammar issue, just a note)
 
-lower_bound
+lowerBound
   : expression
   ;
 
-upper_bound
+upperBound
   : expression
   ;
 
 attribute
-    : (data_attribute | BUILTIN | VARIABLE | memory_attribute)
+    : (dataAttribute | BUILTIN | VARIABLE | memoryAttribute)
     ;
 
-memory_attribute
-  : STACK                       # MemoryAttributeStack
-  | STATIC                      # MemoryAttributeStatic
-  | based                       # MemoryAttributeBased
-  | defined                     # MemoryAttributeDefined
+memoryAttribute
+  : STACK                       
+  | STATIC                      
+  | based                       
+  | defined                     
   ;
 
-data_attribute
-  : (BINARY (precision)?)				# DataAttributeBinary_
-	| (DECIMAL (precision)?)			# DataAttributeDecimal_
-	| POINTER							        # DataAttributePointer_
-	| (BIT max_length)					  # DataAttributeBit_
-	| CHARACTER							      # DataAttributeCharacter_
-	| string_attribute           	# DataAttributeString_
-	| ENTRY								        # DataAttributeEntry_
-	| FIXED								        # DataAttributeFixed_
-	| FLOAT								        # DataAttributeFloat_
-	| OFFSET							        # DataAttributeOffset_
-	| VARYING							        # DataAttributeVarying_
-	| COROUTINE							      # DataAttributeCoroutine_
-	| COFUNCTION						      # DataAttributeCofunction_
-	| BUILTIN							        # DataAttributeBuiltin
-	| INTRINSIC							      # DataAttributeIntrinsic_
+dataAttribute
+  : (BINARY (precision)?)			
+	| (DECIMAL (precision)?)		
+	| POINTER							        
+	| (BIT maxLength)					  
+	| CHARACTER							      
+	| stringAttribute           	
+	| ENTRY								       
+	| FIXED								      
+	| FLOAT								      
+	| OFFSET							       
+	| VARYING							        
+	| COROUTINE							      
+	| COFUNCTION						      
+	| BUILTIN							        
+	| INTRINSIC							      
   ;
 
-string_attribute
-  : (STRING max_string_length (utf_spec | raw_spec)?)
+stringAttribute
+  : (STRING maxStringLength (utfSpec | rawSpec)?)
   ;
 
-utf_spec
-  : (UTF LPAR decimal_literal RPAR)
+utfSpec
+  : (UTF LPAR decimalLiteral RPAR)
   ;
 
-raw_spec
-  : (RAW LPAR decimal_literal RPAR)
+rawSpec
+  : (RAW LPAR decimalLiteral RPAR)
   ;
 precision
-  : LPAR number_of_digits (COMMA scale_factor)? RPAR
+  : LPAR numberOfDigits (COMMA scale_factor)? RPAR
   ;
 
-number_of_digits
-  : (decimal_literal | identifier)
+numberOfDigits
+  : (decimalLiteral | identifier)
   ;
 
 scale_factor
-  : (decimal_literal | identifier)
+  : (decimalLiteral | identifier)
   ;
 
-max_string_length
-  : LPAR (TIMES | (decimal_literal | identifier)) RPAR
+maxStringLength
+  : LPAR (TIMES | (decimalLiteral | identifier)) RPAR
   ;
 
-max_length
-  : LPAR (decimal_literal | identifier) RPAR
+maxLength
+  : LPAR (decimalLiteral | identifier) RPAR
   ;
 
 based
@@ -402,169 +402,169 @@ defined
   ;
 
 
-coprocedure_specifier
+coprocedureSpecifier
   : (COROUTINE | COFUNCTION)
   ;
 
-handler_specifier
+handlerSpecifier
   : INTERRUPT 
   ;
 
-parameter_name_commalist
+parameterNameCommalist
   : LPAR identifier (COMMA identifier)* RPAR
   ;
 
-return_stmt
+returnStmt
   : RETURN (LPAR expression RPAR)? SEMICOLON
   ;
 
-if_stmt
-  :	then_clause stmt_block else_clause? if_end
-	| then_clause stmt_block elif_clause+ if_end
+ifStmt
+  :	thenClause stmtBlock elseClause? ifEnd
+	| thenClause stmtBlock elifClause+ ifEnd
   ;
 
-if_end
+ifEnd
   : END IF? SEMICOLON
   ;  
 
-then_clause
+thenClause
   : IF expression THEN
   ;
 
-else_clause
-  : ELSE stmt_block
+elseClause
+  : ELSE stmtBlock
   ;
 
-elif_clause
-  :	ELIF expression THEN stmt_block else_clause?
+elifClause
+  :	ELIF expression THEN stmtBlock elseClause?
   ;
 
-loop_stmt
-  :	LOOP  SEMICOLON stmt_block loop_end                                   # LoopBasic_
+loopStmt
+  :	LOOP  SEMICOLON stmtBlock loopEnd                                  
 	| LOOP (
-          (while_option until_option? SEMICOLON stmt_block loop_end) 
-        | (until_option while_option? SEMICOLON stmt_block loop_end)
-        )                                                                 # LoopConditional_
+          (whileOption untilOption? SEMICOLON stmtBlock loopEnd) 
+        | (untilOption whileOption? SEMICOLON stmtBlock loopEnd)
+        )                                                                
   ;
 
-loop_end
+loopEnd
   : END LOOP? SEMICOLON
   ;
 
-while_option
+whileOption
   : WHILE LPAR expression RPAR
   ;
 
-until_option
+untilOption
   : UNTIL LPAR expression RPAR
   ;
 
-select_stmt
-  : select_clause when_clause* otherwise_clause? select_end
+selectStmt
+  : selectClause whenClause* otherwiseClause? selectEnd
   ;
 
-select_end
+selectEnd
   : END SELECT? SEMICOLON
   ;
 
-select_clause
+selectClause
   : SELECT (LPAR expression RPAR)? SEMICOLON 
   ;
 
-when_clause
-  : WHEN (ANY | ALL)? LPAR (expression (COMMA expression)*) RPAR stmt_block
+whenClause
+  : WHEN (ANY | ALL)? LPAR (expression (COMMA expression)*) RPAR stmtBlock
   ;
 
-otherwise_clause
-  : ELSE stmt_block
+otherwiseClause
+  : ELSE stmtBlock
   ;
 
-def_stmt // defines a type, like a structure
-  : DEFINE identifier enum_type 
-  | DEFINE identifier struct_type
-  | DEFINE identifier alias_type
+defineStmt // defines a type, like a structure
+  : DEFINE identifier enumType 
+  | DEFINE identifier structType
+  | DEFINE identifier aliasType
   ;
 
-enum_type
-  : ENUM (binary_enum | decimal_enum | string_enum | bit_enum)? SEMICOLON enum_body END ENUM? SEMICOLON
+enumType
+  : ENUM (binaryEnum | decimalEnum | stringEnum | bitEnum)? SEMICOLON enumBody END ENUM? SEMICOLON
   ;
 
-alias_type
+aliasType
   : ALIAS attribute+ SEMICOLON
   ;
 
-binary_enum
-  : (BINARY LPAR decimal_literal RPAR)
+binaryEnum
+  : (BINARY LPAR decimalLiteral RPAR)
   ;
 
-decimal_enum
-  : (DECIMAL LPAR decimal_literal RPAR)
+decimalEnum
+  : (DECIMAL LPAR decimalLiteral RPAR)
   ;
 
-string_enum
-  : (STRING LPAR decimal_literal RPAR)
+stringEnum
+  : (STRING LPAR decimalLiteral RPAR)
   ;
 
-bit_enum
-  : (BIT LPAR decimal_literal RPAR)
+bitEnum
+  : (BIT LPAR decimalLiteral RPAR)
   ;
 
-enum_body
-  : identifier (EQUALS enum_literal)? SEMICOLON (identifier (EQUALS enum_literal)? SEMICOLON)*
+enumBody
+  : identifier (EQUALS enumLiteral)? SEMICOLON (identifier (EQUALS enumLiteral)? SEMICOLON)*
   ;
 
-enum_literal
-  : (decimal_literal | string_literal | binary_literal)
+enumLiteral
+  : (decimalLiteral | stringLiteral | binaryLiteral)
   ;
 
-struct_type
-  : STRUCTURE SEMICOLON struct_body END STRUCTURE? SEMICOLON
+structType
+  : STRUCTURE SEMICOLON structBody END STRUCTURE? SEMICOLON
   ;
 
-struct_body
-  : struct_member_list
+structBody
+  : structMemberList
   ;
 
-struct_member_list
-  : structure_member SEMICOLON (structure_member SEMICOLON)* 
+structMemberList
+  : structMember SEMICOLON (structMember SEMICOLON)* 
   ;  
 
-struct_substruct
-  : identifier dimension_suffix? STRUCTURE SEMICOLON struct_body END
+structSubstruct
+  : identifier dimensionSuffix? STRUCTURE SEMICOLON structBody END
   ;
 
-structure_member
-  : struct_substruct 
-  | identifier dimension_suffix? AS identifier 
-  | declaration_body
+structMember
+  : structSubstruct 
+  | identifier dimensionSuffix? AS identifier 
+  | declarationBody
   ;
 
-string_literal
+stringLiteral
   : STRING_LITERAL_3 
   | STRING_LITERAL_2 
   | STRING_LITERAL_1
   ;
 
-numeric_literal
-  :	binary_literal
-	| octal_literal
-	| hexadecimal_literal
-	| decimal_literal
+numericLiteral
+  :	binaryLiteral
+	| octalLiteral
+	| hexLiteral
+	| decimalLiteral
   ;
 
-hexadecimal_literal
+hexLiteral
   : (HEXADECIMAL_PATTERN)
   ;
 
-octal_literal
+octalLiteral
   : (OCTAL_PATTERN)
   ;
 
-decimal_literal
+decimalLiteral
   : (DECIMAL_PATTERN)
   ;
 
-binary_literal
+binaryLiteral
   : (BINARY_PATTERN)
   ;
 

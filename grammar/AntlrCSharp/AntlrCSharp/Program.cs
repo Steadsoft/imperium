@@ -40,19 +40,19 @@ namespace AntlrCSharp
 
             imperium_parser.BuildParseTree = true;
 
-            var tree = imperium_parser.translation_unit();
+            var tree = imperium_parser.translationUnit();
 
             var listener = new ImperiumCompilerListener();
 
             var visitior = new AntlrCSharp.ImperiumVisitor();
 
-            visitior.VisitTranslation_unit(tree);
+            var node = visitior.VisitTranslationUnit(tree);
 
             ParseTreeWalker walker = new ParseTreeWalker();
 
             walker.Walk(listener, tree);
 
-            Console.WriteLine(tree.ToStringTree());
+            //Console.WriteLine(tree.ToStringTree());
 
         }
 

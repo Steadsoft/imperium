@@ -1,4 +1,5 @@
 ﻿using Antlr4.Runtime.Misc;
+using Antlr4.Runtime.Tree;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,74 +9,72 @@ using System.Threading.Tasks;
 using static ImperiumParser;
 
 namespace AntlrCSharp
-{
-    public class ImperiumVisitor : ImperiumBaseVisitor<object>
+    {
+
+
+    public class ImperiumVisitor : ImperiumBaseVisitor<AstNode>
     {
         public ImperiumVisitor() : base()
         {
             ;
         }
 
-        public override object VisitDeclare_stmt([NotNull] Declare_stmtContext context)
+
+        public override AstNode VisitTranslationUnit([NotNull] TranslationUnitContext context)
         {
-            return base.VisitDeclare_stmt(context);
-        }
-
-        public override object VisitDeclaration_body([NotNull] Declaration_bodyContext context)
-        {
-            string spelling = string.Empty;
-
-            if (context.identifier() is Identifier_Context)
+            var ast_translation_unit = new AstTranslationUnit(context);
+            
+            foreach (ScopeContext scope in context.scope())
             {
-                spelling = (context.identifier() as Identifier_Context)?.IDENTIFIER()?.ToString();
-            }
-            else
-            if (context.identifier() is Keyword_Context)
-                {
-                var xx = (context.identifier() as Keyword_Context);
-                var zz = xx.keyword()?.children[0].ToString();
-                Console.WriteLine($"I: Line {context.Start.Line.ToString().PadRight(3)} - Declaration of '{zz}' - A language keyword has been used as an identifier.");
-                }
+                var astScope = AstScope.Create(scope);
 
+                ast_translation_unit.AddScope(astScope);
 
+                var blck = Visit(scope);
 
-            var dims = context.type_info()?.dimension_suffix()?.bound_pair_commalist();
+                if (blck != null)
+                    astScope.AddStmtBlock(Visit(scope));
 
-            if (dims != null)
-            {
-                int dim = 1;
-
-                foreach (var bp in dims.bound_pair())
-                {
-                    ValidateBound_pair(bp, spelling, context.Start.Line, dim);
-                    dim++;
-                }
             }
 
-            return base.VisitDeclaration_body(context);
+            return ast_translation_unit;
         }
 
-        public override object VisitBound_pair([NotNull] Bound_pairContext context)
+        public override AstNode VisitScope([NotNull] ScopeContext context)
         {
-            //ValidateBound_pair(context);
+            var block = context.stmtBlock();
 
-            return base.VisitBound_pair(context);
+            if (block == null)
+                return null;
+
+            var stmt_block = new AstStmtBlock(context.stmtBlock());
+
+            foreach (NonexecutableStmtContext stc in context.stmtBlock().nonexecutableStmt())
+            {
+                stmt_block.AddStatement(new AstNonexecutableStmt(stc));
+            }
+
+            foreach (ExecutableStmtContext stc in context.stmtBlock().executableStmt())
+            {
+                stmt_block.AddStatement(new AstExecutableStmt(stc));
+            }
+
+            return stmt_block;
         }
 
-        private void ValidateBound_pair([NotNull] Bound_pairContext context, string Name, int Line, int Dim)
+        private void ValidateBound_pair([NotNull] BoundPairContext context, string Name, int Line, int Dim)
         {
-            Int32 UpBound;
-            Int32 LoBound;
 
-            var upper = context.upper_bound()?.expression() as Expr_Primitive_Context;
-            var lower = context.lower_bound()?.expression() as Expr_Primitive_Context;
+            if (context.upperBound()?.expression() is ExprPrimitiveContext upper && context.lowerBound()?.expression() is ExprPrimitiveContext lower)
+            {
+                if (int.TryParse(upper?.primitiveExpression()?.numericLiteral()?.decimalLiteral()?.DECIMAL_PATTERN()?.ToString(), out int UpBound))
+                    if (int.TryParse(lower?.primitiveExpression()?.numericLiteral()?.decimalLiteral()?.DECIMAL_PATTERN()?.ToString(), out int LoBound))
+                    {
+                        if (LoBound >= UpBound)
+                            Console.WriteLine($"E: Line {Line.ToString().PadRight(3)} - Declaration of array '{Name}' - The lower bound ({LoBound}) must be less than the upper bound ({UpBound}) in dimension {Dim}.");
+                    }
+            }
 
-            if (Int32.TryParse(upper?.primitive_expression()?.numeric_literal()?.decimal_literal()?.DECIMAL_PATTERN()?.ToString(), out UpBound))
-                if (Int32.TryParse(lower?.primitive_expression()?.numeric_literal()?.decimal_literal()?.DECIMAL_PATTERN()?.ToString(), out LoBound))
-                {
-                    if (LoBound >= UpBound)
-                        Console.WriteLine($"E: Line {Line.ToString().PadRight(3)} - Declaration of array '{Name}' - The lower bound ({LoBound}) must be less than the upper bound ({UpBound}) in dimension {Dim}.");
-                }
         }
     }
 
