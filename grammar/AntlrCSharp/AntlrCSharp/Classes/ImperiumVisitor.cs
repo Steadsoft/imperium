@@ -15,13 +15,13 @@ namespace AntlrCSharp
 
         public override AstNode VisitTranslationUnit([NotNull] TranslationUnitContext context)
         {
-            var ast_translation_unit = new AstTranslationUnit(context);
+            var ast_translation_unit_node = new AstTranslationUnit(context);
             
             foreach (ScopeContext scope in context.scope())
             {
                 var astScope = AstScope.Create(scope);
 
-                ast_translation_unit.AddScope(astScope);
+                ast_translation_unit_node.AddScope(astScope);
 
                 var blck = Visit(scope);
 
@@ -30,7 +30,7 @@ namespace AntlrCSharp
 
             }
 
-            return ast_translation_unit;
+            return ast_translation_unit_node;
         }
 
         public override AstNode VisitScope([NotNull] ScopeContext context)
@@ -40,25 +40,25 @@ namespace AntlrCSharp
             if (block == null)
                 return null;
 
-            var stmt_block = new AstStmtBlock(context.stmtBlock());
+            var ast_stmt_block_node = new AstStmtBlock(context.stmtBlock());
 
             foreach (DeclareStmtContext stc in context.stmtBlock().nonexecutableStmt().Select(s => s.declareStmt()).Where(s => s != null))
             {
                 var nes = new AstDeclaration(stc);
 
-                stmt_block.AddStatement(nes);
+                ast_stmt_block_node.AddStatement(nes);
 
                 Visit(stc);
             }
 
             foreach (DefineStmtContext stc in context.stmtBlock().nonexecutableStmt().Select(s => s.defineStmt()).Where(s => s != null))
             {
-                var nes = new AstDefinition(stc);
+                var ast_definition_node = new AstDefinition(stc);
 
-                stmt_block.AddStatement(new AstDefinition(stc));
+                ast_stmt_block_node.AddStatement(new AstDefinition(stc));
             }
 
-            return stmt_block;
+            return ast_stmt_block_node;
         }
 
         private void ValidateBound_pair([NotNull] BoundPairContext context, string Name, int Line, int Dim)
