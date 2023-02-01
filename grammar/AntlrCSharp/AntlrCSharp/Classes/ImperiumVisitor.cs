@@ -44,9 +44,9 @@ namespace AntlrCSharp
 
             foreach (DeclareStmtContext stc in context.stmtBlock().nonexecutableStmt().Select(s => s.declareStmt()).Where(s => s != null))
             {
-                var nes = new AstDeclaration(stc);
+                var ast_declaration_node = new AstDeclaration(stc);
 
-                ast_stmt_block_node.AddStatement(nes);
+                ast_stmt_block_node.AddStatement(ast_declaration_node);
 
                 Visit(stc);
             }
