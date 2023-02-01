@@ -41,7 +41,7 @@ procedure startup (root_ptr);
       dcl map as memory_map based (root_ptr);
 
       if then > else then 
-         else ⇐ if;
+         ; //else ⇐ if;
       elif if < then then
          elif ⇐ if;
       else

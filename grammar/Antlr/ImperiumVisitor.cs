@@ -32,23 +32,89 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.translation_unit"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.translationUnit"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitTranslation_unit([NotNull] ImperiumParser.Translation_unitContext context);
+	Result VisitTranslationUnit([NotNull] ImperiumParser.TranslationUnitContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.procedure_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.uses"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitProcedure_stmt([NotNull] ImperiumParser.Procedure_stmtContext context);
+	Result VisitUses([NotNull] ImperiumParser.UsesContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.stmt_block"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.scope"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitStmt_block([NotNull] ImperiumParser.Stmt_blockContext context);
+	Result VisitScope([NotNull] ImperiumParser.ScopeContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.scopeStmt"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitScopeStmt([NotNull] ImperiumParser.ScopeStmtContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.scopeEnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitScopeEnd([NotNull] ImperiumParser.ScopeEndContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.procedure"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitProcedure([NotNull] ImperiumParser.ProcedureContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.procedureStmt"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitProcedureStmt([NotNull] ImperiumParser.ProcedureStmtContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.functionStmt"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFunctionStmt([NotNull] ImperiumParser.FunctionStmtContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.procedureEnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitProcedureEnd([NotNull] ImperiumParser.ProcedureEndContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.functionEnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFunctionEnd([NotNull] ImperiumParser.FunctionEndContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.procDescriptor"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitProcDescriptor([NotNull] ImperiumParser.ProcDescriptorContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.funcDescriptor"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFuncDescriptor([NotNull] ImperiumParser.FuncDescriptorContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.returnsDescriptor"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitReturnsDescriptor([NotNull] ImperiumParser.ReturnsDescriptorContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.stmtBlock"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStmtBlock([NotNull] ImperiumParser.StmtBlockContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.terminator"/>.
 	/// </summary>
@@ -56,128 +122,41 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitTerminator([NotNull] ImperiumParser.TerminatorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.label_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.labelStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLabel_stmt([NotNull] ImperiumParser.Label_stmtContext context);
+	Result VisitLabelStmt([NotNull] ImperiumParser.LabelStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>PRE</c>
-	/// labeled alternative in <see cref="ImperiumParser.nonexecutable_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.nonexecutableStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitPRE([NotNull] ImperiumParser.PREContext context);
+	Result VisitNonexecutableStmt([NotNull] ImperiumParser.NonexecutableStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>DCL</c>
-	/// labeled alternative in <see cref="ImperiumParser.nonexecutable_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.executableStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDCL([NotNull] ImperiumParser.DCLContext context);
+	Result VisitExecutableStmt([NotNull] ImperiumParser.ExecutableStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>DEF</c>
-	/// labeled alternative in <see cref="ImperiumParser.nonexecutable_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.nullStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDEF([NotNull] ImperiumParser.DEFContext context);
+	Result VisitNullStmt([NotNull] ImperiumParser.NullStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>LABEL</c>
-	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.assignmentStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLABEL([NotNull] ImperiumParser.LABELContext context);
+	Result VisitAssignmentStmt([NotNull] ImperiumParser.AssignmentStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>ASSIGN</c>
-	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.reference"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitASSIGN([NotNull] ImperiumParser.ASSIGNContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>CALL</c>
-	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitCALL([NotNull] ImperiumParser.CALLContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>GOTO</c>
-	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitGOTO([NotNull] ImperiumParser.GOTOContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>PROC</c>
-	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitPROC([NotNull] ImperiumParser.PROCContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>RET</c>
-	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitRET([NotNull] ImperiumParser.RETContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>IF</c>
-	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitIF([NotNull] ImperiumParser.IFContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>LOOP</c>
-	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitLOOP([NotNull] ImperiumParser.LOOPContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>LEAVE</c>
-	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitLEAVE([NotNull] ImperiumParser.LEAVEContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>AGAIN</c>
-	/// labeled alternative in <see cref="ImperiumParser.executable_stmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitAGAIN([NotNull] ImperiumParser.AGAINContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.preprocessor_stmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitPreprocessor_stmt([NotNull] ImperiumParser.Preprocessor_stmtContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.assign_stmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitAssign_stmt([NotNull] ImperiumParser.Assign_stmtContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>BASIC_REF</c>
-	/// labeled alternative in <see cref="ImperiumParser.reference"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBASIC_REF([NotNull] ImperiumParser.BASIC_REFContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>PTR_REF</c>
-	/// labeled alternative in <see cref="ImperiumParser.reference"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitPTR_REF([NotNull] ImperiumParser.PTR_REFContext context);
+	Result VisitReference([NotNull] ImperiumParser.ReferenceContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.arguments"/>.
 	/// </summary>
@@ -185,29 +164,29 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitArguments([NotNull] ImperiumParser.ArgumentsContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.arguments_list"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.argumentsList"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitArguments_list([NotNull] ImperiumParser.Arguments_listContext context);
+	Result VisitArgumentsList([NotNull] ImperiumParser.ArgumentsListContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.basic_reference"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.basicReference"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitBasic_reference([NotNull] ImperiumParser.Basic_referenceContext context);
+	Result VisitBasicReference([NotNull] ImperiumParser.BasicReferenceContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.structure_qualification"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.structureQualification"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitStructure_qualification([NotNull] ImperiumParser.Structure_qualificationContext context);
+	Result VisitStructureQualification([NotNull] ImperiumParser.StructureQualificationContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.structure_qualification_list"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.structureQualificationList"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitStructure_qualification_list([NotNull] ImperiumParser.Structure_qualification_listContext context);
+	Result VisitStructureQualificationList([NotNull] ImperiumParser.StructureQualificationListContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.subscript"/>.
 	/// </summary>
@@ -215,199 +194,252 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitSubscript([NotNull] ImperiumParser.SubscriptContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.subscript_commalist"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.subscriptCommalist"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitSubscript_commalist([NotNull] ImperiumParser.Subscript_commalistContext context);
+	Result VisitSubscriptCommalist([NotNull] ImperiumParser.SubscriptCommalistContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.expression"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.parenthesizedExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression([NotNull] ImperiumParser.ExpressionContext context);
+	Result VisitParenthesizedExpression([NotNull] ImperiumParser.ParenthesizedExpressionContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.expression_9"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.primitiveExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression_9([NotNull] ImperiumParser.Expression_9Context context);
+	Result VisitPrimitiveExpression([NotNull] ImperiumParser.PrimitiveExpressionContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.expression_8"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.prefixExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression_8([NotNull] ImperiumParser.Expression_8Context context);
+	Result VisitPrefixExpression([NotNull] ImperiumParser.PrefixExpressionContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.expression_7"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.bitAdjustOperator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression_7([NotNull] ImperiumParser.Expression_7Context context);
+	Result VisitBitAdjustOperator([NotNull] ImperiumParser.BitAdjustOperatorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.expression_6"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.additionOperator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression_6([NotNull] ImperiumParser.Expression_6Context context);
+	Result VisitAdditionOperator([NotNull] ImperiumParser.AdditionOperatorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.expression_5"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.multiplyOperator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression_5([NotNull] ImperiumParser.Expression_5Context context);
+	Result VisitMultiplyOperator([NotNull] ImperiumParser.MultiplyOperatorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.expression_4"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.boolAndOperator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression_4([NotNull] ImperiumParser.Expression_4Context context);
+	Result VisitBoolAndOperator([NotNull] ImperiumParser.BoolAndOperatorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.expression_3"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.boolXorOperator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression_3([NotNull] ImperiumParser.Expression_3Context context);
+	Result VisitBoolXorOperator([NotNull] ImperiumParser.BoolXorOperatorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.expression_2"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.boolOrOperator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression_2([NotNull] ImperiumParser.Expression_2Context context);
+	Result VisitBoolOrOperator([NotNull] ImperiumParser.BoolOrOperatorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.expression_1"/>.
+	/// Visit a parse tree produced by the <c>ExprBoolAnd</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression_1([NotNull] ImperiumParser.Expression_1Context context);
+	Result VisitExprBoolAnd([NotNull] ImperiumParser.ExprBoolAndContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.prefix_expression"/>.
+	/// Visit a parse tree produced by the <c>ExprConcat</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitPrefix_expression([NotNull] ImperiumParser.Prefix_expressionContext context);
+	Result VisitExprConcat([NotNull] ImperiumParser.ExprConcatContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.parenthesized_expression"/>.
+	/// Visit a parse tree produced by the <c>ExprBoolXor</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitParenthesized_expression([NotNull] ImperiumParser.Parenthesized_expressionContext context);
+	Result VisitExprBoolXor([NotNull] ImperiumParser.ExprBoolXorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.primitive_expression"/>.
+	/// Visit a parse tree produced by the <c>ExprLogAnd</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitPrimitive_expression([NotNull] ImperiumParser.Primitive_expressionContext context);
+	Result VisitExprLogAnd([NotNull] ImperiumParser.ExprLogAndContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.prefix_operator"/>.
+	/// Visit a parse tree produced by the <c>ExprBitAdjust</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitPrefix_operator([NotNull] ImperiumParser.Prefix_operatorContext context);
+	Result VisitExprBitAdjust([NotNull] ImperiumParser.ExprBitAdjustContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.comparison_operator"/>.
+	/// Visit a parse tree produced by the <c>ExprAddSub</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitComparison_operator([NotNull] ImperiumParser.Comparison_operatorContext context);
+	Result VisitExprAddSub([NotNull] ImperiumParser.ExprAddSubContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.shift_operator"/>.
+	/// Visit a parse tree produced by the <c>ExprParenthesized</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitShift_operator([NotNull] ImperiumParser.Shift_operatorContext context);
+	Result VisitExprParenthesized([NotNull] ImperiumParser.ExprParenthesizedContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>KEYWD</c>
-	/// labeled alternative in <see cref="ImperiumParser.identifier"/>.
+	/// Visit a parse tree produced by the <c>ExprMulDiv</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitKEYWD([NotNull] ImperiumParser.KEYWDContext context);
+	Result VisitExprMulDiv([NotNull] ImperiumParser.ExprMulDivContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>identifier_IDENTIFIER</c>
-	/// labeled alternative in <see cref="ImperiumParser.identifier"/>.
+	/// Visit a parse tree produced by the <c>ExprLogOr</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitIdentifier_IDENTIFIER([NotNull] ImperiumParser.Identifier_IDENTIFIERContext context);
+	Result VisitExprLogOr([NotNull] ImperiumParser.ExprLogOrContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.keyword"/>.
+	/// Visit a parse tree produced by the <c>ExprCompare</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitKeyword([NotNull] ImperiumParser.KeywordContext context);
+	Result VisitExprCompare([NotNull] ImperiumParser.ExprCompareContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.call_stmt"/>.
+	/// Visit a parse tree produced by the <c>ExprPrefixed</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitCall_stmt([NotNull] ImperiumParser.Call_stmtContext context);
+	Result VisitExprPrefixed([NotNull] ImperiumParser.ExprPrefixedContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.goto_stmt"/>.
+	/// Visit a parse tree produced by the <c>ExprBoolOr</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitGoto_stmt([NotNull] ImperiumParser.Goto_stmtContext context);
+	Result VisitExprBoolOr([NotNull] ImperiumParser.ExprBoolOrContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.end_stmt"/>.
+	/// Visit a parse tree produced by the <c>ExprPrimitive</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitEnd_stmt([NotNull] ImperiumParser.End_stmtContext context);
+	Result VisitExprPrimitive([NotNull] ImperiumParser.ExprPrimitiveContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.endloop_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.prefixOperator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitEndloop_stmt([NotNull] ImperiumParser.Endloop_stmtContext context);
+	Result VisitPrefixOperator([NotNull] ImperiumParser.PrefixOperatorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.reloop_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.comparisonOperator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitReloop_stmt([NotNull] ImperiumParser.Reloop_stmtContext context);
+	Result VisitComparisonOperator([NotNull] ImperiumParser.ComparisonOperatorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.declare_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.shiftOperator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDeclare_stmt([NotNull] ImperiumParser.Declare_stmtContext context);
+	Result VisitShiftOperator([NotNull] ImperiumParser.ShiftOperatorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.type_info"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.identifier"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitType_info([NotNull] ImperiumParser.Type_infoContext context);
+	Result VisitIdentifier([NotNull] ImperiumParser.IdentifierContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.dimension_suffix"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.callStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDimension_suffix([NotNull] ImperiumParser.Dimension_suffixContext context);
+	Result VisitCallStmt([NotNull] ImperiumParser.CallStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.bound_pair"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.gotoStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitBound_pair([NotNull] ImperiumParser.Bound_pairContext context);
+	Result VisitGotoStmt([NotNull] ImperiumParser.GotoStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.bound_pair_commalist"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.endloopStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitBound_pair_commalist([NotNull] ImperiumParser.Bound_pair_commalistContext context);
+	Result VisitEndloopStmt([NotNull] ImperiumParser.EndloopStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.lower_bound"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.reloopStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLower_bound([NotNull] ImperiumParser.Lower_boundContext context);
+	Result VisitReloopStmt([NotNull] ImperiumParser.ReloopStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.upper_bound"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.declareStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitUpper_bound([NotNull] ImperiumParser.Upper_boundContext context);
+	Result VisitDeclareStmt([NotNull] ImperiumParser.DeclareStmtContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.declarationBody"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDeclarationBody([NotNull] ImperiumParser.DeclarationBodyContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.typeInfo"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitTypeInfo([NotNull] ImperiumParser.TypeInfoContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.dimensionSuffix"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDimensionSuffix([NotNull] ImperiumParser.DimensionSuffixContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.boundPair"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitBoundPair([NotNull] ImperiumParser.BoundPairContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.boundPairCommalist"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitBoundPairCommalist([NotNull] ImperiumParser.BoundPairCommalistContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.lowerBound"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitLowerBound([NotNull] ImperiumParser.LowerBoundContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.upperBound"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitUpperBound([NotNull] ImperiumParser.UpperBoundContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.attribute"/>.
 	/// </summary>
@@ -415,117 +447,35 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitAttribute([NotNull] ImperiumParser.AttributeContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>BIN</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.memoryAttribute"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitBIN([NotNull] ImperiumParser.BINContext context);
+	Result VisitMemoryAttribute([NotNull] ImperiumParser.MemoryAttributeContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>DEC</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.dataAttribute"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDEC([NotNull] ImperiumParser.DECContext context);
+	Result VisitDataAttribute([NotNull] ImperiumParser.DataAttributeContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>PTR</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.stringAttribute"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitPTR([NotNull] ImperiumParser.PTRContext context);
+	Result VisitStringAttribute([NotNull] ImperiumParser.StringAttributeContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>BIT</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.utfSpec"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitBIT([NotNull] ImperiumParser.BITContext context);
+	Result VisitUtfSpec([NotNull] ImperiumParser.UtfSpecContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>CHAR</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.rawSpec"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitCHAR([NotNull] ImperiumParser.CHARContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>STR</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitSTR([NotNull] ImperiumParser.STRContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>ENT</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitENT([NotNull] ImperiumParser.ENTContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>FIX</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitFIX([NotNull] ImperiumParser.FIXContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>FLT</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitFLT([NotNull] ImperiumParser.FLTContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>OFF</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitOFF([NotNull] ImperiumParser.OFFContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>VNG</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitVNG([NotNull] ImperiumParser.VNGContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>COR</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitCOR([NotNull] ImperiumParser.CORContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>COF</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitCOF([NotNull] ImperiumParser.COFContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>BLTN</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBLTN([NotNull] ImperiumParser.BLTNContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>INTR</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitINTR([NotNull] ImperiumParser.INTRContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>IDENT</c>
-	/// labeled alternative in <see cref="ImperiumParser.data_attribute"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitIDENT([NotNull] ImperiumParser.IDENTContext context);
+	Result VisitRawSpec([NotNull] ImperiumParser.RawSpecContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.precision"/>.
 	/// </summary>
@@ -533,11 +483,11 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitPrecision([NotNull] ImperiumParser.PrecisionContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.number_of_digits"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.numberOfDigits"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitNumber_of_digits([NotNull] ImperiumParser.Number_of_digitsContext context);
+	Result VisitNumberOfDigits([NotNull] ImperiumParser.NumberOfDigitsContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.scale_factor"/>.
 	/// </summary>
@@ -545,11 +495,17 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitScale_factor([NotNull] ImperiumParser.Scale_factorContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.max_length"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.maxStringLength"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitMax_length([NotNull] ImperiumParser.Max_lengthContext context);
+	Result VisitMaxStringLength([NotNull] ImperiumParser.MaxStringLengthContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.maxLength"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMaxLength([NotNull] ImperiumParser.MaxLengthContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.based"/>.
 	/// </summary>
@@ -563,138 +519,237 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitDefined([NotNull] ImperiumParser.DefinedContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.entry_information"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.coprocedureSpecifier"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitEntry_information([NotNull] ImperiumParser.Entry_informationContext context);
+	Result VisitCoprocedureSpecifier([NotNull] ImperiumParser.CoprocedureSpecifierContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.coprocedure_specifier"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.handlerSpecifier"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitCoprocedure_specifier([NotNull] ImperiumParser.Coprocedure_specifierContext context);
+	Result VisitHandlerSpecifier([NotNull] ImperiumParser.HandlerSpecifierContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.handler_specifier"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.parameterNameCommalist"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitHandler_specifier([NotNull] ImperiumParser.Handler_specifierContext context);
+	Result VisitParameterNameCommalist([NotNull] ImperiumParser.ParameterNameCommalistContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.parameter_name_commalist"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.returnStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitParameter_name_commalist([NotNull] ImperiumParser.Parameter_name_commalistContext context);
+	Result VisitReturnStmt([NotNull] ImperiumParser.ReturnStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.returns_descriptor"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.ifStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitReturns_descriptor([NotNull] ImperiumParser.Returns_descriptorContext context);
+	Result VisitIfStmt([NotNull] ImperiumParser.IfStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.return_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.ifEnd"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitReturn_stmt([NotNull] ImperiumParser.Return_stmtContext context);
+	Result VisitIfEnd([NotNull] ImperiumParser.IfEndContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.if_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.thenClause"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitIf_stmt([NotNull] ImperiumParser.If_stmtContext context);
+	Result VisitThenClause([NotNull] ImperiumParser.ThenClauseContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.then_clause"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.elseClause"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitThen_clause([NotNull] ImperiumParser.Then_clauseContext context);
+	Result VisitElseClause([NotNull] ImperiumParser.ElseClauseContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.else_clause"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.elifClause"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitElse_clause([NotNull] ImperiumParser.Else_clauseContext context);
+	Result VisitElifClause([NotNull] ImperiumParser.ElifClauseContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.elif_clause"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.loopStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitElif_clause([NotNull] ImperiumParser.Elif_clauseContext context);
+	Result VisitLoopStmt([NotNull] ImperiumParser.LoopStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>BASIC_LOOP</c>
-	/// labeled alternative in <see cref="ImperiumParser.loop_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.loopEnd"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitBASIC_LOOP([NotNull] ImperiumParser.BASIC_LOOPContext context);
+	Result VisitLoopEnd([NotNull] ImperiumParser.LoopEndContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>WHILE_UNTIL</c>
-	/// labeled alternative in <see cref="ImperiumParser.loop_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.whileOption"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitWHILE_UNTIL([NotNull] ImperiumParser.WHILE_UNTILContext context);
+	Result VisitWhileOption([NotNull] ImperiumParser.WhileOptionContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>UNTIL_WHILE</c>
-	/// labeled alternative in <see cref="ImperiumParser.loop_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.untilOption"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitUNTIL_WHILE([NotNull] ImperiumParser.UNTIL_WHILEContext context);
+	Result VisitUntilOption([NotNull] ImperiumParser.UntilOptionContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.while_option"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.selectStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitWhile_option([NotNull] ImperiumParser.While_optionContext context);
+	Result VisitSelectStmt([NotNull] ImperiumParser.SelectStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.until_option"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.selectEnd"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitUntil_option([NotNull] ImperiumParser.Until_optionContext context);
+	Result VisitSelectEnd([NotNull] ImperiumParser.SelectEndContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.define_stmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.selectClause"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDefine_stmt([NotNull] ImperiumParser.Define_stmtContext context);
+	Result VisitSelectClause([NotNull] ImperiumParser.SelectClauseContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.string_literal"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.whenClause"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitString_literal([NotNull] ImperiumParser.String_literalContext context);
+	Result VisitWhenClause([NotNull] ImperiumParser.WhenClauseContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.numeric_literal"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.otherwiseClause"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitNumeric_literal([NotNull] ImperiumParser.Numeric_literalContext context);
+	Result VisitOtherwiseClause([NotNull] ImperiumParser.OtherwiseClauseContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.hexadecimal_literal"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.defineStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitHexadecimal_literal([NotNull] ImperiumParser.Hexadecimal_literalContext context);
+	Result VisitDefineStmt([NotNull] ImperiumParser.DefineStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.octal_literal"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.enumType"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitOctal_literal([NotNull] ImperiumParser.Octal_literalContext context);
+	Result VisitEnumType([NotNull] ImperiumParser.EnumTypeContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.decimal_literal"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.aliasType"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDecimal_literal([NotNull] ImperiumParser.Decimal_literalContext context);
+	Result VisitAliasType([NotNull] ImperiumParser.AliasTypeContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="ImperiumParser.binary_literal"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.binaryEnum"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitBinary_literal([NotNull] ImperiumParser.Binary_literalContext context);
+	Result VisitBinaryEnum([NotNull] ImperiumParser.BinaryEnumContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.decimalEnum"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDecimalEnum([NotNull] ImperiumParser.DecimalEnumContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.stringEnum"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStringEnum([NotNull] ImperiumParser.StringEnumContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.bitEnum"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitBitEnum([NotNull] ImperiumParser.BitEnumContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.enumBody"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitEnumBody([NotNull] ImperiumParser.EnumBodyContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.enumLiteral"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitEnumLiteral([NotNull] ImperiumParser.EnumLiteralContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.structType"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStructType([NotNull] ImperiumParser.StructTypeContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.structBody"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStructBody([NotNull] ImperiumParser.StructBodyContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.structMemberList"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStructMemberList([NotNull] ImperiumParser.StructMemberListContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.structSubstruct"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStructSubstruct([NotNull] ImperiumParser.StructSubstructContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.structMember"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStructMember([NotNull] ImperiumParser.StructMemberContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.stringLiteral"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStringLiteral([NotNull] ImperiumParser.StringLiteralContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.numericLiteral"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitNumericLiteral([NotNull] ImperiumParser.NumericLiteralContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.hexLiteral"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitHexLiteral([NotNull] ImperiumParser.HexLiteralContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.octalLiteral"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitOctalLiteral([NotNull] ImperiumParser.OctalLiteralContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.decimalLiteral"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitDecimalLiteral([NotNull] ImperiumParser.DecimalLiteralContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.binaryLiteral"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitBinaryLiteral([NotNull] ImperiumParser.BinaryLiteralContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="ImperiumParser.keyword"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitKeyword([NotNull] ImperiumParser.KeywordContext context);
 }

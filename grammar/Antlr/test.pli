@@ -1,6 +1,8 @@
  
  dcl validate_root_ptr external entry (pointer, bin(15,3));
- 
+ dcl shutdown entry;
+ declare installed_memory entry returns(bin(31));
+
  sys$startup:
     procedure (root_ptr, status);
 
@@ -14,7 +16,14 @@
        return;
        end;
 
+    if if < then < else then
+       return;
+
     call validate_root_ptr(root_ptr, status);
+
+    call shutdown;
+
+    status = installed_memory ;
 
     if status ^= 0 then
        return;

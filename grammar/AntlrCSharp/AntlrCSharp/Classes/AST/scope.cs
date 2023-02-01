@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Intrinsics.X86;
-using System.Text;
-using System.Threading.Tasks;
-using static ImperiumParser;
+﻿using static ImperiumParser;
 
 namespace AntlrCSharp
 {
@@ -20,7 +14,7 @@ namespace AntlrCSharp
     public class AstScope : AstNode
     {
         public string[] NameElements { get; private set; }
-        public List<AstStmtBlock> StmtBlocks { get; private set; } = new List<AstStmtBlock>();
+        public List<AstStmtBlock> StmtBlock { get; private set; } = new List<AstStmtBlock>(); // this is singular should not be a List...
         public static AstScope Create(ScopeContext C)
         {
             return new AstScope(C);
@@ -37,7 +31,7 @@ namespace AntlrCSharp
 
         public void AddStmtBlock (AstNode astStmtBlock)
         {
-            StmtBlocks.Add((AstStmtBlock)astStmtBlock);
+            StmtBlock.Add((AstStmtBlock)astStmtBlock);
         }
     }
 
@@ -73,24 +67,20 @@ namespace AntlrCSharp
 
     public class AstStmt : AstNode
     {
-        public AstStmt(NonexecutableStmtContext C) : base(C.Start.Line)
+        public AstStmt(DeclareStmtContext C) : base(C.Start.Line)
         {
             ;
         }
+
+        public AstStmt(DefineStmtContext C) : base(C.Start.Line)
+        {
+            ;
+        }
+
         public AstStmt(ExecutableStmtContext C) : base(C.Start.Line)
         {
             ;
         }
-
-    }
-
-    public class AstNonexecutableStmt : AstStmt
-    {
-        public AstNonexecutableStmt(NonexecutableStmtContext C) :base(C)
-        {
-            ;
-        }
-
     }
 
     public class AstExecutableStmt : AstStmt
@@ -99,7 +89,21 @@ namespace AntlrCSharp
         {
             ;
         }
-
     }
 
+    public class AstDeclaration : AstStmt
+    {
+        public AstDeclaration(DeclareStmtContext C) : base(C)
+        {
+            ;
+        }
+    }
+
+    public class AstDefinition : AstStmt
+    {
+        public AstDefinition(DefineStmtContext C) : base(C)
+        {
+            ;
+        }
+    }
 }

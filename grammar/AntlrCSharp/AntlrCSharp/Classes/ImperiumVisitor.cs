@@ -1,15 +1,8 @@
 ﻿using Antlr4.Runtime.Misc;
-using Antlr4.Runtime.Tree;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static ImperiumParser;
 
 namespace AntlrCSharp
-    {
+{
 
 
     public class ImperiumVisitor : ImperiumBaseVisitor<AstNode>
@@ -33,7 +26,7 @@ namespace AntlrCSharp
                 var blck = Visit(scope);
 
                 if (blck != null)
-                    astScope.AddStmtBlock(Visit(scope));
+                    astScope.AddStmtBlock(blck);
 
             }
 
@@ -49,14 +42,20 @@ namespace AntlrCSharp
 
             var stmt_block = new AstStmtBlock(context.stmtBlock());
 
-            foreach (NonexecutableStmtContext stc in context.stmtBlock().nonexecutableStmt())
+            foreach (DeclareStmtContext stc in context.stmtBlock().nonexecutableStmt().Select(s => s.declareStmt()).Where(s => s != null))
             {
-                stmt_block.AddStatement(new AstNonexecutableStmt(stc));
+                var nes = new AstDeclaration(stc);
+
+                stmt_block.AddStatement(nes);
+
+                Visit(stc);
             }
 
-            foreach (ExecutableStmtContext stc in context.stmtBlock().executableStmt())
+            foreach (DefineStmtContext stc in context.stmtBlock().nonexecutableStmt().Select(s => s.defineStmt()).Where(s => s != null))
             {
-                stmt_block.AddStatement(new AstExecutableStmt(stc));
+                var nes = new AstDefinition(stc);
+
+                stmt_block.AddStatement(new AstDefinition(stc));
             }
 
             return stmt_block;
@@ -74,8 +73,6 @@ namespace AntlrCSharp
                             Console.WriteLine($"E: Line {Line.ToString().PadRight(3)} - Declaration of array '{Name}' - The lower bound ({LoBound}) must be less than the upper bound ({UpBound}) in dimension {Dim}.");
                     }
             }
-
         }
     }
-
 }

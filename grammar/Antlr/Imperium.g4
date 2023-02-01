@@ -128,8 +128,9 @@ labelStmt
 
 nonexecutableStmt
 	: declareStmt	  
-	| defineStmt		  
-   ;
+	| defineStmt		 
+  | nullStmt       
+  ;
  
 executableStmt
   : labelStmt      
@@ -239,7 +240,7 @@ expression
   | expression bitAdjustOperator expression   # ExprBitAdjust
   | expression CONC expression                # ExprConcat
   | expression comparisonOperator expression  # ExprCompare
-  | expression boolAndOperator expression   # ExprBoolAnd
+  | expression boolAndOperator expression     # ExprBoolAnd
   | expression boolXorOperator expression     # ExprBoolXor
   | expression boolOrOperator expression      # ExprBoolOr
   | expression LOGAND expression              # ExprLogAnd

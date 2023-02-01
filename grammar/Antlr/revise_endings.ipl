@@ -1,4 +1,4 @@
-    namespace test;
+namespace test;
 
     dcl root_ptr pointer;
 
@@ -21,7 +21,9 @@
 
 end;
 
-namespace other;
+namespace utility.sundry;
+    
+    // an empty namespace
 
 end;
 
@@ -32,11 +34,8 @@ namespace s$system;
         procedure allocate_virgin(size);
 
             arg size bin(31);
-
         end;
-
     end;
-
 end;
 
 

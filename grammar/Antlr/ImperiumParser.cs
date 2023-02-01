@@ -36,101 +36,108 @@ public partial class ImperiumParser : Parser {
 	protected static DFA[] decisionToDFA;
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, COMMENT=6, LINE_COMMENT=7, WS=8, 
-		NEWLINE=9, TAB=10, STRING_LITERAL_3=11, STRING_LITERAL_2=12, STRING_LITERAL_1=13, 
-		BYTE_ORDER_MARK=14, ALIGNED=15, ARGUMENT=16, AUTOMATIC=17, BASED=18, BINARY=19, 
-		BIT=20, BOOLEAN=21, BUILTIN=22, BY=23, BYPASS=24, CALL=25, CHARACTER=26, 
-		COFUNCTION=27, COROUTINE=28, DECIMAL=29, DECLARE=30, DEFINE=31, DEFINED=32, 
-		ELIF=33, ELSE=34, END=35, ENDLOOP=36, ENTRY=37, ENUM=38, FIXED=39, FLOAT=40, 
-		FUNCTION=41, GOTO=42, IF=43, INC=44, INCLUDE=45, INTERNAL=46, INTERRUPT=47, 
-		INTRINSIC=48, LANGUAGE=49, LOOP=50, NAMESPACE=51, OFFSET=52, OUT=53, PAD=54, 
-		POINTER=55, PRIVATE=56, PROCEDURE=57, PUBLIC=58, READONLY=59, REF=60, 
-		RELOOP=61, RETURN=62, RETURNS=63, RETURNON=64, SINGLET=65, STATIC=66, 
-		STRING=67, STRUCTURE=68, THEN=69, TO=70, TYPE=71, UNALIGNED=72, UNTIL=73, 
-		USING=74, WHILE=75, VARIABLE=76, VARYING=77, YIELD=78, ALIAS=79, RECURSIVE=80, 
-		LABEL=81, IDENTIFIER=82, BINARY_PATTERN=83, OCTAL_PATTERN=84, HEXADECIMAL_PATTERN=85, 
-		DECIMAL_PATTERN=86, RARROW=87, DOT=88, COMMA=89, LPAR=90, RPAR=91, LBRACK=92, 
-		RBRACK=93, LBRACE=94, RBRACE=95, EQUALS=96, TIMES=97, DIVIDE=98, PLUS=99, 
-		MINUS=100, SEMICOLON=101, POWER=102, COLON=103, TRIQUOTE=104, DIQUOTE=105, 
-		QUOTE=106, SQUOTE=107, NOT=108, GT=109, LT=110, GTE=111, LTE=112, NGT=113, 
-		NLT=114, NE=115, PCNT=116, AND=117, OR=118, SCAND=119, SCOR=120, CONC=121, 
-		LSHF=122, RSHF=123;
+		COMMENT=1, LINE_COMMENT=2, WS=3, NEWLINE=4, TAB=5, STRING_LITERAL_3=6, 
+		STRING_LITERAL_2=7, STRING_LITERAL_1=8, BYTE_ORDER_MARK=9, ALIAS=10, ALIGNED=11, 
+		ALL=12, ANY=13, ARGUMENT=14, AS=15, BASED=16, BINARY=17, BIT=18, BOOLEAN=19, 
+		BUILTIN=20, BY=21, BYPASS=22, CALL=23, CHARACTER=24, COFUNCTION=25, COROUTINE=26, 
+		DECIMAL=27, DECLARE=28, DEFINE=29, DEFINED=30, ELIF=31, ELSE=32, END=33, 
+		ENDLOOP=34, ENTRY=35, ENUM=36, FIXED=37, FLOAT=38, FUNCTION=39, GOTO=40, 
+		IF=41, INC=42, INCLUDE=43, INTERNAL=44, INTERRUPT=45, INTRINSIC=46, LANGUAGE=47, 
+		LOOP=48, NAMESPACE=49, OFFSET=50, OTHERWISE=51, OUT=52, PAD=53, POINTER=54, 
+		PRIVATE=55, PROCEDURE=56, PUBLIC=57, RAW=58, READONLY=59, RECURSIVE=60, 
+		REF=61, RELOOP=62, RETURN=63, RETURNON=64, RETURNS=65, SCOPE=66, SELECT=67, 
+		SINGLET=68, STACK=69, STATIC=70, STRING=71, STRUCTURE=72, THEN=73, TO=74, 
+		TYPE=75, UNALIGNED=76, UNTIL=77, USES=78, USING=79, UTF=80, VARIABLE=81, 
+		VARYING=82, WHEN=83, WHILE=84, YIELD=85, LABEL=86, IDENTIFIER=87, BINARY_PATTERN=88, 
+		OCTAL_PATTERN=89, HEXADECIMAL_PATTERN=90, DECIMAL_PATTERN=91, AT=92, RARROW_U=93, 
+		DOT=94, COMMA=95, LPAR=96, RPAR=97, LBRACK=98, RBRACK=99, LBRACE=100, 
+		RBRACE=101, EQUALS=102, ASSIGN_U=103, TIMES=104, DIVIDE_U=105, PLUS=106, 
+		MINUS=107, SEMICOLON=108, POWER_U=109, COLON=110, TRIQUOTE=111, DIQUOTE=112, 
+		QUOTE=113, SQUOTE=114, NOT=115, GT=116, LT=117, GTE_U=118, LTE_U=119, 
+		NGT=120, NLT=121, NE_U=122, PCNT=123, AND=124, OR=125, NAND=126, NOR=127, 
+		XOR_U=128, XNOR_U=129, REDAND=130, REDOR=131, REDNAND=132, REDNOR=133, 
+		REDXOR_U=134, REDXNOR_U=135, LOGAND=136, LOGOR=137, CONC=138, L_LOG_SHIFT=139, 
+		R_LOG_SHIFT=140, R_ART_SHIFT=141, L_ROTATE_U=142, R_ROTATE_U=143, RANGE=144;
 	public const int
-		RULE_translation_unit = 0, RULE_procedure_stmt = 1, RULE_stmt_block = 2, 
-		RULE_terminator = 3, RULE_label_stmt = 4, RULE_nonexecutable_stmt = 5, 
-		RULE_executable_stmt = 6, RULE_preprocessor_stmt = 7, RULE_assign_stmt = 8, 
-		RULE_reference = 9, RULE_arguments = 10, RULE_arguments_list = 11, RULE_basic_reference = 12, 
-		RULE_structure_qualification = 13, RULE_structure_qualification_list = 14, 
-		RULE_subscript = 15, RULE_subscript_commalist = 16, RULE_expression = 17, 
-		RULE_expression_9 = 18, RULE_expression_8 = 19, RULE_expression_7 = 20, 
-		RULE_expression_6 = 21, RULE_expression_5 = 22, RULE_expression_4 = 23, 
-		RULE_expression_3 = 24, RULE_expression_2 = 25, RULE_expression_1 = 26, 
-		RULE_prefix_expression = 27, RULE_parenthesized_expression = 28, RULE_primitive_expression = 29, 
-		RULE_prefix_operator = 30, RULE_comparison_operator = 31, RULE_shift_operator = 32, 
-		RULE_identifier = 33, RULE_keyword = 34, RULE_call_stmt = 35, RULE_goto_stmt = 36, 
-		RULE_end_stmt = 37, RULE_endloop_stmt = 38, RULE_reloop_stmt = 39, RULE_declare_stmt = 40, 
-		RULE_type_info = 41, RULE_dimension_suffix = 42, RULE_bound_pair = 43, 
-		RULE_bound_pair_commalist = 44, RULE_lower_bound = 45, RULE_upper_bound = 46, 
-		RULE_attribute = 47, RULE_data_attribute = 48, RULE_precision = 49, RULE_number_of_digits = 50, 
-		RULE_scale_factor = 51, RULE_max_length = 52, RULE_based = 53, RULE_defined = 54, 
-		RULE_entry_information = 55, RULE_coprocedure_specifier = 56, RULE_handler_specifier = 57, 
-		RULE_parameter_name_commalist = 58, RULE_returns_descriptor = 59, RULE_return_stmt = 60, 
-		RULE_if_stmt = 61, RULE_then_clause = 62, RULE_else_clause = 63, RULE_elif_clause = 64, 
-		RULE_loop_stmt = 65, RULE_while_option = 66, RULE_until_option = 67, RULE_define_stmt = 68, 
-		RULE_string_literal = 69, RULE_numeric_literal = 70, RULE_hexadecimal_literal = 71, 
-		RULE_octal_literal = 72, RULE_decimal_literal = 73, RULE_binary_literal = 74;
+		RULE_translationUnit = 0, RULE_uses = 1, RULE_scope = 2, RULE_scopeStmt = 3, 
+		RULE_scopeEnd = 4, RULE_procedure = 5, RULE_procedureStmt = 6, RULE_functionStmt = 7, 
+		RULE_procedureEnd = 8, RULE_functionEnd = 9, RULE_procDescriptor = 10, 
+		RULE_funcDescriptor = 11, RULE_returnsDescriptor = 12, RULE_stmtBlock = 13, 
+		RULE_terminator = 14, RULE_labelStmt = 15, RULE_nonexecutableStmt = 16, 
+		RULE_executableStmt = 17, RULE_nullStmt = 18, RULE_assignmentStmt = 19, 
+		RULE_reference = 20, RULE_arguments = 21, RULE_argumentsList = 22, RULE_basicReference = 23, 
+		RULE_structureQualification = 24, RULE_structureQualificationList = 25, 
+		RULE_subscript = 26, RULE_subscriptCommalist = 27, RULE_parenthesizedExpression = 28, 
+		RULE_primitiveExpression = 29, RULE_prefixExpression = 30, RULE_bitAdjustOperator = 31, 
+		RULE_additionOperator = 32, RULE_multiplyOperator = 33, RULE_boolAndOperator = 34, 
+		RULE_boolXorOperator = 35, RULE_boolOrOperator = 36, RULE_expression = 37, 
+		RULE_prefixOperator = 38, RULE_comparisonOperator = 39, RULE_shiftOperator = 40, 
+		RULE_identifier = 41, RULE_callStmt = 42, RULE_gotoStmt = 43, RULE_endloopStmt = 44, 
+		RULE_reloopStmt = 45, RULE_declareStmt = 46, RULE_declarationBody = 47, 
+		RULE_typeInfo = 48, RULE_dimensionSuffix = 49, RULE_boundPair = 50, RULE_boundPairCommalist = 51, 
+		RULE_lowerBound = 52, RULE_upperBound = 53, RULE_attribute = 54, RULE_memoryAttribute = 55, 
+		RULE_dataAttribute = 56, RULE_stringAttribute = 57, RULE_utfSpec = 58, 
+		RULE_rawSpec = 59, RULE_precision = 60, RULE_numberOfDigits = 61, RULE_scale_factor = 62, 
+		RULE_maxStringLength = 63, RULE_maxLength = 64, RULE_based = 65, RULE_defined = 66, 
+		RULE_coprocedureSpecifier = 67, RULE_handlerSpecifier = 68, RULE_parameterNameCommalist = 69, 
+		RULE_returnStmt = 70, RULE_ifStmt = 71, RULE_ifEnd = 72, RULE_thenClause = 73, 
+		RULE_elseClause = 74, RULE_elifClause = 75, RULE_loopStmt = 76, RULE_loopEnd = 77, 
+		RULE_whileOption = 78, RULE_untilOption = 79, RULE_selectStmt = 80, RULE_selectEnd = 81, 
+		RULE_selectClause = 82, RULE_whenClause = 83, RULE_otherwiseClause = 84, 
+		RULE_defineStmt = 85, RULE_enumType = 86, RULE_aliasType = 87, RULE_binaryEnum = 88, 
+		RULE_decimalEnum = 89, RULE_stringEnum = 90, RULE_bitEnum = 91, RULE_enumBody = 92, 
+		RULE_enumLiteral = 93, RULE_structType = 94, RULE_structBody = 95, RULE_structMemberList = 96, 
+		RULE_structSubstruct = 97, RULE_structMember = 98, RULE_stringLiteral = 99, 
+		RULE_numericLiteral = 100, RULE_hexLiteral = 101, RULE_octalLiteral = 102, 
+		RULE_decimalLiteral = 103, RULE_binaryLiteral = 104, RULE_keyword = 105;
 	public static readonly string[] ruleNames = {
-		"translation_unit", "procedure_stmt", "stmt_block", "terminator", "label_stmt", 
-		"nonexecutable_stmt", "executable_stmt", "preprocessor_stmt", "assign_stmt", 
-		"reference", "arguments", "arguments_list", "basic_reference", "structure_qualification", 
-		"structure_qualification_list", "subscript", "subscript_commalist", "expression", 
-		"expression_9", "expression_8", "expression_7", "expression_6", "expression_5", 
-		"expression_4", "expression_3", "expression_2", "expression_1", "prefix_expression", 
-		"parenthesized_expression", "primitive_expression", "prefix_operator", 
-		"comparison_operator", "shift_operator", "identifier", "keyword", "call_stmt", 
-		"goto_stmt", "end_stmt", "endloop_stmt", "reloop_stmt", "declare_stmt", 
-		"type_info", "dimension_suffix", "bound_pair", "bound_pair_commalist", 
-		"lower_bound", "upper_bound", "attribute", "data_attribute", "precision", 
-		"number_of_digits", "scale_factor", "max_length", "based", "defined", 
-		"entry_information", "coprocedure_specifier", "handler_specifier", "parameter_name_commalist", 
-		"returns_descriptor", "return_stmt", "if_stmt", "then_clause", "else_clause", 
-		"elif_clause", "loop_stmt", "while_option", "until_option", "define_stmt", 
-		"string_literal", "numeric_literal", "hexadecimal_literal", "octal_literal", 
-		"decimal_literal", "binary_literal"
+		"translationUnit", "uses", "scope", "scopeStmt", "scopeEnd", "procedure", 
+		"procedureStmt", "functionStmt", "procedureEnd", "functionEnd", "procDescriptor", 
+		"funcDescriptor", "returnsDescriptor", "stmtBlock", "terminator", "labelStmt", 
+		"nonexecutableStmt", "executableStmt", "nullStmt", "assignmentStmt", "reference", 
+		"arguments", "argumentsList", "basicReference", "structureQualification", 
+		"structureQualificationList", "subscript", "subscriptCommalist", "parenthesizedExpression", 
+		"primitiveExpression", "prefixExpression", "bitAdjustOperator", "additionOperator", 
+		"multiplyOperator", "boolAndOperator", "boolXorOperator", "boolOrOperator", 
+		"expression", "prefixOperator", "comparisonOperator", "shiftOperator", 
+		"identifier", "callStmt", "gotoStmt", "endloopStmt", "reloopStmt", "declareStmt", 
+		"declarationBody", "typeInfo", "dimensionSuffix", "boundPair", "boundPairCommalist", 
+		"lowerBound", "upperBound", "attribute", "memoryAttribute", "dataAttribute", 
+		"stringAttribute", "utfSpec", "rawSpec", "precision", "numberOfDigits", 
+		"scale_factor", "maxStringLength", "maxLength", "based", "defined", "coprocedureSpecifier", 
+		"handlerSpecifier", "parameterNameCommalist", "returnStmt", "ifStmt", 
+		"ifEnd", "thenClause", "elseClause", "elifClause", "loopStmt", "loopEnd", 
+		"whileOption", "untilOption", "selectStmt", "selectEnd", "selectClause", 
+		"whenClause", "otherwiseClause", "defineStmt", "enumType", "aliasType", 
+		"binaryEnum", "decimalEnum", "stringEnum", "bitEnum", "enumBody", "enumLiteral", 
+		"structType", "structBody", "structMemberList", "structSubstruct", "structMember", 
+		"stringLiteral", "numericLiteral", "hexLiteral", "octalLiteral", "decimalLiteral", 
+		"binaryLiteral", "keyword"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'include'", "'.inc'", "'lexicon'", "'>>>'", "'<<<'", null, null, 
-		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, "'->'", "'.'", "','", "'('", 
-		"')'", "'['", "']'", "'{'", "'}'", "'='", "'*'", "'/'", "'+'", "'-'", 
-		"';'", "'**'", "':'", "'\"\"\"'", "'\"\"'", "'\"'", "'''", "'~'", "'>'", 
-		"'<'", "'>='", "'<='", "'~>'", "'~<'", "'~='", "'%'", "'&'", "'|'", "'?&'", 
-		"'?|'", "'||'", "'<<'", "'>>'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, null, null, null, "COMMENT", "LINE_COMMENT", "WS", "NEWLINE", 
-		"TAB", "STRING_LITERAL_3", "STRING_LITERAL_2", "STRING_LITERAL_1", "BYTE_ORDER_MARK", 
-		"ALIGNED", "ARGUMENT", "AUTOMATIC", "BASED", "BINARY", "BIT", "BOOLEAN", 
-		"BUILTIN", "BY", "BYPASS", "CALL", "CHARACTER", "COFUNCTION", "COROUTINE", 
-		"DECIMAL", "DECLARE", "DEFINE", "DEFINED", "ELIF", "ELSE", "END", "ENDLOOP", 
-		"ENTRY", "ENUM", "FIXED", "FLOAT", "FUNCTION", "GOTO", "IF", "INC", "INCLUDE", 
+		null, "COMMENT", "LINE_COMMENT", "WS", "NEWLINE", "TAB", "STRING_LITERAL_3", 
+		"STRING_LITERAL_2", "STRING_LITERAL_1", "BYTE_ORDER_MARK", "ALIAS", "ALIGNED", 
+		"ALL", "ANY", "ARGUMENT", "AS", "BASED", "BINARY", "BIT", "BOOLEAN", "BUILTIN", 
+		"BY", "BYPASS", "CALL", "CHARACTER", "COFUNCTION", "COROUTINE", "DECIMAL", 
+		"DECLARE", "DEFINE", "DEFINED", "ELIF", "ELSE", "END", "ENDLOOP", "ENTRY", 
+		"ENUM", "FIXED", "FLOAT", "FUNCTION", "GOTO", "IF", "INC", "INCLUDE", 
 		"INTERNAL", "INTERRUPT", "INTRINSIC", "LANGUAGE", "LOOP", "NAMESPACE", 
-		"OFFSET", "OUT", "PAD", "POINTER", "PRIVATE", "PROCEDURE", "PUBLIC", "READONLY", 
-		"REF", "RELOOP", "RETURN", "RETURNS", "RETURNON", "SINGLET", "STATIC", 
-		"STRING", "STRUCTURE", "THEN", "TO", "TYPE", "UNALIGNED", "UNTIL", "USING", 
-		"WHILE", "VARIABLE", "VARYING", "YIELD", "ALIAS", "RECURSIVE", "LABEL", 
-		"IDENTIFIER", "BINARY_PATTERN", "OCTAL_PATTERN", "HEXADECIMAL_PATTERN", 
-		"DECIMAL_PATTERN", "RARROW", "DOT", "COMMA", "LPAR", "RPAR", "LBRACK", 
-		"RBRACK", "LBRACE", "RBRACE", "EQUALS", "TIMES", "DIVIDE", "PLUS", "MINUS", 
-		"SEMICOLON", "POWER", "COLON", "TRIQUOTE", "DIQUOTE", "QUOTE", "SQUOTE", 
-		"NOT", "GT", "LT", "GTE", "LTE", "NGT", "NLT", "NE", "PCNT", "AND", "OR", 
-		"SCAND", "SCOR", "CONC", "LSHF", "RSHF"
+		"OFFSET", "OTHERWISE", "OUT", "PAD", "POINTER", "PRIVATE", "PROCEDURE", 
+		"PUBLIC", "RAW", "READONLY", "RECURSIVE", "REF", "RELOOP", "RETURN", "RETURNON", 
+		"RETURNS", "SCOPE", "SELECT", "SINGLET", "STACK", "STATIC", "STRING", 
+		"STRUCTURE", "THEN", "TO", "TYPE", "UNALIGNED", "UNTIL", "USES", "USING", 
+		"UTF", "VARIABLE", "VARYING", "WHEN", "WHILE", "YIELD", "LABEL", "IDENTIFIER", 
+		"BINARY_PATTERN", "OCTAL_PATTERN", "HEXADECIMAL_PATTERN", "DECIMAL_PATTERN", 
+		"AT", "RARROW_U", "DOT", "COMMA", "LPAR", "RPAR", "LBRACK", "RBRACK", 
+		"LBRACE", "RBRACE", "EQUALS", "ASSIGN_U", "TIMES", "DIVIDE_U", "PLUS", 
+		"MINUS", "SEMICOLON", "POWER_U", "COLON", "TRIQUOTE", "DIQUOTE", "QUOTE", 
+		"SQUOTE", "NOT", "GT", "LT", "GTE_U", "LTE_U", "NGT", "NLT", "NE_U", "PCNT", 
+		"AND", "OR", "NAND", "NOR", "XOR_U", "XNOR_U", "REDAND", "REDOR", "REDNAND", 
+		"REDNOR", "REDXOR_U", "REDXNOR_U", "LOGAND", "LOGOR", "CONC", "L_LOG_SHIFT", 
+		"R_LOG_SHIFT", "R_ART_SHIFT", "L_ROTATE_U", "R_ROTATE_U", "RANGE"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -164,261 +171,1235 @@ public partial class ImperiumParser : Parser {
 		Interpreter = new ParserATNSimulator(this, _ATN, decisionToDFA, sharedContextCache);
 	}
 
-	public partial class Translation_unitContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Procedure_stmtContext procedure_stmt() {
-			return GetRuleContext<Procedure_stmtContext>(0);
-		}
+	public partial class TranslationUnitContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BYTE_ORDER_MARK() { return GetToken(ImperiumParser.BYTE_ORDER_MARK, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Preprocessor_stmtContext preprocessor_stmt() {
-			return GetRuleContext<Preprocessor_stmtContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public UsesContext[] uses() {
+			return GetRuleContexts<UsesContext>();
 		}
-		public Translation_unitContext(ParserRuleContext parent, int invokingState)
+		[System.Diagnostics.DebuggerNonUserCode] public UsesContext uses(int i) {
+			return GetRuleContext<UsesContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ScopeContext[] scope() {
+			return GetRuleContexts<ScopeContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ScopeContext scope(int i) {
+			return GetRuleContext<ScopeContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Eof() { return GetToken(ImperiumParser.Eof, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public StmtBlockContext stmtBlock() {
+			return GetRuleContext<StmtBlockContext>(0);
+		}
+		public TranslationUnitContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_translation_unit; } }
+		public override int RuleIndex { get { return RULE_translationUnit; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterTranslation_unit(this);
+			if (typedListener != null) typedListener.EnterTranslationUnit(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitTranslation_unit(this);
+			if (typedListener != null) typedListener.ExitTranslationUnit(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitTranslation_unit(this);
+			if (typedVisitor != null) return typedVisitor.VisitTranslationUnit(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Translation_unitContext translation_unit() {
-		Translation_unitContext _localctx = new Translation_unitContext(Context, State);
-		EnterRule(_localctx, 0, RULE_translation_unit);
+	public TranslationUnitContext translationUnit() {
+		TranslationUnitContext _localctx = new TranslationUnitContext(Context, State);
+		EnterRule(_localctx, 0, RULE_translationUnit);
 		int _la;
 		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 151;
+			State = 231;
 			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==BYTE_ORDER_MARK) {
-				{
-				State = 150;
-				Match(BYTE_ORDER_MARK);
-				}
-			}
-
-			State = 154;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==PCNT) {
-				{
-				State = 153;
-				preprocessor_stmt();
-				}
-			}
-
-			State = 156;
-			procedure_stmt();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Procedure_stmtContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] PROCEDURE() { return GetTokens(ImperiumParser.PROCEDURE); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PROCEDURE(int i) {
-			return GetToken(ImperiumParser.PROCEDURE, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
-			return GetRuleContext<IdentifierContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Entry_informationContext entry_information() {
-			return GetRuleContext<Entry_informationContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Stmt_blockContext stmt_block() {
-			return GetRuleContext<Stmt_blockContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public End_stmtContext end_stmt() {
-			return GetRuleContext<End_stmtContext>(0);
-		}
-		public Procedure_stmtContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_procedure_stmt; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterProcedure_stmt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitProcedure_stmt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitProcedure_stmt(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Procedure_stmtContext procedure_stmt() {
-		Procedure_stmtContext _localctx = new Procedure_stmtContext(Context, State);
-		EnterRule(_localctx, 2, RULE_procedure_stmt);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 158;
-			Match(PROCEDURE);
-			State = 159;
-			identifier();
-			State = 160;
-			entry_information();
-			State = 161;
-			Match(SEMICOLON);
-			State = 162;
-			stmt_block();
-			State = 163;
-			end_stmt();
-			State = 165;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==PROCEDURE) {
-				{
-				State = 164;
-				Match(PROCEDURE);
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Stmt_blockContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Nonexecutable_stmtContext[] nonexecutable_stmt() {
-			return GetRuleContexts<Nonexecutable_stmtContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Nonexecutable_stmtContext nonexecutable_stmt(int i) {
-			return GetRuleContext<Nonexecutable_stmtContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext[] terminator() {
-			return GetRuleContexts<TerminatorContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext terminator(int i) {
-			return GetRuleContext<TerminatorContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext[] executable_stmt() {
-			return GetRuleContexts<Executable_stmtContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext executable_stmt(int i) {
-			return GetRuleContext<Executable_stmtContext>(i);
-		}
-		public Stmt_blockContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_stmt_block; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterStmt_block(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitStmt_block(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitStmt_block(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Stmt_blockContext stmt_block() {
-		Stmt_blockContext _localctx = new Stmt_blockContext(Context, State);
-		EnterRule(_localctx, 4, RULE_stmt_block);
-		try {
-			int _alt;
-			State = 184;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,5,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,4,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 172;
+				State = 213;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,3,Context);
-				while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-					if ( _alt==1 ) {
-						{
-						{
-						State = 167;
-						nonexecutable_stmt();
-						State = 168;
-						terminator();
-						}
-						} 
+				_la = TokenStream.LA(1);
+				if (_la==BYTE_ORDER_MARK) {
+					{
+					State = 212;
+					Match(BYTE_ORDER_MARK);
 					}
-					State = 174;
-					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,3,Context);
 				}
-				State = 180;
+
+				State = 218;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,4,Context);
-				while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-					if ( _alt==1 ) {
-						{
-						{
-						State = 175;
-						executable_stmt();
-						State = 176;
-						terminator();
-						}
-						} 
+				_la = TokenStream.LA(1);
+				while (_la==USES) {
+					{
+					{
+					State = 215;
+					uses();
 					}
-					State = 182;
+					}
+					State = 220;
 					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,4,Context);
+					_la = TokenStream.LA(1);
+				}
+				State = 224;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				while (_la==SCOPE) {
+					{
+					{
+					State = 221;
+					scope();
+					}
+					}
+					State = 226;
+					ErrorHandler.Sync(this);
+					_la = TokenStream.LA(1);
 				}
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 183;
-				terminator();
+				State = 228;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (((_la) & ~0x3f) == 0 && ((1L << _la) & -562949953422336L) != 0 || (((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & 17592202821631L) != 0) {
+					{
+					State = 227;
+					stmtBlock();
+					}
+				}
+
+				State = 230;
+				Match(Eof);
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class UsesContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode USES() { return GetToken(ImperiumParser.USES, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext[] identifier() {
+			return GetRuleContexts<IdentifierContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier(int i) {
+			return GetRuleContext<IdentifierContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] DOT() { return GetTokens(ImperiumParser.DOT); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOT(int i) {
+			return GetToken(ImperiumParser.DOT, i);
+		}
+		public UsesContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_uses; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterUses(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitUses(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUses(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public UsesContext uses() {
+		UsesContext _localctx = new UsesContext(Context, State);
+		EnterRule(_localctx, 2, RULE_uses);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 233;
+			Match(USES);
+			State = 234;
+			identifier();
+			State = 239;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			while (_la==DOT) {
+				{
+				{
+				State = 235;
+				Match(DOT);
+				State = 236;
+				identifier();
+				}
+				}
+				State = 241;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+			}
+			State = 242;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ScopeContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ScopeStmtContext scopeStmt() {
+			return GetRuleContext<ScopeStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ScopeEndContext scopeEnd() {
+			return GetRuleContext<ScopeEndContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public StmtBlockContext stmtBlock() {
+			return GetRuleContext<StmtBlockContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ScopeContext scope() {
+			return GetRuleContext<ScopeContext>(0);
+		}
+		public ScopeContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_scope; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterScope(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitScope(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitScope(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ScopeContext scope() {
+		ScopeContext _localctx = new ScopeContext(Context, State);
+		EnterRule(_localctx, 4, RULE_scope);
+		try {
+			State = 254;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,7,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 244;
+				scopeStmt();
+				State = 246;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,6,Context) ) {
+				case 1:
+					{
+					State = 245;
+					stmtBlock();
+					}
+					break;
+				}
+				State = 248;
+				scopeEnd();
+				}
+				break;
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 250;
+				scopeStmt();
+				State = 251;
+				scope();
+				State = 252;
+				scopeEnd();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ScopeStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SCOPE() { return GetToken(ImperiumParser.SCOPE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext[] identifier() {
+			return GetRuleContexts<IdentifierContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier(int i) {
+			return GetRuleContext<IdentifierContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] DOT() { return GetTokens(ImperiumParser.DOT); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DOT(int i) {
+			return GetToken(ImperiumParser.DOT, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PRIVATE() { return GetToken(ImperiumParser.PRIVATE, 0); }
+		public ScopeStmtContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_scopeStmt; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterScopeStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitScopeStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitScopeStmt(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ScopeStmtContext scopeStmt() {
+		ScopeStmtContext _localctx = new ScopeStmtContext(Context, State);
+		EnterRule(_localctx, 6, RULE_scopeStmt);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 256;
+			Match(SCOPE);
+			State = 257;
+			identifier();
+			State = 262;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			while (_la==DOT) {
+				{
+				{
+				State = 258;
+				Match(DOT);
+				State = 259;
+				identifier();
+				}
+				}
+				State = 264;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+			}
+			State = 266;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==PRIVATE) {
+				{
+				State = 265;
+				Match(PRIVATE);
+				}
+			}
+
+			State = 268;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ScopeEndContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SCOPE() { return GetToken(ImperiumParser.SCOPE, 0); }
+		public ScopeEndContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_scopeEnd; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterScopeEnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitScopeEnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitScopeEnd(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ScopeEndContext scopeEnd() {
+		ScopeEndContext _localctx = new ScopeEndContext(Context, State);
+		EnterRule(_localctx, 8, RULE_scopeEnd);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 270;
+			Match(END);
+			State = 272;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==SCOPE) {
+				{
+				State = 271;
+				Match(SCOPE);
+				}
+			}
+
+			State = 274;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ProcedureContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ProcedureStmtContext procedureStmt() {
+			return GetRuleContext<ProcedureStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ProcedureEndContext procedureEnd() {
+			return GetRuleContext<ProcedureEndContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public StmtBlockContext stmtBlock() {
+			return GetRuleContext<StmtBlockContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public FunctionStmtContext functionStmt() {
+			return GetRuleContext<FunctionStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public FunctionEndContext functionEnd() {
+			return GetRuleContext<FunctionEndContext>(0);
+		}
+		public ProcedureContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_procedure; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterProcedure(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitProcedure(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitProcedure(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ProcedureContext procedure() {
+		ProcedureContext _localctx = new ProcedureContext(Context, State);
+		EnterRule(_localctx, 10, RULE_procedure);
+		try {
+			State = 288;
+			ErrorHandler.Sync(this);
+			switch (TokenStream.LA(1)) {
+			case PROCEDURE:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 276;
+				procedureStmt();
+				State = 278;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,11,Context) ) {
+				case 1:
+					{
+					State = 277;
+					stmtBlock();
+					}
+					break;
+				}
+				State = 280;
+				procedureEnd();
+				}
+				break;
+			case FUNCTION:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 282;
+				functionStmt();
+				State = 284;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,12,Context) ) {
+				case 1:
+					{
+					State = 283;
+					stmtBlock();
+					}
+					break;
+				}
+				State = 286;
+				functionEnd();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ProcedureStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PROCEDURE() { return GetToken(ImperiumParser.PROCEDURE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
+			return GetRuleContext<IdentifierContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ProcDescriptorContext procDescriptor() {
+			return GetRuleContext<ProcDescriptorContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		public ProcedureStmtContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_procedureStmt; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterProcedureStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitProcedureStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitProcedureStmt(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ProcedureStmtContext procedureStmt() {
+		ProcedureStmtContext _localctx = new ProcedureStmtContext(Context, State);
+		EnterRule(_localctx, 12, RULE_procedureStmt);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 290;
+			Match(PROCEDURE);
+			State = 291;
+			identifier();
+			State = 292;
+			procDescriptor();
+			State = 293;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class FunctionStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FUNCTION() { return GetToken(ImperiumParser.FUNCTION, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
+			return GetRuleContext<IdentifierContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public FuncDescriptorContext funcDescriptor() {
+			return GetRuleContext<FuncDescriptorContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		public FunctionStmtContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_functionStmt; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterFunctionStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitFunctionStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionStmt(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public FunctionStmtContext functionStmt() {
+		FunctionStmtContext _localctx = new FunctionStmtContext(Context, State);
+		EnterRule(_localctx, 14, RULE_functionStmt);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 295;
+			Match(FUNCTION);
+			State = 296;
+			identifier();
+			State = 297;
+			funcDescriptor();
+			State = 298;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ProcedureEndContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PROCEDURE() { return GetToken(ImperiumParser.PROCEDURE, 0); }
+		public ProcedureEndContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_procedureEnd; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterProcedureEnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitProcedureEnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitProcedureEnd(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ProcedureEndContext procedureEnd() {
+		ProcedureEndContext _localctx = new ProcedureEndContext(Context, State);
+		EnterRule(_localctx, 16, RULE_procedureEnd);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 300;
+			Match(END);
+			State = 302;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==PROCEDURE) {
+				{
+				State = 301;
+				Match(PROCEDURE);
+				}
+			}
+
+			State = 304;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class FunctionEndContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FUNCTION() { return GetToken(ImperiumParser.FUNCTION, 0); }
+		public FunctionEndContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_functionEnd; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterFunctionEnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitFunctionEnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionEnd(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public FunctionEndContext functionEnd() {
+		FunctionEndContext _localctx = new FunctionEndContext(Context, State);
+		EnterRule(_localctx, 18, RULE_functionEnd);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 306;
+			Match(END);
+			State = 308;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==FUNCTION) {
+				{
+				State = 307;
+				Match(FUNCTION);
+				}
+			}
+
+			State = 310;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ProcDescriptorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ParameterNameCommalistContext parameterNameCommalist() {
+			return GetRuleContext<ParameterNameCommalistContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public CoprocedureSpecifierContext coprocedureSpecifier() {
+			return GetRuleContext<CoprocedureSpecifierContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public HandlerSpecifierContext handlerSpecifier() {
+			return GetRuleContext<HandlerSpecifierContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RECURSIVE() { return GetToken(ImperiumParser.RECURSIVE, 0); }
+		public ProcDescriptorContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_procDescriptor; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterProcDescriptor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitProcDescriptor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitProcDescriptor(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ProcDescriptorContext procDescriptor() {
+		ProcDescriptorContext _localctx = new ProcDescriptorContext(Context, State);
+		EnterRule(_localctx, 20, RULE_procDescriptor);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 313;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==LPAR) {
+				{
+				State = 312;
+				parameterNameCommalist();
+				}
+			}
+
+			State = 325;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,20,Context) ) {
+			case 1:
+				{
+				{
+				State = 316;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==COFUNCTION || _la==COROUTINE) {
+					{
+					State = 315;
+					coprocedureSpecifier();
+					}
+				}
+
+				}
+				}
+				break;
+			case 2:
+				{
+				{
+				State = 320;
+				ErrorHandler.Sync(this);
+				switch (TokenStream.LA(1)) {
+				case COFUNCTION:
+				case COROUTINE:
+					{
+					State = 318;
+					coprocedureSpecifier();
+					}
+					break;
+				case INTERRUPT:
+					{
+					State = 319;
+					handlerSpecifier();
+					}
+					break;
+				case RECURSIVE:
+				case SEMICOLON:
+					break;
+				default:
+					break;
+				}
+				State = 323;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==RECURSIVE) {
+					{
+					State = 322;
+					Match(RECURSIVE);
+					}
+				}
+
+				}
+				}
+				break;
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class FuncDescriptorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ParameterNameCommalistContext parameterNameCommalist() {
+			return GetRuleContext<ParameterNameCommalistContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ReturnsDescriptorContext returnsDescriptor() {
+			return GetRuleContext<ReturnsDescriptorContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public CoprocedureSpecifierContext coprocedureSpecifier() {
+			return GetRuleContext<CoprocedureSpecifierContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public HandlerSpecifierContext handlerSpecifier() {
+			return GetRuleContext<HandlerSpecifierContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RECURSIVE() { return GetToken(ImperiumParser.RECURSIVE, 0); }
+		public FuncDescriptorContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_funcDescriptor; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterFuncDescriptor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitFuncDescriptor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFuncDescriptor(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public FuncDescriptorContext funcDescriptor() {
+		FuncDescriptorContext _localctx = new FuncDescriptorContext(Context, State);
+		EnterRule(_localctx, 22, RULE_funcDescriptor);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 328;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==LPAR) {
+				{
+				State = 327;
+				parameterNameCommalist();
+				}
+			}
+
+			State = 342;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,25,Context) ) {
+			case 1:
+				{
+				{
+				State = 330;
+				returnsDescriptor();
+				State = 332;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==COFUNCTION || _la==COROUTINE) {
+					{
+					State = 331;
+					coprocedureSpecifier();
+					}
+				}
+
+				}
+				}
+				break;
+			case 2:
+				{
+				{
+				State = 336;
+				ErrorHandler.Sync(this);
+				switch (TokenStream.LA(1)) {
+				case COFUNCTION:
+				case COROUTINE:
+					{
+					State = 334;
+					coprocedureSpecifier();
+					}
+					break;
+				case INTERRUPT:
+					{
+					State = 335;
+					handlerSpecifier();
+					}
+					break;
+				case RECURSIVE:
+				case RETURNS:
+					break;
+				default:
+					break;
+				}
+				State = 339;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==RECURSIVE) {
+					{
+					State = 338;
+					Match(RECURSIVE);
+					}
+				}
+
+				State = 341;
+				returnsDescriptor();
+				}
+				}
+				break;
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ReturnsDescriptorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RETURNS() { return GetToken(ImperiumParser.RETURNS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DataAttributeContext dataAttribute() {
+			return GetRuleContext<DataAttributeContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
+		public ReturnsDescriptorContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_returnsDescriptor; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterReturnsDescriptor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitReturnsDescriptor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReturnsDescriptor(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ReturnsDescriptorContext returnsDescriptor() {
+		ReturnsDescriptorContext _localctx = new ReturnsDescriptorContext(Context, State);
+		EnterRule(_localctx, 24, RULE_returnsDescriptor);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 344;
+			Match(RETURNS);
+			State = 345;
+			Match(LPAR);
+			State = 346;
+			dataAttribute();
+			State = 347;
+			Match(RPAR);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class StmtBlockContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public NonexecutableStmtContext[] nonexecutableStmt() {
+			return GetRuleContexts<NonexecutableStmtContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public NonexecutableStmtContext nonexecutableStmt(int i) {
+			return GetRuleContext<NonexecutableStmtContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExecutableStmtContext[] executableStmt() {
+			return GetRuleContexts<ExecutableStmtContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExecutableStmtContext executableStmt(int i) {
+			return GetRuleContext<ExecutableStmtContext>(i);
+		}
+		public StmtBlockContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_stmtBlock; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterStmtBlock(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitStmtBlock(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStmtBlock(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StmtBlockContext stmtBlock() {
+		StmtBlockContext _localctx = new StmtBlockContext(Context, State);
+		EnterRule(_localctx, 26, RULE_stmtBlock);
+		int _la;
+		try {
+			int _alt;
+			State = 369;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,30,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 350;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				do {
+					{
+					{
+					State = 349;
+					nonexecutableStmt();
+					}
+					}
+					State = 352;
+					ErrorHandler.Sync(this);
+					_la = TokenStream.LA(1);
+				} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & 805322752L) != 0 || _la==SEMICOLON );
+				}
+				break;
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 355;
+				ErrorHandler.Sync(this);
+				_alt = 1;
+				do {
+					switch (_alt) {
+					case 1:
+						{
+						{
+						State = 354;
+						executableStmt();
+						}
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
+					}
+					State = 357;
+					ErrorHandler.Sync(this);
+					_alt = Interpreter.AdaptivePredict(TokenStream,27,Context);
+				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
+				}
+				break;
+			case 3:
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 360;
+				ErrorHandler.Sync(this);
+				_alt = 1;
+				do {
+					switch (_alt) {
+					case 1:
+						{
+						{
+						State = 359;
+						nonexecutableStmt();
+						}
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
+					}
+					State = 362;
+					ErrorHandler.Sync(this);
+					_alt = Interpreter.AdaptivePredict(TokenStream,28,Context);
+				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
+				State = 365;
+				ErrorHandler.Sync(this);
+				_alt = 1;
+				do {
+					switch (_alt) {
+					case 1:
+						{
+						{
+						State = 364;
+						executableStmt();
+						}
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
+					}
+					State = 367;
+					ErrorHandler.Sync(this);
+					_alt = Interpreter.AdaptivePredict(TokenStream,29,Context);
+				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
 				}
 				break;
 			}
@@ -462,11 +1443,11 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public TerminatorContext terminator() {
 		TerminatorContext _localctx = new TerminatorContext(Context, State);
-		EnterRule(_localctx, 6, RULE_terminator);
+		EnterRule(_localctx, 28, RULE_terminator);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 186;
+			State = 371;
 			Match(SEMICOLON);
 			}
 		}
@@ -481,56 +1462,56 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Label_stmtContext : ParserRuleContext {
+	public partial class LabelStmtContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LABEL() { return GetToken(ImperiumParser.LABEL, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Decimal_literalContext decimal_literal() {
-			return GetRuleContext<Decimal_literalContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
-		public Label_stmtContext(ParserRuleContext parent, int invokingState)
+		public LabelStmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_label_stmt; } }
+		public override int RuleIndex { get { return RULE_labelStmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterLabel_stmt(this);
+			if (typedListener != null) typedListener.EnterLabelStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitLabel_stmt(this);
+			if (typedListener != null) typedListener.ExitLabelStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitLabel_stmt(this);
+			if (typedVisitor != null) return typedVisitor.VisitLabelStmt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Label_stmtContext label_stmt() {
-		Label_stmtContext _localctx = new Label_stmtContext(Context, State);
-		EnterRule(_localctx, 8, RULE_label_stmt);
+	public LabelStmtContext labelStmt() {
+		LabelStmtContext _localctx = new LabelStmtContext(Context, State);
+		EnterRule(_localctx, 30, RULE_labelStmt);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 188;
+			State = 373;
 			Match(LABEL);
-			State = 193;
+			State = 378;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 189;
+				State = 374;
 				Match(LPAR);
-				State = 190;
-				decimal_literal();
-				State = 191;
+				State = 375;
+				decimalLiteral();
+				State = 376;
 				Match(RPAR);
 				}
 			}
@@ -548,116 +1529,67 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Nonexecutable_stmtContext : ParserRuleContext {
-		public Nonexecutable_stmtContext(ParserRuleContext parent, int invokingState)
+	public partial class NonexecutableStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public DeclareStmtContext declareStmt() {
+			return GetRuleContext<DeclareStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public DefineStmtContext defineStmt() {
+			return GetRuleContext<DefineStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public NullStmtContext nullStmt() {
+			return GetRuleContext<NullStmtContext>(0);
+		}
+		public NonexecutableStmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_nonexecutable_stmt; } }
-	 
-		public Nonexecutable_stmtContext() { }
-		public virtual void CopyFrom(Nonexecutable_stmtContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class PREContext : Nonexecutable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Preprocessor_stmtContext preprocessor_stmt() {
-			return GetRuleContext<Preprocessor_stmtContext>(0);
-		}
-		public PREContext(Nonexecutable_stmtContext context) { CopyFrom(context); }
+		public override int RuleIndex { get { return RULE_nonexecutableStmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterPRE(this);
+			if (typedListener != null) typedListener.EnterNonexecutableStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitPRE(this);
+			if (typedListener != null) typedListener.ExitNonexecutableStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitPRE(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class DEFContext : Nonexecutable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Define_stmtContext define_stmt() {
-			return GetRuleContext<Define_stmtContext>(0);
-		}
-		public DEFContext(Nonexecutable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterDEF(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitDEF(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDEF(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class DCLContext : Nonexecutable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Declare_stmtContext declare_stmt() {
-			return GetRuleContext<Declare_stmtContext>(0);
-		}
-		public DCLContext(Nonexecutable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterDCL(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitDCL(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDCL(this);
+			if (typedVisitor != null) return typedVisitor.VisitNonexecutableStmt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Nonexecutable_stmtContext nonexecutable_stmt() {
-		Nonexecutable_stmtContext _localctx = new Nonexecutable_stmtContext(Context, State);
-		EnterRule(_localctx, 10, RULE_nonexecutable_stmt);
+	public NonexecutableStmtContext nonexecutableStmt() {
+		NonexecutableStmtContext _localctx = new NonexecutableStmtContext(Context, State);
+		EnterRule(_localctx, 32, RULE_nonexecutableStmt);
 		try {
-			State = 198;
+			State = 383;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
-			case PCNT:
-				_localctx = new PREContext(_localctx);
-				EnterOuterAlt(_localctx, 1);
-				{
-				State = 195;
-				preprocessor_stmt();
-				}
-				break;
 			case ARGUMENT:
 			case DECLARE:
-				_localctx = new DCLContext(_localctx);
-				EnterOuterAlt(_localctx, 2);
+				EnterOuterAlt(_localctx, 1);
 				{
-				State = 196;
-				declare_stmt();
+				State = 380;
+				declareStmt();
 				}
 				break;
 			case DEFINE:
-				_localctx = new DEFContext(_localctx);
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 381;
+				defineStmt();
+				}
+				break;
+			case SEMICOLON:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 197;
-				define_stmt();
+				State = 382;
+				nullStmt();
 				}
 				break;
 			default:
@@ -675,325 +1607,156 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Executable_stmtContext : ParserRuleContext {
-		public Executable_stmtContext(ParserRuleContext parent, int invokingState)
+	public partial class ExecutableStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public LabelStmtContext labelStmt() {
+			return GetRuleContext<LabelStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public AssignmentStmtContext assignmentStmt() {
+			return GetRuleContext<AssignmentStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public CallStmtContext callStmt() {
+			return GetRuleContext<CallStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public GotoStmtContext gotoStmt() {
+			return GetRuleContext<GotoStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ProcedureContext procedure() {
+			return GetRuleContext<ProcedureContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ReturnStmtContext returnStmt() {
+			return GetRuleContext<ReturnStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public IfStmtContext ifStmt() {
+			return GetRuleContext<IfStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public LoopStmtContext loopStmt() {
+			return GetRuleContext<LoopStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public SelectStmtContext selectStmt() {
+			return GetRuleContext<SelectStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public EndloopStmtContext endloopStmt() {
+			return GetRuleContext<EndloopStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ReloopStmtContext reloopStmt() {
+			return GetRuleContext<ReloopStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public NullStmtContext nullStmt() {
+			return GetRuleContext<NullStmtContext>(0);
+		}
+		public ExecutableStmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_executable_stmt; } }
-	 
-		public Executable_stmtContext() { }
-		public virtual void CopyFrom(Executable_stmtContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class RETContext : Executable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Return_stmtContext return_stmt() {
-			return GetRuleContext<Return_stmtContext>(0);
-		}
-		public RETContext(Executable_stmtContext context) { CopyFrom(context); }
+		public override int RuleIndex { get { return RULE_executableStmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterRET(this);
+			if (typedListener != null) typedListener.EnterExecutableStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitRET(this);
+			if (typedListener != null) typedListener.ExitExecutableStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitRET(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class CALLContext : Executable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Call_stmtContext call_stmt() {
-			return GetRuleContext<Call_stmtContext>(0);
-		}
-		public CALLContext(Executable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterCALL(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitCALL(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitCALL(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class GOTOContext : Executable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Goto_stmtContext goto_stmt() {
-			return GetRuleContext<Goto_stmtContext>(0);
-		}
-		public GOTOContext(Executable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterGOTO(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitGOTO(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitGOTO(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class PROCContext : Executable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Procedure_stmtContext procedure_stmt() {
-			return GetRuleContext<Procedure_stmtContext>(0);
-		}
-		public PROCContext(Executable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterPROC(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitPROC(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitPROC(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class AGAINContext : Executable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Reloop_stmtContext reloop_stmt() {
-			return GetRuleContext<Reloop_stmtContext>(0);
-		}
-		public AGAINContext(Executable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterAGAIN(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitAGAIN(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitAGAIN(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class LOOPContext : Executable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Loop_stmtContext loop_stmt() {
-			return GetRuleContext<Loop_stmtContext>(0);
-		}
-		public LOOPContext(Executable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterLOOP(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitLOOP(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitLOOP(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class LEAVEContext : Executable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Endloop_stmtContext endloop_stmt() {
-			return GetRuleContext<Endloop_stmtContext>(0);
-		}
-		public LEAVEContext(Executable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterLEAVE(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitLEAVE(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitLEAVE(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class LABELContext : Executable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Label_stmtContext label_stmt() {
-			return GetRuleContext<Label_stmtContext>(0);
-		}
-		public LABELContext(Executable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterLABEL(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitLABEL(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitLABEL(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class ASSIGNContext : Executable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_stmtContext assign_stmt() {
-			return GetRuleContext<Assign_stmtContext>(0);
-		}
-		public ASSIGNContext(Executable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterASSIGN(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitASSIGN(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitASSIGN(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class IFContext : Executable_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public If_stmtContext if_stmt() {
-			return GetRuleContext<If_stmtContext>(0);
-		}
-		public IFContext(Executable_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterIF(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitIF(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIF(this);
+			if (typedVisitor != null) return typedVisitor.VisitExecutableStmt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Executable_stmtContext executable_stmt() {
-		Executable_stmtContext _localctx = new Executable_stmtContext(Context, State);
-		EnterRule(_localctx, 12, RULE_executable_stmt);
+	public ExecutableStmtContext executableStmt() {
+		ExecutableStmtContext _localctx = new ExecutableStmtContext(Context, State);
+		EnterRule(_localctx, 34, RULE_executableStmt);
 		try {
-			State = 210;
+			State = 397;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,8,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,33,Context) ) {
 			case 1:
-				_localctx = new LABELContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 200;
-				label_stmt();
+				State = 385;
+				labelStmt();
 				}
 				break;
 			case 2:
-				_localctx = new ASSIGNContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 201;
-				assign_stmt();
+				State = 386;
+				assignmentStmt();
 				}
 				break;
 			case 3:
-				_localctx = new CALLContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 202;
-				call_stmt();
+				State = 387;
+				callStmt();
 				}
 				break;
 			case 4:
-				_localctx = new GOTOContext(_localctx);
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 203;
-				goto_stmt();
+				State = 388;
+				gotoStmt();
 				}
 				break;
 			case 5:
-				_localctx = new PROCContext(_localctx);
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 204;
-				procedure_stmt();
+				State = 389;
+				procedure();
 				}
 				break;
 			case 6:
-				_localctx = new RETContext(_localctx);
 				EnterOuterAlt(_localctx, 6);
 				{
-				State = 205;
-				return_stmt();
+				State = 390;
+				returnStmt();
 				}
 				break;
 			case 7:
-				_localctx = new IFContext(_localctx);
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 206;
-				if_stmt();
+				State = 391;
+				ifStmt();
 				}
 				break;
 			case 8:
-				_localctx = new LOOPContext(_localctx);
 				EnterOuterAlt(_localctx, 8);
 				{
-				State = 207;
-				loop_stmt();
+				State = 392;
+				loopStmt();
 				}
 				break;
 			case 9:
-				_localctx = new LEAVEContext(_localctx);
 				EnterOuterAlt(_localctx, 9);
 				{
-				State = 208;
-				endloop_stmt();
+				State = 393;
+				selectStmt();
 				}
 				break;
 			case 10:
-				_localctx = new AGAINContext(_localctx);
 				EnterOuterAlt(_localctx, 10);
 				{
-				State = 209;
-				reloop_stmt();
+				State = 394;
+				endloopStmt();
+				}
+				break;
+			case 11:
+				EnterOuterAlt(_localctx, 11);
+				{
+				State = 395;
+				reloopStmt();
+				}
+				break;
+			case 12:
+				EnterOuterAlt(_localctx, 12);
+				{
+				State = 396;
+				nullStmt();
 				}
 				break;
 			}
@@ -1009,142 +1772,109 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Preprocessor_stmtContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PCNT() { return GetToken(ImperiumParser.PCNT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] SQUOTE() { return GetTokens(ImperiumParser.SQUOTE); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SQUOTE(int i) {
-			return GetToken(ImperiumParser.SQUOTE, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
-			return GetRuleContext<IdentifierContext>(0);
-		}
+	public partial class NullStmtContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
-		public Preprocessor_stmtContext(ParserRuleContext parent, int invokingState)
+		public NullStmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_preprocessor_stmt; } }
+		public override int RuleIndex { get { return RULE_nullStmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterPreprocessor_stmt(this);
+			if (typedListener != null) typedListener.EnterNullStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitPreprocessor_stmt(this);
+			if (typedListener != null) typedListener.ExitNullStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitPreprocessor_stmt(this);
+			if (typedVisitor != null) return typedVisitor.VisitNullStmt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Preprocessor_stmtContext preprocessor_stmt() {
-		Preprocessor_stmtContext _localctx = new Preprocessor_stmtContext(Context, State);
-		EnterRule(_localctx, 14, RULE_preprocessor_stmt);
-		try {
-			State = 227;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,9,Context) ) {
-			case 1:
-				EnterOuterAlt(_localctx, 1);
-				{
-				State = 212;
-				Match(PCNT);
-				State = 213;
-				Match(T__0);
-				State = 214;
-				Match(SQUOTE);
-				State = 215;
-				identifier();
-				State = 216;
-				Match(T__1);
-				State = 217;
-				Match(SQUOTE);
-				State = 218;
-				Match(SEMICOLON);
-				}
-				break;
-			case 2:
-				EnterOuterAlt(_localctx, 2);
-				{
-				State = 220;
-				Match(PCNT);
-				State = 221;
-				Match(T__2);
-				State = 222;
-				Match(LPAR);
-				State = 223;
-				identifier();
-				State = 224;
-				Match(RPAR);
-				State = 225;
-				Match(SEMICOLON);
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_stmtContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ReferenceContext reference() {
-			return GetRuleContext<ReferenceContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUALS() { return GetToken(ImperiumParser.EQUALS, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
-			return GetRuleContext<ExpressionContext>(0);
-		}
-		public Assign_stmtContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_stmt; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterAssign_stmt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitAssign_stmt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitAssign_stmt(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Assign_stmtContext assign_stmt() {
-		Assign_stmtContext _localctx = new Assign_stmtContext(Context, State);
-		EnterRule(_localctx, 16, RULE_assign_stmt);
+	public NullStmtContext nullStmt() {
+		NullStmtContext _localctx = new NullStmtContext(Context, State);
+		EnterRule(_localctx, 36, RULE_nullStmt);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 229;
+			State = 399;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class AssignmentStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ReferenceContext reference() {
+			return GetRuleContext<ReferenceContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
+			return GetRuleContext<ExpressionContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN_U() { return GetToken(ImperiumParser.ASSIGN_U, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUALS() { return GetToken(ImperiumParser.EQUALS, 0); }
+		public AssignmentStmtContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_assignmentStmt; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterAssignmentStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitAssignmentStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAssignmentStmt(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public AssignmentStmtContext assignmentStmt() {
+		AssignmentStmtContext _localctx = new AssignmentStmtContext(Context, State);
+		EnterRule(_localctx, 38, RULE_assignmentStmt);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 401;
 			reference(0);
-			State = 230;
-			Match(EQUALS);
-			State = 231;
+			State = 402;
+			_la = TokenStream.LA(1);
+			if ( !(_la==EQUALS || _la==ASSIGN_U) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
+			State = 403;
 			expression(0);
+			State = 404;
+			Match(SEMICOLON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1159,68 +1889,35 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class ReferenceContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public BasicReferenceContext basicReference() {
+			return GetRuleContext<BasicReferenceContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ArgumentsListContext argumentsList() {
+			return GetRuleContext<ArgumentsListContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ReferenceContext reference() {
+			return GetRuleContext<ReferenceContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RARROW_U() { return GetToken(ImperiumParser.RARROW_U, 0); }
 		public ReferenceContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int RuleIndex { get { return RULE_reference; } }
-	 
-		public ReferenceContext() { }
-		public virtual void CopyFrom(ReferenceContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class BASIC_REFContext : ReferenceContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Basic_referenceContext basic_reference() {
-			return GetRuleContext<Basic_referenceContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Arguments_listContext arguments_list() {
-			return GetRuleContext<Arguments_listContext>(0);
-		}
-		public BASIC_REFContext(ReferenceContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterBASIC_REF(this);
+			if (typedListener != null) typedListener.EnterReference(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitBASIC_REF(this);
+			if (typedListener != null) typedListener.ExitReference(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBASIC_REF(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class PTR_REFContext : ReferenceContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ReferenceContext reference() {
-			return GetRuleContext<ReferenceContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RARROW() { return GetToken(ImperiumParser.RARROW, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Basic_referenceContext basic_reference() {
-			return GetRuleContext<Basic_referenceContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Arguments_listContext arguments_list() {
-			return GetRuleContext<Arguments_listContext>(0);
-		}
-		public PTR_REFContext(ReferenceContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterPTR_REF(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitPTR_REF(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitPTR_REF(this);
+			if (typedVisitor != null) return typedVisitor.VisitReference(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -1235,34 +1932,30 @@ public partial class ImperiumParser : Parser {
 		int _parentState = State;
 		ReferenceContext _localctx = new ReferenceContext(Context, _parentState);
 		ReferenceContext _prevctx = _localctx;
-		int _startState = 18;
-		EnterRecursionRule(_localctx, 18, RULE_reference, _p);
+		int _startState = 40;
+		EnterRecursionRule(_localctx, 40, RULE_reference, _p);
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			_localctx = new BASIC_REFContext(_localctx);
-			Context = _localctx;
-			_prevctx = _localctx;
-
-			State = 234;
-			basic_reference();
-			State = 236;
+			State = 407;
+			basicReference();
+			State = 409;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,10,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,34,Context) ) {
 			case 1:
 				{
-				State = 235;
-				arguments_list();
+				State = 408;
+				argumentsList();
 				}
 				break;
 			}
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 246;
+			State = 419;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,12,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,36,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
@@ -1270,30 +1963,30 @@ public partial class ImperiumParser : Parser {
 					_prevctx = _localctx;
 					{
 					{
-					_localctx = new PTR_REFContext(new ReferenceContext(_parentctx, _parentState));
+					_localctx = new ReferenceContext(_parentctx, _parentState);
 					PushNewRecursionContext(_localctx, _startState, RULE_reference);
-					State = 238;
+					State = 411;
 					if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
-					State = 239;
-					Match(RARROW);
-					State = 240;
-					basic_reference();
-					State = 242;
+					State = 412;
+					Match(RARROW_U);
+					State = 413;
+					basicReference();
+					State = 415;
 					ErrorHandler.Sync(this);
-					switch ( Interpreter.AdaptivePredict(TokenStream,11,Context) ) {
+					switch ( Interpreter.AdaptivePredict(TokenStream,35,Context) ) {
 					case 1:
 						{
-						State = 241;
-						arguments_list();
+						State = 414;
+						argumentsList();
 						}
 						break;
 					}
 					}
 					} 
 				}
-				State = 248;
+				State = 421;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,12,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,36,Context);
 			}
 			}
 		}
@@ -1311,11 +2004,8 @@ public partial class ImperiumParser : Parser {
 	public partial class ArgumentsContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Subscript_commalistContext[] subscript_commalist() {
-			return GetRuleContexts<Subscript_commalistContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Subscript_commalistContext subscript_commalist(int i) {
-			return GetRuleContext<Subscript_commalistContext>(i);
+		[System.Diagnostics.DebuggerNonUserCode] public SubscriptCommalistContext subscriptCommalist() {
+			return GetRuleContext<SubscriptCommalistContext>(0);
 		}
 		public ArgumentsContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -1343,28 +2033,24 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public ArgumentsContext arguments() {
 		ArgumentsContext _localctx = new ArgumentsContext(Context, State);
-		EnterRule(_localctx, 20, RULE_arguments);
+		EnterRule(_localctx, 42, RULE_arguments);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 249;
+			State = 422;
 			Match(LPAR);
-			State = 251;
+			State = 424;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			do {
+			if (((_la) & ~0x3f) == 0 && ((1L << _la) & -562949953421888L) != 0 || (((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & 2264998512427007L) != 0 || (((_la - 130)) & ~0x3f) == 0 && ((1L << (_la - 130)) & 63L) != 0) {
 				{
-				{
-				State = 250;
-				subscript_commalist();
+				State = 423;
+				subscriptCommalist();
 				}
-				}
-				State = 253;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & -2119772936183138304L) != 0 || (((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & 2211917563213L) != 0 );
-			State = 255;
+			}
+
+			State = 426;
 			Match(RPAR);
 			}
 		}
@@ -1379,45 +2065,45 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Arguments_listContext : ParserRuleContext {
+	public partial class ArgumentsListContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ArgumentsContext[] arguments() {
 			return GetRuleContexts<ArgumentsContext>();
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ArgumentsContext arguments(int i) {
 			return GetRuleContext<ArgumentsContext>(i);
 		}
-		public Arguments_listContext(ParserRuleContext parent, int invokingState)
+		public ArgumentsListContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_arguments_list; } }
+		public override int RuleIndex { get { return RULE_argumentsList; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterArguments_list(this);
+			if (typedListener != null) typedListener.EnterArgumentsList(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitArguments_list(this);
+			if (typedListener != null) typedListener.ExitArgumentsList(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitArguments_list(this);
+			if (typedVisitor != null) return typedVisitor.VisitArgumentsList(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Arguments_listContext arguments_list() {
-		Arguments_listContext _localctx = new Arguments_listContext(Context, State);
-		EnterRule(_localctx, 22, RULE_arguments_list);
+	public ArgumentsListContext argumentsList() {
+		ArgumentsListContext _localctx = new ArgumentsListContext(Context, State);
+		EnterRule(_localctx, 44, RULE_argumentsList);
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 258;
+			State = 429;
 			ErrorHandler.Sync(this);
 			_alt = 1;
 			do {
@@ -1425,7 +2111,7 @@ public partial class ImperiumParser : Parser {
 				case 1:
 					{
 					{
-					State = 257;
+					State = 428;
 					arguments();
 					}
 					}
@@ -1433,9 +2119,9 @@ public partial class ImperiumParser : Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 260;
+				State = 431;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,14,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,38,Context);
 			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
@@ -1450,54 +2136,54 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Basic_referenceContext : ParserRuleContext {
+	public partial class BasicReferenceContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
 			return GetRuleContext<IdentifierContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Structure_qualification_listContext structure_qualification_list() {
-			return GetRuleContext<Structure_qualification_listContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public StructureQualificationListContext structureQualificationList() {
+			return GetRuleContext<StructureQualificationListContext>(0);
 		}
-		public Basic_referenceContext(ParserRuleContext parent, int invokingState)
+		public BasicReferenceContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_basic_reference; } }
+		public override int RuleIndex { get { return RULE_basicReference; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterBasic_reference(this);
+			if (typedListener != null) typedListener.EnterBasicReference(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitBasic_reference(this);
+			if (typedListener != null) typedListener.ExitBasicReference(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBasic_reference(this);
+			if (typedVisitor != null) return typedVisitor.VisitBasicReference(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Basic_referenceContext basic_reference() {
-		Basic_referenceContext _localctx = new Basic_referenceContext(Context, State);
-		EnterRule(_localctx, 24, RULE_basic_reference);
+	public BasicReferenceContext basicReference() {
+		BasicReferenceContext _localctx = new BasicReferenceContext(Context, State);
+		EnterRule(_localctx, 46, RULE_basicReference);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 263;
+			State = 434;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,15,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,39,Context) ) {
 			case 1:
 				{
-				State = 262;
-				structure_qualification_list();
+				State = 433;
+				structureQualificationList();
 				}
 				break;
 			}
-			State = 265;
+			State = 436;
 			identifier();
 			}
 		}
@@ -1512,7 +2198,7 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Structure_qualificationContext : ParserRuleContext {
+	public partial class StructureQualificationContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
 			return GetRuleContext<IdentifierContext>(0);
 		}
@@ -1520,50 +2206,50 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ArgumentsContext arguments() {
 			return GetRuleContext<ArgumentsContext>(0);
 		}
-		public Structure_qualificationContext(ParserRuleContext parent, int invokingState)
+		public StructureQualificationContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_structure_qualification; } }
+		public override int RuleIndex { get { return RULE_structureQualification; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterStructure_qualification(this);
+			if (typedListener != null) typedListener.EnterStructureQualification(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitStructure_qualification(this);
+			if (typedListener != null) typedListener.ExitStructureQualification(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitStructure_qualification(this);
+			if (typedVisitor != null) return typedVisitor.VisitStructureQualification(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Structure_qualificationContext structure_qualification() {
-		Structure_qualificationContext _localctx = new Structure_qualificationContext(Context, State);
-		EnterRule(_localctx, 26, RULE_structure_qualification);
+	public StructureQualificationContext structureQualification() {
+		StructureQualificationContext _localctx = new StructureQualificationContext(Context, State);
+		EnterRule(_localctx, 48, RULE_structureQualification);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 267;
+			State = 438;
 			identifier();
-			State = 269;
+			State = 440;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 268;
+				State = 439;
 				arguments();
 				}
 			}
 
-			State = 271;
+			State = 442;
 			Match(DOT);
 			}
 		}
@@ -1578,45 +2264,45 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Structure_qualification_listContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Structure_qualificationContext[] structure_qualification() {
-			return GetRuleContexts<Structure_qualificationContext>();
+	public partial class StructureQualificationListContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public StructureQualificationContext[] structureQualification() {
+			return GetRuleContexts<StructureQualificationContext>();
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Structure_qualificationContext structure_qualification(int i) {
-			return GetRuleContext<Structure_qualificationContext>(i);
+		[System.Diagnostics.DebuggerNonUserCode] public StructureQualificationContext structureQualification(int i) {
+			return GetRuleContext<StructureQualificationContext>(i);
 		}
-		public Structure_qualification_listContext(ParserRuleContext parent, int invokingState)
+		public StructureQualificationListContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_structure_qualification_list; } }
+		public override int RuleIndex { get { return RULE_structureQualificationList; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterStructure_qualification_list(this);
+			if (typedListener != null) typedListener.EnterStructureQualificationList(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitStructure_qualification_list(this);
+			if (typedListener != null) typedListener.ExitStructureQualificationList(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitStructure_qualification_list(this);
+			if (typedVisitor != null) return typedVisitor.VisitStructureQualificationList(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Structure_qualification_listContext structure_qualification_list() {
-		Structure_qualification_listContext _localctx = new Structure_qualification_listContext(Context, State);
-		EnterRule(_localctx, 28, RULE_structure_qualification_list);
+	public StructureQualificationListContext structureQualificationList() {
+		StructureQualificationListContext _localctx = new StructureQualificationListContext(Context, State);
+		EnterRule(_localctx, 50, RULE_structureQualificationList);
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 274;
+			State = 445;
 			ErrorHandler.Sync(this);
 			_alt = 1;
 			do {
@@ -1624,17 +2310,17 @@ public partial class ImperiumParser : Parser {
 				case 1:
 					{
 					{
-					State = 273;
-					structure_qualification();
+					State = 444;
+					structureQualification();
 					}
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 276;
+				State = 447;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,17,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,41,Context);
 			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
@@ -1679,11 +2365,11 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public SubscriptContext subscript() {
 		SubscriptContext _localctx = new SubscriptContext(Context, State);
-		EnterRule(_localctx, 30, RULE_subscript);
+		EnterRule(_localctx, 52, RULE_subscript);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 278;
+			State = 449;
 			expression(0);
 			}
 		}
@@ -1698,7 +2384,7 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Subscript_commalistContext : ParserRuleContext {
+	public partial class SubscriptCommalistContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public SubscriptContext[] subscript() {
 			return GetRuleContexts<SubscriptContext>();
 		}
@@ -1709,52 +2395,52 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COMMA(int i) {
 			return GetToken(ImperiumParser.COMMA, i);
 		}
-		public Subscript_commalistContext(ParserRuleContext parent, int invokingState)
+		public SubscriptCommalistContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_subscript_commalist; } }
+		public override int RuleIndex { get { return RULE_subscriptCommalist; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterSubscript_commalist(this);
+			if (typedListener != null) typedListener.EnterSubscriptCommalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitSubscript_commalist(this);
+			if (typedListener != null) typedListener.ExitSubscriptCommalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitSubscript_commalist(this);
+			if (typedVisitor != null) return typedVisitor.VisitSubscriptCommalist(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Subscript_commalistContext subscript_commalist() {
-		Subscript_commalistContext _localctx = new Subscript_commalistContext(Context, State);
-		EnterRule(_localctx, 32, RULE_subscript_commalist);
+	public SubscriptCommalistContext subscriptCommalist() {
+		SubscriptCommalistContext _localctx = new SubscriptCommalistContext(Context, State);
+		EnterRule(_localctx, 54, RULE_subscriptCommalist);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 280;
+			State = 451;
 			subscript();
-			State = 285;
+			State = 456;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 281;
+				State = 452;
 				Match(COMMA);
-				State = 282;
+				State = 453;
 				subscript();
 				}
 				}
-				State = 287;
+				State = 458;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -1771,1051 +2457,128 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class ExpressionContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_9Context expression_9() {
-			return GetRuleContext<Expression_9Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
-			return GetRuleContext<ExpressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SCOR() { return GetToken(ImperiumParser.SCOR, 0); }
-		public ExpressionContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expression; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterExpression(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitExpression(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpression(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public ExpressionContext expression() {
-		return expression(0);
-	}
-
-	private ExpressionContext expression(int _p) {
-		ParserRuleContext _parentctx = Context;
-		int _parentState = State;
-		ExpressionContext _localctx = new ExpressionContext(Context, _parentState);
-		ExpressionContext _prevctx = _localctx;
-		int _startState = 34;
-		EnterRecursionRule(_localctx, 34, RULE_expression, _p);
-		try {
-			int _alt;
-			EnterOuterAlt(_localctx, 1);
-			{
-			{
-			State = 289;
-			expression_9(0);
-			}
-			Context.Stop = TokenStream.LT(-1);
-			State = 296;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,19,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( ParseListeners!=null )
-						TriggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new ExpressionContext(_parentctx, _parentState);
-					PushNewRecursionContext(_localctx, _startState, RULE_expression);
-					State = 291;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 292;
-					Match(SCOR);
-					State = 293;
-					expression_9(0);
-					}
-					} 
-				}
-				State = 298;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,19,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			UnrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public partial class Expression_9Context : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_8Context expression_8() {
-			return GetRuleContext<Expression_8Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_9Context expression_9() {
-			return GetRuleContext<Expression_9Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SCAND() { return GetToken(ImperiumParser.SCAND, 0); }
-		public Expression_9Context(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expression_9; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterExpression_9(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitExpression_9(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpression_9(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Expression_9Context expression_9() {
-		return expression_9(0);
-	}
-
-	private Expression_9Context expression_9(int _p) {
-		ParserRuleContext _parentctx = Context;
-		int _parentState = State;
-		Expression_9Context _localctx = new Expression_9Context(Context, _parentState);
-		Expression_9Context _prevctx = _localctx;
-		int _startState = 36;
-		EnterRecursionRule(_localctx, 36, RULE_expression_9, _p);
-		try {
-			int _alt;
-			EnterOuterAlt(_localctx, 1);
-			{
-			{
-			State = 300;
-			expression_8(0);
-			}
-			Context.Stop = TokenStream.LT(-1);
-			State = 307;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,20,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( ParseListeners!=null )
-						TriggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new Expression_9Context(_parentctx, _parentState);
-					PushNewRecursionContext(_localctx, _startState, RULE_expression_9);
-					State = 302;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 303;
-					Match(SCAND);
-					State = 304;
-					expression_8(0);
-					}
-					} 
-				}
-				State = 309;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,20,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			UnrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public partial class Expression_8Context : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_7Context expression_7() {
-			return GetRuleContext<Expression_7Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_8Context expression_8() {
-			return GetRuleContext<Expression_8Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OR() { return GetToken(ImperiumParser.OR, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOT() { return GetToken(ImperiumParser.NOT, 0); }
-		public Expression_8Context(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expression_8; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterExpression_8(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitExpression_8(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpression_8(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Expression_8Context expression_8() {
-		return expression_8(0);
-	}
-
-	private Expression_8Context expression_8(int _p) {
-		ParserRuleContext _parentctx = Context;
-		int _parentState = State;
-		Expression_8Context _localctx = new Expression_8Context(Context, _parentState);
-		Expression_8Context _prevctx = _localctx;
-		int _startState = 38;
-		EnterRecursionRule(_localctx, 38, RULE_expression_8, _p);
-		int _la;
-		try {
-			int _alt;
-			EnterOuterAlt(_localctx, 1);
-			{
-			{
-			State = 311;
-			expression_7(0);
-			}
-			Context.Stop = TokenStream.LT(-1);
-			State = 318;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,21,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( ParseListeners!=null )
-						TriggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new Expression_8Context(_parentctx, _parentState);
-					PushNewRecursionContext(_localctx, _startState, RULE_expression_8);
-					State = 313;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 314;
-					_la = TokenStream.LA(1);
-					if ( !(_la==NOT || _la==OR) ) {
-					ErrorHandler.RecoverInline(this);
-					}
-					else {
-						ErrorHandler.ReportMatch(this);
-					    Consume();
-					}
-					State = 315;
-					expression_7(0);
-					}
-					} 
-				}
-				State = 320;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,21,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			UnrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public partial class Expression_7Context : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_6Context expression_6() {
-			return GetRuleContext<Expression_6Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_7Context expression_7() {
-			return GetRuleContext<Expression_7Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AND() { return GetToken(ImperiumParser.AND, 0); }
-		public Expression_7Context(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expression_7; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterExpression_7(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitExpression_7(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpression_7(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Expression_7Context expression_7() {
-		return expression_7(0);
-	}
-
-	private Expression_7Context expression_7(int _p) {
-		ParserRuleContext _parentctx = Context;
-		int _parentState = State;
-		Expression_7Context _localctx = new Expression_7Context(Context, _parentState);
-		Expression_7Context _prevctx = _localctx;
-		int _startState = 40;
-		EnterRecursionRule(_localctx, 40, RULE_expression_7, _p);
-		try {
-			int _alt;
-			EnterOuterAlt(_localctx, 1);
-			{
-			{
-			State = 322;
-			expression_6(0);
-			}
-			Context.Stop = TokenStream.LT(-1);
-			State = 329;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,22,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( ParseListeners!=null )
-						TriggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new Expression_7Context(_parentctx, _parentState);
-					PushNewRecursionContext(_localctx, _startState, RULE_expression_7);
-					State = 324;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 325;
-					Match(AND);
-					State = 326;
-					expression_6(0);
-					}
-					} 
-				}
-				State = 331;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,22,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			UnrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public partial class Expression_6Context : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_5Context expression_5() {
-			return GetRuleContext<Expression_5Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_6Context expression_6() {
-			return GetRuleContext<Expression_6Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Comparison_operatorContext comparison_operator() {
-			return GetRuleContext<Comparison_operatorContext>(0);
-		}
-		public Expression_6Context(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expression_6; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterExpression_6(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitExpression_6(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpression_6(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Expression_6Context expression_6() {
-		return expression_6(0);
-	}
-
-	private Expression_6Context expression_6(int _p) {
-		ParserRuleContext _parentctx = Context;
-		int _parentState = State;
-		Expression_6Context _localctx = new Expression_6Context(Context, _parentState);
-		Expression_6Context _prevctx = _localctx;
-		int _startState = 42;
-		EnterRecursionRule(_localctx, 42, RULE_expression_6, _p);
-		try {
-			int _alt;
-			EnterOuterAlt(_localctx, 1);
-			{
-			{
-			State = 333;
-			expression_5(0);
-			}
-			Context.Stop = TokenStream.LT(-1);
-			State = 341;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,23,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( ParseListeners!=null )
-						TriggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new Expression_6Context(_parentctx, _parentState);
-					PushNewRecursionContext(_localctx, _startState, RULE_expression_6);
-					State = 335;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 336;
-					comparison_operator();
-					State = 337;
-					expression_5(0);
-					}
-					} 
-				}
-				State = 343;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,23,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			UnrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public partial class Expression_5Context : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_4Context expression_4() {
-			return GetRuleContext<Expression_4Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_5Context expression_5() {
-			return GetRuleContext<Expression_5Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CONC() { return GetToken(ImperiumParser.CONC, 0); }
-		public Expression_5Context(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expression_5; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterExpression_5(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitExpression_5(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpression_5(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Expression_5Context expression_5() {
-		return expression_5(0);
-	}
-
-	private Expression_5Context expression_5(int _p) {
-		ParserRuleContext _parentctx = Context;
-		int _parentState = State;
-		Expression_5Context _localctx = new Expression_5Context(Context, _parentState);
-		Expression_5Context _prevctx = _localctx;
-		int _startState = 44;
-		EnterRecursionRule(_localctx, 44, RULE_expression_5, _p);
-		try {
-			int _alt;
-			EnterOuterAlt(_localctx, 1);
-			{
-			{
-			State = 345;
-			expression_4(0);
-			}
-			Context.Stop = TokenStream.LT(-1);
-			State = 352;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( ParseListeners!=null )
-						TriggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new Expression_5Context(_parentctx, _parentState);
-					PushNewRecursionContext(_localctx, _startState, RULE_expression_5);
-					State = 347;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 348;
-					Match(CONC);
-					State = 349;
-					expression_4(0);
-					}
-					} 
-				}
-				State = 354;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			UnrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public partial class Expression_4Context : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_3Context expression_3() {
-			return GetRuleContext<Expression_3Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_4Context expression_4() {
-			return GetRuleContext<Expression_4Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PLUS() { return GetToken(ImperiumParser.PLUS, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MINUS() { return GetToken(ImperiumParser.MINUS, 0); }
-		public Expression_4Context(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expression_4; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterExpression_4(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitExpression_4(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpression_4(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Expression_4Context expression_4() {
-		return expression_4(0);
-	}
-
-	private Expression_4Context expression_4(int _p) {
-		ParserRuleContext _parentctx = Context;
-		int _parentState = State;
-		Expression_4Context _localctx = new Expression_4Context(Context, _parentState);
-		Expression_4Context _prevctx = _localctx;
-		int _startState = 46;
-		EnterRecursionRule(_localctx, 46, RULE_expression_4, _p);
-		int _la;
-		try {
-			int _alt;
-			EnterOuterAlt(_localctx, 1);
-			{
-			{
-			State = 356;
-			expression_3(0);
-			}
-			Context.Stop = TokenStream.LT(-1);
-			State = 363;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,25,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( ParseListeners!=null )
-						TriggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new Expression_4Context(_parentctx, _parentState);
-					PushNewRecursionContext(_localctx, _startState, RULE_expression_4);
-					State = 358;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 359;
-					_la = TokenStream.LA(1);
-					if ( !(_la==PLUS || _la==MINUS) ) {
-					ErrorHandler.RecoverInline(this);
-					}
-					else {
-						ErrorHandler.ReportMatch(this);
-					    Consume();
-					}
-					State = 360;
-					expression_3(0);
-					}
-					} 
-				}
-				State = 365;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,25,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			UnrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public partial class Expression_3Context : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_2Context expression_2() {
-			return GetRuleContext<Expression_2Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_3Context expression_3() {
-			return GetRuleContext<Expression_3Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TIMES() { return GetToken(ImperiumParser.TIMES, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DIVIDE() { return GetToken(ImperiumParser.DIVIDE, 0); }
-		public Expression_3Context(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expression_3; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterExpression_3(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitExpression_3(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpression_3(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Expression_3Context expression_3() {
-		return expression_3(0);
-	}
-
-	private Expression_3Context expression_3(int _p) {
-		ParserRuleContext _parentctx = Context;
-		int _parentState = State;
-		Expression_3Context _localctx = new Expression_3Context(Context, _parentState);
-		Expression_3Context _prevctx = _localctx;
-		int _startState = 48;
-		EnterRecursionRule(_localctx, 48, RULE_expression_3, _p);
-		int _la;
-		try {
-			int _alt;
-			EnterOuterAlt(_localctx, 1);
-			{
-			{
-			State = 367;
-			expression_2();
-			}
-			Context.Stop = TokenStream.LT(-1);
-			State = 374;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,26,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( ParseListeners!=null )
-						TriggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new Expression_3Context(_parentctx, _parentState);
-					PushNewRecursionContext(_localctx, _startState, RULE_expression_3);
-					State = 369;
-					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-					State = 370;
-					_la = TokenStream.LA(1);
-					if ( !(_la==TIMES || _la==DIVIDE) ) {
-					ErrorHandler.RecoverInline(this);
-					}
-					else {
-						ErrorHandler.ReportMatch(this);
-					    Consume();
-					}
-					State = 371;
-					expression_2();
-					}
-					} 
-				}
-				State = 376;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,26,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			UnrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public partial class Expression_2Context : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Primitive_expressionContext primitive_expression() {
-			return GetRuleContext<Primitive_expressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Prefix_expressionContext prefix_expression() {
-			return GetRuleContext<Prefix_expressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Parenthesized_expressionContext parenthesized_expression() {
-			return GetRuleContext<Parenthesized_expressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_1Context expression_1() {
-			return GetRuleContext<Expression_1Context>(0);
-		}
-		public Expression_2Context(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expression_2; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterExpression_2(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitExpression_2(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpression_2(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Expression_2Context expression_2() {
-		Expression_2Context _localctx = new Expression_2Context(Context, State);
-		EnterRule(_localctx, 50, RULE_expression_2);
-		try {
-			State = 381;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,27,Context) ) {
-			case 1:
-				EnterOuterAlt(_localctx, 1);
-				{
-				State = 377;
-				primitive_expression();
-				}
-				break;
-			case 2:
-				EnterOuterAlt(_localctx, 2);
-				{
-				State = 378;
-				prefix_expression();
-				}
-				break;
-			case 3:
-				EnterOuterAlt(_localctx, 3);
-				{
-				State = 379;
-				parenthesized_expression();
-				}
-				break;
-			case 4:
-				EnterOuterAlt(_localctx, 4);
-				{
-				State = 380;
-				expression_1();
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Expression_1Context : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode POWER() { return GetToken(ImperiumParser.POWER, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_2Context expression_2() {
-			return GetRuleContext<Expression_2Context>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Primitive_expressionContext primitive_expression() {
-			return GetRuleContext<Primitive_expressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Parenthesized_expressionContext parenthesized_expression() {
-			return GetRuleContext<Parenthesized_expressionContext>(0);
-		}
-		public Expression_1Context(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expression_1; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterExpression_1(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitExpression_1(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpression_1(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Expression_1Context expression_1() {
-		Expression_1Context _localctx = new Expression_1Context(Context, State);
-		EnterRule(_localctx, 52, RULE_expression_1);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 385;
-			ErrorHandler.Sync(this);
-			switch (TokenStream.LA(1)) {
-			case STRING_LITERAL_3:
-			case STRING_LITERAL_2:
-			case STRING_LITERAL_1:
-			case ARGUMENT:
-			case BIT:
-			case BUILTIN:
-			case CALL:
-			case CHARACTER:
-			case COFUNCTION:
-			case COROUTINE:
-			case DECLARE:
-			case DEFINE:
-			case ELIF:
-			case ELSE:
-			case END:
-			case ENDLOOP:
-			case ENTRY:
-			case FIXED:
-			case FLOAT:
-			case GOTO:
-			case IF:
-			case INTRINSIC:
-			case LOOP:
-			case OFFSET:
-			case POINTER:
-			case PROCEDURE:
-			case RELOOP:
-			case RETURN:
-			case RETURNS:
-			case STRING:
-			case THEN:
-			case TO:
-			case UNTIL:
-			case WHILE:
-			case VARYING:
-			case IDENTIFIER:
-			case BINARY_PATTERN:
-			case OCTAL_PATTERN:
-			case HEXADECIMAL_PATTERN:
-			case DECIMAL_PATTERN:
-				{
-				State = 383;
-				primitive_expression();
-				}
-				break;
-			case LPAR:
-				{
-				State = 384;
-				parenthesized_expression();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			State = 387;
-			Match(POWER);
-			State = 388;
-			expression_2();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Prefix_expressionContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Prefix_operatorContext prefix_operator() {
-			return GetRuleContext<Prefix_operatorContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Expression_2Context expression_2() {
-			return GetRuleContext<Expression_2Context>(0);
-		}
-		public Prefix_expressionContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_prefix_expression; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterPrefix_expression(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitPrefix_expression(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitPrefix_expression(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Prefix_expressionContext prefix_expression() {
-		Prefix_expressionContext _localctx = new Prefix_expressionContext(Context, State);
-		EnterRule(_localctx, 54, RULE_prefix_expression);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 390;
-			prefix_operator();
-			State = 391;
-			expression_2();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Parenthesized_expressionContext : ParserRuleContext {
+	public partial class ParenthesizedExpressionContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
-		public Parenthesized_expressionContext(ParserRuleContext parent, int invokingState)
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode REDAND() { return GetToken(ImperiumParser.REDAND, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode REDOR() { return GetToken(ImperiumParser.REDOR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode REDXOR_U() { return GetToken(ImperiumParser.REDXOR_U, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode REDNAND() { return GetToken(ImperiumParser.REDNAND, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode REDNOR() { return GetToken(ImperiumParser.REDNOR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode REDXNOR_U() { return GetToken(ImperiumParser.REDXNOR_U, 0); }
+		public ParenthesizedExpressionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_parenthesized_expression; } }
+		public override int RuleIndex { get { return RULE_parenthesizedExpression; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterParenthesized_expression(this);
+			if (typedListener != null) typedListener.EnterParenthesizedExpression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitParenthesized_expression(this);
+			if (typedListener != null) typedListener.ExitParenthesizedExpression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitParenthesized_expression(this);
+			if (typedVisitor != null) return typedVisitor.VisitParenthesizedExpression(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Parenthesized_expressionContext parenthesized_expression() {
-		Parenthesized_expressionContext _localctx = new Parenthesized_expressionContext(Context, State);
-		EnterRule(_localctx, 56, RULE_parenthesized_expression);
+	public ParenthesizedExpressionContext parenthesizedExpression() {
+		ParenthesizedExpressionContext _localctx = new ParenthesizedExpressionContext(Context, State);
+		EnterRule(_localctx, 56, RULE_parenthesizedExpression);
 		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 393;
-			Match(LPAR);
-			State = 394;
-			expression(0);
-			State = 395;
-			Match(RPAR);
+			State = 487;
+			ErrorHandler.Sync(this);
+			switch (TokenStream.LA(1)) {
+			case LPAR:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 459;
+				Match(LPAR);
+				State = 460;
+				expression(0);
+				State = 461;
+				Match(RPAR);
+				}
+				break;
+			case REDAND:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 463;
+				Match(REDAND);
+				State = 464;
+				expression(0);
+				State = 465;
+				Match(RPAR);
+				}
+				break;
+			case REDOR:
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 467;
+				Match(REDOR);
+				State = 468;
+				expression(0);
+				State = 469;
+				Match(RPAR);
+				}
+				break;
+			case REDXOR_U:
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 471;
+				Match(REDXOR_U);
+				State = 472;
+				expression(0);
+				State = 473;
+				Match(RPAR);
+				}
+				break;
+			case REDNAND:
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 475;
+				Match(REDNAND);
+				State = 476;
+				expression(0);
+				State = 477;
+				Match(RPAR);
+				}
+				break;
+			case REDNOR:
+				EnterOuterAlt(_localctx, 6);
+				{
+				State = 479;
+				Match(REDNOR);
+				State = 480;
+				expression(0);
+				State = 481;
+				Match(RPAR);
+				}
+				break;
+			case REDXNOR_U:
+				EnterOuterAlt(_localctx, 7);
+				{
+				State = 483;
+				Match(REDXNOR_U);
+				State = 484;
+				expression(0);
+				State = 485;
+				Match(RPAR);
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -2829,45 +2592,45 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Primitive_expressionContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Numeric_literalContext numeric_literal() {
-			return GetRuleContext<Numeric_literalContext>(0);
+	public partial class PrimitiveExpressionContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public NumericLiteralContext numericLiteral() {
+			return GetRuleContext<NumericLiteralContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public String_literalContext string_literal() {
-			return GetRuleContext<String_literalContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public StringLiteralContext stringLiteral() {
+			return GetRuleContext<StringLiteralContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ReferenceContext reference() {
 			return GetRuleContext<ReferenceContext>(0);
 		}
-		public Primitive_expressionContext(ParserRuleContext parent, int invokingState)
+		public PrimitiveExpressionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_primitive_expression; } }
+		public override int RuleIndex { get { return RULE_primitiveExpression; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterPrimitive_expression(this);
+			if (typedListener != null) typedListener.EnterPrimitiveExpression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitPrimitive_expression(this);
+			if (typedListener != null) typedListener.ExitPrimitiveExpression(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitPrimitive_expression(this);
+			if (typedVisitor != null) return typedVisitor.VisitPrimitiveExpression(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Primitive_expressionContext primitive_expression() {
-		Primitive_expressionContext _localctx = new Primitive_expressionContext(Context, State);
-		EnterRule(_localctx, 58, RULE_primitive_expression);
+	public PrimitiveExpressionContext primitiveExpression() {
+		PrimitiveExpressionContext _localctx = new PrimitiveExpressionContext(Context, State);
+		EnterRule(_localctx, 58, RULE_primitiveExpression);
 		try {
-			State = 400;
+			State = 492;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case BINARY_PATTERN:
@@ -2876,8 +2639,8 @@ public partial class ImperiumParser : Parser {
 			case DECIMAL_PATTERN:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 397;
-				numeric_literal();
+				State = 489;
+				numericLiteral();
 				}
 				break;
 			case STRING_LITERAL_3:
@@ -2885,46 +2648,89 @@ public partial class ImperiumParser : Parser {
 			case STRING_LITERAL_1:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 398;
-				string_literal();
+				State = 490;
+				stringLiteral();
 				}
 				break;
+			case ALIAS:
+			case ALIGNED:
+			case ALL:
+			case ANY:
 			case ARGUMENT:
+			case AS:
+			case BASED:
+			case BINARY:
 			case BIT:
+			case BOOLEAN:
 			case BUILTIN:
+			case BY:
+			case BYPASS:
 			case CALL:
 			case CHARACTER:
 			case COFUNCTION:
 			case COROUTINE:
+			case DECIMAL:
 			case DECLARE:
 			case DEFINE:
+			case DEFINED:
 			case ELIF:
 			case ELSE:
 			case END:
 			case ENDLOOP:
 			case ENTRY:
+			case ENUM:
 			case FIXED:
 			case FLOAT:
+			case FUNCTION:
 			case GOTO:
 			case IF:
+			case INC:
+			case INCLUDE:
+			case INTERNAL:
+			case INTERRUPT:
 			case INTRINSIC:
+			case LANGUAGE:
 			case LOOP:
 			case OFFSET:
+			case OTHERWISE:
+			case OUT:
+			case PAD:
 			case POINTER:
+			case PRIVATE:
 			case PROCEDURE:
+			case PUBLIC:
+			case RAW:
+			case READONLY:
+			case RECURSIVE:
+			case REF:
 			case RELOOP:
 			case RETURN:
+			case RETURNON:
 			case RETURNS:
+			case SCOPE:
+			case SELECT:
+			case SINGLET:
+			case STACK:
+			case STATIC:
 			case STRING:
+			case STRUCTURE:
 			case THEN:
 			case TO:
+			case TYPE:
+			case UNALIGNED:
 			case UNTIL:
-			case WHILE:
+			case USES:
+			case USING:
+			case UTF:
+			case VARIABLE:
 			case VARYING:
+			case WHEN:
+			case WHILE:
+			case YIELD:
 			case IDENTIFIER:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 399;
+				State = 491;
 				reference(0);
 				}
 				break;
@@ -2943,44 +2749,1085 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Prefix_operatorContext : ParserRuleContext {
+	public partial class PrefixExpressionContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public PrefixOperatorContext prefixOperator() {
+			return GetRuleContext<PrefixOperatorContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
+			return GetRuleContext<ExpressionContext>(0);
+		}
+		public PrefixExpressionContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_prefixExpression; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterPrefixExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitPrefixExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrefixExpression(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public PrefixExpressionContext prefixExpression() {
+		PrefixExpressionContext _localctx = new PrefixExpressionContext(Context, State);
+		EnterRule(_localctx, 60, RULE_prefixExpression);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 494;
+			prefixOperator();
+			State = 495;
+			expression(0);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class BitAdjustOperatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode L_ROTATE_U() { return GetToken(ImperiumParser.L_ROTATE_U, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode R_ROTATE_U() { return GetToken(ImperiumParser.R_ROTATE_U, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode L_LOG_SHIFT() { return GetToken(ImperiumParser.L_LOG_SHIFT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode R_LOG_SHIFT() { return GetToken(ImperiumParser.R_LOG_SHIFT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode R_ART_SHIFT() { return GetToken(ImperiumParser.R_ART_SHIFT, 0); }
+		public BitAdjustOperatorContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_bitAdjustOperator; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterBitAdjustOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitBitAdjustOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBitAdjustOperator(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public BitAdjustOperatorContext bitAdjustOperator() {
+		BitAdjustOperatorContext _localctx = new BitAdjustOperatorContext(Context, State);
+		EnterRule(_localctx, 62, RULE_bitAdjustOperator);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 497;
+			_la = TokenStream.LA(1);
+			if ( !((((_la - 139)) & ~0x3f) == 0 && ((1L << (_la - 139)) & 31L) != 0) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class AdditionOperatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PLUS() { return GetToken(ImperiumParser.PLUS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MINUS() { return GetToken(ImperiumParser.MINUS, 0); }
+		public AdditionOperatorContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_additionOperator; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterAdditionOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitAdditionOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAdditionOperator(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public AdditionOperatorContext additionOperator() {
+		AdditionOperatorContext _localctx = new AdditionOperatorContext(Context, State);
+		EnterRule(_localctx, 64, RULE_additionOperator);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 499;
+			_la = TokenStream.LA(1);
+			if ( !(_la==PLUS || _la==MINUS) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class MultiplyOperatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TIMES() { return GetToken(ImperiumParser.TIMES, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DIVIDE_U() { return GetToken(ImperiumParser.DIVIDE_U, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PCNT() { return GetToken(ImperiumParser.PCNT, 0); }
+		public MultiplyOperatorContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_multiplyOperator; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterMultiplyOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitMultiplyOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMultiplyOperator(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public MultiplyOperatorContext multiplyOperator() {
+		MultiplyOperatorContext _localctx = new MultiplyOperatorContext(Context, State);
+		EnterRule(_localctx, 66, RULE_multiplyOperator);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 501;
+			_la = TokenStream.LA(1);
+			if ( !((((_la - 104)) & ~0x3f) == 0 && ((1L << (_la - 104)) & 524291L) != 0) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class BoolAndOperatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AND() { return GetToken(ImperiumParser.AND, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NAND() { return GetToken(ImperiumParser.NAND, 0); }
+		public BoolAndOperatorContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_boolAndOperator; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterBoolAndOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitBoolAndOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBoolAndOperator(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public BoolAndOperatorContext boolAndOperator() {
+		BoolAndOperatorContext _localctx = new BoolAndOperatorContext(Context, State);
+		EnterRule(_localctx, 68, RULE_boolAndOperator);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 503;
+			_la = TokenStream.LA(1);
+			if ( !(_la==AND || _la==NAND) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class BoolXorOperatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode XOR_U() { return GetToken(ImperiumParser.XOR_U, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode XNOR_U() { return GetToken(ImperiumParser.XNOR_U, 0); }
+		public BoolXorOperatorContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_boolXorOperator; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterBoolXorOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitBoolXorOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBoolXorOperator(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public BoolXorOperatorContext boolXorOperator() {
+		BoolXorOperatorContext _localctx = new BoolXorOperatorContext(Context, State);
+		EnterRule(_localctx, 70, RULE_boolXorOperator);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 505;
+			_la = TokenStream.LA(1);
+			if ( !(_la==XOR_U || _la==XNOR_U) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class BoolOrOperatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OR() { return GetToken(ImperiumParser.OR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOR() { return GetToken(ImperiumParser.NOR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOT() { return GetToken(ImperiumParser.NOT, 0); }
+		public BoolOrOperatorContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_boolOrOperator; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterBoolOrOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitBoolOrOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBoolOrOperator(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public BoolOrOperatorContext boolOrOperator() {
+		BoolOrOperatorContext _localctx = new BoolOrOperatorContext(Context, State);
+		EnterRule(_localctx, 72, RULE_boolOrOperator);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 507;
+			_la = TokenStream.LA(1);
+			if ( !((((_la - 115)) & ~0x3f) == 0 && ((1L << (_la - 115)) & 5121L) != 0) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ExpressionContext : ParserRuleContext {
+		public ExpressionContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_expression; } }
+	 
+		public ExpressionContext() { }
+		public virtual void CopyFrom(ExpressionContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class ExprBoolAndContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public BoolAndOperatorContext boolAndOperator() {
+			return GetRuleContext<BoolAndOperatorContext>(0);
+		}
+		public ExprBoolAndContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprBoolAnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprBoolAnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprBoolAnd(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprConcatContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CONC() { return GetToken(ImperiumParser.CONC, 0); }
+		public ExprConcatContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprConcat(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprConcat(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprConcat(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprBoolXorContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public BoolXorOperatorContext boolXorOperator() {
+			return GetRuleContext<BoolXorOperatorContext>(0);
+		}
+		public ExprBoolXorContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprBoolXor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprBoolXor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprBoolXor(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprLogAndContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOGAND() { return GetToken(ImperiumParser.LOGAND, 0); }
+		public ExprLogAndContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprLogAnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprLogAnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprLogAnd(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprBitAdjustContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public BitAdjustOperatorContext bitAdjustOperator() {
+			return GetRuleContext<BitAdjustOperatorContext>(0);
+		}
+		public ExprBitAdjustContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprBitAdjust(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprBitAdjust(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprBitAdjust(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprAddSubContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public AdditionOperatorContext additionOperator() {
+			return GetRuleContext<AdditionOperatorContext>(0);
+		}
+		public ExprAddSubContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprAddSub(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprAddSub(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprAddSub(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprParenthesizedContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ParenthesizedExpressionContext parenthesizedExpression() {
+			return GetRuleContext<ParenthesizedExpressionContext>(0);
+		}
+		public ExprParenthesizedContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprParenthesized(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprParenthesized(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprParenthesized(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprMulDivContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public MultiplyOperatorContext multiplyOperator() {
+			return GetRuleContext<MultiplyOperatorContext>(0);
+		}
+		public ExprMulDivContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprMulDiv(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprMulDiv(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprMulDiv(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprLogOrContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOGOR() { return GetToken(ImperiumParser.LOGOR, 0); }
+		public ExprLogOrContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprLogOr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprLogOr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprLogOr(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprCompareContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ComparisonOperatorContext comparisonOperator() {
+			return GetRuleContext<ComparisonOperatorContext>(0);
+		}
+		public ExprCompareContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprCompare(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprCompare(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprCompare(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprPrefixedContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public PrefixExpressionContext prefixExpression() {
+			return GetRuleContext<PrefixExpressionContext>(0);
+		}
+		public ExprPrefixedContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprPrefixed(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprPrefixed(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprPrefixed(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprBoolOrContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public BoolOrOperatorContext boolOrOperator() {
+			return GetRuleContext<BoolOrOperatorContext>(0);
+		}
+		public ExprBoolOrContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprBoolOr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprBoolOr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprBoolOr(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprPrimitiveContext : ExpressionContext {
+		[System.Diagnostics.DebuggerNonUserCode] public PrimitiveExpressionContext primitiveExpression() {
+			return GetRuleContext<PrimitiveExpressionContext>(0);
+		}
+		public ExprPrimitiveContext(ExpressionContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterExprPrimitive(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitExprPrimitive(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprPrimitive(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ExpressionContext expression() {
+		return expression(0);
+	}
+
+	private ExpressionContext expression(int _p) {
+		ParserRuleContext _parentctx = Context;
+		int _parentState = State;
+		ExpressionContext _localctx = new ExpressionContext(Context, _parentState);
+		ExpressionContext _prevctx = _localctx;
+		int _startState = 74;
+		EnterRecursionRule(_localctx, 74, RULE_expression, _p);
+		try {
+			int _alt;
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 513;
+			ErrorHandler.Sync(this);
+			switch (TokenStream.LA(1)) {
+			case STRING_LITERAL_3:
+			case STRING_LITERAL_2:
+			case STRING_LITERAL_1:
+			case ALIAS:
+			case ALIGNED:
+			case ALL:
+			case ANY:
+			case ARGUMENT:
+			case AS:
+			case BASED:
+			case BINARY:
+			case BIT:
+			case BOOLEAN:
+			case BUILTIN:
+			case BY:
+			case BYPASS:
+			case CALL:
+			case CHARACTER:
+			case COFUNCTION:
+			case COROUTINE:
+			case DECIMAL:
+			case DECLARE:
+			case DEFINE:
+			case DEFINED:
+			case ELIF:
+			case ELSE:
+			case END:
+			case ENDLOOP:
+			case ENTRY:
+			case ENUM:
+			case FIXED:
+			case FLOAT:
+			case FUNCTION:
+			case GOTO:
+			case IF:
+			case INC:
+			case INCLUDE:
+			case INTERNAL:
+			case INTERRUPT:
+			case INTRINSIC:
+			case LANGUAGE:
+			case LOOP:
+			case OFFSET:
+			case OTHERWISE:
+			case OUT:
+			case PAD:
+			case POINTER:
+			case PRIVATE:
+			case PROCEDURE:
+			case PUBLIC:
+			case RAW:
+			case READONLY:
+			case RECURSIVE:
+			case REF:
+			case RELOOP:
+			case RETURN:
+			case RETURNON:
+			case RETURNS:
+			case SCOPE:
+			case SELECT:
+			case SINGLET:
+			case STACK:
+			case STATIC:
+			case STRING:
+			case STRUCTURE:
+			case THEN:
+			case TO:
+			case TYPE:
+			case UNALIGNED:
+			case UNTIL:
+			case USES:
+			case USING:
+			case UTF:
+			case VARIABLE:
+			case VARYING:
+			case WHEN:
+			case WHILE:
+			case YIELD:
+			case IDENTIFIER:
+			case BINARY_PATTERN:
+			case OCTAL_PATTERN:
+			case HEXADECIMAL_PATTERN:
+			case DECIMAL_PATTERN:
+				{
+				_localctx = new ExprPrimitiveContext(_localctx);
+				Context = _localctx;
+				_prevctx = _localctx;
+
+				State = 510;
+				primitiveExpression();
+				}
+				break;
+			case LPAR:
+			case REDAND:
+			case REDOR:
+			case REDNAND:
+			case REDNOR:
+			case REDXOR_U:
+			case REDXNOR_U:
+				{
+				_localctx = new ExprParenthesizedContext(_localctx);
+				Context = _localctx;
+				_prevctx = _localctx;
+				State = 511;
+				parenthesizedExpression();
+				}
+				break;
+			case PLUS:
+			case MINUS:
+			case NOT:
+				{
+				_localctx = new ExprPrefixedContext(_localctx);
+				Context = _localctx;
+				_prevctx = _localctx;
+				State = 512;
+				prefixExpression();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			Context.Stop = TokenStream.LT(-1);
+			State = 554;
+			ErrorHandler.Sync(this);
+			_alt = Interpreter.AdaptivePredict(TokenStream,47,Context);
+			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					if ( ParseListeners!=null )
+						TriggerExitRuleEvent();
+					_prevctx = _localctx;
+					{
+					State = 552;
+					ErrorHandler.Sync(this);
+					switch ( Interpreter.AdaptivePredict(TokenStream,46,Context) ) {
+					case 1:
+						{
+						_localctx = new ExprMulDivContext(new ExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_expression);
+						State = 515;
+						if (!(Precpred(Context, 10))) throw new FailedPredicateException(this, "Precpred(Context, 10)");
+						State = 516;
+						multiplyOperator();
+						State = 517;
+						expression(11);
+						}
+						break;
+					case 2:
+						{
+						_localctx = new ExprAddSubContext(new ExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_expression);
+						State = 519;
+						if (!(Precpred(Context, 9))) throw new FailedPredicateException(this, "Precpred(Context, 9)");
+						State = 520;
+						additionOperator();
+						State = 521;
+						expression(10);
+						}
+						break;
+					case 3:
+						{
+						_localctx = new ExprBitAdjustContext(new ExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_expression);
+						State = 523;
+						if (!(Precpred(Context, 8))) throw new FailedPredicateException(this, "Precpred(Context, 8)");
+						State = 524;
+						bitAdjustOperator();
+						State = 525;
+						expression(9);
+						}
+						break;
+					case 4:
+						{
+						_localctx = new ExprConcatContext(new ExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_expression);
+						State = 527;
+						if (!(Precpred(Context, 7))) throw new FailedPredicateException(this, "Precpred(Context, 7)");
+						State = 528;
+						Match(CONC);
+						State = 529;
+						expression(8);
+						}
+						break;
+					case 5:
+						{
+						_localctx = new ExprCompareContext(new ExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_expression);
+						State = 530;
+						if (!(Precpred(Context, 6))) throw new FailedPredicateException(this, "Precpred(Context, 6)");
+						State = 531;
+						comparisonOperator();
+						State = 532;
+						expression(7);
+						}
+						break;
+					case 6:
+						{
+						_localctx = new ExprBoolAndContext(new ExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_expression);
+						State = 534;
+						if (!(Precpred(Context, 5))) throw new FailedPredicateException(this, "Precpred(Context, 5)");
+						State = 535;
+						boolAndOperator();
+						State = 536;
+						expression(6);
+						}
+						break;
+					case 7:
+						{
+						_localctx = new ExprBoolXorContext(new ExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_expression);
+						State = 538;
+						if (!(Precpred(Context, 4))) throw new FailedPredicateException(this, "Precpred(Context, 4)");
+						State = 539;
+						boolXorOperator();
+						State = 540;
+						expression(5);
+						}
+						break;
+					case 8:
+						{
+						_localctx = new ExprBoolOrContext(new ExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_expression);
+						State = 542;
+						if (!(Precpred(Context, 3))) throw new FailedPredicateException(this, "Precpred(Context, 3)");
+						State = 543;
+						boolOrOperator();
+						State = 544;
+						expression(4);
+						}
+						break;
+					case 9:
+						{
+						_localctx = new ExprLogAndContext(new ExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_expression);
+						State = 546;
+						if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
+						State = 547;
+						Match(LOGAND);
+						State = 548;
+						expression(3);
+						}
+						break;
+					case 10:
+						{
+						_localctx = new ExprLogOrContext(new ExpressionContext(_parentctx, _parentState));
+						PushNewRecursionContext(_localctx, _startState, RULE_expression);
+						State = 549;
+						if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
+						State = 550;
+						Match(LOGOR);
+						State = 551;
+						expression(2);
+						}
+						break;
+					}
+					} 
+				}
+				State = 556;
+				ErrorHandler.Sync(this);
+				_alt = Interpreter.AdaptivePredict(TokenStream,47,Context);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			UnrollRecursionContexts(_parentctx);
+		}
+		return _localctx;
+	}
+
+	public partial class PrefixOperatorContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PLUS() { return GetToken(ImperiumParser.PLUS, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MINUS() { return GetToken(ImperiumParser.MINUS, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOT() { return GetToken(ImperiumParser.NOT, 0); }
-		public Prefix_operatorContext(ParserRuleContext parent, int invokingState)
+		public PrefixOperatorContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_prefix_operator; } }
+		public override int RuleIndex { get { return RULE_prefixOperator; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterPrefix_operator(this);
+			if (typedListener != null) typedListener.EnterPrefixOperator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitPrefix_operator(this);
+			if (typedListener != null) typedListener.ExitPrefixOperator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitPrefix_operator(this);
+			if (typedVisitor != null) return typedVisitor.VisitPrefixOperator(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Prefix_operatorContext prefix_operator() {
-		Prefix_operatorContext _localctx = new Prefix_operatorContext(Context, State);
-		EnterRule(_localctx, 60, RULE_prefix_operator);
+	public PrefixOperatorContext prefixOperator() {
+		PrefixOperatorContext _localctx = new PrefixOperatorContext(Context, State);
+		EnterRule(_localctx, 76, RULE_prefixOperator);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 402;
+			State = 557;
 			_la = TokenStream.LA(1);
-			if ( !((((_la - 99)) & ~0x3f) == 0 && ((1L << (_la - 99)) & 515L) != 0) ) {
+			if ( !((((_la - 106)) & ~0x3f) == 0 && ((1L << (_la - 106)) & 515L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3000,49 +3847,49 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Comparison_operatorContext : ParserRuleContext {
+	public partial class ComparisonOperatorContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GT() { return GetToken(ImperiumParser.GT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GTE() { return GetToken(ImperiumParser.GTE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GTE_U() { return GetToken(ImperiumParser.GTE_U, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUALS() { return GetToken(ImperiumParser.EQUALS, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LT() { return GetToken(ImperiumParser.LT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LTE() { return GetToken(ImperiumParser.LTE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LTE_U() { return GetToken(ImperiumParser.LTE_U, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NGT() { return GetToken(ImperiumParser.NGT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NE() { return GetToken(ImperiumParser.NE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NE_U() { return GetToken(ImperiumParser.NE_U, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NLT() { return GetToken(ImperiumParser.NLT, 0); }
-		public Comparison_operatorContext(ParserRuleContext parent, int invokingState)
+		public ComparisonOperatorContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_comparison_operator; } }
+		public override int RuleIndex { get { return RULE_comparisonOperator; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterComparison_operator(this);
+			if (typedListener != null) typedListener.EnterComparisonOperator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitComparison_operator(this);
+			if (typedListener != null) typedListener.ExitComparisonOperator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitComparison_operator(this);
+			if (typedVisitor != null) return typedVisitor.VisitComparisonOperator(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Comparison_operatorContext comparison_operator() {
-		Comparison_operatorContext _localctx = new Comparison_operatorContext(Context, State);
-		EnterRule(_localctx, 62, RULE_comparison_operator);
+	public ComparisonOperatorContext comparisonOperator() {
+		ComparisonOperatorContext _localctx = new ComparisonOperatorContext(Context, State);
+		EnterRule(_localctx, 78, RULE_comparisonOperator);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 404;
+			State = 559;
 			_la = TokenStream.LA(1);
-			if ( !((((_la - 96)) & ~0x3f) == 0 && ((1L << (_la - 96)) & 1040385L) != 0) ) {
+			if ( !((((_la - 102)) & ~0x3f) == 0 && ((1L << (_la - 102)) & 2080769L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3062,43 +3909,44 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Shift_operatorContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RSHF() { return GetToken(ImperiumParser.RSHF, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LSHF() { return GetToken(ImperiumParser.LSHF, 0); }
-		public Shift_operatorContext(ParserRuleContext parent, int invokingState)
+	public partial class ShiftOperatorContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode R_LOG_SHIFT() { return GetToken(ImperiumParser.R_LOG_SHIFT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode L_LOG_SHIFT() { return GetToken(ImperiumParser.L_LOG_SHIFT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode R_ART_SHIFT() { return GetToken(ImperiumParser.R_ART_SHIFT, 0); }
+		public ShiftOperatorContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_shift_operator; } }
+		public override int RuleIndex { get { return RULE_shiftOperator; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterShift_operator(this);
+			if (typedListener != null) typedListener.EnterShiftOperator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitShift_operator(this);
+			if (typedListener != null) typedListener.ExitShiftOperator(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitShift_operator(this);
+			if (typedVisitor != null) return typedVisitor.VisitShiftOperator(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Shift_operatorContext shift_operator() {
-		Shift_operatorContext _localctx = new Shift_operatorContext(Context, State);
-		EnterRule(_localctx, 64, RULE_shift_operator);
+	public ShiftOperatorContext shiftOperator() {
+		ShiftOperatorContext _localctx = new ShiftOperatorContext(Context, State);
+		EnterRule(_localctx, 80, RULE_shiftOperator);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 406;
+			State = 561;
 			_la = TokenStream.LA(1);
-			if ( !(_la==T__3 || _la==T__4 || _la==LSHF || _la==RSHF) ) {
+			if ( !((((_la - 139)) & ~0x3f) == 0 && ((1L << (_la - 139)) & 7L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -3119,56 +3967,29 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class IdentifierContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public KeywordContext keyword() {
+			return GetRuleContext<KeywordContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER() { return GetToken(ImperiumParser.IDENTIFIER, 0); }
 		public IdentifierContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int RuleIndex { get { return RULE_identifier; } }
-	 
-		public IdentifierContext() { }
-		public virtual void CopyFrom(IdentifierContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class Identifier_IDENTIFIERContext : IdentifierContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER() { return GetToken(ImperiumParser.IDENTIFIER, 0); }
-		public Identifier_IDENTIFIERContext(IdentifierContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterIdentifier_IDENTIFIER(this);
+			if (typedListener != null) typedListener.EnterIdentifier(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitIdentifier_IDENTIFIER(this);
+			if (typedListener != null) typedListener.ExitIdentifier(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIdentifier_IDENTIFIER(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class KEYWDContext : IdentifierContext {
-		[System.Diagnostics.DebuggerNonUserCode] public KeywordContext keyword() {
-			return GetRuleContext<KeywordContext>(0);
-		}
-		public KEYWDContext(IdentifierContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterKEYWD(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitKEYWD(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitKEYWD(this);
+			if (typedVisitor != null) return typedVisitor.VisitIdentifier(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -3176,55 +3997,96 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public IdentifierContext identifier() {
 		IdentifierContext _localctx = new IdentifierContext(Context, State);
-		EnterRule(_localctx, 66, RULE_identifier);
+		EnterRule(_localctx, 82, RULE_identifier);
 		try {
-			State = 410;
+			State = 565;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
+			case ALIAS:
+			case ALIGNED:
+			case ALL:
+			case ANY:
 			case ARGUMENT:
+			case AS:
+			case BASED:
+			case BINARY:
 			case BIT:
+			case BOOLEAN:
 			case BUILTIN:
+			case BY:
+			case BYPASS:
 			case CALL:
 			case CHARACTER:
 			case COFUNCTION:
 			case COROUTINE:
+			case DECIMAL:
 			case DECLARE:
 			case DEFINE:
+			case DEFINED:
 			case ELIF:
 			case ELSE:
 			case END:
 			case ENDLOOP:
 			case ENTRY:
+			case ENUM:
 			case FIXED:
 			case FLOAT:
+			case FUNCTION:
 			case GOTO:
 			case IF:
+			case INC:
+			case INCLUDE:
+			case INTERNAL:
+			case INTERRUPT:
 			case INTRINSIC:
+			case LANGUAGE:
 			case LOOP:
 			case OFFSET:
+			case OTHERWISE:
+			case OUT:
+			case PAD:
 			case POINTER:
+			case PRIVATE:
 			case PROCEDURE:
+			case PUBLIC:
+			case RAW:
+			case READONLY:
+			case RECURSIVE:
+			case REF:
 			case RELOOP:
 			case RETURN:
+			case RETURNON:
 			case RETURNS:
+			case SCOPE:
+			case SELECT:
+			case SINGLET:
+			case STACK:
+			case STATIC:
 			case STRING:
+			case STRUCTURE:
 			case THEN:
 			case TO:
+			case TYPE:
+			case UNALIGNED:
 			case UNTIL:
-			case WHILE:
+			case USES:
+			case USING:
+			case UTF:
+			case VARIABLE:
 			case VARYING:
-				_localctx = new KEYWDContext(_localctx);
+			case WHEN:
+			case WHILE:
+			case YIELD:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 408;
+				State = 563;
 				keyword();
 				}
 				break;
 			case IDENTIFIER:
-				_localctx = new Identifier_IDENTIFIERContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 409;
+				State = 564;
 				Match(IDENTIFIER);
 				}
 				break;
@@ -3243,131 +4105,48 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class KeywordContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CALL() { return GetToken(ImperiumParser.CALL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GOTO() { return GetToken(ImperiumParser.GOTO, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PROCEDURE() { return GetToken(ImperiumParser.PROCEDURE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DECLARE() { return GetToken(ImperiumParser.DECLARE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DEFINE() { return GetToken(ImperiumParser.DEFINE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RETURN() { return GetToken(ImperiumParser.RETURN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IF() { return GetToken(ImperiumParser.IF, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode THEN() { return GetToken(ImperiumParser.THEN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ELSE() { return GetToken(ImperiumParser.ELSE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ELIF() { return GetToken(ImperiumParser.ELIF, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TO() { return GetToken(ImperiumParser.TO, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RETURNS() { return GetToken(ImperiumParser.RETURNS, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ARGUMENT() { return GetToken(ImperiumParser.ARGUMENT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode POINTER() { return GetToken(ImperiumParser.POINTER, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BIT() { return GetToken(ImperiumParser.BIT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHARACTER() { return GetToken(ImperiumParser.CHARACTER, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ENTRY() { return GetToken(ImperiumParser.ENTRY, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FIXED() { return GetToken(ImperiumParser.FIXED, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(ImperiumParser.FLOAT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OFFSET() { return GetToken(ImperiumParser.OFFSET, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(ImperiumParser.STRING, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARYING() { return GetToken(ImperiumParser.VARYING, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COFUNCTION() { return GetToken(ImperiumParser.COFUNCTION, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COROUTINE() { return GetToken(ImperiumParser.COROUTINE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP() { return GetToken(ImperiumParser.LOOP, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode WHILE() { return GetToken(ImperiumParser.WHILE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode UNTIL() { return GetToken(ImperiumParser.UNTIL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BUILTIN() { return GetToken(ImperiumParser.BUILTIN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INTRINSIC() { return GetToken(ImperiumParser.INTRINSIC, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ENDLOOP() { return GetToken(ImperiumParser.ENDLOOP, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RELOOP() { return GetToken(ImperiumParser.RELOOP, 0); }
-		public KeywordContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_keyword; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterKeyword(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitKeyword(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitKeyword(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public KeywordContext keyword() {
-		KeywordContext _localctx = new KeywordContext(Context, State);
-		EnterRule(_localctx, 68, RULE_keyword);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 412;
-			_la = TokenStream.LA(1);
-			if ( !((((_la - 16)) & ~0x3f) == 0 && ((1L << (_la - 16)) & 3055941476979498577L) != 0) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Call_stmtContext : ParserRuleContext {
+	public partial class CallStmtContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CALL() { return GetToken(ImperiumParser.CALL, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ReferenceContext reference() {
 			return GetRuleContext<ReferenceContext>(0);
 		}
-		public Call_stmtContext(ParserRuleContext parent, int invokingState)
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		public CallStmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_call_stmt; } }
+		public override int RuleIndex { get { return RULE_callStmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterCall_stmt(this);
+			if (typedListener != null) typedListener.EnterCallStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitCall_stmt(this);
+			if (typedListener != null) typedListener.ExitCallStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitCall_stmt(this);
+			if (typedVisitor != null) return typedVisitor.VisitCallStmt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Call_stmtContext call_stmt() {
-		Call_stmtContext _localctx = new Call_stmtContext(Context, State);
-		EnterRule(_localctx, 70, RULE_call_stmt);
+	public CallStmtContext callStmt() {
+		CallStmtContext _localctx = new CallStmtContext(Context, State);
+		EnterRule(_localctx, 84, RULE_callStmt);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 414;
+			State = 567;
 			Match(CALL);
-			State = 415;
+			State = 568;
 			reference(0);
+			State = 569;
+			Match(SEMICOLON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -3381,79 +4160,81 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Goto_stmtContext : ParserRuleContext {
+	public partial class GotoStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GOTO() { return GetToken(ImperiumParser.GOTO, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER() { return GetToken(ImperiumParser.IDENTIFIER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
+			return GetRuleContext<IdentifierContext>(0);
+		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Decimal_literalContext decimal_literal() {
-			return GetRuleContext<Decimal_literalContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
+			return GetRuleContext<ExpressionContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ReferenceContext reference() {
 			return GetRuleContext<ReferenceContext>(0);
 		}
-		public Goto_stmtContext(ParserRuleContext parent, int invokingState)
+		public GotoStmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_goto_stmt; } }
+		public override int RuleIndex { get { return RULE_gotoStmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterGoto_stmt(this);
+			if (typedListener != null) typedListener.EnterGotoStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitGoto_stmt(this);
+			if (typedListener != null) typedListener.ExitGotoStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitGoto_stmt(this);
+			if (typedVisitor != null) return typedVisitor.VisitGotoStmt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Goto_stmtContext goto_stmt() {
-		Goto_stmtContext _localctx = new Goto_stmtContext(Context, State);
-		EnterRule(_localctx, 72, RULE_goto_stmt);
+	public GotoStmtContext gotoStmt() {
+		GotoStmtContext _localctx = new GotoStmtContext(Context, State);
+		EnterRule(_localctx, 86, RULE_gotoStmt);
 		try {
-			State = 426;
+			State = 584;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,31,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,49,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
 				{
-				State = 417;
+				State = 571;
 				Match(GOTO);
-				State = 418;
-				Match(IDENTIFIER);
-				State = 419;
+				State = 572;
+				identifier();
+				State = 573;
 				Match(LPAR);
-				State = 420;
-				decimal_literal();
-				State = 421;
+				State = 574;
+				expression(0);
+				State = 575;
 				Match(RPAR);
 				}
+				State = 577;
+				Match(SEMICOLON);
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
 				{
-				State = 423;
+				State = 579;
 				Match(GOTO);
-				State = 424;
+				State = 580;
 				reference(0);
 				}
-				}
-				break;
-			case 3:
-				EnterOuterAlt(_localctx, 3);
-				{
+				State = 582;
+				Match(SEMICOLON);
 				}
 				break;
 			}
@@ -3469,224 +4250,53 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class End_stmtContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
-		public End_stmtContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_end_stmt; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterEnd_stmt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitEnd_stmt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitEnd_stmt(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public End_stmtContext end_stmt() {
-		End_stmtContext _localctx = new End_stmtContext(Context, State);
-		EnterRule(_localctx, 74, RULE_end_stmt);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 428;
-			Match(END);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Endloop_stmtContext : ParserRuleContext {
+	public partial class EndloopStmtContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ENDLOOP() { return GetToken(ImperiumParser.ENDLOOP, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER() { return GetToken(ImperiumParser.IDENTIFIER, 0); }
-		public Endloop_stmtContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_endloop_stmt; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterEndloop_stmt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitEndloop_stmt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitEndloop_stmt(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Endloop_stmtContext endloop_stmt() {
-		Endloop_stmtContext _localctx = new Endloop_stmtContext(Context, State);
-		EnterRule(_localctx, 76, RULE_endloop_stmt);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 430;
-			Match(ENDLOOP);
-			State = 432;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==IDENTIFIER) {
-				{
-				State = 431;
-				Match(IDENTIFIER);
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Reloop_stmtContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RELOOP() { return GetToken(ImperiumParser.RELOOP, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTIFIER() { return GetToken(ImperiumParser.IDENTIFIER, 0); }
-		public Reloop_stmtContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_reloop_stmt; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterReloop_stmt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitReloop_stmt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitReloop_stmt(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Reloop_stmtContext reloop_stmt() {
-		Reloop_stmtContext _localctx = new Reloop_stmtContext(Context, State);
-		EnterRule(_localctx, 78, RULE_reloop_stmt);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 434;
-			Match(RELOOP);
-			State = 436;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==IDENTIFIER) {
-				{
-				State = 435;
-				Match(IDENTIFIER);
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Declare_stmtContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
 			return GetRuleContext<IdentifierContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Type_infoContext type_info() {
-			return GetRuleContext<Type_infoContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DECLARE() { return GetToken(ImperiumParser.DECLARE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ARGUMENT() { return GetToken(ImperiumParser.ARGUMENT, 0); }
-		public Declare_stmtContext(ParserRuleContext parent, int invokingState)
+		public EndloopStmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_declare_stmt; } }
+		public override int RuleIndex { get { return RULE_endloopStmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterDeclare_stmt(this);
+			if (typedListener != null) typedListener.EnterEndloopStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitDeclare_stmt(this);
+			if (typedListener != null) typedListener.ExitEndloopStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDeclare_stmt(this);
+			if (typedVisitor != null) return typedVisitor.VisitEndloopStmt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Declare_stmtContext declare_stmt() {
-		Declare_stmtContext _localctx = new Declare_stmtContext(Context, State);
-		EnterRule(_localctx, 80, RULE_declare_stmt);
-		int _la;
+	public EndloopStmtContext endloopStmt() {
+		EndloopStmtContext _localctx = new EndloopStmtContext(Context, State);
+		EnterRule(_localctx, 88, RULE_endloopStmt);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 438;
-			_la = TokenStream.LA(1);
-			if ( !(_la==ARGUMENT || _la==DECLARE) ) {
-			ErrorHandler.RecoverInline(this);
+			State = 586;
+			Match(ENDLOOP);
+			State = 588;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,50,Context) ) {
+			case 1:
+				{
+				State = 587;
+				identifier();
+				}
+				break;
 			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 439;
-			identifier();
-			State = 440;
-			type_info();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3700,9 +4310,248 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Type_infoContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Dimension_suffixContext dimension_suffix() {
-			return GetRuleContext<Dimension_suffixContext>(0);
+	public partial class ReloopStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RELOOP() { return GetToken(ImperiumParser.RELOOP, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
+			return GetRuleContext<IdentifierContext>(0);
+		}
+		public ReloopStmtContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_reloopStmt; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterReloopStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitReloopStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReloopStmt(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ReloopStmtContext reloopStmt() {
+		ReloopStmtContext _localctx = new ReloopStmtContext(Context, State);
+		EnterRule(_localctx, 90, RULE_reloopStmt);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 590;
+			Match(RELOOP);
+			State = 592;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,51,Context) ) {
+			case 1:
+				{
+				State = 591;
+				identifier();
+				}
+				break;
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class DeclareStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext[] identifier() {
+			return GetRuleContexts<IdentifierContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier(int i) {
+			return GetRuleContext<IdentifierContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AS() { return GetToken(ImperiumParser.AS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DECLARE() { return GetToken(ImperiumParser.DECLARE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ARGUMENT() { return GetToken(ImperiumParser.ARGUMENT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DimensionSuffixContext dimensionSuffix() {
+			return GetRuleContext<DimensionSuffixContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public MemoryAttributeContext memoryAttribute() {
+			return GetRuleContext<MemoryAttributeContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public DeclarationBodyContext declarationBody() {
+			return GetRuleContext<DeclarationBodyContext>(0);
+		}
+		public DeclareStmtContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_declareStmt; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterDeclareStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitDeclareStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeclareStmt(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public DeclareStmtContext declareStmt() {
+		DeclareStmtContext _localctx = new DeclareStmtContext(Context, State);
+		EnterRule(_localctx, 92, RULE_declareStmt);
+		int _la;
+		try {
+			State = 610;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,54,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 594;
+				_la = TokenStream.LA(1);
+				if ( !(_la==ARGUMENT || _la==DECLARE) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				State = 595;
+				identifier();
+				State = 597;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==LPAR) {
+					{
+					State = 596;
+					dimensionSuffix();
+					}
+				}
+
+				State = 599;
+				Match(AS);
+				State = 600;
+				identifier();
+				State = 602;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if ((((_la - 16)) & ~0x3f) == 0 && ((1L << (_la - 16)) & 27021597764239361L) != 0) {
+					{
+					State = 601;
+					memoryAttribute();
+					}
+				}
+
+				State = 604;
+				Match(SEMICOLON);
+				}
+				break;
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 606;
+				_la = TokenStream.LA(1);
+				if ( !(_la==ARGUMENT || _la==DECLARE) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				State = 607;
+				declarationBody();
+				State = 608;
+				Match(SEMICOLON);
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class DeclarationBodyContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
+			return GetRuleContext<IdentifierContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public TypeInfoContext typeInfo() {
+			return GetRuleContext<TypeInfoContext>(0);
+		}
+		public DeclarationBodyContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_declarationBody; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterDeclarationBody(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitDeclarationBody(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeclarationBody(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public DeclarationBodyContext declarationBody() {
+		DeclarationBodyContext _localctx = new DeclarationBodyContext(Context, State);
+		EnterRule(_localctx, 94, RULE_declarationBody);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 612;
+			identifier();
+			State = 613;
+			typeInfo();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class TypeInfoContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public DimensionSuffixContext dimensionSuffix() {
+			return GetRuleContext<DimensionSuffixContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public AttributeContext[] attribute() {
 			return GetRuleContexts<AttributeContext>();
@@ -3710,64 +4559,61 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public AttributeContext attribute(int i) {
 			return GetRuleContext<AttributeContext>(i);
 		}
-		public Type_infoContext(ParserRuleContext parent, int invokingState)
+		public TypeInfoContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_type_info; } }
+		public override int RuleIndex { get { return RULE_typeInfo; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterType_info(this);
+			if (typedListener != null) typedListener.EnterTypeInfo(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitType_info(this);
+			if (typedListener != null) typedListener.ExitTypeInfo(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitType_info(this);
+			if (typedVisitor != null) return typedVisitor.VisitTypeInfo(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Type_infoContext type_info() {
-		Type_infoContext _localctx = new Type_infoContext(Context, State);
-		EnterRule(_localctx, 82, RULE_type_info);
+	public TypeInfoContext typeInfo() {
+		TypeInfoContext _localctx = new TypeInfoContext(Context, State);
+		EnterRule(_localctx, 96, RULE_typeInfo);
 		int _la;
 		try {
-			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 443;
+			State = 616;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 442;
-				dimension_suffix();
+				State = 615;
+				dimensionSuffix();
 				}
 			}
 
-			State = 448;
+			State = 619;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,35,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					State = 445;
-					attribute();
-					}
-					} 
+			_la = TokenStream.LA(1);
+			do {
+				{
+				{
+				State = 618;
+				attribute();
 				}
-				State = 450;
+				}
+				State = 621;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,35,Context);
-			}
+				_la = TokenStream.LA(1);
+			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & 19211115164008448L) != 0 || (((_la - 69)) & ~0x3f) == 0 && ((1L << (_la - 69)) & 12295L) != 0 );
 			}
 		}
 		catch (RecognitionException re) {
@@ -3781,47 +4627,47 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Dimension_suffixContext : ParserRuleContext {
+	public partial class DimensionSuffixContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Bound_pair_commalistContext bound_pair_commalist() {
-			return GetRuleContext<Bound_pair_commalistContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public BoundPairCommalistContext boundPairCommalist() {
+			return GetRuleContext<BoundPairCommalistContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
-		public Dimension_suffixContext(ParserRuleContext parent, int invokingState)
+		public DimensionSuffixContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_dimension_suffix; } }
+		public override int RuleIndex { get { return RULE_dimensionSuffix; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterDimension_suffix(this);
+			if (typedListener != null) typedListener.EnterDimensionSuffix(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitDimension_suffix(this);
+			if (typedListener != null) typedListener.ExitDimensionSuffix(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDimension_suffix(this);
+			if (typedVisitor != null) return typedVisitor.VisitDimensionSuffix(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Dimension_suffixContext dimension_suffix() {
-		Dimension_suffixContext _localctx = new Dimension_suffixContext(Context, State);
-		EnterRule(_localctx, 84, RULE_dimension_suffix);
+	public DimensionSuffixContext dimensionSuffix() {
+		DimensionSuffixContext _localctx = new DimensionSuffixContext(Context, State);
+		EnterRule(_localctx, 98, RULE_dimensionSuffix);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 451;
+			State = 623;
 			Match(LPAR);
-			State = 452;
-			bound_pair_commalist();
-			State = 453;
+			State = 624;
+			boundPairCommalist();
+			State = 625;
 			Match(RPAR);
 			}
 		}
@@ -3836,81 +4682,124 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Bound_pairContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Upper_boundContext upper_bound() {
-			return GetRuleContext<Upper_boundContext>(0);
+	public partial class BoundPairContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public UpperBoundContext upperBound() {
+			return GetRuleContext<UpperBoundContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Lower_boundContext lower_bound() {
-			return GetRuleContext<Lower_boundContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public LowerBoundContext lowerBound() {
+			return GetRuleContext<LowerBoundContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COLON() { return GetToken(ImperiumParser.COLON, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TIMES() { return GetToken(ImperiumParser.TIMES, 0); }
-		public Bound_pairContext(ParserRuleContext parent, int invokingState)
+		public BoundPairContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_bound_pair; } }
+		public override int RuleIndex { get { return RULE_boundPair; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterBound_pair(this);
+			if (typedListener != null) typedListener.EnterBoundPair(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitBound_pair(this);
+			if (typedListener != null) typedListener.ExitBoundPair(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBound_pair(this);
+			if (typedVisitor != null) return typedVisitor.VisitBoundPair(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Bound_pairContext bound_pair() {
-		Bound_pairContext _localctx = new Bound_pairContext(Context, State);
-		EnterRule(_localctx, 86, RULE_bound_pair);
+	public BoundPairContext boundPair() {
+		BoundPairContext _localctx = new BoundPairContext(Context, State);
+		EnterRule(_localctx, 100, RULE_boundPair);
 		try {
-			State = 462;
+			State = 634;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case STRING_LITERAL_3:
 			case STRING_LITERAL_2:
 			case STRING_LITERAL_1:
+			case ALIAS:
+			case ALIGNED:
+			case ALL:
+			case ANY:
 			case ARGUMENT:
+			case AS:
+			case BASED:
+			case BINARY:
 			case BIT:
+			case BOOLEAN:
 			case BUILTIN:
+			case BY:
+			case BYPASS:
 			case CALL:
 			case CHARACTER:
 			case COFUNCTION:
 			case COROUTINE:
+			case DECIMAL:
 			case DECLARE:
 			case DEFINE:
+			case DEFINED:
 			case ELIF:
 			case ELSE:
 			case END:
 			case ENDLOOP:
 			case ENTRY:
+			case ENUM:
 			case FIXED:
 			case FLOAT:
+			case FUNCTION:
 			case GOTO:
 			case IF:
+			case INC:
+			case INCLUDE:
+			case INTERNAL:
+			case INTERRUPT:
 			case INTRINSIC:
+			case LANGUAGE:
 			case LOOP:
 			case OFFSET:
+			case OTHERWISE:
+			case OUT:
+			case PAD:
 			case POINTER:
+			case PRIVATE:
 			case PROCEDURE:
+			case PUBLIC:
+			case RAW:
+			case READONLY:
+			case RECURSIVE:
+			case REF:
 			case RELOOP:
 			case RETURN:
+			case RETURNON:
 			case RETURNS:
+			case SCOPE:
+			case SELECT:
+			case SINGLET:
+			case STACK:
+			case STATIC:
 			case STRING:
+			case STRUCTURE:
 			case THEN:
 			case TO:
+			case TYPE:
+			case UNALIGNED:
 			case UNTIL:
-			case WHILE:
+			case USES:
+			case USING:
+			case UTF:
+			case VARIABLE:
 			case VARYING:
+			case WHEN:
+			case WHILE:
+			case YIELD:
 			case IDENTIFIER:
 			case BINARY_PATTERN:
 			case OCTAL_PATTERN:
@@ -3920,28 +4809,34 @@ public partial class ImperiumParser : Parser {
 			case PLUS:
 			case MINUS:
 			case NOT:
+			case REDAND:
+			case REDOR:
+			case REDNAND:
+			case REDNOR:
+			case REDXOR_U:
+			case REDXNOR_U:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 458;
+				State = 630;
 				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,36,Context) ) {
+				switch ( Interpreter.AdaptivePredict(TokenStream,57,Context) ) {
 				case 1:
 					{
-					State = 455;
-					lower_bound();
-					State = 456;
+					State = 627;
+					lowerBound();
+					State = 628;
 					Match(COLON);
 					}
 					break;
 				}
-				State = 460;
-				upper_bound();
+				State = 632;
+				upperBound();
 				}
 				break;
 			case TIMES:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 461;
+				State = 633;
 				Match(TIMES);
 				}
 				break;
@@ -3960,63 +4855,63 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Bound_pair_commalistContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Bound_pairContext[] bound_pair() {
-			return GetRuleContexts<Bound_pairContext>();
+	public partial class BoundPairCommalistContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public BoundPairContext[] boundPair() {
+			return GetRuleContexts<BoundPairContext>();
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Bound_pairContext bound_pair(int i) {
-			return GetRuleContext<Bound_pairContext>(i);
+		[System.Diagnostics.DebuggerNonUserCode] public BoundPairContext boundPair(int i) {
+			return GetRuleContext<BoundPairContext>(i);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] COMMA() { return GetTokens(ImperiumParser.COMMA); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COMMA(int i) {
 			return GetToken(ImperiumParser.COMMA, i);
 		}
-		public Bound_pair_commalistContext(ParserRuleContext parent, int invokingState)
+		public BoundPairCommalistContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_bound_pair_commalist; } }
+		public override int RuleIndex { get { return RULE_boundPairCommalist; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterBound_pair_commalist(this);
+			if (typedListener != null) typedListener.EnterBoundPairCommalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitBound_pair_commalist(this);
+			if (typedListener != null) typedListener.ExitBoundPairCommalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBound_pair_commalist(this);
+			if (typedVisitor != null) return typedVisitor.VisitBoundPairCommalist(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Bound_pair_commalistContext bound_pair_commalist() {
-		Bound_pair_commalistContext _localctx = new Bound_pair_commalistContext(Context, State);
-		EnterRule(_localctx, 88, RULE_bound_pair_commalist);
+	public BoundPairCommalistContext boundPairCommalist() {
+		BoundPairCommalistContext _localctx = new BoundPairCommalistContext(Context, State);
+		EnterRule(_localctx, 102, RULE_boundPairCommalist);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 464;
-			bound_pair();
-			State = 469;
+			State = 636;
+			boundPair();
+			State = 641;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 465;
+				State = 637;
 				Match(COMMA);
-				State = 466;
-				bound_pair();
+				State = 638;
+				boundPair();
 				}
 				}
-				State = 471;
+				State = 643;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -4033,41 +4928,41 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Lower_boundContext : ParserRuleContext {
+	public partial class LowerBoundContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
-		public Lower_boundContext(ParserRuleContext parent, int invokingState)
+		public LowerBoundContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_lower_bound; } }
+		public override int RuleIndex { get { return RULE_lowerBound; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterLower_bound(this);
+			if (typedListener != null) typedListener.EnterLowerBound(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitLower_bound(this);
+			if (typedListener != null) typedListener.ExitLowerBound(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitLower_bound(this);
+			if (typedVisitor != null) return typedVisitor.VisitLowerBound(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Lower_boundContext lower_bound() {
-		Lower_boundContext _localctx = new Lower_boundContext(Context, State);
-		EnterRule(_localctx, 90, RULE_lower_bound);
+	public LowerBoundContext lowerBound() {
+		LowerBoundContext _localctx = new LowerBoundContext(Context, State);
+		EnterRule(_localctx, 104, RULE_lowerBound);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 472;
+			State = 644;
 			expression(0);
 			}
 		}
@@ -4082,41 +4977,41 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Upper_boundContext : ParserRuleContext {
+	public partial class UpperBoundContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
-		public Upper_boundContext(ParserRuleContext parent, int invokingState)
+		public UpperBoundContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_upper_bound; } }
+		public override int RuleIndex { get { return RULE_upperBound; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterUpper_bound(this);
+			if (typedListener != null) typedListener.EnterUpperBound(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitUpper_bound(this);
+			if (typedListener != null) typedListener.ExitUpperBound(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitUpper_bound(this);
+			if (typedVisitor != null) return typedVisitor.VisitUpperBound(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Upper_boundContext upper_bound() {
-		Upper_boundContext _localctx = new Upper_boundContext(Context, State);
-		EnterRule(_localctx, 92, RULE_upper_bound);
+	public UpperBoundContext upperBound() {
+		UpperBoundContext _localctx = new UpperBoundContext(Context, State);
+		EnterRule(_localctx, 106, RULE_upperBound);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 474;
+			State = 646;
 			expression(0);
 			}
 		}
@@ -4132,18 +5027,13 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class AttributeContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Data_attributeContext data_attribute() {
-			return GetRuleContext<Data_attributeContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public DataAttributeContext dataAttribute() {
+			return GetRuleContext<DataAttributeContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AUTOMATIC() { return GetToken(ImperiumParser.AUTOMATIC, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BUILTIN() { return GetToken(ImperiumParser.BUILTIN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STATIC() { return GetToken(ImperiumParser.STATIC, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(ImperiumParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public BasedContext based() {
-			return GetRuleContext<BasedContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public DefinedContext defined() {
-			return GetRuleContext<DefinedContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public MemoryAttributeContext memoryAttribute() {
+			return GetRuleContext<MemoryAttributeContext>(0);
 		}
 		public AttributeContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
@@ -4171,53 +5061,35 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public AttributeContext attribute() {
 		AttributeContext _localctx = new AttributeContext(Context, State);
-		EnterRule(_localctx, 94, RULE_attribute);
+		EnterRule(_localctx, 108, RULE_attribute);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 483;
+			State = 652;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,39,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,60,Context) ) {
 			case 1:
 				{
-				State = 476;
-				data_attribute();
+				State = 648;
+				dataAttribute();
 				}
 				break;
 			case 2:
 				{
-				State = 477;
-				Match(AUTOMATIC);
+				State = 649;
+				Match(BUILTIN);
 				}
 				break;
 			case 3:
 				{
-				State = 478;
-				Match(BUILTIN);
+				State = 650;
+				Match(VARIABLE);
 				}
 				break;
 			case 4:
 				{
-				State = 479;
-				Match(STATIC);
-				}
-				break;
-			case 5:
-				{
-				State = 480;
-				Match(VARIABLE);
-				}
-				break;
-			case 6:
-				{
-				State = 481;
-				based();
-				}
-				break;
-			case 7:
-				{
-				State = 482;
-				defined();
+				State = 651;
+				memoryAttribute();
 				}
 				break;
 			}
@@ -4234,375 +5106,157 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Data_attributeContext : ParserRuleContext {
-		public Data_attributeContext(ParserRuleContext parent, int invokingState)
+	public partial class MemoryAttributeContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STACK() { return GetToken(ImperiumParser.STACK, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STATIC() { return GetToken(ImperiumParser.STATIC, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public BasedContext based() {
+			return GetRuleContext<BasedContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public DefinedContext defined() {
+			return GetRuleContext<DefinedContext>(0);
+		}
+		public MemoryAttributeContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_data_attribute; } }
-	 
-		public Data_attributeContext() { }
-		public virtual void CopyFrom(Data_attributeContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class INTRContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INTRINSIC() { return GetToken(ImperiumParser.INTRINSIC, 0); }
-		public INTRContext(Data_attributeContext context) { CopyFrom(context); }
+		public override int RuleIndex { get { return RULE_memoryAttribute; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterINTR(this);
+			if (typedListener != null) typedListener.EnterMemoryAttribute(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitINTR(this);
+			if (typedListener != null) typedListener.ExitMemoryAttribute(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitINTR(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class DECContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DECIMAL() { return GetToken(ImperiumParser.DECIMAL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public PrecisionContext precision() {
-			return GetRuleContext<PrecisionContext>(0);
-		}
-		public DECContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterDEC(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitDEC(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDEC(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class BINContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BINARY() { return GetToken(ImperiumParser.BINARY, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public PrecisionContext precision() {
-			return GetRuleContext<PrecisionContext>(0);
-		}
-		public BINContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterBIN(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitBIN(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBIN(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class CORContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COROUTINE() { return GetToken(ImperiumParser.COROUTINE, 0); }
-		public CORContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterCOR(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitCOR(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitCOR(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class CHARContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHARACTER() { return GetToken(ImperiumParser.CHARACTER, 0); }
-		public CHARContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterCHAR(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitCHAR(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitCHAR(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class ENTContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ENTRY() { return GetToken(ImperiumParser.ENTRY, 0); }
-		public ENTContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterENT(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitENT(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitENT(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class BITContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BIT() { return GetToken(ImperiumParser.BIT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Max_lengthContext max_length() {
-			return GetRuleContext<Max_lengthContext>(0);
-		}
-		public BITContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterBIT(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitBIT(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBIT(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class OFFContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OFFSET() { return GetToken(ImperiumParser.OFFSET, 0); }
-		public OFFContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterOFF(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitOFF(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitOFF(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class VNGContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARYING() { return GetToken(ImperiumParser.VARYING, 0); }
-		public VNGContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterVNG(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitVNG(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitVNG(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class PTRContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode POINTER() { return GetToken(ImperiumParser.POINTER, 0); }
-		public PTRContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterPTR(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitPTR(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitPTR(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class FLTContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(ImperiumParser.FLOAT, 0); }
-		public FLTContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterFLT(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitFLT(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitFLT(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class STRContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(ImperiumParser.STRING, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Max_lengthContext max_length() {
-			return GetRuleContext<Max_lengthContext>(0);
-		}
-		public STRContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterSTR(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitSTR(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitSTR(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class FIXContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FIXED() { return GetToken(ImperiumParser.FIXED, 0); }
-		public FIXContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterFIX(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitFIX(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitFIX(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class IDENTContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
-			return GetRuleContext<IdentifierContext>(0);
-		}
-		public IDENTContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterIDENT(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitIDENT(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIDENT(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class COFContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COFUNCTION() { return GetToken(ImperiumParser.COFUNCTION, 0); }
-		public COFContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterCOF(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitCOF(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitCOF(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class BLTNContext : Data_attributeContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BUILTIN() { return GetToken(ImperiumParser.BUILTIN, 0); }
-		public BLTNContext(Data_attributeContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterBLTN(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitBLTN(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBLTN(this);
+			if (typedVisitor != null) return typedVisitor.VisitMemoryAttribute(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Data_attributeContext data_attribute() {
-		Data_attributeContext _localctx = new Data_attributeContext(Context, State);
-		EnterRule(_localctx, 96, RULE_data_attribute);
+	public MemoryAttributeContext memoryAttribute() {
+		MemoryAttributeContext _localctx = new MemoryAttributeContext(Context, State);
+		EnterRule(_localctx, 110, RULE_memoryAttribute);
+		try {
+			State = 658;
+			ErrorHandler.Sync(this);
+			switch (TokenStream.LA(1)) {
+			case STACK:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 654;
+				Match(STACK);
+				}
+				break;
+			case STATIC:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 655;
+				Match(STATIC);
+				}
+				break;
+			case BASED:
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 656;
+				based();
+				}
+				break;
+			case DEFINED:
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 657;
+				defined();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class DataAttributeContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BINARY() { return GetToken(ImperiumParser.BINARY, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public PrecisionContext precision() {
+			return GetRuleContext<PrecisionContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DECIMAL() { return GetToken(ImperiumParser.DECIMAL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode POINTER() { return GetToken(ImperiumParser.POINTER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BIT() { return GetToken(ImperiumParser.BIT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public MaxLengthContext maxLength() {
+			return GetRuleContext<MaxLengthContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHARACTER() { return GetToken(ImperiumParser.CHARACTER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public StringAttributeContext stringAttribute() {
+			return GetRuleContext<StringAttributeContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ENTRY() { return GetToken(ImperiumParser.ENTRY, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FIXED() { return GetToken(ImperiumParser.FIXED, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(ImperiumParser.FLOAT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OFFSET() { return GetToken(ImperiumParser.OFFSET, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARYING() { return GetToken(ImperiumParser.VARYING, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COROUTINE() { return GetToken(ImperiumParser.COROUTINE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COFUNCTION() { return GetToken(ImperiumParser.COFUNCTION, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BUILTIN() { return GetToken(ImperiumParser.BUILTIN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INTRINSIC() { return GetToken(ImperiumParser.INTRINSIC, 0); }
+		public DataAttributeContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_dataAttribute; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterDataAttribute(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitDataAttribute(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDataAttribute(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public DataAttributeContext dataAttribute() {
+		DataAttributeContext _localctx = new DataAttributeContext(Context, State);
+		EnterRule(_localctx, 112, RULE_dataAttribute);
 		int _la;
 		try {
-			State = 509;
+			State = 682;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,42,Context) ) {
-			case 1:
-				_localctx = new BINContext(_localctx);
+			switch (TokenStream.LA(1)) {
+			case BINARY:
 				EnterOuterAlt(_localctx, 1);
 				{
 				{
-				State = 485;
+				State = 660;
 				Match(BINARY);
-				State = 487;
+				State = 662;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==LPAR) {
 					{
-					State = 486;
+					State = 661;
 					precision();
 					}
 				}
@@ -4610,19 +5264,18 @@ public partial class ImperiumParser : Parser {
 				}
 				}
 				break;
-			case 2:
-				_localctx = new DECContext(_localctx);
+			case DECIMAL:
 				EnterOuterAlt(_localctx, 2);
 				{
 				{
-				State = 489;
+				State = 664;
 				Match(DECIMAL);
-				State = 491;
+				State = 666;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==LPAR) {
 					{
-					State = 490;
+					State = 665;
 					precision();
 					}
 				}
@@ -4630,126 +5283,324 @@ public partial class ImperiumParser : Parser {
 				}
 				}
 				break;
-			case 3:
-				_localctx = new PTRContext(_localctx);
+			case POINTER:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 493;
+				State = 668;
 				Match(POINTER);
 				}
 				break;
-			case 4:
-				_localctx = new BITContext(_localctx);
+			case BIT:
 				EnterOuterAlt(_localctx, 4);
 				{
 				{
-				State = 494;
+				State = 669;
 				Match(BIT);
-				State = 495;
-				max_length();
+				State = 670;
+				maxLength();
 				}
 				}
 				break;
-			case 5:
-				_localctx = new CHARContext(_localctx);
+			case CHARACTER:
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 496;
+				State = 671;
 				Match(CHARACTER);
 				}
 				break;
-			case 6:
-				_localctx = new STRContext(_localctx);
+			case STRING:
 				EnterOuterAlt(_localctx, 6);
 				{
-				{
-				State = 497;
-				Match(STRING);
-				State = 498;
-				max_length();
-				}
+				State = 672;
+				stringAttribute();
 				}
 				break;
-			case 7:
-				_localctx = new ENTContext(_localctx);
+			case ENTRY:
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 499;
+				State = 673;
 				Match(ENTRY);
 				}
 				break;
-			case 8:
-				_localctx = new FIXContext(_localctx);
+			case FIXED:
 				EnterOuterAlt(_localctx, 8);
 				{
-				State = 500;
+				State = 674;
 				Match(FIXED);
 				}
 				break;
-			case 9:
-				_localctx = new FLTContext(_localctx);
+			case FLOAT:
 				EnterOuterAlt(_localctx, 9);
 				{
-				State = 501;
+				State = 675;
 				Match(FLOAT);
 				}
 				break;
-			case 10:
-				_localctx = new OFFContext(_localctx);
+			case OFFSET:
 				EnterOuterAlt(_localctx, 10);
 				{
-				State = 502;
+				State = 676;
 				Match(OFFSET);
 				}
 				break;
-			case 11:
-				_localctx = new VNGContext(_localctx);
+			case VARYING:
 				EnterOuterAlt(_localctx, 11);
 				{
-				State = 503;
+				State = 677;
 				Match(VARYING);
 				}
 				break;
-			case 12:
-				_localctx = new CORContext(_localctx);
+			case COROUTINE:
 				EnterOuterAlt(_localctx, 12);
 				{
-				State = 504;
+				State = 678;
 				Match(COROUTINE);
 				}
 				break;
-			case 13:
-				_localctx = new COFContext(_localctx);
+			case COFUNCTION:
 				EnterOuterAlt(_localctx, 13);
 				{
-				State = 505;
+				State = 679;
 				Match(COFUNCTION);
 				}
 				break;
-			case 14:
-				_localctx = new BLTNContext(_localctx);
+			case BUILTIN:
 				EnterOuterAlt(_localctx, 14);
 				{
-				State = 506;
+				State = 680;
 				Match(BUILTIN);
 				}
 				break;
-			case 15:
-				_localctx = new INTRContext(_localctx);
+			case INTRINSIC:
 				EnterOuterAlt(_localctx, 15);
 				{
-				State = 507;
+				State = 681;
 				Match(INTRINSIC);
 				}
 				break;
-			case 16:
-				_localctx = new IDENTContext(_localctx);
-				EnterOuterAlt(_localctx, 16);
+			default:
+				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class StringAttributeContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(ImperiumParser.STRING, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public MaxStringLengthContext maxStringLength() {
+			return GetRuleContext<MaxStringLengthContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public UtfSpecContext utfSpec() {
+			return GetRuleContext<UtfSpecContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public RawSpecContext rawSpec() {
+			return GetRuleContext<RawSpecContext>(0);
+		}
+		public StringAttributeContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_stringAttribute; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterStringAttribute(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitStringAttribute(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStringAttribute(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StringAttributeContext stringAttribute() {
+		StringAttributeContext _localctx = new StringAttributeContext(Context, State);
+		EnterRule(_localctx, 114, RULE_stringAttribute);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			{
+			State = 684;
+			Match(STRING);
+			State = 685;
+			maxStringLength();
+			State = 688;
+			ErrorHandler.Sync(this);
+			switch (TokenStream.LA(1)) {
+			case UTF:
 				{
-				State = 508;
-				identifier();
+				State = 686;
+				utfSpec();
 				}
 				break;
+			case RAW:
+				{
+				State = 687;
+				rawSpec();
+				}
+				break;
+			case BASED:
+			case BINARY:
+			case BIT:
+			case BUILTIN:
+			case CHARACTER:
+			case COFUNCTION:
+			case COROUTINE:
+			case DECIMAL:
+			case DEFINED:
+			case ENTRY:
+			case FIXED:
+			case FLOAT:
+			case INTRINSIC:
+			case OFFSET:
+			case POINTER:
+			case STACK:
+			case STATIC:
+			case STRING:
+			case VARIABLE:
+			case VARYING:
+			case RPAR:
+			case SEMICOLON:
+				break;
+			default:
+				break;
+			}
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class UtfSpecContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode UTF() { return GetToken(ImperiumParser.UTF, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
+		public UtfSpecContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_utfSpec; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterUtfSpec(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitUtfSpec(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUtfSpec(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public UtfSpecContext utfSpec() {
+		UtfSpecContext _localctx = new UtfSpecContext(Context, State);
+		EnterRule(_localctx, 116, RULE_utfSpec);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			{
+			State = 690;
+			Match(UTF);
+			State = 691;
+			Match(LPAR);
+			State = 692;
+			decimalLiteral();
+			State = 693;
+			Match(RPAR);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class RawSpecContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RAW() { return GetToken(ImperiumParser.RAW, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
+		public RawSpecContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_rawSpec; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterRawSpec(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitRawSpec(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRawSpec(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public RawSpecContext rawSpec() {
+		RawSpecContext _localctx = new RawSpecContext(Context, State);
+		EnterRule(_localctx, 118, RULE_rawSpec);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			{
+			State = 695;
+			Match(RAW);
+			State = 696;
+			Match(LPAR);
+			State = 697;
+			decimalLiteral();
+			State = 698;
+			Match(RPAR);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -4765,8 +5616,8 @@ public partial class ImperiumParser : Parser {
 
 	public partial class PrecisionContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Number_of_digitsContext number_of_digits() {
-			return GetRuleContext<Number_of_digitsContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public NumberOfDigitsContext numberOfDigits() {
+			return GetRuleContext<NumberOfDigitsContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COMMA() { return GetToken(ImperiumParser.COMMA, 0); }
@@ -4799,28 +5650,28 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public PrecisionContext precision() {
 		PrecisionContext _localctx = new PrecisionContext(Context, State);
-		EnterRule(_localctx, 98, RULE_precision);
+		EnterRule(_localctx, 120, RULE_precision);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 511;
+			State = 700;
 			Match(LPAR);
-			State = 512;
-			number_of_digits();
-			State = 515;
+			State = 701;
+			numberOfDigits();
+			State = 704;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==COMMA) {
 				{
-				State = 513;
+				State = 702;
 				Match(COMMA);
-				State = 514;
+				State = 703;
 				scale_factor();
 				}
 			}
 
-			State = 517;
+			State = 706;
 			Match(RPAR);
 			}
 		}
@@ -4835,87 +5686,130 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Number_of_digitsContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Decimal_literalContext decimal_literal() {
-			return GetRuleContext<Decimal_literalContext>(0);
+	public partial class NumberOfDigitsContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
 			return GetRuleContext<IdentifierContext>(0);
 		}
-		public Number_of_digitsContext(ParserRuleContext parent, int invokingState)
+		public NumberOfDigitsContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_number_of_digits; } }
+		public override int RuleIndex { get { return RULE_numberOfDigits; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterNumber_of_digits(this);
+			if (typedListener != null) typedListener.EnterNumberOfDigits(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitNumber_of_digits(this);
+			if (typedListener != null) typedListener.ExitNumberOfDigits(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitNumber_of_digits(this);
+			if (typedVisitor != null) return typedVisitor.VisitNumberOfDigits(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Number_of_digitsContext number_of_digits() {
-		Number_of_digitsContext _localctx = new Number_of_digitsContext(Context, State);
-		EnterRule(_localctx, 100, RULE_number_of_digits);
+	public NumberOfDigitsContext numberOfDigits() {
+		NumberOfDigitsContext _localctx = new NumberOfDigitsContext(Context, State);
+		EnterRule(_localctx, 122, RULE_numberOfDigits);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 521;
+			State = 710;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case DECIMAL_PATTERN:
 				{
-				State = 519;
-				decimal_literal();
+				State = 708;
+				decimalLiteral();
 				}
 				break;
+			case ALIAS:
+			case ALIGNED:
+			case ALL:
+			case ANY:
 			case ARGUMENT:
+			case AS:
+			case BASED:
+			case BINARY:
 			case BIT:
+			case BOOLEAN:
 			case BUILTIN:
+			case BY:
+			case BYPASS:
 			case CALL:
 			case CHARACTER:
 			case COFUNCTION:
 			case COROUTINE:
+			case DECIMAL:
 			case DECLARE:
 			case DEFINE:
+			case DEFINED:
 			case ELIF:
 			case ELSE:
 			case END:
 			case ENDLOOP:
 			case ENTRY:
+			case ENUM:
 			case FIXED:
 			case FLOAT:
+			case FUNCTION:
 			case GOTO:
 			case IF:
+			case INC:
+			case INCLUDE:
+			case INTERNAL:
+			case INTERRUPT:
 			case INTRINSIC:
+			case LANGUAGE:
 			case LOOP:
 			case OFFSET:
+			case OTHERWISE:
+			case OUT:
+			case PAD:
 			case POINTER:
+			case PRIVATE:
 			case PROCEDURE:
+			case PUBLIC:
+			case RAW:
+			case READONLY:
+			case RECURSIVE:
+			case REF:
 			case RELOOP:
 			case RETURN:
+			case RETURNON:
 			case RETURNS:
+			case SCOPE:
+			case SELECT:
+			case SINGLET:
+			case STACK:
+			case STATIC:
 			case STRING:
+			case STRUCTURE:
 			case THEN:
 			case TO:
+			case TYPE:
+			case UNALIGNED:
 			case UNTIL:
-			case WHILE:
+			case USES:
+			case USING:
+			case UTF:
+			case VARIABLE:
 			case VARYING:
+			case WHEN:
+			case WHILE:
+			case YIELD:
 			case IDENTIFIER:
 				{
-				State = 520;
+				State = 709;
 				identifier();
 				}
 				break;
@@ -4936,8 +5830,8 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class Scale_factorContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Decimal_literalContext decimal_literal() {
-			return GetRuleContext<Decimal_literalContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
 			return GetRuleContext<IdentifierContext>(0);
@@ -4968,54 +5862,97 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public Scale_factorContext scale_factor() {
 		Scale_factorContext _localctx = new Scale_factorContext(Context, State);
-		EnterRule(_localctx, 102, RULE_scale_factor);
+		EnterRule(_localctx, 124, RULE_scale_factor);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 525;
+			State = 714;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case DECIMAL_PATTERN:
 				{
-				State = 523;
-				decimal_literal();
+				State = 712;
+				decimalLiteral();
 				}
 				break;
+			case ALIAS:
+			case ALIGNED:
+			case ALL:
+			case ANY:
 			case ARGUMENT:
+			case AS:
+			case BASED:
+			case BINARY:
 			case BIT:
+			case BOOLEAN:
 			case BUILTIN:
+			case BY:
+			case BYPASS:
 			case CALL:
 			case CHARACTER:
 			case COFUNCTION:
 			case COROUTINE:
+			case DECIMAL:
 			case DECLARE:
 			case DEFINE:
+			case DEFINED:
 			case ELIF:
 			case ELSE:
 			case END:
 			case ENDLOOP:
 			case ENTRY:
+			case ENUM:
 			case FIXED:
 			case FLOAT:
+			case FUNCTION:
 			case GOTO:
 			case IF:
+			case INC:
+			case INCLUDE:
+			case INTERNAL:
+			case INTERRUPT:
 			case INTRINSIC:
+			case LANGUAGE:
 			case LOOP:
 			case OFFSET:
+			case OTHERWISE:
+			case OUT:
+			case PAD:
 			case POINTER:
+			case PRIVATE:
 			case PROCEDURE:
+			case PUBLIC:
+			case RAW:
+			case READONLY:
+			case RECURSIVE:
+			case REF:
 			case RELOOP:
 			case RETURN:
+			case RETURNON:
 			case RETURNS:
+			case SCOPE:
+			case SELECT:
+			case SINGLET:
+			case STACK:
+			case STATIC:
 			case STRING:
+			case STRUCTURE:
 			case THEN:
 			case TO:
+			case TYPE:
+			case UNALIGNED:
 			case UNTIL:
-			case WHILE:
+			case USES:
+			case USING:
+			case UTF:
+			case VARIABLE:
 			case VARYING:
+			case WHEN:
+			case WHILE:
+			case YIELD:
 			case IDENTIFIER:
 				{
-				State = 524;
+				State = 713;
 				identifier();
 				}
 				break;
@@ -5035,98 +5972,383 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Max_lengthContext : ParserRuleContext {
+	public partial class MaxStringLengthContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Decimal_literalContext decimal_literal() {
-			return GetRuleContext<Decimal_literalContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TIMES() { return GetToken(ImperiumParser.TIMES, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
 			return GetRuleContext<IdentifierContext>(0);
 		}
-		public Max_lengthContext(ParserRuleContext parent, int invokingState)
+		public MaxStringLengthContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_max_length; } }
+		public override int RuleIndex { get { return RULE_maxStringLength; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterMax_length(this);
+			if (typedListener != null) typedListener.EnterMaxStringLength(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitMax_length(this);
+			if (typedListener != null) typedListener.ExitMaxStringLength(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitMax_length(this);
+			if (typedVisitor != null) return typedVisitor.VisitMaxStringLength(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Max_lengthContext max_length() {
-		Max_lengthContext _localctx = new Max_lengthContext(Context, State);
-		EnterRule(_localctx, 104, RULE_max_length);
+	public MaxStringLengthContext maxStringLength() {
+		MaxStringLengthContext _localctx = new MaxStringLengthContext(Context, State);
+		EnterRule(_localctx, 126, RULE_maxStringLength);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 527;
+			State = 716;
 			Match(LPAR);
-			State = 530;
+			State = 722;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
-			case DECIMAL_PATTERN:
+			case TIMES:
 				{
-				State = 528;
-				decimal_literal();
+				State = 717;
+				Match(TIMES);
 				}
 				break;
+			case ALIAS:
+			case ALIGNED:
+			case ALL:
+			case ANY:
 			case ARGUMENT:
+			case AS:
+			case BASED:
+			case BINARY:
 			case BIT:
+			case BOOLEAN:
 			case BUILTIN:
+			case BY:
+			case BYPASS:
 			case CALL:
 			case CHARACTER:
 			case COFUNCTION:
 			case COROUTINE:
+			case DECIMAL:
 			case DECLARE:
 			case DEFINE:
+			case DEFINED:
 			case ELIF:
 			case ELSE:
 			case END:
 			case ENDLOOP:
 			case ENTRY:
+			case ENUM:
 			case FIXED:
 			case FLOAT:
+			case FUNCTION:
 			case GOTO:
 			case IF:
+			case INC:
+			case INCLUDE:
+			case INTERNAL:
+			case INTERRUPT:
 			case INTRINSIC:
+			case LANGUAGE:
 			case LOOP:
 			case OFFSET:
+			case OTHERWISE:
+			case OUT:
+			case PAD:
 			case POINTER:
+			case PRIVATE:
 			case PROCEDURE:
+			case PUBLIC:
+			case RAW:
+			case READONLY:
+			case RECURSIVE:
+			case REF:
 			case RELOOP:
 			case RETURN:
+			case RETURNON:
 			case RETURNS:
+			case SCOPE:
+			case SELECT:
+			case SINGLET:
+			case STACK:
+			case STATIC:
 			case STRING:
+			case STRUCTURE:
 			case THEN:
 			case TO:
+			case TYPE:
+			case UNALIGNED:
 			case UNTIL:
-			case WHILE:
+			case USES:
+			case USING:
+			case UTF:
+			case VARIABLE:
 			case VARYING:
+			case WHEN:
+			case WHILE:
+			case YIELD:
+			case IDENTIFIER:
+			case DECIMAL_PATTERN:
+				{
+				State = 720;
+				ErrorHandler.Sync(this);
+				switch (TokenStream.LA(1)) {
+				case DECIMAL_PATTERN:
+					{
+					State = 718;
+					decimalLiteral();
+					}
+					break;
+				case ALIAS:
+				case ALIGNED:
+				case ALL:
+				case ANY:
+				case ARGUMENT:
+				case AS:
+				case BASED:
+				case BINARY:
+				case BIT:
+				case BOOLEAN:
+				case BUILTIN:
+				case BY:
+				case BYPASS:
+				case CALL:
+				case CHARACTER:
+				case COFUNCTION:
+				case COROUTINE:
+				case DECIMAL:
+				case DECLARE:
+				case DEFINE:
+				case DEFINED:
+				case ELIF:
+				case ELSE:
+				case END:
+				case ENDLOOP:
+				case ENTRY:
+				case ENUM:
+				case FIXED:
+				case FLOAT:
+				case FUNCTION:
+				case GOTO:
+				case IF:
+				case INC:
+				case INCLUDE:
+				case INTERNAL:
+				case INTERRUPT:
+				case INTRINSIC:
+				case LANGUAGE:
+				case LOOP:
+				case OFFSET:
+				case OTHERWISE:
+				case OUT:
+				case PAD:
+				case POINTER:
+				case PRIVATE:
+				case PROCEDURE:
+				case PUBLIC:
+				case RAW:
+				case READONLY:
+				case RECURSIVE:
+				case REF:
+				case RELOOP:
+				case RETURN:
+				case RETURNON:
+				case RETURNS:
+				case SCOPE:
+				case SELECT:
+				case SINGLET:
+				case STACK:
+				case STATIC:
+				case STRING:
+				case STRUCTURE:
+				case THEN:
+				case TO:
+				case TYPE:
+				case UNALIGNED:
+				case UNTIL:
+				case USES:
+				case USING:
+				case UTF:
+				case VARIABLE:
+				case VARYING:
+				case WHEN:
+				case WHILE:
+				case YIELD:
+				case IDENTIFIER:
+					{
+					State = 719;
+					identifier();
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
+				}
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			State = 724;
+			Match(RPAR);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class MaxLengthContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
+			return GetRuleContext<IdentifierContext>(0);
+		}
+		public MaxLengthContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_maxLength; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterMaxLength(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitMaxLength(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMaxLength(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public MaxLengthContext maxLength() {
+		MaxLengthContext _localctx = new MaxLengthContext(Context, State);
+		EnterRule(_localctx, 128, RULE_maxLength);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 726;
+			Match(LPAR);
+			State = 729;
+			ErrorHandler.Sync(this);
+			switch (TokenStream.LA(1)) {
+			case DECIMAL_PATTERN:
+				{
+				State = 727;
+				decimalLiteral();
+				}
+				break;
+			case ALIAS:
+			case ALIGNED:
+			case ALL:
+			case ANY:
+			case ARGUMENT:
+			case AS:
+			case BASED:
+			case BINARY:
+			case BIT:
+			case BOOLEAN:
+			case BUILTIN:
+			case BY:
+			case BYPASS:
+			case CALL:
+			case CHARACTER:
+			case COFUNCTION:
+			case COROUTINE:
+			case DECIMAL:
+			case DECLARE:
+			case DEFINE:
+			case DEFINED:
+			case ELIF:
+			case ELSE:
+			case END:
+			case ENDLOOP:
+			case ENTRY:
+			case ENUM:
+			case FIXED:
+			case FLOAT:
+			case FUNCTION:
+			case GOTO:
+			case IF:
+			case INC:
+			case INCLUDE:
+			case INTERNAL:
+			case INTERRUPT:
+			case INTRINSIC:
+			case LANGUAGE:
+			case LOOP:
+			case OFFSET:
+			case OTHERWISE:
+			case OUT:
+			case PAD:
+			case POINTER:
+			case PRIVATE:
+			case PROCEDURE:
+			case PUBLIC:
+			case RAW:
+			case READONLY:
+			case RECURSIVE:
+			case REF:
+			case RELOOP:
+			case RETURN:
+			case RETURNON:
+			case RETURNS:
+			case SCOPE:
+			case SELECT:
+			case SINGLET:
+			case STACK:
+			case STATIC:
+			case STRING:
+			case STRUCTURE:
+			case THEN:
+			case TO:
+			case TYPE:
+			case UNALIGNED:
+			case UNTIL:
+			case USES:
+			case USING:
+			case UTF:
+			case VARIABLE:
+			case VARYING:
+			case WHEN:
+			case WHILE:
+			case YIELD:
 			case IDENTIFIER:
 				{
-				State = 529;
+				State = 728;
 				identifier();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			State = 532;
+			State = 731;
 			Match(RPAR);
 			}
 		}
@@ -5174,23 +6396,23 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public BasedContext based() {
 		BasedContext _localctx = new BasedContext(Context, State);
-		EnterRule(_localctx, 106, RULE_based);
+		EnterRule(_localctx, 130, RULE_based);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 534;
+			State = 733;
 			Match(BASED);
-			State = 539;
+			State = 738;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 535;
+				State = 734;
 				Match(LPAR);
-				State = 536;
+				State = 735;
 				reference(0);
-				State = 537;
+				State = 736;
 				Match(RPAR);
 				}
 			}
@@ -5241,23 +6463,23 @@ public partial class ImperiumParser : Parser {
 	[RuleVersion(0)]
 	public DefinedContext defined() {
 		DefinedContext _localctx = new DefinedContext(Context, State);
-		EnterRule(_localctx, 108, RULE_defined);
+		EnterRule(_localctx, 132, RULE_defined);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 541;
+			State = 740;
 			Match(DEFINED);
-			State = 546;
+			State = 745;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 542;
+				State = 741;
 				Match(LPAR);
-				State = 543;
+				State = 742;
 				reference(0);
-				State = 544;
+				State = 743;
 				Match(RPAR);
 				}
 			}
@@ -5275,188 +6497,41 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Entry_informationContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Parameter_name_commalistContext parameter_name_commalist() {
-			return GetRuleContext<Parameter_name_commalistContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Returns_descriptorContext returns_descriptor() {
-			return GetRuleContext<Returns_descriptorContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Coprocedure_specifierContext coprocedure_specifier() {
-			return GetRuleContext<Coprocedure_specifierContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Handler_specifierContext handler_specifier() {
-			return GetRuleContext<Handler_specifierContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RECURSIVE() { return GetToken(ImperiumParser.RECURSIVE, 0); }
-		public Entry_informationContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_entry_information; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterEntry_information(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitEntry_information(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitEntry_information(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Entry_informationContext entry_information() {
-		Entry_informationContext _localctx = new Entry_informationContext(Context, State);
-		EnterRule(_localctx, 110, RULE_entry_information);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 549;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==LPAR) {
-				{
-				State = 548;
-				parameter_name_commalist();
-				}
-			}
-
-			State = 567;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,55,Context) ) {
-			case 1:
-				{
-				{
-				State = 552;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==RETURNS) {
-					{
-					State = 551;
-					returns_descriptor();
-					}
-				}
-
-				State = 555;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==COFUNCTION || _la==COROUTINE) {
-					{
-					State = 554;
-					coprocedure_specifier();
-					}
-				}
-
-				}
-				}
-				break;
-			case 2:
-				{
-				{
-				State = 559;
-				ErrorHandler.Sync(this);
-				switch (TokenStream.LA(1)) {
-				case COFUNCTION:
-				case COROUTINE:
-					{
-					State = 557;
-					coprocedure_specifier();
-					}
-					break;
-				case INTERRUPT:
-					{
-					State = 558;
-					handler_specifier();
-					}
-					break;
-				case RETURNS:
-				case RECURSIVE:
-				case SEMICOLON:
-					break;
-				default:
-					break;
-				}
-				State = 562;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==RECURSIVE) {
-					{
-					State = 561;
-					Match(RECURSIVE);
-					}
-				}
-
-				State = 565;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==RETURNS) {
-					{
-					State = 564;
-					returns_descriptor();
-					}
-				}
-
-				}
-				}
-				break;
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Coprocedure_specifierContext : ParserRuleContext {
+	public partial class CoprocedureSpecifierContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COROUTINE() { return GetToken(ImperiumParser.COROUTINE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COFUNCTION() { return GetToken(ImperiumParser.COFUNCTION, 0); }
-		public Coprocedure_specifierContext(ParserRuleContext parent, int invokingState)
+		public CoprocedureSpecifierContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_coprocedure_specifier; } }
+		public override int RuleIndex { get { return RULE_coprocedureSpecifier; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterCoprocedure_specifier(this);
+			if (typedListener != null) typedListener.EnterCoprocedureSpecifier(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitCoprocedure_specifier(this);
+			if (typedListener != null) typedListener.ExitCoprocedureSpecifier(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitCoprocedure_specifier(this);
+			if (typedVisitor != null) return typedVisitor.VisitCoprocedureSpecifier(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Coprocedure_specifierContext coprocedure_specifier() {
-		Coprocedure_specifierContext _localctx = new Coprocedure_specifierContext(Context, State);
-		EnterRule(_localctx, 112, RULE_coprocedure_specifier);
+	public CoprocedureSpecifierContext coprocedureSpecifier() {
+		CoprocedureSpecifierContext _localctx = new CoprocedureSpecifierContext(Context, State);
+		EnterRule(_localctx, 134, RULE_coprocedureSpecifier);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 569;
+			State = 747;
 			_la = TokenStream.LA(1);
 			if ( !(_la==COFUNCTION || _la==COROUTINE) ) {
 			ErrorHandler.RecoverInline(this);
@@ -5478,39 +6553,39 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Handler_specifierContext : ParserRuleContext {
+	public partial class HandlerSpecifierContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INTERRUPT() { return GetToken(ImperiumParser.INTERRUPT, 0); }
-		public Handler_specifierContext(ParserRuleContext parent, int invokingState)
+		public HandlerSpecifierContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_handler_specifier; } }
+		public override int RuleIndex { get { return RULE_handlerSpecifier; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterHandler_specifier(this);
+			if (typedListener != null) typedListener.EnterHandlerSpecifier(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitHandler_specifier(this);
+			if (typedListener != null) typedListener.ExitHandlerSpecifier(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitHandler_specifier(this);
+			if (typedVisitor != null) return typedVisitor.VisitHandlerSpecifier(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Handler_specifierContext handler_specifier() {
-		Handler_specifierContext _localctx = new Handler_specifierContext(Context, State);
-		EnterRule(_localctx, 114, RULE_handler_specifier);
+	public HandlerSpecifierContext handlerSpecifier() {
+		HandlerSpecifierContext _localctx = new HandlerSpecifierContext(Context, State);
+		EnterRule(_localctx, 136, RULE_handlerSpecifier);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 571;
+			State = 749;
 			Match(INTERRUPT);
 			}
 		}
@@ -5525,7 +6600,7 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Parameter_name_commalistContext : ParserRuleContext {
+	public partial class ParameterNameCommalistContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext[] identifier() {
 			return GetRuleContexts<IdentifierContext>();
@@ -5538,58 +6613,58 @@ public partial class ImperiumParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COMMA(int i) {
 			return GetToken(ImperiumParser.COMMA, i);
 		}
-		public Parameter_name_commalistContext(ParserRuleContext parent, int invokingState)
+		public ParameterNameCommalistContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_parameter_name_commalist; } }
+		public override int RuleIndex { get { return RULE_parameterNameCommalist; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterParameter_name_commalist(this);
+			if (typedListener != null) typedListener.EnterParameterNameCommalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitParameter_name_commalist(this);
+			if (typedListener != null) typedListener.ExitParameterNameCommalist(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitParameter_name_commalist(this);
+			if (typedVisitor != null) return typedVisitor.VisitParameterNameCommalist(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Parameter_name_commalistContext parameter_name_commalist() {
-		Parameter_name_commalistContext _localctx = new Parameter_name_commalistContext(Context, State);
-		EnterRule(_localctx, 116, RULE_parameter_name_commalist);
+	public ParameterNameCommalistContext parameterNameCommalist() {
+		ParameterNameCommalistContext _localctx = new ParameterNameCommalistContext(Context, State);
+		EnterRule(_localctx, 138, RULE_parameterNameCommalist);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 573;
+			State = 751;
 			Match(LPAR);
-			State = 574;
+			State = 752;
 			identifier();
-			State = 579;
+			State = 757;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				State = 575;
+				State = 753;
 				Match(COMMA);
-				State = 576;
+				State = 754;
 				identifier();
 				}
 				}
-				State = 581;
+				State = 759;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 582;
+			State = 760;
 			Match(RPAR);
 			}
 		}
@@ -5604,112 +6679,63 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Returns_descriptorContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RETURNS() { return GetToken(ImperiumParser.RETURNS, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Data_attributeContext data_attribute() {
-			return GetRuleContext<Data_attributeContext>(0);
-		}
-		public Returns_descriptorContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_returns_descriptor; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterReturns_descriptor(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitReturns_descriptor(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitReturns_descriptor(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Returns_descriptorContext returns_descriptor() {
-		Returns_descriptorContext _localctx = new Returns_descriptorContext(Context, State);
-		EnterRule(_localctx, 118, RULE_returns_descriptor);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 584;
-			Match(RETURNS);
-			State = 585;
-			data_attribute();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Return_stmtContext : ParserRuleContext {
+	public partial class ReturnStmtContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RETURN() { return GetToken(ImperiumParser.RETURN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
-		public Return_stmtContext(ParserRuleContext parent, int invokingState)
+		public ReturnStmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_return_stmt; } }
+		public override int RuleIndex { get { return RULE_returnStmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterReturn_stmt(this);
+			if (typedListener != null) typedListener.EnterReturnStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitReturn_stmt(this);
+			if (typedListener != null) typedListener.ExitReturnStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitReturn_stmt(this);
+			if (typedVisitor != null) return typedVisitor.VisitReturnStmt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Return_stmtContext return_stmt() {
-		Return_stmtContext _localctx = new Return_stmtContext(Context, State);
-		EnterRule(_localctx, 120, RULE_return_stmt);
+	public ReturnStmtContext returnStmt() {
+		ReturnStmtContext _localctx = new ReturnStmtContext(Context, State);
+		EnterRule(_localctx, 140, RULE_returnStmt);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 587;
+			State = 762;
 			Match(RETURN);
-			State = 592;
+			State = 767;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==LPAR) {
 				{
-				State = 588;
+				State = 763;
 				Match(LPAR);
-				State = 589;
+				State = 764;
 				expression(0);
-				State = 590;
+				State = 765;
 				Match(RPAR);
 				}
 			}
 
+			State = 769;
+			Match(SEMICOLON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -5723,172 +6749,101 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class If_stmtContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Then_clauseContext then_clause() {
-			return GetRuleContext<Then_clauseContext>(0);
+	public partial class IfStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ThenClauseContext thenClause() {
+			return GetRuleContext<ThenClauseContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public End_stmtContext end_stmt() {
-			return GetRuleContext<End_stmtContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public StmtBlockContext stmtBlock() {
+			return GetRuleContext<StmtBlockContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext[] executable_stmt() {
-			return GetRuleContexts<Executable_stmtContext>();
+		[System.Diagnostics.DebuggerNonUserCode] public IfEndContext ifEnd() {
+			return GetRuleContext<IfEndContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext executable_stmt(int i) {
-			return GetRuleContext<Executable_stmtContext>(i);
+		[System.Diagnostics.DebuggerNonUserCode] public ElseClauseContext elseClause() {
+			return GetRuleContext<ElseClauseContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext[] terminator() {
-			return GetRuleContexts<TerminatorContext>();
+		[System.Diagnostics.DebuggerNonUserCode] public ElifClauseContext[] elifClause() {
+			return GetRuleContexts<ElifClauseContext>();
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext terminator(int i) {
-			return GetRuleContext<TerminatorContext>(i);
+		[System.Diagnostics.DebuggerNonUserCode] public ElifClauseContext elifClause(int i) {
+			return GetRuleContext<ElifClauseContext>(i);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Else_clauseContext else_clause() {
-			return GetRuleContext<Else_clauseContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IF() { return GetToken(ImperiumParser.IF, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Elif_clauseContext[] elif_clause() {
-			return GetRuleContexts<Elif_clauseContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Elif_clauseContext elif_clause(int i) {
-			return GetRuleContext<Elif_clauseContext>(i);
-		}
-		public If_stmtContext(ParserRuleContext parent, int invokingState)
+		public IfStmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_if_stmt; } }
+		public override int RuleIndex { get { return RULE_ifStmt; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterIf_stmt(this);
+			if (typedListener != null) typedListener.EnterIfStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitIf_stmt(this);
+			if (typedListener != null) typedListener.ExitIfStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIf_stmt(this);
+			if (typedVisitor != null) return typedVisitor.VisitIfStmt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public If_stmtContext if_stmt() {
-		If_stmtContext _localctx = new If_stmtContext(Context, State);
-		EnterRule(_localctx, 122, RULE_if_stmt);
+	public IfStmtContext ifStmt() {
+		IfStmtContext _localctx = new IfStmtContext(Context, State);
+		EnterRule(_localctx, 142, RULE_ifStmt);
 		int _la;
 		try {
-			int _alt;
-			State = 626;
+			State = 787;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,64,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,78,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 594;
-				then_clause();
-				State = 598;
-				ErrorHandler.Sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						State = 595;
-						executable_stmt();
-						State = 596;
-						terminator();
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
-					}
-					State = 600;
-					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,58,Context);
-				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-				State = 603;
+				State = 771;
+				thenClause();
+				State = 772;
+				stmtBlock();
+				State = 774;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				if (_la==ELSE) {
 					{
-					State = 602;
-					else_clause();
+					State = 773;
+					elseClause();
 					}
 				}
 
-				State = 605;
-				end_stmt();
-				State = 607;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==IF) {
-					{
-					State = 606;
-					Match(IF);
-					}
-				}
-
+				State = 776;
+				ifEnd();
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 609;
-				then_clause();
-				State = 613;
-				ErrorHandler.Sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						State = 610;
-						executable_stmt();
-						State = 611;
-						terminator();
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
-					}
-					State = 615;
-					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,61,Context);
-				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-				State = 618;
+				State = 778;
+				thenClause();
+				State = 779;
+				stmtBlock();
+				State = 781;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				do {
 					{
 					{
-					State = 617;
-					elif_clause();
+					State = 780;
+					elifClause();
 					}
 					}
-					State = 620;
+					State = 783;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				} while ( _la==ELIF );
-				State = 622;
-				end_stmt();
-				State = 624;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==IF) {
-					{
-					State = 623;
-					Match(IF);
-					}
-				}
-
+				State = 785;
+				ifEnd();
 				}
 				break;
 			}
@@ -5904,47 +6859,109 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Then_clauseContext : ParserRuleContext {
+	public partial class IfEndContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IF() { return GetToken(ImperiumParser.IF, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
-			return GetRuleContext<ExpressionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode THEN() { return GetToken(ImperiumParser.THEN, 0); }
-		public Then_clauseContext(ParserRuleContext parent, int invokingState)
+		public IfEndContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_then_clause; } }
+		public override int RuleIndex { get { return RULE_ifEnd; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterThen_clause(this);
+			if (typedListener != null) typedListener.EnterIfEnd(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitThen_clause(this);
+			if (typedListener != null) typedListener.ExitIfEnd(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitThen_clause(this);
+			if (typedVisitor != null) return typedVisitor.VisitIfEnd(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Then_clauseContext then_clause() {
-		Then_clauseContext _localctx = new Then_clauseContext(Context, State);
-		EnterRule(_localctx, 124, RULE_then_clause);
+	public IfEndContext ifEnd() {
+		IfEndContext _localctx = new IfEndContext(Context, State);
+		EnterRule(_localctx, 144, RULE_ifEnd);
+		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 628;
+			State = 789;
+			Match(END);
+			State = 791;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==IF) {
+				{
+				State = 790;
+				Match(IF);
+				}
+			}
+
+			State = 793;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class ThenClauseContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IF() { return GetToken(ImperiumParser.IF, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
+			return GetRuleContext<ExpressionContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode THEN() { return GetToken(ImperiumParser.THEN, 0); }
+		public ThenClauseContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_thenClause; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterThenClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitThenClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitThenClause(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public ThenClauseContext thenClause() {
+		ThenClauseContext _localctx = new ThenClauseContext(Context, State);
+		EnterRule(_localctx, 146, RULE_thenClause);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 795;
 			Match(IF);
-			State = 629;
+			State = 796;
 			expression(0);
-			State = 630;
+			State = 797;
 			Match(THEN);
 			}
 		}
@@ -5959,75 +6976,45 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Else_clauseContext : ParserRuleContext {
+	public partial class ElseClauseContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ELSE() { return GetToken(ImperiumParser.ELSE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext[] executable_stmt() {
-			return GetRuleContexts<Executable_stmtContext>();
+		[System.Diagnostics.DebuggerNonUserCode] public StmtBlockContext stmtBlock() {
+			return GetRuleContext<StmtBlockContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext executable_stmt(int i) {
-			return GetRuleContext<Executable_stmtContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext[] terminator() {
-			return GetRuleContexts<TerminatorContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext terminator(int i) {
-			return GetRuleContext<TerminatorContext>(i);
-		}
-		public Else_clauseContext(ParserRuleContext parent, int invokingState)
+		public ElseClauseContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_else_clause; } }
+		public override int RuleIndex { get { return RULE_elseClause; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterElse_clause(this);
+			if (typedListener != null) typedListener.EnterElseClause(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitElse_clause(this);
+			if (typedListener != null) typedListener.ExitElseClause(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitElse_clause(this);
+			if (typedVisitor != null) return typedVisitor.VisitElseClause(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Else_clauseContext else_clause() {
-		Else_clauseContext _localctx = new Else_clauseContext(Context, State);
-		EnterRule(_localctx, 126, RULE_else_clause);
+	public ElseClauseContext elseClause() {
+		ElseClauseContext _localctx = new ElseClauseContext(Context, State);
+		EnterRule(_localctx, 148, RULE_elseClause);
 		try {
-			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 632;
+			State = 799;
 			Match(ELSE);
-			State = 636;
-			ErrorHandler.Sync(this);
-			_alt = 1;
-			do {
-				switch (_alt) {
-				case 1:
-					{
-					{
-					State = 633;
-					executable_stmt();
-					State = 634;
-					terminator();
-					}
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				State = 638;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,65,Context);
-			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
+			State = 800;
+			stmtBlock();
 			}
 		}
 		catch (RecognitionException re) {
@@ -6041,97 +7028,201 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Elif_clauseContext : ParserRuleContext {
+	public partial class ElifClauseContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ELIF() { return GetToken(ImperiumParser.ELIF, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode THEN() { return GetToken(ImperiumParser.THEN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext[] executable_stmt() {
-			return GetRuleContexts<Executable_stmtContext>();
+		[System.Diagnostics.DebuggerNonUserCode] public StmtBlockContext stmtBlock() {
+			return GetRuleContext<StmtBlockContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext executable_stmt(int i) {
-			return GetRuleContext<Executable_stmtContext>(i);
+		[System.Diagnostics.DebuggerNonUserCode] public ElseClauseContext elseClause() {
+			return GetRuleContext<ElseClauseContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext[] terminator() {
-			return GetRuleContexts<TerminatorContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext terminator(int i) {
-			return GetRuleContext<TerminatorContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Else_clauseContext else_clause() {
-			return GetRuleContext<Else_clauseContext>(0);
-		}
-		public Elif_clauseContext(ParserRuleContext parent, int invokingState)
+		public ElifClauseContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_elif_clause; } }
+		public override int RuleIndex { get { return RULE_elifClause; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterElif_clause(this);
+			if (typedListener != null) typedListener.EnterElifClause(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitElif_clause(this);
+			if (typedListener != null) typedListener.ExitElifClause(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitElif_clause(this);
+			if (typedVisitor != null) return typedVisitor.VisitElifClause(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Elif_clauseContext elif_clause() {
-		Elif_clauseContext _localctx = new Elif_clauseContext(Context, State);
-		EnterRule(_localctx, 128, RULE_elif_clause);
+	public ElifClauseContext elifClause() {
+		ElifClauseContext _localctx = new ElifClauseContext(Context, State);
+		EnterRule(_localctx, 150, RULE_elifClause);
 		int _la;
 		try {
-			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 640;
+			State = 802;
 			Match(ELIF);
-			State = 641;
+			State = 803;
 			expression(0);
-			State = 642;
+			State = 804;
 			Match(THEN);
-			State = 646;
+			State = 805;
+			stmtBlock();
+			State = 807;
 			ErrorHandler.Sync(this);
-			_alt = 1;
-			do {
-				switch (_alt) {
-				case 1:
+			_la = TokenStream.LA(1);
+			if (_la==ELSE) {
+				{
+				State = 806;
+				elseClause();
+				}
+			}
+
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class LoopStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP() { return GetToken(ImperiumParser.LOOP, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public StmtBlockContext stmtBlock() {
+			return GetRuleContext<StmtBlockContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public LoopEndContext loopEnd() {
+			return GetRuleContext<LoopEndContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public WhileOptionContext whileOption() {
+			return GetRuleContext<WhileOptionContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public UntilOptionContext untilOption() {
+			return GetRuleContext<UntilOptionContext>(0);
+		}
+		public LoopStmtContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_loopStmt; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterLoopStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitLoopStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLoopStmt(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public LoopStmtContext loopStmt() {
+		LoopStmtContext _localctx = new LoopStmtContext(Context, State);
+		EnterRule(_localctx, 152, RULE_loopStmt);
+		int _la;
+		try {
+			State = 833;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,84,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 809;
+				Match(LOOP);
+				State = 810;
+				Match(SEMICOLON);
+				State = 811;
+				stmtBlock();
+				State = 812;
+				loopEnd();
+				}
+				break;
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 814;
+				Match(LOOP);
+				State = 831;
+				ErrorHandler.Sync(this);
+				switch (TokenStream.LA(1)) {
+				case WHILE:
 					{
 					{
-					State = 643;
-					executable_stmt();
-					State = 644;
-					terminator();
+					State = 815;
+					whileOption();
+					State = 817;
+					ErrorHandler.Sync(this);
+					_la = TokenStream.LA(1);
+					if (_la==UNTIL) {
+						{
+						State = 816;
+						untilOption();
+						}
+					}
+
+					State = 819;
+					Match(SEMICOLON);
+					State = 820;
+					stmtBlock();
+					State = 821;
+					loopEnd();
+					}
+					}
+					break;
+				case UNTIL:
+					{
+					{
+					State = 823;
+					untilOption();
+					State = 825;
+					ErrorHandler.Sync(this);
+					_la = TokenStream.LA(1);
+					if (_la==WHILE) {
+						{
+						State = 824;
+						whileOption();
+						}
+					}
+
+					State = 827;
+					Match(SEMICOLON);
+					State = 828;
+					stmtBlock();
+					State = 829;
+					loopEnd();
 					}
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				State = 648;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,66,Context);
-			} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-			State = 651;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==ELSE) {
-				{
-				State = 650;
-				else_clause();
 				}
-			}
-
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -6145,305 +7236,55 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Loop_stmtContext : ParserRuleContext {
-		public Loop_stmtContext(ParserRuleContext parent, int invokingState)
+	public partial class LoopEndContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP() { return GetToken(ImperiumParser.LOOP, 0); }
+		public LoopEndContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_loop_stmt; } }
-	 
-		public Loop_stmtContext() { }
-		public virtual void CopyFrom(Loop_stmtContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class WHILE_UNTILContext : Loop_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] LOOP() { return GetTokens(ImperiumParser.LOOP); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP(int i) {
-			return GetToken(ImperiumParser.LOOP, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public While_optionContext while_option() {
-			return GetRuleContext<While_optionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public End_stmtContext end_stmt() {
-			return GetRuleContext<End_stmtContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Until_optionContext until_option() {
-			return GetRuleContext<Until_optionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext[] executable_stmt() {
-			return GetRuleContexts<Executable_stmtContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext executable_stmt(int i) {
-			return GetRuleContext<Executable_stmtContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext[] terminator() {
-			return GetRuleContexts<TerminatorContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext terminator(int i) {
-			return GetRuleContext<TerminatorContext>(i);
-		}
-		public WHILE_UNTILContext(Loop_stmtContext context) { CopyFrom(context); }
+		public override int RuleIndex { get { return RULE_loopEnd; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterWHILE_UNTIL(this);
+			if (typedListener != null) typedListener.EnterLoopEnd(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitWHILE_UNTIL(this);
+			if (typedListener != null) typedListener.ExitLoopEnd(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitWHILE_UNTIL(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class UNTIL_WHILEContext : Loop_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] LOOP() { return GetTokens(ImperiumParser.LOOP); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP(int i) {
-			return GetToken(ImperiumParser.LOOP, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Until_optionContext until_option() {
-			return GetRuleContext<Until_optionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public End_stmtContext end_stmt() {
-			return GetRuleContext<End_stmtContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public While_optionContext while_option() {
-			return GetRuleContext<While_optionContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext[] executable_stmt() {
-			return GetRuleContexts<Executable_stmtContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext executable_stmt(int i) {
-			return GetRuleContext<Executable_stmtContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext[] terminator() {
-			return GetRuleContexts<TerminatorContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext terminator(int i) {
-			return GetRuleContext<TerminatorContext>(i);
-		}
-		public UNTIL_WHILEContext(Loop_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterUNTIL_WHILE(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitUNTIL_WHILE(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitUNTIL_WHILE(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class BASIC_LOOPContext : Loop_stmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] LOOP() { return GetTokens(ImperiumParser.LOOP); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP(int i) {
-			return GetToken(ImperiumParser.LOOP, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public End_stmtContext end_stmt() {
-			return GetRuleContext<End_stmtContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext[] executable_stmt() {
-			return GetRuleContexts<Executable_stmtContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Executable_stmtContext executable_stmt(int i) {
-			return GetRuleContext<Executable_stmtContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext[] terminator() {
-			return GetRuleContexts<TerminatorContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public TerminatorContext terminator(int i) {
-			return GetRuleContext<TerminatorContext>(i);
-		}
-		public BASIC_LOOPContext(Loop_stmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterBASIC_LOOP(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitBASIC_LOOP(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBASIC_LOOP(this);
+			if (typedVisitor != null) return typedVisitor.VisitLoopEnd(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Loop_stmtContext loop_stmt() {
-		Loop_stmtContext _localctx = new Loop_stmtContext(Context, State);
-		EnterRule(_localctx, 130, RULE_loop_stmt);
+	public LoopEndContext loopEnd() {
+		LoopEndContext _localctx = new LoopEndContext(Context, State);
+		EnterRule(_localctx, 154, RULE_loopEnd);
 		int _la;
 		try {
-			int _alt;
-			State = 697;
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 835;
+			Match(END);
+			State = 837;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,76,Context) ) {
-			case 1:
-				_localctx = new BASIC_LOOPContext(_localctx);
-				EnterOuterAlt(_localctx, 1);
+			_la = TokenStream.LA(1);
+			if (_la==LOOP) {
 				{
-				State = 653;
+				State = 836;
 				Match(LOOP);
-				State = 657;
-				ErrorHandler.Sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						State = 654;
-						executable_stmt();
-						State = 655;
-						terminator();
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
-					}
-					State = 659;
-					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,68,Context);
-				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-				State = 661;
-				end_stmt();
-				State = 663;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LOOP) {
-					{
-					State = 662;
-					Match(LOOP);
-					}
 				}
+			}
 
-				}
-				break;
-			case 2:
-				_localctx = new WHILE_UNTILContext(_localctx);
-				EnterOuterAlt(_localctx, 2);
-				{
-				State = 665;
-				Match(LOOP);
-				State = 666;
-				while_option();
-				State = 668;
-				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,70,Context) ) {
-				case 1:
-					{
-					State = 667;
-					until_option();
-					}
-					break;
-				}
-				State = 673;
-				ErrorHandler.Sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						State = 670;
-						executable_stmt();
-						State = 671;
-						terminator();
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
-					}
-					State = 675;
-					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,71,Context);
-				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-				State = 677;
-				end_stmt();
-				State = 679;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LOOP) {
-					{
-					State = 678;
-					Match(LOOP);
-					}
-				}
-
-				}
-				break;
-			case 3:
-				_localctx = new UNTIL_WHILEContext(_localctx);
-				EnterOuterAlt(_localctx, 3);
-				{
-				State = 681;
-				Match(LOOP);
-				State = 682;
-				until_option();
-				State = 684;
-				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,73,Context) ) {
-				case 1:
-					{
-					State = 683;
-					while_option();
-					}
-					break;
-				}
-				State = 689;
-				ErrorHandler.Sync(this);
-				_alt = 1;
-				do {
-					switch (_alt) {
-					case 1:
-						{
-						{
-						State = 686;
-						executable_stmt();
-						State = 687;
-						terminator();
-						}
-						}
-						break;
-					default:
-						throw new NoViableAltException(this);
-					}
-					State = 691;
-					ErrorHandler.Sync(this);
-					_alt = Interpreter.AdaptivePredict(TokenStream,74,Context);
-				} while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER );
-				State = 693;
-				end_stmt();
-				State = 695;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-				if (_la==LOOP) {
-					{
-					State = 694;
-					Match(LOOP);
-					}
-				}
-
-				}
-				break;
+			State = 839;
+			Match(SEMICOLON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -6457,50 +7298,50 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class While_optionContext : ParserRuleContext {
+	public partial class WhileOptionContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode WHILE() { return GetToken(ImperiumParser.WHILE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
-		public While_optionContext(ParserRuleContext parent, int invokingState)
+		public WhileOptionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_while_option; } }
+		public override int RuleIndex { get { return RULE_whileOption; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterWhile_option(this);
+			if (typedListener != null) typedListener.EnterWhileOption(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitWhile_option(this);
+			if (typedListener != null) typedListener.ExitWhileOption(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitWhile_option(this);
+			if (typedVisitor != null) return typedVisitor.VisitWhileOption(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public While_optionContext while_option() {
-		While_optionContext _localctx = new While_optionContext(Context, State);
-		EnterRule(_localctx, 132, RULE_while_option);
+	public WhileOptionContext whileOption() {
+		WhileOptionContext _localctx = new WhileOptionContext(Context, State);
+		EnterRule(_localctx, 156, RULE_whileOption);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 699;
+			State = 841;
 			Match(WHILE);
-			State = 700;
+			State = 842;
 			Match(LPAR);
-			State = 701;
+			State = 843;
 			expression(0);
-			State = 702;
+			State = 844;
 			Match(RPAR);
 			}
 		}
@@ -6515,50 +7356,50 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Until_optionContext : ParserRuleContext {
+	public partial class UntilOptionContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode UNTIL() { return GetToken(ImperiumParser.UNTIL, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
-		public Until_optionContext(ParserRuleContext parent, int invokingState)
+		public UntilOptionContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_until_option; } }
+		public override int RuleIndex { get { return RULE_untilOption; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterUntil_option(this);
+			if (typedListener != null) typedListener.EnterUntilOption(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitUntil_option(this);
+			if (typedListener != null) typedListener.ExitUntilOption(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitUntil_option(this);
+			if (typedVisitor != null) return typedVisitor.VisitUntilOption(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Until_optionContext until_option() {
-		Until_optionContext _localctx = new Until_optionContext(Context, State);
-		EnterRule(_localctx, 134, RULE_until_option);
+	public UntilOptionContext untilOption() {
+		UntilOptionContext _localctx = new UntilOptionContext(Context, State);
+		EnterRule(_localctx, 158, RULE_untilOption);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 704;
+			State = 846;
 			Match(UNTIL);
-			State = 705;
+			State = 847;
 			Match(LPAR);
-			State = 706;
+			State = 848;
 			expression(0);
-			State = 707;
+			State = 849;
 			Match(RPAR);
 			}
 		}
@@ -6573,98 +7414,1366 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Define_stmtContext : ParserRuleContext {
+	public partial class SelectStmtContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public SelectClauseContext selectClause() {
+			return GetRuleContext<SelectClauseContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public SelectEndContext selectEnd() {
+			return GetRuleContext<SelectEndContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public WhenClauseContext[] whenClause() {
+			return GetRuleContexts<WhenClauseContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public WhenClauseContext whenClause(int i) {
+			return GetRuleContext<WhenClauseContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public OtherwiseClauseContext otherwiseClause() {
+			return GetRuleContext<OtherwiseClauseContext>(0);
+		}
+		public SelectStmtContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_selectStmt; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterSelectStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitSelectStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectStmt(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public SelectStmtContext selectStmt() {
+		SelectStmtContext _localctx = new SelectStmtContext(Context, State);
+		EnterRule(_localctx, 160, RULE_selectStmt);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 851;
+			selectClause();
+			State = 855;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			while (_la==WHEN) {
+				{
+				{
+				State = 852;
+				whenClause();
+				}
+				}
+				State = 857;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+			}
+			State = 859;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==ELSE) {
+				{
+				State = 858;
+				otherwiseClause();
+				}
+			}
+
+			State = 861;
+			selectEnd();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class SelectEndContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SELECT() { return GetToken(ImperiumParser.SELECT, 0); }
+		public SelectEndContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_selectEnd; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterSelectEnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitSelectEnd(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectEnd(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public SelectEndContext selectEnd() {
+		SelectEndContext _localctx = new SelectEndContext(Context, State);
+		EnterRule(_localctx, 162, RULE_selectEnd);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 863;
+			Match(END);
+			State = 865;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==SELECT) {
+				{
+				State = 864;
+				Match(SELECT);
+				}
+			}
+
+			State = 867;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class SelectClauseContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SELECT() { return GetToken(ImperiumParser.SELECT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
+			return GetRuleContext<ExpressionContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
+		public SelectClauseContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_selectClause; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterSelectClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitSelectClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectClause(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public SelectClauseContext selectClause() {
+		SelectClauseContext _localctx = new SelectClauseContext(Context, State);
+		EnterRule(_localctx, 164, RULE_selectClause);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 869;
+			Match(SELECT);
+			State = 874;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==LPAR) {
+				{
+				State = 870;
+				Match(LPAR);
+				State = 871;
+				expression(0);
+				State = 872;
+				Match(RPAR);
+				}
+			}
+
+			State = 876;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class WhenClauseContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode WHEN() { return GetToken(ImperiumParser.WHEN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public StmtBlockContext stmtBlock() {
+			return GetRuleContext<StmtBlockContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext[] expression() {
+			return GetRuleContexts<ExpressionContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression(int i) {
+			return GetRuleContext<ExpressionContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ANY() { return GetToken(ImperiumParser.ANY, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ALL() { return GetToken(ImperiumParser.ALL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] COMMA() { return GetTokens(ImperiumParser.COMMA); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COMMA(int i) {
+			return GetToken(ImperiumParser.COMMA, i);
+		}
+		public WhenClauseContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_whenClause; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterWhenClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitWhenClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWhenClause(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public WhenClauseContext whenClause() {
+		WhenClauseContext _localctx = new WhenClauseContext(Context, State);
+		EnterRule(_localctx, 166, RULE_whenClause);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 878;
+			Match(WHEN);
+			State = 880;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==ALL || _la==ANY) {
+				{
+				State = 879;
+				_la = TokenStream.LA(1);
+				if ( !(_la==ALL || _la==ANY) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				}
+			}
+
+			State = 882;
+			Match(LPAR);
+			{
+			State = 883;
+			expression(0);
+			State = 888;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			while (_la==COMMA) {
+				{
+				{
+				State = 884;
+				Match(COMMA);
+				State = 885;
+				expression(0);
+				}
+				}
+				State = 890;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+			}
+			}
+			State = 891;
+			Match(RPAR);
+			State = 892;
+			stmtBlock();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class OtherwiseClauseContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ELSE() { return GetToken(ImperiumParser.ELSE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public StmtBlockContext stmtBlock() {
+			return GetRuleContext<StmtBlockContext>(0);
+		}
+		public OtherwiseClauseContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_otherwiseClause; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterOtherwiseClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitOtherwiseClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitOtherwiseClause(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public OtherwiseClauseContext otherwiseClause() {
+		OtherwiseClauseContext _localctx = new OtherwiseClauseContext(Context, State);
+		EnterRule(_localctx, 168, RULE_otherwiseClause);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 894;
+			Match(ELSE);
+			State = 895;
+			stmtBlock();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class DefineStmtContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DEFINE() { return GetToken(ImperiumParser.DEFINE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
+			return GetRuleContext<IdentifierContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public EnumTypeContext enumType() {
+			return GetRuleContext<EnumTypeContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public StructTypeContext structType() {
+			return GetRuleContext<StructTypeContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public AliasTypeContext aliasType() {
+			return GetRuleContext<AliasTypeContext>(0);
+		}
+		public DefineStmtContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_defineStmt; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterDefineStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitDefineStmt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDefineStmt(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public DefineStmtContext defineStmt() {
+		DefineStmtContext _localctx = new DefineStmtContext(Context, State);
+		EnterRule(_localctx, 170, RULE_defineStmt);
+		try {
+			State = 909;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,92,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 897;
+				Match(DEFINE);
+				State = 898;
+				identifier();
+				State = 899;
+				enumType();
+				}
+				break;
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 901;
+				Match(DEFINE);
+				State = 902;
+				identifier();
+				State = 903;
+				structType();
+				}
+				break;
+			case 3:
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 905;
+				Match(DEFINE);
+				State = 906;
+				identifier();
+				State = 907;
+				aliasType();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class EnumTypeContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] ENUM() { return GetTokens(ImperiumParser.ENUM); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ENUM(int i) {
+			return GetToken(ImperiumParser.ENUM, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] SEMICOLON() { return GetTokens(ImperiumParser.SEMICOLON); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON(int i) {
+			return GetToken(ImperiumParser.SEMICOLON, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public EnumBodyContext enumBody() {
+			return GetRuleContext<EnumBodyContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public BinaryEnumContext binaryEnum() {
+			return GetRuleContext<BinaryEnumContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalEnumContext decimalEnum() {
+			return GetRuleContext<DecimalEnumContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public StringEnumContext stringEnum() {
+			return GetRuleContext<StringEnumContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public BitEnumContext bitEnum() {
+			return GetRuleContext<BitEnumContext>(0);
+		}
+		public EnumTypeContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_enumType; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterEnumType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitEnumType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumType(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public EnumTypeContext enumType() {
+		EnumTypeContext _localctx = new EnumTypeContext(Context, State);
+		EnterRule(_localctx, 172, RULE_enumType);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 911;
+			Match(ENUM);
+			State = 916;
+			ErrorHandler.Sync(this);
+			switch (TokenStream.LA(1)) {
+			case BINARY:
+				{
+				State = 912;
+				binaryEnum();
+				}
+				break;
+			case DECIMAL:
+				{
+				State = 913;
+				decimalEnum();
+				}
+				break;
+			case STRING:
+				{
+				State = 914;
+				stringEnum();
+				}
+				break;
+			case BIT:
+				{
+				State = 915;
+				bitEnum();
+				}
+				break;
+			case SEMICOLON:
+				break;
+			default:
+				break;
+			}
+			State = 918;
+			Match(SEMICOLON);
+			State = 919;
+			enumBody();
+			State = 920;
+			Match(END);
+			State = 922;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==ENUM) {
+				{
+				State = 921;
+				Match(ENUM);
+				}
+			}
+
+			State = 924;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class AliasTypeContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ALIAS() { return GetToken(ImperiumParser.ALIAS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public AttributeContext[] attribute() {
+			return GetRuleContexts<AttributeContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public AttributeContext attribute(int i) {
+			return GetRuleContext<AttributeContext>(i);
+		}
+		public AliasTypeContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_aliasType; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterAliasType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitAliasType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAliasType(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public AliasTypeContext aliasType() {
+		AliasTypeContext _localctx = new AliasTypeContext(Context, State);
+		EnterRule(_localctx, 174, RULE_aliasType);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 926;
+			Match(ALIAS);
+			State = 928;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			do {
+				{
+				{
+				State = 927;
+				attribute();
+				}
+				}
+				State = 930;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & 19211115164008448L) != 0 || (((_la - 69)) & ~0x3f) == 0 && ((1L << (_la - 69)) & 12295L) != 0 );
+			State = 932;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class BinaryEnumContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BINARY() { return GetToken(ImperiumParser.BINARY, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
+		public BinaryEnumContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_binaryEnum; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterBinaryEnum(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitBinaryEnum(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBinaryEnum(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public BinaryEnumContext binaryEnum() {
+		BinaryEnumContext _localctx = new BinaryEnumContext(Context, State);
+		EnterRule(_localctx, 176, RULE_binaryEnum);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			{
+			State = 934;
+			Match(BINARY);
+			State = 935;
+			Match(LPAR);
+			State = 936;
+			decimalLiteral();
+			State = 937;
+			Match(RPAR);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class DecimalEnumContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DECIMAL() { return GetToken(ImperiumParser.DECIMAL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
+		public DecimalEnumContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_decimalEnum; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterDecimalEnum(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitDecimalEnum(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDecimalEnum(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public DecimalEnumContext decimalEnum() {
+		DecimalEnumContext _localctx = new DecimalEnumContext(Context, State);
+		EnterRule(_localctx, 178, RULE_decimalEnum);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			{
+			State = 939;
+			Match(DECIMAL);
+			State = 940;
+			Match(LPAR);
+			State = 941;
+			decimalLiteral();
+			State = 942;
+			Match(RPAR);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class StringEnumContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(ImperiumParser.STRING, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
+		public StringEnumContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_stringEnum; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterStringEnum(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitStringEnum(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStringEnum(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StringEnumContext stringEnum() {
+		StringEnumContext _localctx = new StringEnumContext(Context, State);
+		EnterRule(_localctx, 180, RULE_stringEnum);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			{
+			State = 944;
+			Match(STRING);
+			State = 945;
+			Match(LPAR);
+			State = 946;
+			decimalLiteral();
+			State = 947;
+			Match(RPAR);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class BitEnumContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BIT() { return GetToken(ImperiumParser.BIT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LPAR() { return GetToken(ImperiumParser.LPAR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RPAR() { return GetToken(ImperiumParser.RPAR, 0); }
+		public BitEnumContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_bitEnum; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterBitEnum(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitBitEnum(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBitEnum(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public BitEnumContext bitEnum() {
+		BitEnumContext _localctx = new BitEnumContext(Context, State);
+		EnterRule(_localctx, 182, RULE_bitEnum);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			{
+			State = 949;
+			Match(BIT);
+			State = 950;
+			Match(LPAR);
+			State = 951;
+			decimalLiteral();
+			State = 952;
+			Match(RPAR);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class EnumBodyContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext[] identifier() {
 			return GetRuleContexts<IdentifierContext>();
 		}
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier(int i) {
 			return GetRuleContext<IdentifierContext>(i);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Type_infoContext[] type_info() {
-			return GetRuleContexts<Type_infoContext>();
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] SEMICOLON() { return GetTokens(ImperiumParser.SEMICOLON); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON(int i) {
+			return GetToken(ImperiumParser.SEMICOLON, i);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Type_infoContext type_info(int i) {
-			return GetRuleContext<Type_infoContext>(i);
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] EQUALS() { return GetTokens(ImperiumParser.EQUALS); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUALS(int i) {
+			return GetToken(ImperiumParser.EQUALS, i);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] COMMA() { return GetTokens(ImperiumParser.COMMA); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COMMA(int i) {
-			return GetToken(ImperiumParser.COMMA, i);
+		[System.Diagnostics.DebuggerNonUserCode] public EnumLiteralContext[] enumLiteral() {
+			return GetRuleContexts<EnumLiteralContext>();
 		}
-		public Define_stmtContext(ParserRuleContext parent, int invokingState)
+		[System.Diagnostics.DebuggerNonUserCode] public EnumLiteralContext enumLiteral(int i) {
+			return GetRuleContext<EnumLiteralContext>(i);
+		}
+		public EnumBodyContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_define_stmt; } }
+		public override int RuleIndex { get { return RULE_enumBody; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterDefine_stmt(this);
+			if (typedListener != null) typedListener.EnterEnumBody(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitDefine_stmt(this);
+			if (typedListener != null) typedListener.ExitEnumBody(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDefine_stmt(this);
+			if (typedVisitor != null) return typedVisitor.VisitEnumBody(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Define_stmtContext define_stmt() {
-		Define_stmtContext _localctx = new Define_stmtContext(Context, State);
-		EnterRule(_localctx, 136, RULE_define_stmt);
+	public EnumBodyContext enumBody() {
+		EnumBodyContext _localctx = new EnumBodyContext(Context, State);
+		EnterRule(_localctx, 184, RULE_enumBody);
 		int _la;
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 709;
-			Match(DEFINE);
-			State = 710;
+			State = 954;
 			identifier();
-			{
-			State = 711;
-			identifier();
-			State = 712;
-			type_info();
-			}
-			State = 720;
+			State = 957;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,77,Context);
+			_la = TokenStream.LA(1);
+			if (_la==EQUALS) {
+				{
+				State = 955;
+				Match(EQUALS);
+				State = 956;
+				enumLiteral();
+				}
+			}
+
+			State = 959;
+			Match(SEMICOLON);
+			State = 969;
+			ErrorHandler.Sync(this);
+			_alt = Interpreter.AdaptivePredict(TokenStream,98,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					State = 714;
-					Match(COMMA);
-					State = 715;
+					State = 960;
 					identifier();
-					State = 716;
-					type_info();
+					State = 963;
+					ErrorHandler.Sync(this);
+					_la = TokenStream.LA(1);
+					if (_la==EQUALS) {
+						{
+						State = 961;
+						Match(EQUALS);
+						State = 962;
+						enumLiteral();
+						}
+					}
+
+					State = 965;
+					Match(SEMICOLON);
 					}
 					} 
 				}
-				State = 722;
+				State = 971;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,77,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,98,Context);
 			}
-			State = 724;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class EnumLiteralContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public StringLiteralContext stringLiteral() {
+			return GetRuleContext<StringLiteralContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public BinaryLiteralContext binaryLiteral() {
+			return GetRuleContext<BinaryLiteralContext>(0);
+		}
+		public EnumLiteralContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_enumLiteral; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterEnumLiteral(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitEnumLiteral(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumLiteral(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public EnumLiteralContext enumLiteral() {
+		EnumLiteralContext _localctx = new EnumLiteralContext(Context, State);
+		EnterRule(_localctx, 186, RULE_enumLiteral);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 975;
+			ErrorHandler.Sync(this);
+			switch (TokenStream.LA(1)) {
+			case DECIMAL_PATTERN:
+				{
+				State = 972;
+				decimalLiteral();
+				}
+				break;
+			case STRING_LITERAL_3:
+			case STRING_LITERAL_2:
+			case STRING_LITERAL_1:
+				{
+				State = 973;
+				stringLiteral();
+				}
+				break;
+			case BINARY_PATTERN:
+				{
+				State = 974;
+				binaryLiteral();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class StructTypeContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] STRUCTURE() { return GetTokens(ImperiumParser.STRUCTURE); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRUCTURE(int i) {
+			return GetToken(ImperiumParser.STRUCTURE, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] SEMICOLON() { return GetTokens(ImperiumParser.SEMICOLON); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON(int i) {
+			return GetToken(ImperiumParser.SEMICOLON, i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public StructBodyContext structBody() {
+			return GetRuleContext<StructBodyContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
+		public StructTypeContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_structType; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterStructType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitStructType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStructType(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StructTypeContext structType() {
+		StructTypeContext _localctx = new StructTypeContext(Context, State);
+		EnterRule(_localctx, 188, RULE_structType);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 977;
+			Match(STRUCTURE);
+			State = 978;
+			Match(SEMICOLON);
+			State = 979;
+			structBody();
+			State = 980;
+			Match(END);
+			State = 982;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if (_la==COMMA) {
+			if (_la==STRUCTURE) {
 				{
-				State = 723;
-				Match(COMMA);
+				State = 981;
+				Match(STRUCTURE);
 				}
 			}
 
-			State = 726;
+			State = 984;
+			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class StructBodyContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public StructMemberListContext structMemberList() {
+			return GetRuleContext<StructMemberListContext>(0);
+		}
+		public StructBodyContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_structBody; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterStructBody(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitStructBody(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStructBody(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StructBodyContext structBody() {
+		StructBodyContext _localctx = new StructBodyContext(Context, State);
+		EnterRule(_localctx, 190, RULE_structBody);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 986;
+			structMemberList();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class StructMemberListContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public StructMemberContext[] structMember() {
+			return GetRuleContexts<StructMemberContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public StructMemberContext structMember(int i) {
+			return GetRuleContext<StructMemberContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] SEMICOLON() { return GetTokens(ImperiumParser.SEMICOLON); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON(int i) {
+			return GetToken(ImperiumParser.SEMICOLON, i);
+		}
+		public StructMemberListContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_structMemberList; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterStructMemberList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitStructMemberList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStructMemberList(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StructMemberListContext structMemberList() {
+		StructMemberListContext _localctx = new StructMemberListContext(Context, State);
+		EnterRule(_localctx, 192, RULE_structMemberList);
+		try {
+			int _alt;
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 988;
+			structMember();
+			State = 989;
+			Match(SEMICOLON);
+			State = 995;
+			ErrorHandler.Sync(this);
+			_alt = Interpreter.AdaptivePredict(TokenStream,101,Context);
+			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					{
+					State = 990;
+					structMember();
+					State = 991;
+					Match(SEMICOLON);
+					}
+					} 
+				}
+				State = 997;
+				ErrorHandler.Sync(this);
+				_alt = Interpreter.AdaptivePredict(TokenStream,101,Context);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class StructSubstructContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier() {
+			return GetRuleContext<IdentifierContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRUCTURE() { return GetToken(ImperiumParser.STRUCTURE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(ImperiumParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public StructBodyContext structBody() {
+			return GetRuleContext<StructBodyContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DimensionSuffixContext dimensionSuffix() {
+			return GetRuleContext<DimensionSuffixContext>(0);
+		}
+		public StructSubstructContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_structSubstruct; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterStructSubstruct(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitStructSubstruct(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStructSubstruct(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StructSubstructContext structSubstruct() {
+		StructSubstructContext _localctx = new StructSubstructContext(Context, State);
+		EnterRule(_localctx, 194, RULE_structSubstruct);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 998;
+			identifier();
+			State = 1000;
+			ErrorHandler.Sync(this);
+			_la = TokenStream.LA(1);
+			if (_la==LPAR) {
+				{
+				State = 999;
+				dimensionSuffix();
+				}
+			}
+
+			State = 1002;
+			Match(STRUCTURE);
+			State = 1003;
+			Match(SEMICOLON);
+			State = 1004;
+			structBody();
+			State = 1005;
 			Match(END);
 			}
 		}
@@ -6679,44 +8788,141 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class String_literalContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING_LITERAL_3() { return GetToken(ImperiumParser.STRING_LITERAL_3, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING_LITERAL_2() { return GetToken(ImperiumParser.STRING_LITERAL_2, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING_LITERAL_1() { return GetToken(ImperiumParser.STRING_LITERAL_1, 0); }
-		public String_literalContext(ParserRuleContext parent, int invokingState)
+	public partial class StructMemberContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public StructSubstructContext structSubstruct() {
+			return GetRuleContext<StructSubstructContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext[] identifier() {
+			return GetRuleContexts<IdentifierContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public IdentifierContext identifier(int i) {
+			return GetRuleContext<IdentifierContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AS() { return GetToken(ImperiumParser.AS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public DimensionSuffixContext dimensionSuffix() {
+			return GetRuleContext<DimensionSuffixContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public DeclarationBodyContext declarationBody() {
+			return GetRuleContext<DeclarationBodyContext>(0);
+		}
+		public StructMemberContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_string_literal; } }
+		public override int RuleIndex { get { return RULE_structMember; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterString_literal(this);
+			if (typedListener != null) typedListener.EnterStructMember(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitString_literal(this);
+			if (typedListener != null) typedListener.ExitStructMember(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitString_literal(this);
+			if (typedVisitor != null) return typedVisitor.VisitStructMember(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public String_literalContext string_literal() {
-		String_literalContext _localctx = new String_literalContext(Context, State);
-		EnterRule(_localctx, 138, RULE_string_literal);
+	public StructMemberContext structMember() {
+		StructMemberContext _localctx = new StructMemberContext(Context, State);
+		EnterRule(_localctx, 196, RULE_structMember);
+		int _la;
+		try {
+			State = 1016;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,104,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 1007;
+				structSubstruct();
+				}
+				break;
+			case 2:
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 1008;
+				identifier();
+				State = 1010;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==LPAR) {
+					{
+					State = 1009;
+					dimensionSuffix();
+					}
+				}
+
+				State = 1012;
+				Match(AS);
+				State = 1013;
+				identifier();
+				}
+				break;
+			case 3:
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 1015;
+				declarationBody();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class StringLiteralContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING_LITERAL_3() { return GetToken(ImperiumParser.STRING_LITERAL_3, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING_LITERAL_2() { return GetToken(ImperiumParser.STRING_LITERAL_2, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING_LITERAL_1() { return GetToken(ImperiumParser.STRING_LITERAL_1, 0); }
+		public StringLiteralContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_stringLiteral; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterStringLiteral(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitStringLiteral(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStringLiteral(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public StringLiteralContext stringLiteral() {
+		StringLiteralContext _localctx = new StringLiteralContext(Context, State);
+		EnterRule(_localctx, 198, RULE_stringLiteral);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 728;
+			State = 1018;
 			_la = TokenStream.LA(1);
-			if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 14336L) != 0) ) {
+			if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 448L) != 0) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -6736,76 +8942,76 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Numeric_literalContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Binary_literalContext binary_literal() {
-			return GetRuleContext<Binary_literalContext>(0);
+	public partial class NumericLiteralContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public BinaryLiteralContext binaryLiteral() {
+			return GetRuleContext<BinaryLiteralContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Octal_literalContext octal_literal() {
-			return GetRuleContext<Octal_literalContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public OctalLiteralContext octalLiteral() {
+			return GetRuleContext<OctalLiteralContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Hexadecimal_literalContext hexadecimal_literal() {
-			return GetRuleContext<Hexadecimal_literalContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public HexLiteralContext hexLiteral() {
+			return GetRuleContext<HexLiteralContext>(0);
 		}
-		[System.Diagnostics.DebuggerNonUserCode] public Decimal_literalContext decimal_literal() {
-			return GetRuleContext<Decimal_literalContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public DecimalLiteralContext decimalLiteral() {
+			return GetRuleContext<DecimalLiteralContext>(0);
 		}
-		public Numeric_literalContext(ParserRuleContext parent, int invokingState)
+		public NumericLiteralContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_numeric_literal; } }
+		public override int RuleIndex { get { return RULE_numericLiteral; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterNumeric_literal(this);
+			if (typedListener != null) typedListener.EnterNumericLiteral(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitNumeric_literal(this);
+			if (typedListener != null) typedListener.ExitNumericLiteral(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitNumeric_literal(this);
+			if (typedVisitor != null) return typedVisitor.VisitNumericLiteral(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Numeric_literalContext numeric_literal() {
-		Numeric_literalContext _localctx = new Numeric_literalContext(Context, State);
-		EnterRule(_localctx, 140, RULE_numeric_literal);
+	public NumericLiteralContext numericLiteral() {
+		NumericLiteralContext _localctx = new NumericLiteralContext(Context, State);
+		EnterRule(_localctx, 200, RULE_numericLiteral);
 		try {
-			State = 734;
+			State = 1024;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case BINARY_PATTERN:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 730;
-				binary_literal();
+				State = 1020;
+				binaryLiteral();
 				}
 				break;
 			case OCTAL_PATTERN:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 731;
-				octal_literal();
+				State = 1021;
+				octalLiteral();
 				}
 				break;
 			case HEXADECIMAL_PATTERN:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 732;
-				hexadecimal_literal();
+				State = 1022;
+				hexLiteral();
 				}
 				break;
 			case DECIMAL_PATTERN:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 733;
-				decimal_literal();
+				State = 1023;
+				decimalLiteral();
 				}
 				break;
 			default:
@@ -6823,40 +9029,40 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Hexadecimal_literalContext : ParserRuleContext {
+	public partial class HexLiteralContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode HEXADECIMAL_PATTERN() { return GetToken(ImperiumParser.HEXADECIMAL_PATTERN, 0); }
-		public Hexadecimal_literalContext(ParserRuleContext parent, int invokingState)
+		public HexLiteralContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_hexadecimal_literal; } }
+		public override int RuleIndex { get { return RULE_hexLiteral; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterHexadecimal_literal(this);
+			if (typedListener != null) typedListener.EnterHexLiteral(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitHexadecimal_literal(this);
+			if (typedListener != null) typedListener.ExitHexLiteral(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitHexadecimal_literal(this);
+			if (typedVisitor != null) return typedVisitor.VisitHexLiteral(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Hexadecimal_literalContext hexadecimal_literal() {
-		Hexadecimal_literalContext _localctx = new Hexadecimal_literalContext(Context, State);
-		EnterRule(_localctx, 142, RULE_hexadecimal_literal);
+	public HexLiteralContext hexLiteral() {
+		HexLiteralContext _localctx = new HexLiteralContext(Context, State);
+		EnterRule(_localctx, 202, RULE_hexLiteral);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 736;
+			State = 1026;
 			Match(HEXADECIMAL_PATTERN);
 			}
 			}
@@ -6872,40 +9078,40 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Octal_literalContext : ParserRuleContext {
+	public partial class OctalLiteralContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OCTAL_PATTERN() { return GetToken(ImperiumParser.OCTAL_PATTERN, 0); }
-		public Octal_literalContext(ParserRuleContext parent, int invokingState)
+		public OctalLiteralContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_octal_literal; } }
+		public override int RuleIndex { get { return RULE_octalLiteral; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterOctal_literal(this);
+			if (typedListener != null) typedListener.EnterOctalLiteral(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitOctal_literal(this);
+			if (typedListener != null) typedListener.ExitOctalLiteral(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitOctal_literal(this);
+			if (typedVisitor != null) return typedVisitor.VisitOctalLiteral(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Octal_literalContext octal_literal() {
-		Octal_literalContext _localctx = new Octal_literalContext(Context, State);
-		EnterRule(_localctx, 144, RULE_octal_literal);
+	public OctalLiteralContext octalLiteral() {
+		OctalLiteralContext _localctx = new OctalLiteralContext(Context, State);
+		EnterRule(_localctx, 204, RULE_octalLiteral);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 738;
+			State = 1028;
 			Match(OCTAL_PATTERN);
 			}
 			}
@@ -6921,40 +9127,40 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Decimal_literalContext : ParserRuleContext {
+	public partial class DecimalLiteralContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DECIMAL_PATTERN() { return GetToken(ImperiumParser.DECIMAL_PATTERN, 0); }
-		public Decimal_literalContext(ParserRuleContext parent, int invokingState)
+		public DecimalLiteralContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_decimal_literal; } }
+		public override int RuleIndex { get { return RULE_decimalLiteral; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterDecimal_literal(this);
+			if (typedListener != null) typedListener.EnterDecimalLiteral(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitDecimal_literal(this);
+			if (typedListener != null) typedListener.ExitDecimalLiteral(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDecimal_literal(this);
+			if (typedVisitor != null) return typedVisitor.VisitDecimalLiteral(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Decimal_literalContext decimal_literal() {
-		Decimal_literalContext _localctx = new Decimal_literalContext(Context, State);
-		EnterRule(_localctx, 146, RULE_decimal_literal);
+	public DecimalLiteralContext decimalLiteral() {
+		DecimalLiteralContext _localctx = new DecimalLiteralContext(Context, State);
+		EnterRule(_localctx, 206, RULE_decimalLiteral);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 740;
+			State = 1030;
 			Match(DECIMAL_PATTERN);
 			}
 			}
@@ -6970,41 +9176,170 @@ public partial class ImperiumParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Binary_literalContext : ParserRuleContext {
+	public partial class BinaryLiteralContext : ParserRuleContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BINARY_PATTERN() { return GetToken(ImperiumParser.BINARY_PATTERN, 0); }
-		public Binary_literalContext(ParserRuleContext parent, int invokingState)
+		public BinaryLiteralContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_binary_literal; } }
+		public override int RuleIndex { get { return RULE_binaryLiteral; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterBinary_literal(this);
+			if (typedListener != null) typedListener.EnterBinaryLiteral(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitBinary_literal(this);
+			if (typedListener != null) typedListener.ExitBinaryLiteral(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBinary_literal(this);
+			if (typedVisitor != null) return typedVisitor.VisitBinaryLiteral(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public Binary_literalContext binary_literal() {
-		Binary_literalContext _localctx = new Binary_literalContext(Context, State);
-		EnterRule(_localctx, 148, RULE_binary_literal);
+	public BinaryLiteralContext binaryLiteral() {
+		BinaryLiteralContext _localctx = new BinaryLiteralContext(Context, State);
+		EnterRule(_localctx, 208, RULE_binaryLiteral);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
 			{
-			State = 742;
+			State = 1032;
 			Match(BINARY_PATTERN);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class KeywordContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ALIAS() { return GetToken(ImperiumParser.ALIAS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ALIGNED() { return GetToken(ImperiumParser.ALIGNED, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ALL() { return GetToken(ImperiumParser.ALL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ANY() { return GetToken(ImperiumParser.ANY, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ARGUMENT() { return GetToken(ImperiumParser.ARGUMENT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AS() { return GetToken(ImperiumParser.AS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BASED() { return GetToken(ImperiumParser.BASED, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BINARY() { return GetToken(ImperiumParser.BINARY, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BIT() { return GetToken(ImperiumParser.BIT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BOOLEAN() { return GetToken(ImperiumParser.BOOLEAN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BUILTIN() { return GetToken(ImperiumParser.BUILTIN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BY() { return GetToken(ImperiumParser.BY, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BYPASS() { return GetToken(ImperiumParser.BYPASS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CALL() { return GetToken(ImperiumParser.CALL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHARACTER() { return GetToken(ImperiumParser.CHARACTER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COFUNCTION() { return GetToken(ImperiumParser.COFUNCTION, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COROUTINE() { return GetToken(ImperiumParser.COROUTINE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DECIMAL() { return GetToken(ImperiumParser.DECIMAL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DECLARE() { return GetToken(ImperiumParser.DECLARE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DEFINE() { return GetToken(ImperiumParser.DEFINE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DEFINED() { return GetToken(ImperiumParser.DEFINED, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ELIF() { return GetToken(ImperiumParser.ELIF, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ELSE() { return GetToken(ImperiumParser.ELSE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode END() { return GetToken(ImperiumParser.END, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ENDLOOP() { return GetToken(ImperiumParser.ENDLOOP, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ENTRY() { return GetToken(ImperiumParser.ENTRY, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ENUM() { return GetToken(ImperiumParser.ENUM, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FIXED() { return GetToken(ImperiumParser.FIXED, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(ImperiumParser.FLOAT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FUNCTION() { return GetToken(ImperiumParser.FUNCTION, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GOTO() { return GetToken(ImperiumParser.GOTO, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IF() { return GetToken(ImperiumParser.IF, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INC() { return GetToken(ImperiumParser.INC, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INCLUDE() { return GetToken(ImperiumParser.INCLUDE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INTERNAL() { return GetToken(ImperiumParser.INTERNAL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INTERRUPT() { return GetToken(ImperiumParser.INTERRUPT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INTRINSIC() { return GetToken(ImperiumParser.INTRINSIC, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LANGUAGE() { return GetToken(ImperiumParser.LANGUAGE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOOP() { return GetToken(ImperiumParser.LOOP, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OFFSET() { return GetToken(ImperiumParser.OFFSET, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OTHERWISE() { return GetToken(ImperiumParser.OTHERWISE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OUT() { return GetToken(ImperiumParser.OUT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PAD() { return GetToken(ImperiumParser.PAD, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode POINTER() { return GetToken(ImperiumParser.POINTER, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PRIVATE() { return GetToken(ImperiumParser.PRIVATE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PROCEDURE() { return GetToken(ImperiumParser.PROCEDURE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PUBLIC() { return GetToken(ImperiumParser.PUBLIC, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RAW() { return GetToken(ImperiumParser.RAW, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode READONLY() { return GetToken(ImperiumParser.READONLY, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RECURSIVE() { return GetToken(ImperiumParser.RECURSIVE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode REF() { return GetToken(ImperiumParser.REF, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RELOOP() { return GetToken(ImperiumParser.RELOOP, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RETURN() { return GetToken(ImperiumParser.RETURN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RETURNON() { return GetToken(ImperiumParser.RETURNON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RETURNS() { return GetToken(ImperiumParser.RETURNS, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SCOPE() { return GetToken(ImperiumParser.SCOPE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SELECT() { return GetToken(ImperiumParser.SELECT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SINGLET() { return GetToken(ImperiumParser.SINGLET, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STACK() { return GetToken(ImperiumParser.STACK, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STATIC() { return GetToken(ImperiumParser.STATIC, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(ImperiumParser.STRING, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRUCTURE() { return GetToken(ImperiumParser.STRUCTURE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode THEN() { return GetToken(ImperiumParser.THEN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TO() { return GetToken(ImperiumParser.TO, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode TYPE() { return GetToken(ImperiumParser.TYPE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode UNALIGNED() { return GetToken(ImperiumParser.UNALIGNED, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode UNTIL() { return GetToken(ImperiumParser.UNTIL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode USES() { return GetToken(ImperiumParser.USES, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode USING() { return GetToken(ImperiumParser.USING, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode UTF() { return GetToken(ImperiumParser.UTF, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(ImperiumParser.VARIABLE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARYING() { return GetToken(ImperiumParser.VARYING, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode WHEN() { return GetToken(ImperiumParser.WHEN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode WHILE() { return GetToken(ImperiumParser.WHILE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode YIELD() { return GetToken(ImperiumParser.YIELD, 0); }
+		public KeywordContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_keyword; } }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.EnterKeyword(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			IImperiumListener typedListener = listener as IImperiumListener;
+			if (typedListener != null) typedListener.ExitKeyword(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitKeyword(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public KeywordContext keyword() {
+		KeywordContext _localctx = new KeywordContext(Context, State);
+		EnterRule(_localctx, 210, RULE_keyword);
+		int _la;
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 1034;
+			_la = TokenStream.LA(1);
+			if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & -562949953422336L) != 0 || (((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & 4194303L) != 0) ) {
+			ErrorHandler.RecoverInline(this);
+			}
+			else {
+				ErrorHandler.ReportMatch(this);
+			    Consume();
 			}
 			}
 		}
@@ -7021,15 +9356,8 @@ public partial class ImperiumParser : Parser {
 
 	public override bool Sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 9: return reference_sempred((ReferenceContext)_localctx, predIndex);
-		case 17: return expression_sempred((ExpressionContext)_localctx, predIndex);
-		case 18: return expression_9_sempred((Expression_9Context)_localctx, predIndex);
-		case 19: return expression_8_sempred((Expression_8Context)_localctx, predIndex);
-		case 20: return expression_7_sempred((Expression_7Context)_localctx, predIndex);
-		case 21: return expression_6_sempred((Expression_6Context)_localctx, predIndex);
-		case 22: return expression_5_sempred((Expression_5Context)_localctx, predIndex);
-		case 23: return expression_4_sempred((Expression_4Context)_localctx, predIndex);
-		case 24: return expression_3_sempred((Expression_3Context)_localctx, predIndex);
+		case 20: return reference_sempred((ReferenceContext)_localctx, predIndex);
+		case 37: return expression_sempred((ExpressionContext)_localctx, predIndex);
 		}
 		return true;
 	}
@@ -7041,55 +9369,22 @@ public partial class ImperiumParser : Parser {
 	}
 	private bool expression_sempred(ExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 1: return Precpred(Context, 1);
-		}
-		return true;
-	}
-	private bool expression_9_sempred(Expression_9Context _localctx, int predIndex) {
-		switch (predIndex) {
-		case 2: return Precpred(Context, 1);
-		}
-		return true;
-	}
-	private bool expression_8_sempred(Expression_8Context _localctx, int predIndex) {
-		switch (predIndex) {
-		case 3: return Precpred(Context, 1);
-		}
-		return true;
-	}
-	private bool expression_7_sempred(Expression_7Context _localctx, int predIndex) {
-		switch (predIndex) {
-		case 4: return Precpred(Context, 1);
-		}
-		return true;
-	}
-	private bool expression_6_sempred(Expression_6Context _localctx, int predIndex) {
-		switch (predIndex) {
-		case 5: return Precpred(Context, 1);
-		}
-		return true;
-	}
-	private bool expression_5_sempred(Expression_5Context _localctx, int predIndex) {
-		switch (predIndex) {
-		case 6: return Precpred(Context, 1);
-		}
-		return true;
-	}
-	private bool expression_4_sempred(Expression_4Context _localctx, int predIndex) {
-		switch (predIndex) {
-		case 7: return Precpred(Context, 1);
-		}
-		return true;
-	}
-	private bool expression_3_sempred(Expression_3Context _localctx, int predIndex) {
-		switch (predIndex) {
-		case 8: return Precpred(Context, 1);
+		case 1: return Precpred(Context, 10);
+		case 2: return Precpred(Context, 9);
+		case 3: return Precpred(Context, 8);
+		case 4: return Precpred(Context, 7);
+		case 5: return Precpred(Context, 6);
+		case 6: return Precpred(Context, 5);
+		case 7: return Precpred(Context, 4);
+		case 8: return Precpred(Context, 3);
+		case 9: return Precpred(Context, 2);
+		case 10: return Precpred(Context, 1);
 		}
 		return true;
 	}
 
 	private static int[] _serializedATN = {
-		4,1,123,745,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
+		4,1,144,1037,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
 		7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,14,
 		2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,21,
 		2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,2,27,7,27,2,28,7,28,
@@ -7099,248 +9394,348 @@ public partial class ImperiumParser : Parser {
 		2,50,7,50,2,51,7,51,2,52,7,52,2,53,7,53,2,54,7,54,2,55,7,55,2,56,7,56,
 		2,57,7,57,2,58,7,58,2,59,7,59,2,60,7,60,2,61,7,61,2,62,7,62,2,63,7,63,
 		2,64,7,64,2,65,7,65,2,66,7,66,2,67,7,67,2,68,7,68,2,69,7,69,2,70,7,70,
-		2,71,7,71,2,72,7,72,2,73,7,73,2,74,7,74,1,0,3,0,152,8,0,1,0,3,0,155,8,
-		0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,166,8,1,1,2,1,2,1,2,5,2,171,
-		8,2,10,2,12,2,174,9,2,1,2,1,2,1,2,5,2,179,8,2,10,2,12,2,182,9,2,1,2,3,
-		2,185,8,2,1,3,1,3,1,4,1,4,1,4,1,4,1,4,3,4,194,8,4,1,5,1,5,1,5,3,5,199,
-		8,5,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,3,6,211,8,6,1,7,1,7,1,7,1,
-		7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,3,7,228,8,7,1,8,1,8,1,8,
-		1,8,1,9,1,9,1,9,3,9,237,8,9,1,9,1,9,1,9,1,9,3,9,243,8,9,5,9,245,8,9,10,
-		9,12,9,248,9,9,1,10,1,10,4,10,252,8,10,11,10,12,10,253,1,10,1,10,1,11,
-		4,11,259,8,11,11,11,12,11,260,1,12,3,12,264,8,12,1,12,1,12,1,13,1,13,3,
-		13,270,8,13,1,13,1,13,1,14,4,14,275,8,14,11,14,12,14,276,1,15,1,15,1,16,
-		1,16,1,16,5,16,284,8,16,10,16,12,16,287,9,16,1,17,1,17,1,17,1,17,1,17,
-		1,17,5,17,295,8,17,10,17,12,17,298,9,17,1,18,1,18,1,18,1,18,1,18,1,18,
-		5,18,306,8,18,10,18,12,18,309,9,18,1,19,1,19,1,19,1,19,1,19,1,19,5,19,
-		317,8,19,10,19,12,19,320,9,19,1,20,1,20,1,20,1,20,1,20,1,20,5,20,328,8,
-		20,10,20,12,20,331,9,20,1,21,1,21,1,21,1,21,1,21,1,21,1,21,5,21,340,8,
-		21,10,21,12,21,343,9,21,1,22,1,22,1,22,1,22,1,22,1,22,5,22,351,8,22,10,
-		22,12,22,354,9,22,1,23,1,23,1,23,1,23,1,23,1,23,5,23,362,8,23,10,23,12,
-		23,365,9,23,1,24,1,24,1,24,1,24,1,24,1,24,5,24,373,8,24,10,24,12,24,376,
-		9,24,1,25,1,25,1,25,1,25,3,25,382,8,25,1,26,1,26,3,26,386,8,26,1,26,1,
-		26,1,26,1,27,1,27,1,27,1,28,1,28,1,28,1,28,1,29,1,29,1,29,3,29,401,8,29,
-		1,30,1,30,1,31,1,31,1,32,1,32,1,33,1,33,3,33,411,8,33,1,34,1,34,1,35,1,
-		35,1,35,1,36,1,36,1,36,1,36,1,36,1,36,1,36,1,36,1,36,3,36,427,8,36,1,37,
-		1,37,1,38,1,38,3,38,433,8,38,1,39,1,39,3,39,437,8,39,1,40,1,40,1,40,1,
-		40,1,41,3,41,444,8,41,1,41,5,41,447,8,41,10,41,12,41,450,9,41,1,42,1,42,
-		1,42,1,42,1,43,1,43,1,43,3,43,459,8,43,1,43,1,43,3,43,463,8,43,1,44,1,
-		44,1,44,5,44,468,8,44,10,44,12,44,471,9,44,1,45,1,45,1,46,1,46,1,47,1,
-		47,1,47,1,47,1,47,1,47,1,47,3,47,484,8,47,1,48,1,48,3,48,488,8,48,1,48,
-		1,48,3,48,492,8,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,
-		48,1,48,1,48,1,48,1,48,1,48,3,48,510,8,48,1,49,1,49,1,49,1,49,3,49,516,
-		8,49,1,49,1,49,1,50,1,50,3,50,522,8,50,1,51,1,51,3,51,526,8,51,1,52,1,
-		52,1,52,3,52,531,8,52,1,52,1,52,1,53,1,53,1,53,1,53,1,53,3,53,540,8,53,
-		1,54,1,54,1,54,1,54,1,54,3,54,547,8,54,1,55,3,55,550,8,55,1,55,3,55,553,
-		8,55,1,55,3,55,556,8,55,1,55,1,55,3,55,560,8,55,1,55,3,55,563,8,55,1,55,
-		3,55,566,8,55,3,55,568,8,55,1,56,1,56,1,57,1,57,1,58,1,58,1,58,1,58,5,
-		58,578,8,58,10,58,12,58,581,9,58,1,58,1,58,1,59,1,59,1,59,1,60,1,60,1,
-		60,1,60,1,60,3,60,593,8,60,1,61,1,61,1,61,1,61,4,61,599,8,61,11,61,12,
-		61,600,1,61,3,61,604,8,61,1,61,1,61,3,61,608,8,61,1,61,1,61,1,61,1,61,
-		4,61,614,8,61,11,61,12,61,615,1,61,4,61,619,8,61,11,61,12,61,620,1,61,
-		1,61,3,61,625,8,61,3,61,627,8,61,1,62,1,62,1,62,1,62,1,63,1,63,1,63,1,
-		63,4,63,637,8,63,11,63,12,63,638,1,64,1,64,1,64,1,64,1,64,1,64,4,64,647,
-		8,64,11,64,12,64,648,1,64,3,64,652,8,64,1,65,1,65,1,65,1,65,4,65,658,8,
-		65,11,65,12,65,659,1,65,1,65,3,65,664,8,65,1,65,1,65,1,65,3,65,669,8,65,
-		1,65,1,65,1,65,4,65,674,8,65,11,65,12,65,675,1,65,1,65,3,65,680,8,65,1,
-		65,1,65,1,65,3,65,685,8,65,1,65,1,65,1,65,4,65,690,8,65,11,65,12,65,691,
-		1,65,1,65,3,65,696,8,65,3,65,698,8,65,1,66,1,66,1,66,1,66,1,66,1,67,1,
-		67,1,67,1,67,1,67,1,68,1,68,1,68,1,68,1,68,1,68,1,68,1,68,1,68,5,68,719,
-		8,68,10,68,12,68,722,9,68,1,68,3,68,725,8,68,1,68,1,68,1,69,1,69,1,70,
-		1,70,1,70,1,70,3,70,735,8,70,1,71,1,71,1,72,1,72,1,73,1,73,1,74,1,74,1,
-		74,0,9,18,34,36,38,40,42,44,46,48,75,0,2,4,6,8,10,12,14,16,18,20,22,24,
-		26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,
-		74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,
-		116,118,120,122,124,126,128,130,132,134,136,138,140,142,144,146,148,0,
-		10,2,0,108,108,118,118,1,0,99,100,1,0,97,98,2,0,99,100,108,108,2,0,96,
-		96,109,115,2,0,4,5,122,123,19,0,16,16,20,20,22,22,25,28,30,31,33,37,39,
-		40,42,43,48,48,50,50,52,52,55,55,57,57,61,63,67,67,69,70,73,73,75,75,77,
-		77,2,0,16,16,30,30,1,0,27,28,1,0,11,13,785,0,151,1,0,0,0,2,158,1,0,0,0,
-		4,184,1,0,0,0,6,186,1,0,0,0,8,188,1,0,0,0,10,198,1,0,0,0,12,210,1,0,0,
-		0,14,227,1,0,0,0,16,229,1,0,0,0,18,233,1,0,0,0,20,249,1,0,0,0,22,258,1,
-		0,0,0,24,263,1,0,0,0,26,267,1,0,0,0,28,274,1,0,0,0,30,278,1,0,0,0,32,280,
-		1,0,0,0,34,288,1,0,0,0,36,299,1,0,0,0,38,310,1,0,0,0,40,321,1,0,0,0,42,
-		332,1,0,0,0,44,344,1,0,0,0,46,355,1,0,0,0,48,366,1,0,0,0,50,381,1,0,0,
-		0,52,385,1,0,0,0,54,390,1,0,0,0,56,393,1,0,0,0,58,400,1,0,0,0,60,402,1,
-		0,0,0,62,404,1,0,0,0,64,406,1,0,0,0,66,410,1,0,0,0,68,412,1,0,0,0,70,414,
-		1,0,0,0,72,426,1,0,0,0,74,428,1,0,0,0,76,430,1,0,0,0,78,434,1,0,0,0,80,
-		438,1,0,0,0,82,443,1,0,0,0,84,451,1,0,0,0,86,462,1,0,0,0,88,464,1,0,0,
-		0,90,472,1,0,0,0,92,474,1,0,0,0,94,483,1,0,0,0,96,509,1,0,0,0,98,511,1,
-		0,0,0,100,521,1,0,0,0,102,525,1,0,0,0,104,527,1,0,0,0,106,534,1,0,0,0,
-		108,541,1,0,0,0,110,549,1,0,0,0,112,569,1,0,0,0,114,571,1,0,0,0,116,573,
-		1,0,0,0,118,584,1,0,0,0,120,587,1,0,0,0,122,626,1,0,0,0,124,628,1,0,0,
-		0,126,632,1,0,0,0,128,640,1,0,0,0,130,697,1,0,0,0,132,699,1,0,0,0,134,
-		704,1,0,0,0,136,709,1,0,0,0,138,728,1,0,0,0,140,734,1,0,0,0,142,736,1,
-		0,0,0,144,738,1,0,0,0,146,740,1,0,0,0,148,742,1,0,0,0,150,152,5,14,0,0,
-		151,150,1,0,0,0,151,152,1,0,0,0,152,154,1,0,0,0,153,155,3,14,7,0,154,153,
-		1,0,0,0,154,155,1,0,0,0,155,156,1,0,0,0,156,157,3,2,1,0,157,1,1,0,0,0,
-		158,159,5,57,0,0,159,160,3,66,33,0,160,161,3,110,55,0,161,162,5,101,0,
-		0,162,163,3,4,2,0,163,165,3,74,37,0,164,166,5,57,0,0,165,164,1,0,0,0,165,
-		166,1,0,0,0,166,3,1,0,0,0,167,168,3,10,5,0,168,169,3,6,3,0,169,171,1,0,
-		0,0,170,167,1,0,0,0,171,174,1,0,0,0,172,170,1,0,0,0,172,173,1,0,0,0,173,
-		180,1,0,0,0,174,172,1,0,0,0,175,176,3,12,6,0,176,177,3,6,3,0,177,179,1,
-		0,0,0,178,175,1,0,0,0,179,182,1,0,0,0,180,178,1,0,0,0,180,181,1,0,0,0,
-		181,185,1,0,0,0,182,180,1,0,0,0,183,185,3,6,3,0,184,172,1,0,0,0,184,183,
-		1,0,0,0,185,5,1,0,0,0,186,187,5,101,0,0,187,7,1,0,0,0,188,193,5,81,0,0,
-		189,190,5,90,0,0,190,191,3,146,73,0,191,192,5,91,0,0,192,194,1,0,0,0,193,
-		189,1,0,0,0,193,194,1,0,0,0,194,9,1,0,0,0,195,199,3,14,7,0,196,199,3,80,
-		40,0,197,199,3,136,68,0,198,195,1,0,0,0,198,196,1,0,0,0,198,197,1,0,0,
-		0,199,11,1,0,0,0,200,211,3,8,4,0,201,211,3,16,8,0,202,211,3,70,35,0,203,
-		211,3,72,36,0,204,211,3,2,1,0,205,211,3,120,60,0,206,211,3,122,61,0,207,
-		211,3,130,65,0,208,211,3,76,38,0,209,211,3,78,39,0,210,200,1,0,0,0,210,
-		201,1,0,0,0,210,202,1,0,0,0,210,203,1,0,0,0,210,204,1,0,0,0,210,205,1,
-		0,0,0,210,206,1,0,0,0,210,207,1,0,0,0,210,208,1,0,0,0,210,209,1,0,0,0,
-		211,13,1,0,0,0,212,213,5,116,0,0,213,214,5,1,0,0,214,215,5,107,0,0,215,
-		216,3,66,33,0,216,217,5,2,0,0,217,218,5,107,0,0,218,219,5,101,0,0,219,
-		228,1,0,0,0,220,221,5,116,0,0,221,222,5,3,0,0,222,223,5,90,0,0,223,224,
-		3,66,33,0,224,225,5,91,0,0,225,226,5,101,0,0,226,228,1,0,0,0,227,212,1,
-		0,0,0,227,220,1,0,0,0,228,15,1,0,0,0,229,230,3,18,9,0,230,231,5,96,0,0,
-		231,232,3,34,17,0,232,17,1,0,0,0,233,234,6,9,-1,0,234,236,3,24,12,0,235,
-		237,3,22,11,0,236,235,1,0,0,0,236,237,1,0,0,0,237,246,1,0,0,0,238,239,
-		10,2,0,0,239,240,5,87,0,0,240,242,3,24,12,0,241,243,3,22,11,0,242,241,
-		1,0,0,0,242,243,1,0,0,0,243,245,1,0,0,0,244,238,1,0,0,0,245,248,1,0,0,
-		0,246,244,1,0,0,0,246,247,1,0,0,0,247,19,1,0,0,0,248,246,1,0,0,0,249,251,
-		5,90,0,0,250,252,3,32,16,0,251,250,1,0,0,0,252,253,1,0,0,0,253,251,1,0,
-		0,0,253,254,1,0,0,0,254,255,1,0,0,0,255,256,5,91,0,0,256,21,1,0,0,0,257,
-		259,3,20,10,0,258,257,1,0,0,0,259,260,1,0,0,0,260,258,1,0,0,0,260,261,
-		1,0,0,0,261,23,1,0,0,0,262,264,3,28,14,0,263,262,1,0,0,0,263,264,1,0,0,
-		0,264,265,1,0,0,0,265,266,3,66,33,0,266,25,1,0,0,0,267,269,3,66,33,0,268,
-		270,3,20,10,0,269,268,1,0,0,0,269,270,1,0,0,0,270,271,1,0,0,0,271,272,
-		5,88,0,0,272,27,1,0,0,0,273,275,3,26,13,0,274,273,1,0,0,0,275,276,1,0,
-		0,0,276,274,1,0,0,0,276,277,1,0,0,0,277,29,1,0,0,0,278,279,3,34,17,0,279,
-		31,1,0,0,0,280,285,3,30,15,0,281,282,5,89,0,0,282,284,3,30,15,0,283,281,
-		1,0,0,0,284,287,1,0,0,0,285,283,1,0,0,0,285,286,1,0,0,0,286,33,1,0,0,0,
-		287,285,1,0,0,0,288,289,6,17,-1,0,289,290,3,36,18,0,290,296,1,0,0,0,291,
-		292,10,1,0,0,292,293,5,120,0,0,293,295,3,36,18,0,294,291,1,0,0,0,295,298,
-		1,0,0,0,296,294,1,0,0,0,296,297,1,0,0,0,297,35,1,0,0,0,298,296,1,0,0,0,
-		299,300,6,18,-1,0,300,301,3,38,19,0,301,307,1,0,0,0,302,303,10,1,0,0,303,
-		304,5,119,0,0,304,306,3,38,19,0,305,302,1,0,0,0,306,309,1,0,0,0,307,305,
-		1,0,0,0,307,308,1,0,0,0,308,37,1,0,0,0,309,307,1,0,0,0,310,311,6,19,-1,
-		0,311,312,3,40,20,0,312,318,1,0,0,0,313,314,10,1,0,0,314,315,7,0,0,0,315,
-		317,3,40,20,0,316,313,1,0,0,0,317,320,1,0,0,0,318,316,1,0,0,0,318,319,
-		1,0,0,0,319,39,1,0,0,0,320,318,1,0,0,0,321,322,6,20,-1,0,322,323,3,42,
-		21,0,323,329,1,0,0,0,324,325,10,1,0,0,325,326,5,117,0,0,326,328,3,42,21,
-		0,327,324,1,0,0,0,328,331,1,0,0,0,329,327,1,0,0,0,329,330,1,0,0,0,330,
-		41,1,0,0,0,331,329,1,0,0,0,332,333,6,21,-1,0,333,334,3,44,22,0,334,341,
-		1,0,0,0,335,336,10,1,0,0,336,337,3,62,31,0,337,338,3,44,22,0,338,340,1,
-		0,0,0,339,335,1,0,0,0,340,343,1,0,0,0,341,339,1,0,0,0,341,342,1,0,0,0,
-		342,43,1,0,0,0,343,341,1,0,0,0,344,345,6,22,-1,0,345,346,3,46,23,0,346,
-		352,1,0,0,0,347,348,10,1,0,0,348,349,5,121,0,0,349,351,3,46,23,0,350,347,
-		1,0,0,0,351,354,1,0,0,0,352,350,1,0,0,0,352,353,1,0,0,0,353,45,1,0,0,0,
-		354,352,1,0,0,0,355,356,6,23,-1,0,356,357,3,48,24,0,357,363,1,0,0,0,358,
-		359,10,1,0,0,359,360,7,1,0,0,360,362,3,48,24,0,361,358,1,0,0,0,362,365,
-		1,0,0,0,363,361,1,0,0,0,363,364,1,0,0,0,364,47,1,0,0,0,365,363,1,0,0,0,
-		366,367,6,24,-1,0,367,368,3,50,25,0,368,374,1,0,0,0,369,370,10,1,0,0,370,
-		371,7,2,0,0,371,373,3,50,25,0,372,369,1,0,0,0,373,376,1,0,0,0,374,372,
-		1,0,0,0,374,375,1,0,0,0,375,49,1,0,0,0,376,374,1,0,0,0,377,382,3,58,29,
-		0,378,382,3,54,27,0,379,382,3,56,28,0,380,382,3,52,26,0,381,377,1,0,0,
-		0,381,378,1,0,0,0,381,379,1,0,0,0,381,380,1,0,0,0,382,51,1,0,0,0,383,386,
-		3,58,29,0,384,386,3,56,28,0,385,383,1,0,0,0,385,384,1,0,0,0,386,387,1,
-		0,0,0,387,388,5,102,0,0,388,389,3,50,25,0,389,53,1,0,0,0,390,391,3,60,
-		30,0,391,392,3,50,25,0,392,55,1,0,0,0,393,394,5,90,0,0,394,395,3,34,17,
-		0,395,396,5,91,0,0,396,57,1,0,0,0,397,401,3,140,70,0,398,401,3,138,69,
-		0,399,401,3,18,9,0,400,397,1,0,0,0,400,398,1,0,0,0,400,399,1,0,0,0,401,
-		59,1,0,0,0,402,403,7,3,0,0,403,61,1,0,0,0,404,405,7,4,0,0,405,63,1,0,0,
-		0,406,407,7,5,0,0,407,65,1,0,0,0,408,411,3,68,34,0,409,411,5,82,0,0,410,
-		408,1,0,0,0,410,409,1,0,0,0,411,67,1,0,0,0,412,413,7,6,0,0,413,69,1,0,
-		0,0,414,415,5,25,0,0,415,416,3,18,9,0,416,71,1,0,0,0,417,418,5,42,0,0,
-		418,419,5,82,0,0,419,420,5,90,0,0,420,421,3,146,73,0,421,422,5,91,0,0,
-		422,427,1,0,0,0,423,424,5,42,0,0,424,427,3,18,9,0,425,427,1,0,0,0,426,
-		417,1,0,0,0,426,423,1,0,0,0,426,425,1,0,0,0,427,73,1,0,0,0,428,429,5,35,
-		0,0,429,75,1,0,0,0,430,432,5,36,0,0,431,433,5,82,0,0,432,431,1,0,0,0,432,
-		433,1,0,0,0,433,77,1,0,0,0,434,436,5,61,0,0,435,437,5,82,0,0,436,435,1,
-		0,0,0,436,437,1,0,0,0,437,79,1,0,0,0,438,439,7,7,0,0,439,440,3,66,33,0,
-		440,441,3,82,41,0,441,81,1,0,0,0,442,444,3,84,42,0,443,442,1,0,0,0,443,
-		444,1,0,0,0,444,448,1,0,0,0,445,447,3,94,47,0,446,445,1,0,0,0,447,450,
-		1,0,0,0,448,446,1,0,0,0,448,449,1,0,0,0,449,83,1,0,0,0,450,448,1,0,0,0,
-		451,452,5,90,0,0,452,453,3,88,44,0,453,454,5,91,0,0,454,85,1,0,0,0,455,
-		456,3,90,45,0,456,457,5,103,0,0,457,459,1,0,0,0,458,455,1,0,0,0,458,459,
-		1,0,0,0,459,460,1,0,0,0,460,463,3,92,46,0,461,463,5,97,0,0,462,458,1,0,
-		0,0,462,461,1,0,0,0,463,87,1,0,0,0,464,469,3,86,43,0,465,466,5,89,0,0,
-		466,468,3,86,43,0,467,465,1,0,0,0,468,471,1,0,0,0,469,467,1,0,0,0,469,
-		470,1,0,0,0,470,89,1,0,0,0,471,469,1,0,0,0,472,473,3,34,17,0,473,91,1,
-		0,0,0,474,475,3,34,17,0,475,93,1,0,0,0,476,484,3,96,48,0,477,484,5,17,
-		0,0,478,484,5,22,0,0,479,484,5,66,0,0,480,484,5,76,0,0,481,484,3,106,53,
-		0,482,484,3,108,54,0,483,476,1,0,0,0,483,477,1,0,0,0,483,478,1,0,0,0,483,
-		479,1,0,0,0,483,480,1,0,0,0,483,481,1,0,0,0,483,482,1,0,0,0,484,95,1,0,
-		0,0,485,487,5,19,0,0,486,488,3,98,49,0,487,486,1,0,0,0,487,488,1,0,0,0,
-		488,510,1,0,0,0,489,491,5,29,0,0,490,492,3,98,49,0,491,490,1,0,0,0,491,
-		492,1,0,0,0,492,510,1,0,0,0,493,510,5,55,0,0,494,495,5,20,0,0,495,510,
-		3,104,52,0,496,510,5,26,0,0,497,498,5,67,0,0,498,510,3,104,52,0,499,510,
-		5,37,0,0,500,510,5,39,0,0,501,510,5,40,0,0,502,510,5,52,0,0,503,510,5,
-		77,0,0,504,510,5,28,0,0,505,510,5,27,0,0,506,510,5,22,0,0,507,510,5,48,
-		0,0,508,510,3,66,33,0,509,485,1,0,0,0,509,489,1,0,0,0,509,493,1,0,0,0,
-		509,494,1,0,0,0,509,496,1,0,0,0,509,497,1,0,0,0,509,499,1,0,0,0,509,500,
-		1,0,0,0,509,501,1,0,0,0,509,502,1,0,0,0,509,503,1,0,0,0,509,504,1,0,0,
-		0,509,505,1,0,0,0,509,506,1,0,0,0,509,507,1,0,0,0,509,508,1,0,0,0,510,
-		97,1,0,0,0,511,512,5,90,0,0,512,515,3,100,50,0,513,514,5,89,0,0,514,516,
-		3,102,51,0,515,513,1,0,0,0,515,516,1,0,0,0,516,517,1,0,0,0,517,518,5,91,
-		0,0,518,99,1,0,0,0,519,522,3,146,73,0,520,522,3,66,33,0,521,519,1,0,0,
-		0,521,520,1,0,0,0,522,101,1,0,0,0,523,526,3,146,73,0,524,526,3,66,33,0,
-		525,523,1,0,0,0,525,524,1,0,0,0,526,103,1,0,0,0,527,530,5,90,0,0,528,531,
-		3,146,73,0,529,531,3,66,33,0,530,528,1,0,0,0,530,529,1,0,0,0,531,532,1,
-		0,0,0,532,533,5,91,0,0,533,105,1,0,0,0,534,539,5,18,0,0,535,536,5,90,0,
-		0,536,537,3,18,9,0,537,538,5,91,0,0,538,540,1,0,0,0,539,535,1,0,0,0,539,
-		540,1,0,0,0,540,107,1,0,0,0,541,546,5,32,0,0,542,543,5,90,0,0,543,544,
-		3,18,9,0,544,545,5,91,0,0,545,547,1,0,0,0,546,542,1,0,0,0,546,547,1,0,
-		0,0,547,109,1,0,0,0,548,550,3,116,58,0,549,548,1,0,0,0,549,550,1,0,0,0,
-		550,567,1,0,0,0,551,553,3,118,59,0,552,551,1,0,0,0,552,553,1,0,0,0,553,
-		555,1,0,0,0,554,556,3,112,56,0,555,554,1,0,0,0,555,556,1,0,0,0,556,568,
-		1,0,0,0,557,560,3,112,56,0,558,560,3,114,57,0,559,557,1,0,0,0,559,558,
-		1,0,0,0,559,560,1,0,0,0,560,562,1,0,0,0,561,563,5,80,0,0,562,561,1,0,0,
-		0,562,563,1,0,0,0,563,565,1,0,0,0,564,566,3,118,59,0,565,564,1,0,0,0,565,
-		566,1,0,0,0,566,568,1,0,0,0,567,552,1,0,0,0,567,559,1,0,0,0,568,111,1,
-		0,0,0,569,570,7,8,0,0,570,113,1,0,0,0,571,572,5,47,0,0,572,115,1,0,0,0,
-		573,574,5,90,0,0,574,579,3,66,33,0,575,576,5,89,0,0,576,578,3,66,33,0,
-		577,575,1,0,0,0,578,581,1,0,0,0,579,577,1,0,0,0,579,580,1,0,0,0,580,582,
-		1,0,0,0,581,579,1,0,0,0,582,583,5,91,0,0,583,117,1,0,0,0,584,585,5,63,
-		0,0,585,586,3,96,48,0,586,119,1,0,0,0,587,592,5,62,0,0,588,589,5,90,0,
-		0,589,590,3,34,17,0,590,591,5,91,0,0,591,593,1,0,0,0,592,588,1,0,0,0,592,
-		593,1,0,0,0,593,121,1,0,0,0,594,598,3,124,62,0,595,596,3,12,6,0,596,597,
-		3,6,3,0,597,599,1,0,0,0,598,595,1,0,0,0,599,600,1,0,0,0,600,598,1,0,0,
-		0,600,601,1,0,0,0,601,603,1,0,0,0,602,604,3,126,63,0,603,602,1,0,0,0,603,
-		604,1,0,0,0,604,605,1,0,0,0,605,607,3,74,37,0,606,608,5,43,0,0,607,606,
-		1,0,0,0,607,608,1,0,0,0,608,627,1,0,0,0,609,613,3,124,62,0,610,611,3,12,
-		6,0,611,612,3,6,3,0,612,614,1,0,0,0,613,610,1,0,0,0,614,615,1,0,0,0,615,
-		613,1,0,0,0,615,616,1,0,0,0,616,618,1,0,0,0,617,619,3,128,64,0,618,617,
-		1,0,0,0,619,620,1,0,0,0,620,618,1,0,0,0,620,621,1,0,0,0,621,622,1,0,0,
-		0,622,624,3,74,37,0,623,625,5,43,0,0,624,623,1,0,0,0,624,625,1,0,0,0,625,
-		627,1,0,0,0,626,594,1,0,0,0,626,609,1,0,0,0,627,123,1,0,0,0,628,629,5,
-		43,0,0,629,630,3,34,17,0,630,631,5,69,0,0,631,125,1,0,0,0,632,636,5,34,
-		0,0,633,634,3,12,6,0,634,635,3,6,3,0,635,637,1,0,0,0,636,633,1,0,0,0,637,
-		638,1,0,0,0,638,636,1,0,0,0,638,639,1,0,0,0,639,127,1,0,0,0,640,641,5,
-		33,0,0,641,642,3,34,17,0,642,646,5,69,0,0,643,644,3,12,6,0,644,645,3,6,
-		3,0,645,647,1,0,0,0,646,643,1,0,0,0,647,648,1,0,0,0,648,646,1,0,0,0,648,
-		649,1,0,0,0,649,651,1,0,0,0,650,652,3,126,63,0,651,650,1,0,0,0,651,652,
-		1,0,0,0,652,129,1,0,0,0,653,657,5,50,0,0,654,655,3,12,6,0,655,656,3,6,
-		3,0,656,658,1,0,0,0,657,654,1,0,0,0,658,659,1,0,0,0,659,657,1,0,0,0,659,
-		660,1,0,0,0,660,661,1,0,0,0,661,663,3,74,37,0,662,664,5,50,0,0,663,662,
-		1,0,0,0,663,664,1,0,0,0,664,698,1,0,0,0,665,666,5,50,0,0,666,668,3,132,
-		66,0,667,669,3,134,67,0,668,667,1,0,0,0,668,669,1,0,0,0,669,673,1,0,0,
-		0,670,671,3,12,6,0,671,672,3,6,3,0,672,674,1,0,0,0,673,670,1,0,0,0,674,
-		675,1,0,0,0,675,673,1,0,0,0,675,676,1,0,0,0,676,677,1,0,0,0,677,679,3,
-		74,37,0,678,680,5,50,0,0,679,678,1,0,0,0,679,680,1,0,0,0,680,698,1,0,0,
-		0,681,682,5,50,0,0,682,684,3,134,67,0,683,685,3,132,66,0,684,683,1,0,0,
-		0,684,685,1,0,0,0,685,689,1,0,0,0,686,687,3,12,6,0,687,688,3,6,3,0,688,
-		690,1,0,0,0,689,686,1,0,0,0,690,691,1,0,0,0,691,689,1,0,0,0,691,692,1,
-		0,0,0,692,693,1,0,0,0,693,695,3,74,37,0,694,696,5,50,0,0,695,694,1,0,0,
-		0,695,696,1,0,0,0,696,698,1,0,0,0,697,653,1,0,0,0,697,665,1,0,0,0,697,
-		681,1,0,0,0,698,131,1,0,0,0,699,700,5,75,0,0,700,701,5,90,0,0,701,702,
-		3,34,17,0,702,703,5,91,0,0,703,133,1,0,0,0,704,705,5,73,0,0,705,706,5,
-		90,0,0,706,707,3,34,17,0,707,708,5,91,0,0,708,135,1,0,0,0,709,710,5,31,
-		0,0,710,711,3,66,33,0,711,712,3,66,33,0,712,713,3,82,41,0,713,720,1,0,
-		0,0,714,715,5,89,0,0,715,716,3,66,33,0,716,717,3,82,41,0,717,719,1,0,0,
-		0,718,714,1,0,0,0,719,722,1,0,0,0,720,718,1,0,0,0,720,721,1,0,0,0,721,
-		724,1,0,0,0,722,720,1,0,0,0,723,725,5,89,0,0,724,723,1,0,0,0,724,725,1,
-		0,0,0,725,726,1,0,0,0,726,727,5,35,0,0,727,137,1,0,0,0,728,729,7,9,0,0,
-		729,139,1,0,0,0,730,735,3,148,74,0,731,735,3,144,72,0,732,735,3,142,71,
-		0,733,735,3,146,73,0,734,730,1,0,0,0,734,731,1,0,0,0,734,732,1,0,0,0,734,
-		733,1,0,0,0,735,141,1,0,0,0,736,737,5,85,0,0,737,143,1,0,0,0,738,739,5,
-		84,0,0,739,145,1,0,0,0,740,741,5,86,0,0,741,147,1,0,0,0,742,743,5,83,0,
-		0,743,149,1,0,0,0,80,151,154,165,172,180,184,193,198,210,227,236,242,246,
-		253,260,263,269,276,285,296,307,318,329,341,352,363,374,381,385,400,410,
-		426,432,436,443,448,458,462,469,483,487,491,509,515,521,525,530,539,546,
-		549,552,555,559,562,565,567,579,592,600,603,607,615,620,624,626,638,648,
-		651,659,663,668,675,679,684,691,695,697,720,724,734
+		2,71,7,71,2,72,7,72,2,73,7,73,2,74,7,74,2,75,7,75,2,76,7,76,2,77,7,77,
+		2,78,7,78,2,79,7,79,2,80,7,80,2,81,7,81,2,82,7,82,2,83,7,83,2,84,7,84,
+		2,85,7,85,2,86,7,86,2,87,7,87,2,88,7,88,2,89,7,89,2,90,7,90,2,91,7,91,
+		2,92,7,92,2,93,7,93,2,94,7,94,2,95,7,95,2,96,7,96,2,97,7,97,2,98,7,98,
+		2,99,7,99,2,100,7,100,2,101,7,101,2,102,7,102,2,103,7,103,2,104,7,104,
+		2,105,7,105,1,0,3,0,214,8,0,1,0,5,0,217,8,0,10,0,12,0,220,9,0,1,0,5,0,
+		223,8,0,10,0,12,0,226,9,0,1,0,3,0,229,8,0,1,0,3,0,232,8,0,1,1,1,1,1,1,
+		1,1,5,1,238,8,1,10,1,12,1,241,9,1,1,1,1,1,1,2,1,2,3,2,247,8,2,1,2,1,2,
+		1,2,1,2,1,2,1,2,3,2,255,8,2,1,3,1,3,1,3,1,3,5,3,261,8,3,10,3,12,3,264,
+		9,3,1,3,3,3,267,8,3,1,3,1,3,1,4,1,4,3,4,273,8,4,1,4,1,4,1,5,1,5,3,5,279,
+		8,5,1,5,1,5,1,5,1,5,3,5,285,8,5,1,5,1,5,3,5,289,8,5,1,6,1,6,1,6,1,6,1,
+		6,1,7,1,7,1,7,1,7,1,7,1,8,1,8,3,8,303,8,8,1,8,1,8,1,9,1,9,3,9,309,8,9,
+		1,9,1,9,1,10,3,10,314,8,10,1,10,3,10,317,8,10,1,10,1,10,3,10,321,8,10,
+		1,10,3,10,324,8,10,3,10,326,8,10,1,11,3,11,329,8,11,1,11,1,11,3,11,333,
+		8,11,1,11,1,11,3,11,337,8,11,1,11,3,11,340,8,11,1,11,3,11,343,8,11,1,12,
+		1,12,1,12,1,12,1,12,1,13,4,13,351,8,13,11,13,12,13,352,1,13,4,13,356,8,
+		13,11,13,12,13,357,1,13,4,13,361,8,13,11,13,12,13,362,1,13,4,13,366,8,
+		13,11,13,12,13,367,3,13,370,8,13,1,14,1,14,1,15,1,15,1,15,1,15,1,15,3,
+		15,379,8,15,1,16,1,16,1,16,3,16,384,8,16,1,17,1,17,1,17,1,17,1,17,1,17,
+		1,17,1,17,1,17,1,17,1,17,1,17,3,17,398,8,17,1,18,1,18,1,19,1,19,1,19,1,
+		19,1,19,1,20,1,20,1,20,3,20,410,8,20,1,20,1,20,1,20,1,20,3,20,416,8,20,
+		5,20,418,8,20,10,20,12,20,421,9,20,1,21,1,21,3,21,425,8,21,1,21,1,21,1,
+		22,4,22,430,8,22,11,22,12,22,431,1,23,3,23,435,8,23,1,23,1,23,1,24,1,24,
+		3,24,441,8,24,1,24,1,24,1,25,4,25,446,8,25,11,25,12,25,447,1,26,1,26,1,
+		27,1,27,1,27,5,27,455,8,27,10,27,12,27,458,9,27,1,28,1,28,1,28,1,28,1,
+		28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,
+		28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,1,28,3,28,488,8,28,1,29,1,29,
+		1,29,3,29,493,8,29,1,30,1,30,1,30,1,31,1,31,1,32,1,32,1,33,1,33,1,34,1,
+		34,1,35,1,35,1,36,1,36,1,37,1,37,1,37,1,37,3,37,514,8,37,1,37,1,37,1,37,
+		1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,
+		1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,
+		1,37,1,37,1,37,1,37,1,37,1,37,5,37,553,8,37,10,37,12,37,556,9,37,1,38,
+		1,38,1,39,1,39,1,40,1,40,1,41,1,41,3,41,566,8,41,1,42,1,42,1,42,1,42,1,
+		43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,3,43,585,
+		8,43,1,44,1,44,3,44,589,8,44,1,45,1,45,3,45,593,8,45,1,46,1,46,1,46,3,
+		46,598,8,46,1,46,1,46,1,46,3,46,603,8,46,1,46,1,46,1,46,1,46,1,46,1,46,
+		3,46,611,8,46,1,47,1,47,1,47,1,48,3,48,617,8,48,1,48,4,48,620,8,48,11,
+		48,12,48,621,1,49,1,49,1,49,1,49,1,50,1,50,1,50,3,50,631,8,50,1,50,1,50,
+		3,50,635,8,50,1,51,1,51,1,51,5,51,640,8,51,10,51,12,51,643,9,51,1,52,1,
+		52,1,53,1,53,1,54,1,54,1,54,1,54,3,54,653,8,54,1,55,1,55,1,55,1,55,3,55,
+		659,8,55,1,56,1,56,3,56,663,8,56,1,56,1,56,3,56,667,8,56,1,56,1,56,1,56,
+		1,56,1,56,1,56,1,56,1,56,1,56,1,56,1,56,1,56,1,56,1,56,3,56,683,8,56,1,
+		57,1,57,1,57,1,57,3,57,689,8,57,1,58,1,58,1,58,1,58,1,58,1,59,1,59,1,59,
+		1,59,1,59,1,60,1,60,1,60,1,60,3,60,705,8,60,1,60,1,60,1,61,1,61,3,61,711,
+		8,61,1,62,1,62,3,62,715,8,62,1,63,1,63,1,63,1,63,3,63,721,8,63,3,63,723,
+		8,63,1,63,1,63,1,64,1,64,1,64,3,64,730,8,64,1,64,1,64,1,65,1,65,1,65,1,
+		65,1,65,3,65,739,8,65,1,66,1,66,1,66,1,66,1,66,3,66,746,8,66,1,67,1,67,
+		1,68,1,68,1,69,1,69,1,69,1,69,5,69,756,8,69,10,69,12,69,759,9,69,1,69,
+		1,69,1,70,1,70,1,70,1,70,1,70,3,70,768,8,70,1,70,1,70,1,71,1,71,1,71,3,
+		71,775,8,71,1,71,1,71,1,71,1,71,1,71,4,71,782,8,71,11,71,12,71,783,1,71,
+		1,71,3,71,788,8,71,1,72,1,72,3,72,792,8,72,1,72,1,72,1,73,1,73,1,73,1,
+		73,1,74,1,74,1,74,1,75,1,75,1,75,1,75,1,75,3,75,808,8,75,1,76,1,76,1,76,
+		1,76,1,76,1,76,1,76,1,76,3,76,818,8,76,1,76,1,76,1,76,1,76,1,76,1,76,3,
+		76,826,8,76,1,76,1,76,1,76,1,76,3,76,832,8,76,3,76,834,8,76,1,77,1,77,
+		3,77,838,8,77,1,77,1,77,1,78,1,78,1,78,1,78,1,78,1,79,1,79,1,79,1,79,1,
+		79,1,80,1,80,5,80,854,8,80,10,80,12,80,857,9,80,1,80,3,80,860,8,80,1,80,
+		1,80,1,81,1,81,3,81,866,8,81,1,81,1,81,1,82,1,82,1,82,1,82,1,82,3,82,875,
+		8,82,1,82,1,82,1,83,1,83,3,83,881,8,83,1,83,1,83,1,83,1,83,5,83,887,8,
+		83,10,83,12,83,890,9,83,1,83,1,83,1,83,1,84,1,84,1,84,1,85,1,85,1,85,1,
+		85,1,85,1,85,1,85,1,85,1,85,1,85,1,85,1,85,3,85,910,8,85,1,86,1,86,1,86,
+		1,86,1,86,3,86,917,8,86,1,86,1,86,1,86,1,86,3,86,923,8,86,1,86,1,86,1,
+		87,1,87,4,87,929,8,87,11,87,12,87,930,1,87,1,87,1,88,1,88,1,88,1,88,1,
+		88,1,89,1,89,1,89,1,89,1,89,1,90,1,90,1,90,1,90,1,90,1,91,1,91,1,91,1,
+		91,1,91,1,92,1,92,1,92,3,92,958,8,92,1,92,1,92,1,92,1,92,3,92,964,8,92,
+		1,92,1,92,5,92,968,8,92,10,92,12,92,971,9,92,1,93,1,93,1,93,3,93,976,8,
+		93,1,94,1,94,1,94,1,94,1,94,3,94,983,8,94,1,94,1,94,1,95,1,95,1,96,1,96,
+		1,96,1,96,1,96,5,96,994,8,96,10,96,12,96,997,9,96,1,97,1,97,3,97,1001,
+		8,97,1,97,1,97,1,97,1,97,1,97,1,98,1,98,1,98,3,98,1011,8,98,1,98,1,98,
+		1,98,1,98,3,98,1017,8,98,1,99,1,99,1,100,1,100,1,100,1,100,3,100,1025,
+		8,100,1,101,1,101,1,102,1,102,1,103,1,103,1,104,1,104,1,105,1,105,1,105,
+		0,2,40,74,106,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,
+		42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,
+		90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,
+		128,130,132,134,136,138,140,142,144,146,148,150,152,154,156,158,160,162,
+		164,166,168,170,172,174,176,178,180,182,184,186,188,190,192,194,196,198,
+		200,202,204,206,208,210,0,15,1,0,102,103,1,0,139,143,1,0,106,107,2,0,104,
+		105,123,123,2,0,124,124,126,126,1,0,128,129,3,0,115,115,125,125,127,127,
+		2,0,106,107,115,115,2,0,102,102,116,122,1,0,139,141,2,0,14,14,28,28,1,
+		0,25,26,1,0,12,13,1,0,6,8,2,0,10,48,50,85,1091,0,231,1,0,0,0,2,233,1,0,
+		0,0,4,254,1,0,0,0,6,256,1,0,0,0,8,270,1,0,0,0,10,288,1,0,0,0,12,290,1,
+		0,0,0,14,295,1,0,0,0,16,300,1,0,0,0,18,306,1,0,0,0,20,313,1,0,0,0,22,328,
+		1,0,0,0,24,344,1,0,0,0,26,369,1,0,0,0,28,371,1,0,0,0,30,373,1,0,0,0,32,
+		383,1,0,0,0,34,397,1,0,0,0,36,399,1,0,0,0,38,401,1,0,0,0,40,406,1,0,0,
+		0,42,422,1,0,0,0,44,429,1,0,0,0,46,434,1,0,0,0,48,438,1,0,0,0,50,445,1,
+		0,0,0,52,449,1,0,0,0,54,451,1,0,0,0,56,487,1,0,0,0,58,492,1,0,0,0,60,494,
+		1,0,0,0,62,497,1,0,0,0,64,499,1,0,0,0,66,501,1,0,0,0,68,503,1,0,0,0,70,
+		505,1,0,0,0,72,507,1,0,0,0,74,513,1,0,0,0,76,557,1,0,0,0,78,559,1,0,0,
+		0,80,561,1,0,0,0,82,565,1,0,0,0,84,567,1,0,0,0,86,584,1,0,0,0,88,586,1,
+		0,0,0,90,590,1,0,0,0,92,610,1,0,0,0,94,612,1,0,0,0,96,616,1,0,0,0,98,623,
+		1,0,0,0,100,634,1,0,0,0,102,636,1,0,0,0,104,644,1,0,0,0,106,646,1,0,0,
+		0,108,652,1,0,0,0,110,658,1,0,0,0,112,682,1,0,0,0,114,684,1,0,0,0,116,
+		690,1,0,0,0,118,695,1,0,0,0,120,700,1,0,0,0,122,710,1,0,0,0,124,714,1,
+		0,0,0,126,716,1,0,0,0,128,726,1,0,0,0,130,733,1,0,0,0,132,740,1,0,0,0,
+		134,747,1,0,0,0,136,749,1,0,0,0,138,751,1,0,0,0,140,762,1,0,0,0,142,787,
+		1,0,0,0,144,789,1,0,0,0,146,795,1,0,0,0,148,799,1,0,0,0,150,802,1,0,0,
+		0,152,833,1,0,0,0,154,835,1,0,0,0,156,841,1,0,0,0,158,846,1,0,0,0,160,
+		851,1,0,0,0,162,863,1,0,0,0,164,869,1,0,0,0,166,878,1,0,0,0,168,894,1,
+		0,0,0,170,909,1,0,0,0,172,911,1,0,0,0,174,926,1,0,0,0,176,934,1,0,0,0,
+		178,939,1,0,0,0,180,944,1,0,0,0,182,949,1,0,0,0,184,954,1,0,0,0,186,975,
+		1,0,0,0,188,977,1,0,0,0,190,986,1,0,0,0,192,988,1,0,0,0,194,998,1,0,0,
+		0,196,1016,1,0,0,0,198,1018,1,0,0,0,200,1024,1,0,0,0,202,1026,1,0,0,0,
+		204,1028,1,0,0,0,206,1030,1,0,0,0,208,1032,1,0,0,0,210,1034,1,0,0,0,212,
+		214,5,9,0,0,213,212,1,0,0,0,213,214,1,0,0,0,214,218,1,0,0,0,215,217,3,
+		2,1,0,216,215,1,0,0,0,217,220,1,0,0,0,218,216,1,0,0,0,218,219,1,0,0,0,
+		219,224,1,0,0,0,220,218,1,0,0,0,221,223,3,4,2,0,222,221,1,0,0,0,223,226,
+		1,0,0,0,224,222,1,0,0,0,224,225,1,0,0,0,225,232,1,0,0,0,226,224,1,0,0,
+		0,227,229,3,26,13,0,228,227,1,0,0,0,228,229,1,0,0,0,229,230,1,0,0,0,230,
+		232,5,0,0,1,231,213,1,0,0,0,231,228,1,0,0,0,232,1,1,0,0,0,233,234,5,78,
+		0,0,234,239,3,82,41,0,235,236,5,94,0,0,236,238,3,82,41,0,237,235,1,0,0,
+		0,238,241,1,0,0,0,239,237,1,0,0,0,239,240,1,0,0,0,240,242,1,0,0,0,241,
+		239,1,0,0,0,242,243,5,108,0,0,243,3,1,0,0,0,244,246,3,6,3,0,245,247,3,
+		26,13,0,246,245,1,0,0,0,246,247,1,0,0,0,247,248,1,0,0,0,248,249,3,8,4,
+		0,249,255,1,0,0,0,250,251,3,6,3,0,251,252,3,4,2,0,252,253,3,8,4,0,253,
+		255,1,0,0,0,254,244,1,0,0,0,254,250,1,0,0,0,255,5,1,0,0,0,256,257,5,66,
+		0,0,257,262,3,82,41,0,258,259,5,94,0,0,259,261,3,82,41,0,260,258,1,0,0,
+		0,261,264,1,0,0,0,262,260,1,0,0,0,262,263,1,0,0,0,263,266,1,0,0,0,264,
+		262,1,0,0,0,265,267,5,55,0,0,266,265,1,0,0,0,266,267,1,0,0,0,267,268,1,
+		0,0,0,268,269,5,108,0,0,269,7,1,0,0,0,270,272,5,33,0,0,271,273,5,66,0,
+		0,272,271,1,0,0,0,272,273,1,0,0,0,273,274,1,0,0,0,274,275,5,108,0,0,275,
+		9,1,0,0,0,276,278,3,12,6,0,277,279,3,26,13,0,278,277,1,0,0,0,278,279,1,
+		0,0,0,279,280,1,0,0,0,280,281,3,16,8,0,281,289,1,0,0,0,282,284,3,14,7,
+		0,283,285,3,26,13,0,284,283,1,0,0,0,284,285,1,0,0,0,285,286,1,0,0,0,286,
+		287,3,18,9,0,287,289,1,0,0,0,288,276,1,0,0,0,288,282,1,0,0,0,289,11,1,
+		0,0,0,290,291,5,56,0,0,291,292,3,82,41,0,292,293,3,20,10,0,293,294,5,108,
+		0,0,294,13,1,0,0,0,295,296,5,39,0,0,296,297,3,82,41,0,297,298,3,22,11,
+		0,298,299,5,108,0,0,299,15,1,0,0,0,300,302,5,33,0,0,301,303,5,56,0,0,302,
+		301,1,0,0,0,302,303,1,0,0,0,303,304,1,0,0,0,304,305,5,108,0,0,305,17,1,
+		0,0,0,306,308,5,33,0,0,307,309,5,39,0,0,308,307,1,0,0,0,308,309,1,0,0,
+		0,309,310,1,0,0,0,310,311,5,108,0,0,311,19,1,0,0,0,312,314,3,138,69,0,
+		313,312,1,0,0,0,313,314,1,0,0,0,314,325,1,0,0,0,315,317,3,134,67,0,316,
+		315,1,0,0,0,316,317,1,0,0,0,317,326,1,0,0,0,318,321,3,134,67,0,319,321,
+		3,136,68,0,320,318,1,0,0,0,320,319,1,0,0,0,320,321,1,0,0,0,321,323,1,0,
+		0,0,322,324,5,60,0,0,323,322,1,0,0,0,323,324,1,0,0,0,324,326,1,0,0,0,325,
+		316,1,0,0,0,325,320,1,0,0,0,326,21,1,0,0,0,327,329,3,138,69,0,328,327,
+		1,0,0,0,328,329,1,0,0,0,329,342,1,0,0,0,330,332,3,24,12,0,331,333,3,134,
+		67,0,332,331,1,0,0,0,332,333,1,0,0,0,333,343,1,0,0,0,334,337,3,134,67,
+		0,335,337,3,136,68,0,336,334,1,0,0,0,336,335,1,0,0,0,336,337,1,0,0,0,337,
+		339,1,0,0,0,338,340,5,60,0,0,339,338,1,0,0,0,339,340,1,0,0,0,340,341,1,
+		0,0,0,341,343,3,24,12,0,342,330,1,0,0,0,342,336,1,0,0,0,343,23,1,0,0,0,
+		344,345,5,65,0,0,345,346,5,96,0,0,346,347,3,112,56,0,347,348,5,97,0,0,
+		348,25,1,0,0,0,349,351,3,32,16,0,350,349,1,0,0,0,351,352,1,0,0,0,352,350,
+		1,0,0,0,352,353,1,0,0,0,353,370,1,0,0,0,354,356,3,34,17,0,355,354,1,0,
+		0,0,356,357,1,0,0,0,357,355,1,0,0,0,357,358,1,0,0,0,358,370,1,0,0,0,359,
+		361,3,32,16,0,360,359,1,0,0,0,361,362,1,0,0,0,362,360,1,0,0,0,362,363,
+		1,0,0,0,363,365,1,0,0,0,364,366,3,34,17,0,365,364,1,0,0,0,366,367,1,0,
+		0,0,367,365,1,0,0,0,367,368,1,0,0,0,368,370,1,0,0,0,369,350,1,0,0,0,369,
+		355,1,0,0,0,369,360,1,0,0,0,370,27,1,0,0,0,371,372,5,108,0,0,372,29,1,
+		0,0,0,373,378,5,86,0,0,374,375,5,96,0,0,375,376,3,206,103,0,376,377,5,
+		97,0,0,377,379,1,0,0,0,378,374,1,0,0,0,378,379,1,0,0,0,379,31,1,0,0,0,
+		380,384,3,92,46,0,381,384,3,170,85,0,382,384,3,36,18,0,383,380,1,0,0,0,
+		383,381,1,0,0,0,383,382,1,0,0,0,384,33,1,0,0,0,385,398,3,30,15,0,386,398,
+		3,38,19,0,387,398,3,84,42,0,388,398,3,86,43,0,389,398,3,10,5,0,390,398,
+		3,140,70,0,391,398,3,142,71,0,392,398,3,152,76,0,393,398,3,160,80,0,394,
+		398,3,88,44,0,395,398,3,90,45,0,396,398,3,36,18,0,397,385,1,0,0,0,397,
+		386,1,0,0,0,397,387,1,0,0,0,397,388,1,0,0,0,397,389,1,0,0,0,397,390,1,
+		0,0,0,397,391,1,0,0,0,397,392,1,0,0,0,397,393,1,0,0,0,397,394,1,0,0,0,
+		397,395,1,0,0,0,397,396,1,0,0,0,398,35,1,0,0,0,399,400,5,108,0,0,400,37,
+		1,0,0,0,401,402,3,40,20,0,402,403,7,0,0,0,403,404,3,74,37,0,404,405,5,
+		108,0,0,405,39,1,0,0,0,406,407,6,20,-1,0,407,409,3,46,23,0,408,410,3,44,
+		22,0,409,408,1,0,0,0,409,410,1,0,0,0,410,419,1,0,0,0,411,412,10,2,0,0,
+		412,413,5,93,0,0,413,415,3,46,23,0,414,416,3,44,22,0,415,414,1,0,0,0,415,
+		416,1,0,0,0,416,418,1,0,0,0,417,411,1,0,0,0,418,421,1,0,0,0,419,417,1,
+		0,0,0,419,420,1,0,0,0,420,41,1,0,0,0,421,419,1,0,0,0,422,424,5,96,0,0,
+		423,425,3,54,27,0,424,423,1,0,0,0,424,425,1,0,0,0,425,426,1,0,0,0,426,
+		427,5,97,0,0,427,43,1,0,0,0,428,430,3,42,21,0,429,428,1,0,0,0,430,431,
+		1,0,0,0,431,429,1,0,0,0,431,432,1,0,0,0,432,45,1,0,0,0,433,435,3,50,25,
+		0,434,433,1,0,0,0,434,435,1,0,0,0,435,436,1,0,0,0,436,437,3,82,41,0,437,
+		47,1,0,0,0,438,440,3,82,41,0,439,441,3,42,21,0,440,439,1,0,0,0,440,441,
+		1,0,0,0,441,442,1,0,0,0,442,443,5,94,0,0,443,49,1,0,0,0,444,446,3,48,24,
+		0,445,444,1,0,0,0,446,447,1,0,0,0,447,445,1,0,0,0,447,448,1,0,0,0,448,
+		51,1,0,0,0,449,450,3,74,37,0,450,53,1,0,0,0,451,456,3,52,26,0,452,453,
+		5,95,0,0,453,455,3,52,26,0,454,452,1,0,0,0,455,458,1,0,0,0,456,454,1,0,
+		0,0,456,457,1,0,0,0,457,55,1,0,0,0,458,456,1,0,0,0,459,460,5,96,0,0,460,
+		461,3,74,37,0,461,462,5,97,0,0,462,488,1,0,0,0,463,464,5,130,0,0,464,465,
+		3,74,37,0,465,466,5,97,0,0,466,488,1,0,0,0,467,468,5,131,0,0,468,469,3,
+		74,37,0,469,470,5,97,0,0,470,488,1,0,0,0,471,472,5,134,0,0,472,473,3,74,
+		37,0,473,474,5,97,0,0,474,488,1,0,0,0,475,476,5,132,0,0,476,477,3,74,37,
+		0,477,478,5,97,0,0,478,488,1,0,0,0,479,480,5,133,0,0,480,481,3,74,37,0,
+		481,482,5,97,0,0,482,488,1,0,0,0,483,484,5,135,0,0,484,485,3,74,37,0,485,
+		486,5,97,0,0,486,488,1,0,0,0,487,459,1,0,0,0,487,463,1,0,0,0,487,467,1,
+		0,0,0,487,471,1,0,0,0,487,475,1,0,0,0,487,479,1,0,0,0,487,483,1,0,0,0,
+		488,57,1,0,0,0,489,493,3,200,100,0,490,493,3,198,99,0,491,493,3,40,20,
+		0,492,489,1,0,0,0,492,490,1,0,0,0,492,491,1,0,0,0,493,59,1,0,0,0,494,495,
+		3,76,38,0,495,496,3,74,37,0,496,61,1,0,0,0,497,498,7,1,0,0,498,63,1,0,
+		0,0,499,500,7,2,0,0,500,65,1,0,0,0,501,502,7,3,0,0,502,67,1,0,0,0,503,
+		504,7,4,0,0,504,69,1,0,0,0,505,506,7,5,0,0,506,71,1,0,0,0,507,508,7,6,
+		0,0,508,73,1,0,0,0,509,510,6,37,-1,0,510,514,3,58,29,0,511,514,3,56,28,
+		0,512,514,3,60,30,0,513,509,1,0,0,0,513,511,1,0,0,0,513,512,1,0,0,0,514,
+		554,1,0,0,0,515,516,10,10,0,0,516,517,3,66,33,0,517,518,3,74,37,11,518,
+		553,1,0,0,0,519,520,10,9,0,0,520,521,3,64,32,0,521,522,3,74,37,10,522,
+		553,1,0,0,0,523,524,10,8,0,0,524,525,3,62,31,0,525,526,3,74,37,9,526,553,
+		1,0,0,0,527,528,10,7,0,0,528,529,5,138,0,0,529,553,3,74,37,8,530,531,10,
+		6,0,0,531,532,3,78,39,0,532,533,3,74,37,7,533,553,1,0,0,0,534,535,10,5,
+		0,0,535,536,3,68,34,0,536,537,3,74,37,6,537,553,1,0,0,0,538,539,10,4,0,
+		0,539,540,3,70,35,0,540,541,3,74,37,5,541,553,1,0,0,0,542,543,10,3,0,0,
+		543,544,3,72,36,0,544,545,3,74,37,4,545,553,1,0,0,0,546,547,10,2,0,0,547,
+		548,5,136,0,0,548,553,3,74,37,3,549,550,10,1,0,0,550,551,5,137,0,0,551,
+		553,3,74,37,2,552,515,1,0,0,0,552,519,1,0,0,0,552,523,1,0,0,0,552,527,
+		1,0,0,0,552,530,1,0,0,0,552,534,1,0,0,0,552,538,1,0,0,0,552,542,1,0,0,
+		0,552,546,1,0,0,0,552,549,1,0,0,0,553,556,1,0,0,0,554,552,1,0,0,0,554,
+		555,1,0,0,0,555,75,1,0,0,0,556,554,1,0,0,0,557,558,7,7,0,0,558,77,1,0,
+		0,0,559,560,7,8,0,0,560,79,1,0,0,0,561,562,7,9,0,0,562,81,1,0,0,0,563,
+		566,3,210,105,0,564,566,5,87,0,0,565,563,1,0,0,0,565,564,1,0,0,0,566,83,
+		1,0,0,0,567,568,5,23,0,0,568,569,3,40,20,0,569,570,5,108,0,0,570,85,1,
+		0,0,0,571,572,5,40,0,0,572,573,3,82,41,0,573,574,5,96,0,0,574,575,3,74,
+		37,0,575,576,5,97,0,0,576,577,1,0,0,0,577,578,5,108,0,0,578,585,1,0,0,
+		0,579,580,5,40,0,0,580,581,3,40,20,0,581,582,1,0,0,0,582,583,5,108,0,0,
+		583,585,1,0,0,0,584,571,1,0,0,0,584,579,1,0,0,0,585,87,1,0,0,0,586,588,
+		5,34,0,0,587,589,3,82,41,0,588,587,1,0,0,0,588,589,1,0,0,0,589,89,1,0,
+		0,0,590,592,5,62,0,0,591,593,3,82,41,0,592,591,1,0,0,0,592,593,1,0,0,0,
+		593,91,1,0,0,0,594,595,7,10,0,0,595,597,3,82,41,0,596,598,3,98,49,0,597,
+		596,1,0,0,0,597,598,1,0,0,0,598,599,1,0,0,0,599,600,5,15,0,0,600,602,3,
+		82,41,0,601,603,3,110,55,0,602,601,1,0,0,0,602,603,1,0,0,0,603,604,1,0,
+		0,0,604,605,5,108,0,0,605,611,1,0,0,0,606,607,7,10,0,0,607,608,3,94,47,
+		0,608,609,5,108,0,0,609,611,1,0,0,0,610,594,1,0,0,0,610,606,1,0,0,0,611,
+		93,1,0,0,0,612,613,3,82,41,0,613,614,3,96,48,0,614,95,1,0,0,0,615,617,
+		3,98,49,0,616,615,1,0,0,0,616,617,1,0,0,0,617,619,1,0,0,0,618,620,3,108,
+		54,0,619,618,1,0,0,0,620,621,1,0,0,0,621,619,1,0,0,0,621,622,1,0,0,0,622,
+		97,1,0,0,0,623,624,5,96,0,0,624,625,3,102,51,0,625,626,5,97,0,0,626,99,
+		1,0,0,0,627,628,3,104,52,0,628,629,5,110,0,0,629,631,1,0,0,0,630,627,1,
+		0,0,0,630,631,1,0,0,0,631,632,1,0,0,0,632,635,3,106,53,0,633,635,5,104,
+		0,0,634,630,1,0,0,0,634,633,1,0,0,0,635,101,1,0,0,0,636,641,3,100,50,0,
+		637,638,5,95,0,0,638,640,3,100,50,0,639,637,1,0,0,0,640,643,1,0,0,0,641,
+		639,1,0,0,0,641,642,1,0,0,0,642,103,1,0,0,0,643,641,1,0,0,0,644,645,3,
+		74,37,0,645,105,1,0,0,0,646,647,3,74,37,0,647,107,1,0,0,0,648,653,3,112,
+		56,0,649,653,5,20,0,0,650,653,5,81,0,0,651,653,3,110,55,0,652,648,1,0,
+		0,0,652,649,1,0,0,0,652,650,1,0,0,0,652,651,1,0,0,0,653,109,1,0,0,0,654,
+		659,5,69,0,0,655,659,5,70,0,0,656,659,3,130,65,0,657,659,3,132,66,0,658,
+		654,1,0,0,0,658,655,1,0,0,0,658,656,1,0,0,0,658,657,1,0,0,0,659,111,1,
+		0,0,0,660,662,5,17,0,0,661,663,3,120,60,0,662,661,1,0,0,0,662,663,1,0,
+		0,0,663,683,1,0,0,0,664,666,5,27,0,0,665,667,3,120,60,0,666,665,1,0,0,
+		0,666,667,1,0,0,0,667,683,1,0,0,0,668,683,5,54,0,0,669,670,5,18,0,0,670,
+		683,3,128,64,0,671,683,5,24,0,0,672,683,3,114,57,0,673,683,5,35,0,0,674,
+		683,5,37,0,0,675,683,5,38,0,0,676,683,5,50,0,0,677,683,5,82,0,0,678,683,
+		5,26,0,0,679,683,5,25,0,0,680,683,5,20,0,0,681,683,5,46,0,0,682,660,1,
+		0,0,0,682,664,1,0,0,0,682,668,1,0,0,0,682,669,1,0,0,0,682,671,1,0,0,0,
+		682,672,1,0,0,0,682,673,1,0,0,0,682,674,1,0,0,0,682,675,1,0,0,0,682,676,
+		1,0,0,0,682,677,1,0,0,0,682,678,1,0,0,0,682,679,1,0,0,0,682,680,1,0,0,
+		0,682,681,1,0,0,0,683,113,1,0,0,0,684,685,5,71,0,0,685,688,3,126,63,0,
+		686,689,3,116,58,0,687,689,3,118,59,0,688,686,1,0,0,0,688,687,1,0,0,0,
+		688,689,1,0,0,0,689,115,1,0,0,0,690,691,5,80,0,0,691,692,5,96,0,0,692,
+		693,3,206,103,0,693,694,5,97,0,0,694,117,1,0,0,0,695,696,5,58,0,0,696,
+		697,5,96,0,0,697,698,3,206,103,0,698,699,5,97,0,0,699,119,1,0,0,0,700,
+		701,5,96,0,0,701,704,3,122,61,0,702,703,5,95,0,0,703,705,3,124,62,0,704,
+		702,1,0,0,0,704,705,1,0,0,0,705,706,1,0,0,0,706,707,5,97,0,0,707,121,1,
+		0,0,0,708,711,3,206,103,0,709,711,3,82,41,0,710,708,1,0,0,0,710,709,1,
+		0,0,0,711,123,1,0,0,0,712,715,3,206,103,0,713,715,3,82,41,0,714,712,1,
+		0,0,0,714,713,1,0,0,0,715,125,1,0,0,0,716,722,5,96,0,0,717,723,5,104,0,
+		0,718,721,3,206,103,0,719,721,3,82,41,0,720,718,1,0,0,0,720,719,1,0,0,
+		0,721,723,1,0,0,0,722,717,1,0,0,0,722,720,1,0,0,0,723,724,1,0,0,0,724,
+		725,5,97,0,0,725,127,1,0,0,0,726,729,5,96,0,0,727,730,3,206,103,0,728,
+		730,3,82,41,0,729,727,1,0,0,0,729,728,1,0,0,0,730,731,1,0,0,0,731,732,
+		5,97,0,0,732,129,1,0,0,0,733,738,5,16,0,0,734,735,5,96,0,0,735,736,3,40,
+		20,0,736,737,5,97,0,0,737,739,1,0,0,0,738,734,1,0,0,0,738,739,1,0,0,0,
+		739,131,1,0,0,0,740,745,5,30,0,0,741,742,5,96,0,0,742,743,3,40,20,0,743,
+		744,5,97,0,0,744,746,1,0,0,0,745,741,1,0,0,0,745,746,1,0,0,0,746,133,1,
+		0,0,0,747,748,7,11,0,0,748,135,1,0,0,0,749,750,5,45,0,0,750,137,1,0,0,
+		0,751,752,5,96,0,0,752,757,3,82,41,0,753,754,5,95,0,0,754,756,3,82,41,
+		0,755,753,1,0,0,0,756,759,1,0,0,0,757,755,1,0,0,0,757,758,1,0,0,0,758,
+		760,1,0,0,0,759,757,1,0,0,0,760,761,5,97,0,0,761,139,1,0,0,0,762,767,5,
+		63,0,0,763,764,5,96,0,0,764,765,3,74,37,0,765,766,5,97,0,0,766,768,1,0,
+		0,0,767,763,1,0,0,0,767,768,1,0,0,0,768,769,1,0,0,0,769,770,5,108,0,0,
+		770,141,1,0,0,0,771,772,3,146,73,0,772,774,3,26,13,0,773,775,3,148,74,
+		0,774,773,1,0,0,0,774,775,1,0,0,0,775,776,1,0,0,0,776,777,3,144,72,0,777,
+		788,1,0,0,0,778,779,3,146,73,0,779,781,3,26,13,0,780,782,3,150,75,0,781,
+		780,1,0,0,0,782,783,1,0,0,0,783,781,1,0,0,0,783,784,1,0,0,0,784,785,1,
+		0,0,0,785,786,3,144,72,0,786,788,1,0,0,0,787,771,1,0,0,0,787,778,1,0,0,
+		0,788,143,1,0,0,0,789,791,5,33,0,0,790,792,5,41,0,0,791,790,1,0,0,0,791,
+		792,1,0,0,0,792,793,1,0,0,0,793,794,5,108,0,0,794,145,1,0,0,0,795,796,
+		5,41,0,0,796,797,3,74,37,0,797,798,5,73,0,0,798,147,1,0,0,0,799,800,5,
+		32,0,0,800,801,3,26,13,0,801,149,1,0,0,0,802,803,5,31,0,0,803,804,3,74,
+		37,0,804,805,5,73,0,0,805,807,3,26,13,0,806,808,3,148,74,0,807,806,1,0,
+		0,0,807,808,1,0,0,0,808,151,1,0,0,0,809,810,5,48,0,0,810,811,5,108,0,0,
+		811,812,3,26,13,0,812,813,3,154,77,0,813,834,1,0,0,0,814,831,5,48,0,0,
+		815,817,3,156,78,0,816,818,3,158,79,0,817,816,1,0,0,0,817,818,1,0,0,0,
+		818,819,1,0,0,0,819,820,5,108,0,0,820,821,3,26,13,0,821,822,3,154,77,0,
+		822,832,1,0,0,0,823,825,3,158,79,0,824,826,3,156,78,0,825,824,1,0,0,0,
+		825,826,1,0,0,0,826,827,1,0,0,0,827,828,5,108,0,0,828,829,3,26,13,0,829,
+		830,3,154,77,0,830,832,1,0,0,0,831,815,1,0,0,0,831,823,1,0,0,0,832,834,
+		1,0,0,0,833,809,1,0,0,0,833,814,1,0,0,0,834,153,1,0,0,0,835,837,5,33,0,
+		0,836,838,5,48,0,0,837,836,1,0,0,0,837,838,1,0,0,0,838,839,1,0,0,0,839,
+		840,5,108,0,0,840,155,1,0,0,0,841,842,5,84,0,0,842,843,5,96,0,0,843,844,
+		3,74,37,0,844,845,5,97,0,0,845,157,1,0,0,0,846,847,5,77,0,0,847,848,5,
+		96,0,0,848,849,3,74,37,0,849,850,5,97,0,0,850,159,1,0,0,0,851,855,3,164,
+		82,0,852,854,3,166,83,0,853,852,1,0,0,0,854,857,1,0,0,0,855,853,1,0,0,
+		0,855,856,1,0,0,0,856,859,1,0,0,0,857,855,1,0,0,0,858,860,3,168,84,0,859,
+		858,1,0,0,0,859,860,1,0,0,0,860,861,1,0,0,0,861,862,3,162,81,0,862,161,
+		1,0,0,0,863,865,5,33,0,0,864,866,5,67,0,0,865,864,1,0,0,0,865,866,1,0,
+		0,0,866,867,1,0,0,0,867,868,5,108,0,0,868,163,1,0,0,0,869,874,5,67,0,0,
+		870,871,5,96,0,0,871,872,3,74,37,0,872,873,5,97,0,0,873,875,1,0,0,0,874,
+		870,1,0,0,0,874,875,1,0,0,0,875,876,1,0,0,0,876,877,5,108,0,0,877,165,
+		1,0,0,0,878,880,5,83,0,0,879,881,7,12,0,0,880,879,1,0,0,0,880,881,1,0,
+		0,0,881,882,1,0,0,0,882,883,5,96,0,0,883,888,3,74,37,0,884,885,5,95,0,
+		0,885,887,3,74,37,0,886,884,1,0,0,0,887,890,1,0,0,0,888,886,1,0,0,0,888,
+		889,1,0,0,0,889,891,1,0,0,0,890,888,1,0,0,0,891,892,5,97,0,0,892,893,3,
+		26,13,0,893,167,1,0,0,0,894,895,5,32,0,0,895,896,3,26,13,0,896,169,1,0,
+		0,0,897,898,5,29,0,0,898,899,3,82,41,0,899,900,3,172,86,0,900,910,1,0,
+		0,0,901,902,5,29,0,0,902,903,3,82,41,0,903,904,3,188,94,0,904,910,1,0,
+		0,0,905,906,5,29,0,0,906,907,3,82,41,0,907,908,3,174,87,0,908,910,1,0,
+		0,0,909,897,1,0,0,0,909,901,1,0,0,0,909,905,1,0,0,0,910,171,1,0,0,0,911,
+		916,5,36,0,0,912,917,3,176,88,0,913,917,3,178,89,0,914,917,3,180,90,0,
+		915,917,3,182,91,0,916,912,1,0,0,0,916,913,1,0,0,0,916,914,1,0,0,0,916,
+		915,1,0,0,0,916,917,1,0,0,0,917,918,1,0,0,0,918,919,5,108,0,0,919,920,
+		3,184,92,0,920,922,5,33,0,0,921,923,5,36,0,0,922,921,1,0,0,0,922,923,1,
+		0,0,0,923,924,1,0,0,0,924,925,5,108,0,0,925,173,1,0,0,0,926,928,5,10,0,
+		0,927,929,3,108,54,0,928,927,1,0,0,0,929,930,1,0,0,0,930,928,1,0,0,0,930,
+		931,1,0,0,0,931,932,1,0,0,0,932,933,5,108,0,0,933,175,1,0,0,0,934,935,
+		5,17,0,0,935,936,5,96,0,0,936,937,3,206,103,0,937,938,5,97,0,0,938,177,
+		1,0,0,0,939,940,5,27,0,0,940,941,5,96,0,0,941,942,3,206,103,0,942,943,
+		5,97,0,0,943,179,1,0,0,0,944,945,5,71,0,0,945,946,5,96,0,0,946,947,3,206,
+		103,0,947,948,5,97,0,0,948,181,1,0,0,0,949,950,5,18,0,0,950,951,5,96,0,
+		0,951,952,3,206,103,0,952,953,5,97,0,0,953,183,1,0,0,0,954,957,3,82,41,
+		0,955,956,5,102,0,0,956,958,3,186,93,0,957,955,1,0,0,0,957,958,1,0,0,0,
+		958,959,1,0,0,0,959,969,5,108,0,0,960,963,3,82,41,0,961,962,5,102,0,0,
+		962,964,3,186,93,0,963,961,1,0,0,0,963,964,1,0,0,0,964,965,1,0,0,0,965,
+		966,5,108,0,0,966,968,1,0,0,0,967,960,1,0,0,0,968,971,1,0,0,0,969,967,
+		1,0,0,0,969,970,1,0,0,0,970,185,1,0,0,0,971,969,1,0,0,0,972,976,3,206,
+		103,0,973,976,3,198,99,0,974,976,3,208,104,0,975,972,1,0,0,0,975,973,1,
+		0,0,0,975,974,1,0,0,0,976,187,1,0,0,0,977,978,5,72,0,0,978,979,5,108,0,
+		0,979,980,3,190,95,0,980,982,5,33,0,0,981,983,5,72,0,0,982,981,1,0,0,0,
+		982,983,1,0,0,0,983,984,1,0,0,0,984,985,5,108,0,0,985,189,1,0,0,0,986,
+		987,3,192,96,0,987,191,1,0,0,0,988,989,3,196,98,0,989,995,5,108,0,0,990,
+		991,3,196,98,0,991,992,5,108,0,0,992,994,1,0,0,0,993,990,1,0,0,0,994,997,
+		1,0,0,0,995,993,1,0,0,0,995,996,1,0,0,0,996,193,1,0,0,0,997,995,1,0,0,
+		0,998,1000,3,82,41,0,999,1001,3,98,49,0,1000,999,1,0,0,0,1000,1001,1,0,
+		0,0,1001,1002,1,0,0,0,1002,1003,5,72,0,0,1003,1004,5,108,0,0,1004,1005,
+		3,190,95,0,1005,1006,5,33,0,0,1006,195,1,0,0,0,1007,1017,3,194,97,0,1008,
+		1010,3,82,41,0,1009,1011,3,98,49,0,1010,1009,1,0,0,0,1010,1011,1,0,0,0,
+		1011,1012,1,0,0,0,1012,1013,5,15,0,0,1013,1014,3,82,41,0,1014,1017,1,0,
+		0,0,1015,1017,3,94,47,0,1016,1007,1,0,0,0,1016,1008,1,0,0,0,1016,1015,
+		1,0,0,0,1017,197,1,0,0,0,1018,1019,7,13,0,0,1019,199,1,0,0,0,1020,1025,
+		3,208,104,0,1021,1025,3,204,102,0,1022,1025,3,202,101,0,1023,1025,3,206,
+		103,0,1024,1020,1,0,0,0,1024,1021,1,0,0,0,1024,1022,1,0,0,0,1024,1023,
+		1,0,0,0,1025,201,1,0,0,0,1026,1027,5,90,0,0,1027,203,1,0,0,0,1028,1029,
+		5,89,0,0,1029,205,1,0,0,0,1030,1031,5,91,0,0,1031,207,1,0,0,0,1032,1033,
+		5,88,0,0,1033,209,1,0,0,0,1034,1035,7,14,0,0,1035,211,1,0,0,0,106,213,
+		218,224,228,231,239,246,254,262,266,272,278,284,288,302,308,313,316,320,
+		323,325,328,332,336,339,342,352,357,362,367,369,378,383,397,409,415,419,
+		424,431,434,440,447,456,487,492,513,552,554,565,584,588,592,597,602,610,
+		616,621,630,634,641,652,658,662,666,682,688,704,710,714,720,722,729,738,
+		745,757,767,774,783,787,791,807,817,825,831,833,837,855,859,865,874,880,
+		888,909,916,922,930,957,963,969,975,982,995,1000,1010,1016,1024
 	};
 
 	public static readonly ATN _ATN =
