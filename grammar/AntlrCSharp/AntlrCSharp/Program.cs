@@ -72,7 +72,5 @@ namespace AntlrCSharp
                 return File.OpenText($@"..\..\..\..\..\Antlr\{Filename}");
             }
         }
-
     }
-
 }

@@ -1,4 +1,5 @@
-﻿using Antlr4.Runtime.Misc;
+﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Misc;
 using static ImperiumParser;
 
 namespace AntlrCSharp
@@ -23,7 +24,7 @@ namespace AntlrCSharp
 
                 ast_translation_unit_node.AddScope(astScope);
 
-                var blck = Visit(scope);
+                var blck = VisitScope(scope);
 
                 if (blck != null)
                     astScope.AddStmtBlock(blck);
@@ -42,23 +43,35 @@ namespace AntlrCSharp
 
             var ast_stmt_block_node = new AstStmtBlock(context.stmtBlock());
 
-            foreach (DeclareStmtContext stc in context.stmtBlock().nonexecutableStmt().Select(s => s.declareStmt()).Where(s => s != null))
+            foreach (DeclareStmtContext dcl_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.declareStmt()).Where(s => s != null))
             {
-                var ast_declaration_node = new AstDeclaration(stc);
+                var ast_declaration_node = new AstDeclaration(dcl_ctxt);
 
                 ast_stmt_block_node.AddStatement(ast_declaration_node);
 
-                Visit(stc);
+                dcl_ctxt.Node = ast_declaration_node;
+
+                VisitDeclareStmt(dcl_ctxt);
             }
 
-            foreach (DefineStmtContext stc in context.stmtBlock().nonexecutableStmt().Select(s => s.defineStmt()).Where(s => s != null))
+            foreach (DefineStmtContext def_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.defineStmt()).Where(s => s != null))
             {
-                var ast_definition_node = new AstDefinition(stc);
+                var ast_definition_node = new AstDefinition(def_ctxt);
 
-                ast_stmt_block_node.AddStatement(new AstDefinition(stc));
+                ast_stmt_block_node.AddStatement(new AstDefinition(def_ctxt));
+
+                def_ctxt.Node = ast_definition_node;
+
+                VisitDefineStmt(def_ctxt);
             }
 
             return ast_stmt_block_node;
+        }
+
+        public override AstNode VisitDeclareStmt([NotNull] DeclareStmtContext context)
+        {
+
+            return base.VisitDeclareStmt(context);
         }
 
         private void ValidateBound_pair([NotNull] BoundPairContext context, string Name, int Line, int Dim)

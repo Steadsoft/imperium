@@ -31,6 +31,11 @@
 
 grammar Imperium; // Latin for "control"
 
+options
+{
+  contextSuperClass=VisitorContext ;
+}
+
 @lexer::members 
 {    
 	// This code MUST compile for both Java and C#
@@ -298,8 +303,12 @@ reloopStmt
   ;
 
 declareStmt
-  : (DECLARE | ARGUMENT) identifier dimensionSuffix? AS identifier memoryAttribute? SEMICOLON
+  : (DECLARE | ARGUMENT) identifier dimensionSuffix? declareAsBody SEMICOLON 
   | (DECLARE | ARGUMENT) declarationBody SEMICOLON
+  ;
+
+declareAsBody
+  : AS identifier memoryAttribute?
   ;
 
 declarationBody
