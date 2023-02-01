@@ -355,12 +355,12 @@ memoryAttribute
   ;
 
 dataAttribute
-  : (BINARY (precision)?)			
-	| (DECIMAL (precision)?)		
+  : BINARY (precision)?			
+	| DECIMAL (precision)?	
 	| POINTER							        
-	| (BIT maxLength)					  
+	| BIT maxLength				  
 	| CHARACTER							      
-	| stringAttribute           	
+	| STRING maxStringLength (utfSpec | rawSpec)?           	
 	| ENTRY								       
 	| FIXED								      
 	| FLOAT								      
@@ -370,10 +370,6 @@ dataAttribute
 	| COFUNCTION						      
 	| BUILTIN							        
 	| INTRINSIC							      
-  ;
-
-stringAttribute
-  : (STRING maxStringLength (utfSpec | rawSpec)?)
   ;
 
 utfSpec

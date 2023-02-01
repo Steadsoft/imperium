@@ -1,6 +1,8 @@
 ﻿using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
 using static ImperiumParser;
+using static AntlrCSharp.AstSupport;
+using System.Data;
 
 namespace AntlrCSharp
 {
@@ -36,40 +38,110 @@ namespace AntlrCSharp
 
         public override AstNode VisitScope([NotNull] ScopeContext context)
         {
-            var block = context.stmtBlock();
-
-            if (block == null)
-                return null;
-
-            var ast_stmt_block_node = new AstStmtBlock(context.stmtBlock());
-
-            foreach (DeclareStmtContext dcl_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.declareStmt()).Where(s => s != null))
+            if (Has(context.stmtBlock,out var block))
             {
-                var ast_declaration_node = new AstDeclaration(dcl_ctxt);
+                var ast_stmt_block_node = new AstStmtBlock(context.stmtBlock());
 
-                ast_stmt_block_node.AddStatement(ast_declaration_node);
+                foreach (DeclareStmtContext dcl_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.declareStmt()).Where(s => s != null))
+                {
+                    var ast_declaration_node = new AstDeclaration(dcl_ctxt);
 
-                dcl_ctxt.Node = ast_declaration_node;
+                    ast_stmt_block_node.AddStatement(ast_declaration_node);
 
-                VisitDeclareStmt(dcl_ctxt);
+                    dcl_ctxt.Node = ast_declaration_node;
+
+                    VisitDeclareStmt(dcl_ctxt);
+                }
+
+                foreach (DefineStmtContext def_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.defineStmt()).Where(s => s != null))
+                {
+                    var ast_definition_node = new AstDefinition(def_ctxt);
+
+                    ast_stmt_block_node.AddStatement(new AstDefinition(def_ctxt));
+
+                    def_ctxt.Node = ast_definition_node;
+
+                    VisitDefineStmt(def_ctxt);
+                }
+
+                return ast_stmt_block_node;
             }
 
-            foreach (DefineStmtContext def_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.defineStmt()).Where(s => s != null))
-            {
-                var ast_definition_node = new AstDefinition(def_ctxt);
-
-                ast_stmt_block_node.AddStatement(new AstDefinition(def_ctxt));
-
-                def_ctxt.Node = ast_definition_node;
-
-                VisitDefineStmt(def_ctxt);
-            }
-
-            return ast_stmt_block_node;
+            return null;
         }
 
         public override AstNode VisitDeclareStmt([NotNull] DeclareStmtContext context)
         {
+
+            var dcl = context.Node as AstDeclaration;
+
+            if (dcl == null)
+                return null;
+
+            if (Has(context.declarationBody, out var body))
+            {
+                if (Has(body.typeInfo, out var type))
+                {
+                    if (Has(type.attribute, out var attrs))
+                    {
+                        
+                        foreach (var attr in attrs)
+                        {
+                            if (Has(attr.dataAttribute, out var datatrib))
+                            {
+                                if (Has(datatrib.BINARY))
+                                    dcl.BINARY++;
+
+                                if (Has(datatrib.BIT))
+                                    dcl.BIT++;
+
+                                if (Has(datatrib.BUILTIN))
+                                    dcl.BUILTIN++;
+
+                                if (Has(datatrib.CHARACTER))
+                                    dcl.CHARACTER++;
+
+                                if (Has(datatrib.COFUNCTION))
+                                    dcl.COFUNCTION++;
+
+                                if (Has(datatrib.COROUTINE))
+                                    dcl.COROUTINE++;
+
+                                if (Has(datatrib.COFUNCTION))
+                                    dcl.COFUNCTION++; 
+
+                                if (Has(datatrib.DECIMAL))
+                                    dcl.DECIMAL++; ;
+
+                                if (Has(datatrib.ENTRY))
+                                    dcl.ENTRY++; ;
+
+                                if (Has(datatrib.FIXED))
+                                    dcl.FIXED++; ;
+
+                                if (Has(datatrib.FLOAT))
+                                    dcl.FLOAT++; ;
+
+                                if (Has(datatrib.INTRINSIC))
+                                    dcl.INTRINSIC++; ;
+
+                                if (Has(datatrib.OFFSET))
+                                    dcl.OFFSET++; ;
+
+                                if (Has(datatrib.POINTER))
+                                    dcl.POINTER++; ;
+
+                                if (Has(datatrib.VARYING))
+                                    dcl.VARYING++; ;
+
+                                if (Has(datatrib.STRING))
+                                    dcl.STRING++; ;
+
+                            }
+                        }
+                    }
+                }
+            }
 
             return base.VisitDeclareStmt(context);
         }

@@ -9,7 +9,7 @@ def memory_map struct;
      end;
 end;
 
-dcl call string(32);
+dcl call string(32) pointer pointer;
 dcl return bin(15);
 dcl binary decimal(10);
 

@@ -1,4 +1,6 @@
-﻿using static ImperiumParser;
+﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using static ImperiumParser;
 
 namespace AntlrCSharp
 {
@@ -15,5 +17,25 @@ namespace AntlrCSharp
 
             return k.GetText();
         }
+
+    public static bool Has<T>(Func<T> ContextFunc, out T Context) where T : VisitorContext
+    {
+        Context = ContextFunc();
+        return Context != null;
+    }
+
+        public static bool Has<T>(Func<T[]> ContextFunc, out T[] Context) where T : VisitorContext
+        {
+            Context = ContextFunc();
+            return Context != null;
+        }
+
+
+        public static bool Has<T>(Func<T> ContextFunc) where T : ITerminalNode
+    {
+        var Context = ContextFunc();
+        return Context != null;
+    }
+
     }
 }
