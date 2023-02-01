@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Reflection.Metadata;
+using System.Text;
 using System.Text.Json;
 
 
@@ -10,21 +11,29 @@ namespace KeywordGenerator
 
         static void Main(string[] args)
         {
+            string single_language = null;
+
             // load the dictionary.
 
-            var unicode = "𒆇";
-
-            var sss = 
-                """
-                I am some text and "so am I"
-                """;
+            if (args != null)
+                single_language = args[0];
 
             var inpath = Path.GetFullPath(@"..\..\..\..\..\antlr\imperium.keywords.json");
             var outpath = Path.GetFullPath(@"..\..\..\..\..\antlr\ImperiumKeywords.txt");
 
             JsonSerializerOptions options = new JsonSerializerOptions() { ReadCommentHandling = JsonCommentHandling.Skip };
 
-            var language_dictionary = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(File.ReadAllText(inpath), options);//.ToDictionary(x => x.Key, x => x.Value.ToDictionary(x => x.Value, x => x.Key));
+            var language_dictionary = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(File.ReadAllText(inpath), options);
+
+            if (single_language!= null)
+            {
+                foreach ( var key in language_dictionary.Keys )
+                {
+                    if (key != single_language)
+                        language_dictionary.Remove(key);
+                }
+            }
+
 
             var expected_num_entries = language_dictionary["en"].Count();
             var num_languages = language_dictionary.Keys.Count();

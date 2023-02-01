@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "KeywordGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "en"
+    }
+  }
+}

@@ -40,6 +40,12 @@ procedure startup (root_ptr);
 
       dcl map as memory_map based (root_ptr);
 
+      if a > b then
+         
+      else
+         
+      end;
+
       if then > else then 
          ; //else ⇐ if;
       elif if < then then
@@ -124,6 +130,8 @@ procedure get_todays_date (date);
 
    date ⇐ "10 October 2023";
 
+   // Antlr generated
+   
 end;
 
 end scope;

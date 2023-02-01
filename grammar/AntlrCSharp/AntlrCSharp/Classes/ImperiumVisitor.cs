@@ -146,6 +146,16 @@ namespace AntlrCSharp
             return base.VisitDeclareStmt(context);
         }
 
+        public override AstNode VisitPtrRef([NotNull] PtrRefContext context)
+        {
+            return base.VisitPtrRef(context); 
+        }
+
+        public override AstNode VisitBasicReference([NotNull] BasicReferenceContext context)
+        {
+            return base.VisitBasicReference(context);
+        }
+
         private void ValidateBound_pair([NotNull] BoundPairContext context, string Name, int Line, int Dim)
         {
 
