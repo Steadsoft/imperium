@@ -19,7 +19,7 @@ namespace AntlrCSharp
         public override AstNode VisitTranslationUnit([NotNull] TranslationUnitContext context)
         {
             var ast_translation_unit_node = new AstTranslationUnit(context);
-            
+
             foreach (ScopeContext scope in context.scope())
             {
                 var astScope = AstScope.Create(scope);
@@ -38,7 +38,7 @@ namespace AntlrCSharp
 
         public override AstNode VisitScope([NotNull] ScopeContext context)
         {
-            if (Has(context.stmtBlock,out var block))
+            if (Has(context.stmtBlock, out var block))
             {
                 var ast_stmt_block_node = new AstStmtBlock(context.stmtBlock());
 
@@ -78,67 +78,61 @@ namespace AntlrCSharp
             if (dcl == null)
                 return null;
 
-            if (Has(context.declarationBody, out var body))
+            var attributes = context.declarationBody()?.typeInfo()?.attribute();
+
+            if (exists(attributes))
             {
-                if (Has(body.typeInfo, out var type))
+                foreach (var attribute in attributes)
                 {
-                    if (Has(type.attribute, out var attrs))
+                    if (Has(attribute.dataAttribute, out var dataAttribute))
                     {
-                        
-                        foreach (var attr in attrs)
-                        {
-                            if (Has(attr.dataAttribute, out var datatrib))
-                            {
-                                if (Has(datatrib.BINARY))
-                                    dcl.BINARY++;
+                        if (Has(dataAttribute.BINARY))
+                            dcl.BINARY++;
 
-                                if (Has(datatrib.BIT))
-                                    dcl.BIT++;
+                        if (Has(dataAttribute.BIT))
+                            dcl.BIT++;
 
-                                if (Has(datatrib.BUILTIN))
-                                    dcl.BUILTIN++;
+                        if (Has(dataAttribute.BUILTIN))
+                            dcl.BUILTIN++;
 
-                                if (Has(datatrib.CHARACTER))
-                                    dcl.CHARACTER++;
+                        if (Has(dataAttribute.CHARACTER))
+                            dcl.CHARACTER++;
 
-                                if (Has(datatrib.COFUNCTION))
-                                    dcl.COFUNCTION++;
+                        if (Has(dataAttribute.COFUNCTION))
+                            dcl.COFUNCTION++;
 
-                                if (Has(datatrib.COROUTINE))
-                                    dcl.COROUTINE++;
+                        if (Has(dataAttribute.COROUTINE))
+                            dcl.COROUTINE++;
 
-                                if (Has(datatrib.COFUNCTION))
-                                    dcl.COFUNCTION++; 
+                        if (Has(dataAttribute.COFUNCTION))
+                            dcl.COFUNCTION++;
 
-                                if (Has(datatrib.DECIMAL))
-                                    dcl.DECIMAL++; ;
+                        if (Has(dataAttribute.DECIMAL))
+                            dcl.DECIMAL++; ;
 
-                                if (Has(datatrib.ENTRY))
-                                    dcl.ENTRY++; ;
+                        if (Has(dataAttribute.ENTRY))
+                            dcl.ENTRY++; ;
 
-                                if (Has(datatrib.FIXED))
-                                    dcl.FIXED++; ;
+                        if (Has(dataAttribute.FIXED))
+                            dcl.FIXED++; ;
 
-                                if (Has(datatrib.FLOAT))
-                                    dcl.FLOAT++; ;
+                        if (Has(dataAttribute.FLOAT))
+                            dcl.FLOAT++; ;
 
-                                if (Has(datatrib.INTRINSIC))
-                                    dcl.INTRINSIC++; ;
+                        if (Has(dataAttribute.INTRINSIC))
+                            dcl.INTRINSIC++; ;
 
-                                if (Has(datatrib.OFFSET))
-                                    dcl.OFFSET++; ;
+                        if (Has(dataAttribute.OFFSET))
+                            dcl.OFFSET++; ;
 
-                                if (Has(datatrib.POINTER))
-                                    dcl.POINTER++; ;
+                        if (Has(dataAttribute.POINTER))
+                            dcl.POINTER++; ;
 
-                                if (Has(datatrib.VARYING))
-                                    dcl.VARYING++; ;
+                        if (Has(dataAttribute.VARYING))
+                            dcl.VARYING++; ;
 
-                                if (Has(datatrib.STRING))
-                                    dcl.STRING++; ;
-
-                            }
-                        }
+                        if (Has(dataAttribute.STRING))
+                            dcl.STRING++; ;
                     }
                 }
             }
@@ -148,7 +142,7 @@ namespace AntlrCSharp
 
         public override AstNode VisitPtrRef([NotNull] PtrRefContext context)
         {
-            return base.VisitPtrRef(context); 
+            return base.VisitPtrRef(context);
         }
 
         public override AstNode VisitBasicReference([NotNull] BasicReferenceContext context)
