@@ -562,9 +562,9 @@ stringLiteral
 
 numericLiteral
   : binaryLiteral
-    | octalLiteral
-    | hexLiteral
-    | decimalLiteral
+  | octalLiteral
+  | hexLiteral
+  | decimalLiteral
   ;
 
 hexLiteral
