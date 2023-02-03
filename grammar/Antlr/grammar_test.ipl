@@ -46,6 +46,24 @@ procedure startup (root_ptr);
          
       end;
 
+      a = expr/36 + 17 ⇒ (expr_1 ⇒ rate => (100 => slow)(200 => fast)(stopped))(expr_2 ⇒ result_2)(result_3);
+
+      if expr/36 + 17 = expr_1 then
+         if rate = 100 then
+            return (slow);
+         elif rate = 200 then
+            return (fast);
+         else
+            return (stopped);
+         end;
+      elif expr/36 + 17 = expr_2 then
+         return (result_2);
+      else
+         return (result_3);
+      end;
+
+      adjustment = count > last_count ⇒ (expr_true)(expr_false);
+
       if then > else then 
          ; //else ⇐ if;
       elif if < then then
@@ -131,7 +149,7 @@ procedure get_todays_date (date);
    date ⇐ "10 October 2023";
 
    // Antlr generated
-   
+
 end;
 
 end scope;
