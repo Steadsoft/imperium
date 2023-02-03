@@ -1,16 +1,16 @@
 /*------------------------------------------------------------------------------*/
-/*     This is the grammar for IPL - the Imperium programming language 	        */
+/*     This is the grammar for IPL - the Imperium programming language          */
 /*------------------------------------------------------------------------------*/
 /* It's based primarily on the PL/I grammar because that has no reserved words. */
 /* This grammar supports keywords for multiple cultures, this is done by having */
 /* a JSON lexicon file that defines the literal text for each keyword for each  */
-/* language.	 															                                    */
-/*			 																	                                      */
+/* language.                                                                    */
+/*                                                                              */
 /* No reserved words means an identifier can be the same as a keyword and the   */
 /* text will still parse correctly. We do this to facilitate the addition of    */
 /* new keywords in future releases of the language.                             */
-/*										 										                                      */
-/* This also means that if an identifier happens to also match a keyword in  	  */
+/*                                                                              */
+/* This also means that if an identifier happens to also match a keyword in     */
 /* one of the other supported keyword lexicon languages, then the text will     */
 /* nevertheless compile without any issues.                                     */
 /*------------------------------------------------------------------------------*/
@@ -24,9 +24,9 @@
 /*------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------*/
-/* Keyword translation info kindly contributed by:                           	  */
-/* English (en) - Hugh Gleaves                                               	  */
-/* Dutch (nl)   - Gabor de Mooij (https://github.com/gabordemooij/citrine)   	  */
+/* Keyword translation info kindly contributed by:                              */
+/* English (en) - Hugh Gleaves                                                  */
+/* Dutch (nl)   - Gabor de Mooij (https://github.com/gabordemooij/citrine)      */
 /*------------------------------------------------------------------------------*/
 
 grammar Imperium; // Latin for "control"
@@ -36,35 +36,35 @@ options
   contextSuperClass=VisitorContext ;
 }
 
-@lexer::members 
-{    
-	// This code MUST compile for both Java and C#
-  // Some constructs here require support code be
-	// defined as C# partial and extension classes.
-    
-	private String KeywordLexiconCode = "en";
+@lexer::members
+{
+    // This code MUST compile for both Java and C#
+    // Some constructs here require support code be
+    // defined as C# partial and extension classes.
 
-	public Boolean Lexicon(String Code)
-	{
-		return Code == KeywordLexiconCode;
-	}
+    private String KeywordLexiconCode = "en";
 
-	public void SetLexicon(String Code)
-	{
-		KeywordLexiconCode = Code;
-	}
+    public Boolean Lexicon(String Code)
+    {
+        return Code == KeywordLexiconCode;
+    }
 
-	public void ReverseLexeme()
-	{
-		StringBuilder builder = new StringBuilder();
-		builder.append(getText());
-		builder.reverse();
-		setText(builder.toString());
-	}
+    public void SetLexicon(String Code)
+    {
+        KeywordLexiconCode = Code;
+    }
+
+    public void ReverseLexeme()
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append(getText());
+        builder.reverse();
+        setText(builder.toString());
+    }
 }
 
 translationUnit
-  :	BYTE_ORDER_MARK? uses* scope* | stmtBlock? EOF
+  : BYTE_ORDER_MARK? uses* scope* | stmtBlock? EOF
   ;
 
 uses
@@ -84,16 +84,16 @@ scopeEnd
   ;
 
 procedure
-  :	procedureStmt stmtBlock? procedureEnd
+  : procedureStmt stmtBlock? procedureEnd
   | functionStmt  stmtBlock? functionEnd
   ;
 
 procedureStmt
-  : PROCEDURE identifier procDescriptor SEMICOLON 
+  : PROCEDURE identifier procDescriptor SEMICOLON
   ;
 
 functionStmt
-  : FUNCTION identifier funcDescriptor SEMICOLON 
+  : FUNCTION identifier funcDescriptor SEMICOLON
   ;
 
 procedureEnd
@@ -105,22 +105,22 @@ functionEnd
   ;
 
 procDescriptor
-  :	parameterNameCommalist? ((coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE?))
+  : parameterNameCommalist? ((coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE?))
   ;
 
 funcDescriptor
-  :	parameterNameCommalist? ((returnsDescriptor coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE? returnsDescriptor))
+  : parameterNameCommalist? ((returnsDescriptor coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE? returnsDescriptor))
   ;
 
 returnsDescriptor
-  :	RETURNS LPAR dataAttribute RPAR
+  : RETURNS LPAR dataAttribute RPAR
   ;
-	// consider using keyword 'is' instead and forcing it to be right after the params...
+    // consider using keyword 'is' instead and forcing it to be right after the params...
 
-stmtBlock 
-  : nonexecutableStmt+                   
-  | executableStmt+                      
-  | nonexecutableStmt+ executableStmt+  
+stmtBlock
+  : nonexecutableStmt+
+  | executableStmt+
+  | nonexecutableStmt+ executableStmt+
   ;
 
 terminator
@@ -128,29 +128,29 @@ terminator
   ;
 
 labelStmt
-  : LABEL (LPAR decimalLiteral RPAR)? 
+  : LABEL (LPAR decimalLiteral RPAR)?
   ;
 
 nonexecutableStmt
-	: declareStmt	  
-	| defineStmt		 
-  | nullStmt       
+    : declareStmt
+    | defineStmt
+  | nullStmt
   ;
- 
+
 executableStmt
-  : labelStmt      
-  | assignmentStmt	    
-	| callStmt		    
-	| gotoStmt		    
-	| procedure       
-	| returnStmt	    
-	| ifStmt		      
-	| loopStmt		    
-  | selectStmt     
-	| endloopStmt    
-	| reloopStmt     
-  | nullStmt       
-	;
+  : labelStmt
+  | assignmentStmt
+    | callStmt
+    | gotoStmt
+    | procedure
+    | returnStmt
+    | ifStmt
+    | loopStmt
+  | selectStmt
+    | endloopStmt
+    | reloopStmt
+  | nullStmt
+    ;
 
 nullStmt
   : SEMICOLON
@@ -161,8 +161,8 @@ assignmentStmt
   ;
 
 reference
-  :	reference RARROW_U basicReference argumentsList?	# PtrRef
-	| basicReference argumentsList?					            # BasicRef
+  : reference RARROW_U basicReference argumentsList?    # PtrRef
+    | basicReference argumentsList?                     # BasicRef
   ;
 
 arguments
@@ -203,8 +203,8 @@ parenthesizedExpression
   ;
 
 primitiveExpression
-  : numericLiteral 
-  | stringLiteral 
+  : numericLiteral
+  | stringLiteral
   | reference
   ;
 
@@ -229,7 +229,7 @@ boolAndOperator
   ;
 
 boolXorOperator
-  : (XOR_U | XNOR_U) 
+  : (XOR_U | XNOR_U)
   ;
 
 boolOrOperator
@@ -237,9 +237,9 @@ boolOrOperator
   ;
 
 expression
-  : primitiveExpression                       # ExprPrimitive                                              
+  : primitiveExpression                       # ExprPrimitive
   | parenthesizedExpression                   # ExprParenthesized
-  | prefixExpression	                        # ExprPrefixed
+  | prefixExpression                          # ExprPrefixed
   | expression multiplyOperator expression    # ExprMulDiv
   | expression additionOperator expression    # ExprAddSub
   | expression bitAdjustOperator expression   # ExprBitAdjust
@@ -250,34 +250,38 @@ expression
   | expression boolOrOperator expression      # ExprBoolOr
   | expression LOGAND expression              # ExprLogAnd
   | expression LOGOR expression               # ExprLogOr
-  | expression DRARROW map_set                # ExpreMap
+  | expression DRARROW (map_set | bool_set)   # ExpreMap
   ;
 
 map_set
-  : (LPAR expression COMMA expression RPAR) (LPAR expression COMMA expression RPAR)* (LPAR expression RPAR)
+  : (LPAR expression DRARROW expression RPAR) (LPAR expression DRARROW expression RPAR)* (LPAR expression RPAR)
+  ;
+
+bool_set
+  : (LPAR expression RPAR) (LPAR expression RPAR)
   ;
 
 prefixOperator
-  : PLUS 
-  | MINUS 
+  : PLUS
+  | MINUS
   | NOT
   ;
 
 comparisonOperator
   : GT
-	| GTE_U
-	| EQUALS
-	| LT
-	| LTE_U
-	| NGT
-	| NE_U
-	| NLT
+  | GTE_U
+  | EQUALS
+  | LT
+  | LTE_U
+  | NGT
+  | NE_U
+  | NLT
   ;
 
 shiftOperator
-  : R_LOG_SHIFT 
-  | L_LOG_SHIFT 
-  | R_ART_SHIFT 
+  : R_LOG_SHIFT
+  | L_LOG_SHIFT
+  | R_ART_SHIFT
   ;
 
 // Any parser rules that need to match and identifier, must match
@@ -286,8 +290,8 @@ shiftOperator
 // if an identifer happens to be a keyword.
 
 identifier
-  :	keyword			//# Keyword_
-	| IDENTIFIER	//# Identifier
+  : keyword         //# Keyword_
+    | IDENTIFIER    //# Identifier
   ;
 
 callStmt
@@ -295,20 +299,20 @@ callStmt
   ;
 
 gotoStmt
-	:	(GOTO identifier LPAR expression RPAR) SEMICOLON
-	| (GOTO reference) SEMICOLON
+  :   (GOTO identifier LPAR expression RPAR) SEMICOLON
+  | (GOTO reference) SEMICOLON
   ;
 
 endloopStmt
-  : ENDLOOP identifier? 
+  : ENDLOOP identifier?
   ;
 
 reloopStmt
-  : RELOOP identifier? 
+  : RELOOP identifier?
   ;
 
 declareStmt
-  : (DECLARE | ARGUMENT) identifier dimensionSuffix? declareAsBody SEMICOLON 
+  : (DECLARE | ARGUMENT) identifier dimensionSuffix? declareAsBody SEMICOLON
   | (DECLARE | ARGUMENT) declarationBody SEMICOLON
   ;
 
@@ -329,7 +333,7 @@ dimensionSuffix
   ;
 
 boundPair
-  : (lowerBound COLON)? upperBound 
+  : (lowerBound COLON)? upperBound
   | TIMES
   ;
 
@@ -337,7 +341,7 @@ boundPairCommalist
   : boundPair (COMMA boundPair)*
   ;
 
-// See page 208 PL/I Subset G standard. Lower bound must be <= upper 
+// See page 208 PL/I Subset G standard. Lower bound must be <= upper
 // (but this is not a grammar issue, just a note)
 
 lowerBound
@@ -349,32 +353,32 @@ upperBound
   ;
 
 attribute
-    : (dataAttribute | BUILTIN | VARIABLE | memoryAttribute)
-    ;
+  : (dataAttribute | BUILTIN | VARIABLE | memoryAttribute)
+  ;
 
 memoryAttribute
-  : STACK                       
-  | STATIC                      
-  | based                       
-  | defined                     
+  : STACK
+  | STATIC
+  | based
+  | defined
   ;
 
 dataAttribute
-  : BINARY (precision)?			
-	| DECIMAL (precision)?	
-	| POINTER							        
-	| BIT maxLength				  
-	| CHARACTER							      
-	| STRING maxStringLength (utfSpec | rawSpec)?           	
-	| ENTRY								       
-	| FIXED								      
-	| FLOAT								      
-	| OFFSET							       
-	| VARYING							        
-	| COROUTINE							      
-	| COFUNCTION						      
-	| BUILTIN							        
-	| INTRINSIC							      
+  : BINARY (precision)?
+  | DECIMAL (precision)?
+  | POINTER
+  | BIT maxLength
+  | CHARACTER
+  | STRING maxStringLength (utfSpec | rawSpec)?
+  | ENTRY
+  | FIXED
+  | FLOAT
+  | OFFSET
+  | VARYING
+  | COROUTINE
+  | COFUNCTION
+  | BUILTIN
+  | INTRINSIC
   ;
 
 utfSpec
@@ -418,7 +422,7 @@ coprocedureSpecifier
   ;
 
 handlerSpecifier
-  : INTERRUPT 
+  : INTERRUPT
   ;
 
 parameterNameCommalist
@@ -430,13 +434,13 @@ returnStmt
   ;
 
 ifStmt
-  :	thenClause executableStmt* elseClause? ifEnd
-	| thenClause executableStmt* elifClause+ ifEnd
+  : thenClause executableStmt* elseClause? ifEnd
+  | thenClause executableStmt* elifClause+ ifEnd
   ;
 
 ifEnd
   : END IF? SEMICOLON
-  ;  
+  ;
 
 thenClause
   : IF expression THEN
@@ -447,15 +451,15 @@ elseClause
   ;
 
 elifClause
-  :	ELIF expression THEN executableStmt* elseClause?
+  : ELIF expression THEN executableStmt* elseClause?
   ;
 
 loopStmt
-  :	LOOP  SEMICOLON executableStmt* loopEnd                                  
-	| LOOP (
-          (whileOption untilOption? SEMICOLON executableStmt* loopEnd) 
+  : LOOP  SEMICOLON executableStmt* loopEnd
+    | LOOP (
+          (whileOption untilOption? SEMICOLON executableStmt* loopEnd)
         | (untilOption whileOption? SEMICOLON executableStmt* loopEnd)
-        )                                                                
+        )
   ;
 
 loopEnd
@@ -479,7 +483,7 @@ selectEnd
   ;
 
 selectClause
-  : SELECT (LPAR expression RPAR)? SEMICOLON 
+  : SELECT (LPAR expression RPAR)? SEMICOLON
   ;
 
 whenClause
@@ -491,7 +495,7 @@ otherwiseClause
   ;
 
 defineStmt // defines a type, like a structure
-  : DEFINE identifier enumType 
+  : DEFINE identifier enumType
   | DEFINE identifier structType
   | DEFINE identifier aliasType
   ;
@@ -537,30 +541,30 @@ structBody
   ;
 
 structMemberList
-  : structMember SEMICOLON (structMember SEMICOLON)* 
-  ;  
+  : structMember SEMICOLON (structMember SEMICOLON)*
+  ;
 
 structSubstruct
   : identifier dimensionSuffix? STRUCTURE SEMICOLON structBody END
   ;
 
 structMember
-  : structSubstruct 
-  | identifier dimensionSuffix? AS identifier 
+  : structSubstruct
+  | identifier dimensionSuffix? AS identifier
   | declarationBody
   ;
 
 stringLiteral
-  : STRING_LITERAL_3 
-  | STRING_LITERAL_2 
+  : STRING_LITERAL_3
+  | STRING_LITERAL_2
   | STRING_LITERAL_1
   ;
 
 numericLiteral
-  :	binaryLiteral
-	| octalLiteral
-	| hexLiteral
-	| decimalLiteral
+  : binaryLiteral
+    | octalLiteral
+    | hexLiteral
+    | decimalLiteral
   ;
 
 hexLiteral
@@ -679,162 +683,162 @@ keyword:
   | YIELD
   ;
 
-ALIAS: 
+ALIAS:
            {Lexicon("en")}? ('alias')       ;
-ALIGNED: 
+ALIGNED:
            {Lexicon("en")}? ('aligned')     ;
-ALL: 
+ALL:
            {Lexicon("en")}? ('all')         ;
-ANY: 
+ANY:
            {Lexicon("en")}? ('any')         ;
-ARGUMENT: 
+ARGUMENT:
            {Lexicon("en")}? ('argument'     | 'arg') ;
-AS: 
+AS:
            {Lexicon("en")}? ('as')          ;
-BASED: 
+BASED:
            {Lexicon("en")}? ('based')       ;
-BINARY: 
+BINARY:
            {Lexicon("en")}? ('binary'       | 'bin') ;
-BIT: 
+BIT:
            {Lexicon("en")}? ('bit')         ;
-BOOLEAN: 
+BOOLEAN:
            {Lexicon("en")}? ('boolean'      | 'bool') ;
-BUILTIN: 
+BUILTIN:
            {Lexicon("en")}? ('builtin')     ;
-BY: 
+BY:
            {Lexicon("en")}? ('by')          ;
-BYPASS: 
+BYPASS:
            {Lexicon("en")}? ('bypass')      ;
-CALL: 
+CALL:
            {Lexicon("en")}? ('call')        ;
-CHARACTER: 
+CHARACTER:
            {Lexicon("en")}? ('character'    | 'char') ;
-COFUNCTION: 
+COFUNCTION:
            {Lexicon("en")}? ('cofunction')  ;
-COROUTINE: 
+COROUTINE:
            {Lexicon("en")}? ('coroutine')   ;
-DECIMAL: 
+DECIMAL:
            {Lexicon("en")}? ('decimal'      | 'dec') ;
-DECLARE: 
+DECLARE:
            {Lexicon("en")}? ('declare'      | 'dcl') ;
-DEFINE: 
+DEFINE:
            {Lexicon("en")}? ('define'       | 'def') ;
-DEFINED: 
+DEFINED:
            {Lexicon("en")}? ('defined')     ;
-ELIF: 
+ELIF:
            {Lexicon("en")}? ('elif')        ;
-ELSE: 
+ELSE:
            {Lexicon("en")}? ('else')        ;
-END: 
+END:
            {Lexicon("en")}? ('end')         ;
-ENDLOOP: 
+ENDLOOP:
            {Lexicon("en")}? ('endloop')     ;
-ENTRY: 
+ENTRY:
            {Lexicon("en")}? ('entry')       ;
-ENUM: 
+ENUM:
            {Lexicon("en")}? ('enum')        ;
-FIXED: 
+FIXED:
            {Lexicon("en")}? ('fixed')       ;
-FLOAT: 
+FLOAT:
            {Lexicon("en")}? ('float')       ;
-FUNCTION: 
+FUNCTION:
            {Lexicon("en")}? ('function'     | 'func') ;
-GOTO: 
+GOTO:
            {Lexicon("en")}? ('goto'         | 'go to') ;
-IF: 
+IF:
            {Lexicon("en")}? ('if')          ;
-INC: 
+INC:
            {Lexicon("en")}? ('inc')         ;
-INCLUDE: 
+INCLUDE:
            {Lexicon("en")}? ('include')     ;
-INTERNAL: 
+INTERNAL:
            {Lexicon("en")}? ('internal')    ;
-INTERRUPT: 
+INTERRUPT:
            {Lexicon("en")}? ('interrupt')   ;
-INTRINSIC: 
+INTRINSIC:
            {Lexicon("en")}? ('intrinsic')   ;
-LANGUAGE: 
+LANGUAGE:
            {Lexicon("en")}? ('lingua')      ;
-LOOP: 
+LOOP:
            {Lexicon("en")}? ('loop')        ;
-OFFSET: 
+OFFSET:
            {Lexicon("en")}? ('offset'       | 'ofx') ;
-OTHERWISE: 
+OTHERWISE:
            {Lexicon("en")}? ('otherwise')   ;
-OUT: 
+OUT:
            {Lexicon("en")}? ('out')         ;
-PAD: 
+PAD:
            {Lexicon("en")}? ('pad')         ;
-POINTER: 
+POINTER:
            {Lexicon("en")}? ('pointer'      | 'ptr') ;
-PRIVATE: 
+PRIVATE:
            {Lexicon("en")}? ('private')     ;
-PROCEDURE: 
+PROCEDURE:
            {Lexicon("en")}? ('procedure'    | 'proc') ;
-PUBLIC: 
+PUBLIC:
            {Lexicon("en")}? ('public')      ;
-RAW: 
+RAW:
            {Lexicon("en")}? ('raw')         ;
-READONLY: 
+READONLY:
            {Lexicon("en")}? ('readonly')    ;
-RECURSIVE: 
+RECURSIVE:
            {Lexicon("en")}? ('recursive'    | 'rec') ;
-REF: 
+REF:
            {Lexicon("en")}? ('ref')         ;
-RELOOP: 
+RELOOP:
            {Lexicon("en")}? ('reloop')      ;
-RETURN: 
+RETURN:
            {Lexicon("en")}? ('return')      ;
-RETURNON: 
+RETURNON:
            {Lexicon("en")}? ('returnon')    ;
-RETURNS: 
+RETURNS:
            {Lexicon("en")}? ('returns')     ;
-SCOPE: 
+SCOPE:
            {Lexicon("en")}? ('scope')       ;
-SELECT: 
+SELECT:
            {Lexicon("en")}? ('select')      ;
-SINGLET: 
+SINGLET:
            {Lexicon("en")}? ('singlet')     ;
-STACK: 
+STACK:
            {Lexicon("en")}? ('stack')       ;
-STATIC: 
+STATIC:
            {Lexicon("en")}? ('static')      ;
-STRING: 
+STRING:
            {Lexicon("en")}? ('string')      ;
-STRUCTURE: 
+STRUCTURE:
            {Lexicon("en")}? ('structure'    | 'struct') ;
-THEN: 
+THEN:
            {Lexicon("en")}? ('then')        ;
-TO: 
+TO:
            {Lexicon("en")}? ('to')          ;
-TYPE: 
+TYPE:
            {Lexicon("en")}? ('type')        ;
-UNALIGNED: 
+UNALIGNED:
            {Lexicon("en")}? ('unaligned')   ;
-UNTIL: 
+UNTIL:
            {Lexicon("en")}? ('until')       ;
-USES: 
+USES:
            {Lexicon("en")}? ('uses')        ;
-USING: 
+USING:
            {Lexicon("en")}? ('using')       ;
-UTF: 
+UTF:
            {Lexicon("en")}? ('utf')         ;
-VARIABLE: 
+VARIABLE:
            {Lexicon("en")}? ('variable')    ;
-VARYING: 
+VARYING:
            {Lexicon("en")}? ('varying')     ;
-WHEN: 
+WHEN:
            {Lexicon("en")}? ('when')        ;
-WHILE: 
+WHILE:
            {Lexicon("en")}? ('while')       ;
-YIELD: 
+YIELD:
            {Lexicon("en")}? ('yield')       ;
 
 /* End of generated Antlr4 keyword token definitions. */
 
 
 LABEL:                (AT IDENTIFIER);
-IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*); 
+IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
 BINARY_PATTERN:       (BIN (LSEP BIN)*)+ FRAC_B? BASE_B;
 OCTAL_PATTERN:        (OCT (LSEP OCT)*)+ FRAC_O? BASE_O;
 HEXADECIMAL_PATTERN:  (HEX (LSEP HEX)*)+ FRAC_H? BASE_H;
@@ -844,63 +848,63 @@ DECIMAL_PATTERN:      (DEC (LSEP DEC)*)+ FRAC_D? BASE_D?;
 // SYMBOLS AND OPERATORS
 
 // There are some symbols that have a very natural Unicode character that better conveys their
-// meanings. These are included below, the grammar will accept either the Unicode or the ASCII 
+// meanings. These are included below, the grammar will accept either the Unicode or the ASCII
 // forms. These are recognized by being name ending in _U
 
-AT:           ('@');
-RARROW_U:     ('->' | '➔'); // U+2794
-DRARROW:      ('=>' | '⇒'); // U+21D2
-DOT:          ('.');
-COMMA:        (',');
-LPAR: 		    ('(');
-RPAR: 		    (')');
-LBRACK: 	    ('[');
-RBRACK: 	    (']');
-LBRACE: 	    ('{');
-RBRACE: 	    ('}');
-EQUALS: 	    ('=');
-ASSIGN_U:     ('⇐'); // U+21D0
-TIMES: 		    ('*');
-DIVIDE_U:     ('/' | '÷'); // U+00F7
-PLUS: 		    ('+');
-MINUS: 		    ('-');
-SEMICOLON:	  (';');
-POWER_U: 		  ('**' | '🠕');  // U+1F815
-COLON: 		    (':');
-TRIQUOTE:     ('"""');
-DIQUOTE:      ('""'); 
-QUOTE: 	      ('"');
-SQUOTE: 	    ('\'');
-NOT:   		    ('~');
-GT:    		    ('>');
-LT:    		    ('<');
-GTE_U:        ('>=' |'≥');
-LTE_U:   	    ('<=' |'≤');
-NGT:   		    ('~>');
-NLT:   		    ('~<');
-NE_U: 		    ('~=' | '≠');
-PCNT:  		    ('%');
-AND:    	    ('&');
-OR:     	    ('|');
-NAND:         ('~&');
-NOR:          ('~|');  
-XOR_U:        ('^'  | '⊕');    // U+2295 excluisve bitwise OR
-XNOR_U:       ('~^' | '~⊕');   // U+2295
-REDAND:       ('&(');
-REDOR:        ('|(');
-REDNAND:      ('~&(');
-REDNOR:       ('~|(');
-REDXOR_U:     ('^('  | '⊕(');   // U+2295
-REDXNOR_U:    ('~^(' | '~⊕('); // U+2295
-LOGAND:  	    ('&&'); 	// short-circuit, logical AND
-LOGOR:   	    ('||');  	// short-circuit, logical OR
-CONC:   	    ('++');   // concatenate character strings or bit strings
-L_LOG_SHIFT:  ('<<');   // logical: left bit lost rite bit becomes zero
-R_LOG_SHIFT:  ('>>');   // logical: rite bit lost left bit becomes zero
-R_ART_SHIFT:  ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit
-L_ROTATE_U:   ('<<@' | '⧀');  // U+29C0 rotate: left bit rotated out rite bit becomes that rotated left bit
-R_ROTATE_U:   ('@>>' | '⧁');  // U+29C1 rotate: rite bit rotated out left bit becomes that rotated rite bit
-RANGE:        ('..');   // used to represent a range from some start to some end
+AT:             ('@');
+RARROW_U:       ('->' | '➔'); // U+2794
+DRARROW:        ('=>' | '⇒'); // U+21D2
+DOT:            ('.');
+COMMA:          (',');
+LPAR:           ('(');
+RPAR:           (')');
+LBRACK:         ('[');
+RBRACK:         (']');
+LBRACE:         ('{');
+RBRACE:         ('}');
+EQUALS:         ('=');
+ASSIGN_U:       ('⇐'); // U+21D0
+TIMES:          ('*');
+DIVIDE_U:       ('/' | '÷'); // U+00F7
+PLUS:           ('+');
+MINUS:          ('-');
+SEMICOLON:      (';');
+POWER_U:        ('**' | '🠕');  // U+1F815
+COLON:          (':');
+TRIQUOTE:       ('"""');
+DIQUOTE:        ('""');
+QUOTE:          ('"');
+SQUOTE:         ('\'');
+NOT:            ('~');
+GT:             ('>');
+LT:             ('<');
+GTE_U:          ('>=' |'≥');
+LTE_U:          ('<=' |'≤');
+NGT:            ('~>');
+NLT:            ('~<');
+NE_U:           ('~=' | '≠');
+PCNT:           ('%');
+AND:            ('&');
+OR:             ('|');
+NAND:           ('~&');
+NOR:            ('~|');
+XOR_U:          ('^'  | '⊕');    // U+2295 excluisve bitwise OR
+XNOR_U:         ('~^' | '~⊕');   // U+2295
+REDAND:         ('&(');
+REDOR:          ('|(');
+REDNAND:        ('~&(');
+REDNOR:         ('~|(');
+REDXOR_U:       ('^('  | '⊕(');   // U+2295
+REDXNOR_U:      ('~^(' | '~⊕('); // U+2295
+LOGAND:         ('&&');     // short-circuit, logical AND
+LOGOR:          ('||');     // short-circuit, logical OR
+CONC:           ('++');   // concatenate character strings or bit strings
+L_LOG_SHIFT:    ('<<');   // logical: left bit lost rite bit becomes zero
+R_LOG_SHIFT:    ('>>');   // logical: rite bit lost left bit becomes zero
+R_ART_SHIFT:    ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit
+L_ROTATE_U:     ('<<@' | '⧀');  // U+29C0 rotate: left bit rotated out rite bit becomes that rotated left bit
+R_ROTATE_U:     ('@>>' | '⧁');  // U+29C1 rotate: rite bit rotated out left bit becomes that rotated rite bit
+RANGE:          ('..');   // used to represent a range from some start to some end
 
 // LEXER FRAGMENTS
 
