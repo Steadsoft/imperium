@@ -250,11 +250,17 @@ expression
   | expression boolOrOperator expression      # ExprBoolOr
   | expression LOGAND expression              # ExprLogAnd
   | expression LOGOR expression               # ExprLogOr
-  | expression DRARROW (map_set | bool_set)   # ExpreMap
+  | expression MAPSTO_U (map_set | bool_set)  # ExpreMap
   ;
 
+/*
+brace_set
+  : LBRACE expression (COMMA (expression | brace_set))* RBRACE
+  ;
+*/
+
 map_set
-  : (LPAR expression DRARROW expression RPAR) (LPAR expression DRARROW expression RPAR)* (LPAR expression RPAR)
+  : (LPAR expression COLON expression RPAR) (LPAR expression COLON expression RPAR)* (LPAR expression RPAR)
   ;
 
 bool_set
@@ -852,8 +858,8 @@ DECIMAL_PATTERN:      (DEC (LSEP DEC)*)+ FRAC_D? BASE_D?;
 // forms. These are recognized by being name ending in _U
 
 AT:             ('@');
-RARROW_U:       ('->' | '➔'); // U+2794
-DRARROW:        ('=>' | '⇒'); // U+21D2
+RARROW_U:       ('->'|'➔'); // U+2794
+MAPSTO_U:       ('-->'|'↦'); // U+21A6
 DOT:            ('.');
 COMMA:          (',');
 LPAR:           ('(');
@@ -878,32 +884,32 @@ SQUOTE:         ('\'');
 NOT:            ('~');
 GT:             ('>');
 LT:             ('<');
-GTE_U:          ('>=' |'≥');
-LTE_U:          ('<=' |'≤');
+GTE_U:          ('>='|'≥');
+LTE_U:          ('<='|'≤');
 NGT:            ('~>');
 NLT:            ('~<');
-NE_U:           ('~=' | '≠');
+NE_U:           ('~='|'≠');
 PCNT:           ('%');
 AND:            ('&');
 OR:             ('|');
 NAND:           ('~&');
 NOR:            ('~|');
-XOR_U:          ('^'  | '⊕');    // U+2295 excluisve bitwise OR
-XNOR_U:         ('~^' | '~⊕');   // U+2295
+XOR_U:          ('^'|'⊕');    // U+2295 excluisve bitwise OR
+XNOR_U:         ('~^'|'~⊕');   // U+2295
 REDAND:         ('&(');
 REDOR:          ('|(');
 REDNAND:        ('~&(');
 REDNOR:         ('~|(');
-REDXOR_U:       ('^('  | '⊕(');   // U+2295
-REDXNOR_U:      ('~^(' | '~⊕('); // U+2295
+REDXOR_U:       ('^('|'⊕(');   // U+2295
+REDXNOR_U:      ('~^('|'~⊕('); // U+2295
 LOGAND:         ('&&');     // short-circuit, logical AND
 LOGOR:          ('||');     // short-circuit, logical OR
 CONC:           ('++');   // concatenate character strings or bit strings
 L_LOG_SHIFT:    ('<<');   // logical: left bit lost rite bit becomes zero
 R_LOG_SHIFT:    ('>>');   // logical: rite bit lost left bit becomes zero
 R_ART_SHIFT:    ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit
-L_ROTATE_U:     ('<<@' | '⧀');  // U+29C0 rotate: left bit rotated out rite bit becomes that rotated left bit
-R_ROTATE_U:     ('@>>' | '⧁');  // U+29C1 rotate: rite bit rotated out left bit becomes that rotated rite bit
+L_ROTATE_U:     ('<<@'|'⧀');  // U+29C0 rotate: left bit rotated out rite bit becomes that rotated left bit
+R_ROTATE_U:     ('@>>'|'⧁');  // U+29C1 rotate: rite bit rotated out left bit becomes that rotated rite bit
 RANGE:          ('..');   // used to represent a range from some start to some end
 
 // LEXER FRAGMENTS
