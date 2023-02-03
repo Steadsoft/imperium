@@ -203,8 +203,7 @@ parenthesizedExpression
   ;
 
 primitiveExpression
-  : INTEGER
-  | numericLiteral 
+  : numericLiteral 
   | stringLiteral 
   | reference
   ;
@@ -251,6 +250,11 @@ expression
   | expression boolOrOperator expression      # ExprBoolOr
   | expression LOGAND expression              # ExprLogAnd
   | expression LOGOR expression               # ExprLogOr
+  | expression DRARROW map_set                # ExpreMap
+  ;
+
+map_set
+  : (LPAR expression COMMA expression RPAR) (LPAR expression COMMA expression RPAR)* (LPAR expression RPAR)
   ;
 
 prefixOperator
@@ -845,6 +849,7 @@ DECIMAL_PATTERN:      (DEC (LSEP DEC)*)+ FRAC_D? BASE_D?;
 
 AT:           ('@');
 RARROW_U:     ('->' | '➔'); // U+2794
+DRARROW:      ('=>' | '⇒'); // U+21D2
 DOT:          ('.');
 COMMA:        (',');
 LPAR: 		    ('(');
