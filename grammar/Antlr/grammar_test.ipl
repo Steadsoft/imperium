@@ -60,37 +60,14 @@ procedure startup (root_ptr);
 
       A ⇐ expr3 ↦ (A:B)(X:expr4 --> (AA:BB)(XX:YY)(expr5 ↦ (AAA:BBB)(XXX:YYY)(C)))(C);
 
-      //A = (x,y,z) ↦ (x ↦ (0:10)(1:50)(100))  ; 
-
-      //A = (x,y,z) ↦ (x ↦ (0:10)(1:(yy*ww ↦ (0:10)(1:50)(100)))(100))  ; 
-/*
-      a = {x,y} --> {1,2:100}{200};
-
-      a = {x,y} --> {1,{2,3,4}:100}{200};
-
-      {e}
-
-      {e,e}
-
-      {e,{e}}
-
-      {e,{e,e}}
-
-      {e,e,{e,e},e}
-
+ 
       a = x --> ("true")("false");
       a = x --> (1:"1")(2:"2")(3:"3")("*");
       a = (x) --> (1:"1")(2:"2")(3:"3")("*");
       a = (x,y) --> (1,10:"1")(2,10:"2")(3,20:"3")("*");      
       a = (x,y) --> (1,10:"A")(2,10:"A")(3,20:"B")("*");    
       a = (x,y) --> ((1,2),10:"A")(3,20:"B")("*");  
-
-      arguments --> LPAR (expression | arguments) (COMMA (expression | arguments))* COLON expression RPAR
-
-*/
-
-
-
+ 
       if expr/36 + 17 = expr_1 then
          if rate = 100 then
             return (slow);

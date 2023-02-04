@@ -251,7 +251,7 @@ expression
   | expression LOGAND expression              # ExprLogAnd
   | expression LOGOR expression               # ExprLogOr
   | expression MAPSTO_U (map_set | bool_set)  # ExpreMap1
-  | arguments MAPSTO_U (map_set | bool_set) # ExpreMap2
+  | arguments MAPSTO_U (map_set | bool_set)   # ExpreMap2
   ;
 
 
