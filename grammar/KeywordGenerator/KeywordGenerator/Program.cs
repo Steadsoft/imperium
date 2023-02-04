@@ -122,7 +122,7 @@ namespace KeywordGenerator
             file.WriteLine(PaddedComment("", 100, '-'));
             file.WriteLine();
 
-            file.WriteLine("keyword:");
+            file.WriteLine("identifier: (");
 
             var keywords = language_dictionary["en"].Keys.OrderBy(k => k);
 
@@ -133,6 +133,8 @@ namespace KeywordGenerator
                 file.WriteLine($"  | {keyword.Trim().ToUpper()}");
             }
 
+            file.WriteLine("  )");
+            file.WriteLine("  | IDENTIFIER");
             file.WriteLine("  ;");
             file.WriteLine();
 
