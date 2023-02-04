@@ -250,8 +250,11 @@ expression
   | expression boolOrOperator expression      # ExprBoolOr
   | expression LOGAND expression              # ExprLogAnd
   | expression LOGOR expression               # ExprLogOr
-  | expression MAPSTO_U (map_set | bool_set)  # ExpreMap
+  | expression MAPSTO_U (map_set | bool_set)  # ExpreMap1
+  | arguments MAPSTO_U (map_set | bool_set) # ExpreMap2
   ;
+
+
 
 /*
 brace_set
@@ -260,7 +263,7 @@ brace_set
 */
 
 map_set
-  : (LPAR expression COLON expression RPAR) (LPAR expression COLON expression RPAR)* (LPAR expression RPAR)
+  : (LPAR (expression | arguments) (COMMA (expression | arguments))* COLON expression RPAR)+ (LPAR expression RPAR)?
   ;
 
 bool_set
