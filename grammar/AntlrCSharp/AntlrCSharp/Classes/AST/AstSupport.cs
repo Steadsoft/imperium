@@ -9,14 +9,7 @@ namespace AntlrCSharp
     {
         public static string GetSpelling(IdentifierContext C)
         {
-            var i = C.IDENTIFIER();
-
-            var k = C.keyword();
-
-            if (i != null)
-                return i.ToString();
-
-            return k.GetText();
+            return C.GetText();
         }
 
         public static bool Has<T>(Func<T> ContextFunc, out T Context) where T : VisitorContext
