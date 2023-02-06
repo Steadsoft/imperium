@@ -236,10 +236,13 @@ boolOrOperator
   : (OR | NOR | NOT)
   ;
 
+// see expr '^'<assoc=right> expr 
+
 expression
   : primitiveExpression                       # ExprPrimitive
   | parenthesizedExpression                   # ExprParenthesized
   | prefixExpression                          # ExprPrefixed
+  | <assoc=right> expression POWER_U expression # ExprRaise
   | expression multiplyOperator expression    # ExprMulDiv
   | expression additionOperator expression    # ExprAddSub
   | expression bitAdjustOperator expression   # ExprBitAdjust
@@ -252,10 +255,14 @@ expression
   | expression LOGOR expression               # ExprLogOr
   | expression MAPSTO_U (map_set | bool_set)  # ExpreMap1
   | arguments MAPSTO_U (map_set | bool_set)   # ExpreMap2
+  //| expression custop expression              # ExprCustom
   ;
-
-
-
+/*
+custop
+  : LBRACE identifier RBRACE
+  | SYMBOLS
+  ;
+  */
 /*
 brace_set
   : LBRACE expression (COMMA (expression | brace_set))* RBRACE
@@ -854,6 +861,8 @@ HEXADECIMAL_PATTERN:  (HEX (LSEP HEX)*)+ FRAC_H? BASE_H;
 INTEGER:              ([1-9] [0-9]*);
 DECIMAL_PATTERN:      (DEC (LSEP DEC)*)+ FRAC_D? BASE_D?;
 
+
+
 // SYMBOLS AND OPERATORS
 
 // There are some symbols that have a very natural Unicode character that better conveys their
@@ -915,6 +924,8 @@ L_ROTATE_U:     ('<<@'|'⧀');  // U+29C0 rotate: left bit rotated out rite bit 
 R_ROTATE_U:     ('@>>'|'⧁');  // U+29C1 rotate: rite bit rotated out left bit becomes that rotated rite bit
 RANGE:          ('..');   // used to represent a range from some start to some end
 
+//SYMBOLS:        (UNICODE_MATH_OPS | UNICODE_MISC_TECH | UNICODE_MISC_MATH) (UNICODE_MATH_OPS | UNICODE_MISC_TECH | UNICODE_MISC_MATH)*; // do not overlap with identifiers
+
 // LEXER FRAGMENTS
 
 fragment LSEP:    (' ' | '_');
@@ -938,3 +949,7 @@ fragment FRAC_H:  ('.' [0-9a-fA-F]+);
 //fragment IDENTIFIER_REST:  [$a-zA-Z_0-9\u0370-\u03ff];
 fragment IDENTIFIER_START: [$a-zA-Z_];
 fragment IDENTIFIER_REST:  [$a-zA-Z_0-9];
+
+fragment UNICODE_MATH_OPS:  [\u2200-\u22FF]; // Mathematical Operators
+fragment UNICODE_MISC_TECH: [\u2300-\u23FF]; // Includes APL
+fragment UNICODE_MISC_MATH: [\u27C0-\u27EF]; // Miscellaneous match

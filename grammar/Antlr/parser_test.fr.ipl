@@ -1,7 +1,7 @@
 
 %lexicon(en); // tells the compiler which lexicon to use for this source file.
 
-/*
+
 procédé French (X)
 
 	déclarer counter binaire(15);	
