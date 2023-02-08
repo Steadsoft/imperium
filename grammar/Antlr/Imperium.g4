@@ -841,15 +841,14 @@ TAB:                  ('\t')+ -> skip;
 STRING_LITERAL_3:     (TRIQUOTE (.)*? TRIQUOTE);
 STRING_LITERAL_2:     (DIQUOTE  (.)*? DIQUOTE);
 STRING_LITERAL_1:     (QUOTE    (.)*? QUOTE);
-BYTE_ORDER_MARK:      ('\uFEFF'); // This is the unicode char seen when reading the file, the three bytes themselves are an encoding and not see by the consumer!
+BYTE_ORDER_MARK:      ('\uFEFF'); // This is the unicode char seen when reading the file, the three bytes themselves are an encoding and not see by the
 LABEL:                (AT IDENTIFIER);
-IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
-BINARY_PATTERN:       (BIN (LSEP BIN)*)+ FRAC_B? BASE_B;
-OCTAL_PATTERN:        (OCT (LSEP OCT)*)+ FRAC_O? BASE_O;
-HEXADECIMAL_PATTERN:  (HEX (LSEP HEX)*)+ FRAC_H? BASE_H;
+BINARY_PATTERN:       ((BIN (' ' BIN)*)+ | (BIN ('_' BIN)*)+) FRAC_B? BASE_B;
+OCTAL_PATTERN:        ((OCT (' ' OCT)*)+ | (OCT ('_' OCT)*)+) FRAC_O? BASE_O;
+HEXADECIMAL_PATTERN:  ((HEX (' ' HEX)*)+ | (HEX ('_' HEX)*)+) FRAC_H? BASE_H;
 INTEGER:              ([1-9] [0-9]*);
-DECIMAL_PATTERN:      (DEC (LSEP DEC)*)+ FRAC_D? BASE_D?;
-
+DECIMAL_PATTERN:      (DEC (' ' DEC)*)+ FRAC_D? BASE_D?;
+IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
 // SYMBOLS AND OPERATORS
 
 // There are some symbols that have a very natural Unicode character that better conveys their
@@ -915,7 +914,7 @@ RANGE:          ('..');   // used to represent a range from some start to some e
 
 // LEXER FRAGMENTS
 
-fragment LSEP:    (' ' | '_');
+//fragment LSEP:    (' ' | '_');
 fragment BIN:     [0-1];
 fragment OCT:     [0-7];
 fragment DEC:     [0-9];
