@@ -841,7 +841,7 @@ TAB:                  ('\t')+ -> skip;
 STRING_LITERAL_3:     (TRIQUOTE (.)*? TRIQUOTE);
 STRING_LITERAL_2:     (DIQUOTE  (.)*? DIQUOTE);
 STRING_LITERAL_1:     (QUOTE    (.)*? QUOTE);
-BYTE_ORDER_MARK:      ('\u00EF' '\u00BB' '\u00BF');
+BYTE_ORDER_MARK:      ('\uFEFF'); // This is the unicode char seen when reading the file, the three bytes themselves are an encoding and not see by the consumer!
 LABEL:                (AT IDENTIFIER);
 IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
 BINARY_PATTERN:       (BIN (LSEP BIN)*)+ FRAC_B? BASE_B;
