@@ -1,6 +1,20 @@
 # Overview of IPL
 
-This document is intended to familiarize you with the language. 
+This document is intended to familiarize you with the language. This documentation assumes the source code is written using the English (en) keyword lexicon.
+
+The language relies on a consistent grammar in which every statement must start with a keyword except for assignments. Each keyword is followed by terms that are specific to that keyword, for example declarations and definitions use the `declare` (or `dcl`) and `define` (or `def`) keywords followed by an identifier.
+
+For some keywords, the grammar allows one or more optional attributes, these attributes sometimes have their own options specified within parentheses and these attributes can be listed in any order.
+
+All of these are syntactically valid, you do not need to remember any specific ordering for any attributes.
+
+```
+dcl user_name string(32);
+dcl user_name static string(32);
+dcl user_name based(p) string(32);
+dcl user_name string(32) volatile stack;
+```
+
 
 ## Scopes
 
