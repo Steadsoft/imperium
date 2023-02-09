@@ -11,10 +11,10 @@ All of these are syntactically valid, you do not need to remember any specific o
 ```
 dcl user_name string(32);
 dcl user_name static string(32);
-dcl user_name based(p) string(32);
+declare user_name based(p) string(32);
 dcl user_name string(32) volatile stack;
 ```
-
+Some keywords have an abbreviated form when the keyword itself is long and a reasonbale abbreviation is possible.
 
 ## Scopes
 
