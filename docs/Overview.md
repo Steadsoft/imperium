@@ -45,7 +45,7 @@ scope interrupts;
 end;
 ```
 
-Here the fully qualified name of the interrupt handler is `interrupts.io.sys$keypress`. Scopes can also define multiple scopings:
+Here the fully qualified name of the interrupt handler is `interrupts.io.sys$keypress`. Scopes can also define multiple scoping levels:
 
 ```
 scope interrupts.io;
