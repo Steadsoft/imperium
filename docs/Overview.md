@@ -85,7 +85,7 @@ function get_length_of_list(list_ptr) retrns (bin(15));
 end func;
 ```
 
-As you can see, some keyword statements are paired with a corresponding `end` statement and the `end` statement can optionally be followed by the keyword that it corresponds too to by the abbreviation of the keyword it corresponds to.
+As you can see, some keyword statements are paired with a corresponding `end` statement and the `end` statement can optionally be followed by the keyword that it corresponds too or by the abbreviation of the keyword it corresponds to.
 
 ## Assignments
 The only way you can update memory using the IPL language is by executing assignment statements. IPL does not support operators that are also assignments. There are no pre or post incerements for example. It is not possible for memory to be updated when evaluating an expression *unless* that expression involves a user written function that contains assigment statements or invokes other procedures or functions that contain assignment statements.
