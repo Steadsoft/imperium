@@ -1,4 +1,4 @@
-
+﻿
 scope grammar.testing.scope;
 
 def memory_map struct;
@@ -9,10 +9,12 @@ def memory_map struct;
      end;
 end;
 
+dcl isr_vectors(1024) pointer section(".isr_vector") retain;
+
 dcl call string(32) pointer pointer;
 dcl return bin(15);
 dcl binary decimal(10);
-
+//dcl all range;
 dcl page (4096) bin(8) static;
 dcl stacks (1024) fixed dec(2) stack;
 //dcl io_buffer (4096) byte(1); // byte; is the same as byte(1);
@@ -33,13 +35,20 @@ end;
 
 dcl buffer string(4096) defined (page);
 
-procedure startup (root_ptr);
+// linkage(section(".isr_vector"), retain, main)
+// genesis(stack)
 
+procedure startup (root_ptr) main ;
 
       arg root_ptr pointer;
 
       dcl map as memory_map based (root_ptr);
 
+      //range = 1>..<4; // 1 to 4 INCINC
+      //range = 1<..>4; // 2 to 3 EXCEXC
+
+      hex = face_23ed_8f0d:h;
+      hex = face 23ed 8f0d:h;
       if a > b then
          
       else
@@ -66,7 +75,7 @@ procedure startup (root_ptr);
       a = (x) --> (1:"1")(2:"2")(3:"3")("*");
       a = (x*y,z) --> (1,10:"1")(2,10:"2")(3,20:"3")("*");      
       a = (x,y) --> (1,10:"A")(2,10:"A")(3,20:"B")("*");    
-      a = (x,y) --> ((1,2),10:"A")(3,20:"B")("*");  
+      a = (x,y) ↦ ((1,2),10:"A")(3,20:"B")("*");  
  
       if expr/36 + 17 = expr_1 then
          if rate = 100 then
