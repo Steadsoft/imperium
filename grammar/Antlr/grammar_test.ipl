@@ -25,7 +25,7 @@ def window_title alias string(128) utf(32);
 
 dcl main_title as window_title;
 
-traits dcl(section);
+traits dcl(section(".vector"), retain);
 
 def other_map struct;
      signature(8) bin(8);
@@ -207,33 +207,33 @@ function get_latest_data (arg_ptr) returns (pointer);
 
 end;   
 
-traits proc(naked);
+traits proc(naked, section("code"), cold);
 
-procedure get_todays_date (date);
+   procedure get_todays_date (date);
 
-   arg date string(32);
+      arg date string(32);
 
-   date ⇐ "10 October 2023";
+      date ⇐ "10 October 2023";
 
-   // Antlr generated
+      // Antlr generated
 
-end;
+   end;
 
-function xlate(x,y,z) returns(bin(15));
+   function xlate(x,y,z) returns(bin(15));
 
-   arg x bin(15);
-   arg y bin(15);   
-   arg z bin(15);
+      arg x bin(15);
+      arg y bin(15);   
+      arg z bin(15);
 
-   // IF x = 0 then return 10
-   // IF x = y then return 100
-   // IF z = -1 and x = 1000 then return -100
-   // IF x = -10 then return -100
-   // return x + y + z
+      // IF x = 0 then return 10
+      // IF x = y then return 100
+      // IF z = -1 and x = 1000 then return -100
+      // IF x = -10 then return -100
+      // return x + y + z
 
-   return (x --> (0:10)(y:100)(z --> (-1:1000)(-10):-100)(x+y+z));
+      return (x --> (0:10)(y:100)(z --> (-1:1000)(-10):-100)(x+y+z));
 
-end;
+   end;
 
 end traits;
 
