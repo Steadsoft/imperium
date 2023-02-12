@@ -125,9 +125,9 @@ returnsDescriptor
     // consider using keyword 'is' instead and forcing it to be right after the params...
 
 stmtBlock
-  : nonexecutableStmt+
-  | executableStmt+
-  | nonexecutableStmt* executableStmt+
+  : passiveStmt+
+  | activeStmt+
+  | passiveStmt* activeStmt+
   ;
 
 terminator
@@ -139,22 +139,18 @@ labelStmt
   ;
 
 passiveStmt
-  : declareStmt | defineStmt | procedure
-  ;
-
-nonexecutableStmt
   : declareStmt
   | defineStmt
+  | procedure
+  | function
   | nullStmt
   ;
 
-executableStmt
+activeStmt
   : labelStmt
   | assignmentStmt
   | callStmt
   | gotoStmt
-  | procedure
-  | function
   | returnStmt
   | ifStmt
   | loopStmt
@@ -457,8 +453,8 @@ returnStmt
   ;
 
 ifStmt
-  : thenClause executableStmt* elseClause? ifEnd
-  | thenClause executableStmt* elifClause+ ifEnd
+  : thenClause activeStmt* elseClause? ifEnd
+  | thenClause activeStmt* elifClause+ ifEnd
   ;
 
 ifEnd
@@ -470,18 +466,18 @@ thenClause
   ;
 
 elseClause
-  : ELSE executableStmt*
+  : ELSE activeStmt*
   ;
 
 elifClause
-  : ELIF expression THEN executableStmt* elseClause?
+  : ELIF expression THEN activeStmt* elseClause?
   ;
 
 loopStmt
-  : LOOP  SEMICOLON executableStmt* loopEnd
+  : LOOP  SEMICOLON activeStmt* loopEnd
     | LOOP (
-          (whileOption untilOption? SEMICOLON executableStmt* loopEnd)
-        | (untilOption whileOption? SEMICOLON executableStmt* loopEnd)
+          (whileOption untilOption? SEMICOLON activeStmt* loopEnd)
+        | (untilOption whileOption? SEMICOLON activeStmt* loopEnd)
         )
   ;
 
@@ -510,11 +506,11 @@ selectClause
   ;
 
 whenClause
-  : WHEN (ANY | ALL)? LPAR (expression (COMMA expression)*) RPAR executableStmt*
+  : WHEN (ANY | ALL)? LPAR (expression (COMMA expression)*) RPAR activeStmt*
   ;
 
 otherwiseClause
-  : ELSE executableStmt*
+  : ELSE activeStmt*
   ;
 
 defineStmt // defines a type, like a structure
