@@ -64,15 +64,14 @@ options
 }
 
 translationUnit
-  : BYTE_ORDER_MARK? uses* scope* | passiveStmt* EOF
+  : BYTE_ORDER_MARK? uses* (scope | traits | passiveStmt)* EOF
   ;
 
 uses
   : USES identifier (DOT identifier)* SEMICOLON
   ;
 scope
-  : scopeStmt passiveStmt* scopeEnd
-  | scopeStmt scope scopeEnd
+  : scopeStmt (scope | traits | passiveStmt)* scopeEnd
   ;
 
 scopeStmt
@@ -81,6 +80,26 @@ scopeStmt
 
 scopeEnd
   : END SCOPE? SEMICOLON
+  ;
+
+traits
+  : traitStmt passiveStmt* traitsEnd
+  ;
+
+traitsEnd
+ : END TRAITS? SEMICOLON
+ ;
+
+traitStmt
+  : TRAITS ((declarationTraits procedureTraits?) | (procedureTraits declarationTraits?)) SEMICOLON
+  ;
+
+declarationTraits
+  : DECLARE LPAR SECTION RPAR
+  ;
+
+procedureTraits
+  : PROCEDURE LPAR NAKED RPAR
   ;
 
 procedure

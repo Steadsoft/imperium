@@ -25,6 +25,8 @@ def window_title alias string(128) utf(32);
 
 dcl main_title as window_title;
 
+traits dcl(section);
+
 def other_map struct;
      signature(8) bin(8);
      free_space struct;
@@ -34,6 +36,8 @@ def other_map struct;
 end;
 
 dcl buffer string(4096) defined (page);
+
+end;
 
 // linkage(section(".isr_vector"), retain, main)
 // genesis(stack)
@@ -203,6 +207,8 @@ function get_latest_data (arg_ptr) returns (pointer);
 
 end;   
 
+traits proc(naked);
+
 procedure get_todays_date (date);
 
    arg date string(32);
@@ -229,6 +235,7 @@ function xlate(x,y,z) returns(bin(15));
 
 end;
 
+end traits;
 
 end scope;
 
