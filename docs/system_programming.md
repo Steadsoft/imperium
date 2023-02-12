@@ -29,3 +29,27 @@ datum is declared. This is made possible with the `at` optional attribute.
 A similar specificty is also supported by the use of the `section` optional attribute, this causes designated code or data to be situated within a specific section when 
 the code is linke.
 
+### The `traits` keyword
+The language provides a way to encapsulate declarations with a set of system oriented attributes or traits. Many of these are akin to their C counterparts as specified in the `__attribute__` option.
+
+Rather that repetitively applying such attributes to a host of declaration or procedure we can just create a `traits` block to wrap them:
+
+```
+scope system.vectors;
+    traits proc(naked, section(".vectors"));
+
+      proc Reset_Handler;
+        // copy ISR handler addresses from FLASH to RAM
+      end;
+      
+      procedure Default_Handler;
+
+        loop; // infinite loop
+        end;
+      end;
+
+    end traits;
+end scope;
+```
+Where possible the same terms have been used as are typically used in C systems software. There are optionally two kinds of traits, `procedure` and `declare` traits which apply to procedures/functions and to declarations (like static arrays and so on). Each trait kind has parenthesized commalist of those traits that are applicable to that kind of entity.
+
