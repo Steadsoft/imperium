@@ -64,14 +64,14 @@ options
 }
 
 translationUnit
-  : BYTE_ORDER_MARK? uses* scope* | stmtBlock? EOF
+  : BYTE_ORDER_MARK? uses* scope* | passiveStmt* EOF
   ;
 
 uses
   : USES identifier (DOT identifier)* SEMICOLON
   ;
 scope
-  : scopeStmt stmtBlock? scopeEnd
+  : scopeStmt passiveStmt* scopeEnd
   | scopeStmt scope scopeEnd
   ;
 
@@ -84,11 +84,11 @@ scopeEnd
   ;
 
 procedure
-  : procedureStmt stmtBlock? procedureEnd
+  : procedureStmt passiveStmt* activeStmt* procedureEnd
   ;
 
 function
-  :  functionStmt  stmtBlock? functionEnd
+  :  functionStmt passiveStmt* activeStmt* functionEnd
   ;
 
 procedureStmt
@@ -123,12 +123,6 @@ returnsDescriptor
   : RETURNS LPAR dataAttribute RPAR
   ;
     // consider using keyword 'is' instead and forcing it to be right after the params...
-
-stmtBlock
-  : passiveStmt+
-  | activeStmt+
-  | passiveStmt* activeStmt+
-  ;
 
 terminator
   : SEMICOLON
