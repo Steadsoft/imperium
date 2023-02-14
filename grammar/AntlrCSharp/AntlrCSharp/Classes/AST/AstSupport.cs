@@ -7,8 +7,13 @@ namespace AntlrCSharp
 {
     public static class AstSupport
     {
-        public static string GetSpelling(IdentifierContext C)
+        public static string GetSpelling(IdentifierContext C, out bool IsKeyword)
         {
+
+            if (Has(C.IDENTIFIER))
+                IsKeyword = false;
+            else
+                IsKeyword = true;
             return C.GetText();
         }
 

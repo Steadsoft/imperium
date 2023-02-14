@@ -12,7 +12,7 @@ namespace AntlrCSharp
         }
         private AstScope(ScopeContext C):base(C.Start.Line)
         {
-            NameElements = C.scopeStmt().identifier().Cast<IdentifierContext>().Select(id => AstSupport.GetSpelling(id)).ToArray();
+            NameElements = C.scopeStmt().identifier().Cast<IdentifierContext>().Select(id => AstSupport.GetSpelling(id, out var kw)).ToArray();
         }
 
         public override string ToString()

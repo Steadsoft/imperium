@@ -4,6 +4,7 @@ namespace AntlrCSharp
 {
     public class AstDeclaration : AstStmt
     {
+        public readonly bool IsKeyword;
         public string Spelling { get; private set; }
         public int BINARY { get; set; }
         public int DECIMAL { get; set; }
@@ -23,9 +24,9 @@ namespace AntlrCSharp
         public AstDeclaration(DeclareStmtContext C) : base(C)
         {
             if (C.declarationBody() != null)
-                Spelling = AstSupport.GetSpelling(C.declarationBody().identifier());
+                Spelling = AstSupport.GetSpelling(C.declarationBody().identifier(), out IsKeyword);
             else
-                Spelling = AstSupport.GetSpelling(C.identifier());
+                Spelling = AstSupport.GetSpelling(C.identifier(), out IsKeyword);
 
         }
 
