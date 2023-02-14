@@ -42,6 +42,13 @@ end;
 // linkage(section(".isr_vector"), retain, main)
 // genesis(stack)
 
+intrinsic breakpoint target(arm);
+
+   emit ("bkpt 255");
+	emit ("bx lr");
+
+end;
+
 procedure startup (root_ptr) main ;
 
       arg root_ptr pointer;
