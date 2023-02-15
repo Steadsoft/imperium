@@ -95,7 +95,7 @@ traitsEnd
  ;
 
 traitStmt
-  : TRAITS ((declarationTraits procedureTraits?) | (procedureTraits declarationTraits?)) SEMICOLON
+  : TRAITS (declarationTraits | procedureTraits) SEMICOLON
   ;
 
 declarationTraits
@@ -109,12 +109,15 @@ declarationTrait
   ;
 
 procedureTraits
-  : PROCEDURE LPAR procedureTrait (COMMA procedureTrait)* RPAR
+  : PROCEDURE LPAR procedureTraitsList RPAR
+  ;
+
+procedureTraitsList
+  : procedureTrait (COMMA procedureTrait)*
   ;
 
 procedureTrait
   : COLD
-  | INTERRUPT
   // there might be a case to be made for a limited type of declaration, a "reg" or "register. 
   // A naked procedure could then declare say an integer as a "reg" meaning it acts as a local variable BUILTIN
   // is not on the stack.
@@ -132,7 +135,11 @@ function
   ;
 
 procedureStmt
-  : PROCEDURE identifier (procDescriptor procedureAttributes*) | (procedureAttributes* procDescriptor) nullStmt
+  : PROCEDURE identifier parameterNameCommalist? procedureAttributes? (TRAITS LPAR procedureTraitsList RPAR)? SEMICOLON
+  ;
+
+functionStmt
+  : FUNCTION identifier parameterNameCommalist? returnsDescriptor functionAttributes? SEMICOLON
   ;
 
 targetSpec
@@ -142,15 +149,16 @@ targetSpec
 procedureAttributes
   : MAIN
   | INTRINSIC targetSpec
+  | RECURSIVE
+  | INTERRUPT
+  | COROUTINE
   ;
 
 functionAttributes
   : INTRINSIC targetSpec 
+  | RECURSIVE
+  | COFUNCTION
   ;  
-
-functionStmt
-  : FUNCTION identifier funcDescriptor SEMICOLON
-  ;
 
 procedureEnd
   : END PROCEDURE? SEMICOLON
@@ -158,14 +166,6 @@ procedureEnd
 
 functionEnd
   : END FUNCTION? SEMICOLON
-  ;
-
-procDescriptor
-  : parameterNameCommalist? ((coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE?))
-  ;
-
-funcDescriptor
-  : parameterNameCommalist? ((returnsDescriptor coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE? functionAttributes*  returnsDescriptor))
   ;
 
 returnsDescriptor

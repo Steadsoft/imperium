@@ -49,7 +49,7 @@ procedure breakpoint(X) intrinsic(arm) ;
 
 end;
 
-procedure startup (root_ptr) main ;
+procedure startup (root_ptr) main traits(section("abc"));
 
       arg root_ptr pointer;
 

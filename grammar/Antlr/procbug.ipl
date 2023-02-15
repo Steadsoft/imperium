@@ -1,0 +1,19 @@
+procedure a(b);
+
+end;
+
+procedure a(b,c,d);
+
+end;
+
+procedure a(b) main;
+
+end;
+
+procedure a(b) recursive;
+
+end;
+
+function a(b) returns (pointer);
+
+end;

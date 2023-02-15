@@ -1,0 +1,37 @@
+scope a;
+
+end;
+
+scope b;
+
+end;
+
+traits dcl(section);
+
+end;
+
+scope c;
+    traits dcl(section);
+    
+    end;
+end;
+
+
+scope d;
+    traits dcl(section);
+        dcl x pointer;
+    end;
+end;
+
+
+scope e;
+    traits dcl(section);
+        dcl x pointer;
+
+        proc start(x);
+
+        end;
+        
+    end;
+end;
+
