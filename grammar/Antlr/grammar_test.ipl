@@ -42,7 +42,7 @@ end;
 // linkage(section(".isr_vector"), retain, main)
 // genesis(stack)
 
-intrinsic breakpoint target(arm);
+procedure breakpoint(X) intrinsic(arm) ;
 
    emit ("bkpt 255");
 	emit ("bx lr");

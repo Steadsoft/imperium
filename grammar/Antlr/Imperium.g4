@@ -131,25 +131,22 @@ function
   :  functionStmt passiveStmt* activeStmt* functionEnd
   ;
 
-intrinsic
-  : intrinsicStmt (activeStmt | emitStmt)* intrinsicEnd
-  ;
-
 procedureStmt
-  : PROCEDURE identifier (procDescriptor procedureAttributes*) | (procedureAttributes* procDescriptor) SEMICOLON
-  ;
-
-intrinsicStmt
-  : INTRINSIC identifier parameterNameCommalist? targetSpec SEMICOLON
+  : PROCEDURE identifier (procDescriptor procedureAttributes*) | (procedureAttributes* procDescriptor) nullStmt
   ;
 
 targetSpec
-  : TARGET LPAR identifier RPAR
+  : LPAR identifier RPAR
   ;
 
 procedureAttributes
   : MAIN
+  | INTRINSIC targetSpec
   ;
+
+functionAttributes
+  : INTRINSIC targetSpec 
+  ;  
 
 functionStmt
   : FUNCTION identifier funcDescriptor SEMICOLON
@@ -163,16 +160,12 @@ functionEnd
   : END FUNCTION? SEMICOLON
   ;
 
-intrinsicEnd
-  : END INTRINSIC? SEMICOLON 
-  ;
-
 procDescriptor
   : parameterNameCommalist? ((coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE?))
   ;
 
 funcDescriptor
-  : parameterNameCommalist? ((returnsDescriptor coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE? returnsDescriptor))
+  : parameterNameCommalist? ((returnsDescriptor coprocedureSpecifier?) | ((coprocedureSpecifier | handlerSpecifier)? RECURSIVE? functionAttributes*  returnsDescriptor))
   ;
 
 returnsDescriptor
@@ -197,7 +190,6 @@ passiveStmt
   | defineStmt
   | procedure
   | function
-  | intrinsic
   | nullStmt
   ;
 
@@ -212,6 +204,7 @@ activeStmt
   | selectStmt
   | endloopStmt
   | reloopStmt
+  | emitStmt
   | nullStmt
   ;
 
