@@ -14,7 +14,7 @@ namespace AntlrCSharp
             ;
         }
 
-        public AstStmt(ExecutableStmtContext C) : base(C.Start.Line)
+        public AstStmt(ActiveStmtContext C) : base(C.Start.Line)
         {
             ;
         }
