@@ -37,6 +37,7 @@
     "Defined": "defined", // might want a better term. 'overlay' perhaps
     "Elif": "elif",
     "Else": "else",
+    "Emit": "emit",
     "End": "end",
     "Endloop": "endloop",
     "Entry": "entry",
@@ -81,6 +82,7 @@
     "Static": "static",
     "String": "string",
     "Structure": "structure, struct",
+    "Target": "target",
     "Then": "then",
     "To": "to",
     "Traits": "traits",

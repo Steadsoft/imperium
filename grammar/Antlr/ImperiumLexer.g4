@@ -27,6 +27,11 @@ lexer grammar ImperiumLexer;
     }
 }
 
+STRING_LITERAL_1:     (QUOTE    (.)*? QUOTE);
+EMITSTART:            (EMIT WS* OR)  -> pushMode(ASM);
+
+EMIT: 
+           {Lexicon("en")}? ('emit')        ;
 ALIAS: 
            {Lexicon("en")}? ('alias')       ;
 ALIGNED: 
@@ -77,8 +82,7 @@ ELIF:
            {Lexicon("en")}? ('elif')        ;
 ELSE: 
            {Lexicon("en")}? ('else')        ;
-EMIT: 
-           {Lexicon("en")}? ('emit')        ;
+
 END: 
            {Lexicon("en")}? ('end')         ;
 ENDLOOP: 
@@ -209,7 +213,7 @@ NEWLINE:              [\r\n]+ -> skip;
 TAB:                  ('\t')+ -> skip;
 STRING_LITERAL_3:     (TRIQUOTE (.)*? TRIQUOTE);
 STRING_LITERAL_2:     (DIQUOTE  (.)*? DIQUOTE);
-STRING_LITERAL_1:     (QUOTE    (.)*? QUOTE);
+
 BYTE_ORDER_MARK:      ('\uFEFF'); // This is the unicode char seen when reading the file, the three bytes themselves are an encoding and not see by the
 LABEL:                (AT IDENTIFIER);
 BINARY_PATTERN:       ((BIN (' ' BIN)*)+ | (BIN ('_' BIN)*)+) FRAC_B? BASE_B;
@@ -312,4 +316,18 @@ fragment UNICODE_MATH_OPS:  [\u2200-\u22FF]; // Mathematical Operators
 fragment UNICODE_MISC_TECH: [\u2300-\u23FF]; // Includes APL
 fragment UNICODE_MISC_MATH: [\u27C0-\u27EF]; // Miscellaneous match
 
+mode ASM;
+
+
+A_WS:                   (' ')+ -> skip;
+A_NEWLINE:              [\r\n]+ -> skip;
+A_TAB:                  ('\t')+ -> skip;
+BAR: ('|') -> popMode;
+//EMITEND: (';') -> popMode;
+EMITPUNCTUATOR: ('.' | ',');
+E_IDENTIFIER:           (E_IDENTIFIER_START E_IDENTIFIER_REST*);
+fragment E_IDENTIFIER_START: [$a-zA-Z_];
+fragment E_IDENTIFIER_REST:  [$a-zA-Z_0-9];
+E_INTEGER:                   ([1-9] [0-9]*);
+ASSCODE: (.);
 

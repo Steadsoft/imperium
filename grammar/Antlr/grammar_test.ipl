@@ -44,8 +44,10 @@ end;
 
 procedure breakpoint(X) intrinsic(arm) ;
 
-   emit ("bkpt 255");
-	emit ("bx lr");
+   emit |bkpt 255|;
+	emit |bx lr|;
+
+   call emit;
 
 end;
 
