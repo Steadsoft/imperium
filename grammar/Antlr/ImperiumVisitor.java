@@ -10,23 +10,143 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#translation_unit}.
+	 * Visit a parse tree produced by {@link ImperiumParser#translationUnit}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTranslation_unit(ImperiumParser.Translation_unitContext ctx);
+	T visitTranslationUnit(ImperiumParser.TranslationUnitContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#procedure_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#uses}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitProcedure_stmt(ImperiumParser.Procedure_stmtContext ctx);
+	T visitUses(ImperiumParser.UsesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#stmt_block}.
+	 * Visit a parse tree produced by {@link ImperiumParser#scope}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStmt_block(ImperiumParser.Stmt_blockContext ctx);
+	T visitScope(ImperiumParser.ScopeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#scopeStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitScopeStmt(ImperiumParser.ScopeStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#scopeEnd}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitScopeEnd(ImperiumParser.ScopeEndContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#traits}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTraits(ImperiumParser.TraitsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#traitsEnd}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTraitsEnd(ImperiumParser.TraitsEndContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#traitStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTraitStmt(ImperiumParser.TraitStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#declarationTraits}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclarationTraits(ImperiumParser.DeclarationTraitsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#declarationTrait}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclarationTrait(ImperiumParser.DeclarationTraitContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#procedureTraits}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProcedureTraits(ImperiumParser.ProcedureTraitsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#procedureTraitsList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProcedureTraitsList(ImperiumParser.ProcedureTraitsListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#procedureTrait}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProcedureTrait(ImperiumParser.ProcedureTraitContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#procedure}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProcedure(ImperiumParser.ProcedureContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#function}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunction(ImperiumParser.FunctionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#procedureStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProcedureStmt(ImperiumParser.ProcedureStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#functionStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionStmt(ImperiumParser.FunctionStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#targetSpec}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTargetSpec(ImperiumParser.TargetSpecContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#procedureAttributes}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProcedureAttributes(ImperiumParser.ProcedureAttributesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#functionAttributes}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionAttributes(ImperiumParser.FunctionAttributesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#procedureEnd}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProcedureEnd(ImperiumParser.ProcedureEndContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#functionEnd}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionEnd(ImperiumParser.FunctionEndContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#returnsDescriptor}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnsDescriptor(ImperiumParser.ReturnsDescriptorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#terminator}.
 	 * @param ctx the parse tree
@@ -34,121 +154,55 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTerminator(ImperiumParser.TerminatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#label_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#emitStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLabel_stmt(ImperiumParser.Label_stmtContext ctx);
+	T visitEmitStmt(ImperiumParser.EmitStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code PRE}
-	 * labeled alternative in {@link ImperiumParser#nonexecutable_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#labelStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPRE(ImperiumParser.PREContext ctx);
+	T visitLabelStmt(ImperiumParser.LabelStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code DCL}
-	 * labeled alternative in {@link ImperiumParser#nonexecutable_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#passiveStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDCL(ImperiumParser.DCLContext ctx);
+	T visitPassiveStmt(ImperiumParser.PassiveStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code DEF}
-	 * labeled alternative in {@link ImperiumParser#nonexecutable_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#activeStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDEF(ImperiumParser.DEFContext ctx);
+	T visitActiveStmt(ImperiumParser.ActiveStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ASSIGN}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#nullStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitASSIGN(ImperiumParser.ASSIGNContext ctx);
+	T visitNullStmt(ImperiumParser.NullStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code CALL}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#assignmentStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCALL(ImperiumParser.CALLContext ctx);
+	T visitAssignmentStmt(ImperiumParser.AssignmentStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code GOTO}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitGOTO(ImperiumParser.GOTOContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code PROC}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPROC(ImperiumParser.PROCContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code RET}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRET(ImperiumParser.RETContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IF}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIF(ImperiumParser.IFContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code LOOP}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLOOP(ImperiumParser.LOOPContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code LEAVE}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLEAVE(ImperiumParser.LEAVEContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code AGAIN}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAGAIN(ImperiumParser.AGAINContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#preprocessor_stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPreprocessor_stmt(ImperiumParser.Preprocessor_stmtContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#assign_stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAssign_stmt(ImperiumParser.Assign_stmtContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code BASIC_REF}
+	 * Visit a parse tree produced by the {@code BasicRef}
 	 * labeled alternative in {@link ImperiumParser#reference}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBASIC_REF(ImperiumParser.BASIC_REFContext ctx);
+	T visitBasicRef(ImperiumParser.BasicRefContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code PTR_REF}
+	 * Visit a parse tree produced by the {@code PtrRef}
 	 * labeled alternative in {@link ImperiumParser#reference}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPTR_REF(ImperiumParser.PTR_REFContext ctx);
+	T visitPtrRef(ImperiumParser.PtrRefContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#arguments}.
 	 * @param ctx the parse tree
@@ -156,29 +210,29 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitArguments(ImperiumParser.ArgumentsContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#arguments_list}.
+	 * Visit a parse tree produced by {@link ImperiumParser#argumentsList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitArguments_list(ImperiumParser.Arguments_listContext ctx);
+	T visitArgumentsList(ImperiumParser.ArgumentsListContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#basic_reference}.
+	 * Visit a parse tree produced by {@link ImperiumParser#basicReference}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBasic_reference(ImperiumParser.Basic_referenceContext ctx);
+	T visitBasicReference(ImperiumParser.BasicReferenceContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#structure_qualification}.
+	 * Visit a parse tree produced by {@link ImperiumParser#structureQualification}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStructure_qualification(ImperiumParser.Structure_qualificationContext ctx);
+	T visitStructureQualification(ImperiumParser.StructureQualificationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#structure_qualification_list}.
+	 * Visit a parse tree produced by {@link ImperiumParser#structureQualificationList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStructure_qualification_list(ImperiumParser.Structure_qualification_listContext ctx);
+	T visitStructureQualificationList(ImperiumParser.StructureQualificationListContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#subscript}.
 	 * @param ctx the parse tree
@@ -186,199 +240,285 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSubscript(ImperiumParser.SubscriptContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#subscript_commalist}.
+	 * Visit a parse tree produced by {@link ImperiumParser#subscriptCommalist}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSubscript_commalist(ImperiumParser.Subscript_commalistContext ctx);
+	T visitSubscriptCommalist(ImperiumParser.SubscriptCommalistContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#expression}.
+	 * Visit a parse tree produced by {@link ImperiumParser#parenthesizedExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression(ImperiumParser.ExpressionContext ctx);
+	T visitParenthesizedExpression(ImperiumParser.ParenthesizedExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#expression_9}.
+	 * Visit a parse tree produced by {@link ImperiumParser#primitiveExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression_9(ImperiumParser.Expression_9Context ctx);
+	T visitPrimitiveExpression(ImperiumParser.PrimitiveExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#expression_8}.
+	 * Visit a parse tree produced by {@link ImperiumParser#prefixExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression_8(ImperiumParser.Expression_8Context ctx);
+	T visitPrefixExpression(ImperiumParser.PrefixExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#expression_7}.
+	 * Visit a parse tree produced by {@link ImperiumParser#bitAdjustOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression_7(ImperiumParser.Expression_7Context ctx);
+	T visitBitAdjustOperator(ImperiumParser.BitAdjustOperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#expression_6}.
+	 * Visit a parse tree produced by {@link ImperiumParser#additionOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression_6(ImperiumParser.Expression_6Context ctx);
+	T visitAdditionOperator(ImperiumParser.AdditionOperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#expression_5}.
+	 * Visit a parse tree produced by {@link ImperiumParser#multiplyOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression_5(ImperiumParser.Expression_5Context ctx);
+	T visitMultiplyOperator(ImperiumParser.MultiplyOperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#expression_4}.
+	 * Visit a parse tree produced by {@link ImperiumParser#boolAndOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression_4(ImperiumParser.Expression_4Context ctx);
+	T visitBoolAndOperator(ImperiumParser.BoolAndOperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#expression_3}.
+	 * Visit a parse tree produced by {@link ImperiumParser#boolXorOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression_3(ImperiumParser.Expression_3Context ctx);
+	T visitBoolXorOperator(ImperiumParser.BoolXorOperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#expression_2}.
+	 * Visit a parse tree produced by {@link ImperiumParser#boolOrOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression_2(ImperiumParser.Expression_2Context ctx);
+	T visitBoolOrOperator(ImperiumParser.BoolOrOperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#expression_1}.
+	 * Visit a parse tree produced by the {@code ExprBoolAnd}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression_1(ImperiumParser.Expression_1Context ctx);
+	T visitExprBoolAnd(ImperiumParser.ExprBoolAndContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#prefix_expression}.
+	 * Visit a parse tree produced by the {@code ExprConcat}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrefix_expression(ImperiumParser.Prefix_expressionContext ctx);
+	T visitExprConcat(ImperiumParser.ExprConcatContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#parenthesized_expression}.
+	 * Visit a parse tree produced by the {@code ExprRaise}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitParenthesized_expression(ImperiumParser.Parenthesized_expressionContext ctx);
+	T visitExprRaise(ImperiumParser.ExprRaiseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#primitive_expression}.
+	 * Visit a parse tree produced by the {@code ExprBoolXor}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrimitive_expression(ImperiumParser.Primitive_expressionContext ctx);
+	T visitExprBoolXor(ImperiumParser.ExprBoolXorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#prefix_operator}.
+	 * Visit a parse tree produced by the {@code ExprLogAnd}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrefix_operator(ImperiumParser.Prefix_operatorContext ctx);
+	T visitExprLogAnd(ImperiumParser.ExprLogAndContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#comparison_operator}.
+	 * Visit a parse tree produced by the {@code ExprBitAdjust}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitComparison_operator(ImperiumParser.Comparison_operatorContext ctx);
+	T visitExprBitAdjust(ImperiumParser.ExprBitAdjustContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#shift_operator}.
+	 * Visit a parse tree produced by the {@code ExprAddSub}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitShift_operator(ImperiumParser.Shift_operatorContext ctx);
+	T visitExprAddSub(ImperiumParser.ExprAddSubContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code KEYWD}
-	 * labeled alternative in {@link ImperiumParser#identifier}.
+	 * Visit a parse tree produced by the {@code ExpreMap1}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitKEYWD(ImperiumParser.KEYWDContext ctx);
+	T visitExpreMap1(ImperiumParser.ExpreMap1Context ctx);
 	/**
-	 * Visit a parse tree produced by the {@code identifier_IDENTIFIER}
-	 * labeled alternative in {@link ImperiumParser#identifier}.
+	 * Visit a parse tree produced by the {@code ExprParenthesized}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIdentifier_IDENTIFIER(ImperiumParser.Identifier_IDENTIFIERContext ctx);
+	T visitExprParenthesized(ImperiumParser.ExprParenthesizedContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#keyword}.
+	 * Visit a parse tree produced by the {@code ExpreMap2}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitKeyword(ImperiumParser.KeywordContext ctx);
+	T visitExpreMap2(ImperiumParser.ExpreMap2Context ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#call_stmt}.
+	 * Visit a parse tree produced by the {@code ExprMulDiv}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCall_stmt(ImperiumParser.Call_stmtContext ctx);
+	T visitExprMulDiv(ImperiumParser.ExprMulDivContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#goto_stmt}.
+	 * Visit a parse tree produced by the {@code ExprLogOr}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitGoto_stmt(ImperiumParser.Goto_stmtContext ctx);
+	T visitExprLogOr(ImperiumParser.ExprLogOrContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#end_stmt}.
+	 * Visit a parse tree produced by the {@code ExprCompare}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitEnd_stmt(ImperiumParser.End_stmtContext ctx);
+	T visitExprCompare(ImperiumParser.ExprCompareContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#endloop_stmt}.
+	 * Visit a parse tree produced by the {@code ExprPrefixed}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitEndloop_stmt(ImperiumParser.Endloop_stmtContext ctx);
+	T visitExprPrefixed(ImperiumParser.ExprPrefixedContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#reloop_stmt}.
+	 * Visit a parse tree produced by the {@code ExprBoolOr}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitReloop_stmt(ImperiumParser.Reloop_stmtContext ctx);
+	T visitExprBoolOr(ImperiumParser.ExprBoolOrContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#declare_stmt}.
+	 * Visit a parse tree produced by the {@code ExprPrimitive}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDeclare_stmt(ImperiumParser.Declare_stmtContext ctx);
+	T visitExprPrimitive(ImperiumParser.ExprPrimitiveContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#type_info}.
+	 * Visit a parse tree produced by {@link ImperiumParser#map_set}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitType_info(ImperiumParser.Type_infoContext ctx);
+	T visitMap_set(ImperiumParser.Map_setContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#dimension_suffix}.
+	 * Visit a parse tree produced by {@link ImperiumParser#bool_set}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDimension_suffix(ImperiumParser.Dimension_suffixContext ctx);
+	T visitBool_set(ImperiumParser.Bool_setContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#bound_pair}.
+	 * Visit a parse tree produced by {@link ImperiumParser#prefixOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBound_pair(ImperiumParser.Bound_pairContext ctx);
+	T visitPrefixOperator(ImperiumParser.PrefixOperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#bound_pair_commalist}.
+	 * Visit a parse tree produced by {@link ImperiumParser#comparisonOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBound_pair_commalist(ImperiumParser.Bound_pair_commalistContext ctx);
+	T visitComparisonOperator(ImperiumParser.ComparisonOperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#lower_bound}.
+	 * Visit a parse tree produced by {@link ImperiumParser#shiftOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLower_bound(ImperiumParser.Lower_boundContext ctx);
+	T visitShiftOperator(ImperiumParser.ShiftOperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#upper_bound}.
+	 * Visit a parse tree produced by {@link ImperiumParser#callStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUpper_bound(ImperiumParser.Upper_boundContext ctx);
+	T visitCallStmt(ImperiumParser.CallStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#gotoStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGotoStmt(ImperiumParser.GotoStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#endloopStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEndloopStmt(ImperiumParser.EndloopStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#reloopStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReloopStmt(ImperiumParser.ReloopStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#declareStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclareStmt(ImperiumParser.DeclareStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#declareAsBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclareAsBody(ImperiumParser.DeclareAsBodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#declarationBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclarationBody(ImperiumParser.DeclarationBodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#typeInfo}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTypeInfo(ImperiumParser.TypeInfoContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#dimensionSuffix}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDimensionSuffix(ImperiumParser.DimensionSuffixContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#boundPair}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoundPair(ImperiumParser.BoundPairContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#boundPairCommalist}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoundPairCommalist(ImperiumParser.BoundPairCommalistContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#lowerBound}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLowerBound(ImperiumParser.LowerBoundContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#upperBound}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUpperBound(ImperiumParser.UpperBoundContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#attribute}.
 	 * @param ctx the parse tree
@@ -386,117 +526,35 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAttribute(ImperiumParser.AttributeContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code BIN}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Visit a parse tree produced by {@link ImperiumParser#memoryAttribute}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBIN(ImperiumParser.BINContext ctx);
+	T visitMemoryAttribute(ImperiumParser.MemoryAttributeContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code DEC}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Visit a parse tree produced by {@link ImperiumParser#dataAttribute}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDEC(ImperiumParser.DECContext ctx);
+	T visitDataAttribute(ImperiumParser.DataAttributeContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code PTR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Visit a parse tree produced by {@link ImperiumParser#linkage_attribute}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPTR(ImperiumParser.PTRContext ctx);
+	T visitLinkage_attribute(ImperiumParser.Linkage_attributeContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code BIT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Visit a parse tree produced by {@link ImperiumParser#utfSpec}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBIT(ImperiumParser.BITContext ctx);
+	T visitUtfSpec(ImperiumParser.UtfSpecContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code CHAR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Visit a parse tree produced by {@link ImperiumParser#rawSpec}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCHAR(ImperiumParser.CHARContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code STR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSTR(ImperiumParser.STRContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code ENT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitENT(ImperiumParser.ENTContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code FIX}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFIX(ImperiumParser.FIXContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code FLT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFLT(ImperiumParser.FLTContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code OFF}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOFF(ImperiumParser.OFFContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code VNG}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVNG(ImperiumParser.VNGContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code COR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCOR(ImperiumParser.CORContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code COF}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCOF(ImperiumParser.COFContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code BLTN}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBLTN(ImperiumParser.BLTNContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code INTR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitINTR(ImperiumParser.INTRContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IDENT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIDENT(ImperiumParser.IDENTContext ctx);
+	T visitRawSpec(ImperiumParser.RawSpecContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#precision}.
 	 * @param ctx the parse tree
@@ -504,11 +562,11 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrecision(ImperiumParser.PrecisionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#number_of_digits}.
+	 * Visit a parse tree produced by {@link ImperiumParser#numberOfDigits}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNumber_of_digits(ImperiumParser.Number_of_digitsContext ctx);
+	T visitNumberOfDigits(ImperiumParser.NumberOfDigitsContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#scale_factor}.
 	 * @param ctx the parse tree
@@ -516,11 +574,17 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitScale_factor(ImperiumParser.Scale_factorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#max_length}.
+	 * Visit a parse tree produced by {@link ImperiumParser#maxStringLength}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMax_length(ImperiumParser.Max_lengthContext ctx);
+	T visitMaxStringLength(ImperiumParser.MaxStringLengthContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#maxLength}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMaxLength(ImperiumParser.MaxLengthContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#based}.
 	 * @param ctx the parse tree
@@ -534,126 +598,237 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDefined(ImperiumParser.DefinedContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#entry_information}.
+	 * Visit a parse tree produced by {@link ImperiumParser#coprocedureSpecifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitEntry_information(ImperiumParser.Entry_informationContext ctx);
+	T visitCoprocedureSpecifier(ImperiumParser.CoprocedureSpecifierContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#coprocedure_specifier}.
+	 * Visit a parse tree produced by {@link ImperiumParser#handlerSpecifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCoprocedure_specifier(ImperiumParser.Coprocedure_specifierContext ctx);
+	T visitHandlerSpecifier(ImperiumParser.HandlerSpecifierContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#parameter_name_commalist}.
+	 * Visit a parse tree produced by {@link ImperiumParser#parameterNameCommalist}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitParameter_name_commalist(ImperiumParser.Parameter_name_commalistContext ctx);
+	T visitParameterNameCommalist(ImperiumParser.ParameterNameCommalistContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#returns_descriptor}.
+	 * Visit a parse tree produced by {@link ImperiumParser#returnStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitReturns_descriptor(ImperiumParser.Returns_descriptorContext ctx);
+	T visitReturnStmt(ImperiumParser.ReturnStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#return_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#ifStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitReturn_stmt(ImperiumParser.Return_stmtContext ctx);
+	T visitIfStmt(ImperiumParser.IfStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#if_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#ifEnd}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIf_stmt(ImperiumParser.If_stmtContext ctx);
+	T visitIfEnd(ImperiumParser.IfEndContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#then_clause}.
+	 * Visit a parse tree produced by {@link ImperiumParser#thenClause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitThen_clause(ImperiumParser.Then_clauseContext ctx);
+	T visitThenClause(ImperiumParser.ThenClauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#else_clause}.
+	 * Visit a parse tree produced by {@link ImperiumParser#elseClause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitElse_clause(ImperiumParser.Else_clauseContext ctx);
+	T visitElseClause(ImperiumParser.ElseClauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#elif_clause}.
+	 * Visit a parse tree produced by {@link ImperiumParser#elifClause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitElif_clause(ImperiumParser.Elif_clauseContext ctx);
+	T visitElifClause(ImperiumParser.ElifClauseContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code BASIC_LOOP}
-	 * labeled alternative in {@link ImperiumParser#loop_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#loopStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBASIC_LOOP(ImperiumParser.BASIC_LOOPContext ctx);
+	T visitLoopStmt(ImperiumParser.LoopStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code WHILE_UNTIL}
-	 * labeled alternative in {@link ImperiumParser#loop_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#loopEnd}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWHILE_UNTIL(ImperiumParser.WHILE_UNTILContext ctx);
+	T visitLoopEnd(ImperiumParser.LoopEndContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code UNTIL_WHILE}
-	 * labeled alternative in {@link ImperiumParser#loop_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#whileOption}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUNTIL_WHILE(ImperiumParser.UNTIL_WHILEContext ctx);
+	T visitWhileOption(ImperiumParser.WhileOptionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#while_option}.
+	 * Visit a parse tree produced by {@link ImperiumParser#untilOption}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWhile_option(ImperiumParser.While_optionContext ctx);
+	T visitUntilOption(ImperiumParser.UntilOptionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#until_option}.
+	 * Visit a parse tree produced by {@link ImperiumParser#selectStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUntil_option(ImperiumParser.Until_optionContext ctx);
+	T visitSelectStmt(ImperiumParser.SelectStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#define_stmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#selectEnd}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDefine_stmt(ImperiumParser.Define_stmtContext ctx);
+	T visitSelectEnd(ImperiumParser.SelectEndContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#numeric_literal}.
+	 * Visit a parse tree produced by {@link ImperiumParser#selectClause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNumeric_literal(ImperiumParser.Numeric_literalContext ctx);
+	T visitSelectClause(ImperiumParser.SelectClauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#hexadecimal_literal}.
+	 * Visit a parse tree produced by {@link ImperiumParser#whenClause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitHexadecimal_literal(ImperiumParser.Hexadecimal_literalContext ctx);
+	T visitWhenClause(ImperiumParser.WhenClauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#octal_literal}.
+	 * Visit a parse tree produced by {@link ImperiumParser#otherwiseClause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitOctal_literal(ImperiumParser.Octal_literalContext ctx);
+	T visitOtherwiseClause(ImperiumParser.OtherwiseClauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#decimal_literal}.
+	 * Visit a parse tree produced by {@link ImperiumParser#defineStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDecimal_literal(ImperiumParser.Decimal_literalContext ctx);
+	T visitDefineStmt(ImperiumParser.DefineStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#binary_literal}.
+	 * Visit a parse tree produced by {@link ImperiumParser#enumType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBinary_literal(ImperiumParser.Binary_literalContext ctx);
+	T visitEnumType(ImperiumParser.EnumTypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#aliasType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAliasType(ImperiumParser.AliasTypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#binaryEnum}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBinaryEnum(ImperiumParser.BinaryEnumContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#decimalEnum}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDecimalEnum(ImperiumParser.DecimalEnumContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#stringEnum}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStringEnum(ImperiumParser.StringEnumContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#bitEnum}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBitEnum(ImperiumParser.BitEnumContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#enumBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEnumBody(ImperiumParser.EnumBodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#enumLiteral}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEnumLiteral(ImperiumParser.EnumLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#structType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStructType(ImperiumParser.StructTypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#structBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStructBody(ImperiumParser.StructBodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#structMemberList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStructMemberList(ImperiumParser.StructMemberListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#structSubstruct}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStructSubstruct(ImperiumParser.StructSubstructContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#structMember}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStructMember(ImperiumParser.StructMemberContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#stringLiteral}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStringLiteral(ImperiumParser.StringLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#numericLiteral}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNumericLiteral(ImperiumParser.NumericLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#hexLiteral}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHexLiteral(ImperiumParser.HexLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#octalLiteral}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOctalLiteral(ImperiumParser.OctalLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#decimalLiteral}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDecimalLiteral(ImperiumParser.DecimalLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#binaryLiteral}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBinaryLiteral(ImperiumParser.BinaryLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link ImperiumParser#identifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIdentifier(ImperiumParser.IdentifierContext ctx);
 }

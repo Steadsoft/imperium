@@ -81,6 +81,86 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitScopeEnd([NotNull] ImperiumParser.ScopeEndContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.traits"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTraits([NotNull] ImperiumParser.TraitsContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.traits"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTraits([NotNull] ImperiumParser.TraitsContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.traitsEnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTraitsEnd([NotNull] ImperiumParser.TraitsEndContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.traitsEnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTraitsEnd([NotNull] ImperiumParser.TraitsEndContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.traitStmt"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTraitStmt([NotNull] ImperiumParser.TraitStmtContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.traitStmt"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTraitStmt([NotNull] ImperiumParser.TraitStmtContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.declarationTraits"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDeclarationTraits([NotNull] ImperiumParser.DeclarationTraitsContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.declarationTraits"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDeclarationTraits([NotNull] ImperiumParser.DeclarationTraitsContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.declarationTrait"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDeclarationTrait([NotNull] ImperiumParser.DeclarationTraitContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.declarationTrait"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDeclarationTrait([NotNull] ImperiumParser.DeclarationTraitContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.procedureTraits"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterProcedureTraits([NotNull] ImperiumParser.ProcedureTraitsContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.procedureTraits"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitProcedureTraits([NotNull] ImperiumParser.ProcedureTraitsContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.procedureTraitsList"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterProcedureTraitsList([NotNull] ImperiumParser.ProcedureTraitsListContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.procedureTraitsList"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitProcedureTraitsList([NotNull] ImperiumParser.ProcedureTraitsListContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.procedureTrait"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterProcedureTrait([NotNull] ImperiumParser.ProcedureTraitContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.procedureTrait"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitProcedureTrait([NotNull] ImperiumParser.ProcedureTraitContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.procedure"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -90,6 +170,16 @@ public interface IImperiumListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitProcedure([NotNull] ImperiumParser.ProcedureContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.function"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFunction([NotNull] ImperiumParser.FunctionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.function"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFunction([NotNull] ImperiumParser.FunctionContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.procedureStmt"/>.
 	/// </summary>
@@ -111,6 +201,36 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitFunctionStmt([NotNull] ImperiumParser.FunctionStmtContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.targetSpec"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTargetSpec([NotNull] ImperiumParser.TargetSpecContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.targetSpec"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTargetSpec([NotNull] ImperiumParser.TargetSpecContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.procedureAttributes"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterProcedureAttributes([NotNull] ImperiumParser.ProcedureAttributesContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.procedureAttributes"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitProcedureAttributes([NotNull] ImperiumParser.ProcedureAttributesContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.functionAttributes"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFunctionAttributes([NotNull] ImperiumParser.FunctionAttributesContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.functionAttributes"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFunctionAttributes([NotNull] ImperiumParser.FunctionAttributesContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.procedureEnd"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -131,26 +251,6 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitFunctionEnd([NotNull] ImperiumParser.FunctionEndContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="ImperiumParser.procDescriptor"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterProcDescriptor([NotNull] ImperiumParser.ProcDescriptorContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="ImperiumParser.procDescriptor"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitProcDescriptor([NotNull] ImperiumParser.ProcDescriptorContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="ImperiumParser.funcDescriptor"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterFuncDescriptor([NotNull] ImperiumParser.FuncDescriptorContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="ImperiumParser.funcDescriptor"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitFuncDescriptor([NotNull] ImperiumParser.FuncDescriptorContext context);
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.returnsDescriptor"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -160,16 +260,6 @@ public interface IImperiumListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitReturnsDescriptor([NotNull] ImperiumParser.ReturnsDescriptorContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="ImperiumParser.stmtBlock"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterStmtBlock([NotNull] ImperiumParser.StmtBlockContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="ImperiumParser.stmtBlock"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitStmtBlock([NotNull] ImperiumParser.StmtBlockContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.terminator"/>.
 	/// </summary>
@@ -181,6 +271,16 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitTerminator([NotNull] ImperiumParser.TerminatorContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.emitStmt"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterEmitStmt([NotNull] ImperiumParser.EmitStmtContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.emitStmt"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitEmitStmt([NotNull] ImperiumParser.EmitStmtContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.labelStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -191,25 +291,25 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitLabelStmt([NotNull] ImperiumParser.LabelStmtContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="ImperiumParser.nonexecutableStmt"/>.
+	/// Enter a parse tree produced by <see cref="ImperiumParser.passiveStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterNonexecutableStmt([NotNull] ImperiumParser.NonexecutableStmtContext context);
+	void EnterPassiveStmt([NotNull] ImperiumParser.PassiveStmtContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="ImperiumParser.nonexecutableStmt"/>.
+	/// Exit a parse tree produced by <see cref="ImperiumParser.passiveStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitNonexecutableStmt([NotNull] ImperiumParser.NonexecutableStmtContext context);
+	void ExitPassiveStmt([NotNull] ImperiumParser.PassiveStmtContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="ImperiumParser.executableStmt"/>.
+	/// Enter a parse tree produced by <see cref="ImperiumParser.activeStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExecutableStmt([NotNull] ImperiumParser.ExecutableStmtContext context);
+	void EnterActiveStmt([NotNull] ImperiumParser.ActiveStmtContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="ImperiumParser.executableStmt"/>.
+	/// Exit a parse tree produced by <see cref="ImperiumParser.activeStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExecutableStmt([NotNull] ImperiumParser.ExecutableStmtContext context);
+	void ExitActiveStmt([NotNull] ImperiumParser.ActiveStmtContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.nullStmt"/>.
 	/// </summary>
@@ -231,15 +331,29 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitAssignmentStmt([NotNull] ImperiumParser.AssignmentStmtContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="ImperiumParser.reference"/>.
+	/// Enter a parse tree produced by the <c>BasicRef</c>
+	/// labeled alternative in <see cref="ImperiumParser.reference"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterReference([NotNull] ImperiumParser.ReferenceContext context);
+	void EnterBasicRef([NotNull] ImperiumParser.BasicRefContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="ImperiumParser.reference"/>.
+	/// Exit a parse tree produced by the <c>BasicRef</c>
+	/// labeled alternative in <see cref="ImperiumParser.reference"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitReference([NotNull] ImperiumParser.ReferenceContext context);
+	void ExitBasicRef([NotNull] ImperiumParser.BasicRefContext context);
+	/// <summary>
+	/// Enter a parse tree produced by the <c>PtrRef</c>
+	/// labeled alternative in <see cref="ImperiumParser.reference"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterPtrRef([NotNull] ImperiumParser.PtrRefContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>PtrRef</c>
+	/// labeled alternative in <see cref="ImperiumParser.reference"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitPtrRef([NotNull] ImperiumParser.PtrRefContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.arguments"/>.
 	/// </summary>
@@ -425,6 +539,18 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitExprConcat([NotNull] ImperiumParser.ExprConcatContext context);
 	/// <summary>
+	/// Enter a parse tree produced by the <c>ExprRaise</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExprRaise([NotNull] ImperiumParser.ExprRaiseContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>ExprRaise</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExprRaise([NotNull] ImperiumParser.ExprRaiseContext context);
+	/// <summary>
 	/// Enter a parse tree produced by the <c>ExprBoolXor</c>
 	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
@@ -473,6 +599,18 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitExprAddSub([NotNull] ImperiumParser.ExprAddSubContext context);
 	/// <summary>
+	/// Enter a parse tree produced by the <c>ExpreMap1</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExpreMap1([NotNull] ImperiumParser.ExpreMap1Context context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>ExpreMap1</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExpreMap1([NotNull] ImperiumParser.ExpreMap1Context context);
+	/// <summary>
 	/// Enter a parse tree produced by the <c>ExprParenthesized</c>
 	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
 	/// </summary>
@@ -484,6 +622,18 @@ public interface IImperiumListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitExprParenthesized([NotNull] ImperiumParser.ExprParenthesizedContext context);
+	/// <summary>
+	/// Enter a parse tree produced by the <c>ExpreMap2</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExpreMap2([NotNull] ImperiumParser.ExpreMap2Context context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>ExpreMap2</c>
+	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExpreMap2([NotNull] ImperiumParser.ExpreMap2Context context);
 	/// <summary>
 	/// Enter a parse tree produced by the <c>ExprMulDiv</c>
 	/// labeled alternative in <see cref="ImperiumParser.expression"/>.
@@ -557,6 +707,26 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitExprPrimitive([NotNull] ImperiumParser.ExprPrimitiveContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.map_set"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMap_set([NotNull] ImperiumParser.Map_setContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.map_set"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMap_set([NotNull] ImperiumParser.Map_setContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.bool_set"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBool_set([NotNull] ImperiumParser.Bool_setContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.bool_set"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBool_set([NotNull] ImperiumParser.Bool_setContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.prefixOperator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -586,16 +756,6 @@ public interface IImperiumListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitShiftOperator([NotNull] ImperiumParser.ShiftOperatorContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="ImperiumParser.identifier"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterIdentifier([NotNull] ImperiumParser.IdentifierContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="ImperiumParser.identifier"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitIdentifier([NotNull] ImperiumParser.IdentifierContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.callStmt"/>.
 	/// </summary>
@@ -646,6 +806,16 @@ public interface IImperiumListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDeclareStmt([NotNull] ImperiumParser.DeclareStmtContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="ImperiumParser.declareAsBody"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDeclareAsBody([NotNull] ImperiumParser.DeclareAsBodyContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="ImperiumParser.declareAsBody"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDeclareAsBody([NotNull] ImperiumParser.DeclareAsBodyContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.declarationBody"/>.
 	/// </summary>
@@ -747,15 +917,15 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitDataAttribute([NotNull] ImperiumParser.DataAttributeContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="ImperiumParser.stringAttribute"/>.
+	/// Enter a parse tree produced by <see cref="ImperiumParser.linkage_attribute"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterStringAttribute([NotNull] ImperiumParser.StringAttributeContext context);
+	void EnterLinkage_attribute([NotNull] ImperiumParser.Linkage_attributeContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="ImperiumParser.stringAttribute"/>.
+	/// Exit a parse tree produced by <see cref="ImperiumParser.linkage_attribute"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitStringAttribute([NotNull] ImperiumParser.StringAttributeContext context);
+	void ExitLinkage_attribute([NotNull] ImperiumParser.Linkage_attributeContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.utfSpec"/>.
 	/// </summary>
@@ -1227,13 +1397,13 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitBinaryLiteral([NotNull] ImperiumParser.BinaryLiteralContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="ImperiumParser.keyword"/>.
+	/// Enter a parse tree produced by <see cref="ImperiumParser.identifier"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterKeyword([NotNull] ImperiumParser.KeywordContext context);
+	void EnterIdentifier([NotNull] ImperiumParser.IdentifierContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="ImperiumParser.keyword"/>.
+	/// Exit a parse tree produced by <see cref="ImperiumParser.identifier"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitKeyword([NotNull] ImperiumParser.KeywordContext context);
+	void ExitIdentifier([NotNull] ImperiumParser.IdentifierContext context);
 }

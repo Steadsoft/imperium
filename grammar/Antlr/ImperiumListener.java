@@ -7,35 +7,235 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface ImperiumListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#translation_unit}.
+	 * Enter a parse tree produced by {@link ImperiumParser#translationUnit}.
 	 * @param ctx the parse tree
 	 */
-	void enterTranslation_unit(ImperiumParser.Translation_unitContext ctx);
+	void enterTranslationUnit(ImperiumParser.TranslationUnitContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#translation_unit}.
+	 * Exit a parse tree produced by {@link ImperiumParser#translationUnit}.
 	 * @param ctx the parse tree
 	 */
-	void exitTranslation_unit(ImperiumParser.Translation_unitContext ctx);
+	void exitTranslationUnit(ImperiumParser.TranslationUnitContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#procedure_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#uses}.
 	 * @param ctx the parse tree
 	 */
-	void enterProcedure_stmt(ImperiumParser.Procedure_stmtContext ctx);
+	void enterUses(ImperiumParser.UsesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#procedure_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#uses}.
 	 * @param ctx the parse tree
 	 */
-	void exitProcedure_stmt(ImperiumParser.Procedure_stmtContext ctx);
+	void exitUses(ImperiumParser.UsesContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#stmt_block}.
+	 * Enter a parse tree produced by {@link ImperiumParser#scope}.
 	 * @param ctx the parse tree
 	 */
-	void enterStmt_block(ImperiumParser.Stmt_blockContext ctx);
+	void enterScope(ImperiumParser.ScopeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#stmt_block}.
+	 * Exit a parse tree produced by {@link ImperiumParser#scope}.
 	 * @param ctx the parse tree
 	 */
-	void exitStmt_block(ImperiumParser.Stmt_blockContext ctx);
+	void exitScope(ImperiumParser.ScopeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#scopeStmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterScopeStmt(ImperiumParser.ScopeStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#scopeStmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitScopeStmt(ImperiumParser.ScopeStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#scopeEnd}.
+	 * @param ctx the parse tree
+	 */
+	void enterScopeEnd(ImperiumParser.ScopeEndContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#scopeEnd}.
+	 * @param ctx the parse tree
+	 */
+	void exitScopeEnd(ImperiumParser.ScopeEndContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#traits}.
+	 * @param ctx the parse tree
+	 */
+	void enterTraits(ImperiumParser.TraitsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#traits}.
+	 * @param ctx the parse tree
+	 */
+	void exitTraits(ImperiumParser.TraitsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#traitsEnd}.
+	 * @param ctx the parse tree
+	 */
+	void enterTraitsEnd(ImperiumParser.TraitsEndContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#traitsEnd}.
+	 * @param ctx the parse tree
+	 */
+	void exitTraitsEnd(ImperiumParser.TraitsEndContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#traitStmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterTraitStmt(ImperiumParser.TraitStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#traitStmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitTraitStmt(ImperiumParser.TraitStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#declarationTraits}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclarationTraits(ImperiumParser.DeclarationTraitsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#declarationTraits}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclarationTraits(ImperiumParser.DeclarationTraitsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#declarationTrait}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclarationTrait(ImperiumParser.DeclarationTraitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#declarationTrait}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclarationTrait(ImperiumParser.DeclarationTraitContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#procedureTraits}.
+	 * @param ctx the parse tree
+	 */
+	void enterProcedureTraits(ImperiumParser.ProcedureTraitsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#procedureTraits}.
+	 * @param ctx the parse tree
+	 */
+	void exitProcedureTraits(ImperiumParser.ProcedureTraitsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#procedureTraitsList}.
+	 * @param ctx the parse tree
+	 */
+	void enterProcedureTraitsList(ImperiumParser.ProcedureTraitsListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#procedureTraitsList}.
+	 * @param ctx the parse tree
+	 */
+	void exitProcedureTraitsList(ImperiumParser.ProcedureTraitsListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#procedureTrait}.
+	 * @param ctx the parse tree
+	 */
+	void enterProcedureTrait(ImperiumParser.ProcedureTraitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#procedureTrait}.
+	 * @param ctx the parse tree
+	 */
+	void exitProcedureTrait(ImperiumParser.ProcedureTraitContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#procedure}.
+	 * @param ctx the parse tree
+	 */
+	void enterProcedure(ImperiumParser.ProcedureContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#procedure}.
+	 * @param ctx the parse tree
+	 */
+	void exitProcedure(ImperiumParser.ProcedureContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction(ImperiumParser.FunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction(ImperiumParser.FunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#procedureStmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterProcedureStmt(ImperiumParser.ProcedureStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#procedureStmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitProcedureStmt(ImperiumParser.ProcedureStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#functionStmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionStmt(ImperiumParser.FunctionStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#functionStmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionStmt(ImperiumParser.FunctionStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#targetSpec}.
+	 * @param ctx the parse tree
+	 */
+	void enterTargetSpec(ImperiumParser.TargetSpecContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#targetSpec}.
+	 * @param ctx the parse tree
+	 */
+	void exitTargetSpec(ImperiumParser.TargetSpecContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#procedureAttributes}.
+	 * @param ctx the parse tree
+	 */
+	void enterProcedureAttributes(ImperiumParser.ProcedureAttributesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#procedureAttributes}.
+	 * @param ctx the parse tree
+	 */
+	void exitProcedureAttributes(ImperiumParser.ProcedureAttributesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#functionAttributes}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionAttributes(ImperiumParser.FunctionAttributesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#functionAttributes}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionAttributes(ImperiumParser.FunctionAttributesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#procedureEnd}.
+	 * @param ctx the parse tree
+	 */
+	void enterProcedureEnd(ImperiumParser.ProcedureEndContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#procedureEnd}.
+	 * @param ctx the parse tree
+	 */
+	void exitProcedureEnd(ImperiumParser.ProcedureEndContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#functionEnd}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionEnd(ImperiumParser.FunctionEndContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#functionEnd}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionEnd(ImperiumParser.FunctionEndContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#returnsDescriptor}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturnsDescriptor(ImperiumParser.ReturnsDescriptorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#returnsDescriptor}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturnsDescriptor(ImperiumParser.ReturnsDescriptorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ImperiumParser#terminator}.
 	 * @param ctx the parse tree
@@ -47,203 +247,89 @@ public interface ImperiumListener extends ParseTreeListener {
 	 */
 	void exitTerminator(ImperiumParser.TerminatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#label_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#emitStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterLabel_stmt(ImperiumParser.Label_stmtContext ctx);
+	void enterEmitStmt(ImperiumParser.EmitStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#label_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#emitStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitLabel_stmt(ImperiumParser.Label_stmtContext ctx);
+	void exitEmitStmt(ImperiumParser.EmitStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code PRE}
-	 * labeled alternative in {@link ImperiumParser#nonexecutable_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#labelStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterPRE(ImperiumParser.PREContext ctx);
+	void enterLabelStmt(ImperiumParser.LabelStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code PRE}
-	 * labeled alternative in {@link ImperiumParser#nonexecutable_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#labelStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitPRE(ImperiumParser.PREContext ctx);
+	void exitLabelStmt(ImperiumParser.LabelStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code DCL}
-	 * labeled alternative in {@link ImperiumParser#nonexecutable_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#passiveStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterDCL(ImperiumParser.DCLContext ctx);
+	void enterPassiveStmt(ImperiumParser.PassiveStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code DCL}
-	 * labeled alternative in {@link ImperiumParser#nonexecutable_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#passiveStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitDCL(ImperiumParser.DCLContext ctx);
+	void exitPassiveStmt(ImperiumParser.PassiveStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code DEF}
-	 * labeled alternative in {@link ImperiumParser#nonexecutable_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#activeStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterDEF(ImperiumParser.DEFContext ctx);
+	void enterActiveStmt(ImperiumParser.ActiveStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code DEF}
-	 * labeled alternative in {@link ImperiumParser#nonexecutable_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#activeStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitDEF(ImperiumParser.DEFContext ctx);
+	void exitActiveStmt(ImperiumParser.ActiveStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code ASSIGN}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#nullStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterASSIGN(ImperiumParser.ASSIGNContext ctx);
+	void enterNullStmt(ImperiumParser.NullStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code ASSIGN}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#nullStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitASSIGN(ImperiumParser.ASSIGNContext ctx);
+	void exitNullStmt(ImperiumParser.NullStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code CALL}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#assignmentStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterCALL(ImperiumParser.CALLContext ctx);
+	void enterAssignmentStmt(ImperiumParser.AssignmentStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code CALL}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#assignmentStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitCALL(ImperiumParser.CALLContext ctx);
+	void exitAssignmentStmt(ImperiumParser.AssignmentStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code GOTO}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterGOTO(ImperiumParser.GOTOContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code GOTO}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitGOTO(ImperiumParser.GOTOContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PROC}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterPROC(ImperiumParser.PROCContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PROC}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitPROC(ImperiumParser.PROCContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code RET}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterRET(ImperiumParser.RETContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code RET}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitRET(ImperiumParser.RETContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code IF}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterIF(ImperiumParser.IFContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code IF}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitIF(ImperiumParser.IFContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code LOOP}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterLOOP(ImperiumParser.LOOPContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code LOOP}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitLOOP(ImperiumParser.LOOPContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code LEAVE}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterLEAVE(ImperiumParser.LEAVEContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code LEAVE}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitLEAVE(ImperiumParser.LEAVEContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code AGAIN}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterAGAIN(ImperiumParser.AGAINContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AGAIN}
-	 * labeled alternative in {@link ImperiumParser#executable_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitAGAIN(ImperiumParser.AGAINContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#preprocessor_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterPreprocessor_stmt(ImperiumParser.Preprocessor_stmtContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#preprocessor_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitPreprocessor_stmt(ImperiumParser.Preprocessor_stmtContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#assign_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssign_stmt(ImperiumParser.Assign_stmtContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#assign_stmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssign_stmt(ImperiumParser.Assign_stmtContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code BASIC_REF}
+	 * Enter a parse tree produced by the {@code BasicRef}
 	 * labeled alternative in {@link ImperiumParser#reference}.
 	 * @param ctx the parse tree
 	 */
-	void enterBASIC_REF(ImperiumParser.BASIC_REFContext ctx);
+	void enterBasicRef(ImperiumParser.BasicRefContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code BASIC_REF}
+	 * Exit a parse tree produced by the {@code BasicRef}
 	 * labeled alternative in {@link ImperiumParser#reference}.
 	 * @param ctx the parse tree
 	 */
-	void exitBASIC_REF(ImperiumParser.BASIC_REFContext ctx);
+	void exitBasicRef(ImperiumParser.BasicRefContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code PTR_REF}
+	 * Enter a parse tree produced by the {@code PtrRef}
 	 * labeled alternative in {@link ImperiumParser#reference}.
 	 * @param ctx the parse tree
 	 */
-	void enterPTR_REF(ImperiumParser.PTR_REFContext ctx);
+	void enterPtrRef(ImperiumParser.PtrRefContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code PTR_REF}
+	 * Exit a parse tree produced by the {@code PtrRef}
 	 * labeled alternative in {@link ImperiumParser#reference}.
 	 * @param ctx the parse tree
 	 */
-	void exitPTR_REF(ImperiumParser.PTR_REFContext ctx);
+	void exitPtrRef(ImperiumParser.PtrRefContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ImperiumParser#arguments}.
 	 * @param ctx the parse tree
@@ -255,45 +341,45 @@ public interface ImperiumListener extends ParseTreeListener {
 	 */
 	void exitArguments(ImperiumParser.ArgumentsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#arguments_list}.
+	 * Enter a parse tree produced by {@link ImperiumParser#argumentsList}.
 	 * @param ctx the parse tree
 	 */
-	void enterArguments_list(ImperiumParser.Arguments_listContext ctx);
+	void enterArgumentsList(ImperiumParser.ArgumentsListContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#arguments_list}.
+	 * Exit a parse tree produced by {@link ImperiumParser#argumentsList}.
 	 * @param ctx the parse tree
 	 */
-	void exitArguments_list(ImperiumParser.Arguments_listContext ctx);
+	void exitArgumentsList(ImperiumParser.ArgumentsListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#basic_reference}.
+	 * Enter a parse tree produced by {@link ImperiumParser#basicReference}.
 	 * @param ctx the parse tree
 	 */
-	void enterBasic_reference(ImperiumParser.Basic_referenceContext ctx);
+	void enterBasicReference(ImperiumParser.BasicReferenceContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#basic_reference}.
+	 * Exit a parse tree produced by {@link ImperiumParser#basicReference}.
 	 * @param ctx the parse tree
 	 */
-	void exitBasic_reference(ImperiumParser.Basic_referenceContext ctx);
+	void exitBasicReference(ImperiumParser.BasicReferenceContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#structure_qualification}.
+	 * Enter a parse tree produced by {@link ImperiumParser#structureQualification}.
 	 * @param ctx the parse tree
 	 */
-	void enterStructure_qualification(ImperiumParser.Structure_qualificationContext ctx);
+	void enterStructureQualification(ImperiumParser.StructureQualificationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#structure_qualification}.
+	 * Exit a parse tree produced by {@link ImperiumParser#structureQualification}.
 	 * @param ctx the parse tree
 	 */
-	void exitStructure_qualification(ImperiumParser.Structure_qualificationContext ctx);
+	void exitStructureQualification(ImperiumParser.StructureQualificationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#structure_qualification_list}.
+	 * Enter a parse tree produced by {@link ImperiumParser#structureQualificationList}.
 	 * @param ctx the parse tree
 	 */
-	void enterStructure_qualification_list(ImperiumParser.Structure_qualification_listContext ctx);
+	void enterStructureQualificationList(ImperiumParser.StructureQualificationListContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#structure_qualification_list}.
+	 * Exit a parse tree produced by {@link ImperiumParser#structureQualificationList}.
 	 * @param ctx the parse tree
 	 */
-	void exitStructure_qualification_list(ImperiumParser.Structure_qualification_listContext ctx);
+	void exitStructureQualificationList(ImperiumParser.StructureQualificationListContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ImperiumParser#subscript}.
 	 * @param ctx the parse tree
@@ -305,329 +391,477 @@ public interface ImperiumListener extends ParseTreeListener {
 	 */
 	void exitSubscript(ImperiumParser.SubscriptContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#subscript_commalist}.
+	 * Enter a parse tree produced by {@link ImperiumParser#subscriptCommalist}.
 	 * @param ctx the parse tree
 	 */
-	void enterSubscript_commalist(ImperiumParser.Subscript_commalistContext ctx);
+	void enterSubscriptCommalist(ImperiumParser.SubscriptCommalistContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#subscript_commalist}.
+	 * Exit a parse tree produced by {@link ImperiumParser#subscriptCommalist}.
 	 * @param ctx the parse tree
 	 */
-	void exitSubscript_commalist(ImperiumParser.Subscript_commalistContext ctx);
+	void exitSubscriptCommalist(ImperiumParser.SubscriptCommalistContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#expression}.
+	 * Enter a parse tree produced by {@link ImperiumParser#parenthesizedExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression(ImperiumParser.ExpressionContext ctx);
+	void enterParenthesizedExpression(ImperiumParser.ParenthesizedExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#expression}.
+	 * Exit a parse tree produced by {@link ImperiumParser#parenthesizedExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression(ImperiumParser.ExpressionContext ctx);
+	void exitParenthesizedExpression(ImperiumParser.ParenthesizedExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#expression_9}.
+	 * Enter a parse tree produced by {@link ImperiumParser#primitiveExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression_9(ImperiumParser.Expression_9Context ctx);
+	void enterPrimitiveExpression(ImperiumParser.PrimitiveExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#expression_9}.
+	 * Exit a parse tree produced by {@link ImperiumParser#primitiveExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression_9(ImperiumParser.Expression_9Context ctx);
+	void exitPrimitiveExpression(ImperiumParser.PrimitiveExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#expression_8}.
+	 * Enter a parse tree produced by {@link ImperiumParser#prefixExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression_8(ImperiumParser.Expression_8Context ctx);
+	void enterPrefixExpression(ImperiumParser.PrefixExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#expression_8}.
+	 * Exit a parse tree produced by {@link ImperiumParser#prefixExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression_8(ImperiumParser.Expression_8Context ctx);
+	void exitPrefixExpression(ImperiumParser.PrefixExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#expression_7}.
+	 * Enter a parse tree produced by {@link ImperiumParser#bitAdjustOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression_7(ImperiumParser.Expression_7Context ctx);
+	void enterBitAdjustOperator(ImperiumParser.BitAdjustOperatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#expression_7}.
+	 * Exit a parse tree produced by {@link ImperiumParser#bitAdjustOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression_7(ImperiumParser.Expression_7Context ctx);
+	void exitBitAdjustOperator(ImperiumParser.BitAdjustOperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#expression_6}.
+	 * Enter a parse tree produced by {@link ImperiumParser#additionOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression_6(ImperiumParser.Expression_6Context ctx);
+	void enterAdditionOperator(ImperiumParser.AdditionOperatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#expression_6}.
+	 * Exit a parse tree produced by {@link ImperiumParser#additionOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression_6(ImperiumParser.Expression_6Context ctx);
+	void exitAdditionOperator(ImperiumParser.AdditionOperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#expression_5}.
+	 * Enter a parse tree produced by {@link ImperiumParser#multiplyOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression_5(ImperiumParser.Expression_5Context ctx);
+	void enterMultiplyOperator(ImperiumParser.MultiplyOperatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#expression_5}.
+	 * Exit a parse tree produced by {@link ImperiumParser#multiplyOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression_5(ImperiumParser.Expression_5Context ctx);
+	void exitMultiplyOperator(ImperiumParser.MultiplyOperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#expression_4}.
+	 * Enter a parse tree produced by {@link ImperiumParser#boolAndOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression_4(ImperiumParser.Expression_4Context ctx);
+	void enterBoolAndOperator(ImperiumParser.BoolAndOperatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#expression_4}.
+	 * Exit a parse tree produced by {@link ImperiumParser#boolAndOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression_4(ImperiumParser.Expression_4Context ctx);
+	void exitBoolAndOperator(ImperiumParser.BoolAndOperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#expression_3}.
+	 * Enter a parse tree produced by {@link ImperiumParser#boolXorOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression_3(ImperiumParser.Expression_3Context ctx);
+	void enterBoolXorOperator(ImperiumParser.BoolXorOperatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#expression_3}.
+	 * Exit a parse tree produced by {@link ImperiumParser#boolXorOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression_3(ImperiumParser.Expression_3Context ctx);
+	void exitBoolXorOperator(ImperiumParser.BoolXorOperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#expression_2}.
+	 * Enter a parse tree produced by {@link ImperiumParser#boolOrOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression_2(ImperiumParser.Expression_2Context ctx);
+	void enterBoolOrOperator(ImperiumParser.BoolOrOperatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#expression_2}.
+	 * Exit a parse tree produced by {@link ImperiumParser#boolOrOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression_2(ImperiumParser.Expression_2Context ctx);
+	void exitBoolOrOperator(ImperiumParser.BoolOrOperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#expression_1}.
+	 * Enter a parse tree produced by the {@code ExprBoolAnd}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression_1(ImperiumParser.Expression_1Context ctx);
+	void enterExprBoolAnd(ImperiumParser.ExprBoolAndContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#expression_1}.
+	 * Exit a parse tree produced by the {@code ExprBoolAnd}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression_1(ImperiumParser.Expression_1Context ctx);
+	void exitExprBoolAnd(ImperiumParser.ExprBoolAndContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#prefix_expression}.
+	 * Enter a parse tree produced by the {@code ExprConcat}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrefix_expression(ImperiumParser.Prefix_expressionContext ctx);
+	void enterExprConcat(ImperiumParser.ExprConcatContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#prefix_expression}.
+	 * Exit a parse tree produced by the {@code ExprConcat}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrefix_expression(ImperiumParser.Prefix_expressionContext ctx);
+	void exitExprConcat(ImperiumParser.ExprConcatContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#parenthesized_expression}.
+	 * Enter a parse tree produced by the {@code ExprRaise}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterParenthesized_expression(ImperiumParser.Parenthesized_expressionContext ctx);
+	void enterExprRaise(ImperiumParser.ExprRaiseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#parenthesized_expression}.
+	 * Exit a parse tree produced by the {@code ExprRaise}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitParenthesized_expression(ImperiumParser.Parenthesized_expressionContext ctx);
+	void exitExprRaise(ImperiumParser.ExprRaiseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#primitive_expression}.
+	 * Enter a parse tree produced by the {@code ExprBoolXor}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimitive_expression(ImperiumParser.Primitive_expressionContext ctx);
+	void enterExprBoolXor(ImperiumParser.ExprBoolXorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#primitive_expression}.
+	 * Exit a parse tree produced by the {@code ExprBoolXor}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimitive_expression(ImperiumParser.Primitive_expressionContext ctx);
+	void exitExprBoolXor(ImperiumParser.ExprBoolXorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#prefix_operator}.
+	 * Enter a parse tree produced by the {@code ExprLogAnd}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrefix_operator(ImperiumParser.Prefix_operatorContext ctx);
+	void enterExprLogAnd(ImperiumParser.ExprLogAndContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#prefix_operator}.
+	 * Exit a parse tree produced by the {@code ExprLogAnd}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrefix_operator(ImperiumParser.Prefix_operatorContext ctx);
+	void exitExprLogAnd(ImperiumParser.ExprLogAndContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#comparison_operator}.
+	 * Enter a parse tree produced by the {@code ExprBitAdjust}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterComparison_operator(ImperiumParser.Comparison_operatorContext ctx);
+	void enterExprBitAdjust(ImperiumParser.ExprBitAdjustContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#comparison_operator}.
+	 * Exit a parse tree produced by the {@code ExprBitAdjust}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitComparison_operator(ImperiumParser.Comparison_operatorContext ctx);
+	void exitExprBitAdjust(ImperiumParser.ExprBitAdjustContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#shift_operator}.
+	 * Enter a parse tree produced by the {@code ExprAddSub}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterShift_operator(ImperiumParser.Shift_operatorContext ctx);
+	void enterExprAddSub(ImperiumParser.ExprAddSubContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#shift_operator}.
+	 * Exit a parse tree produced by the {@code ExprAddSub}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitShift_operator(ImperiumParser.Shift_operatorContext ctx);
+	void exitExprAddSub(ImperiumParser.ExprAddSubContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code KEYWD}
-	 * labeled alternative in {@link ImperiumParser#identifier}.
+	 * Enter a parse tree produced by the {@code ExpreMap1}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterKEYWD(ImperiumParser.KEYWDContext ctx);
+	void enterExpreMap1(ImperiumParser.ExpreMap1Context ctx);
 	/**
-	 * Exit a parse tree produced by the {@code KEYWD}
-	 * labeled alternative in {@link ImperiumParser#identifier}.
+	 * Exit a parse tree produced by the {@code ExpreMap1}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitKEYWD(ImperiumParser.KEYWDContext ctx);
+	void exitExpreMap1(ImperiumParser.ExpreMap1Context ctx);
 	/**
-	 * Enter a parse tree produced by the {@code identifier_IDENTIFIER}
-	 * labeled alternative in {@link ImperiumParser#identifier}.
+	 * Enter a parse tree produced by the {@code ExprParenthesized}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterIdentifier_IDENTIFIER(ImperiumParser.Identifier_IDENTIFIERContext ctx);
+	void enterExprParenthesized(ImperiumParser.ExprParenthesizedContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code identifier_IDENTIFIER}
-	 * labeled alternative in {@link ImperiumParser#identifier}.
+	 * Exit a parse tree produced by the {@code ExprParenthesized}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitIdentifier_IDENTIFIER(ImperiumParser.Identifier_IDENTIFIERContext ctx);
+	void exitExprParenthesized(ImperiumParser.ExprParenthesizedContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#keyword}.
+	 * Enter a parse tree produced by the {@code ExpreMap2}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterKeyword(ImperiumParser.KeywordContext ctx);
+	void enterExpreMap2(ImperiumParser.ExpreMap2Context ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#keyword}.
+	 * Exit a parse tree produced by the {@code ExpreMap2}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitKeyword(ImperiumParser.KeywordContext ctx);
+	void exitExpreMap2(ImperiumParser.ExpreMap2Context ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#call_stmt}.
+	 * Enter a parse tree produced by the {@code ExprMulDiv}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterCall_stmt(ImperiumParser.Call_stmtContext ctx);
+	void enterExprMulDiv(ImperiumParser.ExprMulDivContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#call_stmt}.
+	 * Exit a parse tree produced by the {@code ExprMulDiv}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitCall_stmt(ImperiumParser.Call_stmtContext ctx);
+	void exitExprMulDiv(ImperiumParser.ExprMulDivContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#goto_stmt}.
+	 * Enter a parse tree produced by the {@code ExprLogOr}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterGoto_stmt(ImperiumParser.Goto_stmtContext ctx);
+	void enterExprLogOr(ImperiumParser.ExprLogOrContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#goto_stmt}.
+	 * Exit a parse tree produced by the {@code ExprLogOr}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitGoto_stmt(ImperiumParser.Goto_stmtContext ctx);
+	void exitExprLogOr(ImperiumParser.ExprLogOrContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#end_stmt}.
+	 * Enter a parse tree produced by the {@code ExprCompare}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterEnd_stmt(ImperiumParser.End_stmtContext ctx);
+	void enterExprCompare(ImperiumParser.ExprCompareContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#end_stmt}.
+	 * Exit a parse tree produced by the {@code ExprCompare}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitEnd_stmt(ImperiumParser.End_stmtContext ctx);
+	void exitExprCompare(ImperiumParser.ExprCompareContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#endloop_stmt}.
+	 * Enter a parse tree produced by the {@code ExprPrefixed}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterEndloop_stmt(ImperiumParser.Endloop_stmtContext ctx);
+	void enterExprPrefixed(ImperiumParser.ExprPrefixedContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#endloop_stmt}.
+	 * Exit a parse tree produced by the {@code ExprPrefixed}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitEndloop_stmt(ImperiumParser.Endloop_stmtContext ctx);
+	void exitExprPrefixed(ImperiumParser.ExprPrefixedContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#reloop_stmt}.
+	 * Enter a parse tree produced by the {@code ExprBoolOr}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterReloop_stmt(ImperiumParser.Reloop_stmtContext ctx);
+	void enterExprBoolOr(ImperiumParser.ExprBoolOrContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#reloop_stmt}.
+	 * Exit a parse tree produced by the {@code ExprBoolOr}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitReloop_stmt(ImperiumParser.Reloop_stmtContext ctx);
+	void exitExprBoolOr(ImperiumParser.ExprBoolOrContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#declare_stmt}.
+	 * Enter a parse tree produced by the {@code ExprPrimitive}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterDeclare_stmt(ImperiumParser.Declare_stmtContext ctx);
+	void enterExprPrimitive(ImperiumParser.ExprPrimitiveContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#declare_stmt}.
+	 * Exit a parse tree produced by the {@code ExprPrimitive}
+	 * labeled alternative in {@link ImperiumParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitDeclare_stmt(ImperiumParser.Declare_stmtContext ctx);
+	void exitExprPrimitive(ImperiumParser.ExprPrimitiveContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#type_info}.
+	 * Enter a parse tree produced by {@link ImperiumParser#map_set}.
 	 * @param ctx the parse tree
 	 */
-	void enterType_info(ImperiumParser.Type_infoContext ctx);
+	void enterMap_set(ImperiumParser.Map_setContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#type_info}.
+	 * Exit a parse tree produced by {@link ImperiumParser#map_set}.
 	 * @param ctx the parse tree
 	 */
-	void exitType_info(ImperiumParser.Type_infoContext ctx);
+	void exitMap_set(ImperiumParser.Map_setContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#dimension_suffix}.
+	 * Enter a parse tree produced by {@link ImperiumParser#bool_set}.
 	 * @param ctx the parse tree
 	 */
-	void enterDimension_suffix(ImperiumParser.Dimension_suffixContext ctx);
+	void enterBool_set(ImperiumParser.Bool_setContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#dimension_suffix}.
+	 * Exit a parse tree produced by {@link ImperiumParser#bool_set}.
 	 * @param ctx the parse tree
 	 */
-	void exitDimension_suffix(ImperiumParser.Dimension_suffixContext ctx);
+	void exitBool_set(ImperiumParser.Bool_setContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#bound_pair}.
+	 * Enter a parse tree produced by {@link ImperiumParser#prefixOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterBound_pair(ImperiumParser.Bound_pairContext ctx);
+	void enterPrefixOperator(ImperiumParser.PrefixOperatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#bound_pair}.
+	 * Exit a parse tree produced by {@link ImperiumParser#prefixOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitBound_pair(ImperiumParser.Bound_pairContext ctx);
+	void exitPrefixOperator(ImperiumParser.PrefixOperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#bound_pair_commalist}.
+	 * Enter a parse tree produced by {@link ImperiumParser#comparisonOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterBound_pair_commalist(ImperiumParser.Bound_pair_commalistContext ctx);
+	void enterComparisonOperator(ImperiumParser.ComparisonOperatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#bound_pair_commalist}.
+	 * Exit a parse tree produced by {@link ImperiumParser#comparisonOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitBound_pair_commalist(ImperiumParser.Bound_pair_commalistContext ctx);
+	void exitComparisonOperator(ImperiumParser.ComparisonOperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#lower_bound}.
+	 * Enter a parse tree produced by {@link ImperiumParser#shiftOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterLower_bound(ImperiumParser.Lower_boundContext ctx);
+	void enterShiftOperator(ImperiumParser.ShiftOperatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#lower_bound}.
+	 * Exit a parse tree produced by {@link ImperiumParser#shiftOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitLower_bound(ImperiumParser.Lower_boundContext ctx);
+	void exitShiftOperator(ImperiumParser.ShiftOperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#upper_bound}.
+	 * Enter a parse tree produced by {@link ImperiumParser#callStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterUpper_bound(ImperiumParser.Upper_boundContext ctx);
+	void enterCallStmt(ImperiumParser.CallStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#upper_bound}.
+	 * Exit a parse tree produced by {@link ImperiumParser#callStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitUpper_bound(ImperiumParser.Upper_boundContext ctx);
+	void exitCallStmt(ImperiumParser.CallStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#gotoStmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterGotoStmt(ImperiumParser.GotoStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#gotoStmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitGotoStmt(ImperiumParser.GotoStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#endloopStmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterEndloopStmt(ImperiumParser.EndloopStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#endloopStmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitEndloopStmt(ImperiumParser.EndloopStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#reloopStmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterReloopStmt(ImperiumParser.ReloopStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#reloopStmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitReloopStmt(ImperiumParser.ReloopStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#declareStmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclareStmt(ImperiumParser.DeclareStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#declareStmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclareStmt(ImperiumParser.DeclareStmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#declareAsBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclareAsBody(ImperiumParser.DeclareAsBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#declareAsBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclareAsBody(ImperiumParser.DeclareAsBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#declarationBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclarationBody(ImperiumParser.DeclarationBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#declarationBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclarationBody(ImperiumParser.DeclarationBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#typeInfo}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeInfo(ImperiumParser.TypeInfoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#typeInfo}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeInfo(ImperiumParser.TypeInfoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#dimensionSuffix}.
+	 * @param ctx the parse tree
+	 */
+	void enterDimensionSuffix(ImperiumParser.DimensionSuffixContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#dimensionSuffix}.
+	 * @param ctx the parse tree
+	 */
+	void exitDimensionSuffix(ImperiumParser.DimensionSuffixContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#boundPair}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoundPair(ImperiumParser.BoundPairContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#boundPair}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoundPair(ImperiumParser.BoundPairContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#boundPairCommalist}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoundPairCommalist(ImperiumParser.BoundPairCommalistContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#boundPairCommalist}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoundPairCommalist(ImperiumParser.BoundPairCommalistContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#lowerBound}.
+	 * @param ctx the parse tree
+	 */
+	void enterLowerBound(ImperiumParser.LowerBoundContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#lowerBound}.
+	 * @param ctx the parse tree
+	 */
+	void exitLowerBound(ImperiumParser.LowerBoundContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#upperBound}.
+	 * @param ctx the parse tree
+	 */
+	void enterUpperBound(ImperiumParser.UpperBoundContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#upperBound}.
+	 * @param ctx the parse tree
+	 */
+	void exitUpperBound(ImperiumParser.UpperBoundContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ImperiumParser#attribute}.
 	 * @param ctx the parse tree
@@ -639,197 +873,55 @@ public interface ImperiumListener extends ParseTreeListener {
 	 */
 	void exitAttribute(ImperiumParser.AttributeContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code BIN}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Enter a parse tree produced by {@link ImperiumParser#memoryAttribute}.
 	 * @param ctx the parse tree
 	 */
-	void enterBIN(ImperiumParser.BINContext ctx);
+	void enterMemoryAttribute(ImperiumParser.MemoryAttributeContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code BIN}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Exit a parse tree produced by {@link ImperiumParser#memoryAttribute}.
 	 * @param ctx the parse tree
 	 */
-	void exitBIN(ImperiumParser.BINContext ctx);
+	void exitMemoryAttribute(ImperiumParser.MemoryAttributeContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code DEC}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Enter a parse tree produced by {@link ImperiumParser#dataAttribute}.
 	 * @param ctx the parse tree
 	 */
-	void enterDEC(ImperiumParser.DECContext ctx);
+	void enterDataAttribute(ImperiumParser.DataAttributeContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code DEC}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Exit a parse tree produced by {@link ImperiumParser#dataAttribute}.
 	 * @param ctx the parse tree
 	 */
-	void exitDEC(ImperiumParser.DECContext ctx);
+	void exitDataAttribute(ImperiumParser.DataAttributeContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code PTR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Enter a parse tree produced by {@link ImperiumParser#linkage_attribute}.
 	 * @param ctx the parse tree
 	 */
-	void enterPTR(ImperiumParser.PTRContext ctx);
+	void enterLinkage_attribute(ImperiumParser.Linkage_attributeContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code PTR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Exit a parse tree produced by {@link ImperiumParser#linkage_attribute}.
 	 * @param ctx the parse tree
 	 */
-	void exitPTR(ImperiumParser.PTRContext ctx);
+	void exitLinkage_attribute(ImperiumParser.Linkage_attributeContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code BIT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Enter a parse tree produced by {@link ImperiumParser#utfSpec}.
 	 * @param ctx the parse tree
 	 */
-	void enterBIT(ImperiumParser.BITContext ctx);
+	void enterUtfSpec(ImperiumParser.UtfSpecContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code BIT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Exit a parse tree produced by {@link ImperiumParser#utfSpec}.
 	 * @param ctx the parse tree
 	 */
-	void exitBIT(ImperiumParser.BITContext ctx);
+	void exitUtfSpec(ImperiumParser.UtfSpecContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code CHAR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Enter a parse tree produced by {@link ImperiumParser#rawSpec}.
 	 * @param ctx the parse tree
 	 */
-	void enterCHAR(ImperiumParser.CHARContext ctx);
+	void enterRawSpec(ImperiumParser.RawSpecContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code CHAR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
+	 * Exit a parse tree produced by {@link ImperiumParser#rawSpec}.
 	 * @param ctx the parse tree
 	 */
-	void exitCHAR(ImperiumParser.CHARContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code STR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterSTR(ImperiumParser.STRContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code STR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitSTR(ImperiumParser.STRContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ENT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterENT(ImperiumParser.ENTContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ENT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitENT(ImperiumParser.ENTContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code FIX}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterFIX(ImperiumParser.FIXContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code FIX}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitFIX(ImperiumParser.FIXContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code FLT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterFLT(ImperiumParser.FLTContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code FLT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitFLT(ImperiumParser.FLTContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code OFF}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterOFF(ImperiumParser.OFFContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code OFF}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitOFF(ImperiumParser.OFFContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code VNG}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterVNG(ImperiumParser.VNGContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code VNG}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitVNG(ImperiumParser.VNGContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code COR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterCOR(ImperiumParser.CORContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code COR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitCOR(ImperiumParser.CORContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code COF}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterCOF(ImperiumParser.COFContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code COF}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitCOF(ImperiumParser.COFContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code BLTN}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterBLTN(ImperiumParser.BLTNContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code BLTN}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitBLTN(ImperiumParser.BLTNContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code INTR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterINTR(ImperiumParser.INTRContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code INTR}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitINTR(ImperiumParser.INTRContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code IDENT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterIDENT(ImperiumParser.IDENTContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code IDENT}
-	 * labeled alternative in {@link ImperiumParser#data_attribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitIDENT(ImperiumParser.IDENTContext ctx);
+	void exitRawSpec(ImperiumParser.RawSpecContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ImperiumParser#precision}.
 	 * @param ctx the parse tree
@@ -841,15 +933,15 @@ public interface ImperiumListener extends ParseTreeListener {
 	 */
 	void exitPrecision(ImperiumParser.PrecisionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#number_of_digits}.
+	 * Enter a parse tree produced by {@link ImperiumParser#numberOfDigits}.
 	 * @param ctx the parse tree
 	 */
-	void enterNumber_of_digits(ImperiumParser.Number_of_digitsContext ctx);
+	void enterNumberOfDigits(ImperiumParser.NumberOfDigitsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#number_of_digits}.
+	 * Exit a parse tree produced by {@link ImperiumParser#numberOfDigits}.
 	 * @param ctx the parse tree
 	 */
-	void exitNumber_of_digits(ImperiumParser.Number_of_digitsContext ctx);
+	void exitNumberOfDigits(ImperiumParser.NumberOfDigitsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ImperiumParser#scale_factor}.
 	 * @param ctx the parse tree
@@ -861,15 +953,25 @@ public interface ImperiumListener extends ParseTreeListener {
 	 */
 	void exitScale_factor(ImperiumParser.Scale_factorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#max_length}.
+	 * Enter a parse tree produced by {@link ImperiumParser#maxStringLength}.
 	 * @param ctx the parse tree
 	 */
-	void enterMax_length(ImperiumParser.Max_lengthContext ctx);
+	void enterMaxStringLength(ImperiumParser.MaxStringLengthContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#max_length}.
+	 * Exit a parse tree produced by {@link ImperiumParser#maxStringLength}.
 	 * @param ctx the parse tree
 	 */
-	void exitMax_length(ImperiumParser.Max_lengthContext ctx);
+	void exitMaxStringLength(ImperiumParser.MaxStringLengthContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#maxLength}.
+	 * @param ctx the parse tree
+	 */
+	void enterMaxLength(ImperiumParser.MaxLengthContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#maxLength}.
+	 * @param ctx the parse tree
+	 */
+	void exitMaxLength(ImperiumParser.MaxLengthContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ImperiumParser#based}.
 	 * @param ctx the parse tree
@@ -891,209 +993,393 @@ public interface ImperiumListener extends ParseTreeListener {
 	 */
 	void exitDefined(ImperiumParser.DefinedContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#entry_information}.
+	 * Enter a parse tree produced by {@link ImperiumParser#coprocedureSpecifier}.
 	 * @param ctx the parse tree
 	 */
-	void enterEntry_information(ImperiumParser.Entry_informationContext ctx);
+	void enterCoprocedureSpecifier(ImperiumParser.CoprocedureSpecifierContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#entry_information}.
+	 * Exit a parse tree produced by {@link ImperiumParser#coprocedureSpecifier}.
 	 * @param ctx the parse tree
 	 */
-	void exitEntry_information(ImperiumParser.Entry_informationContext ctx);
+	void exitCoprocedureSpecifier(ImperiumParser.CoprocedureSpecifierContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#coprocedure_specifier}.
+	 * Enter a parse tree produced by {@link ImperiumParser#handlerSpecifier}.
 	 * @param ctx the parse tree
 	 */
-	void enterCoprocedure_specifier(ImperiumParser.Coprocedure_specifierContext ctx);
+	void enterHandlerSpecifier(ImperiumParser.HandlerSpecifierContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#coprocedure_specifier}.
+	 * Exit a parse tree produced by {@link ImperiumParser#handlerSpecifier}.
 	 * @param ctx the parse tree
 	 */
-	void exitCoprocedure_specifier(ImperiumParser.Coprocedure_specifierContext ctx);
+	void exitHandlerSpecifier(ImperiumParser.HandlerSpecifierContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#parameter_name_commalist}.
+	 * Enter a parse tree produced by {@link ImperiumParser#parameterNameCommalist}.
 	 * @param ctx the parse tree
 	 */
-	void enterParameter_name_commalist(ImperiumParser.Parameter_name_commalistContext ctx);
+	void enterParameterNameCommalist(ImperiumParser.ParameterNameCommalistContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#parameter_name_commalist}.
+	 * Exit a parse tree produced by {@link ImperiumParser#parameterNameCommalist}.
 	 * @param ctx the parse tree
 	 */
-	void exitParameter_name_commalist(ImperiumParser.Parameter_name_commalistContext ctx);
+	void exitParameterNameCommalist(ImperiumParser.ParameterNameCommalistContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#returns_descriptor}.
+	 * Enter a parse tree produced by {@link ImperiumParser#returnStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterReturns_descriptor(ImperiumParser.Returns_descriptorContext ctx);
+	void enterReturnStmt(ImperiumParser.ReturnStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#returns_descriptor}.
+	 * Exit a parse tree produced by {@link ImperiumParser#returnStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitReturns_descriptor(ImperiumParser.Returns_descriptorContext ctx);
+	void exitReturnStmt(ImperiumParser.ReturnStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#return_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#ifStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterReturn_stmt(ImperiumParser.Return_stmtContext ctx);
+	void enterIfStmt(ImperiumParser.IfStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#return_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#ifStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitReturn_stmt(ImperiumParser.Return_stmtContext ctx);
+	void exitIfStmt(ImperiumParser.IfStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#if_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#ifEnd}.
 	 * @param ctx the parse tree
 	 */
-	void enterIf_stmt(ImperiumParser.If_stmtContext ctx);
+	void enterIfEnd(ImperiumParser.IfEndContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#if_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#ifEnd}.
 	 * @param ctx the parse tree
 	 */
-	void exitIf_stmt(ImperiumParser.If_stmtContext ctx);
+	void exitIfEnd(ImperiumParser.IfEndContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#then_clause}.
+	 * Enter a parse tree produced by {@link ImperiumParser#thenClause}.
 	 * @param ctx the parse tree
 	 */
-	void enterThen_clause(ImperiumParser.Then_clauseContext ctx);
+	void enterThenClause(ImperiumParser.ThenClauseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#then_clause}.
+	 * Exit a parse tree produced by {@link ImperiumParser#thenClause}.
 	 * @param ctx the parse tree
 	 */
-	void exitThen_clause(ImperiumParser.Then_clauseContext ctx);
+	void exitThenClause(ImperiumParser.ThenClauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#else_clause}.
+	 * Enter a parse tree produced by {@link ImperiumParser#elseClause}.
 	 * @param ctx the parse tree
 	 */
-	void enterElse_clause(ImperiumParser.Else_clauseContext ctx);
+	void enterElseClause(ImperiumParser.ElseClauseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#else_clause}.
+	 * Exit a parse tree produced by {@link ImperiumParser#elseClause}.
 	 * @param ctx the parse tree
 	 */
-	void exitElse_clause(ImperiumParser.Else_clauseContext ctx);
+	void exitElseClause(ImperiumParser.ElseClauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#elif_clause}.
+	 * Enter a parse tree produced by {@link ImperiumParser#elifClause}.
 	 * @param ctx the parse tree
 	 */
-	void enterElif_clause(ImperiumParser.Elif_clauseContext ctx);
+	void enterElifClause(ImperiumParser.ElifClauseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#elif_clause}.
+	 * Exit a parse tree produced by {@link ImperiumParser#elifClause}.
 	 * @param ctx the parse tree
 	 */
-	void exitElif_clause(ImperiumParser.Elif_clauseContext ctx);
+	void exitElifClause(ImperiumParser.ElifClauseContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code BASIC_LOOP}
-	 * labeled alternative in {@link ImperiumParser#loop_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#loopStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterBASIC_LOOP(ImperiumParser.BASIC_LOOPContext ctx);
+	void enterLoopStmt(ImperiumParser.LoopStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code BASIC_LOOP}
-	 * labeled alternative in {@link ImperiumParser#loop_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#loopStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitBASIC_LOOP(ImperiumParser.BASIC_LOOPContext ctx);
+	void exitLoopStmt(ImperiumParser.LoopStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code WHILE_UNTIL}
-	 * labeled alternative in {@link ImperiumParser#loop_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#loopEnd}.
 	 * @param ctx the parse tree
 	 */
-	void enterWHILE_UNTIL(ImperiumParser.WHILE_UNTILContext ctx);
+	void enterLoopEnd(ImperiumParser.LoopEndContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code WHILE_UNTIL}
-	 * labeled alternative in {@link ImperiumParser#loop_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#loopEnd}.
 	 * @param ctx the parse tree
 	 */
-	void exitWHILE_UNTIL(ImperiumParser.WHILE_UNTILContext ctx);
+	void exitLoopEnd(ImperiumParser.LoopEndContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code UNTIL_WHILE}
-	 * labeled alternative in {@link ImperiumParser#loop_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#whileOption}.
 	 * @param ctx the parse tree
 	 */
-	void enterUNTIL_WHILE(ImperiumParser.UNTIL_WHILEContext ctx);
+	void enterWhileOption(ImperiumParser.WhileOptionContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code UNTIL_WHILE}
-	 * labeled alternative in {@link ImperiumParser#loop_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#whileOption}.
 	 * @param ctx the parse tree
 	 */
-	void exitUNTIL_WHILE(ImperiumParser.UNTIL_WHILEContext ctx);
+	void exitWhileOption(ImperiumParser.WhileOptionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#while_option}.
+	 * Enter a parse tree produced by {@link ImperiumParser#untilOption}.
 	 * @param ctx the parse tree
 	 */
-	void enterWhile_option(ImperiumParser.While_optionContext ctx);
+	void enterUntilOption(ImperiumParser.UntilOptionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#while_option}.
+	 * Exit a parse tree produced by {@link ImperiumParser#untilOption}.
 	 * @param ctx the parse tree
 	 */
-	void exitWhile_option(ImperiumParser.While_optionContext ctx);
+	void exitUntilOption(ImperiumParser.UntilOptionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#until_option}.
+	 * Enter a parse tree produced by {@link ImperiumParser#selectStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterUntil_option(ImperiumParser.Until_optionContext ctx);
+	void enterSelectStmt(ImperiumParser.SelectStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#until_option}.
+	 * Exit a parse tree produced by {@link ImperiumParser#selectStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitUntil_option(ImperiumParser.Until_optionContext ctx);
+	void exitSelectStmt(ImperiumParser.SelectStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#define_stmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#selectEnd}.
 	 * @param ctx the parse tree
 	 */
-	void enterDefine_stmt(ImperiumParser.Define_stmtContext ctx);
+	void enterSelectEnd(ImperiumParser.SelectEndContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#define_stmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#selectEnd}.
 	 * @param ctx the parse tree
 	 */
-	void exitDefine_stmt(ImperiumParser.Define_stmtContext ctx);
+	void exitSelectEnd(ImperiumParser.SelectEndContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#numeric_literal}.
+	 * Enter a parse tree produced by {@link ImperiumParser#selectClause}.
 	 * @param ctx the parse tree
 	 */
-	void enterNumeric_literal(ImperiumParser.Numeric_literalContext ctx);
+	void enterSelectClause(ImperiumParser.SelectClauseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#numeric_literal}.
+	 * Exit a parse tree produced by {@link ImperiumParser#selectClause}.
 	 * @param ctx the parse tree
 	 */
-	void exitNumeric_literal(ImperiumParser.Numeric_literalContext ctx);
+	void exitSelectClause(ImperiumParser.SelectClauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#hexadecimal_literal}.
+	 * Enter a parse tree produced by {@link ImperiumParser#whenClause}.
 	 * @param ctx the parse tree
 	 */
-	void enterHexadecimal_literal(ImperiumParser.Hexadecimal_literalContext ctx);
+	void enterWhenClause(ImperiumParser.WhenClauseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#hexadecimal_literal}.
+	 * Exit a parse tree produced by {@link ImperiumParser#whenClause}.
 	 * @param ctx the parse tree
 	 */
-	void exitHexadecimal_literal(ImperiumParser.Hexadecimal_literalContext ctx);
+	void exitWhenClause(ImperiumParser.WhenClauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#octal_literal}.
+	 * Enter a parse tree produced by {@link ImperiumParser#otherwiseClause}.
 	 * @param ctx the parse tree
 	 */
-	void enterOctal_literal(ImperiumParser.Octal_literalContext ctx);
+	void enterOtherwiseClause(ImperiumParser.OtherwiseClauseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#octal_literal}.
+	 * Exit a parse tree produced by {@link ImperiumParser#otherwiseClause}.
 	 * @param ctx the parse tree
 	 */
-	void exitOctal_literal(ImperiumParser.Octal_literalContext ctx);
+	void exitOtherwiseClause(ImperiumParser.OtherwiseClauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#decimal_literal}.
+	 * Enter a parse tree produced by {@link ImperiumParser#defineStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterDecimal_literal(ImperiumParser.Decimal_literalContext ctx);
+	void enterDefineStmt(ImperiumParser.DefineStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#decimal_literal}.
+	 * Exit a parse tree produced by {@link ImperiumParser#defineStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitDecimal_literal(ImperiumParser.Decimal_literalContext ctx);
+	void exitDefineStmt(ImperiumParser.DefineStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ImperiumParser#binary_literal}.
+	 * Enter a parse tree produced by {@link ImperiumParser#enumType}.
 	 * @param ctx the parse tree
 	 */
-	void enterBinary_literal(ImperiumParser.Binary_literalContext ctx);
+	void enterEnumType(ImperiumParser.EnumTypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ImperiumParser#binary_literal}.
+	 * Exit a parse tree produced by {@link ImperiumParser#enumType}.
 	 * @param ctx the parse tree
 	 */
-	void exitBinary_literal(ImperiumParser.Binary_literalContext ctx);
+	void exitEnumType(ImperiumParser.EnumTypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#aliasType}.
+	 * @param ctx the parse tree
+	 */
+	void enterAliasType(ImperiumParser.AliasTypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#aliasType}.
+	 * @param ctx the parse tree
+	 */
+	void exitAliasType(ImperiumParser.AliasTypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#binaryEnum}.
+	 * @param ctx the parse tree
+	 */
+	void enterBinaryEnum(ImperiumParser.BinaryEnumContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#binaryEnum}.
+	 * @param ctx the parse tree
+	 */
+	void exitBinaryEnum(ImperiumParser.BinaryEnumContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#decimalEnum}.
+	 * @param ctx the parse tree
+	 */
+	void enterDecimalEnum(ImperiumParser.DecimalEnumContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#decimalEnum}.
+	 * @param ctx the parse tree
+	 */
+	void exitDecimalEnum(ImperiumParser.DecimalEnumContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#stringEnum}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringEnum(ImperiumParser.StringEnumContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#stringEnum}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringEnum(ImperiumParser.StringEnumContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#bitEnum}.
+	 * @param ctx the parse tree
+	 */
+	void enterBitEnum(ImperiumParser.BitEnumContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#bitEnum}.
+	 * @param ctx the parse tree
+	 */
+	void exitBitEnum(ImperiumParser.BitEnumContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#enumBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnumBody(ImperiumParser.EnumBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#enumBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnumBody(ImperiumParser.EnumBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#enumLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnumLiteral(ImperiumParser.EnumLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#enumLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnumLiteral(ImperiumParser.EnumLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#structType}.
+	 * @param ctx the parse tree
+	 */
+	void enterStructType(ImperiumParser.StructTypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#structType}.
+	 * @param ctx the parse tree
+	 */
+	void exitStructType(ImperiumParser.StructTypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#structBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterStructBody(ImperiumParser.StructBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#structBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitStructBody(ImperiumParser.StructBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#structMemberList}.
+	 * @param ctx the parse tree
+	 */
+	void enterStructMemberList(ImperiumParser.StructMemberListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#structMemberList}.
+	 * @param ctx the parse tree
+	 */
+	void exitStructMemberList(ImperiumParser.StructMemberListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#structSubstruct}.
+	 * @param ctx the parse tree
+	 */
+	void enterStructSubstruct(ImperiumParser.StructSubstructContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#structSubstruct}.
+	 * @param ctx the parse tree
+	 */
+	void exitStructSubstruct(ImperiumParser.StructSubstructContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#structMember}.
+	 * @param ctx the parse tree
+	 */
+	void enterStructMember(ImperiumParser.StructMemberContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#structMember}.
+	 * @param ctx the parse tree
+	 */
+	void exitStructMember(ImperiumParser.StructMemberContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#stringLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringLiteral(ImperiumParser.StringLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#stringLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringLiteral(ImperiumParser.StringLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#numericLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumericLiteral(ImperiumParser.NumericLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#numericLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumericLiteral(ImperiumParser.NumericLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#hexLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterHexLiteral(ImperiumParser.HexLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#hexLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitHexLiteral(ImperiumParser.HexLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#octalLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterOctalLiteral(ImperiumParser.OctalLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#octalLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitOctalLiteral(ImperiumParser.OctalLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#decimalLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterDecimalLiteral(ImperiumParser.DecimalLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#decimalLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitDecimalLiteral(ImperiumParser.DecimalLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#binaryLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterBinaryLiteral(ImperiumParser.BinaryLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#binaryLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitBinaryLiteral(ImperiumParser.BinaryLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ImperiumParser#identifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdentifier(ImperiumParser.IdentifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ImperiumParser#identifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdentifier(ImperiumParser.IdentifierContext ctx);
 }
