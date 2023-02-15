@@ -16,37 +16,277 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTranslation_unit(ImperiumParser.Translation_unitContext ctx) { }
+	@Override public void enterTranslationUnit(ImperiumParser.TranslationUnitContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTranslation_unit(ImperiumParser.Translation_unitContext ctx) { }
+	@Override public void exitTranslationUnit(ImperiumParser.TranslationUnitContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProcedure_stmt(ImperiumParser.Procedure_stmtContext ctx) { }
+	@Override public void enterUses(ImperiumParser.UsesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProcedure_stmt(ImperiumParser.Procedure_stmtContext ctx) { }
+	@Override public void exitUses(ImperiumParser.UsesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStmt_block(ImperiumParser.Stmt_blockContext ctx) { }
+	@Override public void enterScope(ImperiumParser.ScopeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStmt_block(ImperiumParser.Stmt_blockContext ctx) { }
+	@Override public void exitScope(ImperiumParser.ScopeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterScopeStmt(ImperiumParser.ScopeStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitScopeStmt(ImperiumParser.ScopeStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterScopeEnd(ImperiumParser.ScopeEndContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitScopeEnd(ImperiumParser.ScopeEndContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTraits(ImperiumParser.TraitsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTraits(ImperiumParser.TraitsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTraitsEnd(ImperiumParser.TraitsEndContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTraitsEnd(ImperiumParser.TraitsEndContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTraitStmt(ImperiumParser.TraitStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTraitStmt(ImperiumParser.TraitStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclarationTraits(ImperiumParser.DeclarationTraitsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclarationTraits(ImperiumParser.DeclarationTraitsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclarationTrait(ImperiumParser.DeclarationTraitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclarationTrait(ImperiumParser.DeclarationTraitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProcedureTraits(ImperiumParser.ProcedureTraitsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProcedureTraits(ImperiumParser.ProcedureTraitsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProcedureTraitsList(ImperiumParser.ProcedureTraitsListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProcedureTraitsList(ImperiumParser.ProcedureTraitsListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProcedureTrait(ImperiumParser.ProcedureTraitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProcedureTrait(ImperiumParser.ProcedureTraitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProcedure(ImperiumParser.ProcedureContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProcedure(ImperiumParser.ProcedureContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunction(ImperiumParser.FunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunction(ImperiumParser.FunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProcedureStmt(ImperiumParser.ProcedureStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProcedureStmt(ImperiumParser.ProcedureStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionStmt(ImperiumParser.FunctionStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionStmt(ImperiumParser.FunctionStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTargetSpec(ImperiumParser.TargetSpecContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTargetSpec(ImperiumParser.TargetSpecContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProcedureAttributes(ImperiumParser.ProcedureAttributesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProcedureAttributes(ImperiumParser.ProcedureAttributesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionAttributes(ImperiumParser.FunctionAttributesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionAttributes(ImperiumParser.FunctionAttributesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProcedureEnd(ImperiumParser.ProcedureEndContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProcedureEnd(ImperiumParser.ProcedureEndContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionEnd(ImperiumParser.FunctionEndContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionEnd(ImperiumParser.FunctionEndContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterReturnsDescriptor(ImperiumParser.ReturnsDescriptorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitReturnsDescriptor(ImperiumParser.ReturnsDescriptorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -64,205 +304,97 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLabel_stmt(ImperiumParser.Label_stmtContext ctx) { }
+	@Override public void enterEmitStmt(ImperiumParser.EmitStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLabel_stmt(ImperiumParser.Label_stmtContext ctx) { }
+	@Override public void exitEmitStmt(ImperiumParser.EmitStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPRE(ImperiumParser.PREContext ctx) { }
+	@Override public void enterLabelStmt(ImperiumParser.LabelStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPRE(ImperiumParser.PREContext ctx) { }
+	@Override public void exitLabelStmt(ImperiumParser.LabelStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDCL(ImperiumParser.DCLContext ctx) { }
+	@Override public void enterPassiveStmt(ImperiumParser.PassiveStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDCL(ImperiumParser.DCLContext ctx) { }
+	@Override public void exitPassiveStmt(ImperiumParser.PassiveStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDEF(ImperiumParser.DEFContext ctx) { }
+	@Override public void enterActiveStmt(ImperiumParser.ActiveStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDEF(ImperiumParser.DEFContext ctx) { }
+	@Override public void exitActiveStmt(ImperiumParser.ActiveStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterASSIGN(ImperiumParser.ASSIGNContext ctx) { }
+	@Override public void enterNullStmt(ImperiumParser.NullStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitASSIGN(ImperiumParser.ASSIGNContext ctx) { }
+	@Override public void exitNullStmt(ImperiumParser.NullStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCALL(ImperiumParser.CALLContext ctx) { }
+	@Override public void enterAssignmentStmt(ImperiumParser.AssignmentStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCALL(ImperiumParser.CALLContext ctx) { }
+	@Override public void exitAssignmentStmt(ImperiumParser.AssignmentStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterGOTO(ImperiumParser.GOTOContext ctx) { }
+	@Override public void enterBasicRef(ImperiumParser.BasicRefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitGOTO(ImperiumParser.GOTOContext ctx) { }
+	@Override public void exitBasicRef(ImperiumParser.BasicRefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPROC(ImperiumParser.PROCContext ctx) { }
+	@Override public void enterPtrRef(ImperiumParser.PtrRefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPROC(ImperiumParser.PROCContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterRET(ImperiumParser.RETContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitRET(ImperiumParser.RETContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterIF(ImperiumParser.IFContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIF(ImperiumParser.IFContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterLOOP(ImperiumParser.LOOPContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitLOOP(ImperiumParser.LOOPContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterLEAVE(ImperiumParser.LEAVEContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitLEAVE(ImperiumParser.LEAVEContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAGAIN(ImperiumParser.AGAINContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAGAIN(ImperiumParser.AGAINContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterPreprocessor_stmt(ImperiumParser.Preprocessor_stmtContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPreprocessor_stmt(ImperiumParser.Preprocessor_stmtContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAssign_stmt(ImperiumParser.Assign_stmtContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAssign_stmt(ImperiumParser.Assign_stmtContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBASIC_REF(ImperiumParser.BASIC_REFContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBASIC_REF(ImperiumParser.BASIC_REFContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterPTR_REF(ImperiumParser.PTR_REFContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPTR_REF(ImperiumParser.PTR_REFContext ctx) { }
+	@Override public void exitPtrRef(ImperiumParser.PtrRefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -280,49 +412,49 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterArguments_list(ImperiumParser.Arguments_listContext ctx) { }
+	@Override public void enterArgumentsList(ImperiumParser.ArgumentsListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitArguments_list(ImperiumParser.Arguments_listContext ctx) { }
+	@Override public void exitArgumentsList(ImperiumParser.ArgumentsListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBasic_reference(ImperiumParser.Basic_referenceContext ctx) { }
+	@Override public void enterBasicReference(ImperiumParser.BasicReferenceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBasic_reference(ImperiumParser.Basic_referenceContext ctx) { }
+	@Override public void exitBasicReference(ImperiumParser.BasicReferenceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStructure_qualification(ImperiumParser.Structure_qualificationContext ctx) { }
+	@Override public void enterStructureQualification(ImperiumParser.StructureQualificationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStructure_qualification(ImperiumParser.Structure_qualificationContext ctx) { }
+	@Override public void exitStructureQualification(ImperiumParser.StructureQualificationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStructure_qualification_list(ImperiumParser.Structure_qualification_listContext ctx) { }
+	@Override public void enterStructureQualificationList(ImperiumParser.StructureQualificationListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStructure_qualification_list(ImperiumParser.Structure_qualification_listContext ctx) { }
+	@Override public void exitStructureQualificationList(ImperiumParser.StructureQualificationListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -340,385 +472,529 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSubscript_commalist(ImperiumParser.Subscript_commalistContext ctx) { }
+	@Override public void enterSubscriptCommalist(ImperiumParser.SubscriptCommalistContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSubscript_commalist(ImperiumParser.Subscript_commalistContext ctx) { }
+	@Override public void exitSubscriptCommalist(ImperiumParser.SubscriptCommalistContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression(ImperiumParser.ExpressionContext ctx) { }
+	@Override public void enterParenthesizedExpression(ImperiumParser.ParenthesizedExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression(ImperiumParser.ExpressionContext ctx) { }
+	@Override public void exitParenthesizedExpression(ImperiumParser.ParenthesizedExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression_9(ImperiumParser.Expression_9Context ctx) { }
+	@Override public void enterPrimitiveExpression(ImperiumParser.PrimitiveExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression_9(ImperiumParser.Expression_9Context ctx) { }
+	@Override public void exitPrimitiveExpression(ImperiumParser.PrimitiveExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression_8(ImperiumParser.Expression_8Context ctx) { }
+	@Override public void enterPrefixExpression(ImperiumParser.PrefixExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression_8(ImperiumParser.Expression_8Context ctx) { }
+	@Override public void exitPrefixExpression(ImperiumParser.PrefixExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression_7(ImperiumParser.Expression_7Context ctx) { }
+	@Override public void enterBitAdjustOperator(ImperiumParser.BitAdjustOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression_7(ImperiumParser.Expression_7Context ctx) { }
+	@Override public void exitBitAdjustOperator(ImperiumParser.BitAdjustOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression_6(ImperiumParser.Expression_6Context ctx) { }
+	@Override public void enterAdditionOperator(ImperiumParser.AdditionOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression_6(ImperiumParser.Expression_6Context ctx) { }
+	@Override public void exitAdditionOperator(ImperiumParser.AdditionOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression_5(ImperiumParser.Expression_5Context ctx) { }
+	@Override public void enterMultiplyOperator(ImperiumParser.MultiplyOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression_5(ImperiumParser.Expression_5Context ctx) { }
+	@Override public void exitMultiplyOperator(ImperiumParser.MultiplyOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression_4(ImperiumParser.Expression_4Context ctx) { }
+	@Override public void enterBoolAndOperator(ImperiumParser.BoolAndOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression_4(ImperiumParser.Expression_4Context ctx) { }
+	@Override public void exitBoolAndOperator(ImperiumParser.BoolAndOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression_3(ImperiumParser.Expression_3Context ctx) { }
+	@Override public void enterBoolXorOperator(ImperiumParser.BoolXorOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression_3(ImperiumParser.Expression_3Context ctx) { }
+	@Override public void exitBoolXorOperator(ImperiumParser.BoolXorOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression_2(ImperiumParser.Expression_2Context ctx) { }
+	@Override public void enterBoolOrOperator(ImperiumParser.BoolOrOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression_2(ImperiumParser.Expression_2Context ctx) { }
+	@Override public void exitBoolOrOperator(ImperiumParser.BoolOrOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression_1(ImperiumParser.Expression_1Context ctx) { }
+	@Override public void enterExprBoolAnd(ImperiumParser.ExprBoolAndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression_1(ImperiumParser.Expression_1Context ctx) { }
+	@Override public void exitExprBoolAnd(ImperiumParser.ExprBoolAndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrefix_expression(ImperiumParser.Prefix_expressionContext ctx) { }
+	@Override public void enterExprConcat(ImperiumParser.ExprConcatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrefix_expression(ImperiumParser.Prefix_expressionContext ctx) { }
+	@Override public void exitExprConcat(ImperiumParser.ExprConcatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParenthesized_expression(ImperiumParser.Parenthesized_expressionContext ctx) { }
+	@Override public void enterExprRaise(ImperiumParser.ExprRaiseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParenthesized_expression(ImperiumParser.Parenthesized_expressionContext ctx) { }
+	@Override public void exitExprRaise(ImperiumParser.ExprRaiseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrimitive_expression(ImperiumParser.Primitive_expressionContext ctx) { }
+	@Override public void enterExprBoolXor(ImperiumParser.ExprBoolXorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrimitive_expression(ImperiumParser.Primitive_expressionContext ctx) { }
+	@Override public void exitExprBoolXor(ImperiumParser.ExprBoolXorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrefix_operator(ImperiumParser.Prefix_operatorContext ctx) { }
+	@Override public void enterExprLogAnd(ImperiumParser.ExprLogAndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrefix_operator(ImperiumParser.Prefix_operatorContext ctx) { }
+	@Override public void exitExprLogAnd(ImperiumParser.ExprLogAndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparison_operator(ImperiumParser.Comparison_operatorContext ctx) { }
+	@Override public void enterExprBitAdjust(ImperiumParser.ExprBitAdjustContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparison_operator(ImperiumParser.Comparison_operatorContext ctx) { }
+	@Override public void exitExprBitAdjust(ImperiumParser.ExprBitAdjustContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterShift_operator(ImperiumParser.Shift_operatorContext ctx) { }
+	@Override public void enterExprAddSub(ImperiumParser.ExprAddSubContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitShift_operator(ImperiumParser.Shift_operatorContext ctx) { }
+	@Override public void exitExprAddSub(ImperiumParser.ExprAddSubContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterKEYWD(ImperiumParser.KEYWDContext ctx) { }
+	@Override public void enterExpreMap1(ImperiumParser.ExpreMap1Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitKEYWD(ImperiumParser.KEYWDContext ctx) { }
+	@Override public void exitExpreMap1(ImperiumParser.ExpreMap1Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdentifier_IDENTIFIER(ImperiumParser.Identifier_IDENTIFIERContext ctx) { }
+	@Override public void enterExprParenthesized(ImperiumParser.ExprParenthesizedContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIdentifier_IDENTIFIER(ImperiumParser.Identifier_IDENTIFIERContext ctx) { }
+	@Override public void exitExprParenthesized(ImperiumParser.ExprParenthesizedContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterKeyword(ImperiumParser.KeywordContext ctx) { }
+	@Override public void enterExpreMap2(ImperiumParser.ExpreMap2Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitKeyword(ImperiumParser.KeywordContext ctx) { }
+	@Override public void exitExpreMap2(ImperiumParser.ExpreMap2Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCall_stmt(ImperiumParser.Call_stmtContext ctx) { }
+	@Override public void enterExprMulDiv(ImperiumParser.ExprMulDivContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCall_stmt(ImperiumParser.Call_stmtContext ctx) { }
+	@Override public void exitExprMulDiv(ImperiumParser.ExprMulDivContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterGoto_stmt(ImperiumParser.Goto_stmtContext ctx) { }
+	@Override public void enterExprLogOr(ImperiumParser.ExprLogOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitGoto_stmt(ImperiumParser.Goto_stmtContext ctx) { }
+	@Override public void exitExprLogOr(ImperiumParser.ExprLogOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEnd_stmt(ImperiumParser.End_stmtContext ctx) { }
+	@Override public void enterExprCompare(ImperiumParser.ExprCompareContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEnd_stmt(ImperiumParser.End_stmtContext ctx) { }
+	@Override public void exitExprCompare(ImperiumParser.ExprCompareContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEndloop_stmt(ImperiumParser.Endloop_stmtContext ctx) { }
+	@Override public void enterExprPrefixed(ImperiumParser.ExprPrefixedContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEndloop_stmt(ImperiumParser.Endloop_stmtContext ctx) { }
+	@Override public void exitExprPrefixed(ImperiumParser.ExprPrefixedContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReloop_stmt(ImperiumParser.Reloop_stmtContext ctx) { }
+	@Override public void enterExprBoolOr(ImperiumParser.ExprBoolOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReloop_stmt(ImperiumParser.Reloop_stmtContext ctx) { }
+	@Override public void exitExprBoolOr(ImperiumParser.ExprBoolOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclare_stmt(ImperiumParser.Declare_stmtContext ctx) { }
+	@Override public void enterExprPrimitive(ImperiumParser.ExprPrimitiveContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDeclare_stmt(ImperiumParser.Declare_stmtContext ctx) { }
+	@Override public void exitExprPrimitive(ImperiumParser.ExprPrimitiveContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterType_info(ImperiumParser.Type_infoContext ctx) { }
+	@Override public void enterMap_set(ImperiumParser.Map_setContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitType_info(ImperiumParser.Type_infoContext ctx) { }
+	@Override public void exitMap_set(ImperiumParser.Map_setContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDimension_suffix(ImperiumParser.Dimension_suffixContext ctx) { }
+	@Override public void enterBool_set(ImperiumParser.Bool_setContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDimension_suffix(ImperiumParser.Dimension_suffixContext ctx) { }
+	@Override public void exitBool_set(ImperiumParser.Bool_setContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBound_pair(ImperiumParser.Bound_pairContext ctx) { }
+	@Override public void enterPrefixOperator(ImperiumParser.PrefixOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBound_pair(ImperiumParser.Bound_pairContext ctx) { }
+	@Override public void exitPrefixOperator(ImperiumParser.PrefixOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBound_pair_commalist(ImperiumParser.Bound_pair_commalistContext ctx) { }
+	@Override public void enterComparisonOperator(ImperiumParser.ComparisonOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBound_pair_commalist(ImperiumParser.Bound_pair_commalistContext ctx) { }
+	@Override public void exitComparisonOperator(ImperiumParser.ComparisonOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLower_bound(ImperiumParser.Lower_boundContext ctx) { }
+	@Override public void enterShiftOperator(ImperiumParser.ShiftOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLower_bound(ImperiumParser.Lower_boundContext ctx) { }
+	@Override public void exitShiftOperator(ImperiumParser.ShiftOperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUpper_bound(ImperiumParser.Upper_boundContext ctx) { }
+	@Override public void enterCallStmt(ImperiumParser.CallStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUpper_bound(ImperiumParser.Upper_boundContext ctx) { }
+	@Override public void exitCallStmt(ImperiumParser.CallStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterGotoStmt(ImperiumParser.GotoStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitGotoStmt(ImperiumParser.GotoStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEndloopStmt(ImperiumParser.EndloopStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEndloopStmt(ImperiumParser.EndloopStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterReloopStmt(ImperiumParser.ReloopStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitReloopStmt(ImperiumParser.ReloopStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclareStmt(ImperiumParser.DeclareStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclareStmt(ImperiumParser.DeclareStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclareAsBody(ImperiumParser.DeclareAsBodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclareAsBody(ImperiumParser.DeclareAsBodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclarationBody(ImperiumParser.DeclarationBodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclarationBody(ImperiumParser.DeclarationBodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTypeInfo(ImperiumParser.TypeInfoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTypeInfo(ImperiumParser.TypeInfoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDimensionSuffix(ImperiumParser.DimensionSuffixContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDimensionSuffix(ImperiumParser.DimensionSuffixContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBoundPair(ImperiumParser.BoundPairContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoundPair(ImperiumParser.BoundPairContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBoundPairCommalist(ImperiumParser.BoundPairCommalistContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoundPairCommalist(ImperiumParser.BoundPairCommalistContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLowerBound(ImperiumParser.LowerBoundContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLowerBound(ImperiumParser.LowerBoundContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterUpperBound(ImperiumParser.UpperBoundContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitUpperBound(ImperiumParser.UpperBoundContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -736,193 +1012,61 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBIN(ImperiumParser.BINContext ctx) { }
+	@Override public void enterMemoryAttribute(ImperiumParser.MemoryAttributeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBIN(ImperiumParser.BINContext ctx) { }
+	@Override public void exitMemoryAttribute(ImperiumParser.MemoryAttributeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDEC(ImperiumParser.DECContext ctx) { }
+	@Override public void enterDataAttribute(ImperiumParser.DataAttributeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDEC(ImperiumParser.DECContext ctx) { }
+	@Override public void exitDataAttribute(ImperiumParser.DataAttributeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPTR(ImperiumParser.PTRContext ctx) { }
+	@Override public void enterLinkage_attribute(ImperiumParser.Linkage_attributeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPTR(ImperiumParser.PTRContext ctx) { }
+	@Override public void exitLinkage_attribute(ImperiumParser.Linkage_attributeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBIT(ImperiumParser.BITContext ctx) { }
+	@Override public void enterUtfSpec(ImperiumParser.UtfSpecContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBIT(ImperiumParser.BITContext ctx) { }
+	@Override public void exitUtfSpec(ImperiumParser.UtfSpecContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCHAR(ImperiumParser.CHARContext ctx) { }
+	@Override public void enterRawSpec(ImperiumParser.RawSpecContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCHAR(ImperiumParser.CHARContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSTR(ImperiumParser.STRContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSTR(ImperiumParser.STRContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterENT(ImperiumParser.ENTContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitENT(ImperiumParser.ENTContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFIX(ImperiumParser.FIXContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFIX(ImperiumParser.FIXContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFLT(ImperiumParser.FLTContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFLT(ImperiumParser.FLTContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterOFF(ImperiumParser.OFFContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOFF(ImperiumParser.OFFContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterVNG(ImperiumParser.VNGContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVNG(ImperiumParser.VNGContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCOR(ImperiumParser.CORContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCOR(ImperiumParser.CORContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCOF(ImperiumParser.COFContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCOF(ImperiumParser.COFContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBLTN(ImperiumParser.BLTNContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBLTN(ImperiumParser.BLTNContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterINTR(ImperiumParser.INTRContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitINTR(ImperiumParser.INTRContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterIDENT(ImperiumParser.IDENTContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIDENT(ImperiumParser.IDENTContext ctx) { }
+	@Override public void exitRawSpec(ImperiumParser.RawSpecContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -940,13 +1084,13 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNumber_of_digits(ImperiumParser.Number_of_digitsContext ctx) { }
+	@Override public void enterNumberOfDigits(ImperiumParser.NumberOfDigitsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNumber_of_digits(ImperiumParser.Number_of_digitsContext ctx) { }
+	@Override public void exitNumberOfDigits(ImperiumParser.NumberOfDigitsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -964,13 +1108,25 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMax_length(ImperiumParser.Max_lengthContext ctx) { }
+	@Override public void enterMaxStringLength(ImperiumParser.MaxStringLengthContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMax_length(ImperiumParser.Max_lengthContext ctx) { }
+	@Override public void exitMaxStringLength(ImperiumParser.MaxStringLengthContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMaxLength(ImperiumParser.MaxLengthContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMaxLength(ImperiumParser.MaxLengthContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1000,241 +1156,469 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEntry_information(ImperiumParser.Entry_informationContext ctx) { }
+	@Override public void enterCoprocedureSpecifier(ImperiumParser.CoprocedureSpecifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEntry_information(ImperiumParser.Entry_informationContext ctx) { }
+	@Override public void exitCoprocedureSpecifier(ImperiumParser.CoprocedureSpecifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCoprocedure_specifier(ImperiumParser.Coprocedure_specifierContext ctx) { }
+	@Override public void enterHandlerSpecifier(ImperiumParser.HandlerSpecifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCoprocedure_specifier(ImperiumParser.Coprocedure_specifierContext ctx) { }
+	@Override public void exitHandlerSpecifier(ImperiumParser.HandlerSpecifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParameter_name_commalist(ImperiumParser.Parameter_name_commalistContext ctx) { }
+	@Override public void enterParameterNameCommalist(ImperiumParser.ParameterNameCommalistContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParameter_name_commalist(ImperiumParser.Parameter_name_commalistContext ctx) { }
+	@Override public void exitParameterNameCommalist(ImperiumParser.ParameterNameCommalistContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReturns_descriptor(ImperiumParser.Returns_descriptorContext ctx) { }
+	@Override public void enterReturnStmt(ImperiumParser.ReturnStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturns_descriptor(ImperiumParser.Returns_descriptorContext ctx) { }
+	@Override public void exitReturnStmt(ImperiumParser.ReturnStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReturn_stmt(ImperiumParser.Return_stmtContext ctx) { }
+	@Override public void enterIfStmt(ImperiumParser.IfStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturn_stmt(ImperiumParser.Return_stmtContext ctx) { }
+	@Override public void exitIfStmt(ImperiumParser.IfStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIf_stmt(ImperiumParser.If_stmtContext ctx) { }
+	@Override public void enterIfEnd(ImperiumParser.IfEndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIf_stmt(ImperiumParser.If_stmtContext ctx) { }
+	@Override public void exitIfEnd(ImperiumParser.IfEndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterThen_clause(ImperiumParser.Then_clauseContext ctx) { }
+	@Override public void enterThenClause(ImperiumParser.ThenClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitThen_clause(ImperiumParser.Then_clauseContext ctx) { }
+	@Override public void exitThenClause(ImperiumParser.ThenClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElse_clause(ImperiumParser.Else_clauseContext ctx) { }
+	@Override public void enterElseClause(ImperiumParser.ElseClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElse_clause(ImperiumParser.Else_clauseContext ctx) { }
+	@Override public void exitElseClause(ImperiumParser.ElseClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElif_clause(ImperiumParser.Elif_clauseContext ctx) { }
+	@Override public void enterElifClause(ImperiumParser.ElifClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElif_clause(ImperiumParser.Elif_clauseContext ctx) { }
+	@Override public void exitElifClause(ImperiumParser.ElifClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBASIC_LOOP(ImperiumParser.BASIC_LOOPContext ctx) { }
+	@Override public void enterLoopStmt(ImperiumParser.LoopStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBASIC_LOOP(ImperiumParser.BASIC_LOOPContext ctx) { }
+	@Override public void exitLoopStmt(ImperiumParser.LoopStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWHILE_UNTIL(ImperiumParser.WHILE_UNTILContext ctx) { }
+	@Override public void enterLoopEnd(ImperiumParser.LoopEndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWHILE_UNTIL(ImperiumParser.WHILE_UNTILContext ctx) { }
+	@Override public void exitLoopEnd(ImperiumParser.LoopEndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUNTIL_WHILE(ImperiumParser.UNTIL_WHILEContext ctx) { }
+	@Override public void enterWhileOption(ImperiumParser.WhileOptionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUNTIL_WHILE(ImperiumParser.UNTIL_WHILEContext ctx) { }
+	@Override public void exitWhileOption(ImperiumParser.WhileOptionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhile_option(ImperiumParser.While_optionContext ctx) { }
+	@Override public void enterUntilOption(ImperiumParser.UntilOptionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWhile_option(ImperiumParser.While_optionContext ctx) { }
+	@Override public void exitUntilOption(ImperiumParser.UntilOptionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUntil_option(ImperiumParser.Until_optionContext ctx) { }
+	@Override public void enterSelectStmt(ImperiumParser.SelectStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUntil_option(ImperiumParser.Until_optionContext ctx) { }
+	@Override public void exitSelectStmt(ImperiumParser.SelectStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDefine_stmt(ImperiumParser.Define_stmtContext ctx) { }
+	@Override public void enterSelectEnd(ImperiumParser.SelectEndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDefine_stmt(ImperiumParser.Define_stmtContext ctx) { }
+	@Override public void exitSelectEnd(ImperiumParser.SelectEndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNumeric_literal(ImperiumParser.Numeric_literalContext ctx) { }
+	@Override public void enterSelectClause(ImperiumParser.SelectClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNumeric_literal(ImperiumParser.Numeric_literalContext ctx) { }
+	@Override public void exitSelectClause(ImperiumParser.SelectClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHexadecimal_literal(ImperiumParser.Hexadecimal_literalContext ctx) { }
+	@Override public void enterWhenClause(ImperiumParser.WhenClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitHexadecimal_literal(ImperiumParser.Hexadecimal_literalContext ctx) { }
+	@Override public void exitWhenClause(ImperiumParser.WhenClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOctal_literal(ImperiumParser.Octal_literalContext ctx) { }
+	@Override public void enterOtherwiseClause(ImperiumParser.OtherwiseClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOctal_literal(ImperiumParser.Octal_literalContext ctx) { }
+	@Override public void exitOtherwiseClause(ImperiumParser.OtherwiseClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDecimal_literal(ImperiumParser.Decimal_literalContext ctx) { }
+	@Override public void enterDefineStmt(ImperiumParser.DefineStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDecimal_literal(ImperiumParser.Decimal_literalContext ctx) { }
+	@Override public void exitDefineStmt(ImperiumParser.DefineStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBinary_literal(ImperiumParser.Binary_literalContext ctx) { }
+	@Override public void enterEnumType(ImperiumParser.EnumTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBinary_literal(ImperiumParser.Binary_literalContext ctx) { }
+	@Override public void exitEnumType(ImperiumParser.EnumTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAliasType(ImperiumParser.AliasTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAliasType(ImperiumParser.AliasTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBinaryEnum(ImperiumParser.BinaryEnumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBinaryEnum(ImperiumParser.BinaryEnumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDecimalEnum(ImperiumParser.DecimalEnumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDecimalEnum(ImperiumParser.DecimalEnumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStringEnum(ImperiumParser.StringEnumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStringEnum(ImperiumParser.StringEnumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBitEnum(ImperiumParser.BitEnumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBitEnum(ImperiumParser.BitEnumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEnumBody(ImperiumParser.EnumBodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEnumBody(ImperiumParser.EnumBodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEnumLiteral(ImperiumParser.EnumLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEnumLiteral(ImperiumParser.EnumLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStructType(ImperiumParser.StructTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStructType(ImperiumParser.StructTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStructBody(ImperiumParser.StructBodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStructBody(ImperiumParser.StructBodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStructMemberList(ImperiumParser.StructMemberListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStructMemberList(ImperiumParser.StructMemberListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStructSubstruct(ImperiumParser.StructSubstructContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStructSubstruct(ImperiumParser.StructSubstructContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStructMember(ImperiumParser.StructMemberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStructMember(ImperiumParser.StructMemberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStringLiteral(ImperiumParser.StringLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStringLiteral(ImperiumParser.StringLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNumericLiteral(ImperiumParser.NumericLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumericLiteral(ImperiumParser.NumericLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterHexLiteral(ImperiumParser.HexLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitHexLiteral(ImperiumParser.HexLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOctalLiteral(ImperiumParser.OctalLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOctalLiteral(ImperiumParser.OctalLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDecimalLiteral(ImperiumParser.DecimalLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDecimalLiteral(ImperiumParser.DecimalLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBinaryLiteral(ImperiumParser.BinaryLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBinaryLiteral(ImperiumParser.BinaryLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIdentifier(ImperiumParser.IdentifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIdentifier(ImperiumParser.IdentifierContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
