@@ -1,0 +1,34 @@
+procedure breakpoint(X) intrinsic(arm) ;
+
+    #accept(assembler)
+        bkpt 255 X 
+        bkpt 255
+        bkpt 255
+        bkpt 255   
+        bkpt 255 
+        bkpt 255  
+        bkpt 255             
+        bkpt 255             
+        bkpt 255             
+        bkpt 255              
+        bkpt 255             
+        bkpt 255             
+        bkpt 255              
+    #end
+
+    call log("Done");
+
+    #accept(assembler)
+        LDR R1, =#020001000    /* Load address 0x20001000 to R1 */
+        LDR R2, =#020001004    /* Load address 0x20001004 to R2 */
+        LDR R3, =#020001008    /* Load address 0x20001008 to R3 */
+        LDR R0, [R1]            /* Load data at the address pointing by R1, save to R0 */
+        LDR R1, [R2]            /* Load data at the address pointing by R2, save to R1 */
+        ADD R0, R1              /* Add R0 to R1, save to R0 */
+        STR R0, [R3]            /* Store R0 to the address pointing by R3 */
+    #end
+
+
+
+
+end;

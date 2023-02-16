@@ -12,12 +12,14 @@
 {
 
   "en": { // English
+    "Accept": "accept",
     "Alias": "alias",
     "Aligned": "aligned",
     "All": "all",
     "Any": "any",
     "Argument": "argument, arg",
     "As": "as",
+    "Assembler": "assembler, asm",
     "Based": "based",
     "Binary": "binary, bin",
     "Bit": "bit",
@@ -73,6 +75,7 @@
     "Return": "return",
     "Returns": "returns",
     "Returnon": "returnon",
+    "Scanas": "scanas",
     "Scope": "scope",
     "Section": "section",
     "Select": "select",

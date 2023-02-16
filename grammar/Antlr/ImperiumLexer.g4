@@ -27,6 +27,10 @@ lexer grammar ImperiumLexer;
     }
 }
 
+HASH_ACCEPT: (HASH ACCEPT) -> pushMode(HASH_ACCEPT_STATE);
+
+ACCEPT: 
+           {Lexicon("en")}? ('accept')      ;
 ALIAS: 
            {Lexicon("en")}? ('alias')       ;
 ALIGNED: 
@@ -39,6 +43,8 @@ ARGUMENT:
            {Lexicon("en")}? ('argument'     | 'arg') ;
 AS: 
            {Lexicon("en")}? ('as')          ;
+ASSEMBLER: 
+           {Lexicon("en")}? ('assembler'    | 'asm') ;
 BASED: 
            {Lexicon("en")}? ('based')       ;
 BINARY: 
@@ -77,8 +83,6 @@ ELIF:
            {Lexicon("en")}? ('elif')        ;
 ELSE: 
            {Lexicon("en")}? ('else')        ;
-EMIT: 
-           {Lexicon("en")}? ('emit')        ;
 END: 
            {Lexicon("en")}? ('end')         ;
 ENDLOOP: 
@@ -151,6 +155,8 @@ RETURNON:
            {Lexicon("en")}? ('returnon')    ;
 RETURNS: 
            {Lexicon("en")}? ('returns')     ;
+SCANAS: 
+           {Lexicon("en")}? ('scanas')      ;
 SCOPE: 
            {Lexicon("en")}? ('scope')       ;
 SECTION: 
@@ -167,8 +173,6 @@ STRING:
            {Lexicon("en")}? ('string')      ;
 STRUCTURE: 
            {Lexicon("en")}? ('structure'    | 'struct') ;
-TARGET: 
-           {Lexicon("en")}? ('target')      ;
 THEN: 
            {Lexicon("en")}? ('then')        ;
 TO: 
@@ -200,6 +204,8 @@ YIELD:
 
 /* End of generated Antlr4 keyword token definitions. */
 
+
+
 // LEXER TOKEN DEFINITIONS
 
 COMMENT:              (BCOM (COMMENT | .)*? ECOM) -> channel(2);
@@ -224,6 +230,7 @@ IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
 // meanings. These are included below, the grammar will accept either the Unicode or the ASCII
 // forms. These are recognized by being name ending in _U
 
+HASH:           ('#');
 AT:             ('@');
 RARROW_U:       ('->'|'➔'); // U+2794
 MAPSTO_U:       ('-->'|'↦'); // U+21A6
@@ -312,4 +319,19 @@ fragment UNICODE_MATH_OPS:  [\u2200-\u22FF]; // Mathematical Operators
 fragment UNICODE_MISC_TECH: [\u2300-\u23FF]; // Includes APL
 fragment UNICODE_MISC_MATH: [\u27C0-\u27EF]; // Miscellaneous match
 
+mode HASH_ACCEPT_STATE;
+HASH_ACCEPT_SPACES:         (' ')+ -> skip;
+HASH_ACCEPT_ASSEMBLER:      ('(' 'assembler' ')')   -> pushMode(ACCEPT_ASSEMBLER);
+HASH_ACCEPT_OTHERWISE:      (.)                     -> popMode;
 
+mode ACCEPT_ASSEMBLER;
+
+ASSEMBLER_END:          (HASH END) -> popMode, popMode;
+ASSEMBLER_NEWLINE:      [\r\n]+ ;
+ASSEMBLER_IDENTIFIER:   ([$a-zA-Z_][$a-zA-Z_0-9]*);
+ASSEMBLER_INTEGER:      (([0-9] [0-9]*));
+ASSEMBLER_PUNCTUATOR:   (','|'.'|';'|':');
+ASSEMBLER_SYMBOL:       ('='|'+'|'#'|'-'|'*'|'/');
+ASSEMBLER_BRACKET:      ('['|']');
+ASSEMBLER_PAREN:        ('('|')');
+ASSEMBLER_SPACES:       (' ')+ -> skip;
