@@ -45,6 +45,8 @@ end;
 procedure breakpoint(X) intrinsic(arm) ;
 
         
+        /* embed these hard coded values, they */
+        /* implement simple jump table   */
 
         0x123
         0X123
@@ -144,16 +146,6 @@ procedure startup (root_ptr) main traits(section("abc"));
 
       result ⇐ get_snapshot(root_ptr);
 
-      /*********************************************************************/
-      /* In the above you can see we must use 'call' to invoke a procedure */
-      /* and a function cannot have no arguments.                          */
-      /* So in a future version we could refer to these names like         */
-      /* call do_something(log);                                           */
-      /* call do_something(get_snapshot);                                  */
-      /* In each case there's no ambiguity that can arise because there's  */
-      /* no way passing these in that way, can be misconstrued as an       */
-      /* attempt to invoke them.                                           */
-      /*********************************************************************/
 
       select (result);
       when(1)
@@ -185,7 +177,7 @@ procedure startup (root_ptr) main traits(section("abc"));
 
       a ⇐ arguer();
 
-      status = xfer_reg ⧀ 3 & saved_reg ⧁ 5 ⊕ control_mask;
+      status = xfer_reg ⧀ 3 & saved_reg ⧁ 5 ⊕ control_mask; // rotate operators
 
       tally = &(input) & |(previous);
 
