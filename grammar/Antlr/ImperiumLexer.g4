@@ -27,7 +27,7 @@ lexer grammar ImperiumLexer;
     }
 }
 
-HASH_ACCEPT: (HASH ACCEPT) -> pushMode(HASH_ACCEPT_STATE);
+HASH_ACCEPT: (HASH SP* ACCEPT) -> pushMode(HASH_ACCEPT_STATE);
 
 ACCEPT: 
            {Lexicon("en")}? ('accept')      ;
@@ -223,9 +223,9 @@ OCTAL_PATTERN:        ((OCT (' ' OCT)*)+ | (OCT ('_' OCT)*)+) FRAC_O? BASE_O;
 HEXADECIMAL_PATTERN:  ((HEX (' ' HEX)*)+ | (HEX ('_' HEX)*)+) FRAC_H? BASE_H;
 INTEGER:              ([1-9] [0-9]*);
 DECIMAL_PATTERN:      (DEC (' ' DEC)*)+ FRAC_D? BASE_D?;
-IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
+fragment BASE_IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
 // SYMBOLS AND OPERATORS
-
+IDENTIFIER:   BASE_IDENTIFIER;
 // There are some symbols that have a very natural Unicode character that better conveys their
 // meanings. These are included below, the grammar will accept either the Unicode or the ASCII
 // forms. These are recognized by being name ending in _U
@@ -318,20 +318,35 @@ fragment IDENTIFIER_REST:  [$a-zA-Z_0-9];
 fragment UNICODE_MATH_OPS:  [\u2200-\u22FF]; // Mathematical Operators
 fragment UNICODE_MISC_TECH: [\u2300-\u23FF]; // Includes APL
 fragment UNICODE_MISC_MATH: [\u27C0-\u27EF]; // Miscellaneous match
+fragment SP: (' ');
+fragment XP: ('0x'|'0X'|'0h'|'0H');
+fragment XS: ('h'|'H');
+fragment BP: ('0b'|'0y');
+fragment BS: ('b'|'B'|'y'|'Y');
+fragment OP: ('0o'|'0q');
+fragment OS: ('o'|'q');
+
+// This mode starts when we encounter a #accept token
 
 mode HASH_ACCEPT_STATE;
-HASH_ACCEPT_SPACES:         (' ')+ -> skip;
-HASH_ACCEPT_ASSEMBLER:      ('(' 'assembler' ')')   -> pushMode(ACCEPT_ASSEMBLER);
+HASH_ACCEPT_SPACES:         SP+ -> skip;
+HASH_ACCEPT_ASSEMBLER:      (SP* LPAR SP* ASSEMBLER SP* RPAR)   -> pushMode(ACCEPT_ASSEMBLER);
 HASH_ACCEPT_OTHERWISE:      (.)                     -> popMode;
 
-mode ACCEPT_ASSEMBLER;
+// This mode starts when we've encountered a #accept(assembler) token sequence
 
-ASSEMBLER_END:          (HASH END) -> popMode, popMode;
-ASSEMBLER_NEWLINE:      [\r\n]+ ;
-ASSEMBLER_IDENTIFIER:   ([$a-zA-Z_][$a-zA-Z_0-9]*);
-ASSEMBLER_INTEGER:      (([0-9] [0-9]*));
-ASSEMBLER_PUNCTUATOR:   (','|'.'|';'|':');
-ASSEMBLER_SYMBOL:       ('='|'+'|'#'|'-'|'*'|'/');
-ASSEMBLER_BRACKET:      ('['|']');
-ASSEMBLER_PAREN:        ('('|')');
-ASSEMBLER_SPACES:       (' ')+ -> skip;
+mode ACCEPT_ASSEMBLER;
+ASSEMBLER_END:              (HASH SP* END)-> popMode, popMode;
+ASSEMBLER_NEWLINE:          [\r\n]+ ;
+ASSEMBLER_IDENTIFIER:       BASE_IDENTIFIER; //([$a-zA-Z_][$a-zA-Z_0-9]*);
+ASSEMBLER_DEC_INTEGER:      (([0-9] [0-9]*('d')?));
+ASSEMBLER_HEX_INTEGER:      (XP HEX+ | (HEX+XS))  ;
+ASSEMBLER_OCT_INTEGER:      (OP OCT+ | (OCT+OS));
+ASSEMBLER_BIN_INTEGER:      (BP BIN+ | (BIN+BS));
+ASSEMBLER_COMMENT:          (BCOM (COMMENT | .)*? ECOM) -> channel(2);
+ASSEMBLER_LINE_COMMENT:     (LCOM .*? LF) -> channel(HIDDEN);
+ASSEMBLER_PUNCTUATOR:       (','|'.'|';'|':');
+ASSEMBLER_SYMBOL:           ('='|'+'|'#'|'-'|'*'|'/');
+ASSEMBLER_BRACKET:          ('['|']');
+ASSEMBLER_PAREN:            ('('|')');
+ASSEMBLER_SPACES:           (' ')+ -> skip;
