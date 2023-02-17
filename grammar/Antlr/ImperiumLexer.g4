@@ -27,7 +27,7 @@ lexer grammar ImperiumLexer;
     }
 }
 
-HASH_ACCEPT: (HASH SP* ACCEPT) -> pushMode(HASH_ACCEPT_STATE);
+INTRINSIC_ENTER: PROCEDURE SP* IPL_IDENTIFIER SP* (LPAR IPL_IDENTIFIER (COMMA IPL_IDENTIFIER)* RPAR)? SP* INTRINSIC LPAR IPL_IDENTIFIER RPAR SP* SEMICOLON -> pushMode(ACCEPT_ASSEMBLER);
 
 ACCEPT: 
            {Lexicon("en")}? ('accept')      ;
@@ -217,15 +217,15 @@ STRING_LITERAL_3:     (TRIQUOTE (.)*? TRIQUOTE);
 STRING_LITERAL_2:     (DIQUOTE  (.)*? DIQUOTE);
 STRING_LITERAL_1:     (QUOTE    (.)*? QUOTE);
 BYTE_ORDER_MARK:      ('\uFEFF'); // This is the unicode char seen when reading the file, the three bytes themselves are an encoding and not see by the
-LABEL:                (AT IDENTIFIER);
+LABEL:                (AT IPL_IDENTIFIER);
 BINARY_PATTERN:       ((BIN (' ' BIN)*)+ | (BIN ('_' BIN)*)+) FRAC_B? BASE_B;
 OCTAL_PATTERN:        ((OCT (' ' OCT)*)+ | (OCT ('_' OCT)*)+) FRAC_O? BASE_O;
 HEXADECIMAL_PATTERN:  ((HEX (' ' HEX)*)+ | (HEX ('_' HEX)*)+) FRAC_H? BASE_H;
 INTEGER:              ([1-9] [0-9]*);
 DECIMAL_PATTERN:      (DEC (' ' DEC)*)+ FRAC_D? BASE_D?;
-fragment BASE_IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
+
 // SYMBOLS AND OPERATORS
-IDENTIFIER:   BASE_IDENTIFIER;
+IPL_IDENTIFIER:   IDENTIFIER;
 // There are some symbols that have a very natural Unicode character that better conveys their
 // meanings. These are included below, the grammar will accept either the Unicode or the ASCII
 // forms. These are recognized by being name ending in _U
@@ -290,7 +290,7 @@ RANGE:          ('..');   // used to represent a range from some start to some e
 
 // LEXER FRAGMENTS
 
-//fragment LSEP:    (' ' | '_');
+fragment IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
 fragment BIN:     [0-1];
 fragment OCT:     [0-7];
 fragment DEC:     [0-9];
@@ -326,19 +326,12 @@ fragment BS: ('b'|'B'|'y'|'Y');
 fragment OP: ('0o'|'0q');
 fragment OS: ('o'|'q');
 
-// This mode starts when we encounter a #accept token
-
-mode HASH_ACCEPT_STATE;
-HASH_ACCEPT_SPACES:         SP+ -> skip;
-HASH_ACCEPT_ASSEMBLER:      (SP* LPAR SP* ASSEMBLER SP* RPAR)   -> pushMode(ACCEPT_ASSEMBLER);
-HASH_ACCEPT_OTHERWISE:      (.)                     -> popMode;
-
 // This mode starts when we've encountered a #accept(assembler) token sequence
 
 mode ACCEPT_ASSEMBLER;
-ASSEMBLER_END:              (HASH SP* END)-> popMode, popMode;
+ASSEMBLER_END:              (END SP* SEMICOLON)-> popMode;
 ASSEMBLER_NEWLINE:          [\r\n]+ ;
-ASSEMBLER_IDENTIFIER:       BASE_IDENTIFIER; //([$a-zA-Z_][$a-zA-Z_0-9]*);
+ASM_IDENTIFIER:             IDENTIFIER; 
 ASSEMBLER_DEC_INTEGER:      (([0-9] [0-9]*('d')?));
 ASSEMBLER_HEX_INTEGER:      (XP HEX+ | (HEX+XS))  ;
 ASSEMBLER_OCT_INTEGER:      (OP OCT+ | (OCT+OS));

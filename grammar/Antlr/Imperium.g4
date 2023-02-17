@@ -57,25 +57,13 @@ scopeEnd
   : END SCOPE? SEMICOLON
   ;
 
-directiveStmt
-  : acceptDirective 
-  ;
-
-acceptDirective
-  : HASH_ACCEPT HASH_ACCEPT_ASSEMBLER hashAcceptStmt* ASSEMBLER_END
-  ;  
-
-hashAcceptStmt
-  : (assemblerToken* ASSEMBLER_NEWLINE)
-  ;
-
 assemblerToken
-  : ASSEMBLER_IDENTIFIER
-  | (ASSEMBLER_DEC_INTEGER | ASSEMBLER_HEX_INTEGER | ASSEMBLER_BIN_INTEGER | ASSEMBLER_OCT_INTEGER)
+  : (ASSEMBLER_DEC_INTEGER | ASSEMBLER_HEX_INTEGER | ASSEMBLER_BIN_INTEGER | ASSEMBLER_OCT_INTEGER)
   | ASSEMBLER_PUNCTUATOR
   | ASSEMBLER_SYMBOL
   | ASSEMBLER_BRACKET
   | ASSEMBLER_PAREN
+  | ASM_IDENTIFIER
   ;
 
 // Traits is mainly a means to implement these kinds of options
@@ -182,9 +170,17 @@ passiveStmt
   | defineStmt
   | procedure
   | function
+  | intrinsic
   | nullStmt
   ;
 
+intrinsic
+  : INTRINSIC_ENTER assemblerStmt* ASSEMBLER_END
+  ;
+
+assemblerStmt
+  : assemblerToken* ASSEMBLER_NEWLINE  
+   ;
 activeStmt
   : labelStmt
   | assignmentStmt
@@ -196,7 +192,6 @@ activeStmt
   | selectStmt
   | endloopStmt
   | reloopStmt
-  | directiveStmt
   | nullStmt
   ;
 
@@ -740,5 +735,5 @@ identifier: (
   | WHILE
   | YIELD
   )
-  | IDENTIFIER
+  | IPL_IDENTIFIER
   ;

@@ -1,28 +1,7 @@
 procedure breakpoint(X) intrinsic(arm) ;
 
-    # accept ( assembler ) 
-        bkpt 255 X 
-        bkpt 255
-        bkpt 255
-        bkpt 255   
-        bkpt 255 // yes this is getting repetitive...
-        bkpt 255  
-        bkpt 255             
-        bkpt 255             
-        bkpt 255             
-        bkpt 255              
-        bkpt 255             
-        bkpt 255             
-        bkpt 255              
+        
 
-    # end
-
-    // consider the ability to create a block
-    // of bytes and have the CPU execute that
-
-    call log("Done");
-
-    #accept(assembler)
         0x123
         0X123
         0111b
@@ -39,6 +18,6 @@ procedure breakpoint(X) intrinsic(arm) ;
         LDR R1, [R2]            /* Load data at the address pointing by R2, save to R1 */
         ADD R0, R1              /* Add R0 to R1, save to R0 */
         STR R0, [R3]            /* Store R0 to the address pointing by R3 */
-    #end 
+
 
 end;
