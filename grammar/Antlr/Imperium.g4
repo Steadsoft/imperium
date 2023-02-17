@@ -112,6 +112,7 @@ procedureTrait
 
 procedure
   : procedureStmt passiveStmt* activeStmt* procedureEnd
+  | INTRINSIC_ENTER assemblerStmt* ASSEMBLER_END
   ;
 
 function
@@ -170,7 +171,6 @@ passiveStmt
   | defineStmt
   | procedure
   | function
-  | intrinsic
   | nullStmt
   ;
 
