@@ -179,8 +179,13 @@ intrinsic
   ;
 
 assemblerStmt
-  : assemblerToken* ASSEMBLER_NEWLINE  
-   ;
+  : assemblerToken* (ASSEMBLER_NEWLINE | assemblerInlineComment) 
+  ;
+
+assemblerInlineComment
+  : ASSEMBLER_LINE_COMMENT
+  ;
+
 activeStmt
   : labelStmt
   | assignmentStmt
