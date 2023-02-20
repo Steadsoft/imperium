@@ -3,7 +3,7 @@ grammar genesis;
 // PARSER
 
 source
-    : BYTE_ORDER_MARK PREAMBLE? statement* EOF
+    : BYTE_ORDER_MARK statement* EOF
     ;
 
 statement
@@ -14,11 +14,11 @@ statement
     ;
 
 assign_stmt
-    : identifier EQUAL identifier
+    : reference EQUAL expression
     ;      
 
 if_stmt
-    : IF identifier THEN statement* END
+    : IF expression THEN statement* (ELSE statement*)? END
     ;
 
 dcl_stmt
@@ -26,34 +26,54 @@ dcl_stmt
     ;
 
 proc_stmt
-    : PROC identifier (LPAR IDENTIFIER (COMMA IDENTIFIER)* RPAR)* statement* END  
+    : PROC identifier (LPAR identifier (COMMA identifier)* RPAR)* statement* END  
     ;
 
+reference
+    : identifier ((DOT identifier) | (LPAR identifier (COMMA identifier)* RPAR))*
+    ;
 identifier
-    : (DCL | END | THEN | IF)
+    : keyword
     | IDENTIFIER
     ;
+
+expression
+    : reference
+    | expression (TIMES | DIVIDE) expression
+    | expression (PLUS | MINUS) expression
+    ;
+
+keyword
+    : (DCL | END | THEN | IF | PROC | ELSE)
+    ;    
 // LEXER
-PROC:                   ('proc' (SPACE | NEWLINE)*) {setText("PROC");};
-DCL:                    ('dcl' (SPACE | NEWLINE)*) {setText("DCL");};
-END:                    ('end' (SPACE | NEWLINE)*) {setText("END");};
-THEN:                   ('then' (SPACE | NEWLINE)*){setText("THEN");};
-IF:                     ('if' (SPACE | NEWLINE)*){setText("IF");};
-EQUAL:                  ('=' (SPACE | NEWLINE)*){setText("=");};
-LPAR:                   ('(' (SPACE | NEWLINE)*){setText("(");};
-RPAR:                   (')' (SPACE | NEWLINE)*){setText(")");};
-COMMA:                  (',' (SPACE | NEWLINE)*){setText(",");};
-IDENTIFIER:             ((IDENTIFIER_START IDENTIFIER_REST*) (SPACE | NEWLINE)*) {setText(getText().trim());};
-CONT:                   ('`' SPACE* NEWLINE) -> skip;
+PROC:                   ('proc');
+DCL:                    ('dcl') ;
+END:                    ('end')  ;
+THEN:                   ('then')  ;
+ELSE:                   ('else')  ;
+IF:                     ('if')  ;
+EQUAL:                  ('=')    ;
+LPAR:                   ('(')   ;
+RPAR:                   (')')  ;
+COMMA:                  (',')  ;
+DOT:                    ('.');
+PLUS:                   ('+');
+MINUS:                  ('-');
+TIMES:                  ('*');
+DIVIDE:                 ('/');
+
+IDENTIFIER:             ((IDENTIFIER_START IDENTIFIER_REST*)) {setText(getText().trim());};
+//CONT:                   ('`' SPACE* NEWLINE) -> skip;
 //WHITE:                  (TAB | SPACE) -> skip;
 BYTE_ORDER_MARK:        ('\uFEFF');
-PREAMBLE: (SPACE | NEWLINE)+ -> skip;
+PREAMBLE: [ \t\r\n]+ -> skip; //channel(2);
 
 fragment SPACE:                 (' ');
 fragment TAB:                   ('\t');
 fragment CR:                    ('\r');
 fragment LF:                    ('\n');
-fragment NEWLINE:               (CR? LF);
+//fragment NEWLINE:               (CR LF);
 fragment SEMICOLON:             (';');
 fragment IDENTIFIER_START:      [$a-zA-Z_];
 fragment IDENTIFIER_REST:       [$a-zA-Z_0-9];
