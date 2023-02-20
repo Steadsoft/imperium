@@ -1,3 +1,4 @@
+cls
 java org.antlr.v4.Tool ImperiumLexer.g4 -visitor
 java org.antlr.v4.Tool ImperiumLexer.g4 -visitor -Dlanguage=CSharp
 java org.antlr.v4.Tool Imperium.g4 -visitor

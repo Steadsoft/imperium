@@ -1,46 +1,60 @@
 ﻿
-scope grammar.testing.scope;
+scope grammar.testing.scope
 
-def memory_map struct;
-     signature(18:14, 10:5) bin(8);
-     free_space struct;
-        header  fixed binary(31);
-        bytes(40960 * 10)   bin(8);
-     end;
-end;
+def memory_map struct
+     signature(18:14, 10:5) bin(8)
+     free_space struct
+        header  fixed binary(31)
+        bytes(40960 * 10)   bin(8)
+     end
+end
 
-dcl isr_vectors(1024) pointer section(".isr_vector") retain;
+dcl isr_vectors(1024) pointer section(".isr_vector") retain
 
-dcl call string(32) pointer pointer;
-dcl return bin(15);
-dcl binary decimal(10);
+dcl call string(32) pointer pointer
+dcl return bin(15)
+dcl binary decimal(10)
 //dcl all range;
-dcl page (4096) bin(8) static;
-dcl stacks (1024) fixed dec(2) stack;
-//dcl io_buffer (4096) byte(1); // byte; is the same as byte(1);
-dcl user_name string(128) utf(32); // UTF-32 encoded string
-//dcl msg_buffer byte(1024);
+dcl page (4096) bin(8) static
+dcl stacks (1024) fixed dec(2) stack
+//dcl io_buffer (4096) byte(1); // byte; is the same as byte(1)
+dcl user_name string(128) utf(32) // UTF-32 encoded string
+//dcl msg_buffer byte(1024)
 
-def window_title alias string(128) utf(32); 
+def window_title alias string(128) utf(32) 
 
-dcl main_title as window_title;
+dcl main_title as window_title
 
-traits dcl(section(".vector"), retain);
+traits dcl(section(".vector"), retain)
 
-def other_map struct;
-     signature(8) bin(8);
-     free_space struct;
-        header fixed binary(31);
-        bytes(40960)   bin(8);
-     end;
-end;
+def other_map struct
+     signature(8) bin(8)
+     free_space struct
+        header fixed binary(31)
+        bytes(40960)   bin(8)
+     end
+end
 
-dcl buffer string(4096) defined (page);
+dcl buffer string(4096) defined (page)
 
-end;
+end
 
 // linkage(section(".isr_vector"), retain, main)
 // genesis(stack)
+
+proc set_stack_ptr (addr) intrinsic (arm)
+
+   end = 100
+
+end
+
+proc set_stack_ptr (addr) intrinsic (tumb)
+
+end
+
+proc set_stack_ptr (addr) intrinsic (riscv)
+
+end
 
 procedure breakpoint(X) intrinsic(arm) ;
 
@@ -53,6 +67,7 @@ procedure breakpoint(X) intrinsic(arm) ;
         0111b
         0123h
         023H
+        {X}
         0o1256
         01123d
         11001101010100b
@@ -93,93 +108,93 @@ LargeTable
                                    ; to zero
 end;
 
-procedure startup (root_ptr) main traits(section("abc"));
+procedure startup (root_ptr) main traits(section("abc"))
 
-      arg root_ptr pointer;
+      arg root_ptr pointer
 
       dcl map as memory_map based (root_ptr);
 
-      //range = 1>..<4; // 1 to 4 INCINC
-      //range = 1<..>4; // 2 to 3 EXCEXC
+      //range = 1>..<4 // 1 to 4 INCINC
+      //range = 1<..>4 // 2 to 3 EXCEXC
 
-      hex = face_23ed_8f0d:h;
-      hex = face 23ed 8f0d:h;
+      hex = face_23ed_8f0d:h
+      hex = face 23ed 8f0d:h
       if a > b then
          
       else
          
-      end;
+      end
 
-      a = month --> (1:"jan")(2:"feb")(3:"mar")("old");
+      a = month --> (1:"jan")(2:"feb")(3:"mar")("old")
       
-      a = (month,year) --> (1:"jan")(2:"feb")(3:"mar")("old");
+      a = (month,year) --> (1:"jan")(2:"feb")(3:"mar")("old")
 
-      a ⇐ expr --> (true_expr)(false_expr);  // basic ternary 
+      a ⇐ expr --> (true_expr)(false_expr)  // basic ternary 
 
-      a ⇐ expr ↦ (true_expr)(false_expr);  // basic ternary 
+      a ⇐ expr ↦ (true_expr)(false_expr)  // basic ternary 
 
-      a ⇐ expr1 --> (a:b)(x:y)(c);
+      a ⇐ expr1 --> (a:b)(x:y)(c)
 
-      A ⇐ (expr2) ↦ (A:B)(X:Y)(C);
+      A ⇐ (expr2) ↦ (A:B)(X:Y)(C)
 
-      A ⇐ expr3 ↦ (A:B)(X:expr4 --> (AA:BB)(XX:YY)(expr5 ↦ (AAA:BBB)(XXX:YYY)(C)))(C);
+      A ⇐ expr3 ↦ (A:B)(X:expr4 --> (AA:BB)(XX:YY)(expr5 ↦ (AAA:BBB)(XXX:YYY)(C)))(C)
 
  
-      a = x --> ("true")("false");
-      a = x --> (1:"1")(2:"2")(3:"3")("*");
-      a = (x) --> (1:"1")(2:"2")(3:"3")("*");
-      a = (x*y,z) --> (1,10:"1")(2,10:"2")(3,20:"3")("*");      
-      a = (x,y) --> (1,10:"A")(2,10:"A")(3,20:"B")("*");    
-      a = (x,y) ↦ ((1,2),10:"A")(3,20:"B")("*");  
+      a = x --> ("true")("false")
+      a = x --> (1:"1")(2:"2")(3:"3")("*")
+      a = (x) --> (1:"1")(2:"2")(3:"3")("*")
+      a = (x*y,z) --> (1,10:"1")(2,10:"2")(3,20:"3")("*")      
+      a = (x,y) --> (1,10:"A")(2,10:"A")(3,20:"B")("*")   
+      a = (x,y) ↦ ((1,2),10:"A")(3,20:"B")("*")
  
       if expr/36 + 17 = expr_1 then
          if rate = 100 then
-            return (slow);
+            return (slow)
          elif rate = 200 then
-            return (fast);
+            return (fast)
          else
-            return (stopped);
-         end;
+            return (stopped)
+         end
       elif expr/36 + 17 = expr_2 then
-         return (result_2);
+         return (result_2)
       else
-         return (result_3);
-      end;
+         return (result_3)
+      end
 
-      adjustment = count > last_count ↦ (expr_true)(expr_false);
+      adjustment = count > last_count ↦ (expr_true)(expr_false)
 
       if then > else then 
-         ; //else ⇐ if;
+         ; //else ⇐ if
       elif if < then then
-         elif ⇐ if;
+         elif ⇐ if
       else
-         then ⇐ goto;
-         elif ⇐ else;
-      end;
+         then ⇐ goto
+         elif ⇐ else
+      end
 
-      root_ptr ⇐ null;
+      root_ptr ⇐ null
 
       if root_ptr = null then
-         call log("Invalid root pointer");
-         return;
-      end;
+         call log("Invalid root pointer")
+         return
+      end
 
       if map.signature ~= "This is a valid image" then
-         call log("Invalid map signature");
-         return;
-      end;
+         call log("Invalid map signature")
+         return
+      end
 
-      result ⇐ get_snapshot(root_ptr);
+      result ⇐ get_snapshot(root_ptr)
 
 
-      select (result);
+      select (result)
       when(1)
-         call log("It was 1");
+         call log("It was 1")
       when(2)
-         call log("It was 2");
+         call log("It was 2")
       else
-         call log("It was unexpected");
-      end;
+         call log("It was unexpected")
+      end
 
       /* IPL supports several bitwise operators   */
       // |      OR
@@ -190,36 +205,36 @@ procedure startup (root_ptr) main traits(section("abc"));
       // ~^     XNOR 
 
 
-      field ⇐ input_1 ^ input_2 & input_3 | input_4;
+      field ⇐ input_1 ^ input_2 & input_3 | input_4
 
-      field ⇐ input_4 ~& input_3 ~^ input_2 ~| input_1;
+      field ⇐ input_4 ~& input_3 ~^ input_2 ~| input_1
 
-      field ⇐ &(1010 1101:b) & ⊕(1101 0011:b) ~^ ~&(field);
+      field ⇐ &(1010 1101:b) & ⊕(1101 0011:b) ~^ ~&(field)
 
-      text ⇐ "I am the beginning and " ++ "the end";
+      text ⇐ "I am the beginning and " ++ "the end"
 
-      result = a * b + c;
+      result = a * b + c
 
-      a ⇐ arguer();
+      a ⇐ arguer()
 
       status = xfer_reg ⧀ 3 & saved_reg ⧁ 5 ⊕ control_mask; // rotate operators
 
-      tally = &(input) & |(previous);
+      tally = &(input) & |(previous)
 
-      //a = x {plus} y; // a = add(x,y);
+      //a = x {plus} y; // a = add(x,y)
 
       //a = x plus
-      //a = x [plus] y;
-      //a = x `plus y;
-      //a = x $plus y;
+      //a = x [plus] y
+      //a = x `plus y
+      //a = x $plus y
 
-      //a = b c (d {e} f(2));
+      //a = b c (d {e} f(2))
       
-      //x = t ⍫⍹⍲ j;
+      //x = t ⍫⍹⍲ j
 
 
 
-end;
+end
 
 /*
 expression get_result(x,y,z);
@@ -230,41 +245,41 @@ expression get_result(x,y,z);
 // no call no function invocation
 // no static access
 
-end;
+end
 
-operator add(x,y) infix;
+operator add(x,y) infix
 
-end;
+end
 */
-proc display_message (text);
+proc display_message (text)
 
-   arg text string(*) utf(16);
+   arg text string(*) utf(16)
 
-end;
+end
 
-function get_latest_data (arg_ptr) returns (pointer);
+function get_latest_data (arg_ptr) returns (pointer)
 
-   arg arg_ptr bin(31);
+   arg arg_ptr bin(31)
 
-end;   
+end;  
 
-traits proc(naked, section("code"), cold);
+traits proc(naked, section("code"), cold)
 
-   procedure get_todays_date (date);
+   procedure get_todays_date (date)
 
-      arg date string(32);
+      arg date string(32)
 
-      date ⇐ "10 October 2023";
+      date ⇐ "10 October 2023"
 
       // Antlr generated
 
-   end;
+   end
 
-   function xlate(x,y,z) returns(bin(15));
+   function xlate(x,y,z) returns(bin(15))
 
-      arg x bin(15);
-      arg y bin(15);   
-      arg z bin(15);
+      arg x bin(15)
+      arg y bin(15) 
+      arg z bin(15)
 
       // IF x = 0 then return 10
       // IF x = y then return 100
@@ -272,14 +287,14 @@ traits proc(naked, section("code"), cold);
       // IF x = -10 then return -100
       // return x + y + z
 
-      return (x --> (0:10)(y:100)(z --> (-1:1000)(-10):-100)(x+y+z));
+      return (x --> (0:10)(y:100)(z --> (-1:1000)(-10):-100)(x+y+z))
 
-   end;
+   end
 
-end traits;
+end 
 
-end scope;
+end 
 
-scope this.isnot.used;
+scope this.isnot
 
-end;
+end

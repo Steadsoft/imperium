@@ -43,18 +43,18 @@ translationUnit
   ;
 
 uses
-  : USES identifier (DOT identifier)* SEMICOLON
+  : USES identifier (DOT identifier)* 
   ;
 scope
   : scopeStmt (scope | traits | passiveStmt)* scopeEnd
   ;
 
 scopeStmt
-  : SCOPE identifier (DOT identifier)* PRIVATE? SEMICOLON
+  : SCOPE identifier (DOT identifier)* PRIVATE? 
   ;
 
 scopeEnd
-  : END SCOPE? SEMICOLON
+  : END SCOPE? 
   ;
 
 assemblerToken
@@ -63,6 +63,8 @@ assemblerToken
   | ASSEMBLER_SYMBOL
   | ASSEMBLER_BRACKET
   | ASSEMBLER_PAREN
+  | ASM_LBRACE
+  | ASM_RBRACE
   | ASM_IDENTIFIER
   ;
 
@@ -71,15 +73,11 @@ assemblerToken
 
 
 traits
-  : traitStmt passiveStmt* traitsEnd
+  : traitStmt passiveStmt* END
   ;
 
-traitsEnd
- : END TRAITS? SEMICOLON
- ;
-
 traitStmt
-  : TRAITS (declarationTraits | procedureTraits) SEMICOLON
+  : TRAITS (declarationTraits | procedureTraits) 
   ;
 
 declarationTraits
@@ -120,11 +118,11 @@ function
   ;
 
 procedureStmt
-  : PROCEDURE identifier parameterNameCommalist? procedureAttributes? (TRAITS LPAR procedureTraitsList RPAR)? SEMICOLON
+  : PROCEDURE identifier parameterNameCommalist? procedureAttributes? (TRAITS LPAR procedureTraitsList RPAR)? 
   ;
 
 functionStmt
-  : FUNCTION identifier parameterNameCommalist? returnsDescriptor functionAttributes? SEMICOLON
+  : FUNCTION identifier parameterNameCommalist? returnsDescriptor functionAttributes?
   ;
 
 targetSpec
@@ -146,11 +144,11 @@ functionAttributes
   ;  
 
 procedureEnd
-  : END PROCEDURE? SEMICOLON
+  : END PROCEDURE? 
   ;
 
 functionEnd
-  : END FUNCTION? SEMICOLON
+  : END FUNCTION? 
   ;
 
 returnsDescriptor
@@ -205,7 +203,7 @@ nullStmt
   ;
 
 assignmentStmt
-  : reference (ASSIGN_U | EQUALS) expression SEMICOLON
+  : reference (ASSIGN_U | EQUALS) expression 
   ;
 
 reference
@@ -349,12 +347,12 @@ shiftOperator
   ;
 
 callStmt
-  : CALL reference SEMICOLON
+  : CALL reference 
   ;
 
 gotoStmt
-  : (GOTO identifier LPAR expression RPAR) SEMICOLON
-  | (GOTO reference) SEMICOLON
+  : (GOTO identifier LPAR expression RPAR) 
+  | (GOTO reference) 
   ;
 
 endloopStmt
@@ -366,8 +364,8 @@ reloopStmt
   ;
 
 declareStmt
-  : (DECLARE | ARGUMENT) identifier dimensionSuffix? declareAsBody SEMICOLON
-  | (DECLARE | ARGUMENT) declarationBody SEMICOLON
+  : (DECLARE | ARGUMENT) identifier dimensionSuffix? declareAsBody 
+  | (DECLARE | ARGUMENT) declarationBody 
   ;
 
 declareAsBody
@@ -489,7 +487,7 @@ parameterNameCommalist
   ;
 
 returnStmt
-  : RETURN (LPAR expression RPAR)? SEMICOLON
+  : RETURN (LPAR expression RPAR)? 
   ;
 
 ifStmt
@@ -498,7 +496,7 @@ ifStmt
   ;
 
 ifEnd
-  : END IF? SEMICOLON
+  : END IF? 
   ;
 
 thenClause
@@ -514,15 +512,15 @@ elifClause
   ;
 
 loopStmt
-  : LOOP  SEMICOLON activeStmt* loopEnd
+  : LOOP  activeStmt* loopEnd
     | LOOP (
-          (whileOption untilOption? SEMICOLON activeStmt* loopEnd)
-        | (untilOption whileOption? SEMICOLON activeStmt* loopEnd)
+          (whileOption untilOption? activeStmt* loopEnd)
+        | (untilOption whileOption? activeStmt* loopEnd)
         )
   ;
 
 loopEnd
-  : END LOOP? SEMICOLON
+  : END LOOP? 
   ;
 
 whileOption
@@ -538,11 +536,11 @@ selectStmt
   ;
 
 selectEnd
-  : END SELECT? SEMICOLON
+  : END SELECT? 
   ;
 
 selectClause
-  : SELECT (LPAR expression RPAR)? SEMICOLON
+  : SELECT (LPAR expression RPAR)? 
   ;
 
 whenClause
@@ -560,11 +558,11 @@ defineStmt // defines a type, like a structure
   ;
 
 enumType
-  : ENUM (binaryEnum | decimalEnum | stringEnum | bitEnum)? SEMICOLON enumBody END ENUM? SEMICOLON
+  : ENUM (binaryEnum | decimalEnum | stringEnum | bitEnum)? enumBody END ENUM? 
   ;
 
 aliasType
-  : ALIAS attribute+ SEMICOLON
+  : ALIAS attribute+ 
   ;
 
 binaryEnum
@@ -584,7 +582,7 @@ bitEnum
   ;
 
 enumBody
-  : identifier (EQUALS enumLiteral)? SEMICOLON (identifier (EQUALS enumLiteral)? SEMICOLON)*
+  : identifier (EQUALS enumLiteral)? (identifier (EQUALS enumLiteral)? )*
   ;
 
 enumLiteral
@@ -592,7 +590,7 @@ enumLiteral
   ;
 
 structType
-  : STRUCTURE SEMICOLON structBody END STRUCTURE? SEMICOLON
+  : STRUCTURE structBody END STRUCTURE? 
   ;
 
 structBody
@@ -600,11 +598,11 @@ structBody
   ;
 
 structMemberList
-  : structMember SEMICOLON (structMember SEMICOLON)*
+  : structMember  (structMember )*
   ;
 
 structSubstruct
-  : identifier dimensionSuffix? STRUCTURE SEMICOLON structBody END
+  : identifier dimensionSuffix? STRUCTURE  structBody END
   ;
 
 structMember

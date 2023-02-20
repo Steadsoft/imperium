@@ -342,4 +342,6 @@ ASSEMBLER_PUNCTUATOR:       (','|'.'|':');
 ASSEMBLER_SYMBOL:           ('='|'+'|'#'|'-'|'*'|'/'|'$');
 ASSEMBLER_BRACKET:          ('['|']');
 ASSEMBLER_PAREN:            ('('|')');
+ASM_LBRACE:                 ('{');
+ASM_RBRACE:                 ('}');
 ASSEMBLER_SPACES:           (' ')+ -> skip;
