@@ -1,4 +1,4 @@
-﻿if
+﻿    if
 x 
      then
    if 
@@ -12,8 +12,11 @@ end
 dcl dcl  dcl jacob
 
 
-proc henry (a,b,c)
+      proc henry (a,b,c)
 
     a = g x = y b = z
 
 end
+
+
+
