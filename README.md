@@ -246,6 +246,7 @@ This table describes the changes
 | `keywords`                    | All keywords are lower case and available for multiple cultures/languages
 | `identifiers` 		| Unicode charaters and the `$` symbol are supported
 | `do loops`                    | All loops begin with `loop` keyword with optional `while` `until` and so on.
+| `end <X>`                     | An `end` can optionally be followed by the keyword that it corresponds to.
 
 
 
