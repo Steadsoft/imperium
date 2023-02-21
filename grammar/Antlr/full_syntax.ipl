@@ -141,7 +141,7 @@ scope system.utilities;
 
       if I = 123 & J = 321 then
          I = 0;
-         goto setpoint(I); // never pass non-zero !!
+         goto setpoint(I); 
       elif J + I > J * I then
          goto cycle_loop;
       elif J = sqrt(100) then

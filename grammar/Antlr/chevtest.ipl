@@ -1,0 +1,5 @@
+
+print 3, 4, 5, print 2, 3
+print
+print, print 1, 23, print 3, 5, 2
+print 2

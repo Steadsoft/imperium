@@ -1,7 +1,10 @@
 procedure breakpoint(X) intrinsic(arm) ;
-        STR R0, [R3]            ; Store R0 to the address pointing by R3
-        STR R0, [R3]            ; Store R0 to the address pointing by R3        
-        STR R0, [R3]            ; Store R0 to the address pointing by R3
+    LDR R1, =#0x20001000    ; Load address 0x20001000 to R1 
+    LDR R2, =#0h20001004    /* Load address 0x20001004 to R2 */
+    LDR R3, =#{X}0o20001008    /* Load address 0x20001008 to R3 */
+    STR R0, [R3]            ; Store R0 to the address pointing by R3
+    STR R0, [R3]            ; Store R0 to the address pointing by R3        
+    STR R0, [R3]            // Store R0 to the address pointing by R3
 end;
 
 procedure breakpoint(X) intrinsic(arm) ;

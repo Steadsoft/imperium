@@ -3,13 +3,15 @@ scope grammar.testing.scope
 
 def memory_map struct
      signature(18:14, 10:5) bin(8)
-     free_space struct
+     builtin struct
         header  fixed binary(31)
         bytes(40960 * 10)   bin(8)
      end
-end
+end struct
 
 dcl isr_vectors(1024) pointer section(".isr_vector") retain
+
+
 
 dcl call string(32) pointer pointer
 dcl return bin(15)
@@ -23,9 +25,9 @@ dcl user_name string(128) utf(32) // UTF-32 encoded string
 
 def window_title alias string(128) utf(32) 
 
-dcl main_title as window_title
 
-traits dcl(section(".vector"), retain)
+
+//traits dcl(section(".vector"), retain)
 
 def other_map struct
      signature(8) bin(8)
@@ -33,11 +35,13 @@ def other_map struct
         header fixed binary(31)
         bytes(40960)   bin(8)
      end
-end
+end 
 
-dcl buffer string(4096) defined (page)
+dcl buffer binary(16) based(p)
 
-end
+dcl main_title as window_title
+
+//end
 
 // linkage(section(".isr_vector"), retain, main)
 // genesis(stack)
@@ -114,6 +118,8 @@ procedure startup (root_ptr) main traits(section("abc"))
 
       dcl map as memory_map based (root_ptr);
 
+      dcl data fixed bin(15) defined(p) = 12
+      dcl buffer binary(16) based(p) = 12
       //range = 1>..<4 // 1 to 4 INCINC
       //range = 1<..>4 // 2 to 3 EXCEXC
 
@@ -266,8 +272,18 @@ end;
 traits proc(naked, section("code"), cold)
 
    procedure get_todays_date (date)
+   
+   arg date string(32);
 
-      arg date string(32)
+   def memory_map struct
+      signature(18:14, 10:5) bin(8)
+      builtin struct
+         header  fixed binary(31)
+         bytes(40960 * 10)   bin(8)
+      end struct
+   end struct = 256
+
+
 
       date ⇐ "10 October 2023"
 
