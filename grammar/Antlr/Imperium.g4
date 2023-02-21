@@ -73,7 +73,7 @@ assemblerToken
 
 
 traits
-  : traitStmt passiveStmt* END
+  : traitStmt passiveStmt* END TRAITS?
   ;
 
 traitStmt
@@ -109,12 +109,12 @@ procedureTrait
   ;
 
 procedure
-  : procedureStmt passiveStmt* activeStmt* procedureEnd
+  : procedureStmt (passiveStmt | activeStmt)* procedureEnd
   | INTRINSIC_ENTER assemblerStmt* ASSEMBLER_END
   ;
 
 function
-  :  functionStmt passiveStmt* activeStmt* functionEnd
+  :  functionStmt (passiveStmt | activeStmt)* functionEnd
   ;
 
 procedureStmt
@@ -496,7 +496,7 @@ ifStmt
   ;
 
 ifEnd
-  : END 
+  : END IF?
   ;
 
 thenClause
@@ -602,7 +602,7 @@ structMemberList
   ;
 
 structSubstruct
-  : identifier dimensionSuffix? STRUCTURE  structBody END
+  : identifier dimensionSuffix? STRUCTURE  structBody END STRUCTURE?
   ;
 
 structMember

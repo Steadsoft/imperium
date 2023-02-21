@@ -62,13 +62,14 @@ PLUS:                   ('+');
 MINUS:                  ('-');
 TIMES:                  ('*');
 DIVIDE:                 ('/');
-
+COMMENT:              (BCOM (COMMENT | .)*? ECOM) -> skip; //channel(2);
 IDENTIFIER:             ((IDENTIFIER_START IDENTIFIER_REST*)) {setText(getText().trim());};
 //CONT:                   ('`' SPACE* NEWLINE) -> skip;
 //WHITE:                  (TAB | SPACE) -> skip;
 BYTE_ORDER_MARK:        ('\uFEFF');
 PREAMBLE: [ \t\r\n]+ -> skip; //channel(2);
-
+fragment BCOM:    ('/*');
+fragment ECOM:    ('*/');
 fragment SPACE:                 (' ');
 fragment TAB:                   ('\t');
 fragment CR:                    ('\r');

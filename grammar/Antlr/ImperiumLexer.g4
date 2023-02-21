@@ -208,7 +208,7 @@ YIELD:
 
 // LEXER TOKEN DEFINITIONS
 
-COMMENT:              (BCOM (COMMENT | .)*? ECOM) -> channel(2);
+COMMENT:              (BCOM (COMMENT | .)*? ECOM) -> skip; //channel(2);
 LINE_COMMENT:         (LCOM .*? LF) -> channel(HIDDEN);
 WS:                   (' ')+ -> skip;
 NEWLINE:              [\r\n]+ -> skip;
