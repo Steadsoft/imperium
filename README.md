@@ -224,7 +224,8 @@ Although the PL/I grammar provides the *foundation* for IPL, some changes have b
 This table describes the changes
 
 | Grammar fragment		| Description		
-| --- 				| :--- 		
+| --- 				| :--- 	
+| `semicolon`                   | Optional, treated as a 'null' statement.
 | `literals` 			| Space/Underscore allowed as a separator	
 | `literals`  			| New notaion introduced for terminating a literal 	
 | `literals`                    | Hexadecimal and Octal literals are supported
