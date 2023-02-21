@@ -182,7 +182,7 @@ procedure startup (root_ptr) main traits(section("abc"))
       if map.signature ~= "This is a valid image" then
          call log("Invalid map signature")
          return
-      end
+      end 
 
       result ⇐ get_snapshot(root_ptr)
 

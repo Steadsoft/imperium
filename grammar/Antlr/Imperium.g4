@@ -496,7 +496,7 @@ ifStmt
   ;
 
 ifEnd
-  : END IF? 
+  : END 
   ;
 
 thenClause
