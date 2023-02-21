@@ -49,12 +49,12 @@ Structures and enumerated types are created using the `type` keyword which allow
 Numeric literals are very natuarl and easy to work with. They can contain embedded spaces or underscores and they terminate in an optional base definition, these are examples of assigning a literal constant to some variable:
 
 ```
-speed = 12 000 000 // 12 million
-speed = 1010 1101:b  // binary 173
-speed = D02C 6F73 FADE 03FC:h // hex
-speed = 1010.1101:B // binary fraction
-speed = F04D.84AC:H // hex fraction
-speed = 263 604 650:O // octal integer
+speed = 12 000 000 		// 12 million
+speed = 1010 1101:b  		// binary 173
+speed = D02C 6F73 FADE 03FC:h 	// hex
+speed = 1010.1101:B 		// binary fraction
+speed = F04D.84AC:H 		// hex fraction
+speed = 263 604 650:O 		// octal integer
 ```
 The mainstay `DO` construct in PL/I was abandoned and an alternative grammar created that looks similar but has some advantages. Instead each keyword that can encapsulate a statement block, now has a matching end, for example:
 
@@ -88,11 +88,11 @@ The `loop` can appear alone or with optional `while` and/or `until` and these ca
 The `call` statement has no need of parentheses when the called procedure has no arguments, the very use of `call` makes it clear what the statement is doing. As expected, IPL includes operators for bit shifts and rotates:
 
 ```
-a = b << c // logical shift left
-a = b >> c // logical shift right
-a = b >>> c // arithmemtic shift right
-a = b <<@ 4 // rotate 4 bits to the left
-a = b @>> 6 // rotate 6 bits to the right
+a = b << c 		// logical shift left
+a = b >> c 		// logical shift right
+a = b >>> c 		// arithmemtic shift right
+a = b <<@ 4 		// rotate 4 bits to the left
+a = b @>> 6 		// rotate 6 bits to the right
 ```
 Each argument in an argument list is always evaluated strictly in left to right order. The same is true too for arrays or arrays of structures, wherever multiple subscripts are needed to fully define a reference, they are always evaluated left to right:
 
