@@ -27,21 +27,21 @@ The goals of this language project include:
 
 ## Basic Characteristics
 
-The langauge is a compiled language, source files are UTF-8 and suffixed `.ipl` for *Imperium Programming Language*. The language enforces evlaution order in expressions and argument lists in strict left to right order, in this sense it follows Java and C# by not permitting the order to be undefined.
+The langauge is a compiled language, source files are UTF-8 and suffixed `.ipl` for *Imperium Programming Language*. The langauge requires no semicolons or other statement terminator and statements can span multiple lines. The language enforces evlaution order in expressions and argument lists in strict left to right order, in this sense it follows Java and C# by not permitting the order to be undefined.
 
 Short circuit evaluation of AND and OR operators is at the discretion of the developer by use of the operators `?&` or `?|` meaning "only evaluate the right argument if the left argument evaluates to `true` or `false`" respectively.
 
 The language supports "names spaces" via the `scope` and `uses` keywords:
 
 ```
-uses system.hardware;
-uses math.stats;
+uses system.hardware
+uses math.stats
 
-scope gps.utilities;
+scope gps.utilities
 
 // Code goes here!
 
-end;
+end
 ```
 
 Structures and enumerated types are created using the `type` keyword which allows an alias name to be defined for them. Declaring instances of structures or enums is then done exclusively by uisng that type or alias.
@@ -49,97 +49,97 @@ Structures and enumerated types are created using the `type` keyword which allow
 Numeric literals are very natuarl and easy to work with. They can contain embedded spaces or underscores and they terminate in an optional base definition, these are examples of assigning a literal constant to some variable:
 
 ```
-speed = 12 000 000; // 12 million
-speed = 1010 1101:b;  // binary 173
-speed = D02C 6F73 FADE 03FC:h; // hex
-speed = 1010.1101:B; // binary fraction
-speed = F04D.84AC:H; // hex fraction
-speed = 263 604 650:O; // octal integer
+speed = 12 000 000 // 12 million
+speed = 1010 1101:b  // binary 173
+speed = D02C 6F73 FADE 03FC:h // hex
+speed = 1010.1101:B // binary fraction
+speed = F04D.84AC:H // hex fraction
+speed = 263 604 650:O // octal integer
 ```
 The mainstay `DO` construct in PL/I was abandoned and an alternative grammar created that looks similar but has some advantages. Instead each keyword that can encapsulate a statement block, now has a matching end, for example:
 
 ```
 if counter > last_count then
-   call reset_system;
-   log("System has been reset");
-end;
+   call reset_system
+   log("System has been reset")
+end
 ```
 
 The `if` statement also now supports the `elif` keyword too:
 ```
 if counter > last_count then
-   call reset_system;
-   log("System has been reset");
+   call reset_system
+   log("System has been reset")
 elif counter < last_count then
-   log("Too early");
+   log("Too early")
 else
-   log("You should never see this!");
-end;
+   log("You should never see this!")
+end
 ```
 Eliminating the `DO` meant that a new way to describe loops was required, that's done as show below, using the `loop` keyword:
 
 ```
-loop while (I >= J);
-   I = get_updated_count(J);
-end loop;
+loop while (I >= J)
+   I = get_updated_count(J)
+end loop
 ```
 The `loop` can appear alone or with optional `while` and/or `until` and these can be placed in any order, there's also the usual iterative form too. Note too how the `end` statements for these constructs can have an optional keyword appended that can be used to improve code readability.
 
 The `call` statement has no need of parentheses when the called procedure has no arguments, the very use of `call` makes it clear what the statement is doing. As expected, IPL includes operators for bit shifts and rotates:
 
 ```
-a = b << c; // logical shift left
-a = b >> c; // logical shift right
-a = b >>> c; // arithmemtic shift right
-a = b <<@ 4; // rotate 4 bits to the left
-a = b @>> 6; // rotate 6 bits to the right
+a = b << c // logical shift left
+a = b >> c // logical shift right
+a = b >>> c // arithmemtic shift right
+a = b <<@ 4 // rotate 4 bits to the left
+a = b @>> 6 // rotate 6 bits to the right
 ```
 Each argument in an argument list is always evaluated strictly in left to right order. The same is true too for arrays or arrays of structures, wherever multiple subscripts are needed to fully define a reference, they are always evaluated left to right:
 
 ```
-today_results = totals(get_totals(X)).subsets(get_subset(Y)).value;
+today_results = totals(get_totals(X)).subsets(get_subset(Y)).value
 ```
 Labels use a different syntax too, one that offers slightly better readability:
 ```
 @here_we_go_again
    
    if count > MAX then
-      goto here_we_go_again;
+      goto here_we_go_again
    else
-      count = get_the_latest();
-   end;
+      count = get_the_latest()
+   end
 ```
 As in the PL/I language, labels can be subscripted:
 
 ```
 @state(0)
 
-   call reset(age);
+   call reset(age)
    
    if age > 0 then 
-      goto state(1);
-   end;
+      goto state(1)
+   end
    
 @state(1)
 
-   call try_again(age);
+   call try_again(age)
    
    if age < 1 then 
-      goto state(age);
-   end;
+      goto state(age)
+   end
 ```   
 The `if` statement also utilizes chained comparison operators:
 
 ```
 if arg < roof < start then
- return;
- end;
+   return
+end
 ```	 
 this is equivalent to:
 ```
 if arg < roof & roof < start then
- return;
- end;
+   return
+end
 ```	 
        
 ## Culture Agnostic
@@ -148,59 +148,59 @@ Consider these three code fragments
 ```
 procédé French (X)
 
-	déclarer counter binaire(15);	
+	déclarer counter binaire(15)	
 
-        counter = FACE B034 D85F BAD7:H;
+        counter = FACE B034 D85F BAD7:H
 
 	si counter > 0 ensuite
-	   appeler retour; // call the tour analyzer on the map.
+	   appeler retour // call the tour analyzer on the map.
 	autre
-	   retour;
-	fin;
+	   retour
+	fin
 
 	boucle tandis que (a > b)
-	   aller à place;
-	fin;
+	   aller à place
+	fin
 
-fin;
+fin
 ```
 ```
 procedure English (X)
 
-	declare counter binary(15);	
+	declare counter binary(15)	
  
-        counter = FACE B034 D85F BAD7:H;
+        counter = FACE B034 D85F BAD7:H
 
 	if counter > 0 then
-	   call retour; // call the tour analyzer on the map.
+	   call retour // call the tour analyzer on the map.
 	else
-	   return;
-	end;
+	   return
+	end
 
 	loop while (a > b)
-	   go to place;
-	end;
+	   go to place
+	end
 
-end;
+end
 ```
 ```
 routine German (X)
 
-	deklarieren counter binär(15);	
+	deklarieren counter binär(15)	
 
-        counter = FACE B034 D85F BAD7:H;
+        counter = FACE B034 D85F BAD7:H
 
 	wenn counter > 0 dann
-	   aufrufen retour; // call the tour analyzer on the map.
+	   aufrufen retour // call the tour analyzer on the map.
 	anders
-	   rückkehr;
-	ende;
+	   rückkehr
+	ende
 
 	wiederholen solang (a > b)
-	   gehen place;
-	ende;
+	   gehen place
+	ende
 
-ende;
+ende
 ```
 
 Each of these generates an identical parse tree, each was parsed by the same parser and an argumnet defining the language keywords code "en", "fr" or "de". You can see that the English fragment uses `call` to invoke a procddure named `retour`. But `retour` *just happens to be* French for the keyword `return` (in English) yet there's no problem because the language has no reserved words, it doesn't care how identifiers are spelled.
