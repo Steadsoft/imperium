@@ -19,11 +19,11 @@ dcl binary decimal(10)
 //dcl all range;
 dcl page (4096) bin(8) static
 dcl stacks (1024) fixed dec(2) stack
-//dcl io_buffer (4096) byte(1); // byte; is the same as byte(1)
-dcl user_name string(128) utf(32) // UTF-32 encoded string
+//dcl io_buffer (4096) byte(1) // byte; is the same as byte(1)
+dcl user_name string(128) 
 //dcl msg_buffer byte(1024)
 
-def window_title alias string(128) utf(32) 
+def window_title alias string(128) 
 
 
 
@@ -60,7 +60,7 @@ proc set_stack_ptr (addr) intrinsic (riscv)
 
 end
 
-procedure breakpoint(X) intrinsic(arm) ;
+procedure breakpoint(X) intrinsic(arm) 
 
         
         /* embed these hard coded values, they */
@@ -110,13 +110,13 @@ LargeTable
         SPACE    4200              ; Starting at the current location,
                                    ; clears a 4200 byte area of memory
                                    ; to zero
-end;
+end
 
 procedure startup (root_ptr) main traits(section("abc"))
 
       arg root_ptr pointer
 
-      dcl map as memory_map based (root_ptr);
+      dcl map as memory_map based (root_ptr)
 
       dcl data fixed bin(15) defined(p) = 12
       dcl buffer binary(16) based(p) = 12
@@ -144,7 +144,6 @@ procedure startup (root_ptr) main traits(section("abc"))
       A ⇐ (expr2) ↦ (A:B)(X:Y)(C)
 
       A ⇐ expr3 ↦ (A:B)(X:expr4 --> (AA:BB)(XX:YY)(expr5 ↦ (AAA:BBB)(XXX:YYY)(C)))(C)
-
  
       a = x --> ("true")("false")
       a = x --> (1:"1")(2:"2")(3:"3")("*")
@@ -223,11 +222,11 @@ procedure startup (root_ptr) main traits(section("abc"))
 
       a ⇐ arguer()
 
-      status = xfer_reg ⧀ 3 & saved_reg ⧁ 5 ⊕ control_mask; // rotate operators
+      status = xfer_reg ⧀ 3 & saved_reg ⧁ 5 ⊕ control_mask // rotate operators
 
       tally = &(input) & |(previous)
 
-      //a = x {plus} y; // a = add(x,y)
+      //a = x {plus} y // a = add(x,y)
 
       //a = x plus
       //a = x [plus] y
@@ -243,7 +242,7 @@ procedure startup (root_ptr) main traits(section("abc"))
 end
 
 /*
-expression get_result(x,y,z);
+expression get_result(x,y,z)
 
 // no declarations
 // no assignments
@@ -259,7 +258,7 @@ end
 */
 proc display_message (text)
 
-   arg text string(*) utf(16)
+   arg text string(*) 
 
 end
 
@@ -267,13 +266,13 @@ function get_latest_data (arg_ptr) returns (pointer)
 
    arg arg_ptr bin(31)
 
-end;  
+end 
 
 traits proc(naked, section("code"), cold)
 
    procedure get_todays_date (date)
    
-   arg date string(32);
+   arg date string(32)
 
    def memory_map struct
       signature(18:14, 10:5) bin(8)

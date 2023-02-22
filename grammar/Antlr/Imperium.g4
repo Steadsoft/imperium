@@ -301,14 +301,8 @@ expression
   | expression LOGOR expression               # ExprLogOr
   | expression MAPSTO_U (map_set | bool_set)  # ExpreMap1
   | arguments MAPSTO_U (map_set | bool_set)   # ExpreMap2
-  //| expression custop expression              # ExprCustom
   ;
-/*
-custop
-  : LBRACE identifier RBRACE
-  | SYMBOLS
-  ;
-  */
+
 /*
 brace_set
   : LBRACE expression (COMMA (expression | brace_set))* RBRACE
@@ -421,7 +415,7 @@ dataAttribute
   | POINTER
   | BIT maxLength
   | CHARACTER
-  | STRING maxStringLength (utfSpec | rawSpec)?
+  | STRING maxStringLength 
   | ENTRY
   | FIXED
   | FLOAT
@@ -439,13 +433,6 @@ linkage_attribute
   | MAIN
   ;
 
-utfSpec
-  : (UTF LPAR decimalLiteral RPAR)
-  ;
-
-rawSpec
-  : (RAW LPAR decimalLiteral RPAR)
-  ;
 precision
   : LPAR numberOfDigits (COMMA scale_factor)? RPAR
   ;
@@ -513,10 +500,18 @@ elifClause
 
 loopStmt
   : LOOP  activeStmt* loopEnd
-    | LOOP (
-          (whileOption untilOption? activeStmt* loopEnd)
-        | (untilOption whileOption? activeStmt* loopEnd)
-        )
+  | LOOP (whileLoop | untilLoop) activeStmt* loopEnd
+  ;
+
+// each of the two loop orderings, must be semantically identical
+// A while(x) until(y) must not behave differently to an until(y) while(x).
+
+whileLoop
+  : (whileOption untilOption?)
+  ;
+
+untilLoop
+  : (untilOption whileOption?)
   ;
 
 loopEnd
