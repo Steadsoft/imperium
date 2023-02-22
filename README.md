@@ -27,7 +27,9 @@ The goals of this language project include:
 
 ## Basic Characteristics
 
-The langauge is a compiled language, source files are UTF-8 and suffixed `.ipl` for *Imperium Programming Language*. The langauge requires no semicolons or other statement terminator and statements can span multiple lines. The language enforces evlaution order in expressions and argument lists in strict left to right order, in this sense it follows Java and C# by not permitting the order to be undefined.
+The langauge is a compiled language, source files are UTF-8 and suffixed `.ipl` for *Imperium Programming Language*. The langauge requires no semicolons or other statement terminator and statements can span multiple lines and multiple statements can be on a single line. These charateristics are seen in just a few lanuages like Lisp, [Plasma](https://plasmalang.org), 
+
+The language enforces evlaution order in expressions and argument lists in strict left to right order, in this sense it follows Java and C# by not permitting the order to be undefined.
 
 Short circuit evaluation of AND and OR operators is at the discretion of the developer by use of the operators `?&` or `?|` meaning "only evaluate the right argument if the left argument evaluates to `true` or `false`" respectively.
 
