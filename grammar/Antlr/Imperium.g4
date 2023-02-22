@@ -58,14 +58,19 @@ scopeEnd
   ;
 
 assemblerToken
-  : (ASSEMBLER_DEC_INTEGER | ASSEMBLER_HEX_INTEGER | ASSEMBLER_BIN_INTEGER | ASSEMBLER_OCT_INTEGER)
-  | ASSEMBLER_PUNCTUATOR
-  | ASSEMBLER_SYMBOL
-  | ASSEMBLER_BRACKET
-  | ASSEMBLER_PAREN
-  | ASM_LBRACE
-  | ASM_RBRACE
-  | ASM_IDENTIFIER
+  : IPL_IDENTIFIER
+  | SEMICOLON
+  | COMMA
+  | EQUALS
+  | LBRACK
+  | RBRACK
+  | LBRACE
+  | RBRACE
+  | LPAR
+  | RPAR
+  | HASH
+  | INTEGER
+  | AINTEGER
   ;
 
 // Traits is mainly a means to implement these kinds of options
@@ -110,8 +115,20 @@ procedureTrait
 
 procedure
   : procedureStmt (passiveStmt | activeStmt)* procedureEnd
-  | INTRINSIC_ENTER assemblerStmt* ASSEMBLER_END
+  | PROCEDURE identifier parameterNameCommalist? INTRINSIC target (passiveStmt | asmBlock)* END
   ;
+
+target
+  : LPAR identifier RPAR
+  ;
+
+asmBlock
+  : (ASSEMBLER asmOptions? assemblerStmt* END)
+  ;
+
+asmOptions
+   : LPAR (SECTION LPAR STRING_LITERAL_1 RPAR)? RPAR
+   ;
 
 function
   :  functionStmt (passiveStmt | activeStmt)* functionEnd
@@ -172,12 +189,10 @@ passiveStmt
   | nullStmt
   ;
 
-intrinsic
-  : INTRINSIC_ENTER assemblerStmt* ASSEMBLER_END
-  ;
 
 assemblerStmt
-  : assemblerToken* (ASSEMBLER_NEWLINE | assemblerInlineComment) 
+  : assemblerToken
+  | nullStmt
   ;
 
 assemblerInlineComment

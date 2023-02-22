@@ -48,7 +48,7 @@ dcl main_title as window_title
 
 proc set_stack_ptr (addr) intrinsic (arm)
 
-   end = 100
+
 
 end
 
@@ -59,14 +59,14 @@ end
 proc set_stack_ptr (addr) intrinsic (riscv)
 
 end
-
 procedure breakpoint(X) intrinsic(arm) 
 
         
-        /* embed these hard coded values, they */
-        /* implement simple jump table   */
-
-        0x123   ; this is dodgy
+    /* embed these hard coded values, they */
+    /* implement simple jump table   */
+    asm (section(".vectors"))
+    
+        0x123   // this is dodgy
         0X123
         0111b
         0123h
@@ -83,34 +83,38 @@ procedure breakpoint(X) intrinsic(arm)
         LDR R1, [R2]            /* Load data at the address pointing by R2, save to R1 */
         ADD R0, R1              /* Add R0 to R1, save to R0 */
         STR R0, [R3]            /* Store R0 to the address pointing by R3 */
+/*
+        start
+        BL       func1             // Branch to first subroutine
+        BL       func2             //Branch to second subroutine
+        stop
+        MOV      r0, #0x18         // angel_SWIreason_ReportException
+        LDR      r1, =0x20026      // ADP_Stopped_ApplicationExit
+        SVC      #0x123456         // ARM semihosting (formerly SWI)
+        func1
+        LDR      r0, =42           // => MOV R0, #42
+        LDR      r1, =0x55555555  // => LDR R1, [PC, #offset to
+                                    // Literal Pool 1]
+        LDR      r2, =0xFFFFFFFF   // => MVN R2, #0
+        BX       lr
+        LTORG                      // Literal Pool 1 contains
+                                    // literal Ox55555555
+        func2
+        LDR      r3, =0x55555555   // => LDR R3, [PC, #offset to
+                                    // Literal Pool 1]
+        ; LDR r4, =0x66666666      // If this is uncommented it
+                                    // fails, because Literal Pool 2
+                                    // is out of reach
+        BX       lr
+        LargeTable
+        SPACE    4200              // Starting at the current location,
+                                    // clears a 4200 byte area of memory
+                                    // to zero
+*/
+    end
 
-start
-        BL       func1             ; Branch to first subroutine
-        BL       func2             ; Branch to second subroutine
-stop
-        MOV      r0, #0x18         ; angel_SWIreason_ReportException
-        LDR      r1, =0x20026      ; ADP_Stopped_ApplicationExit
-        SVC      #0x123456         ; ARM semihosting (formerly SWI)
-func1
-        LDR      r0, =42           ; => MOV R0, #42
-        LDR      r1, =0x55555555   ; => LDR R1, [PC, #offset to
-                                   ; Literal Pool 1]
-        LDR      r2, =0xFFFFFFFF   ; => MVN R2, #0
-        BX       lr
-        LTORG                      ; Literal Pool 1 contains
-                                   ; literal Ox55555555
-func2
-        LDR      r3, =0x55555555   ; => LDR R3, [PC, #offset to
-                                   ; Literal Pool 1]
-        ; LDR r4, =0x66666666      ; If this is uncommented it
-                                   ; fails, because Literal Pool 2
-                                   ; is out of reach
-        BX       lr
-LargeTable
-        SPACE    4200              ; Starting at the current location,
-                                   ; clears a 4200 byte area of memory
-                                   ; to zero
 end
+
 
 procedure startup (root_ptr) main traits(section("abc"))
 
@@ -118,7 +122,7 @@ procedure startup (root_ptr) main traits(section("abc"))
 
       dcl map as memory_map based (root_ptr)
 
-      dcl data fixed bin(15) defined(p) = 12
+      dcl data fixed bin(15)// defined(p) = 12
       dcl buffer binary(16) based(p) = 12
       //range = 1>..<4 // 1 to 4 INCINC
       //range = 1<..>4 // 2 to 3 EXCEXC
@@ -126,9 +130,9 @@ procedure startup (root_ptr) main traits(section("abc"))
       hex = face_23ed_8f0d:h
       hex = face 23ed 8f0d:h
       if a > b then
-         
+         ;
       else
-         
+         ;
       end
 
       a = month --> (1:"jan")(2:"feb")(3:"mar")("old")

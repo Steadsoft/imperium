@@ -27,7 +27,7 @@ lexer grammar ImperiumLexer;
     }
 }
 
-INTRINSIC_ENTER: PROCEDURE SP* IPL_IDENTIFIER SP* (LPAR IPL_IDENTIFIER (COMMA IPL_IDENTIFIER)* RPAR)? SP* INTRINSIC LPAR IPL_IDENTIFIER RPAR SP* SEMICOLON -> pushMode(ACCEPT_ASSEMBLER);
+//INTRINSIC_ENTER: PROCEDURE SP* IPL_IDENTIFIER SP* (LPAR IPL_IDENTIFIER (COMMA IPL_IDENTIFIER)* RPAR)? SP* INTRINSIC LPAR IPL_IDENTIFIER RPAR SP* -> pushMode(ACCEPT_ASSEMBLER);
 
 ACCEPT: 
            {Lexicon("en")}? ('accept')      ;
@@ -222,6 +222,7 @@ BINARY_PATTERN:       ((BIN (' ' BIN)*)+ | (BIN ('_' BIN)*)+) FRAC_B? BASE_B;
 OCTAL_PATTERN:        ((OCT (' ' OCT)*)+ | (OCT ('_' OCT)*)+) FRAC_O? BASE_O;
 HEXADECIMAL_PATTERN:  ((HEX (' ' HEX)*)+ | (HEX ('_' HEX)*)+) FRAC_H? BASE_H;
 INTEGER:              ([1-9] [0-9]*);
+AINTEGER:             ('0'[0-9a-fA-F]?[OoXxHh]?[0-9a-fA-F]+);
 DECIMAL_PATTERN:      (DEC (' ' DEC)*)+ FRAC_D? BASE_D?;
 
 // SYMBOLS AND OPERATORS
@@ -285,6 +286,8 @@ R_ART_SHIFT:    ('>>>');  // arithmetic: rite bit lost left bit is copy of sign 
 L_ROTATE_U:     ('<@'|'⧀');  // U+29C0 rotate: left bit rotated out rite bit becomes that rotated left bit
 R_ROTATE_U:     ('@>'|'⧁');  // U+29C1 rotate: rite bit rotated out left bit becomes that rotated rite bit
 RANGE:          ('..');   // used to represent a range from some start to some end
+ASMS:           ('[>');
+ASME:           ('<]');
 
 //SYMBOLS:        (UNICODE_MATH_OPS | UNICODE_MISC_TECH | UNICODE_MISC_MATH) (UNICODE_MATH_OPS | UNICODE_MISC_TECH | UNICODE_MISC_MATH)*; // do not overlap with identifiers
 
@@ -329,7 +332,7 @@ fragment OS: ('o'|'q');
 // This mode starts when we've encountered a #accept(assembler) token sequence
 
 mode ACCEPT_ASSEMBLER;
-ASSEMBLER_END:              (END SP* SEMICOLON)-> popMode;
+ASSEMBLER_END:              (END SP*)-> popMode;
 ASSEMBLER_NEWLINE:          [\r\n]+ ;
 ASM_IDENTIFIER:             IDENTIFIER; 
 ASSEMBLER_DEC_INTEGER:      '='?'#'?(([0-9] [0-9]*('d')?));
