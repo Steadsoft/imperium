@@ -27,6 +27,11 @@ lexer grammar ImperiumLexer;
     }
 }
 
+channels {
+  WHITESPACE_CHANNEL,
+  COMMENTS_CHANNEL
+}
+
 //INTRINSIC_ENTER: PROCEDURE SP* IPL_IDENTIFIER SP* (LPAR IPL_IDENTIFIER (COMMA IPL_IDENTIFIER)* RPAR)? SP* INTRINSIC LPAR IPL_IDENTIFIER RPAR SP* -> pushMode(ACCEPT_ASSEMBLER);
 
 ACCEPT: 
@@ -204,29 +209,25 @@ YIELD:
 
 /* End of generated Antlr4 keyword token definitions. */
 
-
-
 // LEXER TOKEN DEFINITIONS
 
-COMMENT:              (BCOM (COMMENT | .)*? ECOM) -> skip; //channel(2);
-LINE_COMMENT:         (LCOM .*? LF) -> channel(HIDDEN);
-WS:                   (' ')+ -> skip;
-NEWLINE:              [\r\n]+ -> skip;
-TAB:                  ('\t')+ -> skip;
+COMMENT:              (BCOM (COMMENT | .)*? ECOM) -> channel(COMMENTS_CHANNEL);
+LINE_COMMENT:         (LCOM .*? LF) -> channel(COMMENTS_CHANNEL);
+NEWLINE:              ([ \r\n\t])+ -> channel(WHITESPACE_CHANNEL);
 STRING_LITERAL_3:     (TRIQUOTE (.)*? TRIQUOTE);
 STRING_LITERAL_2:     (DIQUOTE  (.)*? DIQUOTE);
 STRING_LITERAL_1:     (QUOTE    (.)*? QUOTE);
-BYTE_ORDER_MARK:      ('\uFEFF'); // This is the unicode char seen when reading the file, the three bytes themselves are an encoding and not see by the
-LABEL:                (AT IPL_IDENTIFIER);
+BYTE_ORDER_MARK:      ('\uFEFF') -> skip;// This is the unicode char seen when reading the file, the three bytes themselves are an encoding and not see by the
+LABEL:                (AT IDENTIFIER);
 BINARY_PATTERN:       ((BIN (' ' BIN)*)+ | (BIN ('_' BIN)*)+) FRAC_B? BASE_B;
 OCTAL_PATTERN:        ((OCT (' ' OCT)*)+ | (OCT ('_' OCT)*)+) FRAC_O? BASE_O;
 HEXADECIMAL_PATTERN:  ((HEX (' ' HEX)*)+ | (HEX ('_' HEX)*)+) FRAC_H? BASE_H;
 INTEGER:              ([1-9] [0-9]*);
-AINTEGER:             ('0'[0-9a-fA-F]?[OoXxHh]?[0-9a-fA-F]+);
+AINTEGER:             ('0'[0-9a-fA-F]?[OoXxHh]?[0-9a-fA-F]+); // perhaps call this a LEGACY_PATTERN
 DECIMAL_PATTERN:      (DEC (' ' DEC)*)+ FRAC_D? BASE_D?;
 
 // SYMBOLS AND OPERATORS
-IPL_IDENTIFIER:   IDENTIFIER;
+
 // There are some symbols that have a very natural Unicode character that better conveys their
 // meanings. These are included below, the grammar will accept either the Unicode or the ASCII
 // forms. These are recognized by being name ending in _U
@@ -288,12 +289,14 @@ R_ROTATE_U:     ('@>'|'⧁');  // U+29C1 rotate: rite bit rotated out left bit b
 RANGE:          ('..');   // used to represent a range from some start to some end
 ASMS:           ('[>');
 ASME:           ('<]');
+//UNRECOGNIZED:    . ;
 
 //SYMBOLS:        (UNICODE_MATH_OPS | UNICODE_MISC_TECH | UNICODE_MISC_MATH) (UNICODE_MATH_OPS | UNICODE_MISC_TECH | UNICODE_MISC_MATH)*; // do not overlap with identifiers
 
 // LEXER FRAGMENTS
 
-fragment IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
+IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
+
 fragment BIN:     [0-1];
 fragment OCT:     [0-7];
 fragment DEC:     [0-9];
@@ -329,6 +332,9 @@ fragment BS: ('b'|'B'|'y'|'Y');
 fragment OP: ('0o'|'0q');
 fragment OS: ('o'|'q');
 
+UNRECOGNIZED: . ;
+
+
 // This mode starts when we've encountered a #accept(assembler) token sequence
 
 mode ACCEPT_ASSEMBLER;
@@ -339,7 +345,7 @@ ASSEMBLER_DEC_INTEGER:      '='?'#'?(([0-9] [0-9]*('d')?));
 ASSEMBLER_HEX_INTEGER:      '='?'#'?(XP HEX+ | (HEX+XS))  ;
 ASSEMBLER_OCT_INTEGER:      '='?'#'?(OP OCT+ | (OCT+OS));
 ASSEMBLER_BIN_INTEGER:      '='?'#'?(BP BIN+ | (BIN+BS));
-ASSEMBLER_COMMENT:          (BCOM (COMMENT | .)*? ECOM) -> channel(2);
+ASSEMBLER_COMMENT:          (BCOM (COMMENT | .)*? ECOM) -> channel(COMMENTS_CHANNEL);
 ASSEMBLER_LINE_COMMENT:     ((LCOM | SEMICOLON)(.*?)LF); // -> channel(HIDDEN);
 ASSEMBLER_PUNCTUATOR:       (','|'.'|':');
 ASSEMBLER_SYMBOL:           ('='|'+'|'#'|'-'|'*'|'/'|'$');
@@ -347,4 +353,4 @@ ASSEMBLER_BRACKET:          ('['|']');
 ASSEMBLER_PAREN:            ('('|')');
 ASM_LBRACE:                 ('{');
 ASM_RBRACE:                 ('}');
-ASSEMBLER_SPACES:           (' ')+ -> skip;
+ASSEMBLER_SPACES:           (' ')+ -> channel(WHITESPACE_CHANNEL);

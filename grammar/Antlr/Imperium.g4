@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------------------*/
+/*----------------------------------------FIDENT--------------------------------------*/
 /*     This is the grammar for IPL - the Imperium programming language          */
 /*------------------------------------------------------------------------------*/
 /* It's based primarily on the PL/I grammar because that has no reserved words. */
@@ -39,7 +39,7 @@ options
 
 
 translationUnit
-  : BYTE_ORDER_MARK? uses* (scope | traits | passiveStmt)* EOF
+  : BYTE_ORDER_MARK? uses* (scope | traits | passiveStmt)* EOF // BOM is skipped by lexer, but we mention here
   ;
 
 uses
@@ -58,7 +58,7 @@ scopeEnd
   ;
 
 assemblerToken
-  : IPL_IDENTIFIER
+  : IDENTIFIER
   | SEMICOLON
   | COMMA
   | EQUALS
@@ -115,7 +115,7 @@ procedureTrait
 
 procedure
   : procedureStmt (passiveStmt | activeStmt)* procedureEnd
-  | PROCEDURE identifier parameterNameCommalist? INTRINSIC target (passiveStmt | asmBlock)* END
+  | PROCEDURE ProcedureName=identifier parameterNameCommalist? INTRINSIC target (passiveStmt | asmBlock)* END
   ;
 
 target
@@ -135,11 +135,11 @@ function
   ;
 
 procedureStmt
-  : PROCEDURE identifier parameterNameCommalist? procedureAttributes? (TRAITS LPAR procedureTraitsList RPAR)? 
+  : PROCEDURE ProcedureName=identifier parameterNameCommalist? procedureAttributes? (TRAITS LPAR procedureTraitsList RPAR)? 
   ;
 
 functionStmt
-  : FUNCTION identifier parameterNameCommalist? returnsDescriptor functionAttributes?
+  : FUNCTION FunctionName=identifier parameterNameCommalist? returnsDescriptor functionAttributes?
   ;
 
 targetSpec
@@ -218,7 +218,7 @@ nullStmt
   ;
 
 assignmentStmt
-  : reference (ASSIGN_U | EQUALS) expression 
+  : Target=reference (ASSIGN_U | EQUALS) Source=expression 
   ;
 
 reference
@@ -303,19 +303,19 @@ expression
   : primitiveExpression                       # ExprPrimitive
   | parenthesizedExpression                   # ExprParenthesized
   | prefixExpression                          # ExprPrefixed
-  | <assoc=right> expression POWER_U expression # ExprRaise
-  | expression multiplyOperator expression    # ExprMulDiv
-  | expression additionOperator expression    # ExprAddSub
-  | expression bitAdjustOperator expression   # ExprBitAdjust
-  | expression CONC expression                # ExprConcat
-  | expression comparisonOperator expression  # ExprCompare
-  | expression boolAndOperator expression     # ExprBoolAnd
-  | expression boolXorOperator expression     # ExprBoolXor
-  | expression boolOrOperator expression      # ExprBoolOr
-  | expression LOGAND expression              # ExprLogAnd
-  | expression LOGOR expression               # ExprLogOr
-  | expression MAPSTO_U (map_set | bool_set)  # ExpreMap1
-  | arguments MAPSTO_U (map_set | bool_set)   # ExpreMap2
+  | <assoc=right> Left=expression POWER_U Rite=expression # ExprRaise
+  | left=expression multiplyOperator rite=expression    # ExprMulDiv
+  | left=expression additionOperator rite=expression    # ExprAddSub
+  | left=expression bitAdjustOperator rite=expression   # ExprBitAdjust
+  | left=expression CONC rite=expression                # ExprConcat
+  | left=expression comparisonOperator rite=expression  # ExprCompare
+  | left=expression boolAndOperator rite=expression     # ExprBoolAnd
+  | left=expression boolXorOperator rite=expression     # ExprBoolXor
+  | left=expression boolOrOperator rite=expression      # ExprBoolOr
+  | left=expression LOGAND rite=expression              # ExprLogAnd
+  | left=expression LOGOR rite=expression               # ExprLogOr
+  | mapex=expression MAPSTO_U (map_set | bool_set)    # MapExpression
+  | mapargs=arguments MAPSTO_U (map_set | bool_set)   # MapArguments
   ;
 
 /*
@@ -493,8 +493,8 @@ returnStmt
   ;
 
 ifStmt
-  : thenClause activeStmt* elseClause? ifEnd
-  | thenClause activeStmt* elifClause+ ifEnd
+  : thenClause Then=activeStmt* ElseClause=elseClause? ifEnd
+  | thenClause Then=activeStmt* ElifClause=elifClause+ ifEnd
   ;
 
 ifEnd
@@ -506,11 +506,11 @@ thenClause
   ;
 
 elseClause
-  : ELSE activeStmt*
+  : ELSE Else=activeStmt*
   ;
 
 elifClause
-  : ELIF expression THEN activeStmt* elseClause?
+  : ELIF expression THEN Elif=activeStmt* elseClause?
   ;
 
 loopStmt
@@ -612,7 +612,7 @@ structMemberList
   ;
 
 structSubstruct
-  : identifier dimensionSuffix? STRUCTURE  structBody END STRUCTURE?
+  : StructName=identifier dimensionSuffix? STRUCTURE  structBody END STRUCTURE?
   ;
 
 structMember
@@ -748,5 +748,5 @@ identifier: (
   | WHILE
   | YIELD
   )
-  | IPL_IDENTIFIER
+  | IDENTIFIER
   ;
