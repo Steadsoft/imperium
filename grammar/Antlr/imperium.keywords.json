@@ -12,7 +12,7 @@
 {
 
   "en": { // English
-    "Accept": "accept",
+    "Accept": "accept", // Consider supporting a URL too that can point to documentation or info, about the keyword
     "Alias": "alias",
     "Aligned": "aligned",
     "All": "all",
