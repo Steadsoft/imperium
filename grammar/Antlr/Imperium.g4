@@ -418,12 +418,12 @@ upperBound
   ;
 
 attributes
-  : (dataAttribute memoryAttribute? linkage_option?)
-  | (dataAttribute linkage_option? memoryAttribute?)
-  | (memoryAttribute dataAttribute? linkage_option?)
-  | (memoryAttribute linkage_option? dataAttribute?)
-  | (linkage_option memoryAttribute? dataAttribute?)
-  | (linkage_option dataAttribute? memoryAttribute?)
+  : (dataAttribute memoryAttribute? linkageOption?)
+  | (dataAttribute linkageOption? memoryAttribute?)
+  | (memoryAttribute dataAttribute? linkageOption?)
+  | (memoryAttribute linkageOption? dataAttribute?)
+  | (linkageOption memoryAttribute? dataAttribute?)
+  | (linkageOption dataAttribute? memoryAttribute?)
   ;
 
 memoryAttribute
@@ -456,14 +456,18 @@ numericScale
     : (FIXED | FLOAT)
     ;
 
-linkage_option
-  : RETAIN MAIN? (SECTION LPAR STRING_LITERAL_1 RPAR)?
-  | RETAIN (SECTION LPAR STRING_LITERAL_1 RPAR)? MAIN?
-  | MAIN RETAIN? (SECTION LPAR STRING_LITERAL_1 RPAR)?
-  | MAIN (SECTION LPAR STRING_LITERAL_1 RPAR)? RETAIN?
-  | (SECTION LPAR STRING_LITERAL_1 RPAR) MAIN? RETAIN?
-  | (SECTION LPAR STRING_LITERAL_1 RPAR) RETAIN? MAIN?
+linkageOption
+  : RETAIN MAIN? linkageSection?
+  | RETAIN linkageSection? MAIN?
+  | MAIN RETAIN? linkageSection?
+  | MAIN linkageSection? RETAIN?
+  | linkageSection MAIN? RETAIN?
+  | linkageSection RETAIN? MAIN?
   ;
+
+linkageSection
+    : (SECTION LPAR STRING_LITERAL_1 RPAR)
+    ;
 
 precision
   : LPAR numberOfDigits (COMMA scale_factor)? RPAR
