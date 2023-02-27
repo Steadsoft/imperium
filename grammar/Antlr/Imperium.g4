@@ -39,17 +39,17 @@ options
 
 
 translationUnit
-  : BYTE_ORDER_MARK? uses* (scope | traits | passiveStmt)* EOF // BOM is skipped by lexer, but we mention here
+  : BYTE_ORDER_MARK? uses* (Scopes+=scope | Traits=traits | PassiveStatements+=passiveStmt)* EOF // BOM is skipped by lexer, but we mention here
   ;
 
 uses
   : USES identifier (DOT identifier)* 
   ;
 scope
-  : scopeStmt (scope | traits | passiveStmt)* scopeEnd
+  : scopeStart (Scopes+=scope | Traits+=traits | PassiveStatements+=passiveStmt)* scopeEnd
   ;
 
-scopeStmt
+scopeStart
   : SCOPE identifier (DOT identifier)* PRIVATE? 
   ;
 
@@ -78,11 +78,15 @@ assemblerToken
 
 
 traits
-  : traitStmt passiveStmt* END TRAITS?
+  : traitsStart passiveStmt* traitsEnd
   ;
 
-traitStmt
+traitsStart
   : TRAITS (declarationTraits | procedureTraits) 
+  ;
+
+traitsEnd
+  : END TRAITS?
   ;
 
 declarationTraits
@@ -113,7 +117,7 @@ procedureTrait
   | RETAIN
   ;
 
-procedure
+procedureRule
   : procedureStmt (passiveStmt | activeStmt)* procedureEnd
   | PROCEDURE ProcedureName=identifier parameterNameCommalist? INTRINSIC target (passiveStmt | asmBlock)* END
   ;
@@ -130,7 +134,7 @@ asmOptions
    : LPAR (SECTION LPAR STRING_LITERAL_1 RPAR)? RPAR
    ;
 
-function
+functionRule
   :  functionStmt (passiveStmt | activeStmt)* functionEnd
   ;
 
@@ -182,11 +186,11 @@ labelStmt
   ;
 
 passiveStmt
-  : declareStmt
-  | defineStmt
-  | procedure
-  | function
-  | nullStmt
+  : declareStmt       # Declaration
+  | defineStmt   # Definiion
+  | procedureRule   # Procedure
+  | functionRule      # Function
+  | nullStmt    # Null
   ;
 
 
@@ -300,22 +304,22 @@ boolOrOperator
 // see expr '^'<assoc=right> expr 
 
 expression
-  : primitiveExpression                       # ExprPrimitive
-  | parenthesizedExpression                   # ExprParenthesized
-  | prefixExpression                          # ExprPrefixed
-  | <assoc=right> Left=expression POWER_U Rite=expression # ExprRaise
-  | left=expression multiplyOperator rite=expression    # ExprMulDiv
-  | left=expression additionOperator rite=expression    # ExprAddSub
-  | left=expression bitAdjustOperator rite=expression   # ExprBitAdjust
-  | left=expression CONC rite=expression                # ExprConcat
-  | left=expression comparisonOperator rite=expression  # ExprCompare
-  | left=expression boolAndOperator rite=expression     # ExprBoolAnd
-  | left=expression boolXorOperator rite=expression     # ExprBoolXor
-  | left=expression boolOrOperator rite=expression      # ExprBoolOr
-  | left=expression LOGAND rite=expression              # ExprLogAnd
-  | left=expression LOGOR rite=expression               # ExprLogOr
-  | mapex=expression MAPSTO_U (map_set | bool_set)    # MapExpression
-  | mapargs=arguments MAPSTO_U (map_set | bool_set)   # MapArguments
+  : primitiveExpression                                     # ExprPrimitive
+  | parenthesizedExpression                                 # ExprParenthesized
+  | prefixExpression                                        # ExprPrefixed
+  | <assoc=right> Left=expression POWER_U Rite=expression   # ExprRaise
+  | Left=expression multiplyOperator Rite=expression        # ExprMulDiv
+  | Left=expression additionOperator Rite=expression        # ExprAddSub
+  | Left=expression bitAdjustOperator Rite=expression       # ExprBitAdjust
+  | Left=expression CONC Rite=expression                    # ExprConcat
+  | Left=expression comparisonOperator Rite=expression      # ExprCompare
+  | Left=expression boolAndOperator Rite=expression         # ExprBoolAnd
+  | Left=expression boolXorOperator Rite=expression         # ExprBoolXor
+  | Left=expression boolOrOperator Rite=expression          # ExprBoolOr
+  | Left=expression LOGAND Rite=expression                  # ExprLogAnd
+  | Left=expression LOGOR Rite=expression                   # ExprLogOr
+  | Mapex=expression MAPSTO_U (map_set | bool_set)          # MapExpression
+  | MapArgs=arguments MAPSTO_U (map_set | bool_set)         # MapArguments
   ;
 
 /*
@@ -386,7 +390,7 @@ declarationBody
   ;
 
 typeInfo
-  : dimensionSuffix? attribute+
+  : dimensionSuffix? attributes
   ;
 
 dimensionSuffix
@@ -413,8 +417,13 @@ upperBound
   : expression
   ;
 
-attribute
-  : (dataAttribute | BUILTIN | VARIABLE | memoryAttribute | linkage_attribute)
+attributes
+  : (dataAttribute memoryAttribute? linkage_option?)
+  | (dataAttribute linkage_option? memoryAttribute?)
+  | (memoryAttribute dataAttribute? linkage_option?)
+  | (memoryAttribute linkage_option? dataAttribute?)
+  | (linkage_option memoryAttribute? dataAttribute?)
+  | (linkage_option dataAttribute? memoryAttribute?)
   ;
 
 memoryAttribute
@@ -425,15 +434,16 @@ memoryAttribute
   ;
 
 dataAttribute
-  : BINARY (precision)?
-  | DECIMAL (precision)?
+  : numericScale? BINARY (precision)?
+  | numericScale? DECIMAL (precision)?
+  | BINARY (precision)? numericScale?
+  | DECIMAL (precision)? numericScale?
   | POINTER
   | BIT maxLength
   | CHARACTER
   | STRING maxStringLength 
   | ENTRY
-  | FIXED
-  | FLOAT
+  | LABEL
   | OFFSET
   | VARYING
   | COROUTINE
@@ -442,10 +452,17 @@ dataAttribute
   | INTRINSIC
   ;
 
-linkage_attribute
-  : RETAIN
-  | SECTION LPAR STRING_LITERAL_1 RPAR
-  | MAIN
+numericScale
+    : (FIXED | FLOAT)
+    ;
+
+linkage_option
+  : RETAIN MAIN? (SECTION LPAR STRING_LITERAL_1 RPAR)?
+  | RETAIN (SECTION LPAR STRING_LITERAL_1 RPAR)? MAIN?
+  | MAIN RETAIN? (SECTION LPAR STRING_LITERAL_1 RPAR)?
+  | MAIN (SECTION LPAR STRING_LITERAL_1 RPAR)? RETAIN?
+  | (SECTION LPAR STRING_LITERAL_1 RPAR) MAIN? RETAIN?
+  | (SECTION LPAR STRING_LITERAL_1 RPAR) RETAIN? MAIN?
   ;
 
 precision
@@ -572,7 +589,7 @@ enumType
   ;
 
 aliasType
-  : ALIAS attribute+ 
+  : ALIAS attributes
   ;
 
 binaryEnum
