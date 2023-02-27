@@ -36,39 +36,39 @@ namespace AntlrCSharp
             return ast_translation_unit_node;
         }
 
-        public override AstNode VisitScope([NotNull] ScopeContext context)
-        {
-            if (Has(context.stmtBlock, out var block))
-            {
-                var ast_stmt_block_node = new AstStmtBlock(context.stmtBlock());
+        //public override AstNode VisitScope([NotNull] ScopeContext context)
+        //{
+        //    if (Has(context.stmtBlock, out var block))
+        //    {
+        //        var ast_stmt_block_node = new AstStmtBlock(context.stmtBlock());
 
-                foreach (DeclareStmtContext dcl_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.declareStmt()).Where(s => s != null))
-                {
-                    var ast_declaration_node = new AstDeclaration(dcl_ctxt);
+        //        foreach (DeclareStmtContext dcl_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.declareStmt()).Where(s => s != null))
+        //        {
+        //            var ast_declaration_node = new AstDeclaration(dcl_ctxt);
 
-                    ast_stmt_block_node.AddStatement(ast_declaration_node);
+        //            ast_stmt_block_node.AddStatement(ast_declaration_node);
 
-                    dcl_ctxt.Node = ast_declaration_node;
+        //            dcl_ctxt.Node = ast_declaration_node;
 
-                    VisitDeclareStmt(dcl_ctxt);
-                }
+        //            VisitDeclareStmt(dcl_ctxt);
+        //        }
 
-                foreach (DefineStmtContext def_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.defineStmt()).Where(s => s != null))
-                {
-                    var ast_definition_node = new AstDefinition(def_ctxt);
+        //        foreach (DefineStmtContext def_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.defineStmt()).Where(s => s != null))
+        //        {
+        //            var ast_definition_node = new AstDefinition(def_ctxt);
 
-                    ast_stmt_block_node.AddStatement(new AstDefinition(def_ctxt));
+        //            ast_stmt_block_node.AddStatement(new AstDefinition(def_ctxt));
 
-                    def_ctxt.Node = ast_definition_node;
+        //            def_ctxt.Node = ast_definition_node;
 
-                    VisitDefineStmt(def_ctxt);
-                }
+        //            VisitDefineStmt(def_ctxt);
+        //        }
 
-                return ast_stmt_block_node;
-            }
+        //        return ast_stmt_block_node;
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
 
         public override AstNode VisitDeclareStmt([NotNull] DeclareStmtContext context)
         {

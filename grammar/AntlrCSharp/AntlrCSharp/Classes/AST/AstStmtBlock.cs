@@ -6,7 +6,7 @@ namespace AntlrCSharp
     {
         public List<AstStmt> Statements { get; private set; } = new List<AstStmt>();
 
-        public AstStmtBlock(StmtBlockContext context) : base(context.Start.Line)
+        public AstStmtBlock(List<PassiveStmtContext> context) : base(context.First().Start.Line)
         {
 
         }

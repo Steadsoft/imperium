@@ -4,7 +4,7 @@ namespace AntlrCSharp
 {
     public class AstExecutableStmt : AstStmt
     {
-        public AstExecutableStmt(ExecutableStmtContext C) : base(C)
+        public AstExecutableStmt(ActiveStmtContext C) : base(C)
         {
             ;
         }

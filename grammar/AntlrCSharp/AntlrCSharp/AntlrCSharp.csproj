@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+
   <ItemGroup>
     <Compile Include="..\..\Antlr\ImperiumLexer.cs" Link="ImperiumLexer.cs" />
     <Compile Include="..\..\Antlr\ImperiumParser.cs" Link="ImperiumParser.cs" />
