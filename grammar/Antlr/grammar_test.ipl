@@ -3,7 +3,7 @@ scope grammar.testing.scope
 
 def memory_map struct
      signature(18:14, 10:5) bin(8)
-     builtin struct
+     builtin(7) struct
         header  fixed binary(31)
         bytes(40960 * 10)   bin(8)
      end
@@ -13,12 +13,12 @@ dcl isr_vectors(1024) pointer section(".isr_vector") retain
 
 
 
-dcl call string(32) pointer pointer
+dcl call string(32)
 dcl return bin(15)
 dcl binary decimal(10)
 //dcl all range;
 dcl page (4096) bin(8) static
-dcl stacks (1024) fixed dec(2) stack
+dcl stacks (1024) fixed dec(2) stack static = 100
 //dcl io_buffer (4096) byte(1) // byte; is the same as byte(1)
 dcl user_name string(128) 
 //dcl msg_buffer byte(1024)
@@ -37,7 +37,7 @@ def other_map struct
      end
 end 
 
-dcl buffer binary(16) based(p)
+dcl buffer binary(16) based(p) = 2
 
 dcl main_title as window_title
 
@@ -48,9 +48,7 @@ dcl main_title as window_title
 
 proc set_stack_ptr (addr) intrinsic (arm)
 
-
-
-end
+end proc
 
 proc set_stack_ptr (addr) intrinsic (tumb)
 

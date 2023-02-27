@@ -1,16 +1,36 @@
 ﻿using System.Reflection.Metadata;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
 
 
 namespace KeywordGenerator
 {
+
+
     internal class Program
     {
         private static int longest;
 
         static void Main(string[] args)
         {
+
+            int outer;
+
+            if (args.Length > 0)
+            {
+                int inner;
+
+                if (args[0] != null)
+                {
+                    int deeper;
+
+                    // do stuff
+                }
+            }
+
+
+
             string single_language = null;
 
             // load the dictionary.
