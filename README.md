@@ -8,6 +8,8 @@ The language has no "reserved words" which means it doesn't care if an identifie
 The language began with an emphasis on the grammar, the grammar structure was carefully designed and refined to provide the extensibility features needed. The grammar is mostly influenced by the PL/I language but is not a clone of PL/I, it also borrows ideas from Algol and Pascal and Oberon and Raku, it is not an Object Orineted language. It can be characterized as a language that follows a keyword based pattern, all statements (except assignment statements) begin with a language keyword followed by optional and 
 mandatory attributes.
 
+An example of source code used to test the grammar, can be seen [here](https://github.com/Steadsoft/imperium/blob/main/grammar/Antlr/full_syntax.ipl).
+
 ## Goals
 
 The goals of this language project include:
