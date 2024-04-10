@@ -78,62 +78,59 @@ namespace AntlrCSharp
             if (dcl == null)
                 return null;
 
-            var attributes = context.declarationBody()?.typeInfo()?.attribute();
+            var attributes = context.declarationBody()?.typeInfo()?.attributes();
 
             if (exists(attributes))
             {
-                foreach (var attribute in attributes)
+                if (Has(attributes.dataAttribute, out var dataAttribute))
                 {
-                    if (Has(attribute.dataAttribute, out var dataAttribute))
-                    {
-                        if (Has(dataAttribute.BINARY))
-                            dcl.BINARY++;
+                    if (Has(dataAttribute.BINARY))
+                        dcl.BINARY++;
 
-                        if (Has(dataAttribute.BIT))
-                            dcl.BIT++;
+                    if (Has(dataAttribute.BIT))
+                        dcl.BIT++;
 
-                        if (Has(dataAttribute.BUILTIN))
-                            dcl.BUILTIN++;
+                    if (Has(dataAttribute.BUILTIN))
+                        dcl.BUILTIN++;
 
-                        if (Has(dataAttribute.CHARACTER))
-                            dcl.CHARACTER++;
+                    if (Has(dataAttribute.CHARACTER))
+                        dcl.CHARACTER++;
 
-                        if (Has(dataAttribute.COFUNCTION))
-                            dcl.COFUNCTION++;
+                    if (Has(dataAttribute.COFUNCTION))
+                        dcl.COFUNCTION++;
 
-                        if (Has(dataAttribute.COROUTINE))
-                            dcl.COROUTINE++;
+                    if (Has(dataAttribute.COROUTINE))
+                        dcl.COROUTINE++;
 
-                        if (Has(dataAttribute.COFUNCTION))
-                            dcl.COFUNCTION++;
+                    if (Has(dataAttribute.COFUNCTION))
+                        dcl.COFUNCTION++;
 
-                        if (Has(dataAttribute.DECIMAL))
-                            dcl.DECIMAL++; ;
+                    if (Has(dataAttribute.DECIMAL))
+                        dcl.DECIMAL++; ;
 
-                        if (Has(dataAttribute.ENTRY))
-                            dcl.ENTRY++; ;
+                    if (Has(dataAttribute.ENTRY))
+                        dcl.ENTRY++; ;
 
-                        if (Has(dataAttribute.FIXED))
-                            dcl.FIXED++; ;
+                    if (Has(dataAttribute.numericScale().FIXED))
+                        dcl.FIXED++; ;
 
-                        if (Has(dataAttribute.FLOAT))
-                            dcl.FLOAT++; ;
+                    if (Has(dataAttribute.numericScale().FLOAT))
+                        dcl.FLOAT++; ;
 
-                        if (Has(dataAttribute.INTRINSIC))
-                            dcl.INTRINSIC++; ;
+                    if (Has(dataAttribute.INTRINSIC))
+                        dcl.INTRINSIC++; ;
 
-                        if (Has(dataAttribute.OFFSET))
-                            dcl.OFFSET++; ;
+                    if (Has(dataAttribute.OFFSET))
+                        dcl.OFFSET++; ;
 
-                        if (Has(dataAttribute.POINTER))
-                            dcl.POINTER++; ;
+                    if (Has(dataAttribute.POINTER))
+                        dcl.POINTER++; ;
 
-                        if (Has(dataAttribute.VARYING))
-                            dcl.VARYING++; ;
+                    if (Has(dataAttribute.VARYING))
+                        dcl.VARYING++; ;
 
-                        if (Has(dataAttribute.STRING))
-                            dcl.STRING++; ;
-                    }
+                    if (Has(dataAttribute.STRING))
+                        dcl.STRING++; ;
                 }
             }
 
