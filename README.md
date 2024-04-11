@@ -97,6 +97,9 @@ a = b >> c 		// logical shift right
 a = b >>> c 		// arithmemtic shift right
 a = b <<@ 4 		// rotate 4 bits to the left
 a = b @>> 6 		// rotate 6 bits to the right
+a = b ⧀ 4              // rotate left using optional unicode symbol
+a = b ⧁ 6              // rotate right...
+
 ```
 Each argument in an argument list is always evaluated strictly in left to right order. The same is true too for arrays or arrays of structures, wherever multiple subscripts are needed to fully define a reference, they are always evaluated left to right:
 
