@@ -266,5 +266,5 @@ Many operators have a two forms, the well known ASCII symbols or symbol pairs an
 | /                             | ÷
 | = (assign)                    | ⇐
 | ** (exp)                      | 🠕
-| ^ (or)                        | ⊕
+| ^ (exclusive or)              | ⊕
 
