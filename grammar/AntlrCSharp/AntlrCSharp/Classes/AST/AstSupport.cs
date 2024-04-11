@@ -26,7 +26,11 @@ namespace AntlrCSharp
         public static bool Has<T>(Func<T[]> ContextFunc, out T[] Context) where T : VisitorContext
         {
             Context = ContextFunc();
-            return Context != null;
+            if (Context != null)
+                if (Context.Any())
+                    return true;
+
+            return false;
         }
 
 

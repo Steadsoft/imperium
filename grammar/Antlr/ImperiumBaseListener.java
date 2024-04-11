@@ -364,61 +364,13 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclaration(ImperiumParser.DeclarationContext ctx) { }
+	@Override public void enterPassiveStmt(ImperiumParser.PassiveStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDeclaration(ImperiumParser.DeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDefiniion(ImperiumParser.DefiniionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDefiniion(ImperiumParser.DefiniionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterProcedure(ImperiumParser.ProcedureContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitProcedure(ImperiumParser.ProcedureContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFunction(ImperiumParser.FunctionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFunction(ImperiumParser.FunctionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterNull(ImperiumParser.NullContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNull(ImperiumParser.NullContext ctx) { }
+	@Override public void exitPassiveStmt(ImperiumParser.PassiveStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -15,7 +15,7 @@ dcl isr_vectors(1024) pointer section(".isr_vector") retain
 
 dcl call string(32)
 dcl return bin(15)
-dcl binary decimal(10)
+dcl binary decimal(10,5)
 //dcl all range;
 dcl page (4096) bin(8) static
 dcl stacks (1024) fixed dec(2) stack 
@@ -120,7 +120,7 @@ procedure startup (root_ptr) main traits(section("abc"))
 
       dcl map as memory_map based (root_ptr)
 
-      dcl data fixed bin(15)// defined(p) = 12
+      dcl data fixed bin(15) // defined(p) = 12
       dcl buffer binary(16) based(p) = 12
       //range = 1>..<4 // 1 to 4 INCINC
       //range = 1<..>4 // 2 to 3 EXCEXC

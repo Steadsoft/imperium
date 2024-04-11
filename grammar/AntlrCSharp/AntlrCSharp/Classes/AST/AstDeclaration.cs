@@ -4,6 +4,8 @@ namespace AntlrCSharp
 {
     public class AstDeclaration : AstStmt
     {
+        // These attributes are integers and we count them
+        // this is how we detect illegal repetitions.
         public readonly bool IsKeyword;
         public string Spelling { get; private set; }
         public int BINARY { get; set; }
@@ -21,6 +23,9 @@ namespace AntlrCSharp
         public int COFUNCTION { get; set; }
         public int BUILTIN { get; set; }
         public int INTRINSIC { get; set; }
+        public int? numberOfDigits { get; set; }
+        public int? scaleFactor { get; set; }
+        public MaxStringLength StringLength { get; set; }
         public AstDeclaration(DeclareStmtContext C) : base(C)
         {
             if (C.declarationBody() != null)
@@ -35,7 +40,17 @@ namespace AntlrCSharp
             return $"(dcl) {Spelling}";
         }
 
+        public class MaxStringLength
+        {
+            public bool Asterisk = false;
+            public string? Identifier;
+            public int INTEGER;
+            public MaxStringLength() { }
+        }
+
     }
+
+    
 
    
 }

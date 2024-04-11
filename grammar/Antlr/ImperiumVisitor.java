@@ -184,40 +184,11 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLabelStmt(ImperiumParser.LabelStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code Declaration}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
+	 * Visit a parse tree produced by {@link ImperiumParser#passiveStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDeclaration(ImperiumParser.DeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code Definiion}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDefiniion(ImperiumParser.DefiniionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code Procedure}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitProcedure(ImperiumParser.ProcedureContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code Function}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunction(ImperiumParser.FunctionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code Null}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNull(ImperiumParser.NullContext ctx);
+	T visitPassiveStmt(ImperiumParser.PassiveStmtContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#assemblerStmt}.
 	 * @param ctx the parse tree

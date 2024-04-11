@@ -297,65 +297,15 @@ public interface ImperiumListener extends ParseTreeListener {
 	 */
 	void exitLabelStmt(ImperiumParser.LabelStmtContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code Declaration}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
+	 * Enter a parse tree produced by {@link ImperiumParser#passiveStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterDeclaration(ImperiumParser.DeclarationContext ctx);
+	void enterPassiveStmt(ImperiumParser.PassiveStmtContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code Declaration}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
+	 * Exit a parse tree produced by {@link ImperiumParser#passiveStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitDeclaration(ImperiumParser.DeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Definiion}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterDefiniion(ImperiumParser.DefiniionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Definiion}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitDefiniion(ImperiumParser.DefiniionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Procedure}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterProcedure(ImperiumParser.ProcedureContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Procedure}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitProcedure(ImperiumParser.ProcedureContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Function}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunction(ImperiumParser.FunctionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Function}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunction(ImperiumParser.FunctionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Null}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterNull(ImperiumParser.NullContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Null}
-	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitNull(ImperiumParser.NullContext ctx);
+	void exitPassiveStmt(ImperiumParser.PassiveStmtContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ImperiumParser#assemblerStmt}.
 	 * @param ctx the parse tree

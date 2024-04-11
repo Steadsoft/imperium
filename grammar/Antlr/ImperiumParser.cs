@@ -2537,124 +2537,40 @@ public partial class ImperiumParser : Parser {
 	}
 
 	public partial class PassiveStmtContext : VisitorContext {
+		[System.Diagnostics.DebuggerNonUserCode] public DeclareStmtContext declareStmt() {
+			return GetRuleContext<DeclareStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public DefineStmtContext defineStmt() {
+			return GetRuleContext<DefineStmtContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ProcedureRuleContext procedureRule() {
+			return GetRuleContext<ProcedureRuleContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public FunctionRuleContext functionRule() {
+			return GetRuleContext<FunctionRuleContext>(0);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public NullStmtContext nullStmt() {
+			return GetRuleContext<NullStmtContext>(0);
+		}
 		public PassiveStmtContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int RuleIndex { get { return RULE_passiveStmt; } }
-	 
-		public PassiveStmtContext() { }
-		public virtual void CopyFrom(PassiveStmtContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class FunctionContext : PassiveStmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public FunctionRuleContext functionRule() {
-			return GetRuleContext<FunctionRuleContext>(0);
-		}
-		public FunctionContext(PassiveStmtContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterFunction(this);
+			if (typedListener != null) typedListener.EnterPassiveStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitFunction(this);
+			if (typedListener != null) typedListener.ExitPassiveStmt(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitFunction(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class NullContext : PassiveStmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public NullStmtContext nullStmt() {
-			return GetRuleContext<NullStmtContext>(0);
-		}
-		public NullContext(PassiveStmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterNull(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitNull(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitNull(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class DefiniionContext : PassiveStmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public DefineStmtContext defineStmt() {
-			return GetRuleContext<DefineStmtContext>(0);
-		}
-		public DefiniionContext(PassiveStmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterDefiniion(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitDefiniion(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDefiniion(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class ProcedureContext : PassiveStmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ProcedureRuleContext procedureRule() {
-			return GetRuleContext<ProcedureRuleContext>(0);
-		}
-		public ProcedureContext(PassiveStmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterProcedure(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitProcedure(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitProcedure(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-	public partial class DeclarationContext : PassiveStmtContext {
-		[System.Diagnostics.DebuggerNonUserCode] public DeclareStmtContext declareStmt() {
-			return GetRuleContext<DeclareStmtContext>(0);
-		}
-		public DeclarationContext(PassiveStmtContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.EnterDeclaration(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IImperiumListener typedListener = listener as IImperiumListener;
-			if (typedListener != null) typedListener.ExitDeclaration(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IImperiumVisitor<TResult> typedVisitor = visitor as IImperiumVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDeclaration(this);
+			if (typedVisitor != null) return typedVisitor.VisitPassiveStmt(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -2669,7 +2585,6 @@ public partial class ImperiumParser : Parser {
 			switch (TokenStream.LA(1)) {
 			case ARGUMENT:
 			case DECLARE:
-				_localctx = new DeclarationContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
 				State = 499;
@@ -2677,7 +2592,6 @@ public partial class ImperiumParser : Parser {
 				}
 				break;
 			case DEFINE:
-				_localctx = new DefiniionContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
 				State = 500;
@@ -2685,7 +2599,6 @@ public partial class ImperiumParser : Parser {
 				}
 				break;
 			case PROCEDURE:
-				_localctx = new ProcedureContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
 				State = 501;
@@ -2693,7 +2606,6 @@ public partial class ImperiumParser : Parser {
 				}
 				break;
 			case FUNCTION:
-				_localctx = new FunctionContext(_localctx);
 				EnterOuterAlt(_localctx, 4);
 				{
 				State = 502;
@@ -2701,7 +2613,6 @@ public partial class ImperiumParser : Parser {
 				}
 				break;
 			case SEMICOLON:
-				_localctx = new NullContext(_localctx);
 				EnterOuterAlt(_localctx, 5);
 				{
 				State = 503;

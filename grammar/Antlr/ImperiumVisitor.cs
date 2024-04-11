@@ -206,40 +206,11 @@ public interface IImperiumVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitLabelStmt([NotNull] ImperiumParser.LabelStmtContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Declaration</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
+	/// Visit a parse tree produced by <see cref="ImperiumParser.passiveStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDeclaration([NotNull] ImperiumParser.DeclarationContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>Definiion</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitDefiniion([NotNull] ImperiumParser.DefiniionContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>Procedure</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitProcedure([NotNull] ImperiumParser.ProcedureContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>Function</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitFunction([NotNull] ImperiumParser.FunctionContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>Null</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitNull([NotNull] ImperiumParser.NullContext context);
+	Result VisitPassiveStmt([NotNull] ImperiumParser.PassiveStmtContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="ImperiumParser.assemblerStmt"/>.
 	/// </summary>

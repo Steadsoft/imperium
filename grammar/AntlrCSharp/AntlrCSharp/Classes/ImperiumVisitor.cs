@@ -3,6 +3,7 @@ using Antlr4.Runtime.Misc;
 using static ImperiumParser;
 using static AntlrCSharp.AstSupport;
 using System.Data;
+using System.Net.WebSockets;
 
 namespace AntlrCSharp
 {
@@ -14,8 +15,6 @@ namespace AntlrCSharp
         {
             ;
         }
-
-
         public override AstNode VisitTranslationUnit([NotNull] TranslationUnitContext context)
         {
             var ast_translation_unit_node = new AstTranslationUnit(context);
@@ -35,41 +34,39 @@ namespace AntlrCSharp
 
             return ast_translation_unit_node;
         }
+        public override AstNode VisitScope([NotNull] ScopeContext context)
+        {
+            if (Has(context.passiveStmt, out var block))
+            {
+                var ast_stmt_block_node = new AstStmtBlock(context.passiveStmt());
 
-        //public override AstNode VisitScope([NotNull] ScopeContext context)
-        //{
-        //    if (Has(context.stmtBlock, out var block))
-        //    {
-        //        var ast_stmt_block_node = new AstStmtBlock(context.stmtBlock());
+                foreach (DeclareStmtContext dcl_ctxt in context.passiveStmt().Select(s => s.declareStmt()).Where(s => s != null))
+                {
+                    var ast_declaration_node = new AstDeclaration(dcl_ctxt);
 
-        //        foreach (DeclareStmtContext dcl_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.declareStmt()).Where(s => s != null))
-        //        {
-        //            var ast_declaration_node = new AstDeclaration(dcl_ctxt);
+                    ast_stmt_block_node.AddStatement(ast_declaration_node);
 
-        //            ast_stmt_block_node.AddStatement(ast_declaration_node);
+                    dcl_ctxt.Node = ast_declaration_node;
 
-        //            dcl_ctxt.Node = ast_declaration_node;
+                    VisitDeclareStmt(dcl_ctxt);
+                }
 
-        //            VisitDeclareStmt(dcl_ctxt);
-        //        }
+                foreach (DefineStmtContext def_ctxt in context.passiveStmt().Select(s => s.defineStmt()).Where(s => s != null))
+                {
+                    var ast_definition_node = new AstDefinition(def_ctxt);
 
-        //        foreach (DefineStmtContext def_ctxt in context.stmtBlock().nonexecutableStmt().Select(s => s.defineStmt()).Where(s => s != null))
-        //        {
-        //            var ast_definition_node = new AstDefinition(def_ctxt);
+                    ast_stmt_block_node.AddStatement(new AstDefinition(def_ctxt));
 
-        //            ast_stmt_block_node.AddStatement(new AstDefinition(def_ctxt));
+                    def_ctxt.Node = ast_definition_node;
 
-        //            def_ctxt.Node = ast_definition_node;
+                    VisitDefineStmt(def_ctxt);
+                }
 
-        //            VisitDefineStmt(def_ctxt);
-        //        }
+                return ast_stmt_block_node;
+            }
 
-        //        return ast_stmt_block_node;
-        //    }
-
-        //    return null;
-        //}
-
+            return null;
+        }
         public override AstNode VisitDeclareStmt([NotNull] DeclareStmtContext context)
         {
 
@@ -111,11 +108,48 @@ namespace AntlrCSharp
                     if (Has(dataAttribute.ENTRY))
                         dcl.ENTRY++; ;
 
-                    if (Has(dataAttribute.numericScale().FIXED))
-                        dcl.FIXED++; ;
+                    if (dataAttribute.numericScale() != null)
+                    {
+                        if (Has(dataAttribute.numericScale().FIXED))
+                            dcl.FIXED++; 
 
-                    if (Has(dataAttribute.numericScale().FLOAT))
-                        dcl.FLOAT++; ;
+                        if (Has(dataAttribute.numericScale().FLOAT))
+                            dcl.FLOAT++;
+                    }
+
+                    if (dataAttribute.precision() != null)
+                    {
+                        var numdig = dataAttribute.precision().numberOfDigits();
+
+                        if (numdig.identifier() != null)
+                        {
+                            var id = numdig.identifier().GetText();
+                        }
+                        else
+                        {
+                            if (numdig.INTEGER() != null)
+                            {
+                                dcl.numberOfDigits = Convert.ToInt32(numdig.INTEGER().GetText());
+                            }
+                        }
+
+                        if (dataAttribute.precision().scale_factor != null)
+                        {
+                            var scale = dataAttribute.precision().scale_factor();
+
+                            if (scale?.identifier() != null)
+                            {
+                                var id = scale.identifier().GetText();
+                            }
+                            else
+                            {
+                                if (scale?.INTEGER() != null)
+                                {
+                                    dcl.scaleFactor = Convert.ToInt32(scale.INTEGER().GetText());
+                                }
+                            }
+                        }
+                    }
 
                     if (Has(dataAttribute.INTRINSIC))
                         dcl.INTRINSIC++; ;
@@ -130,23 +164,39 @@ namespace AntlrCSharp
                         dcl.VARYING++; ;
 
                     if (Has(dataAttribute.STRING))
+                    {
                         dcl.STRING++; ;
+
+                        dcl.StringLength = new AstDeclaration.MaxStringLength();
+
+                        if (dataAttribute.maxStringLength()?.identifier() != null)
+                        {
+                            dcl.StringLength.Identifier = dataAttribute.maxStringLength().identifier().GetText();    
+                        }
+
+                        if (dataAttribute?.maxStringLength()?.INTEGER() != null)
+                        {
+                            dcl.StringLength.INTEGER = Convert.ToInt32(dataAttribute.maxStringLength().INTEGER().GetText());
+                        }
+
+                        if (dataAttribute?.maxStringLength()?.TIMES() != null)
+                        {
+                            dcl.StringLength.Asterisk = true;
+                        }
+                    }
                 }
             }
 
             return base.VisitDeclareStmt(context);
         }
-
         public override AstNode VisitPtrRef([NotNull] PtrRefContext context)
         {
             return base.VisitPtrRef(context);
         }
-
         public override AstNode VisitBasicReference([NotNull] BasicReferenceContext context)
         {
             return base.VisitBasicReference(context);
         }
-
         private void ValidateBound_pair([NotNull] BoundPairContext context, string Name, int Line, int Dim)
         {
 

@@ -384,75 +384,17 @@ public partial class ImperiumBaseListener : IImperiumListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitLabelStmt([NotNull] ImperiumParser.LabelStmtContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>Declaration</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
+	/// Enter a parse tree produced by <see cref="ImperiumParser.passiveStmt"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterDeclaration([NotNull] ImperiumParser.DeclarationContext context) { }
+	public virtual void EnterPassiveStmt([NotNull] ImperiumParser.PassiveStmtContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>Declaration</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
+	/// Exit a parse tree produced by <see cref="ImperiumParser.passiveStmt"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitDeclaration([NotNull] ImperiumParser.DeclarationContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>Definiion</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterDefiniion([NotNull] ImperiumParser.DefiniionContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Definiion</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitDefiniion([NotNull] ImperiumParser.DefiniionContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>Procedure</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterProcedure([NotNull] ImperiumParser.ProcedureContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Procedure</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitProcedure([NotNull] ImperiumParser.ProcedureContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>Function</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterFunction([NotNull] ImperiumParser.FunctionContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Function</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitFunction([NotNull] ImperiumParser.FunctionContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>Null</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterNull([NotNull] ImperiumParser.NullContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Null</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitNull([NotNull] ImperiumParser.NullContext context) { }
+	public virtual void ExitPassiveStmt([NotNull] ImperiumParser.PassiveStmtContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.assemblerStmt"/>.
 	/// <para>The default implementation does nothing.</para>

@@ -321,65 +321,15 @@ public interface IImperiumListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitLabelStmt([NotNull] ImperiumParser.LabelStmtContext context);
 	/// <summary>
-	/// Enter a parse tree produced by the <c>Declaration</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
+	/// Enter a parse tree produced by <see cref="ImperiumParser.passiveStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterDeclaration([NotNull] ImperiumParser.DeclarationContext context);
+	void EnterPassiveStmt([NotNull] ImperiumParser.PassiveStmtContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>Declaration</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
+	/// Exit a parse tree produced by <see cref="ImperiumParser.passiveStmt"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitDeclaration([NotNull] ImperiumParser.DeclarationContext context);
-	/// <summary>
-	/// Enter a parse tree produced by the <c>Definiion</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterDefiniion([NotNull] ImperiumParser.DefiniionContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Definiion</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitDefiniion([NotNull] ImperiumParser.DefiniionContext context);
-	/// <summary>
-	/// Enter a parse tree produced by the <c>Procedure</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterProcedure([NotNull] ImperiumParser.ProcedureContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Procedure</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitProcedure([NotNull] ImperiumParser.ProcedureContext context);
-	/// <summary>
-	/// Enter a parse tree produced by the <c>Function</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterFunction([NotNull] ImperiumParser.FunctionContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Function</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitFunction([NotNull] ImperiumParser.FunctionContext context);
-	/// <summary>
-	/// Enter a parse tree produced by the <c>Null</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterNull([NotNull] ImperiumParser.NullContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>Null</c>
-	/// labeled alternative in <see cref="ImperiumParser.passiveStmt"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitNull([NotNull] ImperiumParser.NullContext context);
+	void ExitPassiveStmt([NotNull] ImperiumParser.PassiveStmtContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="ImperiumParser.assemblerStmt"/>.
 	/// </summary>
