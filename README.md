@@ -253,3 +253,18 @@ This table describes the changes
 | `keywords`                    | All keywords are lower case and available for multiple cultures/languages
 | `identifiers` 		| Unicode charaters and the `$` symbol are supported
 | `do loops`                    | All loops begin with `loop` keyword with optional `while` `until` and so on.
+
+## Unicode
+
+Many operators have a two forms, the well known ASCII symbols or symbol pairs and also Unicode, here's some of these symbols so far supported by the grammar:
+
+| Standard Symbols              | Alternate Unicode Symbol
+| ---                           | ---
+| >=                            | ≥
+| <=                            | ≤
+| ->                            | ➔
+| /                             | ÷
+| = (assign)                    | ⇐
+| ** (exp)                      | 🠕
+| ^ (or)                        | ⊕
+
