@@ -2055,25 +2055,50 @@ public class ImperiumParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class PassiveStmtContext extends VisitorContext {
-		public DeclareStmtContext declareStmt() {
-			return getRuleContext(DeclareStmtContext.class,0);
-		}
-		public DefineStmtContext defineStmt() {
-			return getRuleContext(DefineStmtContext.class,0);
-		}
-		public ProcedureRuleContext procedureRule() {
-			return getRuleContext(ProcedureRuleContext.class,0);
-		}
-		public FunctionRuleContext functionRule() {
-			return getRuleContext(FunctionRuleContext.class,0);
-		}
-		public NullStmtContext nullStmt() {
-			return getRuleContext(NullStmtContext.class,0);
-		}
 		public PassiveStmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_passiveStmt; }
+	 
+		public PassiveStmtContext() { }
+		public void copyFrom(PassiveStmtContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class FunctionContext extends PassiveStmtContext {
+		public FunctionRuleContext functionRule() {
+			return getRuleContext(FunctionRuleContext.class,0);
+		}
+		public FunctionContext(PassiveStmtContext ctx) { copyFrom(ctx); }
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NullContext extends PassiveStmtContext {
+		public NullStmtContext nullStmt() {
+			return getRuleContext(NullStmtContext.class,0);
+		}
+		public NullContext(PassiveStmtContext ctx) { copyFrom(ctx); }
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class DefinitionContext extends PassiveStmtContext {
+		public DefineStmtContext defineStmt() {
+			return getRuleContext(DefineStmtContext.class,0);
+		}
+		public DefinitionContext(PassiveStmtContext ctx) { copyFrom(ctx); }
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class ProcedureContext extends PassiveStmtContext {
+		public ProcedureRuleContext procedureRule() {
+			return getRuleContext(ProcedureRuleContext.class,0);
+		}
+		public ProcedureContext(PassiveStmtContext ctx) { copyFrom(ctx); }
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class DeclarationContext extends PassiveStmtContext {
+		public DeclareStmtContext declareStmt() {
+			return getRuleContext(DeclareStmtContext.class,0);
+		}
+		public DeclarationContext(PassiveStmtContext ctx) { copyFrom(ctx); }
 	}
 
 	public final PassiveStmtContext passiveStmt() throws RecognitionException {
@@ -2085,6 +2110,7 @@ public class ImperiumParser extends Parser {
 			switch (_input.LA(1)) {
 			case ARGUMENT:
 			case DECLARE:
+				_localctx = new DeclarationContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(499);
@@ -2092,6 +2118,7 @@ public class ImperiumParser extends Parser {
 				}
 				break;
 			case DEFINE:
+				_localctx = new DefinitionContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(500);
@@ -2099,6 +2126,7 @@ public class ImperiumParser extends Parser {
 				}
 				break;
 			case PROCEDURE:
+				_localctx = new ProcedureContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(501);
@@ -2106,6 +2134,7 @@ public class ImperiumParser extends Parser {
 				}
 				break;
 			case FUNCTION:
+				_localctx = new FunctionContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(502);
@@ -2113,6 +2142,7 @@ public class ImperiumParser extends Parser {
 				}
 				break;
 			case SEMICOLON:
+				_localctx = new NullContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(503);

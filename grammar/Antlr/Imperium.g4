@@ -186,11 +186,11 @@ labelStmt
   ;
 
 passiveStmt
-  : declareStmt         //# Declaration
-  | defineStmt          //# Definition
-  | procedureRule       //# Procedure
-  | functionRule        //# Function
-  | nullStmt            //# Null
+  : declareStmt         # Declaration
+  | defineStmt          # Definition
+  | procedureRule       # Procedure
+  | functionRule        # Function
+  | nullStmt            # Null
   ;
 
 

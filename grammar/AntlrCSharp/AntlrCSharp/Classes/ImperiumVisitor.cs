@@ -20,73 +20,33 @@ namespace AntlrCSharp
             var ast_translation_unit_node = new AstTranslationUnit(context);
 
             var tmp = VisitChildren(context);
-            
-            foreach (ScopeContext scope in context.scope())
-            {
-                var astScope = AstScope.Create(scope);
 
-                ast_translation_unit_node.AddScope(astScope);
-
-                var blck = VisitScope(scope);
-
-                if (blck != null)
-                    astScope.AddStmtBlock(blck);
-
-            }
+            ast_translation_unit_node.Children = tmp.Children;
 
             return ast_translation_unit_node;
         }
         public override AstNode VisitScope([NotNull] ScopeContext context)
         {
-            if (Has(context.passiveStmt, out var block))
-            {
-                var ast_stmt_block_node = new AstStmtBlock(context.passiveStmt());
+           var ast_stmt_block_node = new AstScope(context);
 
+            var tmp = VisitChildren(context);
 
-                foreach (DeclareStmtContext dcl_ctxt in context.passiveStmt().Select(s => s.declareStmt()).Where(s => s != null))
-                {
-                    var ast_declaration_node = new AstDeclaration(dcl_ctxt);
+            ast_stmt_block_node.Children = tmp.Children;
 
-                    ast_stmt_block_node.AddStatement(ast_declaration_node);
-
-                    dcl_ctxt.Node = ast_declaration_node;
-
-                    VisitDeclareStmt(dcl_ctxt);
-                }
-
-                foreach (DefineStmtContext def_ctxt in context.passiveStmt().Select(s => s.defineStmt()).Where(s => s != null))
-                {
-                    var ast_definition_node = new AstDefinition(def_ctxt);
-
-                    ast_stmt_block_node.AddStatement(new AstDefinition(def_ctxt));
-
-                    def_ctxt.Node = ast_definition_node;
-
-                    VisitDefineStmt(def_ctxt);
-                }
-
-                return ast_stmt_block_node;
-            }
-
-            return null;
+            return ast_stmt_block_node;
         }
 
-        protected override AstNode AggregateResult(AstNode aggregate, AstNode nextResult)
+        public override AstNode VisitPassiveStmt([NotNull] PassiveStmtContext context)
         {
-            if (aggregate == null)
-            {
-                var results = new List<AstNode>();
-                results.Add(nextResult);
+            var pas = VisitChildren(context);
 
-            }
+            return pas;
         }
+
         public override AstNode VisitDeclareStmt([NotNull] DeclareStmtContext context)
         {
 
-            var dcl = context.Node as AstDeclaration;
-
-            if (dcl == null)
-                return null;
+            var dcl_node = new AstDeclaration(context);
 
             if (context.declarationBody()?.typeInfo()?.dimensionSuffix() != null)
             {
@@ -100,39 +60,39 @@ namespace AntlrCSharp
                 if (Has(attributes.dataAttribute, out var dataAttribute))
                 {
                     if (Has(dataAttribute.BINARY))
-                        dcl.BINARY++;
+                        dcl_node.BINARY++;
 
                     if (Has(dataAttribute.BIT))
-                        dcl.BIT++;
+                        dcl_node.BIT++;
 
                     if (Has(dataAttribute.BUILTIN))
-                        dcl.BUILTIN++;
+                        dcl_node.BUILTIN++;
 
                     if (Has(dataAttribute.CHARACTER))
-                        dcl.CHARACTER++;
+                        dcl_node.CHARACTER++;
 
                     if (Has(dataAttribute.COFUNCTION))
-                        dcl.COFUNCTION++;
+                        dcl_node.COFUNCTION++;
 
                     if (Has(dataAttribute.COROUTINE))
-                        dcl.COROUTINE++;
+                        dcl_node.COROUTINE++;
 
                     if (Has(dataAttribute.COFUNCTION))
-                        dcl.COFUNCTION++;
+                        dcl_node.COFUNCTION++;
 
                     if (Has(dataAttribute.DECIMAL))
-                        dcl.DECIMAL++; ;
+                        dcl_node.DECIMAL++; ;
 
                     if (Has(dataAttribute.ENTRY))
-                        dcl.ENTRY++; ;
+                        dcl_node.ENTRY++; ;
 
                     if (dataAttribute.numericScale() != null)
                     {
                         if (Has(dataAttribute.numericScale().FIXED))
-                            dcl.FIXED++; 
+                            dcl_node.FIXED++; 
 
                         if (Has(dataAttribute.numericScale().FLOAT))
-                            dcl.FLOAT++;
+                            dcl_node.FLOAT++;
                     }
 
                     if (dataAttribute.precision() != null)
@@ -147,7 +107,7 @@ namespace AntlrCSharp
                         {
                             if (numdig.INTEGER() != null)
                             {
-                                dcl.numberOfDigits = Convert.ToInt32(numdig.INTEGER().GetText());
+                                dcl_node.numberOfDigits = Convert.ToInt32(numdig.INTEGER().GetText());
                             }
                         }
 
@@ -163,49 +123,49 @@ namespace AntlrCSharp
                             {
                                 if (scale?.INTEGER() != null)
                                 {
-                                    dcl.scaleFactor = Convert.ToInt32(scale.INTEGER().GetText());
+                                    dcl_node.scaleFactor = Convert.ToInt32(scale.INTEGER().GetText());
                                 }
                             }
                         }
                     }
 
                     if (Has(dataAttribute.INTRINSIC))
-                        dcl.INTRINSIC++; ;
+                        dcl_node.INTRINSIC++; ;
 
                     if (Has(dataAttribute.OFFSET))
-                        dcl.OFFSET++; ;
+                        dcl_node.OFFSET++; ;
 
                     if (Has(dataAttribute.POINTER))
-                        dcl.POINTER++; ;
+                        dcl_node.POINTER++; ;
 
                     if (Has(dataAttribute.VARYING))
-                        dcl.VARYING++; ;
+                        dcl_node.VARYING++; ;
 
                     if (Has(dataAttribute.STRING))
                     {
-                        dcl.STRING++; ;
+                        dcl_node.STRING++; ;
 
-                        dcl.StringLength = new AstDeclaration.MaxStringLength();
+                        dcl_node.StringLength = new AstDeclaration.MaxStringLength();
 
                         if (dataAttribute.maxStringLength()?.identifier() != null)
                         {
-                            dcl.StringLength.Identifier = dataAttribute.maxStringLength().identifier().GetText();    
+                            dcl_node.StringLength.Identifier = dataAttribute.maxStringLength().identifier().GetText();    
                         }
 
                         if (dataAttribute?.maxStringLength()?.INTEGER() != null)
                         {
-                            dcl.StringLength.INTEGER = Convert.ToInt32(dataAttribute.maxStringLength().INTEGER().GetText());
+                            dcl_node.StringLength.INTEGER = Convert.ToInt32(dataAttribute.maxStringLength().INTEGER().GetText());
                         }
 
                         if (dataAttribute?.maxStringLength()?.TIMES() != null)
                         {
-                            dcl.StringLength.Asterisk = true;
+                            dcl_node.StringLength.Asterisk = true;
                         }
                     }
                 }
             }
 
-            return base.VisitDeclareStmt(context);
+            return dcl_node;
         }
         public override AstNode VisitPtrRef([NotNull] PtrRefContext context)
         {
@@ -215,6 +175,21 @@ namespace AntlrCSharp
         {
             return base.VisitBasicReference(context);
         }
+
+        protected override AstNode AggregateResult(AstNode aggregate, AstNode nextResult)
+        {
+            if (aggregate == null)
+            {
+                var results = new AstNode(1);
+                results.Children.Add(nextResult);
+                return results;
+            }
+
+            aggregate.Children.Add(nextResult);
+
+            return aggregate;
+        }
+
         private void ValidateBound_pair([NotNull] BoundPairContext context, string Name, int Line, int Dim)
         {
 
