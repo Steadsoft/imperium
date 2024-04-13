@@ -364,13 +364,61 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPassiveStmt(ImperiumParser.PassiveStmtContext ctx) { }
+	@Override public void enterDeclaration(ImperiumParser.DeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPassiveStmt(ImperiumParser.PassiveStmtContext ctx) { }
+	@Override public void exitDeclaration(ImperiumParser.DeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDefinition(ImperiumParser.DefinitionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDefinition(ImperiumParser.DefinitionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProcedure(ImperiumParser.ProcedureContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProcedure(ImperiumParser.ProcedureContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunction(ImperiumParser.FunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunction(ImperiumParser.FunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNull(ImperiumParser.NullContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNull(ImperiumParser.NullContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -952,13 +1000,25 @@ public class ImperiumBaseListener implements ImperiumListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclareStmt(ImperiumParser.DeclareStmtContext ctx) { }
+	@Override public void enterDeclareAs(ImperiumParser.DeclareAsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDeclareStmt(ImperiumParser.DeclareStmtContext ctx) { }
+	@Override public void exitDeclareAs(ImperiumParser.DeclareAsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclareName(ImperiumParser.DeclareNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclareName(ImperiumParser.DeclareNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

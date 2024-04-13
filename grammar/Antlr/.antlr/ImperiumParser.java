@@ -4485,6 +4485,18 @@ public class ImperiumParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class DeclareStmtContext extends VisitorContext {
+		public DeclareStmtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_declareStmt; }
+	 
+		public DeclareStmtContext() { }
+		public void copyFrom(DeclareStmtContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class DeclareAsContext extends DeclareStmtContext {
 		public IdentifierContext identifier() {
 			return getRuleContext(IdentifierContext.class,0);
 		}
@@ -4496,13 +4508,16 @@ public class ImperiumParser extends Parser {
 		public DimensionSuffixContext dimensionSuffix() {
 			return getRuleContext(DimensionSuffixContext.class,0);
 		}
+		public DeclareAsContext(DeclareStmtContext ctx) { copyFrom(ctx); }
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class DeclareNameContext extends DeclareStmtContext {
 		public DeclarationBodyContext declarationBody() {
 			return getRuleContext(DeclarationBodyContext.class,0);
 		}
-		public DeclareStmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_declareStmt; }
+		public TerminalNode DECLARE() { return getToken(ImperiumParser.DECLARE, 0); }
+		public TerminalNode ARGUMENT() { return getToken(ImperiumParser.ARGUMENT, 0); }
+		public DeclareNameContext(DeclareStmtContext ctx) { copyFrom(ctx); }
 	}
 
 	public final DeclareStmtContext declareStmt() throws RecognitionException {
@@ -4514,6 +4529,7 @@ public class ImperiumParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,67,_ctx) ) {
 			case 1:
+				_localctx = new DeclareAsContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(761);
@@ -4543,6 +4559,7 @@ public class ImperiumParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new DeclareNameContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(768);

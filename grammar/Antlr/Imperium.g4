@@ -188,7 +188,7 @@ labelStmt
 passiveStmt
   : declareStmt         # Declaration
   | defineStmt          # Definition
-  | procedureRule       # Procedure
+  | procedureRule      # Procedure
   | functionRule        # Function
   | nullStmt            # Null
   ;
@@ -377,8 +377,8 @@ reloopStmt
   ;
 
 declareStmt
-  : (DECLARE | ARGUMENT) identifier dimensionSuffix? declareAsBody 
-  | (DECLARE | ARGUMENT) declarationBody 
+  : (DECLARE | ARGUMENT) identifier dimensionSuffix? declareAsBody #DeclareAs
+  | (DECLARE | ARGUMENT) declarationBody                           #DeclareName
   ;
 
 declareAsBody

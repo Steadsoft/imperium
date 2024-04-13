@@ -184,11 +184,40 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLabelStmt(ImperiumParser.LabelStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#passiveStmt}.
+	 * Visit a parse tree produced by the {@code Declaration}
+	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPassiveStmt(ImperiumParser.PassiveStmtContext ctx);
+	T visitDeclaration(ImperiumParser.DeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Definition}
+	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefinition(ImperiumParser.DefinitionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Procedure}
+	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProcedure(ImperiumParser.ProcedureContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Function}
+	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunction(ImperiumParser.FunctionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Null}
+	 * labeled alternative in {@link ImperiumParser#passiveStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNull(ImperiumParser.NullContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#assemblerStmt}.
 	 * @param ctx the parse tree
@@ -496,11 +525,19 @@ public interface ImperiumVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitReloopStmt(ImperiumParser.ReloopStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ImperiumParser#declareStmt}.
+	 * Visit a parse tree produced by the {@code DeclareAs}
+	 * labeled alternative in {@link ImperiumParser#declareStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDeclareStmt(ImperiumParser.DeclareStmtContext ctx);
+	T visitDeclareAs(ImperiumParser.DeclareAsContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code DeclareName}
+	 * labeled alternative in {@link ImperiumParser#declareStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclareName(ImperiumParser.DeclareNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ImperiumParser#declareAsBody}.
 	 * @param ctx the parse tree

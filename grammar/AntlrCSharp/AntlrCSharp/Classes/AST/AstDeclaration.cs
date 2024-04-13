@@ -7,7 +7,7 @@ namespace AntlrCSharp
         // These attributes are integers and we count them
         // this is how we detect illegal repetitions.
         public readonly bool IsKeyword;
-        public string Spelling { get; private set; }
+        public string Spelling { get; set; }
         public int BINARY { get; set; }
         public int DECIMAL { get; set; }
         public int POINTER { get; set; }
@@ -28,10 +28,10 @@ namespace AntlrCSharp
         public MaxStringLength StringLength { get; set; }
         public AstDeclaration(DeclareStmtContext C) : base(C)
         {
-            if (C.declarationBody() != null)
-                Spelling = AstSupport.GetSpelling(C.declarationBody().identifier(), out IsKeyword);
-            else
-                Spelling = AstSupport.GetSpelling(C.identifier(), out IsKeyword);
+            //if (C.declarationBody() != null)
+            //    Spelling = AstSupport.GetSpelling(C.declarationBody().identifier(), out IsKeyword);
+            //else
+            //    Spelling = AstSupport.GetSpelling(C.identifier(), out IsKeyword);
 
         }
 
