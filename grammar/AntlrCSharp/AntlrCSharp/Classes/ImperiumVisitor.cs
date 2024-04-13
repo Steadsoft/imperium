@@ -19,6 +19,8 @@ namespace AntlrCSharp
         {
             var ast_translation_unit_node = new AstTranslationUnit(context);
 
+            var tmp = VisitChildren(context);
+            
             foreach (ScopeContext scope in context.scope())
             {
                 var astScope = AstScope.Create(scope);
@@ -39,6 +41,7 @@ namespace AntlrCSharp
             if (Has(context.passiveStmt, out var block))
             {
                 var ast_stmt_block_node = new AstStmtBlock(context.passiveStmt());
+
 
                 foreach (DeclareStmtContext dcl_ctxt in context.passiveStmt().Select(s => s.declareStmt()).Where(s => s != null))
                 {
@@ -67,6 +70,16 @@ namespace AntlrCSharp
 
             return null;
         }
+
+        protected override AstNode AggregateResult(AstNode aggregate, AstNode nextResult)
+        {
+            if (aggregate == null)
+            {
+                var results = new List<AstNode>();
+                results.Add(nextResult);
+
+            }
+        }
         public override AstNode VisitDeclareStmt([NotNull] DeclareStmtContext context)
         {
 
@@ -74,6 +87,11 @@ namespace AntlrCSharp
 
             if (dcl == null)
                 return null;
+
+            if (context.declarationBody()?.typeInfo()?.dimensionSuffix() != null)
+            {
+                ;
+            }
 
             var attributes = context.declarationBody()?.typeInfo()?.attributes();
 

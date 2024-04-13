@@ -7,17 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-    public class VisitorContext : ParserRuleContext
+public class VisitorContext : ParserRuleContext
+{
+    public AstNode Node { get; set; }
+    public VisitorContext(ParserRuleContext P, int S) : base(P, S)
     {
-        public AstNode Node { get; set; }
-        public VisitorContext(ParserRuleContext P, int S) :base(P,S)
-        {
 
-        }
-
-        public VisitorContext():base()
-        {
-
-        }
     }
+
+    public VisitorContext() : base()
+    {
+
+    }
+}
 
