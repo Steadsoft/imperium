@@ -40,13 +40,13 @@ namespace AntlrCSharp
         {
             var stmt = context.children[0];
 
-            if (stmt is DeclareNameContext)
-               return VisitDeclareName((DeclareNameContext)(context.children[0]));
+            return stmt switch
+            {
+                DeclareNameContext => VisitDeclareName((DeclareNameContext)(context.children[0])),
+                DeclareAsContext => VisitDeclareAs((DeclareAsContext)(context.children[0])),
+                _ => null
+            };
 
-            if (stmt is DeclareAsContext)
-                return VisitDeclareAs((DeclareAsContext)(context.children[0]));
-
-            return null;
         }
 
         public override AstNode VisitDeclareName([NotNull] DeclareNameContext context)
@@ -54,6 +54,118 @@ namespace AntlrCSharp
             var dcl_node = new AstDeclaration(context);
 
             dcl_node.Spelling = context.declarationBody().identifier().GetText();
+
+            var dataAttribute = context.declarationBody().typeInfo().attributes().dataAttribute();
+            var memoryAttribute = context.declarationBody().typeInfo().attributes().memoryAttribute();
+            var linkageOption = context.declarationBody().typeInfo().attributes().linkageOption();
+            var dimensionSuffix = context.declarationBody().typeInfo().dimensionSuffix();
+
+            if (dataAttribute != null)
+            {
+                if (Has(dataAttribute.BINARY))
+                    dcl_node.BINARY++;
+
+                if (Has(dataAttribute.BIT))
+                    dcl_node.BIT++;
+
+                if (Has(dataAttribute.BUILTIN))
+                    dcl_node.BUILTIN++;
+
+                if (Has(dataAttribute.CHARACTER))
+                    dcl_node.CHARACTER++;
+
+                if (Has(dataAttribute.COFUNCTION))
+                    dcl_node.COFUNCTION++;
+
+                if (Has(dataAttribute.COROUTINE))
+                    dcl_node.COROUTINE++;
+
+                if (Has(dataAttribute.COFUNCTION))
+                    dcl_node.COFUNCTION++;
+
+                if (Has(dataAttribute.DECIMAL))
+                    dcl_node.DECIMAL++; ;
+
+                if (Has(dataAttribute.ENTRY))
+                    dcl_node.ENTRY++; ;
+
+                if (Has(dataAttribute.INTRINSIC))
+                    dcl_node.INTRINSIC++; ;
+
+                if (Has(dataAttribute.OFFSET))
+                    dcl_node.OFFSET++; ;
+
+                if (Has(dataAttribute.POINTER))
+                    dcl_node.POINTER++; ;
+
+                if (Has(dataAttribute.VARYING))
+                    dcl_node.VARYING++; ;
+
+                if (Has(dataAttribute.STRING))
+                {
+                    dcl_node.STRING++; ;
+
+                    dcl_node.StringLength = new AstDeclaration.MaxStringLength();
+
+                    if (dataAttribute.maxStringLength()?.identifier() != null)
+                    {
+                        dcl_node.StringLength.Identifier = dataAttribute.maxStringLength().identifier().GetText();
+                    }
+
+                    if (dataAttribute?.maxStringLength()?.INTEGER() != null)
+                    {
+                        dcl_node.StringLength.INTEGER = Convert.ToInt32(dataAttribute.maxStringLength().INTEGER().GetText());
+                    }
+
+                    if (dataAttribute?.maxStringLength()?.TIMES() != null)
+                    {
+                        dcl_node.StringLength.Asterisk = true;
+                    }
+                }
+
+                if (dataAttribute.numericScale() != null)
+                {
+                    if (Has(dataAttribute.numericScale().FIXED))
+                        dcl_node.FIXED++;
+
+                    if (Has(dataAttribute.numericScale().FLOAT))
+                        dcl_node.FLOAT++;
+                }
+
+                if (dataAttribute.precision() != null)
+                {
+                    var numdig = dataAttribute.precision().numberOfDigits();
+
+                    if (numdig.identifier() != null)
+                    {
+                        var id = numdig.identifier().GetText();
+                    }
+                    else
+                    {
+                        if (numdig.INTEGER() != null)
+                        {
+                            dcl_node.numberOfDigits = Convert.ToInt32(numdig.INTEGER().GetText());
+                        }
+                    }
+
+                    if (dataAttribute.precision().scale_factor != null)
+                    {
+                        var scale = dataAttribute.precision().scale_factor();
+
+                        if (scale?.identifier() != null)
+                        {
+                            var id = scale.identifier().GetText();
+                        }
+                        else
+                        {
+                            if (scale?.INTEGER() != null)
+                            {
+                                dcl_node.scaleFactor = Convert.ToInt32(scale.INTEGER().GetText());
+                            }
+                        }
+                    }
+                }
+            }
 
             return dcl_node;
                 
