@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntlrCSharp", "AntlrCSharp\AntlrCSharp.csproj", "{621DA233-18C9-48EE-B6BA-586E8837AA0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntlrCSharp", "AntlrCSharp\AntlrCSharp.csproj", "{621DA233-18C9-48EE-B6BA-586E8837AA0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steadsoft.AbstractCodeGeneration", "Steadsoft.AbstractCodeGeneration\Steadsoft.AbstractCodeGeneration.csproj", "{739AB9D1-4DB3-432C-B1C3-BECA83B9104B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "Parser\Parser.csproj", "{8A6C3F5B-6547-4D44-B96E-921489F5C894}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{621DA233-18C9-48EE-B6BA-586E8837AA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{621DA233-18C9-48EE-B6BA-586E8837AA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{621DA233-18C9-48EE-B6BA-586E8837AA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{739AB9D1-4DB3-432C-B1C3-BECA83B9104B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{739AB9D1-4DB3-432C-B1C3-BECA83B9104B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{739AB9D1-4DB3-432C-B1C3-BECA83B9104B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{739AB9D1-4DB3-432C-B1C3-BECA83B9104B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A6C3F5B-6547-4D44-B96E-921489F5C894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A6C3F5B-6547-4D44-B96E-921489F5C894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A6C3F5B-6547-4D44-B96E-921489F5C894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A6C3F5B-6547-4D44-B96E-921489F5C894}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

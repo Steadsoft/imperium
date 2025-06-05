@@ -50,7 +50,7 @@ namespace AntlrCSharp
 
             walker.Walk(listener, tree);
 
-            //Console.WriteLine(tree.ToStringTree());
+            Console.WriteLine(tree.ToStringTree());
 
         }
 

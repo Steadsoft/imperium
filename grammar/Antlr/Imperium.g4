@@ -138,10 +138,11 @@ functionRule
   :  functionStmt (passiveStmt | activeStmt)* functionEnd
   ;
 
+  // AST: Node
 procedureStmt
   : PROCEDURE ProcedureName=identifier parameterNameCommalist? procedureAttributes? (TRAITS LPAR procedureTraitsList RPAR)? 
   ;
-
+  // AST: Node
 functionStmt
   : FUNCTION FunctionName=identifier parameterNameCommalist? returnsDescriptor functionAttributes?
   ;
