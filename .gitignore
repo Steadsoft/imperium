@@ -355,4 +355,10 @@ MigrationBackup/
 # Temp/recreatable stuff generated  by Antlr
 *.class
 *.java
+**/*/*BaseListener.cs
+**/*/*BaseVisitor.cs
+**/*/*Lexer.cs
+**/*/*Listener.cs
+**/*/*Parser.cs
+**/*/*Visitor.cs
 
