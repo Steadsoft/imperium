@@ -210,10 +210,11 @@ YIELD:
 /* End of generated Antlr4 keyword token definitions. */
 
 // LEXER TOKEN DEFINITIONS
-
+//STMTEND:              (SEMICOLON | NEWLINE);
 COMMENT:              (BCOM (COMMENT | .)*? ECOM) -> channel(COMMENTS_CHANNEL);
 LINE_COMMENT:         (LCOM .*? LF) -> channel(COMMENTS_CHANNEL);
-NEWLINE:              ([ \r\n\t])+ -> channel(WHITESPACE_CHANNEL);
+NEWLINE:              ('\r'? '\n')+;// -> channel(WHITESPACE_CHANNEL);
+SPACE:                [ \t]+ -> channel(WHITESPACE_CHANNEL);
 STRING_LITERAL_3:     (TRIQUOTE (.)*? TRIQUOTE);
 STRING_LITERAL_2:     (DIQUOTE  (.)*? DIQUOTE);
 STRING_LITERAL_1:     (QUOTE    (.)*? QUOTE);
@@ -295,6 +296,8 @@ ASME:           ('<]');
 
 // LEXER FRAGMENTS
 
+
+
 IDENTIFIER:           (IDENTIFIER_START IDENTIFIER_REST*);
 
 fragment BIN:     [0-1];
@@ -346,7 +349,7 @@ ASSEMBLER_HEX_INTEGER:      '='?'#'?(XP HEX+ | (HEX+XS))  ;
 ASSEMBLER_OCT_INTEGER:      '='?'#'?(OP OCT+ | (OCT+OS));
 ASSEMBLER_BIN_INTEGER:      '='?'#'?(BP BIN+ | (BIN+BS));
 ASSEMBLER_COMMENT:          (BCOM (COMMENT | .)*? ECOM) -> channel(COMMENTS_CHANNEL);
-ASSEMBLER_LINE_COMMENT:     ((LCOM | SEMICOLON)(.*?)LF); // -> channel(HIDDEN);
+//ASSEMBLER_LINE_COMMENT:     ((LCOM | SEMICOLON)(.*?)LF); // -> channel(HIDDEN);
 ASSEMBLER_PUNCTUATOR:       (','|'.'|':');
 ASSEMBLER_SYMBOL:           ('='|'+'|'#'|'-'|'*'|'/'|'$');
 ASSEMBLER_BRACKET:          ('['|']');

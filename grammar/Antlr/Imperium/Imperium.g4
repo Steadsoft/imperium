@@ -46,36 +46,40 @@ uses
   : USES identifier (DOT identifier)* 
   ;
 scope
-  : scopeStart (Scopes+=scope | Traits+=traits | PassiveStatements+=passiveStmt)* scopeEnd
+  : scopeStart  (Scopes+=scope | Traits+=traits | PassiveStatements+=passiveStmt)* scopeEnd
   ;
 
 scopeStart
-  : SCOPE identifier (DOT identifier)* PRIVATE? 
+  : SCOPE NEWLINE* identifier (DOT identifier)* PRIVATE? 
   ;
 
 scopeEnd
   : END SCOPE? 
   ;
 
-assemblerToken
-  : IDENTIFIER
-  | SEMICOLON
-  | COMMA
-  | EQUALS
-  | LBRACK
-  | RBRACK
-  | LBRACE
-  | RBRACE
-  | LPAR
-  | RPAR
-  | HASH
-  | INTEGER
-  | AINTEGER
-  ;
+//assemblerToken
+//  : IDENTIFIER
+//  //| SEMICOLON
+//  | COMMA
+//  | EQUALS
+//  | LBRACK
+//  | RBRACK
+//  | LBRACE
+//  | RBRACE
+//  | LPAR
+//  | RPAR
+//  | HASH
+//  | INTEGER
+//  | AINTEGER
+//  ;
 
 // Traits is mainly a means to implement these kinds of options
 // https://gcc.gnu.org/onlinedocs/gcc/Variable-Attributes.html
 
+stmtEnd
+    : SEMICOLON 
+    | NEWLINE
+    ;
 
 traits
   : traitsStart passiveStmt* traitsEnd
@@ -119,20 +123,20 @@ procedureTrait
 
 procedureRule
   : procedureStmt (passiveStmt | activeStmt)* procedureEnd
-  | PROCEDURE ProcedureName=identifier parameterNameCommalist? INTRINSIC target (passiveStmt | asmBlock)* END
+  | PROCEDURE ProcedureName=identifier parameterNameCommalist? INTRINSIC target (passiveStmt)* END
   ;
 
 target
   : LPAR identifier RPAR
   ;
 
-asmBlock
-  : (ASSEMBLER asmOptions? assemblerStmt* END)
-  ;
+//asmBlock
+//  : (ASSEMBLER asmOptions? assemblerStmt* END)
+//  ;
 
-asmOptions
-   : LPAR (SECTION LPAR STRING_LITERAL_1 RPAR)? RPAR
-   ;
+//asmOptions
+//   : LPAR (SECTION LPAR STRING_LITERAL_1 RPAR)? RPAR
+//   ;
 
 functionRule
   :  functionStmt (passiveStmt | activeStmt)* functionEnd
@@ -178,49 +182,49 @@ returnsDescriptor
   ;
     // consider using keyword 'is' instead and forcing it to be right after the params...
 
-terminator
-  : SEMICOLON
-  ;
+//terminator
+//  : SEMICOLON
+//  ;
 
 labelStmt
   : LABEL (LPAR decimalLiteral RPAR)?
   ;
 
 passiveStmt
-  : declareStmt         # Declaration
-  | defineStmt          # Definition
-  | procedureRule      # Procedure
-  | functionRule        # Function
-  | nullStmt            # Null
+  : declareStmt stmtEnd        # Declaration
+  | defineStmt stmtEnd         # Definition
+  | procedureRule stmtEnd     # Procedure
+  | functionRule  stmtEnd      # Function
+//  | stmtEnd            # Sep
   ;
 
 
-assemblerStmt
-  : assemblerToken
-  | nullStmt
-  ;
+//assemblerStmt
+//  : assemblerToken
+//  | nullStmt
+//  ;
 
-assemblerInlineComment
-  : ASSEMBLER_LINE_COMMENT
-  ;
+//assemblerInlineComment
+//  : ASSEMBLER_LINE_COMMENT
+//  ;
 
 activeStmt
-  : labelStmt
-  | assignmentStmt
-  | callStmt
-  | gotoStmt
-  | returnStmt
-  | ifStmt
-  | loopStmt
-  | selectStmt
-  | endloopStmt
-  | reloopStmt
-  | nullStmt
+  : labelStmt stmtEnd
+  | assignmentStmt stmtEnd
+  | callStmt stmtEnd
+  | gotoStmt stmtEnd
+  | returnStmt stmtEnd
+  | ifStmt stmtEnd
+  | loopStmt stmtEnd
+  | selectStmt stmtEnd
+  | endloopStmt stmtEnd
+  | reloopStmt stmtEnd
+//  | stmtEnd
   ;
 
-nullStmt
-  : SEMICOLON
-  ;
+//nullStmt
+//  : SEMICOLON
+//  ;
 
 assignmentStmt
   : Target=reference (ASSIGN_U | EQUALS) Source=expression 

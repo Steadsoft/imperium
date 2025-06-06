@@ -1,0 +1,22 @@
+scope 
+
+scopea
+
+scope 
+
+scopeb;
+
+scope scopec ;
+;;
+
+path 
+
+a.b.
+
+c.d.f;
+
+;;
+
+;
+
+
