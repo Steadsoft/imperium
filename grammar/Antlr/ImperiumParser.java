@@ -1,4 +1,4 @@
-// Generated from java-escape by ANTLR 4.11.1
+// Generated from Imperium.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
 public class ImperiumParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.11.1", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -188,7 +188,7 @@ public class ImperiumParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "java-escape"; }
+	public String getGrammarFileName() { return "Imperium.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -249,11 +249,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitTranslationUnit(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitTranslationUnit(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final TranslationUnitContext translationUnit() throws RecognitionException {
@@ -290,7 +285,7 @@ public class ImperiumParser extends Parser {
 			setState(264);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (((_la) & ~0x3f) == 0 && ((1L << _la) & 9007216459776064L) != 0 || (((_la - 65)) & ~0x3f) == 0 && ((1L << (_la - 65)) & 18014398509483009L) != 0) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007216459776064L) != 0) || ((((_la - 65)) & ~0x3f) == 0 && ((1L << (_la - 65)) & 18014398509483009L) != 0)) {
 				{
 				setState(262);
 				_errHandler.sync(this);
@@ -367,11 +362,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitUses(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitUses(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -459,11 +449,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitScope(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitScope(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ScopeContext scope() throws RecognitionException {
@@ -478,7 +463,7 @@ public class ImperiumParser extends Parser {
 			setState(284);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (((_la) & ~0x3f) == 0 && ((1L << _la) & 9007216459776064L) != 0 || (((_la - 65)) & ~0x3f) == 0 && ((1L << (_la - 65)) & 18014398509483009L) != 0) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007216459776064L) != 0) || ((((_la - 65)) & ~0x3f) == 0 && ((1L << (_la - 65)) & 18014398509483009L) != 0)) {
 				{
 				setState(282);
 				_errHandler.sync(this);
@@ -558,11 +543,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitScopeStart(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitScopeStart(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ScopeStartContext scopeStart() throws RecognitionException {
@@ -631,11 +611,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitScopeEnd(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitScopeEnd(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ScopeEndContext scopeEnd() throws RecognitionException {
@@ -696,11 +671,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitAssemblerToken(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitAssemblerToken(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final AssemblerTokenContext assemblerToken() throws RecognitionException {
@@ -712,7 +682,7 @@ public class ImperiumParser extends Parser {
 			{
 			setState(305);
 			_la = _input.LA(1);
-			if ( !((((_la - 98)) & ~0x3f) == 0 && ((1L << (_la - 98)) & 1152921504609009419L) != 0) ) {
+			if ( !(((((_la - 98)) & ~0x3f) == 0 && ((1L << (_la - 98)) & 1152921504609009419L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -759,11 +729,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitTraits(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitTraits(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final TraitsContext traits() throws RecognitionException {
@@ -778,7 +743,7 @@ public class ImperiumParser extends Parser {
 			setState(311);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (((_la) & ~0x3f) == 0 && ((1L << _la) & 9007216459776064L) != 0 || _la==SEMICOLON) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007216459776064L) != 0) || _la==SEMICOLON) {
 				{
 				{
 				setState(308);
@@ -824,11 +789,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitTraitsStart(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitTraitsStart(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -886,11 +846,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitTraitsEnd(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitTraitsEnd(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -951,11 +906,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDeclarationTraits(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDeclarationTraits(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1023,11 +973,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDeclarationTrait(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDeclarationTrait(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1115,11 +1060,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitProcedureTraits(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitProcedureTraits(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ProcedureTraitsContext procedureTraits() throws RecognitionException {
@@ -1172,11 +1112,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitProcedureTraitsList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitProcedureTraitsList(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1238,11 +1173,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitProcedureTrait(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitProcedureTrait(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1353,11 +1283,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitProcedureRule(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitProcedureRule(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ProcedureRuleContext procedureRule() throws RecognitionException {
@@ -1430,7 +1355,7 @@ public class ImperiumParser extends Parser {
 				setState(393);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (((_la) & ~0x3f) == 0 && ((1L << _la) & 9007216459776320L) != 0 || _la==SEMICOLON) {
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007216459776320L) != 0) || _la==SEMICOLON) {
 					{
 					setState(391);
 					_errHandler.sync(this);
@@ -1496,11 +1421,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitTarget(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitTarget(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final TargetContext target() throws RecognitionException {
@@ -1553,11 +1473,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitAsmBlock(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitAsmBlock(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final AsmBlockContext asmBlock() throws RecognitionException {
@@ -1583,7 +1498,7 @@ public class ImperiumParser extends Parser {
 			setState(411);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la - 98)) & ~0x3f) == 0 && ((1L << (_la - 98)) & 1152921504609009419L) != 0) {
+			while (((((_la - 98)) & ~0x3f) == 0 && ((1L << (_la - 98)) & 1152921504609009419L) != 0)) {
 				{
 				{
 				setState(408);
@@ -1633,11 +1548,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitAsmOptions(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitAsmOptions(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1712,11 +1622,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitFunctionRule(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitFunctionRule(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1802,11 +1707,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitProcedureStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitProcedureStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1898,11 +1798,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitFunctionStmt(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitFunctionStmt(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FunctionStmtContext functionStmt() throws RecognitionException {
@@ -1970,11 +1865,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitTargetSpec(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitTargetSpec(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final TargetSpecContext targetSpec() throws RecognitionException {
@@ -2023,11 +1913,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitProcedureAttributes(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitProcedureAttributes(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2110,11 +1995,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitFunctionAttributes(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitFunctionAttributes(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FunctionAttributesContext functionAttributes() throws RecognitionException {
@@ -2178,11 +2058,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitProcedureEnd(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitProcedureEnd(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ProcedureEndContext procedureEnd() throws RecognitionException {
@@ -2231,11 +2106,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitFunctionEnd(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitFunctionEnd(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2290,11 +2160,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitReturnsDescriptor(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitReturnsDescriptor(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ReturnsDescriptorContext returnsDescriptor() throws RecognitionException {
@@ -2339,11 +2204,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitTerminator(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitTerminator(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final TerminatorContext terminator() throws RecognitionException {
@@ -2386,11 +2246,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitLabelStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitLabelStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2456,11 +2311,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitFunction(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitFunction(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class NullContext extends PassiveStmtContext {
@@ -2475,11 +2325,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitNull(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitNull(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2496,11 +2341,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDefinition(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDefinition(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ProcedureContext extends PassiveStmtContext {
@@ -2516,11 +2356,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitProcedure(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitProcedure(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class DeclarationContext extends PassiveStmtContext {
@@ -2535,11 +2370,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDeclaration(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDeclaration(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2626,11 +2456,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitAssemblerStmt(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitAssemblerStmt(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final AssemblerStmtContext assemblerStmt() throws RecognitionException {
@@ -2681,11 +2506,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitAssemblerInlineComment(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitAssemblerInlineComment(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2756,11 +2576,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitActiveStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitActiveStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2876,11 +2691,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitNullStmt(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitNullStmt(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final NullStmtContext nullStmt() throws RecognitionException {
@@ -2927,11 +2737,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitAssignmentStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitAssignmentStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2998,11 +2803,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBasicRef(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBasicRef(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class PtrRefContext extends ReferenceContext {
@@ -3024,11 +2824,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitPtrRef(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitPtrRef(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -3132,11 +2927,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitArguments(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitArguments(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ArgumentsContext arguments() throws RecognitionException {
@@ -3151,7 +2941,7 @@ public class ImperiumParser extends Parser {
 			setState(549);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (((_la) & ~0x3f) == 0 && ((1L << _la) & -2L) != 0 || (((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & 4638716513694515199L) != 0 || (((_la - 141)) & ~0x3f) == 0 && ((1L << (_la - 141)) & 131135L) != 0) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & -2L) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & 4638716513694515199L) != 0) || ((((_la - 141)) & ~0x3f) == 0 && ((1L << (_la - 141)) & 131135L) != 0)) {
 				{
 				setState(548);
 				subscriptCommalist();
@@ -3192,11 +2982,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitArgumentsList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitArgumentsList(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -3260,11 +3045,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBasicReference(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBasicReference(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BasicReferenceContext basicReference() throws RecognitionException {
@@ -3318,11 +3098,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitStructureQualification(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitStructureQualification(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -3379,11 +3154,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitStructureQualificationList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitStructureQualificationList(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -3444,11 +3214,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitSubscript(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitSubscript(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final SubscriptContext subscript() throws RecognitionException {
@@ -3495,11 +3260,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitSubscriptCommalist(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitSubscriptCommalist(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -3565,11 +3325,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitParenthesizedExpression(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitParenthesizedExpression(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -3694,11 +3449,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitPrimitiveExpression(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitPrimitiveExpression(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -3857,11 +3607,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitPrefixExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitPrefixExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final PrefixExpressionContext prefixExpression() throws RecognitionException {
@@ -3906,11 +3651,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBitAdjustOperator(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBitAdjustOperator(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BitAdjustOperatorContext bitAdjustOperator() throws RecognitionException {
@@ -3922,7 +3662,7 @@ public class ImperiumParser extends Parser {
 			{
 			setState(622);
 			_la = _input.LA(1);
-			if ( !((((_la - 150)) & ~0x3f) == 0 && ((1L << (_la - 150)) & 31L) != 0) ) {
+			if ( !(((((_la - 150)) & ~0x3f) == 0 && ((1L << (_la - 150)) & 31L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -3958,11 +3698,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitAdditionOperator(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitAdditionOperator(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -4013,11 +3748,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitMultiplyOperator(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitMultiplyOperator(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final MultiplyOperatorContext multiplyOperator() throws RecognitionException {
@@ -4029,7 +3759,7 @@ public class ImperiumParser extends Parser {
 			{
 			setState(626);
 			_la = _input.LA(1);
-			if ( !((((_la - 115)) & ~0x3f) == 0 && ((1L << (_la - 115)) & 524291L) != 0) ) {
+			if ( !(((((_la - 115)) & ~0x3f) == 0 && ((1L << (_la - 115)) & 524291L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -4065,11 +3795,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBoolAndOperator(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBoolAndOperator(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -4118,11 +3843,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBoolXorOperator(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBoolXorOperator(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -4173,11 +3893,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBoolOrOperator(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBoolOrOperator(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BoolOrOperatorContext boolOrOperator() throws RecognitionException {
@@ -4189,7 +3904,7 @@ public class ImperiumParser extends Parser {
 			{
 			setState(632);
 			_la = _input.LA(1);
-			if ( !((((_la - 126)) & ~0x3f) == 0 && ((1L << (_la - 126)) & 5121L) != 0) ) {
+			if ( !(((((_la - 126)) & ~0x3f) == 0 && ((1L << (_la - 126)) & 5121L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -4244,11 +3959,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitMapExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitMapExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprBoolAndContext extends ExpressionContext {
@@ -4272,11 +3982,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprBoolAnd(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprBoolAnd(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprConcatContext extends ExpressionContext {
@@ -4298,11 +4003,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprConcat(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprConcat(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprRaiseContext extends ExpressionContext {
@@ -4323,11 +4023,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprRaise(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprRaise(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -4352,11 +4047,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprBoolXor(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprBoolXor(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class MapArgumentsContext extends ExpressionContext {
@@ -4380,11 +4070,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitMapArguments(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitMapArguments(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprLogAndContext extends ExpressionContext {
@@ -4405,11 +4090,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprLogAnd(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprLogAnd(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -4434,11 +4114,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprBitAdjust(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprBitAdjust(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprAddSubContext extends ExpressionContext {
@@ -4462,11 +4137,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprAddSub(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprAddSub(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprParenthesizedContext extends ExpressionContext {
@@ -4481,11 +4151,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprParenthesized(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprParenthesized(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -4510,11 +4175,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprMulDiv(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprMulDiv(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprLogOrContext extends ExpressionContext {
@@ -4535,11 +4195,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprLogOr(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprLogOr(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -4564,11 +4219,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprCompare(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprCompare(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprPrefixedContext extends ExpressionContext {
@@ -4583,11 +4233,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprPrefixed(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprPrefixed(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -4612,11 +4257,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprBoolOr(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprBoolOr(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprPrimitiveContext extends ExpressionContext {
@@ -4631,11 +4271,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitExprPrimitive(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitExprPrimitive(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -4957,11 +4592,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitMap_set(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitMap_set(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Map_setContext map_set() throws RecognitionException {
@@ -5099,11 +4729,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBool_set(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBool_set(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Bool_setContext bool_set() throws RecognitionException {
@@ -5158,11 +4783,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitPrefixOperator(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitPrefixOperator(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final PrefixOperatorContext prefixOperator() throws RecognitionException {
@@ -5174,7 +4794,7 @@ public class ImperiumParser extends Parser {
 			{
 			setState(734);
 			_la = _input.LA(1);
-			if ( !((((_la - 117)) & ~0x3f) == 0 && ((1L << (_la - 117)) & 515L) != 0) ) {
+			if ( !(((((_la - 117)) & ~0x3f) == 0 && ((1L << (_la - 117)) & 515L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -5217,11 +4837,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitComparisonOperator(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitComparisonOperator(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ComparisonOperatorContext comparisonOperator() throws RecognitionException {
@@ -5233,7 +4848,7 @@ public class ImperiumParser extends Parser {
 			{
 			setState(736);
 			_la = _input.LA(1);
-			if ( !((((_la - 113)) & ~0x3f) == 0 && ((1L << (_la - 113)) & 2080769L) != 0) ) {
+			if ( !(((((_la - 113)) & ~0x3f) == 0 && ((1L << (_la - 113)) & 2080769L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -5271,11 +4886,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitShiftOperator(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitShiftOperator(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ShiftOperatorContext shiftOperator() throws RecognitionException {
@@ -5287,7 +4897,7 @@ public class ImperiumParser extends Parser {
 			{
 			setState(738);
 			_la = _input.LA(1);
-			if ( !((((_la - 150)) & ~0x3f) == 0 && ((1L << (_la - 150)) & 7L) != 0) ) {
+			if ( !(((((_la - 150)) & ~0x3f) == 0 && ((1L << (_la - 150)) & 7L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -5325,11 +4935,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitCallStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitCallStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -5381,11 +4986,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitGotoStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitGotoStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -5455,11 +5055,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitEndloopStmt(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitEndloopStmt(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final EndloopStmtContext endloopStmt() throws RecognitionException {
@@ -5510,11 +5105,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitReloopStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitReloopStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -5583,11 +5173,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDeclareAs(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDeclareAs(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class DeclareNameContext extends DeclareStmtContext {
@@ -5604,11 +5189,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDeclareName(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDeclareName(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -5702,11 +5282,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDeclareAsBody(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDeclareAsBody(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final DeclareAsBodyContext declareAsBody() throws RecognitionException {
@@ -5762,11 +5337,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDeclarationBody(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDeclarationBody(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final DeclarationBodyContext declarationBody() throws RecognitionException {
@@ -5811,11 +5381,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitTypeInfo(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitTypeInfo(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -5870,11 +5435,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDimensionSuffix(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDimensionSuffix(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final DimensionSuffixContext dimensionSuffix() throws RecognitionException {
@@ -5923,11 +5483,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBoundPair(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBoundPair(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -6107,11 +5662,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBoundPairCommalist(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBoundPairCommalist(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BoundPairCommalistContext boundPairCommalist() throws RecognitionException {
@@ -6169,11 +5719,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitLowerBound(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitLowerBound(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final LowerBoundContext lowerBound() throws RecognitionException {
@@ -6213,11 +5758,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitUpperBound(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitUpperBound(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -6264,11 +5804,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitAttributes(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitAttributes(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -6488,11 +6023,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitMemoryAttribute(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitMemoryAttribute(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final MemoryAttributeContext memoryAttribute() throws RecognitionException {
@@ -6584,11 +6114,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDataAttribute(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDataAttribute(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -6825,11 +6350,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitNumericScale(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitNumericScale(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final NumericScaleContext numericScale() throws RecognitionException {
@@ -6880,11 +6400,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitLinkageOption(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitLinkageOption(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -7088,11 +6603,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitLinkageSection(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitLinkageSection(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final LinkageSectionContext linkageSection() throws RecognitionException {
@@ -7146,11 +6656,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitPrecision(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitPrecision(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -7209,11 +6714,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitNumberOfDigits(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitNumberOfDigits(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -7357,11 +6857,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitScale_factor(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitScale_factor(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -7508,11 +7003,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitMaxStringLength(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitMaxStringLength(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -7766,11 +7256,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitMaxLength(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitMaxLength(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final MaxLengthContext maxLength() throws RecognitionException {
@@ -7920,11 +7405,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBased(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBased(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BasedContext based() throws RecognitionException {
@@ -7983,11 +7463,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDefined(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDefined(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final DefinedContext defined() throws RecognitionException {
@@ -8042,11 +7517,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitCoprocedureSpecifier(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitCoprocedureSpecifier(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CoprocedureSpecifierContext coprocedureSpecifier() throws RecognitionException {
@@ -8093,11 +7563,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitHandlerSpecifier(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitHandlerSpecifier(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -8147,11 +7612,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitParameterNameCommalist(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitParameterNameCommalist(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -8216,11 +7676,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitReturnStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitReturnStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -8297,11 +7752,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitIfStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitIfStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -8417,11 +7867,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitIfEnd(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitIfEnd(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final IfEndContext ifEnd() throws RecognitionException {
@@ -8474,11 +7919,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitThenClause(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitThenClause(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ThenClauseContext thenClause() throws RecognitionException {
@@ -8527,11 +7967,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitElseClause(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitElseClause(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -8601,11 +8036,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitElifClause(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitElifClause(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -8691,11 +8121,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitLoopStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitLoopStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -8808,11 +8233,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitWhileLoop(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitWhileLoop(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final WhileLoopContext whileLoop() throws RecognitionException {
@@ -8868,11 +8288,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitUntilLoop(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitUntilLoop(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final UntilLoopContext untilLoop() throws RecognitionException {
@@ -8923,11 +8338,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitLoopEnd(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitLoopEnd(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -8982,11 +8392,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitWhileOption(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitWhileOption(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final WhileOptionContext whileOption() throws RecognitionException {
@@ -9035,11 +8440,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitUntilOption(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitUntilOption(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -9098,11 +8498,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitSelectStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitSelectStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -9170,11 +8565,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitSelectEnd(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitSelectEnd(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final SelectEndContext selectEnd() throws RecognitionException {
@@ -9227,11 +8617,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitSelectClause(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitSelectClause(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -9305,11 +8690,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitWhenClause(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitWhenClause(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -9415,11 +8795,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitOtherwiseClause(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitOtherwiseClause(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final OtherwiseClauseContext otherwiseClause() throws RecognitionException {
@@ -9486,11 +8861,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDefineStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDefineStmt(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -9581,11 +8951,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitEnumType(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitEnumType(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final EnumTypeContext enumType() throws RecognitionException {
@@ -9669,11 +9034,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitAliasType(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitAliasType(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final AliasTypeContext aliasType() throws RecognitionException {
@@ -9718,11 +9078,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBinaryEnum(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBinaryEnum(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -9775,11 +9130,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDecimalEnum(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDecimalEnum(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final DecimalEnumContext decimalEnum() throws RecognitionException {
@@ -9831,11 +9181,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitStringEnum(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitStringEnum(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final StringEnumContext stringEnum() throws RecognitionException {
@@ -9886,11 +9231,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBitEnum(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBitEnum(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -9952,11 +9292,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitEnumBody(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitEnumBody(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -10046,11 +9381,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitEnumLiteral(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitEnumLiteral(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final EnumLiteralContext enumLiteral() throws RecognitionException {
@@ -10121,11 +9451,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitStructType(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitStructType(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final StructTypeContext structType() throws RecognitionException {
@@ -10180,11 +9505,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitStructBody(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitStructBody(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final StructBodyContext structBody() throws RecognitionException {
@@ -10227,11 +9547,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitStructMemberList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitStructMemberList(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -10301,11 +9616,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitStructSubstruct(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitStructSubstruct(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -10387,11 +9697,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitStructMember(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitStructMember(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final StructMemberContext structMember() throws RecognitionException {
@@ -10467,11 +9772,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitStringLiteral(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitStringLiteral(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final StringLiteralContext stringLiteral() throws RecognitionException {
@@ -10483,7 +9783,7 @@ public class ImperiumParser extends Parser {
 			{
 			setState(1279);
 			_la = _input.LA(1);
-			if ( !((((_la - 90)) & ~0x3f) == 0 && ((1L << (_la - 90)) & 7L) != 0) ) {
+			if ( !(((((_la - 90)) & ~0x3f) == 0 && ((1L << (_la - 90)) & 7L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -10529,11 +9829,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitNumericLiteral(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitNumericLiteral(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -10603,11 +9898,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitHexLiteral(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitHexLiteral(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final HexLiteralContext hexLiteral() throws RecognitionException {
@@ -10647,11 +9937,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitOctalLiteral(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitOctalLiteral(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -10693,11 +9978,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitDecimalLiteral(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitDecimalLiteral(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -10755,11 +10035,6 @@ public class ImperiumParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitBinaryLiteral(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitBinaryLiteral(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -10887,11 +10162,6 @@ public class ImperiumParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ImperiumListener ) ((ImperiumListener)listener).exitIdentifier(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ImperiumVisitor ) return ((ImperiumVisitor<? extends T>)visitor).visitIdentifier(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final IdentifierContext identifier() throws RecognitionException {
@@ -10992,7 +10262,7 @@ public class ImperiumParser extends Parser {
 				{
 				setState(1297);
 				_la = _input.LA(1);
-				if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & -2L) != 0 || (((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & 8388607L) != 0) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & -2L) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & 8388607L) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
