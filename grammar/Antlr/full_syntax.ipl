@@ -7,7 +7,8 @@ uses hardware.cpu.arm;
    must also be private, which is checked at compile time.
 */
 
-scope system.utilities;
+scope system.utilities
+{
 
    dcl master_table bin(31);
 
@@ -212,9 +213,12 @@ scope system.utilities;
 
    end proc;
 
-end scope;
+}
 
-scope system.kernel private ;
+scope system.kernel private
+{
+    
+}
 
 
 
