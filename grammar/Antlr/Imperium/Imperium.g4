@@ -33,8 +33,8 @@ grammar Imperium; // Latin for "control"
 
 options
 {
+  tokenVocab = ImperiumLexer;  
   contextSuperClass=VisitorContext ;
-  tokenVocab = ImperiumLexer;
 }
 
 
