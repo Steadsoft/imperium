@@ -5,11 +5,11 @@ grammar Julia;
 stmts: (scope | path | empty)* end;
 
 scope:  
-   junk SCOPE junk IDENTIFIER junk stmtTerminator 
+   junk SCOPE junk identifier junk stmtTerminator 
    ;
 
 path:  
-   junk PATH junk IDENTIFIER (junk DOT junk IDENTIFIER)* junk stmtTerminator 
+   junk PATH junk identifier (junk DOT junk identifier)* junk stmtTerminator 
    ;
 
 empty:
@@ -27,6 +27,11 @@ stmtTerminator
 junk:
     NEWLINE*
     ;
+
+identifier:
+    SCOPE | PATH | IDENTIFIER
+    ;
+
 expr: term (('+' | '-') term)*;
 term: factor (('*' | '/') factor)*;
 factor: NUMBER | '(' expr ')' | ('-' | '+') factor;
