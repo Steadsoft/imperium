@@ -3,17 +3,17 @@ I'm reviewing the grammar and the language goals. Want to remove stuff that's no
 No need for the base/scale stuff from PL/I binary/decimal fractions are out of scope.
 integer types are now:
 
-byte      1
-short     2
-word      4
-dword     8
-qword    16 
+`byte`      1
+`short`     2
+`word`      4
+`dword`     8
+`qword`    16 
 
-ubyte
-ushort
-uword
-udword
-uqword
+`ubyte`
+`ushort`
+`uword`
+`udword`
+`uqword`
 
 the `bit` type is not arithemtic much closer to a string (as it was in PL/I) so like a string it has a length specifier.
 
