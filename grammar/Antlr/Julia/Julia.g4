@@ -2,18 +2,18 @@ grammar Julia;
 
 // Parser rules
 
-stmts: ((separator (scope | path | struct))? (separator (scope | path | struct))*) fileEnd;
+stmts: (separator? (scope | path | struct)? (separator (scope | path | struct))* ) fileEnd;
 
 scope:  
-   whitespace? scope_keyword whitespace? identifier whitespace?  
+   scope_keyword whitespace? identifier   
    ;
 
 path:  
-   whitespace? path_keyword whitespace? identifier (whitespace? DOT whitespace? identifier)* whitespace?  
+   path_keyword whitespace? identifier (whitespace? DOT whitespace? identifier)*   
    ;
 
 struct:
-    whitespace? struct_keyword whitespace? identifier comma struct_member_list whitespace? end 
+    struct_keyword whitespace? identifier comma struct_member_list whitespace? end 
     ;
 
 fileEnd:
