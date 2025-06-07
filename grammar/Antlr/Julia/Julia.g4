@@ -5,15 +5,15 @@ grammar Julia;
 stmts: ((scope | path | struct) ending | ending)* fileEnd;
 
 scope:  
-   whitespace? SCOPE whitespace? identifier whitespace?  
+   whitespace? scope_keyword whitespace? identifier whitespace?  
    ;
 
 path:  
-   whitespace? PATH whitespace? identifier (whitespace? DOT whitespace? identifier)* whitespace?  
+   whitespace? path_keyword whitespace? identifier (whitespace? DOT whitespace? identifier)* whitespace?  
    ;
 
 struct:
-    whitespace? STRUCT whitespace? identifier comma memberList whitespace? end 
+    whitespace? struct_keyword whitespace? identifier comma struct_member_list whitespace? end 
     ;
 
 fileEnd:
@@ -21,16 +21,20 @@ fileEnd:
    ;
 
 ending
-    : SEMICOLON
-    | NEWLINE 
+    : (SEMICOLON | NEWLINE)+ 
     ;
 
 comma
     : COMMA
     ;
-memberList: 
-    (whitespace? identifier whitespace? typename comma)+
+struct_member_list: 
+    struct_member+
     ;
+
+struct_member:    
+    whitespace? identifier whitespace? typename comma
+    ;
+
 whitespace:
     NEWLINE+
     ;
@@ -46,6 +50,18 @@ typename:
 end:
     END
     ;
+
+struct_keyword: 
+    STRUCT
+    ;
+scope_keyword:
+    SCOPE 
+    ;
+
+path_keyword:
+    PATH 
+    ;
+
 //expr: term (('+' | '-') term)*;
 //term: factor (('*' | '/') factor)*;
 //factor: NUMBER | '(' expr ')' | ('-' | '+') factor;
