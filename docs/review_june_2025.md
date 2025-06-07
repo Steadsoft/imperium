@@ -31,4 +31,4 @@ declared items (like `word`) have a default alignment based on type like any oth
 
 We support `endian(big)` and `endian(small)` on numeric types (integer and floats)
 
-We allow a bit string (up to some max length) to be treated as an unsigned integer in calculations, perhaps just using basic coonversion to the nearest sized integer.
+We allow a `bit` string (up to some max length perhaps 128 if we support `qword`) to be treated as an unsigned integer in calculations, perhaps just using basic coonversion to the nearest sized integer.
