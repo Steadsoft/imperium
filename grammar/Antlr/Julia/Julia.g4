@@ -31,7 +31,6 @@ stmtTerminator
 
 memberTerminator
     : COMMA
-    | NEWLINE 
     ;
 memberList: 
     (x? identifier x? typename memberTerminator)+

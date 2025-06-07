@@ -24,15 +24,15 @@ scope lastscope ; path path.scope
 ;
 
 
-struct mapping
-    counter dword,    message text
-    status qword
+struct mapping ,
+    counter dword,    message text,
+    status qword,
     end   ; 
     
     struct 
     
-    mapping
-    counter dword,    message text
-    status qword
+    mapping    ,
+    counter dword,    message text,
+    status qword,
     end
 
