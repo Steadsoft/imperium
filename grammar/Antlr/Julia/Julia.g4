@@ -2,7 +2,7 @@ grammar Julia;
 
 // Parser rules
 
-stmts: ((scope | path | struct) ending | ending)* fileEnd;
+stmts: ((separator (scope | path | struct))? (separator (scope | path | struct))*) fileEnd;
 
 scope:  
    whitespace? scope_keyword whitespace? identifier whitespace?  
@@ -20,7 +20,7 @@ fileEnd:
    whitespace? EOF
    ;
 
-ending
+separator
     : (SEMICOLON | NEWLINE)+ 
     ;
 
