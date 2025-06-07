@@ -2,40 +2,36 @@ grammar Julia;
 
 // Parser rules
 
-stmts: ((scope | path | struct) stmtTerminator | e)* fileEnd;
+stmts: ((scope | path | struct) ending | ending)* fileEnd;
 
 scope:  
-   x? SCOPE x? identifier x?  
+   whitespace? SCOPE whitespace? identifier whitespace?  
    ;
 
 path:  
-   x? PATH x? identifier (x? DOT x? identifier)* x?  
+   whitespace? PATH whitespace? identifier (whitespace? DOT whitespace? identifier)* whitespace?  
    ;
 
 struct:
-    x? STRUCT x? identifier memberTerminator memberList x? end 
-    ;
-
-e:
-    stmtTerminator
+    whitespace? STRUCT whitespace? identifier comma memberList whitespace? end 
     ;
 
 fileEnd:
-   x? EOF
+   whitespace? EOF
    ;
 
-stmtTerminator
+ending
     : SEMICOLON
     | NEWLINE 
     ;
 
-memberTerminator
+comma
     : COMMA
     ;
 memberList: 
-    (x? identifier x? typename memberTerminator)+
+    (whitespace? identifier whitespace? typename comma)+
     ;
-x:
+whitespace:
     NEWLINE+
     ;
 
