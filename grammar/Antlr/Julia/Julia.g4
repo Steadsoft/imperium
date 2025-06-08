@@ -3,16 +3,19 @@ grammar Julia;
 // Parser rules
 
 source: ((statement_separator? (statement)* ) end_of_file) | end_of_file;
-statement:  ((scope_statement | path_statement | struct_statement | if_then_statement | if_then_else_statement) statement_separator) | statement_separator;
+statement:  ((scope_statement | path_statement | struct_statement | if_statement) statement_separator) | statement_separator;
 statements: (statement)*;
 scope_statement:  scope_keyword newlines? identifier;
 path_statement: path_keyword newlines? identifier (newlines? DOT newlines? identifier)*;
 struct_statement: struct_keyword newlines? identifier newlines? member_separator struct_member_list newlines? end;
+if_statement: if_then_statement | if_then_else_statement | if_then_elif_statement | if_then_elif_else_statement;
 if_then_statement: if_keyword newlines? expression newlines? then_keyword then_block end;
+if_then_else_statement: if_keyword newlines? expression newlines? then_keyword then_block else_keyword else_block end;
+if_then_elif_statement: if_keyword newlines? expression newlines? then_keyword then_block elif_keyword newlines? expression newlines? then_keyword then_block end;
+if_then_elif_else_statement: if_keyword newlines? expression newlines? then_keyword then_block elif_keyword newlines? expression newlines? then_keyword then_block else_keyword else_block end;
 then_block: statements;
 else_block: statements;
 
-if_then_else_statement: if_keyword newlines? expression newlines? then_keyword then_block else_keyword else_block end;
 // Scope
 
 
@@ -28,13 +31,14 @@ path_keyword: PATH ;
 
 // Expresions
 
-expression: identifier '=' identifier;
+expression: (identifier '=' identifier) | (identifier '<' identifier)  | (identifier '>' identifier);
 
 // Keywords
 struct_keyword: STRUCT;
 scope_keyword: SCOPE;
 if_keyword: IF;
 then_keyword: THEN;
+elif_keyword: ELIF;
 else_keyword: ELSE;
 
 // Punctuation rules
@@ -51,6 +55,7 @@ PATH: 'path';
 STRUCT: 'struct';
 IF: 'if';
 THEN: 'then';
+ELIF: 'elif';
 ELSE: 'else';
 BYTE: 'byte';
 WORD: 'word';

@@ -15,3 +15,25 @@ else
 
    end
    ;
+
+   if x = y then
+      scope aaa
+      scope bbb
+    elif x > y then
+       scope ccc
+       scope ddd
+    end
+
+   if x = y then
+      scope aaa
+      scope bbb
+    elif x > y then
+       scope ccc
+       scope ddd
+    else 
+       scope mmm
+       scope rrr
+    end
+
+
+    
