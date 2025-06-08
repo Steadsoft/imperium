@@ -9,9 +9,9 @@ path_statement: path_keyword newlines? identifier (newlines? DOT newlines? ident
 struct_statement: struct_keyword newlines? identifier newlines? member_separator struct_member_list newlines? end    ;
 fileEnd: newlines? EOF ;
 statement_separator : (SEMICOLON | NEWLINE)+   ;
-member_separator : COMMA  ;
+member_separator : NEWLINE* COMMA NEWLINE* ;
 struct_member_list: struct_member+ ;
-struct_member:  newlines? identifier newlines? typename newlines? member_separator  ;
+struct_member:  newlines? identifier newlines? typename member_separator  ;
 newlines: NEWLINE+ ;
 identifier: SCOPE | PATH | IDENTIFIER ;
 typename: BYTE | WORD | DWORD | QWORD | TEXT ;
