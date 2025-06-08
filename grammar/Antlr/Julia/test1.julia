@@ -26,6 +26,10 @@ scope lastscope ; path path.scope
 
   if a = b then
     scope my_test_scope;
+    scope my_test_scope 
+    
+    scope my_test_scope;
+
   end
 
 
