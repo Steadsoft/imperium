@@ -24,7 +24,7 @@ scope lastscope ; path path.scope
 
 ;
 
-  if a = b then
+  if then = struct then
     scope my_test_scope;
     scope my_test_scope 
     
@@ -34,7 +34,7 @@ scope lastscope ; path path.scope
 
 
 struct mapping ,
-    counter dword,    message text,
+    counter dword,    message string(1024),
     status qword
     ,
     end   ; 
@@ -49,11 +49,10 @@ struct mapping ,
     
     dword,
     
-        message text
+        message string(32)
         
         ,
 
 
     status qword,
     end
-    

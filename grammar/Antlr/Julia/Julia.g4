@@ -7,35 +7,43 @@ statement:  ((scope_statement | path_statement | struct_statement | if_statement
 statements: (statement)*;
 scope_statement:  scope_keyword newlines? identifier;
 path_statement: path_keyword newlines? identifier (newlines? DOT newlines? identifier)*;
-struct_statement: struct_keyword newlines? identifier newlines? member_separator struct_member_list newlines? end;
+struct_statement: struct_keyword newlines? identifier newlines? member_separator struct_member_list newlines? end_keyword;
 if_statement: if_then_statement | if_then_else_statement | if_then_elif_statement | if_then_elif_else_statement;
-if_then_statement: if_keyword newlines? expression newlines? then_keyword then_block end;
-if_then_else_statement: if_keyword newlines? expression newlines? then_keyword then_block else_keyword else_block end;
-if_then_elif_statement: if_keyword newlines? expression newlines? then_keyword then_block elif_group end;
-if_then_elif_else_statement: if_keyword newlines? expression newlines? then_keyword then_block elif_group else_keyword else_block end;
+if_then_statement: if_keyword newlines? expression newlines? then_keyword then_block end_keyword;
+if_then_else_statement: if_keyword newlines? expression newlines? then_keyword then_block else_keyword else_block end_keyword;
+if_then_elif_statement: if_keyword newlines? expression newlines? then_keyword then_block elif_group end_keyword;
+if_then_elif_else_statement: if_keyword newlines? expression newlines? then_keyword then_block elif_group else_keyword else_block end_keyword;
 then_block: statements;
 else_block: statements;
 elif_group: (elif_keyword newlines? expression newlines? then_keyword then_block)+;
 // Proc
 
-proc_statement: proc_keyword newlines? statements newlines? end;
+proc_statement: proc_keyword newlines? statements newlines? end_keyword;
 
 
 // struct
 struct_member_list: struct_member+ ;
 struct_member:  newlines? identifier newlines? typename member_separator;
 
-identifier: SCOPE | PATH | IDENTIFIER;
-typename: BYTE | WORD | DWORD | QWORD | TEXT;
-end: END;
+identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
+typename: integer_type | string_type | bitstring_type;
 
-path_keyword: PATH ;
+integer_type: BYTE | WORD | DWORD | QWORD;
+string_type: STRING '(' NUMBER ')';
+bitstring_type: BIT '(' NUMBER ')';
+
+
+
+
 
 // Expresions
 
 expression: (identifier '=' identifier) | (identifier '<' identifier)  | (identifier '>' identifier);
 
 // Keywords
+
+keyword: (struct_keyword | scope_keyword | if_keyword | then_keyword | elif_keyword | else_keyword | proc_keyword | path_keyword | end_keyword) ;
+
 struct_keyword: STRUCT;
 scope_keyword: SCOPE;
 if_keyword: IF;
@@ -43,7 +51,8 @@ then_keyword: THEN;
 elif_keyword: ELIF;
 else_keyword: ELSE;
 proc_keyword: PROC;
-
+path_keyword: PATH ;
+end_keyword: END;
 // Punctuation rules
 statement_separator : (SEMICOLON | NEWLINE)+;
 member_separator : NEWLINE* COMMA NEWLINE*;
@@ -63,10 +72,11 @@ THEN: 'then';
 ELIF: 'elif';
 ELSE: 'else';
 BYTE: 'byte';
+BIT: 'bit';
 WORD: 'word';
 DWORD: 'dword';
 QWORD: 'qword';
-TEXT: 'text';
+STRING: 'string';
 
 END: 'end';
 DOT: '.';
