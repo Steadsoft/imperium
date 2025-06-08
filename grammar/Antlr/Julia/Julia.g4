@@ -2,7 +2,7 @@ grammar Julia;
 
 // Parser rules
 
-source: (newlines? statement? (statement_separator statement)* ) end_of_file;
+source: (newlines? (statement statement_separator) ? (statement statement_separator)* ) end_of_file;
 statement:  (scope_statement | path_statement | struct_statement | if_statement) ;
 scope_statement:  scope_keyword newlines? identifier  ;
 path_statement: path_keyword newlines? identifier (newlines? DOT newlines? identifier)*    ;
@@ -34,7 +34,7 @@ if_keyword: IF;
 then_keyword: THEN;
 
 // Punctuation rules
-statement_separator : (SEMICOLON | NEWLINE)+   ;
+statement_separator : (SEMICOLON | NEWLINE)+ | EOF  ;
 member_separator : NEWLINE* COMMA NEWLINE* ;
 
 // Utility rules
