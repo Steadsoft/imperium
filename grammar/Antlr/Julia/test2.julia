@@ -24,16 +24,27 @@ else
        scope ddd
     end
 
-   if x = y then
+   if 
+   
+   
+   x = y then
       scope aaa
       scope bbb
+    elif x > y then
+       scope ccc;;
+       scope ddd
+        elif x > y then
+       scope ccc
+       scope ddd     ;
     elif x > y then
        scope ccc
        scope ddd
     else 
        scope mmm
        scope rrr
+    end;
+
+    proc
+
     end
-
-
     
