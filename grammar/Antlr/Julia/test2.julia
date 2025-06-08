@@ -2,9 +2,16 @@
 
 if a = b then
 
+   
+end
+   ;
+
+   if a = b then
+
    scope xxxxx 
+else
+      scope eddie_scopey
+;
 
    end
    ;
-
-   
