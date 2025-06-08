@@ -24,6 +24,10 @@ scope lastscope ; path path.scope
 
 ;
 
+  if a = b then
+    scope my_test_scope;
+  end
+
 
 struct mapping ,
     counter dword,    message text,
