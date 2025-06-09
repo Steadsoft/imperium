@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\JuliaBaseListener.cs" Link="JuliaBaseListener.cs" />
+    <Compile Include="..\JuliaBaseVisitor.cs" Link="JuliaBaseVisitor.cs" />
+    <Compile Include="..\JuliaLexer.cs" Link="JuliaLexer.cs" />
+    <Compile Include="..\JuliaListener.cs" Link="JuliaListener.cs" />
+    <Compile Include="..\JuliaParser.cs" Link="JuliaParser.cs" />
+    <Compile Include="..\JuliaVisitor.cs" Link="JuliaVisitor.cs" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
+	</ItemGroup>
+
+
+
+</Project>

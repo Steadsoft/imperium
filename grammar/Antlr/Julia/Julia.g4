@@ -2,31 +2,35 @@ grammar Julia;
 
 // Parser rules
 
-source: ((statement_separator? (statement)* ) end_of_file) | end_of_file;
-statement:  ((scope_statement | path_statement | struct_statement | if_statement | proc_statement) statement_separator) | statement_separator;
+source: ((statement_separator? statements ) end_of_file) | end_of_file; 
+statement:  ((scopeStatement | structStatement | ifStatement | proc_statement) statement_separator) | statement_separator;
 statements: (statement)*;
-scope_statement:  scope_keyword newlines? identifier;
-path_statement: path_keyword newlines? identifier (newlines? DOT newlines? identifier)*;
-struct_statement: struct_keyword newlines? identifier newlines? member_separator struct_member_list newlines? end_keyword;
-if_statement: if_then_statement | if_then_else_statement | if_then_elif_statement | if_then_elif_else_statement;
-if_then_statement: if_keyword newlines? expression newlines? then_keyword then_block end_keyword;
-if_then_else_statement: if_keyword newlines? expression newlines? then_keyword then_block else_keyword else_block end_keyword;
-if_then_elif_statement: if_keyword newlines? expression newlines? then_keyword then_block elif_group end_keyword;
-if_then_elif_else_statement: if_keyword newlines? expression newlines? then_keyword then_block elif_group else_keyword else_block end_keyword;
-then_block: statements;
-else_block: statements;
-elif_group: (elif_keyword newlines? expression newlines? then_keyword then_block)+;
+scopeStatement:  scope_keyword newlines? Name=scope_name ;
+structStatement: struct_keyword newlines? Name=identifier newlines? member_separator Members=structMemberList newlines? end_keyword;
+ifStatement: ifThenStatement | ifThenElseStatement | ifThenElifStatement | ifThenElifElseStatement;
+ifThenStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=thenBlock end_keyword;
+ifThenElseStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=thenBlock else_keyword Else=elseBlock end_keyword;
+ifThenElifStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=thenBlock Elif=elifGroup end_keyword;
+ifThenElifElseStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=thenBlock Elif=elifGroup else_keyword Else=elseBlock end_keyword;
+thenBlock: statements;
+elseBlock: statements;
+elifGroup: (elif_keyword newlines? expression newlines? then_keyword thenBlock)+;
 // Proc
 
-proc_statement: proc_keyword newlines? statements newlines? end_keyword;
-
-
+proc_statement: proc_keyword newlines? Name=identifier Params=param_list? Statements=statements newlines? end_keyword;
+scope_name: identifier (DOT identifier)*;
+param_list: LPAR identifier (COMMA identifier)* RPAR;
 // struct
-struct_member_list: struct_member+ ;
-struct_member:  newlines? identifier newlines? typename member_separator;
+structMemberList: structMember+ ;
+structMember:  newlines? Name=identifier newlines? Type=typename member_separator;
+
 
 identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
-typename: integer_type | string_type | bitstring_type;
+typename 
+    : integer_type 
+    | string_type 
+    | bitstring_type 
+    ;
 
 integer_type: BYTE | WORD | DWORD | QWORD;
 string_type: STRING '(' NUMBER ')';
@@ -42,7 +46,7 @@ expression: (identifier '=' identifier) | (identifier '<' identifier)  | (identi
 
 // Keywords
 
-keyword: (struct_keyword | scope_keyword | if_keyword | then_keyword | elif_keyword | else_keyword | proc_keyword | path_keyword | end_keyword) ;
+keyword: (struct_keyword | scope_keyword | if_keyword | then_keyword | elif_keyword | else_keyword | proc_keyword | end_keyword) ;
 
 struct_keyword: STRUCT;
 scope_keyword: SCOPE;
@@ -51,7 +55,6 @@ then_keyword: THEN;
 elif_keyword: ELIF;
 else_keyword: ELSE;
 proc_keyword: PROC;
-path_keyword: PATH ;
 end_keyword: END;
 // Punctuation rules
 statement_separator : (SEMICOLON | NEWLINE)+;
@@ -82,7 +85,9 @@ END: 'end';
 DOT: '.';
 SEMICOLON: ';'; 
 COMMA: ',';
+LPAR: '(';
+RPAR: ')';
 NUMBER: [0-9]+ ('.' [0-9]+)?;
-IDENTIFIER: [_a-z]+;
+IDENTIFIER:  [a-zA-Z_] [a-zA-Z0-9_]*;
 NEWLINE: ('\r' '\n'); 
 WS: [ \t]+ -> skip;

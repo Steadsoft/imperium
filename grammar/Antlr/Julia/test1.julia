@@ -10,17 +10,11 @@ scopeb;
 scope scopec ;
 ;;
 
-path 
-
-a.b.
-
-c.d.f;
-
 ;;
 
 ;
 
-scope lastscope ; path path.scope 
+scope lastscope ; scope path.scope 
 
 ;
 
@@ -56,3 +50,15 @@ struct mapping ,
 
     status qword,
     end
+
+    proc entry_point (input, output)
+
+        struct inner,
+            f0 dword,
+            f1 word,
+            f2 string(32),
+        end
+
+    end
+
+
