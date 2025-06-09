@@ -28,7 +28,6 @@ namespace JuliaCode
         }
     }
 
-
     public static class TreeWalker
     {
         public static int depth = 0;
@@ -66,7 +65,6 @@ namespace JuliaCode
                 }
             }
         }
-
         public static AstNode TransformTree(ParserRuleContext context)
         {
             var children = GetChildren(context); 
@@ -103,28 +101,19 @@ namespace JuliaCode
 
             return null;
         }
-
-        static string RemoveContext(string input)
+        private static string RemoveContext(string input)
         {
             return input.Replace("Context","");
         }
-
-        public static List<ParserRuleContext> GetChildren(ParserRuleContext context)
+        private static List<ParserRuleContext> GetChildren(ParserRuleContext context)
         {
             return context.children.Where(c => (c is ParserRuleContext) && !excludedTypes.Contains(c.GetType())).Cast<ParserRuleContext>().ToList();
         }
-
-        public static AstNode CreateScopeStatement(JuliaParser.ScopeContext context)
+        private static AstNode CreateScopeStatement(JuliaParser.ScopeContext context)
         {
-            return new ScopeStatemetNode() { ScopeName = "" };
+            return new ScopeStatemetNode() { Name = "" };
         }
-
-        public static AstNode CreateStatementsNode()
-        {
-            return new StatementsNode();
-        }
-
-        public static AstNode CreateStructStatement(JuliaParser.StructContext context)
+        private static AstNode CreateStructStatement(JuliaParser.StructContext context)
         {
             var node = new StructStatementNode();
 
@@ -142,8 +131,7 @@ namespace JuliaCode
 
             return node;
         }
-
-        public static AstNode CreateProcedureStatement(JuliaParser.ProcedureContext context)
+        private static AstNode CreateProcedureStatement(JuliaParser.ProcedureContext context)
         {
             var node = new ProcedureNode();
 
@@ -155,8 +143,7 @@ namespace JuliaCode
 
             return node;
         }
-
-        public static AstNode CreateConditionalStatement()
+        private static AstNode CreateConditionalStatement()
         {
             return new AstNode();
         }
@@ -166,40 +153,39 @@ namespace JuliaCode
     {
 
     }
-
     public class ScopeStatemetNode : AstNode
     {
-        public string ScopeName;
+        public string Name;
     }
-
     public class StatementsNode : AstNode
     {
         public List<AstNode> Statements = new List<AstNode>();
     }
-
     public class ProgramNode : AstNode
     {
 
     }
-
     public class StructStatementNode : AstNode
     {
         public string Name; 
         public List<StructMemberNode>  Members = new List<StructMemberNode>();
 
     }
-
     public class StructMemberNode : AstNode
     {
         public string Name;
         public string Type;
     }
-
     public class ProcedureNode : AstNode
     {
         public string Name;
         public List<string> Parameters = new List<string>();
         public AstNode Statements;
     }
-
+    public class ConditionalNode : AstNode
+    {
+        public AstNode Expr;
+        public AstNode ThenStatements;
+        public AstNode ElseStatement;
+    }
 }
