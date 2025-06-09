@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using SourceContext = JuliaParser.SourceContext;
@@ -36,15 +38,15 @@ namespace JuliaCode
             excludedTypes = new HashSet<Type>
             {
                 typeof(JuliaParser.NewlinesContext),
-                typeof(JuliaParser.Statement_separatorContext),
-                typeof(JuliaParser.Member_separatorContext) ,
-                typeof(JuliaParser.If_keywordContext),
-                typeof(JuliaParser.Then_keywordContext),
-                typeof(JuliaParser.Elif_keywordContext),
-                typeof(JuliaParser.Else_keywordContext),
-                typeof(JuliaParser.Scope_keywordContext),
-                typeof(JuliaParser.Struct_keywordContext) ,
-                typeof(JuliaParser.End_of_fileContext)
+                typeof(JuliaParser.StatementSeparatorContext),
+                typeof(JuliaParser.MemberSeparatorContext) ,
+                typeof(JuliaParser.IfKeywordContext),
+                typeof(JuliaParser.ThenKeywordContext),
+                typeof(JuliaParser.ElifKeywordContext),
+                typeof(JuliaParser.ElseKeywordContext),
+                typeof(JuliaParser.ScopeKeywordContext),
+                typeof(JuliaParser.StructKeywordContext) ,
+                typeof(JuliaParser.EndOfFileContext)
             };
         }
 
@@ -84,21 +86,15 @@ namespace JuliaCode
 
                     foreach (var statement in statements)
                     {
-                        if (statement is JuliaParser.ScopeStatementContext)
+                        var newnode = statement switch
                         {
-                            node.Statements.Add(CreateScopeStatement((JuliaParser.ScopeStatementContext)statement));
-                        }
+                            JuliaParser.ScopeContext => CreateScopeStatement((JuliaParser.ScopeContext)statement),
+                            JuliaParser.StructContext => CreateStructStatement((JuliaParser.StructContext)statement),
+                            JuliaParser.ProcedureContext => CreateProcedureStatement((JuliaParser.ProcedureContext)statement),
+                            _ => new AstNode()
+                        };
 
-                        if (statement is JuliaParser.StructStatementContext)
-                        {
-                            node.Statements.Add(CreateStructStatement((JuliaParser.StructStatementContext)statement));
-                        }
-
-                        if (statement is JuliaParser.Proc_statementContext)
-                        {
-                            node.Statements.Add(CreateProcedureStatement((JuliaParser.Proc_statementContext)statement));
-                        }
-
+                        node.Statements.Add(newnode);
                     }
                 }
 
@@ -118,7 +114,7 @@ namespace JuliaCode
             return context.children.Where(c => (c is ParserRuleContext) && !excludedTypes.Contains(c.GetType())).Cast<ParserRuleContext>().ToList();
         }
 
-        public static AstNode CreateScopeStatement(JuliaParser.ScopeStatementContext context)
+        public static AstNode CreateScopeStatement(JuliaParser.ScopeContext context)
         {
             return new ScopeStatemetNode() { ScopeName = "" };
         }
@@ -128,7 +124,7 @@ namespace JuliaCode
             return new StatementsNode();
         }
 
-        public static AstNode CreateStructStatement(JuliaParser.StructStatementContext context)
+        public static AstNode CreateStructStatement(JuliaParser.StructContext context)
         {
             var node = new StructStatementNode();
 
@@ -144,11 +140,10 @@ namespace JuliaCode
                 node.Members.Add(member);
             }
 
-
             return node;
         }
 
-        public static AstNode CreateProcedureStatement(JuliaParser.Proc_statementContext context)
+        public static AstNode CreateProcedureStatement(JuliaParser.ProcedureContext context)
         {
             var node = new ProcedureNode();
 
@@ -159,6 +154,11 @@ namespace JuliaCode
             node.Statements = TransformTree(context.Statements);
 
             return node;
+        }
+
+        public static AstNode CreateConditionalStatement()
+        {
+            return new AstNode();
         }
     }
 

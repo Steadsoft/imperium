@@ -59,6 +59,27 @@ struct mapping ,
             f2 string(32),
         end
 
+        if 
+        a = b 
+        then
+            x = y
+            b = c
+            large = small
+        end
+        
+        if a = b 
+        then
+            x = y
+            b = c
+            large = small
+        else
+
+            count = five
+            label = yes;
+        end
+            
+        
+
     end
 
 

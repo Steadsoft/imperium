@@ -2,27 +2,31 @@ grammar Julia;
 
 // Parser rules
 
-source: ((statement_separator? statements ) end_of_file) | end_of_file; 
-statement:  ((scopeStatement | structStatement | ifStatement | proc_statement) statement_separator) | statement_separator;
+source: ((statementSeparator? statements ) endOfFile) | endOfFile; 
+statement:  ((scope | struct | conditional | procedure | assignment) statementSeparator) | statementSeparator;
 statements: (statement)*;
-scopeStatement:  scope_keyword newlines? Name=scope_name ;
-structStatement: struct_keyword newlines? Name=identifier newlines? member_separator Members=structMemberList newlines? end_keyword;
+scope:  scopeKeyword newlines? Name=scope_name ;
+struct: structKeyword newlines? Name=identifier newlines? memberSeparator Members=structMemberList newlines? endKeyword;
+
+conditional: ifKeyword newlines? expression newlines? thenKeyword newlines? statements (elifKeyword newlines expression newlines? thenKeyword newlines? statements)* (elseKeyword newlines? statements)? newlines? endKeyword;
+assignment : identifier '=' identifier ;
+/*
 ifStatement: ifThenStatement | ifThenElseStatement | ifThenElifStatement | ifThenElifElseStatement;
-ifThenStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=thenBlock end_keyword;
-ifThenElseStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=thenBlock else_keyword Else=elseBlock end_keyword;
-ifThenElifStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=thenBlock Elif=elifGroup end_keyword;
-ifThenElifElseStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=thenBlock Elif=elifGroup else_keyword Else=elseBlock end_keyword;
-thenBlock: statements;
-elseBlock: statements;
-elifGroup: (elif_keyword newlines? expression newlines? then_keyword thenBlock)+;
+ifThenStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=statements end_keyword;
+ifThenElseStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=statements else_keyword Else=statements end_keyword;
+ifThenElifStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=statements Elif=elifGroup end_keyword;
+ifThenElifElseStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=statements Elif=elifGroup else_keyword Else=statements end_keyword;
+elifGroup: (elif_keyword newlines? expression newlines? then_keyword Then=statements)+;
+*/
+
 // Proc
 
-proc_statement: proc_keyword newlines? Name=identifier Params=param_list? Statements=statements newlines? end_keyword;
+procedure: procedureKeyword newlines? Name=identifier Params=param_list? Statements=statements newlines? endKeyword;
 scope_name: identifier (DOT identifier)*;
 param_list: LPAR identifier (COMMA identifier)* RPAR;
 // struct
 structMemberList: structMember+ ;
-structMember:  newlines? Name=identifier newlines? Type=typename member_separator;
+structMember:  newlines? Name=identifier newlines? Type=typename memberSeparator;
 
 
 identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
@@ -46,22 +50,22 @@ expression: (identifier '=' identifier) | (identifier '<' identifier)  | (identi
 
 // Keywords
 
-keyword: (struct_keyword | scope_keyword | if_keyword | then_keyword | elif_keyword | else_keyword | proc_keyword | end_keyword) ;
+keyword: (structKeyword | scopeKeyword | ifKeyword | thenKeyword | elifKeyword | elseKeyword | procedureKeyword | endKeyword) ;
 
-struct_keyword: STRUCT;
-scope_keyword: SCOPE;
-if_keyword: IF;
-then_keyword: THEN;
-elif_keyword: ELIF;
-else_keyword: ELSE;
-proc_keyword: PROC;
-end_keyword: END;
+structKeyword: STRUCT;
+scopeKeyword: SCOPE;
+ifKeyword: IF;
+thenKeyword: THEN;
+elifKeyword: ELIF;
+elseKeyword: ELSE;
+procedureKeyword: PROC;
+endKeyword: END;
 // Punctuation rules
-statement_separator : (SEMICOLON | NEWLINE)+;
-member_separator : NEWLINE* COMMA NEWLINE*;
+statementSeparator : (SEMICOLON | NEWLINE)+;
+memberSeparator : NEWLINE* COMMA NEWLINE*;
 
 // Utility rules
-end_of_file: newlines? EOF;
+endOfFile: newlines? EOF;
 newlines: NEWLINE+;
 
 // Lexer rules
