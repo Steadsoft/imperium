@@ -43,7 +43,8 @@ scope main_code.system
     scope my_test_scope end
     
     scope my_test_scope; end;
-
+    else
+        ;
   end
 
 

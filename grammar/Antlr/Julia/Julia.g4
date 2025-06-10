@@ -10,7 +10,7 @@ scope:  scopeKeyword emptyLines? Name=scope_name emptyLines? statements? emptyLi
 procedure: procedureKeyword emptyLines? Name=identifier Params=param_list? Statements=statements? emptyLines? endKeyword;
 struct: structKeyword emptyLines? Name=identifier emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
-conditional: ifKeyword emptyLines? expression emptyLines? thenKeyword emptyLines? statements? (elifKeyword emptyLines expression emptyLines? thenKeyword emptyLines? statements?)* (elseKeyword emptyLines? statements?)? emptyLines? endKeyword;
+conditional: ifKeyword emptyLines? expression emptyLines? thenKeyword emptyLines? Then=statements? (elifKeyword emptyLines expression emptyLines? thenKeyword emptyLines? statements?)* (elseKeyword emptyLines? Else=statements?)? emptyLines? endKeyword;
 assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
 
 

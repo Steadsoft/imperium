@@ -111,7 +111,7 @@ namespace JuliaCode
         {
             return input.Replace("Context", "");
         }
-        private static List<ParserRuleContext> GetChildren(ParserRuleContext context)
+        internal static List<ParserRuleContext> GetChildren(ParserRuleContext context)
         {
             if (context.children == null)
                 return new List<ParserRuleContext>();
@@ -231,6 +231,7 @@ namespace JuliaCode
 
         public ConditionalNode(ParserRuleContext context) : base(context)
         {
+            var children = TreeWalker.GetChildren(context); ;
         }
     }
 }
