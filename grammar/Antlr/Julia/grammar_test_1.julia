@@ -8,11 +8,11 @@ end;
 struct table_layout,
     counter dword,
     rate    byte
-    end
+    end;;;;;
 
 struct folder_layout,
     counter dword,
-    
+
     rate    byte,
     end    
 

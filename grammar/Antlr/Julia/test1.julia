@@ -49,6 +49,16 @@ scope main_code.system
 
 end
 
+@restart
+
+/* enums have an optional type */
+
+enum error_codes dword,
+     code_0,
+     code_1,
+     code_2
+end     
+
 struct mapping_1,
     counter dword,    
     message string(1024),
