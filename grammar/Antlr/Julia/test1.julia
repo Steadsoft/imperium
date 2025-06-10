@@ -49,28 +49,17 @@ scope main_code.system
 
 end
 
-struct mapping_1 ,
-    counter dword,    message string(1024),
-    status qword
-    ,
+struct mapping_1,
+    counter dword,    
+    message string(1024),
+    status qword,
     end   ; 
-    
-    struct 
-    
-    mapping_2    ,
-
-
-    counter 
-    
-    
-    dword,
-    
-        message string(32)
-        
-        ,
-
-
-    status qword
+   
+struct mapping_2,
+    counter dword,
+    message string(32),
+    status qword,
+    message string(16),
     end
 
     proc entry_point (input, output)

@@ -3,14 +3,14 @@ grammar Julia;
 // Parser rules
 
 source: ((statementSeparator? statements? ) endOfFile) | endOfFile; 
-statement:  ((scope | struct | conditional | procedure | assignment) statementSeparator) | statementSeparator;
+statement:  ((scope | struct | conditional | procedure | assignment) statementSeparator emptyLines? ) | statementSeparator emptyLines? ;
 statements: (statement)+;
-scope:  scopeKeyword newlines? Name=scope_name newlines? statements? newlines? endKeyword;
-procedure: procedureKeyword newlines? Name=identifier Params=param_list? Statements=statements? newlines? endKeyword;
+scope:  scopeKeyword emptyLines? Name=scope_name emptyLines? statements? emptyLines? endKeyword;
+procedure: procedureKeyword emptyLines? Name=identifier Params=param_list? Statements=statements? emptyLines? endKeyword;
 
-struct: structKeyword newlines? Name=identifier newlines? memberSeparator Members=structMembers newlines? endKeyword;
+struct: structKeyword emptyLines? Name=identifier emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 
-conditional: ifKeyword newlines? expression newlines? thenKeyword newlines? statements? (elifKeyword newlines expression newlines? thenKeyword newlines? statements?)* (elseKeyword newlines? statements?)? newlines? endKeyword;
+conditional: ifKeyword emptyLines? expression emptyLines? thenKeyword emptyLines? statements? (elifKeyword emptyLines expression emptyLines? thenKeyword emptyLines? statements?)* (elseKeyword emptyLines? statements?)? emptyLines? endKeyword;
 assignment : identifier '=' identifier ;
 
 
@@ -20,8 +20,8 @@ scope_name: identifier (DOT identifier)*;
 param_list: LPAR identifier (COMMA identifier)* RPAR;
 // struct
 //structMemberList: structMember+ ;
-structMembers:  newlines? structMember (memberSeparator structMember)* memberSeparator?;
-structMember: (Name=identifier newlines? Type=typename);
+structMembers:  emptyLines? structMember emptyLines? (memberSeparator emptyLines? structMember emptyLines?)*  memberSeparator? emptyLines?;
+structMember: (Name=identifier emptyLines? Type=typename);
 
 identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
 typename 
@@ -55,12 +55,12 @@ elseKeyword: ELSE;
 procedureKeyword: PROC;
 endKeyword: END;
 // Punctuation rules
-statementSeparator : (SEMICOLON | NEWLINE)+;
-memberSeparator : NEWLINE* COMMA NEWLINE*;
+statementSeparator : (SEMICOLON | NEWLINE);
+memberSeparator : COMMA;
 
 // Utility rules
-endOfFile: newlines? EOF;
-newlines: NEWLINE+;
+endOfFile: emptyLines? EOF;
+emptyLines: NEWLINE+;
 
 // Lexer rules
 PROC: 'proc' | 'procedure';
@@ -89,3 +89,4 @@ NUMBER: [0-9]+ ('.' [0-9]+)?;
 IDENTIFIER:  [a-zA-Z_] [a-zA-Z0-9_]*;
 NEWLINE: ('\r' '\n'); 
 WS: [ \t]+ -> skip;
+COMSTART: '/*' .*? '*/' -> skip;
