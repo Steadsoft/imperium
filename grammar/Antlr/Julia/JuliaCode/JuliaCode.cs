@@ -24,6 +24,8 @@ namespace JuliaCode
 
             var cst = parser.source();
 
+            TreeWalker.PrintTree(cst);
+
             var ast = TreeWalker.TransformTree(cst);
         }
     }
@@ -107,6 +109,9 @@ namespace JuliaCode
         }
         private static List<ParserRuleContext> GetChildren(ParserRuleContext context)
         {
+            if (context.children == null)
+                return new List<ParserRuleContext>();
+
             return context.children.Where(c => (c is ParserRuleContext) && !excludedTypes.Contains(c.GetType())).Cast<ParserRuleContext>().ToList();
         }
         private static AstNode CreateScopeStatement(JuliaParser.ScopeContext context)
@@ -119,7 +124,7 @@ namespace JuliaCode
 
             node.Name = context.Name.GetChild(0).ToString();
 
-            foreach (var c in context.Members.children)
+            foreach (var c in GetChildren(context.Members))
             {
                 var member = new StructMemberNode();
 

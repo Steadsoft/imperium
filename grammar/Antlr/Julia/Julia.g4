@@ -2,32 +2,26 @@ grammar Julia;
 
 // Parser rules
 
-source: ((statementSeparator? statements ) endOfFile) | endOfFile; 
+source: ((statementSeparator? statements? ) endOfFile) | endOfFile; 
 statement:  ((scope | struct | conditional | procedure | assignment) statementSeparator) | statementSeparator;
-statements: (statement)*;
-scope:  scopeKeyword newlines? Name=scope_name ;
-struct: structKeyword newlines? Name=identifier newlines? memberSeparator Members=structMemberList newlines? endKeyword;
+statements: (statement)+;
+scope:  scopeKeyword newlines? Name=scope_name newlines? statements? newlines? endKeyword;
+procedure: procedureKeyword newlines? Name=identifier Params=param_list? Statements=statements? newlines? endKeyword;
 
-conditional: ifKeyword newlines? expression newlines? thenKeyword newlines? statements (elifKeyword newlines expression newlines? thenKeyword newlines? statements)* (elseKeyword newlines? statements)? newlines? endKeyword;
+struct: structKeyword newlines? Name=identifier newlines? memberSeparator Members=structMembers newlines? endKeyword;
+
+conditional: ifKeyword newlines? expression newlines? thenKeyword newlines? statements? (elifKeyword newlines expression newlines? thenKeyword newlines? statements?)* (elseKeyword newlines? statements?)? newlines? endKeyword;
 assignment : identifier '=' identifier ;
-/*
-ifStatement: ifThenStatement | ifThenElseStatement | ifThenElifStatement | ifThenElifElseStatement;
-ifThenStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=statements end_keyword;
-ifThenElseStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=statements else_keyword Else=statements end_keyword;
-ifThenElifStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=statements Elif=elifGroup end_keyword;
-ifThenElifElseStatement: if_keyword newlines? Expr=expression newlines? then_keyword Then=statements Elif=elifGroup else_keyword Else=statements end_keyword;
-elifGroup: (elif_keyword newlines? expression newlines? then_keyword Then=statements)+;
-*/
+
 
 // Proc
 
-procedure: procedureKeyword newlines? Name=identifier Params=param_list? Statements=statements newlines? endKeyword;
 scope_name: identifier (DOT identifier)*;
 param_list: LPAR identifier (COMMA identifier)* RPAR;
 // struct
-structMemberList: structMember+ ;
-structMember:  newlines? Name=identifier newlines? Type=typename memberSeparator;
-
+//structMemberList: structMember+ ;
+structMembers:  newlines? structMember (memberSeparator structMember)* memberSeparator?;
+structMember: (Name=identifier newlines? Type=typename);
 
 identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
 typename 

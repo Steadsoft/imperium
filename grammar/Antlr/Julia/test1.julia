@@ -1,11 +1,11 @@
 
 scope 
 
-scopea
+scopea end
 
 scope 
 
-scopeb;
+scopeb end ;
 
 scope scopec ;
 ;;
@@ -13,21 +13,43 @@ scope scopec ;
 ;;
 
 ;
+end
 
-scope lastscope ; scope path.scope 
+scope lastscope ; 
+
+
+end
+
+scope path.scope end
 
 ;
 
   if then = struct then
-    scope my_test_scope;
-    scope my_test_scope 
+    scope my_test_scope end;
+    scope my_test_scope end
     
     scope my_test_scope;
+
+    end
+
+  end
+
+scope main_code.system
+
+  if then = struct then
+    scope my_test_scope;
+
+    end
+    scope my_test_scope end
+    
+    scope my_test_scope; end;
 
   end
 
 
-struct mapping ,
+end
+
+struct mapping_1 ,
     counter dword,    message string(1024),
     status qword
     ,
@@ -35,7 +57,7 @@ struct mapping ,
     
     struct 
     
-    mapping    ,
+    mapping_2    ,
 
 
     counter 
@@ -48,7 +70,7 @@ struct mapping ,
         ,
 
 
-    status qword,
+    status qword
     end
 
     proc entry_point (input, output)
