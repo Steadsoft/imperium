@@ -10,7 +10,7 @@ scope:  scopeKeyword emptyLines? Name=scope_name emptyLines? statements? emptyLi
 procedure: procedureKeyword emptyLines? Name=identifier Params=param_list? Statements=statements? emptyLines? endKeyword;
 struct: structKeyword emptyLines? Name=identifier emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
-conditional: ifKeyword emptyLines? expression emptyLines? thenKeyword emptyLines? Then=statements? (elifKeyword emptyLines expression emptyLines? thenKeyword emptyLines? statements?)* (elseKeyword emptyLines? Else=statements?)? emptyLines? endKeyword;
+conditional: ifKeyword emptyLines? expression emptyLines? thenKeyword emptyLines? Then=statement* (elifKeyword emptyLines expression emptyLines? thenKeyword emptyLines? statements?)* (elseKeyword emptyLines? Else=statement*)? emptyLines? endKeyword;
 assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
 
 
@@ -62,6 +62,15 @@ memberSeparator : COMMA;
 endOfFile: emptyLines? EOF;
 emptyLines: NEWLINE+;
 
+//comment: '/*' (comment | ~[*])*  '*/';
+
+
+// Allow comment blocks slash/star TEXT star/slash to be nested 
+COMMENT: (BCOM (COMMENT | .)*? ECOM) -> channel(HIDDEN);
+
+fragment BCOM:    ('/*');
+fragment ECOM:    ('*/');
+
 // Lexer rules
 PROC: 'proc' | 'procedure';
 FUNC: 'func' | 'function';
@@ -94,4 +103,4 @@ NUMBER: [0-9]+ ('.' [0-9]+)?;
 IDENTIFIER:  [a-zA-Z_] [a-zA-Z0-9_]*;
 NEWLINE: ('\r' '\n'); 
 WS: [ \t]+ -> skip;
-COMMENT: '/*' .*? '*/' -> channel(HIDDEN);
+//COMMENT: '/*' .*? '*/' -> channel(HIDDEN);
