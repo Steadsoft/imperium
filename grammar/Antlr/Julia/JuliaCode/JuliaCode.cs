@@ -82,7 +82,7 @@ namespace JuliaCode
                         var newnode = statement switch
                         {
                             ScopeContext match => CreateScope(match),
-                            StructContext match => CreateStruct(match),
+                            StructContext match => CreateStruct(match.GetNode<StructDefinitionContext>()),
                             ProcedureContext match => CreateProcedure(match),
                             ConditionalContext match => CreateConditional(match),
 
@@ -113,20 +113,17 @@ namespace JuliaCode
         {
             return new Scope(context) { Spelling = context.Name.GetText() };
         }
-        private static AstNode CreateStruct(StructContext context)
+        private static Struct CreateStruct(StructDefinitionContext context)
         {
-            var name = context.GetNode<StructDefinitionContext,StructNameContext>();
+            var name = context.GetNode<StructNameContext>();
             var spelling = name.GetLabelText("Spelling"); 
             var bounds = name.GetNode<ConstArrayListContext>().GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
-            var members = context.GetNode<StructDefinitionContext, StructMembersContext>();
-            var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>());
-            var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructStructContext>());
+            var members = context.GetNode<StructMembersContext>();
+            var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => new StructField(d)).ToList();
+            var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructDefinitionContext>());
+            var subs = structs.Select(s => CreateStruct(s)).ToList();
 
-            var nodeFields = fields.Select(d => new StructField(d)).ToList();
-
-            var node = new Struct(context) { Spelling = spelling, Bounds = bounds, Fields = nodeFields };
-
-            return node;
+            return new Struct(context) { Spelling = spelling, Bounds = bounds, Fields = fields, Structs = subs };
         }
         private static AstNode CreateProcedure(ProcedureContext context)
         {
@@ -144,7 +141,6 @@ namespace JuliaCode
         {
             return new Conditional(context);
         }
-
         public static R4 GetNode<R, R1, R2, R3, R4>(this ParserRuleContext context) 
             where R : ParserRuleContext 
             where R1 : ParserRuleContext 
@@ -154,22 +150,18 @@ namespace JuliaCode
         {
             return context.GetNode<R>().GetNode<R1>().GetNode<R2>().GetNode<R3>().GetNode<R4>();
         }
-
         public static R3 GetNode<R, R1, R2, R3>(this ParserRuleContext context) where R : ParserRuleContext where R1 : ParserRuleContext where R2 : ParserRuleContext where R3 : ParserRuleContext
         {
             return context.GetNode<R>().GetNode<R1>().GetNode<R2>().GetNode<R3>();
         }
-
         public static R2 GetNode<R, R1, R2>(this ParserRuleContext context) where R : ParserRuleContext where R1 : ParserRuleContext where R2 : ParserRuleContext
         {
             return context.GetNode<R>().GetNode<R1>().GetNode<R2>();
         }
-
         public static R1 GetNode<R,R1>(this ParserRuleContext context)  where R : ParserRuleContext where R1 : ParserRuleContext
         {
             return context.GetNode<R>().GetNode<R1>();
         }
-
         public static T GetNode<T>(this ParserRuleContext context) where T : ParserRuleContext
         {
             if (context.children == null)
@@ -186,10 +178,26 @@ namespace JuliaCode
             return (T)matches.Single();
         }
 
+        public static bool HasNode<T>(this ParserRuleContext context) where T : ParserRuleContext
+        {
+            if (context.children == null)
+                return false;
+
+            var matches = context.children.Where(child => child.GetType() == typeof(T)).ToList();
+
+            if (matches.Any() == false)
+                return false;
+
+            if (matches.Count() > 1)
+                throw new InvalidOperationException("More than one matching child.");
+
+            return true;
+        }
+
         public static List<T> GetNodes<T>(this ParserRuleContext context) where T : ParserRuleContext
         {
             if (context.children == null)
-                return null;
+                return new List<T>(); ;
 
             var matches = context.children.Where(child => child.GetType() == typeof(T)).Cast<T>().ToList();
 
@@ -198,7 +206,6 @@ namespace JuliaCode
 
             return matches;
         }
-
         public static string GetLabelText(this ParserRuleContext context, string Label)
         {
             return ((ParserRuleContext)(context.GetType().GetField(Label).GetValue(context))).GetText();
@@ -251,9 +258,14 @@ namespace JuliaCode
         public string Spelling;
         public List<int> Bounds = new List<int>();
         public List<StructField> Fields = new List<StructField>();
-
+        public List<Struct> Structs = new List<Struct>();
         public Struct(ParserRuleContext context) : base(context)
         {
+        }
+
+        public override string ToString()
+        {
+            return Spelling;
         }
     }
     public class StructField : AstNode
@@ -266,6 +278,11 @@ namespace JuliaCode
             Spelling = context.Name.GetText();
             Type = context.Type.GetText();
         }
+
+        public override string ToString()
+        {
+            return Spelling;
+        }
     }
     public class Procedure : AstNode
     {
@@ -275,6 +292,10 @@ namespace JuliaCode
 
         public Procedure(ParserRuleContext context) : base(context)
         {
+        }
+        public override string ToString()
+        {
+            return Spelling;
         }
     }
     public class Conditional : AstNode

@@ -21,16 +21,17 @@ assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
 
 scopeName: identifier (DOT identifier)*;
 paramList: LPAR identifier (COMMA identifier)* RPAR;
-constArrayList: LPAR numericConstant (COMMA numericConstant)* RPAR;
+constArrayList: (LPAR numericConstant (COMMA numericConstant)* RPAR)?;
 numericConstant: NUMBER;
 // struct
 //structMemberList: structMember+ ;
-structName: Spelling=identifier Bounds=constArrayList?;
-structMembers:  emptyLines? structMember emptyLines? (memberSeparator emptyLines? structMember emptyLines?)*  memberSeparator? emptyLines?;
+structName: Spelling=identifier Bounds=constArrayList;
+structMembers
+    :  emptyLines? structMember emptyLines? (memberSeparator emptyLines? structMember emptyLines?)*  memberSeparator? emptyLines?;
 enumMembers: emptyLines? enumMember emptyLines? (memberSeparator emptyLines? enumMember emptyLines?)* memberSeparator? emptyLines?;
 structMember
     : structField
-    | structStruct;
+    | structDefinition;
 
 structField:   (Name=identifier emptyLines? Type=typename);
 structStruct:  structDefinition; 

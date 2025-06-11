@@ -82,9 +82,17 @@ struct mapping_2,
             f1 word,
             f2 string(32),
             
-            table(16),
+            table_1(16),
                f4 dword,
-               f4 dword
+               f9 dword
+            end,
+            table_2(16),
+               f4 dword,
+               f4 dword,
+               inner,
+                  f10 dword,
+                  f70 qword
+                end
             end
         end
 /*
@@ -132,3 +140,8 @@ control.map.type = 12;
 
 */
 
+/* JUNK
+
+dcl register
+
+*/
