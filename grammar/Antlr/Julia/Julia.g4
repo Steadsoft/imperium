@@ -8,7 +8,10 @@ statements: (statement)+;
 label: AT IDENTIFIER;
 scope:  scopeKeyword emptyLines? Name=scope_name emptyLines? statements? emptyLines? endKeyword;
 procedure: procedureKeyword emptyLines? Name=identifier Params=param_list? Statements=statements? emptyLines? endKeyword;
-struct: structKeyword emptyLines? Name=identifier emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
+struct: structKeyword struct_definition emptyLines? ;
+
+struct_definition: Name=identifier Bounds=const_array_list? emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
+
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
 conditional: ifKeyword emptyLines? expression emptyLines? thenKeyword emptyLines? Then=statement* (elifKeyword emptyLines expression emptyLines? thenKeyword emptyLines? statements?)* (elseKeyword emptyLines? Else=statement*)? emptyLines? endKeyword;
 assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
@@ -18,11 +21,15 @@ assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
 
 scope_name: identifier (DOT identifier)*;
 param_list: LPAR identifier (COMMA identifier)* RPAR;
+const_array_list: LPAR NUMBER (COMMA NUMBER)* RPAR;
 // struct
 //structMemberList: structMember+ ;
 structMembers:  emptyLines? structMember emptyLines? (memberSeparator emptyLines? structMember emptyLines?)*  memberSeparator? emptyLines?;
 enumMembers: emptyLines? enumMember emptyLines? (memberSeparator emptyLines? enumMember emptyLines?)* memberSeparator? emptyLines?;
-structMember: (Name=identifier emptyLines? Type=typename);
+structMember
+    : (Name=identifier emptyLines? Type=typename)
+    | struct_definition;
+    
 enumMember: (Name=identifier);
 identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
 typename 
@@ -61,8 +68,6 @@ memberSeparator : COMMA;
 // Utility rules
 endOfFile: emptyLines? EOF;
 emptyLines: NEWLINE+;
-
-//comment: '/*' (comment | ~[*])*  '*/';
 
 
 // Allow comment blocks slash/star TEXT star/slash to be nested 
