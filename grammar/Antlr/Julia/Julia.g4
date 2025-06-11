@@ -10,7 +10,7 @@ scope:  scopeKeyword emptyLines? Name=scope_name emptyLines? statements? emptyLi
 procedure: procedureKeyword emptyLines? Name=identifier Params=param_list? Statements=statements? emptyLines? endKeyword;
 struct: structKeyword struct_definition emptyLines? ;
 
-struct_definition: Name=identifier Bounds=const_array_list? emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
+struct_definition: struct_name emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
 conditional: ifKeyword emptyLines? expression emptyLines? thenKeyword emptyLines? Then=statement* (elifKeyword emptyLines expression emptyLines? thenKeyword emptyLines? statements?)* (elseKeyword emptyLines? Else=statement*)? emptyLines? endKeyword;
@@ -24,12 +24,16 @@ param_list: LPAR identifier (COMMA identifier)* RPAR;
 const_array_list: LPAR NUMBER (COMMA NUMBER)* RPAR;
 // struct
 //structMemberList: structMember+ ;
+struct_name: Name=identifier Bounds=const_array_list?;
 structMembers:  emptyLines? structMember emptyLines? (memberSeparator emptyLines? structMember emptyLines?)*  memberSeparator? emptyLines?;
 enumMembers: emptyLines? enumMember emptyLines? (memberSeparator emptyLines? enumMember emptyLines?)* memberSeparator? emptyLines?;
 structMember
-    : (Name=identifier emptyLines? Type=typename)
-    | struct_definition;
-    
+    : structField
+    | structStruct;
+
+structField:   (Name=identifier emptyLines? Type=typename);
+structStruct:  struct_definition; 
+
 enumMember: (Name=identifier);
 identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
 typename 
