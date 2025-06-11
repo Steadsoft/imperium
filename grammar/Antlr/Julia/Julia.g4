@@ -6,11 +6,11 @@ source: ((statementSeparator? statements? ) endOfFile) | endOfFile;
 statement:  ((label | scope | enum | struct | conditional | procedure | assignment) statementSeparator emptyLines? ) | statementSeparator emptyLines? ;
 statements: (statement)+;
 label: AT IDENTIFIER;
-scope:  scopeKeyword emptyLines? Name=scope_name emptyLines? statements? emptyLines? endKeyword;
-procedure: procedureKeyword emptyLines? Name=identifier Params=param_list? Statements=statements? emptyLines? endKeyword;
-struct: structKeyword struct_definition emptyLines? ;
+scope:  scopeKeyword emptyLines? Name=scopeName emptyLines? statements? emptyLines? endKeyword;
+procedure: procedureKeyword emptyLines? Name=identifier Params=paramList? Statements=statements? emptyLines? endKeyword;
+struct: structKeyword structDefinition emptyLines? ;
 
-struct_definition: struct_name emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
+structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
 conditional: ifKeyword emptyLines? expression emptyLines? thenKeyword emptyLines? Then=statement* (elifKeyword emptyLines expression emptyLines? thenKeyword emptyLines? statements?)* (elseKeyword emptyLines? Else=statement*)? emptyLines? endKeyword;
@@ -19,12 +19,13 @@ assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
 
 // Proc
 
-scope_name: identifier (DOT identifier)*;
-param_list: LPAR identifier (COMMA identifier)* RPAR;
-const_array_list: LPAR NUMBER (COMMA NUMBER)* RPAR;
+scopeName: identifier (DOT identifier)*;
+paramList: LPAR identifier (COMMA identifier)* RPAR;
+constArrayList: LPAR numericConstant (COMMA numericConstant)* RPAR;
+numericConstant: NUMBER;
 // struct
 //structMemberList: structMember+ ;
-struct_name: Name=identifier Bounds=const_array_list?;
+structName: Spelling=identifier Bounds=constArrayList?;
 structMembers:  emptyLines? structMember emptyLines? (memberSeparator emptyLines? structMember emptyLines?)*  memberSeparator? emptyLines?;
 enumMembers: emptyLines? enumMember emptyLines? (memberSeparator emptyLines? enumMember emptyLines?)* memberSeparator? emptyLines?;
 structMember
@@ -32,19 +33,19 @@ structMember
     | structStruct;
 
 structField:   (Name=identifier emptyLines? Type=typename);
-structStruct:  struct_definition; 
+structStruct:  structDefinition; 
 
 enumMember: (Name=identifier);
 identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
 typename 
-    : integer_type 
-    | string_type 
-    | bitstring_type 
+    : integerType 
+    | stringType 
+    | bitstringType 
     ;
 
-integer_type: BYTE | WORD | DWORD | QWORD;
-string_type: STRING '(' NUMBER ')';
-bitstring_type: BIT '(' NUMBER ')';
+integerType: BYTE | WORD | DWORD | QWORD;
+stringType: STRING '(' NUMBER ')';
+bitstringType: BIT '(' NUMBER ')';
 
 // Expresions
 

@@ -35,7 +35,7 @@ scope path.scope end
     end
 
   end
-*/
+
 scope main_code.system
 
   if then = struct then
@@ -51,7 +51,7 @@ scope main_code.system
 
 
 end
-/*
+
 @restart
 
 
@@ -74,15 +74,20 @@ struct mapping_2,
     status qword,
     message string(16),
     end
-
+*/
     proc entry_point (input, output)
 
-        struct inner,
+        struct inner(32,32),
             f0 dword,
             f1 word,
             f2 string(32),
+            
+            table(16),
+               f4 dword,
+               f4 dword
+            end
         end
-
+/*
         if 
         a = b 
         then
@@ -102,10 +107,28 @@ struct mapping_2,
             label = yes;
         end
             
-        
+        */
 
     end
 
+
+
+
+/*
+struct heap_header,
+   free_space dword,
+   used_space dword,
+   map,
+      type byte,
+      age  byte
+   end
+end
+
+dcl control heap_header;
+
+control.free_space = 0;
+
+control.map.type = 12;
 
 */
 

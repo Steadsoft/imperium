@@ -1,14 +1,5 @@
 ﻿using Antlr4.Runtime;
-using Antlr4.Runtime.Misc;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
-using SourceContext = JuliaParser.SourceContext;
+using static JuliaParser;
 
 namespace JuliaCode
 {
@@ -40,16 +31,16 @@ namespace JuliaCode
         {
             excludedTypes = new HashSet<Type>
             {
-                typeof(JuliaParser.EmptyLinesContext),
-                typeof(JuliaParser.StatementSeparatorContext),
-                typeof(JuliaParser.MemberSeparatorContext) ,
-                typeof(JuliaParser.IfKeywordContext),
-                typeof(JuliaParser.ThenKeywordContext),
-                typeof(JuliaParser.ElifKeywordContext),
-                typeof(JuliaParser.ElseKeywordContext),
-                typeof(JuliaParser.ScopeKeywordContext),
-                typeof(JuliaParser.StructKeywordContext) ,
-                typeof(JuliaParser.EndOfFileContext)
+                typeof(EmptyLinesContext),
+                typeof(StatementSeparatorContext),
+                typeof(MemberSeparatorContext) ,
+                typeof(IfKeywordContext),
+                typeof(ThenKeywordContext),
+                typeof(ElifKeywordContext),
+                typeof(ElseKeywordContext),
+                typeof(ScopeKeywordContext),
+                typeof(StructKeywordContext) ,
+                typeof(EndOfFileContext)
             };
         }
 
@@ -78,7 +69,7 @@ namespace JuliaCode
                 return TransformTree(children.Single());
             }
 
-            if (context is JuliaParser.StatementsContext)
+            if (context is StatementsContext)
             {
                 var node = new StatementsNode(context);
 
@@ -90,10 +81,10 @@ namespace JuliaCode
                     {
                         var newnode = statement switch
                         {
-                            JuliaParser.ScopeContext match => CreateScope(match),
-                            JuliaParser.StructContext match => CreateStruct(match),
-                            JuliaParser.ProcedureContext match => CreateProcedure(match),
-                            JuliaParser.ConditionalContext match => CreateConditional(match),
+                            ScopeContext match => CreateScope(match),
+                            StructContext match => CreateStruct(match),
+                            ProcedureContext match => CreateProcedure(match),
+                            ConditionalContext match => CreateConditional(match),
 
                             _ => new AstNode(statement)
                         };
@@ -118,43 +109,103 @@ namespace JuliaCode
 
             return context.children.Where(c => (c is ParserRuleContext) && !excludedTypes.Contains(c.GetType())).Cast<ParserRuleContext>().ToList();
         }
-        private static AstNode CreateScope(JuliaParser.ScopeContext context)
+        private static AstNode CreateScope(ScopeContext context)
         {
-            return new ScopeStatemetNode(context) { Name = context.Name.GetText() };
+            return new Scope(context) { Spelling = context.Name.GetText() };
         }
-        private static AstNode CreateStruct(JuliaParser.StructContext context)
+        private static AstNode CreateStruct(StructContext context)
         {
-            var node = new StructStatementNode(context);
+            var name = context.GetNode<StructDefinitionContext,StructNameContext>();
+            var spelling = name.GetLabelText("Spelling"); 
+            var bounds = name.GetNode<ConstArrayListContext>().GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
+            var members = context.GetNode<StructDefinitionContext, StructMembersContext>();
+            var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>());
+            var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructStructContext>());
 
-            node.Name = context.Name.GetText(); //.GetChild(0).ToString();
+            var nodeFields = fields.Select(d => new StructField(d)).ToList();
 
-            foreach (var c in GetChildren(context.Members))
-            {
-                var member = new StructMemberNode(c);
-
-                member.Name = ((JuliaParser.StructMemberContext)(c)).Name.GetText(); //.GetChild(0).ToString();
-                member.Type = ((JuliaParser.StructMemberContext)c).Type.GetChild(0).GetChild(0).ToString();
-
-                node.Members.Add(member);
-            }
+            var node = new Struct(context) { Spelling = spelling, Bounds = bounds, Fields = nodeFields };
 
             return node;
         }
-        private static AstNode CreateProcedure(JuliaParser.ProcedureContext context)
+        private static AstNode CreateProcedure(ProcedureContext context)
         {
-            var node = new ProcedureNode(context);
+            var node = new Procedure(context);
 
-            node.Name = context.Name.GetText(); //.GetChild(0).ToString();
+            node.Spelling = context.Name.GetText(); //.GetChild(0).ToString();
 
-            node.Parameters = GetChildren(context.Params).Select(p => p.GetChild(0).ToString()).ToList();
+            node.Parameters = [.. GetChildren(context.Params).Select(p => p.GetChild(0).ToString())];
 
             node.Statements = TransformTree(context.Statements);
 
             return node;
         }
-        private static AstNode CreateConditional(JuliaParser.ConditionalContext context)
+        private static AstNode CreateConditional(ConditionalContext context)
         {
-            return new ConditionalNode(context);
+            return new Conditional(context);
+        }
+
+        public static R4 GetNode<R, R1, R2, R3, R4>(this ParserRuleContext context) 
+            where R : ParserRuleContext 
+            where R1 : ParserRuleContext 
+            where R2 : ParserRuleContext 
+            where R3 : ParserRuleContext 
+            where R4 : ParserRuleContext
+        {
+            return context.GetNode<R>().GetNode<R1>().GetNode<R2>().GetNode<R3>().GetNode<R4>();
+        }
+
+        public static R3 GetNode<R, R1, R2, R3>(this ParserRuleContext context) where R : ParserRuleContext where R1 : ParserRuleContext where R2 : ParserRuleContext where R3 : ParserRuleContext
+        {
+            return context.GetNode<R>().GetNode<R1>().GetNode<R2>().GetNode<R3>();
+        }
+
+        public static R2 GetNode<R, R1, R2>(this ParserRuleContext context) where R : ParserRuleContext where R1 : ParserRuleContext where R2 : ParserRuleContext
+        {
+            return context.GetNode<R>().GetNode<R1>().GetNode<R2>();
+        }
+
+        public static R1 GetNode<R,R1>(this ParserRuleContext context)  where R : ParserRuleContext where R1 : ParserRuleContext
+        {
+            return context.GetNode<R>().GetNode<R1>();
+        }
+
+        public static T GetNode<T>(this ParserRuleContext context) where T : ParserRuleContext
+        {
+            if (context.children == null)
+                return null;
+
+            var matches = context.children.Where(child => child.GetType() == typeof(T)).ToList();
+
+            if (matches.Any() == false)
+                return null;
+
+            if (matches.Count() > 1)
+                throw new InvalidOperationException("More than one matching child.");
+
+            return (T)matches.Single();
+        }
+
+        public static List<T> GetNodes<T>(this ParserRuleContext context) where T : ParserRuleContext
+        {
+            if (context.children == null)
+                return null;
+
+            var matches = context.children.Where(child => child.GetType() == typeof(T)).Cast<T>().ToList();
+
+            if (matches.Any() == false)
+                return new List<T>();
+
+            return matches;
+        }
+
+        public static string GetLabelText(this ParserRuleContext context, string Label)
+        {
+            return ((ParserRuleContext)(context.GetType().GetField(Label).GetValue(context))).GetText();
+        }
+        public static string GetText(Antlr4.Runtime.Tree.ITerminalNode Node)
+        {
+            return Node.GetText();
         }
     }
 
@@ -173,11 +224,11 @@ namespace JuliaCode
             StopColumn = context.Stop.Column;
         }
     }
-    public class ScopeStatemetNode : AstNode
+    public class Scope : AstNode
     {
-        public string Name;
+        public string Spelling;
 
-        public ScopeStatemetNode(ParserRuleContext context) : base(context)
+        public Scope(ParserRuleContext context) : base(context)
         {
         }
     }
@@ -195,41 +246,44 @@ namespace JuliaCode
         {
         }
     }
-    public class StructStatementNode : AstNode
+    public class Struct : AstNode
     {
-        public string Name;
-        public List<StructMemberNode> Members = new List<StructMemberNode>();
+        public string Spelling;
+        public List<int> Bounds = new List<int>();
+        public List<StructField> Fields = new List<StructField>();
 
-        public StructStatementNode(ParserRuleContext context) : base(context)
+        public Struct(ParserRuleContext context) : base(context)
         {
         }
     }
-    public class StructMemberNode : AstNode
+    public class StructField : AstNode
     {
-        public string Name;
+        public string Spelling;
         public string Type;
 
-        public StructMemberNode(ParserRuleContext context) : base(context)
+        public StructField(StructFieldContext context) : base(context)
         {
+            Spelling = context.Name.GetText();
+            Type = context.Type.GetText();
         }
     }
-    public class ProcedureNode : AstNode
+    public class Procedure : AstNode
     {
-        public string Name;
+        public string Spelling;
         public List<string> Parameters = new List<string>();
         public AstNode Statements;
 
-        public ProcedureNode(ParserRuleContext context) : base(context)
+        public Procedure(ParserRuleContext context) : base(context)
         {
         }
     }
-    public class ConditionalNode : AstNode
+    public class Conditional : AstNode
     {
         public AstNode Expr;
         public AstNode ThenStatements;
         public AstNode ElseStatement;
 
-        public ConditionalNode(ParserRuleContext context) : base(context)
+        public Conditional(ParserRuleContext context) : base(context)
         {
             var children = TreeWalker.GetChildren(context); ;
         }
