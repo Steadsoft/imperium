@@ -17,17 +17,17 @@ namespace JuliaCode
 
             var comments = tokens.GetTokens().Where(t => t.Channel == Lexer.Hidden).ToList();
 
-            TreeWalker.PrintTree(cst);
+            Compiler.PrintConcreteSyntaxTree(cst);
 
-            var ast = TreeWalker.TransformTree(cst);
+            var ast = Compiler.GenerateAbstractSyntaxTree(cst);
         }
     }
 
-    public static class TreeWalker
+    public static class Compiler
     {
         public static int depth = 0;
         public static HashSet<Type> excludedTypes;
-        static TreeWalker()
+        static Compiler()
         {
             excludedTypes = new HashSet<Type>
             {
@@ -44,7 +44,7 @@ namespace JuliaCode
             };
         }
 
-        public static void PrintTree(ParserRuleContext context)
+        public static void PrintConcreteSyntaxTree(ParserRuleContext context)
         {
             Console.WriteLine(depth.ToString().PadRight(depth) + " " + RemoveContext(context.GetType().Name));
 
@@ -55,18 +55,18 @@ namespace JuliaCode
                 foreach (var child in children)
                 {
                     depth++;
-                    PrintTree(child);
+                    PrintConcreteSyntaxTree(child);
                     depth--;
                 }
             }
         }
-        public static AstNode TransformTree(ParserRuleContext context)
+        public static AstNode GenerateAbstractSyntaxTree(ParserRuleContext context)
         {
             var children = GetChildren(context);
 
             if (context is SourceContext)
             {
-                return TransformTree(children.Single());
+                return GenerateAbstractSyntaxTree(children.Single());
             }
 
             if (context is StatementsContext)
@@ -120,10 +120,9 @@ namespace JuliaCode
             var bounds = name.GetNode<ConstArrayListContext>().GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
             var members = context.GetNode<StructMembersContext>();
             var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => new StructField(d)).ToList();
-            var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructDefinitionContext>());
-            var subs = structs.Select(s => CreateStruct(s)).ToList();
+            var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructDefinitionContext>()).Select(s => CreateStruct(s)).ToList();
 
-            return new Struct(context) { Spelling = spelling, Bounds = bounds, Fields = fields, Structs = subs };
+            return new Struct(context) { Spelling = spelling, Bounds = bounds, Fields = fields, Structs = structs };
         }
         private static AstNode CreateProcedure(ProcedureContext context)
         {
@@ -133,7 +132,7 @@ namespace JuliaCode
 
             node.Parameters = [.. GetChildren(context.Params).Select(p => p.GetChild(0).ToString())];
 
-            node.Statements = TransformTree(context.Statements);
+            node.Statements = GenerateAbstractSyntaxTree(context.Statements);
 
             return node;
         }
@@ -306,7 +305,7 @@ namespace JuliaCode
 
         public Conditional(ParserRuleContext context) : base(context)
         {
-            var children = TreeWalker.GetChildren(context); ;
+            var children = Compiler.GetChildren(context); ;
         }
     }
 }

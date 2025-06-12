@@ -6,8 +6,8 @@ REM --------------------------------------------------------------------
 
 cd %1
 
-java org.antlr.v4.Tool %1.g4 -visitor
-java org.antlr.v4.Tool %1.g4 -visitor -Dlanguage=CSharp
+java org.antlr.v4.Tool %1.g4 -no-listener -no-visitor
+java org.antlr.v4.Tool %1.g4 -no-listener -no-visitor -Dlanguage=CSharp
 REM ----------------------------------------------------------------------------------------------------
 REM This next step compiles the java code and creates a large number of .class files with $ in the name
 REM -----------------------------------------------------------------------------------------------------
