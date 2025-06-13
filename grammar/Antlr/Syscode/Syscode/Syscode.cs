@@ -9,27 +9,41 @@ namespace Syscode
     {
         public static void Main()
         {
-            var source = new StreamReader(@"..\..\..\..\test1.sys");
-            var stream = new AntlrInputStream(source);
-            var lexer = new SyscodeLexer(stream);
-            var tokens = new CommonTokenStream(lexer);
-            var parser = new SyscodeParser(tokens);
+            //var source = new StreamReader(@"..\..\..\..\test1.sys");
+            //var stream = new AntlrInputStream(source);
+            //var lexer = new SyscodeLexer(stream);
+            //var tokens = new CommonTokenStream(lexer);
+            //var parser = new SyscodeParser(tokens);
 
-            var cst = parser.source();
+            //var vocab = SyscodeLexer.DefaultVocabulary;
 
-            var comments = tokens.GetTokens().Where(t => t.Channel == Lexer.Hidden).ToList();
+            //var txt = vocab.GetLiteralName(BIN);
 
-            Compiler.PrintConcreteSyntaxTree(cst);
+            //var cst = parser.source();
 
-            var ast = Compiler.GenerateAbstractSyntaxTree(cst);
+            //var comments = tokens.GetTokens().Where(t => t.Channel == Lexer.Hidden).ToList();
+
+            //var compiler = new SyscodeCompiler(lexer,parser);
+
+            //compiler.PrintConcreteSyntaxTree(cst);
+
+            //var ast = compiler.GenerateAbstractSyntaxTree(cst);
+
+            var compiler = new SyscodeCompiler();
+
+            var cst = compiler.CompileSourceFile(@"..\..\..\..\test1.sys");
+
+            compiler.PrintConcreteSyntaxTree(cst);
+
+            var ast = compiler.GenerateAbstractSyntaxTree(cst);
         }
     }
 
-    public static class Compiler
+    public class SyscodeCompiler
     {
-        public static int depth = 0;
         public static HashSet<Type> excludedTypes;
-        static Compiler()
+
+        static SyscodeCompiler()
         {
             excludedTypes = new HashSet<Type>
             {
@@ -46,7 +60,27 @@ namespace Syscode
             };
         }
 
-        public static void PrintConcreteSyntaxTree(ParserRuleContext context)
+        private SyscodeLexer lexer;
+        private SourceContext cst;
+        private IVocabulary vocabulary;
+        public SyscodeCompiler()
+        {
+        }
+
+        public SourceContext CompileSourceFile(string File)
+        {
+            var source = new StreamReader(File);
+            var stream = new AntlrInputStream(source);
+            lexer = new SyscodeLexer(stream);
+            vocabulary = SyscodeLexer.DefaultVocabulary;
+            var tokens = new CommonTokenStream(lexer);
+            var parser = new SyscodeParser(tokens);
+
+            return parser.source();
+
+        }
+
+        public void PrintConcreteSyntaxTree(ParserRuleContext context, int depth=0)
         {
             Console.WriteLine(depth.ToString().PadRight(depth) + " " + RemoveContext(context.GetType().Name));
 
@@ -57,15 +91,12 @@ namespace Syscode
                 foreach (var child in children)
                 {
                     depth++;
-                    PrintConcreteSyntaxTree(child);
+                    PrintConcreteSyntaxTree(child, depth);
                     depth--;
                 }
             }
         }
-
-       
-
-        public static AstNode GenerateAbstractSyntaxTree(ParserRuleContext context)
+        public  AstNode GenerateAbstractSyntaxTree(ParserRuleContext context)
         {
             var children = GetChildren(context);
 
@@ -103,7 +134,7 @@ namespace Syscode
 
             return null;
         }
-        private static string RemoveContext(string input)
+        private  string RemoveContext(string input)
         {
             return input.Replace("Context", "");
         }
@@ -114,11 +145,11 @@ namespace Syscode
 
             return context.children.Where(c => (c is ParserRuleContext) && !excludedTypes.Contains(c.GetType())).Cast<ParserRuleContext>().ToList();
         }
-        private static AstNode CreateScope(ScopeContext context)
+        private  AstNode CreateScope(ScopeContext context)
         {
             return new Scope(context) { Spelling = context.Name.GetText() };
         }
-        private static Struct CreateStruct(StructDefinitionContext context)
+        private Struct CreateStruct(StructDefinitionContext context)
         {
             var name = context.GetNode<StructNameContext>();
             var spelling = name.GetLabelText("Spelling");
@@ -132,15 +163,15 @@ namespace Syscode
             elements.AddRange(fields);
             elements.AddRange(structs);
 
-            var s = new Struct(context) { Spelling = spelling, Bounds = bounds, Members = elements};
+            var s = new Struct(context) { Spelling = spelling, Bounds = bounds, Members = elements };
 
-           Console.WriteLine($"{s.Spelling} -> {s.IRType}");
+            Console.WriteLine($"{s.Spelling} -> {s.IRType}");
 
             return s;
 
 
         }
-        private static AstNode CreateProcedure(ProcedureContext context)
+        private AstNode CreateProcedure(ProcedureContext context)
         {
             var node = new Procedure(context);
 
@@ -152,16 +183,25 @@ namespace Syscode
 
             return node;
         }
-        private static AstNode CreateConditional(ConditionalContext context)
+        private AstNode CreateConditional(ConditionalContext context)
         {
             return new Conditional(context);
         }
+        public string GetText(Antlr4.Runtime.Tree.ITerminalNode Node)
+        {
+            return Node.GetText();
+        }
+
+    }
+
+    public static class SyscodeExtensions
+    {
         public static R4 GetNode<R, R1, R2, R3, R4>(this ParserRuleContext context)
-            where R : ParserRuleContext
-            where R1 : ParserRuleContext
-            where R2 : ParserRuleContext
-            where R3 : ParserRuleContext
-            where R4 : ParserRuleContext
+             where R : ParserRuleContext
+             where R1 : ParserRuleContext
+             where R2 : ParserRuleContext
+             where R3 : ParserRuleContext
+             where R4 : ParserRuleContext
         {
             return context.GetNode<R>().GetNode<R1>().GetNode<R2>().GetNode<R3>().GetNode<R4>();
         }
@@ -223,12 +263,8 @@ namespace Syscode
         {
             return ((ParserRuleContext)(context.GetType().GetField(Label).GetValue(context))).GetText();
         }
-        public static string GetText(Antlr4.Runtime.Tree.ITerminalNode Node)
-        {
-            return Node.GetText();
-        }
-    }
 
+    }
     public class AstNode
     {
         public readonly int StartLine;
@@ -393,7 +429,7 @@ namespace Syscode
 
         public Conditional(ParserRuleContext context) : base(context)
         {
-            var children = Compiler.GetChildren(context); ;
+            var children = SyscodeCompiler.GetChildren(context); ;
         }
     }
 
