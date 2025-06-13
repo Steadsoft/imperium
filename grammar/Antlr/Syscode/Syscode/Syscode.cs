@@ -1,18 +1,19 @@
 ﻿using Antlr4.Runtime;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
-using static JuliaParser;
+using static SyscodeParser;
 
-namespace JuliaCode
+namespace Syscode
 {
-    public class JuliaCode
+    public class Syscode
     {
         public static void Main()
         {
-            var source = new StreamReader(@"..\..\..\..\test1.julia");
+            var source = new StreamReader(@"..\..\..\..\test1.sys");
             var stream = new AntlrInputStream(source);
-            var lexer = new JuliaLexer(stream);
+            var lexer = new SyscodeLexer(stream);
             var tokens = new CommonTokenStream(lexer);
-            var parser = new JuliaParser(tokens);
+            var parser = new SyscodeParser(tokens);
 
             var cst = parser.source();
 
@@ -61,6 +62,9 @@ namespace JuliaCode
                 }
             }
         }
+
+       
+
         public static AstNode GenerateAbstractSyntaxTree(ParserRuleContext context)
         {
             var children = GetChildren(context);
@@ -128,7 +132,13 @@ namespace JuliaCode
             elements.AddRange(fields);
             elements.AddRange(structs);
 
-            return new Struct(context) { Spelling = spelling, Bounds = bounds, Members = elements};
+            var s = new Struct(context) { Spelling = spelling, Bounds = bounds, Members = elements};
+
+           Console.WriteLine($"{s.Spelling} -> {s.IRType}");
+
+            return s;
+
+
         }
         private static AstNode CreateProcedure(ProcedureContext context)
         {

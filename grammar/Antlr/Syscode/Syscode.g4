@@ -1,4 +1,4 @@
-grammar Julia;
+grammar Syscode;
 
 // Parser rules
 

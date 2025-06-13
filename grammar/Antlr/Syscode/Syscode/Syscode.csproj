@@ -8,9 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\JuliaLexer.cs" Link="JuliaLexer.cs" />
-    <!--<Compile Include="..\JuliaListener.cs" Link="JuliaListener.cs" />-->
-    <Compile Include="..\JuliaParser.cs" Link="JuliaParser.cs" />
+    <Compile Include="..\SyscodeLexer.cs" Link="SyscodeLexer.cs" />
+    <Compile Include="..\SyscodeParser.cs" Link="SyscodeParser.cs" />
   </ItemGroup>
 
 	<ItemGroup>
