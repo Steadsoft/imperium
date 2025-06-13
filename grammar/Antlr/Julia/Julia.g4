@@ -39,12 +39,15 @@ structStruct:  structDefinition;
 enumMember: (Name=identifier);
 identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
 typename 
-    : integerType 
+    : integerType
+    | binaryType 
     | stringType 
     | bitstringType 
     ;
 
-integerType: BYTE | WORD | DWORD | QWORD;
+integerType: BIN8 | BIN16 | BIN32 | BIN64 ;
+binaryType: BIN LPAR NUMBER RPAR ;
+
 stringType: STRING '(' NUMBER ')';
 bitstringType: BIT '(' NUMBER ')';
 
@@ -92,11 +95,12 @@ IF: 'if';
 THEN: 'then';
 ELIF: 'elif';
 ELSE: 'else';
-BYTE: 'byte';
+BIN8: 'bin8';
 BIT: 'bit';
-WORD: 'word';
-DWORD: 'dword';
-QWORD: 'qword';
+BIN: 'bin';
+BIN16: 'bin16';
+BIN32: 'bin32';
+BIN64: 'bin64';
 STRING: 'string';
 ENUM: 'enum';
 DCL: 'dcl';

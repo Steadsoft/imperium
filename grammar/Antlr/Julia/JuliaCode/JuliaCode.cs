@@ -1,4 +1,5 @@
 ﻿using Antlr4.Runtime;
+using System.Text;
 using static JuliaParser;
 
 namespace JuliaCode
@@ -116,13 +117,18 @@ namespace JuliaCode
         private static Struct CreateStruct(StructDefinitionContext context)
         {
             var name = context.GetNode<StructNameContext>();
-            var spelling = name.GetLabelText("Spelling"); 
+            var spelling = name.GetLabelText("Spelling");
             var bounds = name.GetNode<ConstArrayListContext>().GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
             var members = context.GetNode<StructMembersContext>();
             var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => new StructField(d)).ToList();
             var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructDefinitionContext>()).Select(s => CreateStruct(s)).ToList();
 
-            return new Struct(context) { Spelling = spelling, Bounds = bounds, Fields = fields, Structs = structs };
+            var elements = new List<StructMember>();
+
+            elements.AddRange(fields);
+            elements.AddRange(structs);
+
+            return new Struct(context) { Spelling = spelling, Bounds = bounds, Members = elements};
         }
         private static AstNode CreateProcedure(ProcedureContext context)
         {
@@ -140,11 +146,11 @@ namespace JuliaCode
         {
             return new Conditional(context);
         }
-        public static R4 GetNode<R, R1, R2, R3, R4>(this ParserRuleContext context) 
-            where R : ParserRuleContext 
-            where R1 : ParserRuleContext 
-            where R2 : ParserRuleContext 
-            where R3 : ParserRuleContext 
+        public static R4 GetNode<R, R1, R2, R3, R4>(this ParserRuleContext context)
+            where R : ParserRuleContext
+            where R1 : ParserRuleContext
+            where R2 : ParserRuleContext
+            where R3 : ParserRuleContext
             where R4 : ParserRuleContext
         {
             return context.GetNode<R>().GetNode<R1>().GetNode<R2>().GetNode<R3>().GetNode<R4>();
@@ -157,7 +163,7 @@ namespace JuliaCode
         {
             return context.GetNode<R>().GetNode<R1>().GetNode<R2>();
         }
-        public static R1 GetNode<R,R1>(this ParserRuleContext context)  where R : ParserRuleContext where R1 : ParserRuleContext
+        public static R1 GetNode<R, R1>(this ParserRuleContext context) where R : ParserRuleContext where R1 : ParserRuleContext
         {
             return context.GetNode<R>().GetNode<R1>();
         }
@@ -176,7 +182,6 @@ namespace JuliaCode
 
             return (T)matches.Single();
         }
-
         public static bool HasNode<T>(this ParserRuleContext context) where T : ParserRuleContext
         {
             if (context.children == null)
@@ -192,7 +197,6 @@ namespace JuliaCode
 
             return true;
         }
-
         public static List<T> GetNodes<T>(this ParserRuleContext context) where T : ParserRuleContext
         {
             if (context.children == null)
@@ -252,12 +256,11 @@ namespace JuliaCode
         {
         }
     }
-    public class Struct : AstNode
+    public class Struct : StructMember
     {
         public string Spelling;
         public List<int> Bounds = new List<int>();
-        public List<StructField> Fields = new List<StructField>();
-        public List<Struct> Structs = new List<Struct>();
+        public List<StructMember> Members = new List<StructMember>();
         public Struct(ParserRuleContext context) : base(context)
         {
         }
@@ -266,12 +269,38 @@ namespace JuliaCode
         {
             return Spelling;
         }
+
+        public string IRType
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+
+                //foreach (var field in Members)
+                //{
+                //    sb.Append($"{field.IRType}, ");
+                //}
+                return "";
+
+            }
+
+        }
+
     }
-    public class StructField : AstNode
+
+    public class StructMember : AstNode
+    {
+        public int Ordinal;
+
+        public StructMember(ParserRuleContext context) : base(context)
+        {
+            Ordinal = context.Start.StartIndex;
+        }
+    }
+    public class StructField : StructMember
     {
         public string Spelling;
         public string Type;
-
         public StructField(StructFieldContext context) : base(context)
         {
             Spelling = context.Name.GetText();
@@ -281,6 +310,22 @@ namespace JuliaCode
         public override string ToString()
         {
             return Spelling;
+        }
+
+        public string IRType
+        {
+            get
+            {
+                return Type switch
+                {
+                    "bin8" => "i8",
+                    "bin16" => "i16",
+                    "bin32" => "i32",
+                    "bin64" => "i64",
+                    _ => throw new NotImplementedException()
+                };
+
+            }
         }
     }
     public class Procedure : AstNode
@@ -308,4 +353,5 @@ namespace JuliaCode
             var children = Compiler.GetChildren(context); ;
         }
     }
+
 }
