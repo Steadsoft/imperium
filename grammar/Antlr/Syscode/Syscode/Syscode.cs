@@ -36,6 +36,8 @@ namespace Syscode
             compiler.PrintConcreteSyntaxTree(cst);
 
             var ast = compiler.GenerateAbstractSyntaxTree(cst);
+
+            var types = compiler.GetLLVMStructTypes((StatementsNode)ast);
         }
     }
 
@@ -192,6 +194,71 @@ namespace Syscode
             return Node.GetText();
         }
 
+        public List<(string, string)> GetLLVMStructTypes(StatementsNode statements)
+        {
+            List<(string,string)> types = new List<(string, string)>();
+
+            foreach (AstNode Node in statements.Statements)
+            {
+                switch (Node)
+
+                {
+                    case Struct structure:
+                        {
+                            var txt = GetLLVMStructType(structure);
+                            types.Add((structure.Spelling,txt));
+
+                            foreach (var m in structure.Members)
+                            {
+                                if (m is Struct)
+                                {
+                                    var mmm = GetLLVMStructType((Struct)m);
+                                    types.Add((m.Spelling, mmm));
+                                }
+                            }
+
+                            break;
+                        }
+                    case Procedure procedure:
+                        {
+                            var txt = GetLLVMStructTypes(procedure.Statements as StatementsNode);
+                            types.AddRange(txt);
+                            break;
+                        }
+                }
+            }
+
+            return types;
+        }
+
+        public string GetLLVMStructType(Struct structure)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var member in structure.Members.OrderBy(m => m.Ordinal))
+            {
+                switch (member)
+                {
+                    case StructField f:
+                        {
+                            sb.Append($"{f.IRType}, ");
+                            break;
+                        }
+                    case Struct s:
+                        {
+                            sb.Append($"%{s.Spelling}, ");
+                            break;
+                        }
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+
+            var txt = $"{{ {sb.ToString().TrimEnd(' ', ',')} }}";
+
+            return txt;
+
+        }
     }
 
     public static class SyscodeExtensions
@@ -304,7 +371,7 @@ namespace Syscode
     }
     public class Struct : StructMember
     {
-        public string Spelling;
+        //public string Spelling;
         public List<int> Bounds = new List<int>();
         public List<StructMember> Members = new List<StructMember>();
         public Struct(ParserRuleContext context) : base(context)
@@ -350,6 +417,7 @@ namespace Syscode
     public class StructMember : AstNode
     {
         public int Ordinal;
+        public string Spelling;
 
         public StructMember(ParserRuleContext context) : base(context)
         {
@@ -358,7 +426,7 @@ namespace Syscode
     }
     public class StructField : StructMember
     {
-        public string Spelling;
+        //public string Spelling;
         public string TypeName;
         public int Length;
         public StructField(StructFieldContext context) : base(context)
