@@ -276,12 +276,25 @@ namespace JuliaCode
             {
                 StringBuilder sb = new StringBuilder();
 
-                //foreach (var field in Members)
-                //{
-                //    sb.Append($"{field.IRType}, ");
-                //}
-                return "";
-
+                foreach (var member in Members.OrderBy(m => m.Ordinal))
+                {
+                    switch (member)
+                    {
+                        case StructField f:
+                            {
+                                sb.Append($"{f.IRType}, ");
+                                break;
+                            }
+                        case Struct s:
+                            {
+                                sb.Append($"%{s.Spelling}, ");
+                                break;
+                            }
+                        default:
+                            throw new NotImplementedException();
+                    }
+                }
+                return $"{{ {sb.ToString().TrimEnd(' ',',')} }}";
             }
 
         }
@@ -300,11 +313,33 @@ namespace JuliaCode
     public class StructField : StructMember
     {
         public string Spelling;
-        public string Type;
+        public string TypeName;
+        public int Length;
         public StructField(StructFieldContext context) : base(context)
         {
             Spelling = context.Name.GetText();
-            Type = context.Type.GetText();
+            var type = context.Type.GetText();
+
+            if (type.Contains("("))
+            {
+                int lp = type.IndexOf("(");
+                int rp = type.IndexOf(")");
+                TypeName = type.Substring(0, lp);
+                Length = Convert.ToInt32(type.Substring(lp+1,rp-(lp+1)));
+            }
+            else
+            {
+                if (type.StartsWith("bin"))
+                {
+                    TypeName = "bin";
+                    Length = Convert.ToInt32(type.Substring(3));
+                }
+                if (type.StartsWith("string"))
+                {
+                    TypeName = "string";
+                    Length = Convert.ToInt32(type.Substring(6));
+                }
+            }
         }
 
         public override string ToString()
@@ -316,14 +351,12 @@ namespace JuliaCode
         {
             get
             {
-                return Type switch
+                return TypeName switch
                 {
-                    "bin8" => "i8",
-                    "bin16" => "i16",
-                    "bin32" => "i32",
-                    "bin64" => "i64",
-                    _ => throw new NotImplementedException()
-                };
+                    "bin" => $"i{Length}",
+                    "string" => $"[{Length} x i8]",
+                    _ => "notyet" //throw new NotImplementedException()
+                }; 
 
             }
         }
