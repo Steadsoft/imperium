@@ -353,7 +353,6 @@ MigrationBackup/
 .ionide/
 
 # Temp/recreatable stuff generated  by Antlr
-*.class
 *.java
 **/*/*BaseListener.cs
 **/*/*BaseVisitor.cs
@@ -362,3 +361,4 @@ MigrationBackup/
 **/*/*Parser.cs
 **/*/*Visitor.cs
 
+*.bc
