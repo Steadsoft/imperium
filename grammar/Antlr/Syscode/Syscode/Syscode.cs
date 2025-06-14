@@ -19,6 +19,11 @@ namespace Syscode
             compiler.PrintAbstractSyntaxTree(ast);
 
             var types = compiler.GetLLVMStructTypes(ast);
+
+            foreach ( var type in types )
+            {
+                Console.WriteLine($"{type.Item1} = type {type.Item2}");
+            }
         }
     }
 
@@ -144,7 +149,7 @@ namespace Syscode
                             ScopeContext match => CreateScope(match),
                             StructContext match => CreateStruct(match.GetNode<StructDefinitionContext>()),
                             ProcedureContext match => CreateProcedure(match),
-                            ConditionalContext match => CreateConditional(match),
+                            ConditionalContext match => CreateIf(match),
 
                             _ => new AstNode(statement)
                         };
@@ -200,7 +205,7 @@ namespace Syscode
 
             return node;
         }
-        private AstNode CreateConditional(ConditionalContext context)
+        private AstNode CreateIf(ConditionalContext context)
         {
             var then_stmts = context.GetNode<Then_blockContext>().GetNode<StatementsContext>();
             var else_stmts = context.GetNode<Else_blockContext>().GetNode<StatementsContext>(); ;
@@ -286,9 +291,18 @@ namespace Syscode
         }
         public string GetLLVMFieldType(Field type)
         {
+            int count = 0;
+
+            if (type.Length > 64)
+            {
+                count = (type.Length + 63) / 64;   // bit strings will be stored as arrays of bytes, words or whatever...
+            }
+
+
             return type.TypeName switch
             {
                 "int" => $"i{type.Length}",
+                "bit" => $"i{type.Length}",
                 "string" => $"[{type.Length} x i8]",
                 _ => "notyet" //throw new NotImplementedException()
             };

@@ -106,7 +106,8 @@ struct mapping_2,
 
         struct second,
            age int32,
-           range int8
+           range int8,
+           mask bit(123)
         end
 /*
         if 

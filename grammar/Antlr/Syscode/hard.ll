@@ -1,9 +1,12 @@
 ; ModuleID = 'factorial'
 declare i43 @printf(i8*, ...)
 
-  %Outer = type { i64, %Inner, double }
+%outermost = type { i32, i16, [32 x i8], %inner_1, %inner_2 }
+%inner_1 = type { i14, i27 }
+%inner_2 = type { i16, i64, i11, %inner_2_inner_1 }
+%inner_2_inner_1 = type { i16, i32 }
+%second = type { i32, i8 }
 
-  %Inner = type { i8, i32 } 
 
 
 
@@ -34,4 +37,20 @@ entry:
   %fmtptr = getelementptr inbounds [22 x i8], [22 x i8]* @.fmt, i43 0, i43 0
   call i43 (i8*, ...) @printf(i8* %fmtptr, i43 5, i43 %val)
   ret i43 0
+}
+
+; In LLVM we will represent arbitrary length bit strings as some multiple
+; of some chosen length lik 8 or 16 or 32 etc.
+; For a 128 bit string we'd get the n'th bit like this:
+
+define i1 @get_bit_128(i32* %registers, i32 %bit_index) {
+entry:
+    %register_index = udiv i32 %bit_index, 32   ; Find the register
+    %bit_position = urem i32 %bit_index, 32     ; Find position in register
+    %register_ptr = getelementptr i32, i32* %registers, i32 %register_index
+    %register_value = load i32, i32* %register_ptr
+    %shifted = lshr i32 %register_value, %bit_position
+    %bit = and i32 %shifted, 1
+    %result = trunc i32 %bit to i1
+    ret i1 %result
 }
