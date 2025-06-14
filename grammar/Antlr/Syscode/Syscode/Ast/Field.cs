@@ -1,10 +1,11 @@
 ﻿using static SyscodeParser;
+using static Syscode.LexerHelper.TokenText;
 
 namespace Syscode
 {
     public class Field : StructMember
     {
-        //public string Spelling;
+
         public string TypeName;
         public int Length;
         public Field(StructFieldContext context) : base(context)
@@ -12,23 +13,23 @@ namespace Syscode
             Spelling = context.Name.GetText();
             var type = context.Type.GetText();
 
-            if (type.Contains("("))
+            if (type.Contains(LexerHelper.TokenText.LP))
             {
-                int lp = type.IndexOf("(");
-                int rp = type.IndexOf(")");
+                int lp = type.IndexOf(LexerHelper.TokenText.LP);
+                int rp = type.IndexOf(RP);
                 TypeName = type.Substring(0, lp);
-                Length = Convert.ToInt32(type.Substring(lp+1,rp-(lp+1)));
+                Length = Convert.ToInt32(type.Substring(lp + 1, rp - (lp + 1)));
             }
             else
             {
-                if (type.StartsWith("int"))
+                if (type.StartsWith(INT))
                 {
-                    TypeName = "int";
+                    TypeName = INT;
                     Length = Convert.ToInt32(type.Substring(3));
                 }
-                if (type.StartsWith("string"))
+                if (type.StartsWith(STR))
                 {
-                    TypeName = "string";
+                    TypeName = STR;
                     Length = Convert.ToInt32(type.Substring(6));
                 }
             }

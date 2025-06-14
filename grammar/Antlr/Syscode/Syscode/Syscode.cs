@@ -289,7 +289,6 @@ namespace Syscode
             return txt;
 
         }
-
         public string GetLLVMFieldType(Field type)
         {
             return type.TypeName switch
