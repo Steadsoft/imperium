@@ -95,6 +95,11 @@ struct mapping_2,
                   f70 int32
                 end
             end
+        end,
+
+        struct second,
+           age int32,
+           range int8
         end
 /*
         if 

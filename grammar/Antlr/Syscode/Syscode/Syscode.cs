@@ -37,6 +37,8 @@ namespace Syscode
 
             var ast = compiler.GenerateAbstractSyntaxTree(cst);
 
+            compiler.PrintAbstractSyntaxTree(ast);
+
             //var types = compiler.GetLLVMStructTypes((StatementsNode)ast);
         }
     }
@@ -97,6 +99,49 @@ namespace Syscode
                     depth--;
                 }
             }
+        }
+
+        public void PrintAbstractSyntaxTree(AstNode node, int depth = 0)
+        {
+            if (node is IStatements)
+            {
+                Console.WriteLine(depth.ToString().PadRight(depth) + " " + node.GetType().Name);
+
+                var children = ((IStatements)(node)).Statements;
+
+                if (children.Any())
+                {
+                    foreach (var child in children)
+                    {
+                        depth++;
+                        PrintAbstractSyntaxTree(child, depth);
+                        depth--;
+                    }
+                }
+            }
+
+            if (node is Struct)
+            {
+                Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} {((Struct)(node)).Spelling}");
+
+                var children = ((Struct)(node)).Members;
+
+                if (children.Any())
+                {
+                    foreach (var child in children)
+                    {
+                        depth++;
+                        PrintAbstractSyntaxTree(child, depth);
+                        depth--;
+                    }
+                }
+            }
+
+            if (node is StructField)
+            {
+                Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} ({((StructField)(node)).Spelling} {((StructField)(node)).TypeName} {((StructField)(node)).Length})");
+            }
+
         }
 
         public ProgramNode GenerateAbstractSyntaxTree(SourceContext context)
@@ -168,7 +213,7 @@ namespace Syscode
 
             var s = new Struct(context) { Spelling = spelling, Bounds = bounds, Members = elements };
 
-            Console.WriteLine($"{s.Spelling} -> {s.IRType}");
+            //Console.WriteLine($"{s.Spelling} -> {s.IRType}");
 
             return s;
 
@@ -195,9 +240,10 @@ namespace Syscode
             return Node.GetText();
         }
 
-        //public List<(string, string)> GetLLVMStructTypes(ProgramNode program)
+
+        //public List<(string, string)> GetLLVMStructTypes(List<AstNode> program)
         //{
-        //    List<(string,string)> types = new List<(string, string)>();
+        //    List<(string, string)> types = new List<(string, string)>();
 
         //    foreach (AstNode Node in program.Statements)
         //    {
@@ -207,7 +253,7 @@ namespace Syscode
         //            case Struct structure:
         //                {
         //                    var txt = GetLLVMStructType(structure);
-        //                    types.Add((structure.Spelling,txt));
+        //                    types.Add((structure.Spelling, txt));
 
         //                    foreach (var m in structure.Members)
         //                    {
@@ -222,7 +268,7 @@ namespace Syscode
         //                }
         //            case Procedure procedure:
         //                {
-        //                    var txt = GetLLVMStructTypes(procedure.Statements as StatementsNode);
+        //                    var txt = GetLLVMStructTypes(procedure.Statements);
         //                    types.AddRange(txt);
         //                    break;
         //                }
@@ -332,165 +378,5 @@ namespace Syscode
             return ((ParserRuleContext)(context.GetType().GetField(Label).GetValue(context))).GetText();
         }
 
-    }
-    public class AstNode
-    {
-        public readonly int StartLine;
-        public readonly int StartColumn;
-        public readonly int StopLine;
-        public readonly int StopColumn;
-
-        public AstNode(ParserRuleContext context)
-        {
-            StartLine = context.Start.Line;
-            StartColumn = context.Start.Column;
-            StopLine = context.Stop.Line;
-            StopColumn = context.Stop.Column;
-        }
-    }
-    public class Scope : AstNode
-    {
-        public string Spelling;
-
-        public Scope(ParserRuleContext context) : base(context)
-        {
-        }
-    }
-    public class ProgramNode : AstNode
-    {
-        public List<AstNode> Statements;
-        public ProgramNode(ParserRuleContext context) : base(context)
-        {
-        }
-    }
-    public class Struct : StructMember
-    {
-        //public string Spelling;
-        public List<int> Bounds = new List<int>();
-        public List<StructMember> Members = new List<StructMember>();
-        public Struct(ParserRuleContext context) : base(context)
-        {
-        }
-
-        public override string ToString()
-        {
-            return Spelling;
-        }
-
-        public string IRType
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-
-                foreach (var member in Members.OrderBy(m => m.Ordinal))
-                {
-                    switch (member)
-                    {
-                        case StructField f:
-                            {
-                                sb.Append($"{f.IRType}, ");
-                                break;
-                            }
-                        case Struct s:
-                            {
-                                sb.Append($"%{s.Spelling}, ");
-                                break;
-                            }
-                        default:
-                            throw new NotImplementedException();
-                    }
-                }
-                return $"{{ {sb.ToString().TrimEnd(' ',',')} }}";
-            }
-
-        }
-
-    }
-    public class StructMember : AstNode
-    {
-        public int Ordinal;
-        public string Spelling;
-
-        public StructMember(ParserRuleContext context) : base(context)
-        {
-            Ordinal = context.Start.StartIndex;
-        }
-    }
-    public class StructField : StructMember
-    {
-        //public string Spelling;
-        public string TypeName;
-        public int Length;
-        public StructField(StructFieldContext context) : base(context)
-        {
-            Spelling = context.Name.GetText();
-            var type = context.Type.GetText();
-
-            if (type.Contains("("))
-            {
-                int lp = type.IndexOf("(");
-                int rp = type.IndexOf(")");
-                TypeName = type.Substring(0, lp);
-                Length = Convert.ToInt32(type.Substring(lp+1,rp-(lp+1)));
-            }
-            else
-            {
-                if (type.StartsWith("int"))
-                {
-                    TypeName = "int";
-                    Length = Convert.ToInt32(type.Substring(3));
-                }
-                if (type.StartsWith("string"))
-                {
-                    TypeName = "string";
-                    Length = Convert.ToInt32(type.Substring(6));
-                }
-            }
-        }
-
-        public override string ToString()
-        {
-            return Spelling;
-        }
-
-        public string IRType
-        {
-            get
-            {
-                return TypeName switch
-                {
-                    "int" => $"i{Length}",
-                    "string" => $"[{Length} x i8]",
-                    _ => "notyet" //throw new NotImplementedException()
-                }; 
-
-            }
-        }
-    }
-    public class Procedure : AstNode
-    {
-        public string Spelling;
-        public List<string> Parameters = new List<string>();
-        public List<AstNode> Statements;
-
-        public Procedure(ParserRuleContext context) : base(context)
-        {
-        }
-        public override string ToString()
-        {
-            return Spelling;
-        }
-    }
-    public class Conditional : AstNode
-    {
-        public AstNode Expr;
-        public AstNode ThenStatements;
-        public AstNode ElseStatement;
-
-        public Conditional(ParserRuleContext context) : base(context)
-        {
-            var children = SyscodeCompiler.GetChildren(context); ;
-        }
     }
 }
