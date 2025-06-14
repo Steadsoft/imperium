@@ -39,7 +39,7 @@ namespace Syscode
 
             compiler.PrintAbstractSyntaxTree(ast);
 
-            //var types = compiler.GetLLVMStructTypes((StatementsNode)ast);
+            var types = compiler.GetLLVMStructTypes(ast);
         }
     }
 
@@ -144,9 +144,9 @@ namespace Syscode
 
         }
 
-        public ProgramNode GenerateAbstractSyntaxTree(SourceContext context)
+        public Program GenerateAbstractSyntaxTree(SourceContext context)
         {
-            return new ProgramNode(context) { Statements = GenerateAbstractSyntaxTree(context.GetNode<StatementsContext>()) };
+            return new Program(context) { Statements = GenerateAbstractSyntaxTree(context.GetNode<StatementsContext>()) };
         }
 
         public List<AstNode> GenerateAbstractSyntaxTree(ParserRuleContext context)
@@ -241,42 +241,52 @@ namespace Syscode
         }
 
 
-        //public List<(string, string)> GetLLVMStructTypes(List<AstNode> program)
-        //{
-        //    List<(string, string)> types = new List<(string, string)>();
+        public List<(string, string)> GetLLVMStructTypes(AstNode node)
+        {
+            List<(string, string)> types = new List<(string, string)>();
 
-        //    foreach (AstNode Node in program.Statements)
-        //    {
-        //        switch (Node)
+            switch (node)
+            {
+                case Procedure proc:
+                    {
+                        foreach (var n in proc.Statements)
+                        {
+                            types.AddRange(GetLLVMStructTypes(n));
+                        }
+                        break;
+                    }
+                case Program prog:
+                    {
+                        foreach (var n in prog.Statements)
+                        {
+                            types.AddRange(GetLLVMStructTypes(n));
+                        }
+                        break;
+                    }
 
-        //        {
-        //            case Struct structure:
-        //                {
-        //                    var txt = GetLLVMStructType(structure);
-        //                    types.Add((structure.Spelling, txt));
+                case Struct structure:
+                    {
 
-        //                    foreach (var m in structure.Members)
-        //                    {
-        //                        if (m is Struct)
-        //                        {
-        //                            //var mmm = GetLLVMStructTypes((Struct)m);
-        //                            //types.AddRange(mmm);
-        //                        }
-        //                    }
+                        var txt = GetLLVMStructType(structure);
+                        types.Add(($"%{structure.Spelling}", txt));
 
-        //                    break;
-        //                }
-        //            case Procedure procedure:
-        //                {
-        //                    var txt = GetLLVMStructTypes(procedure.Statements);
-        //                    types.AddRange(txt);
-        //                    break;
-        //                }
-        //        }
-        //    }
+                        foreach (var m in structure.Members)
+                        {
+                            if (m is Struct)
+                            {
+                                var mmm = GetLLVMStructTypes((Struct)m);
+                                types.AddRange(mmm);
+                            }
+                        }
 
-        //    return types;
-        //}
+                        break;
+                    }
+                default:
+                    throw new InvalidOperationException();
+            }
+
+            return types;
+        }
 
         public string GetLLVMStructType(Struct structure)
         {
