@@ -37,7 +37,7 @@ namespace Syscode
 
             var ast = compiler.GenerateAbstractSyntaxTree(cst);
 
-            var types = compiler.GetLLVMStructTypes((StatementsNode)ast);
+            //var types = compiler.GetLLVMStructTypes((StatementsNode)ast);
         }
     }
 
@@ -98,18 +98,19 @@ namespace Syscode
                 }
             }
         }
-        public  AstNode GenerateAbstractSyntaxTree(ParserRuleContext context)
-        {
-            var children = GetChildren(context);
 
-            if (context is SourceContext)
-            {
-                return GenerateAbstractSyntaxTree(children.Single());
-            }
+        public ProgramNode GenerateAbstractSyntaxTree(SourceContext context)
+        {
+            return new ProgramNode(context) { Statements = GenerateAbstractSyntaxTree(context.GetNode<StatementsContext>()) };
+        }
+
+        public List<AstNode> GenerateAbstractSyntaxTree(ParserRuleContext context)
+        {
 
             if (context is StatementsContext)
             {
-                var node = new StatementsNode(context);
+                var children = GetChildren(context);
+                var node = new List<AstNode>(); //new StatementsNode(context);
 
                 foreach (var child in children)
                 {
@@ -127,7 +128,7 @@ namespace Syscode
                             _ => new AstNode(statement)
                         };
 
-                        node.Statements.Add(newnode);
+                        node.Add(newnode);
                     }
                 }
 
@@ -194,42 +195,42 @@ namespace Syscode
             return Node.GetText();
         }
 
-        public List<(string, string)> GetLLVMStructTypes(StatementsNode statements)
-        {
-            List<(string,string)> types = new List<(string, string)>();
+        //public List<(string, string)> GetLLVMStructTypes(ProgramNode program)
+        //{
+        //    List<(string,string)> types = new List<(string, string)>();
 
-            foreach (AstNode Node in statements.Statements)
-            {
-                switch (Node)
+        //    foreach (AstNode Node in program.Statements)
+        //    {
+        //        switch (Node)
 
-                {
-                    case Struct structure:
-                        {
-                            var txt = GetLLVMStructType(structure);
-                            types.Add((structure.Spelling,txt));
+        //        {
+        //            case Struct structure:
+        //                {
+        //                    var txt = GetLLVMStructType(structure);
+        //                    types.Add((structure.Spelling,txt));
 
-                            foreach (var m in structure.Members)
-                            {
-                                if (m is Struct)
-                                {
-                                    var mmm = GetLLVMStructType((Struct)m);
-                                    types.Add((m.Spelling, mmm));
-                                }
-                            }
+        //                    foreach (var m in structure.Members)
+        //                    {
+        //                        if (m is Struct)
+        //                        {
+        //                            //var mmm = GetLLVMStructTypes((Struct)m);
+        //                            //types.AddRange(mmm);
+        //                        }
+        //                    }
 
-                            break;
-                        }
-                    case Procedure procedure:
-                        {
-                            var txt = GetLLVMStructTypes(procedure.Statements as StatementsNode);
-                            types.AddRange(txt);
-                            break;
-                        }
-                }
-            }
+        //                    break;
+        //                }
+        //            case Procedure procedure:
+        //                {
+        //                    var txt = GetLLVMStructTypes(procedure.Statements as StatementsNode);
+        //                    types.AddRange(txt);
+        //                    break;
+        //                }
+        //        }
+        //    }
 
-            return types;
-        }
+        //    return types;
+        //}
 
         public string GetLLVMStructType(Struct structure)
         {
@@ -355,16 +356,9 @@ namespace Syscode
         {
         }
     }
-    public class StatementsNode : AstNode
-    {
-        public List<AstNode> Statements = new List<AstNode>();
-
-        public StatementsNode(ParserRuleContext context) : base(context)
-        {
-        }
-    }
     public class ProgramNode : AstNode
     {
+        public List<AstNode> Statements;
         public ProgramNode(ParserRuleContext context) : base(context)
         {
         }
@@ -413,7 +407,6 @@ namespace Syscode
         }
 
     }
-
     public class StructMember : AstNode
     {
         public int Ordinal;
@@ -443,9 +436,9 @@ namespace Syscode
             }
             else
             {
-                if (type.StartsWith("bin"))
+                if (type.StartsWith("int"))
                 {
-                    TypeName = "bin";
+                    TypeName = "int";
                     Length = Convert.ToInt32(type.Substring(3));
                 }
                 if (type.StartsWith("string"))
@@ -467,7 +460,7 @@ namespace Syscode
             {
                 return TypeName switch
                 {
-                    "bin" => $"i{Length}",
+                    "int" => $"i{Length}",
                     "string" => $"[{Length} x i8]",
                     _ => "notyet" //throw new NotImplementedException()
                 }; 
@@ -479,7 +472,7 @@ namespace Syscode
     {
         public string Spelling;
         public List<string> Parameters = new List<string>();
-        public AstNode Statements;
+        public List<AstNode> Statements;
 
         public Procedure(ParserRuleContext context) : base(context)
         {
@@ -500,5 +493,4 @@ namespace Syscode
             var children = SyscodeCompiler.GetChildren(context); ;
         }
     }
-
 }
