@@ -14,36 +14,7 @@ namespace Syscode
 
         public override string ToString()
         {
-            return Spelling;
-        }
-
-        public string IRType
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-
-                foreach (var member in Members.OrderBy(m => m.Ordinal))
-                {
-                    switch (member)
-                    {
-                        case StructField f:
-                            {
-                                sb.Append($"{f.IRType}, ");
-                                break;
-                            }
-                        case Struct s:
-                            {
-                                sb.Append($"%{s.Spelling}, ");
-                                break;
-                            }
-                        default:
-                            throw new NotImplementedException();
-                    }
-                }
-                return $"{{ {sb.ToString().TrimEnd(' ',',')} }}";
-            }
-
+            return $"{nameof(Struct)}: {Spelling}";
         }
 
     }

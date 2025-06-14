@@ -2,12 +2,12 @@
 
 namespace Syscode
 {
-    public class StructField : StructMember
+    public class Field : StructMember
     {
         //public string Spelling;
         public string TypeName;
         public int Length;
-        public StructField(StructFieldContext context) : base(context)
+        public Field(StructFieldContext context) : base(context)
         {
             Spelling = context.Name.GetText();
             var type = context.Type.GetText();
@@ -36,21 +36,7 @@ namespace Syscode
 
         public override string ToString()
         {
-            return Spelling;
-        }
-
-        public string IRType
-        {
-            get
-            {
-                return TypeName switch
-                {
-                    "int" => $"i{Length}",
-                    "string" => $"[{Length} x i8]",
-                    _ => "notyet" //throw new NotImplementedException()
-                }; 
-
-            }
+            return $"{nameof(Field)}: {Spelling}";
         }
     }
 }

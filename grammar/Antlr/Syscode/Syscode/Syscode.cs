@@ -9,26 +9,6 @@ namespace Syscode
     {
         public static void Main()
         {
-            //var source = new StreamReader(@"..\..\..\..\test1.sys");
-            //var stream = new AntlrInputStream(source);
-            //var lexer = new SyscodeLexer(stream);
-            //var tokens = new CommonTokenStream(lexer);
-            //var parser = new SyscodeParser(tokens);
-
-            //var vocab = SyscodeLexer.DefaultVocabulary;
-
-            //var txt = vocab.GetLiteralName(BIN);
-
-            //var cst = parser.source();
-
-            //var comments = tokens.GetTokens().Where(t => t.Channel == Lexer.Hidden).ToList();
-
-            //var compiler = new SyscodeCompiler(lexer,parser);
-
-            //compiler.PrintConcreteSyntaxTree(cst);
-
-            //var ast = compiler.GenerateAbstractSyntaxTree(cst);
-
             var compiler = new SyscodeCompiler();
 
             var cst = compiler.CompileSourceFile(@"..\..\..\..\test1.sys");
@@ -45,7 +25,7 @@ namespace Syscode
 
     public class SyscodeCompiler
     {
-        public static HashSet<Type> excludedTypes;
+        private static HashSet<Type> excludedTypes;
 
         static SyscodeCompiler()
         {
@@ -70,7 +50,6 @@ namespace Syscode
         public SyscodeCompiler()
         {
         }
-
         public SourceContext CompileSourceFile(string File)
         {
             var source = new StreamReader(File);
@@ -81,9 +60,7 @@ namespace Syscode
             var parser = new SyscodeParser(tokens);
 
             return parser.source();
-
         }
-
         public void PrintConcreteSyntaxTree(ParserRuleContext context, int depth=0)
         {
             Console.WriteLine(depth.ToString().PadRight(depth) + " " + RemoveContext(context.GetType().Name));
@@ -100,55 +77,55 @@ namespace Syscode
                 }
             }
         }
-
         public void PrintAbstractSyntaxTree(AstNode node, int depth = 0)
         {
-            if (node is IStatements)
+            switch (node)
             {
-                Console.WriteLine(depth.ToString().PadRight(depth) + " " + node.GetType().Name);
-
-                var children = ((IStatements)(node)).Statements;
-
-                if (children.Any())
-                {
-                    foreach (var child in children)
+                case Struct structure:
                     {
-                        depth++;
-                        PrintAbstractSyntaxTree(child, depth);
-                        depth--;
+                        Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} {((Struct)(node)).Spelling}");
+
+                        var children = ((Struct)(node)).Members;
+
+                        if (children.Any())
+                        {
+                            foreach (var child in children)
+                            {
+                                depth++;
+                                PrintAbstractSyntaxTree(child, depth);
+                                depth--;
+                            }
+                        }
+                        break;
                     }
-                }
-            }
-
-            if (node is Struct)
-            {
-                Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} {((Struct)(node)).Spelling}");
-
-                var children = ((Struct)(node)).Members;
-
-                if (children.Any())
-                {
-                    foreach (var child in children)
+                case Field field:
                     {
-                        depth++;
-                        PrintAbstractSyntaxTree(child, depth);
-                        depth--;
+                        Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} ({((Field)(node)).Spelling} {((Field)(node)).TypeName} {((Field)(node)).Length})");
+                        break;
                     }
-                }
-            }
+                case IStatements statement:
+                    {
+                        Console.WriteLine(depth.ToString().PadRight(depth) + " " + node.GetType().Name);
 
-            if (node is StructField)
-            {
-                Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} ({((StructField)(node)).Spelling} {((StructField)(node)).TypeName} {((StructField)(node)).Length})");
-            }
+                        var children = ((IStatements)(node)).Statements;
 
+                        if (children.Any())
+                        {
+                            foreach (var child in children)
+                            {
+                                depth++;
+                                PrintAbstractSyntaxTree(child, depth);
+                                depth--;
+                            }
+                        }
+                        break;
+                    }
+            }
         }
-
         public Program GenerateAbstractSyntaxTree(SourceContext context)
         {
             return new Program(context) { Statements = GenerateAbstractSyntaxTree(context.GetNode<StatementsContext>()) };
         }
-
         public List<AstNode> GenerateAbstractSyntaxTree(ParserRuleContext context)
         {
 
@@ -203,7 +180,7 @@ namespace Syscode
             var spelling = name.GetLabelText("Spelling");
             var bounds = name.GetNode<ConstArrayListContext>().GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
             var members = context.GetNode<StructMembersContext>();
-            var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => new StructField(d)).ToList();
+            var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => new Field(d)).ToList();
             var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructDefinitionContext>()).Select(s => CreateStruct(s)).ToList();
 
             var elements = new List<StructMember>();
@@ -239,8 +216,6 @@ namespace Syscode
         {
             return Node.GetText();
         }
-
-
         public List<(string, string)> GetLLVMStructTypes(AstNode node)
         {
             List<(string, string)> types = new List<(string, string)>();
@@ -266,7 +241,6 @@ namespace Syscode
 
                 case Struct structure:
                     {
-
                         var txt = GetLLVMStructType(structure);
                         types.Add(($"%{structure.Spelling}", txt));
 
@@ -287,7 +261,6 @@ namespace Syscode
 
             return types;
         }
-
         public string GetLLVMStructType(Struct structure)
         {
             StringBuilder sb = new StringBuilder();
@@ -296,9 +269,9 @@ namespace Syscode
             {
                 switch (member)
                 {
-                    case StructField f:
+                    case Field f:
                         {
-                            sb.Append($"{f.IRType}, ");
+                            sb.Append($"{GetLLVMFieldType(f)}, ");
                             break;
                         }
                     case Struct s:
@@ -316,77 +289,17 @@ namespace Syscode
             return txt;
 
         }
-    }
 
-    public static class SyscodeExtensions
-    {
-        public static R4 GetNode<R, R1, R2, R3, R4>(this ParserRuleContext context)
-             where R : ParserRuleContext
-             where R1 : ParserRuleContext
-             where R2 : ParserRuleContext
-             where R3 : ParserRuleContext
-             where R4 : ParserRuleContext
+        public string GetLLVMFieldType(Field type)
         {
-            return context.GetNode<R>().GetNode<R1>().GetNode<R2>().GetNode<R3>().GetNode<R4>();
+            return type.TypeName switch
+            {
+                "int" => $"i{type.Length}",
+                "string" => $"[{type.Length} x i8]",
+                _ => "notyet" //throw new NotImplementedException()
+            };
         }
-        public static R3 GetNode<R, R1, R2, R3>(this ParserRuleContext context) where R : ParserRuleContext where R1 : ParserRuleContext where R2 : ParserRuleContext where R3 : ParserRuleContext
-        {
-            return context.GetNode<R>().GetNode<R1>().GetNode<R2>().GetNode<R3>();
-        }
-        public static R2 GetNode<R, R1, R2>(this ParserRuleContext context) where R : ParserRuleContext where R1 : ParserRuleContext where R2 : ParserRuleContext
-        {
-            return context.GetNode<R>().GetNode<R1>().GetNode<R2>();
-        }
-        public static R1 GetNode<R, R1>(this ParserRuleContext context) where R : ParserRuleContext where R1 : ParserRuleContext
-        {
-            return context.GetNode<R>().GetNode<R1>();
-        }
-        public static T GetNode<T>(this ParserRuleContext context) where T : ParserRuleContext
-        {
-            if (context.children == null)
-                return null;
 
-            var matches = context.children.Where(child => child.GetType() == typeof(T)).ToList();
-
-            if (matches.Any() == false)
-                return null;
-
-            if (matches.Count() > 1)
-                throw new InvalidOperationException("More than one matching child.");
-
-            return (T)matches.Single();
-        }
-        public static bool HasNode<T>(this ParserRuleContext context) where T : ParserRuleContext
-        {
-            if (context.children == null)
-                return false;
-
-            var matches = context.children.Where(child => child.GetType() == typeof(T)).ToList();
-
-            if (matches.Any() == false)
-                return false;
-
-            if (matches.Count() > 1)
-                throw new InvalidOperationException("More than one matching child.");
-
-            return true;
-        }
-        public static List<T> GetNodes<T>(this ParserRuleContext context) where T : ParserRuleContext
-        {
-            if (context.children == null)
-                return new List<T>(); ;
-
-            var matches = context.children.Where(child => child.GetType() == typeof(T)).Cast<T>().ToList();
-
-            if (matches.Any() == false)
-                return new List<T>();
-
-            return matches;
-        }
-        public static string GetLabelText(this ParserRuleContext context, string Label)
-        {
-            return ((ParserRuleContext)(context.GetType().GetField(Label).GetValue(context))).GetText();
-        }
 
     }
 }
