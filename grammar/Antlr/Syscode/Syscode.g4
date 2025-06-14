@@ -40,13 +40,11 @@ enumMember: (Name=identifier);
 identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
 typename 
     : integerType
-    | binaryType 
     | stringType 
     | bitstringType 
     ;
 
-integerType: BIN8 | BIN16 | BIN32 | BIN64 ;
-binaryType: BIN LPAR NUMBER RPAR ;
+integerType: BIN8 | BIN16 | BIN32 | BIN64 | UBIN8 | UBIN16 | UBIN32 | UBIN64 | ((BIN | UBIN) LPAR NUMBER RPAR) ;
 
 stringType: STRING '(' NUMBER ')';
 bitstringType: BIT '(' NUMBER ')';
@@ -80,7 +78,7 @@ emptyLines: NEWLINE+;
 
 
 // Allow comment blocks slash/star TEXT star/slash to be nested 
-COMMENT: (BCOM (COMMENT | .)*? ECOM) -> channel(HIDDEN);
+COMMENT: (BCOM (COMMENT | .)*? ECOM) -> skip; //channel(HIDDEN);
 
 fragment BCOM:    ('/*');
 fragment ECOM:    ('*/');
@@ -95,12 +93,22 @@ IF: 'if';
 THEN: 'then';
 ELIF: 'elif';
 ELSE: 'else';
-BIN8: 'bin8';
 BIT: 'bit';
-BIN: 'bin';
-BIN16: 'bin16';
-BIN32: 'bin32';
-BIN64: 'bin64';
+
+// Ints
+BIN: 'int';
+BIN8: 'int8';
+BIN16: 'int16';
+BIN32: 'int32';
+BIN64: 'int64';
+
+UBIN: 'uint';
+UBIN8: 'uint8';
+UBIN16: 'uint16';
+UBIN32: 'uint32';
+UBIN64: 'uint64';
+
+
 STRING: 'string';
 ENUM: 'enum';
 DCL: 'dcl';

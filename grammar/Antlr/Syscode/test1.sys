@@ -56,43 +56,43 @@ end
 
 
 
-enum error_codes dbin16,
+enum error_codes dint16,
      code_0,
      code_1,
      code_2
 end     
 
 struct mapping_1,
-    counter bin(16),    
+    counter int(16),    
     message string(1024),
-    status bin(20),
+    status int(20),
     end   ; 
    
 struct mapping_2,
-    counter bin16,
+    counter int16,
     message string(32),
-    status bin16,
+    status int16,
     message string(16),
     end
 */
     proc entry_point (input, output)
 
         struct outermost(32,32),
-            f0 bin32,
-            f1 bin16,
+            f0 int32,
+            f1 int16,
             f2 string(32),
             
             inner_1(16),
-               f4 bin(14),
-               f9 bin(27)
+               f4 int(14),
+               f9 int(27)
             end,
             inner_2(16),
-               f4 bin16,
-               f4 bin64,
-               f5 bin(11),
+               f4 int16,
+               f4 int64,
+               f5 int(11),
                inner_2_inner_1,
-                  f10 bin16,
-                  f70 bin32
+                  f10 int16,
+                  f70 int32
                 end
             end
         end
@@ -125,11 +125,11 @@ struct mapping_2,
 
 /*
 struct heap_header,
-   free_space bin16,
-   used_space bin16,
+   free_space int16,
+   used_space int16,
    map,
-      type bin8,
-      age  bin8
+      type int8,
+      age  int8
    end
 end
 
