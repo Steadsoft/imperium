@@ -95,10 +95,13 @@ struct mapping_2,
                   f70 int32
                 end
             end
-        end,
+        end
 
         if x = y then
            ;
+        else
+            z = b
+            x = g
         end
 
         struct second,

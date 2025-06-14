@@ -80,11 +80,11 @@ namespace Syscode
         {
             switch (node)
             {
-                case Struct structure:
+                case Structure structure:
                     {
-                        Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} {((Struct)(node)).Spelling}");
+                        Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} {((Structure)(node)).Spelling}");
 
-                        var children = ((Struct)(node)).Members;
+                        var children = ((Structure)(node)).Members;
 
                         if (children.Any())
                         {
@@ -173,8 +173,9 @@ namespace Syscode
         {
             return new Scope(context) { Spelling = context.Name.GetText() };
         }
-        private Struct CreateStruct(StructDefinitionContext context)
+        private Structure CreateStruct(StructDefinitionContext context)
         {
+            var elements = new List<StructureMember>();
             var name = context.GetNode<StructNameContext>();
             var spelling = name.GetLabelText("Spelling");
             var bounds = name.GetNode<ConstArrayListContext>().GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
@@ -182,18 +183,10 @@ namespace Syscode
             var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => new Field(d)).ToList();
             var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructDefinitionContext>()).Select(s => CreateStruct(s)).ToList();
 
-            var elements = new List<StructMember>();
-
             elements.AddRange(fields);
             elements.AddRange(structs);
 
-            var s = new Struct(context) { Spelling = spelling, Bounds = bounds, Members = elements };
-
-            //Console.WriteLine($"{s.Spelling} -> {s.IRType}");
-
-            return s;
-
-
+            return new Structure(context) { Spelling = spelling, Bounds = bounds, Members = elements };
         }
         private AstNode CreateProcedure(ProcedureContext context)
         {
@@ -209,7 +202,10 @@ namespace Syscode
         }
         private AstNode CreateConditional(ConditionalContext context)
         {
-            return new If(context);
+            var then_stmts = context.GetNode<Then_blockContext>().GetNode<StatementsContext>();
+            var else_stmts = context.GetNode<Else_blockContext>().GetNode<StatementsContext>(); ;
+
+            return new If(context) { ThenStatements = GenerateAbstractSyntaxTree(then_stmts), ElseStatements = GenerateAbstractSyntaxTree(else_stmts) };
         }
         public string GetText(Antlr4.Runtime.Tree.ITerminalNode Node)
         {
@@ -238,16 +234,16 @@ namespace Syscode
                         break;
                     }
 
-                case Struct structure:
+                case Structure structure:
                     {
                         var txt = GetLLVMStructType(structure);
                         types.Add(($"%{structure.Spelling}", txt));
 
                         foreach (var m in structure.Members)
                         {
-                            if (m is Struct)
+                            if (m is Structure)
                             {
-                                var mmm = GetLLVMStructTypes((Struct)m);
+                                var mmm = GetLLVMStructTypes((Structure)m);
                                 types.AddRange(mmm);
                             }
                         }
@@ -260,7 +256,7 @@ namespace Syscode
 
             return types;
         }
-        public string GetLLVMStructType(Struct structure)
+        public string GetLLVMStructType(Structure structure)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -273,7 +269,7 @@ namespace Syscode
                             sb.Append($"{GetLLVMFieldType(f)}, ");
                             break;
                         }
-                    case Struct s:
+                    case Structure s:
                         {
                             sb.Append($"%{s.Spelling}, ");
                             break;

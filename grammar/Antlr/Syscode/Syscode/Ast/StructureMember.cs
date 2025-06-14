@@ -2,12 +2,12 @@
 
 namespace Syscode
 {
-    public class StructMember : AstNode
+    public class StructureMember : AstNode
     {
         public int Ordinal;
         public string Spelling;
 
-        public StructMember(ParserRuleContext context) : base(context)
+        public StructureMember(ParserRuleContext context) : base(context)
         {
             Ordinal = context.Start.StartIndex;
         }

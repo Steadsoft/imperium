@@ -3,7 +3,7 @@ using static Syscode.LexerHelper.TokenText;
 
 namespace Syscode
 {
-    public class Field : StructMember
+    public class Field : StructureMember
     {
 
         public string TypeName;

@@ -5,8 +5,8 @@ namespace Syscode
     public class If : AstNode
     {
         public AstNode Expr;
-        public AstNode ThenStatements;
-        public AstNode ElseStatement;
+        public List<AstNode> ThenStatements = new List<AstNode>();
+        public List<AstNode> ElseStatements = new List<AstNode>();   
 
         public If(ParserRuleContext context) : base(context)
         {
