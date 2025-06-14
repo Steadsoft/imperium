@@ -210,7 +210,7 @@ namespace Syscode
         }
         private AstNode CreateConditional(ConditionalContext context)
         {
-            return new Conditional(context);
+            return new If(context);
         }
         public string GetText(Antlr4.Runtime.Tree.ITerminalNode Node)
         {
@@ -256,7 +256,7 @@ namespace Syscode
                         break;
                     }
                 default:
-                    throw new InvalidOperationException();
+                    break;
             }
 
             return types;
@@ -299,7 +299,5 @@ namespace Syscode
                 _ => "notyet" //throw new NotImplementedException()
             };
         }
-
-
     }
 }

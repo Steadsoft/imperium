@@ -2,15 +2,20 @@
 
 namespace Syscode
 {
-    public class Conditional : AstNode
+    public class If : AstNode
     {
         public AstNode Expr;
         public AstNode ThenStatements;
         public AstNode ElseStatement;
 
-        public Conditional(ParserRuleContext context) : base(context)
+        public If(ParserRuleContext context) : base(context)
         {
             var children = SyscodeCompiler.GetChildren(context); ;
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(If)}: ";
         }
     }
 }
