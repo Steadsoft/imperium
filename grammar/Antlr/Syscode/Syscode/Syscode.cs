@@ -20,10 +20,10 @@ namespace Syscode
 
             var types = compiler.GetLLVMStructTypes(ast);
 
-            foreach ( var type in types )
-            {
-                Console.WriteLine($"{type.Item1} = type {type.Item2}");
-            }
+            //foreach ( var type in types )
+            //{
+            //    Console.WriteLine($"{type.Item1} = type {type.Item2}");
+            //}
         }
     }
 
@@ -85,9 +85,60 @@ namespace Syscode
         {
             switch (node)
             {
+                case Assignment assign:
+                    {
+                        Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name}");
+                        break;
+                    }
+                case If ifstmt:
+                    {
+                        Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name}");
+
+                        foreach (var child in ifstmt.ThenStatements)
+                        {
+                            depth++;
+                            PrintAbstractSyntaxTree(child, depth);
+                            depth--;
+                        }
+
+
+                        if (ifstmt.ElifStatements.Any())
+                        {
+
+                            foreach (var child in ifstmt.ElifStatements)
+                            {
+                                Console.WriteLine($"{depth.ToString().PadRight(depth)} Elif");
+
+                                foreach (var elif in child.ThenStatements)
+                                {
+                                    depth++;
+                                    PrintAbstractSyntaxTree(elif, depth);
+                                    depth--;
+
+                                }
+                                
+                            }
+
+                        }
+
+                        if (ifstmt.ElseStatements.Any())
+                        {
+                            Console.WriteLine($"{depth.ToString().PadRight(depth)} Else");
+
+                            foreach (var child in ifstmt.ElseStatements)
+                            {
+                                depth++;
+                                PrintAbstractSyntaxTree(child, depth);
+                                depth--;
+                            }
+
+                        }
+
+                        break;
+                    }
+
                 case Structure structure:
                     {
-                        Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} {((Structure)(node)).Spelling}");
 
                         var children = ((Structure)(node)).Members;
 
@@ -95,6 +146,7 @@ namespace Syscode
                         {
                             foreach (var child in children)
                             {
+                                Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} {((Structure)(node)).Spelling}");
                                 depth++;
                                 PrintAbstractSyntaxTree(child, depth);
                                 depth--;
@@ -150,6 +202,7 @@ namespace Syscode
                             StructContext match => CreateStruct(match.GetNode<StructDefinitionContext>()),
                             ProcedureContext match => CreateProcedure(match),
                             IfContext match => CreateIf(match),
+                            AssignmentContext assign => new Assignment(assign),
                             _ => new AstNode(statement)
                         };
 
