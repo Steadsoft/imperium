@@ -390,19 +390,22 @@ namespace Syscode
         }
         public string GetLLVMFieldType(Field type)
         {
-            int count = 0;
+            int bytes = 0;
 
-            if (type.Length > 64)
+
+            if (type.TypeName == "bit")
             {
-                // here count = ceil(Length / 64)
-                count = (type.Length + 63) / 64;   // bit strings will be stored as arrays of bytes, words or whatever...
+                bytes = (type.Length + 7) / 8;
+
+                return $"[{bytes} x i8]";
+
             }
 
 
             return type.TypeName switch
             {
                 "int" => $"i{type.Length}",
-                "bit" => $"i{type.Length}",
+                //"bit" => $"i{type.Length}",
                 "string" => $"[{type.Length} x i8]",
                 _ => "notyet" //throw new NotImplementedException()
             };
