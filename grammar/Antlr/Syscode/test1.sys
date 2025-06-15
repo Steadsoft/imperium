@@ -102,6 +102,9 @@ struct mapping_2,
         elif z = g then
            z = b
            r = e
+        elif z = g then
+           cow = dog
+           sheep = woolly
         else
             z = b
             x = g

@@ -7,7 +7,7 @@ namespace Syscode
         public AstNode Expr;
         public List<AstNode> ThenStatements = new List<AstNode>();
         public List<AstNode> ElseStatements = new List<AstNode>();   
-        public List<If> ElifStatements = new List<If>();
+        public List<Elif> ElifStatements = new List<Elif>();
 
         public If(ParserRuleContext context) : base(context)
         {
@@ -35,5 +35,4 @@ namespace Syscode
             return $"{nameof(If)}: ";
         }
     }
-
 }

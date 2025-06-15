@@ -3,7 +3,7 @@ grammar Syscode;
 // Parser rules
 
 source: ((statementSeparator? statements? ) endOfFile) | endOfFile; 
-statement:  ((label | scope | enum | struct | conditional | procedure | assignment) statementSeparator emptyLines? ) | statementSeparator emptyLines? ;
+statement:  ((label | scope | enum | struct | if | procedure | assignment) statementSeparator emptyLines? ) | statementSeparator emptyLines? ;
 statements: (statement)+;
 label: AT IDENTIFIER;
 scope:  scopeKeyword emptyLines? Name=scopeName emptyLines? statements? emptyLines? endKeyword;
@@ -13,7 +13,7 @@ struct: structKeyword structDefinition emptyLines? ;
 structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
-conditional: ifKeyword emptyLines? exprThenBlock elifBlock (elseKeyword emptyLines? Else=elseBlock)? emptyLines? endKeyword;
+if: ifKeyword emptyLines? exprThenBlock elifBlock (elseKeyword emptyLines? Else=elseBlock)? emptyLines? endKeyword;
 assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
 
 thenBlock : statements?;

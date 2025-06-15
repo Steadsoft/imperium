@@ -149,7 +149,7 @@ namespace Syscode
                             ScopeContext match => CreateScope(match),
                             StructContext match => CreateStruct(match.GetNode<StructDefinitionContext>()),
                             ProcedureContext match => CreateProcedure(match),
-                            ConditionalContext match => CreateIf(match),
+                            IfContext match => CreateIf(match),
                             _ => new AstNode(statement)
                         };
 
@@ -204,7 +204,7 @@ namespace Syscode
 
             return node;
         }
-        private AstNode CreateIf(ConditionalContext context)
+        private AstNode CreateIf(IfContext context)
         {
             var then_stmts = context.GetNode<ExprThenBlockContext>().GetNode<ThenBlockContext>().GetNode<StatementsContext>();
             var elif_stmts = context.GetNode<ElifBlockContext>().GetNodes<ExprThenBlockContext>();
@@ -212,11 +212,17 @@ namespace Syscode
 
             List<AstNode> thens = new List<AstNode>();
             List<AstNode> elses = new List<AstNode>();
+            List<Elif> elifs = new List<Elif>();
 
             thens = GenerateAbstractSyntaxTree(then_stmts);
             elses  = GenerateAbstractSyntaxTree(else_stmts);
 
-            return new If(context) { ThenStatements = thens, ElseStatements = elses };
+            foreach (var elf in elif_stmts)
+            {
+                elifs.Add(new Elif(elf) { ThenStatements = GenerateAbstractSyntaxTree(elf.GetNode<ThenBlockContext>().GetNode<StatementsContext>()) });
+            }
+
+            return new If(context) { ThenStatements = thens, ElseStatements = elses, ElifStatements = elifs };
         }
         public string GetText(Antlr4.Runtime.Tree.ITerminalNode Node)
         {
