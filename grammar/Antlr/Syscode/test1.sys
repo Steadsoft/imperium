@@ -115,6 +115,8 @@ struct mapping_2,
            range int8,
            mask bit(123)
         end
+    end
+
 /*
         if 
         a = b 
@@ -135,9 +137,9 @@ struct mapping_2,
             label = yes;
         end
             
-        */
+        
 
-    end
+    end */
 
 
 

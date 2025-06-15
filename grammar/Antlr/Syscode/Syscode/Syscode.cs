@@ -21,7 +21,7 @@ namespace Syscode
             var types = compiler.GetLLVMStructTypes(ast);
 
             Console.WriteLine();
-            Console.WriteLine("LLVM types:");
+            Console.WriteLine("LLVM TYPES");
             Console.WriteLine();
 
             foreach (var type in types)
@@ -85,18 +85,36 @@ namespace Syscode
                 }
             }
         }
+        public string LineDepth(int depth, AstNode node)
+        {
+            return $"{node.StartLine.ToString().PadRight(4)} {depth.ToString().PadRight(4+depth)}";
+        }
+
+        public string LineDepthEnd(int depth, AstNode node)
+        {
+            return $"{node.StopLine.ToString().PadRight(4)} {depth.ToString().PadRight(4 + depth)}";
+        }
+
         public void PrintAbstractSyntaxTree(AstNode node, int depth = 0)
         {
+            if (depth == 0)
+            {
+                Console.WriteLine("AST DUMP");
+                Console.WriteLine();
+                Console.WriteLine("LINE NEST STATEMENT");
+                Console.WriteLine();
+            }
+
             switch (node)
             {
                 case Assignment assign:
                     {
-                        Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name}");
+                        Console.WriteLine($"{LineDepth(depth,node)} {node.GetType().Name}");
                         break;
                     }
                 case If ifstmt:
                     {
-                        Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name}");
+                        Console.WriteLine($"{LineDepth(depth,node)} {node.GetType().Name}");
 
                         foreach (var child in ifstmt.ThenStatements)
                         {
@@ -109,7 +127,7 @@ namespace Syscode
 
                             foreach (var child in ifstmt.ElifStatements)
                             {
-                                Console.WriteLine($"{depth.ToString().PadRight(depth)} Elif");
+                                Console.WriteLine($"{LineDepth(depth,node)} Elif");
 
                                 foreach (var elif in child.ThenStatements)
                                 {
@@ -121,7 +139,7 @@ namespace Syscode
                         }
                         if (ifstmt.ElseStatements.Any())
                         {
-                            Console.WriteLine($"{depth.ToString().PadRight(depth)} Else");
+                            Console.WriteLine($"{LineDepth(depth, node)} Else");
 
                             foreach (var child in ifstmt.ElseStatements)
                             {
@@ -135,29 +153,49 @@ namespace Syscode
                     }
                 case Structure structure:
                     {
-
-                        var children = ((Structure)(node)).Members;
+                        Console.WriteLine($"{LineDepth(depth, structure)} {node.GetType().Name} '{structure.Spelling}'");
+                        var children = structure.Members;
 
                         if (children.Any())
                         {
                             foreach (var child in children)
                             {
-                                Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} {((Structure)(node)).Spelling}");
                                 depth++;
                                 PrintAbstractSyntaxTree(child, depth);
                                 depth--;
                             }
                         }
+                        Console.WriteLine($"{LineDepthEnd(depth, structure)} End"); 
                         break;
                     }
                 case Field field:
                     {
-                        Console.WriteLine($"{depth.ToString().PadRight(depth)} {node.GetType().Name} ({((Field)(node)).Spelling} {((Field)(node)).TypeName} {((Field)(node)).Length})");
+                        Console.WriteLine($"{LineDepth(depth, node)} {node.GetType().Name} '{((Field)(node)).Spelling}' {((Field)(node)).TypeName} {((Field)(node)).Length}");
                         break;
+                    }
+
+                case Procedure proc:
+                    {
+                        Console.WriteLine($"{LineDepth(depth, proc)} {proc.GetType().Name} '{proc.Spelling}'");
+
+                        var children = ((IStatements)(proc)).Statements;
+
+                        if (children.Any())
+                        {
+                            foreach (var child in children)
+                            {
+                                depth++;
+                                PrintAbstractSyntaxTree(child, depth);
+                                depth--;
+                            }
+                        }
+                        Console.WriteLine($"{LineDepthEnd(depth, proc)} End");
+                        break;
+
                     }
                 case IStatements statement:
                     {
-                        Console.WriteLine(depth.ToString().PadRight(depth) + " " + node.GetType().Name);
+                        Console.WriteLine(LineDepth(depth,node) + " " + node.GetType().Name);
 
                         var children = ((IStatements)(node)).Statements;
 
