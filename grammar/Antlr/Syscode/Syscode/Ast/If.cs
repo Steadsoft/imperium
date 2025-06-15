@@ -7,6 +7,7 @@ namespace Syscode
         public AstNode Expr;
         public List<AstNode> ThenStatements = new List<AstNode>();
         public List<AstNode> ElseStatements = new List<AstNode>();   
+        public List<If> ElifStatements = new List<If>();
 
         public If(ParserRuleContext context) : base(context)
         {
@@ -18,4 +19,21 @@ namespace Syscode
             return $"{nameof(If)}: ";
         }
     }
+
+    public class Elif : AstNode
+    {
+        public AstNode Expr;
+        public List<AstNode> ThenStatements = new List<AstNode>();
+
+        public Elif(ParserRuleContext context) : base(context)
+        {
+            var children = SyscodeCompiler.GetChildren(context); ;
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(If)}: ";
+        }
+    }
+
 }

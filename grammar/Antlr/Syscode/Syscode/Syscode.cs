@@ -150,7 +150,6 @@ namespace Syscode
                             StructContext match => CreateStruct(match.GetNode<StructDefinitionContext>()),
                             ProcedureContext match => CreateProcedure(match),
                             ConditionalContext match => CreateIf(match),
-
                             _ => new AstNode(statement)
                         };
 
@@ -207,10 +206,17 @@ namespace Syscode
         }
         private AstNode CreateIf(ConditionalContext context)
         {
-            var then_stmts = context.GetNode<Then_blockContext>().GetNode<StatementsContext>();
-            var else_stmts = context.GetNode<Else_blockContext>().GetNode<StatementsContext>(); ;
+            var then_stmts = context.GetNode<ExprThenBlockContext>().GetNode<ThenBlockContext>().GetNode<StatementsContext>();
+            var elif_stmts = context.GetNode<ElifBlockContext>().GetNodes<ExprThenBlockContext>();
+            var else_stmts = context.GetNode<ElseBlockContext>().GetNode<StatementsContext>(); ; ;
 
-            return new If(context) { ThenStatements = GenerateAbstractSyntaxTree(then_stmts), ElseStatements = GenerateAbstractSyntaxTree(else_stmts) };
+            List<AstNode> thens = new List<AstNode>();
+            List<AstNode> elses = new List<AstNode>();
+
+            thens = GenerateAbstractSyntaxTree(then_stmts);
+            elses  = GenerateAbstractSyntaxTree(else_stmts);
+
+            return new If(context) { ThenStatements = thens, ElseStatements = elses };
         }
         public string GetText(Antlr4.Runtime.Tree.ITerminalNode Node)
         {
@@ -295,6 +301,7 @@ namespace Syscode
 
             if (type.Length > 64)
             {
+                // here count = ceil(Length / 64)
                 count = (type.Length + 63) / 64;   // bit strings will be stored as arrays of bytes, words or whatever...
             }
 

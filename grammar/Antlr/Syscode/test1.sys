@@ -99,6 +99,9 @@ struct mapping_2,
 
         if x = y then
            ;
+        elif z = g then
+           z = b
+           r = e
         else
             z = b
             x = g

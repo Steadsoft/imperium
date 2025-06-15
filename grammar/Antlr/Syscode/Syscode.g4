@@ -13,11 +13,16 @@ struct: structKeyword structDefinition emptyLines? ;
 structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
-conditional: ifKeyword emptyLines? expression emptyLines? thenKeyword emptyLines? Then=then_block (elifKeyword emptyLines expression emptyLines? thenKeyword emptyLines? statements?)* (elseKeyword emptyLines? Else=else_block)? emptyLines? endKeyword;
+conditional: ifKeyword emptyLines? exprThenBlock elifBlock (elseKeyword emptyLines? Else=elseBlock)? emptyLines? endKeyword;
 assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
 
-then_block : statements?;
-else_block : statements?;
+thenBlock : statements?;
+elseBlock : statements?;
+elifBlock : (elifKeyword exprThenBlock)*;
+//elif_block : (elifKeyword expr_then_block);
+
+exprThenBlock:  expression emptyLines? thenKeyword emptyLines? thenBlock;
+
 // Proc
 
 scopeName: identifier (DOT identifier)*;
