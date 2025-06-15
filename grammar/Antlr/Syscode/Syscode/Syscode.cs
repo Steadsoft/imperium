@@ -12,7 +12,7 @@ namespace Syscode
 
             var cst = compiler.CompileSourceFile(@"..\..\..\..\test1.sys");
 
-            compiler.PrintConcreteSyntaxTree(cst);
+            //compiler.PrintConcreteSyntaxTree(cst);
 
             var ast = compiler.GenerateAbstractSyntaxTree(cst);
 
@@ -20,10 +20,14 @@ namespace Syscode
 
             var types = compiler.GetLLVMStructTypes(ast);
 
-            //foreach ( var type in types )
-            //{
-            //    Console.WriteLine($"{type.Item1} = type {type.Item2}");
-            //}
+            Console.WriteLine();
+            Console.WriteLine("LLVM types:");
+            Console.WriteLine();
+
+            foreach (var type in types)
+            {
+                Console.WriteLine($"{type.Item1} = type {type.Item2}");
+            }
         }
     }
 
@@ -100,8 +104,6 @@ namespace Syscode
                             PrintAbstractSyntaxTree(child, depth);
                             depth--;
                         }
-
-
                         if (ifstmt.ElifStatements.Any())
                         {
 
@@ -114,13 +116,9 @@ namespace Syscode
                                     depth++;
                                     PrintAbstractSyntaxTree(elif, depth);
                                     depth--;
-
                                 }
-                                
                             }
-
                         }
-
                         if (ifstmt.ElseStatements.Any())
                         {
                             Console.WriteLine($"{depth.ToString().PadRight(depth)} Else");
@@ -131,12 +129,10 @@ namespace Syscode
                                 PrintAbstractSyntaxTree(child, depth);
                                 depth--;
                             }
-
                         }
 
                         break;
                     }
-
                 case Structure structure:
                     {
 

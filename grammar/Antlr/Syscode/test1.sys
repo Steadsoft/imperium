@@ -98,7 +98,7 @@ struct mapping_2,
         end
 
         if x = y then
-           ;
+           counter = monkey
         elif z = g then
            z = b
            r = e

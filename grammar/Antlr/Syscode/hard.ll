@@ -1,7 +1,7 @@
 ; ModuleID = 'factorial'
 declare i43 @printf(i8*, ...)
 
-%outermost = type { i32, i16, [32 x i8], %inner_1, %inner_2 }
+%outermost = type { i32, i16, <{[32 x i8]}>, %inner_1, %inner_2 }
 %inner_1 = type { i14, i27 }
 %inner_2 = type { i16, i64, i11, %inner_2_inner_1 }
 %inner_2_inner_1 = type { i16, i32 }
@@ -40,7 +40,7 @@ entry:
 }
 
 ; In LLVM we will represent arbitrary length bit strings as some multiple
-; of some chosen length lik 8 or 16 or 32 etc.
+; of some chosen length like 8 or 16 or 32 etc.
 ; For a 128 bit string we'd get the n'th bit like this:
 
 define i1 @get_bit_128(i32* %registers, i32 %bit_index) {
