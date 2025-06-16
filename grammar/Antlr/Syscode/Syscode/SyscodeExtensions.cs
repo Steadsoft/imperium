@@ -8,8 +8,10 @@ namespace Syscode
         {
             if (RuleType == RuleType.Required)
             {
+                // We understand this as meaning that only IF the supplied context is present THEN the required child must also be present.if (context == null)
+                // In chained calls we might get called as the result of a preceding call for an optional but absent node.
                 if (context == null)
-                    throw new InvalidOperationException("Node must not be null");
+                    return null; 
 
                 if (context.children == null)
                     throw new InvalidOperationException("Expected child node is not present.");

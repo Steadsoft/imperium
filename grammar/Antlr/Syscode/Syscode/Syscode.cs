@@ -294,8 +294,8 @@ namespace Syscode
         private AstNode CreateIf(IfContext context)
         {
             var then_stmts = context.GetNode<ExprThenBlockContext>(RuleType.Required).GetNode<ThenBlockContext>(RuleType.Required).GetNode<StatementsContext>(RuleType.Optional);
-            var elif_stmts = context.GetNode<ElifBlockContext>(RuleType.Required).GetNodes<ExprThenBlockContext>();
-            var else_stmts = context.GetNode<ElseBlockContext>(RuleType.Required).GetNode<ThenBlockContext>(RuleType.Optional).GetNode<StatementsContext>(RuleType.Optional);
+            var elif_stmts = context.GetNode<ElifBlockContext>(RuleType.Optional)?.GetNodes<ExprThenBlockContext>();
+            var else_stmts = context.GetNode<ElseBlockContext>(RuleType.Optional)?.GetNode<ThenBlockContext>(RuleType.Required).GetNode<StatementsContext>(RuleType.Optional);
 
             List<AstNode> thens = new List<AstNode>();
             List<AstNode> elses = new List<AstNode>();
@@ -306,10 +306,11 @@ namespace Syscode
             if (else_stmts != null) 
                 elses  = GenerateAbstractSyntaxTree(else_stmts);
 
-            foreach (var elf in elif_stmts)
-            {
-                elifs.Add(new Elif(elf) { ThenStatements = GenerateAbstractSyntaxTree(elf.GetNode<ThenBlockContext>(RuleType.Required).GetNode<StatementsContext>(RuleType.Optional)) });
-            }
+            if (elif_stmts != null)
+                foreach (var elf in elif_stmts)
+                {
+                    elifs.Add(new Elif(elf) { ThenStatements = GenerateAbstractSyntaxTree(elf.GetNode<ThenBlockContext>(RuleType.Required).GetNode<StatementsContext>(RuleType.Optional)) });
+                }
 
             return new If(context) { ThenStatements = thens, ElseStatements = elses, ElifStatements = elifs };
         }
