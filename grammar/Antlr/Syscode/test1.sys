@@ -114,6 +114,7 @@ struct mapping_2,
         struct second,
            age bin32,
            range bin8,
+           rate dec(7),
            mask bit(123)
         end
     end

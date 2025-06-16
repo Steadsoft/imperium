@@ -12,29 +12,37 @@ namespace Syscode
             Spelling = context.Name.GetText();
             var type = context.Type.GetText();
 
-            if (type.Contains(LP))
+            if (type.Contains(',') ==  false )
             {
-                int lp = type.IndexOf(LP);
-                int rp = type.IndexOf(RP);
-                TypeName = type.Substring(0, lp);
-                Length = Convert.ToInt32(type.Substring(lp + 1, rp - (lp + 1)));
-            }
-            else
-            {
-                if (type.StartsWith(BIT))
+                if (type.Contains(LP))
                 {
-                    TypeName = BIT;
-                    Length = Convert.ToInt32(type.Substring(3));
+                    int lp = type.IndexOf(LP);
+                    int rp = type.IndexOf(RP);
+                    TypeName = type.Substring(0, lp);
+                    Length = Convert.ToInt32(type.Substring(lp + 1, rp - (lp + 1)));
                 }
-                if (type.StartsWith(INT))
+                else
                 {
-                    TypeName = INT;
-                    Length = Convert.ToInt32(type.Substring(3));
-                }
-                if (type.StartsWith(STR))
-                {
-                    TypeName = STR;
-                    Length = Convert.ToInt32(type.Substring(6));
+                    if (type.StartsWith(BIT))
+                    {
+                        TypeName = BIT;
+                        Length = Convert.ToInt32(type.Substring(3));
+                    }
+                    if (type.StartsWith(DEC))  // BCD
+                    {
+                        TypeName = DEC;
+                        Length = Convert.ToInt32(type.Substring(3));
+                    }
+                    if (type.StartsWith(BIN))
+                    {
+                        TypeName = BIN;
+                        Length = Convert.ToInt32(type.Substring(3));
+                    }
+                    if (type.StartsWith(STR))
+                    {
+                        TypeName = STR;
+                        Length = Convert.ToInt32(type.Substring(6));
+                    }
                 }
             }
         }

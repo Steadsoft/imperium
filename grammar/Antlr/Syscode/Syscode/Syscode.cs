@@ -12,7 +12,7 @@ namespace Syscode
 
             var cst = compiler.CompileSourceFile(@"..\..\..\..\test1.sys");
 
-            //compiler.PrintConcreteSyntaxTree(cst);
+            compiler.PrintConcreteSyntaxTree(cst);
 
             var ast = compiler.GenerateAbstractSyntaxTree(cst);
 
