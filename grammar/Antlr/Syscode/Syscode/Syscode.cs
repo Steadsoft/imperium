@@ -404,7 +404,7 @@ namespace Syscode
 
             return type.TypeName switch
             {
-                "int" => $"i{type.Length}",
+                "bin" => $"i{type.Length}",
                 //"bit" => $"i{type.Length}",
                 "string" => $"[{type.Length} x i8]",
                 _ => "notyet" //throw new NotImplementedException()

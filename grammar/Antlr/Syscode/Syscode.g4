@@ -45,12 +45,14 @@ structStruct:  structDefinition;
 enumMember: (Name=identifier);
 identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
 typename 
-    : integerType
+    : binaryType
+    | decimalType
     | stringType 
     | bitstringType 
     ;
 
-integerType: BIN8 | BIN16 | BIN32 | BIN64 | UBIN8 | UBIN16 | UBIN32 | UBIN64 | ((BIN | UBIN) LPAR NUMBER RPAR) ;
+binaryType: BIN8 | BIN16 | BIN32 | BIN64 | UBIN8 | UBIN16 | UBIN32 | UBIN64 | ((BIN | UBIN) LPAR NUMBER (COMMA NUMBER)? RPAR) ;
+decimalType:  ((DEC | UDEC) LPAR NUMBER (COMMA NUMBER)? RPAR) ;
 
 stringType: STRING '(' NUMBER ')';
 bitstringType: BIT '(' NUMBER ')';
@@ -102,18 +104,21 @@ ELSE: 'else';
 BIT: 'bit';
 
 // Ints
-BIN: 'int';
-BIN8: 'int8';
-BIN16: 'int16';
-BIN32: 'int32';
-BIN64: 'int64';
+BIN: 'bin';
+BIN8: 'bin8';
+BIN16: 'bin16';
+BIN32: 'bin32';
+BIN64: 'bin64';
 
-UBIN: 'uint';
-UBIN8: 'uint8';
-UBIN16: 'uint16';
-UBIN32: 'uint32';
-UBIN64: 'uint64';
+UBIN: 'ubin';
+UBIN8: 'ubin8';
+UBIN16: 'ubin16';
+UBIN32: 'ubin32';
+UBIN64: 'ubin64';
 
+DEC: 'dec';
+
+UDEC: 'udec';
 
 STRING: 'string';
 ENUM: 'enum';
