@@ -94,7 +94,7 @@ struct mapping_2,
                   f10 bin16,
                   f70 bin32,
                   price dec(8,2)
-                end
+               end
             end
         end
 
@@ -111,15 +111,18 @@ struct mapping_2,
             x = g
         end
 
+        
+
+
         struct second,
            age bin32,
            range bin8,
            rate dec(7),
            mask bit(123)
         end
-    end
+    
 
-/*
+
         if 
         a = b 
         then
@@ -141,7 +144,7 @@ struct mapping_2,
             
         
 
-    end */
+    end 
 
 
 
