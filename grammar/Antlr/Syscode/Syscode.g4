@@ -13,12 +13,12 @@ struct: structKeyword structDefinition emptyLines? ;
 structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
-if: ifKeyword emptyLines? exprThenBlock elifBlock (elseKeyword emptyLines? Else=elseBlock)? emptyLines? endKeyword;
+if: ifKeyword emptyLines? exprThenBlock elifBlock elseBlock emptyLines? endKeyword;
 assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
 
 thenBlock : statements?;
-elseBlock : statements?;
-elifBlock : (elifKeyword exprThenBlock)*;
+elseBlock : (elseKeyword emptyLines? thenBlock)?;
+elifBlock : (elifKeyword emptyLines? exprThenBlock)*;
 //elif_block : (elifKeyword expr_then_block);
 
 exprThenBlock:  expression emptyLines? thenKeyword emptyLines? thenBlock;
@@ -102,6 +102,10 @@ THEN: 'then';
 ELIF: 'elif';
 ELSE: 'else';
 BIT: 'bit';
+FOR: 'for';
+WHILE: 'while';
+UNTIL:  'until';
+FOREVER: 'forever';
 
 // Ints
 BIN: 'bin';

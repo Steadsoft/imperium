@@ -214,7 +214,7 @@ namespace Syscode
         }
         public Program GenerateAbstractSyntaxTree(SourceContext context)
         {
-            return new Program(context) { Statements = GenerateAbstractSyntaxTree(context.GetNode<StatementsContext>()) };
+            return new Program(context) { Statements = GenerateAbstractSyntaxTree(context.GetNode<StatementsContext>(RuleType.Optional)) };
         }
         public List<AstNode> GenerateAbstractSyntaxTree(ParserRuleContext context)
         {
@@ -233,7 +233,7 @@ namespace Syscode
                         var newnode = statement switch
                         {
                             ScopeContext match => CreateScope(match),
-                            StructContext match => CreateStruct(match.GetNode<StructDefinitionContext>()),
+                            StructContext match => CreateStruct(match.GetNode<StructDefinitionContext>(RuleType.Required)),
                             ProcedureContext match => CreateProcedure(match),
                             IfContext match => CreateIf(match),
                             AssignmentContext assign => new Assignment(assign),
@@ -267,10 +267,10 @@ namespace Syscode
         private Structure CreateStruct(StructDefinitionContext context)
         {
             var elements = new List<StructureMember>();
-            var name = context.GetNode<StructNameContext>();
+            var name = context.GetNode<StructNameContext>(RuleType.Required);
             var spelling = name.GetLabelText("Spelling");
-            var bounds = name.GetNode<ConstArrayListContext>().GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
-            var members = context.GetNode<StructMembersContext>();
+            var bounds = name.GetNode<ConstArrayListContext>(RuleType.Required).GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
+            var members = context.GetNode<StructMembersContext>(RuleType.Required);
             var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => new Field(d)).ToList();
             var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructDefinitionContext>()).Select(s => CreateStruct(s)).ToList();
 
@@ -293,20 +293,22 @@ namespace Syscode
         }
         private AstNode CreateIf(IfContext context)
         {
-            var then_stmts = context.GetNode<ExprThenBlockContext>().GetNode<ThenBlockContext>().GetNode<StatementsContext>();
-            var elif_stmts = context.GetNode<ElifBlockContext>().GetNodes<ExprThenBlockContext>();
-            var else_stmts = context.GetNode<ElseBlockContext>().GetNode<StatementsContext>(); ; ;
+            var then_stmts = context.GetNode<ExprThenBlockContext>(RuleType.Required).GetNode<ThenBlockContext>(RuleType.Required).GetNode<StatementsContext>(RuleType.Optional);
+            var elif_stmts = context.GetNode<ElifBlockContext>(RuleType.Required).GetNodes<ExprThenBlockContext>();
+            var else_stmts = context.GetNode<ElseBlockContext>(RuleType.Required).GetNode<ThenBlockContext>(RuleType.Optional).GetNode<StatementsContext>(RuleType.Optional);
 
             List<AstNode> thens = new List<AstNode>();
             List<AstNode> elses = new List<AstNode>();
             List<Elif> elifs = new List<Elif>();
 
             thens = GenerateAbstractSyntaxTree(then_stmts);
-            elses  = GenerateAbstractSyntaxTree(else_stmts);
+            
+            if (else_stmts != null) 
+                elses  = GenerateAbstractSyntaxTree(else_stmts);
 
             foreach (var elf in elif_stmts)
             {
-                elifs.Add(new Elif(elf) { ThenStatements = GenerateAbstractSyntaxTree(elf.GetNode<ThenBlockContext>().GetNode<StatementsContext>()) });
+                elifs.Add(new Elif(elf) { ThenStatements = GenerateAbstractSyntaxTree(elf.GetNode<ThenBlockContext>(RuleType.Required).GetNode<StatementsContext>(RuleType.Optional)) });
             }
 
             return new If(context) { ThenStatements = thens, ElseStatements = elses, ElifStatements = elifs };
