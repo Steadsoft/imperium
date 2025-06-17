@@ -5,47 +5,23 @@ namespace Syscode
 {
     public static class SyscodeExtensions
     {
-        public static T GetNode<T>(this ParserRuleContext context, RuleType RuleType) where T : ParserRuleContext
+        public static T GetNode<T>(this ParserRuleContext context) where T : ParserRuleContext
         {
-            if (RuleType == RuleType.Required)
-            {
-                // We understand this as meaning that only IF the supplied context is present THEN the required child must also be present.if (context == null)
-                // In chained calls we might get called as the result of a preceding call for an optional but absent node.
-                if (context == null)
-                    return null; 
+            if (context == null)
+                return null; 
 
-                if (context.children == null)
-                    throw new InvalidOperationException("Expected child node is not present.");
+            if (context.children == null)
+                throw new InvalidOperationException("Expected child node is not present.");
 
-                var matches = context.children.Where(child => child is T).ToList();
+            var matches = context.children.Where(child => child is T).ToList();
 
-                if (matches.Any() == false)
-                    throw new InvalidOperationException("Expected child node is not present.");
+            if (matches.Any() == false)
+                throw new InvalidOperationException("Expected child node is not present.");
 
-                if (matches.Count() > 1)
-                    throw new InvalidOperationException("More than one matching child node is present.");
+            if (matches.Count() > 1)
+                throw new InvalidOperationException("More than one matching child node is present.");
 
-                return (T)matches.Single();
-            }
-            else
-            {
-                if (context == null)
-                    return null;
-
-                if (context.children == null)
-                    return null;
-
-                var matches = context.children.Where(child => child.GetType() == typeof(T)).ToList();
-
-                if (matches.Any() == false)
-                    return null;
-
-                if (matches.Count() > 1)
-                    throw new InvalidOperationException("More than one matching child node is present.");
-
-                return (T)matches.Single();
-            }
-
+            return (T)matches.Single();
         }
 
         public static bool TryGetNode<T>(this ParserRuleContext context, out T node) where T : ParserRuleContext

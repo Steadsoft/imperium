@@ -105,7 +105,7 @@ namespace Syscode
         }
         private List<ParserRuleContext> GetUnderlyingStatemts(ParserRuleContext context)
         {
-            return context.GetNodes<StatementContext>().SelectMany(s => s.GetNodes<RealStatementContext>().Select(n => n.GetNode<ParserRuleContext>(RuleType.Required))).ToList();
+            return context.GetNodes<StatementContext>().SelectMany(s => s.GetNodes<RealStatementContext>().Select(n => n.GetNode<ParserRuleContext>())).ToList();
         }
         private  string RemoveContext(string input)
         {
@@ -128,15 +128,15 @@ namespace Syscode
         }
         private Structure CreateStructure(StructContext context)
         {
-            return CreateStructure(context.GetNode<StructDefinitionContext>(RuleType.Required));
+            return CreateStructure(context.GetNode<StructDefinitionContext>());
         }
         private Structure CreateStructure(StructDefinitionContext context)
         {
             var elements = new List<StructureMember>();
-            var name = context.GetNode<StructNameContext>(RuleType.Required);
+            var name = context.GetNode<StructNameContext>();
             var spelling = name.GetLabelText("Spelling");
-            var bounds = name.GetNode<ConstArrayListContext>(RuleType.Required).GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
-            var members = context.GetNode<StructMembersContext>(RuleType.Required);
+            var bounds = name.GetNode<ConstArrayListContext>().GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
+            var members = context.GetNode<StructMembersContext>();
             var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => new Field(d)).ToList();
             var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructDefinitionContext>()).Select(s => CreateStructure(s)).ToList();
 
@@ -157,19 +157,19 @@ namespace Syscode
         }
         private Elif CreateElif(ExprThenBlockContext context)
         {
-            return new Elif(context) { Expr = null, ThenStatements = GetUnderlyingStatemts(context.GetNode<ThenBlockContext>(RuleType.Required)).Select(s => GenerateAbstractSyntaxTree(s)).ToList() }; 
+            return new Elif(context) { Expr = null, ThenStatements = GetUnderlyingStatemts(context.GetNode<ThenBlockContext>()).Select(s => GenerateAbstractSyntaxTree(s)).ToList() }; 
         }
         private If CreateIf(IfContext context)
         {
             List<AstNode> else_stmts = new();
             List<Elif> elifs = new();
 
-            var if_then_block = context.GetNode<ExprThenBlockContext>(RuleType.Required).GetNode<ThenBlockContext>(RuleType.Required);
+            var if_then_block = context.GetNode<ExprThenBlockContext>().GetNode<ThenBlockContext>();
             var if_then_stmts = GetUnderlyingStatemts(if_then_block).Select(s => GenerateAbstractSyntaxTree(s)).ToList();
 
             if (context.TryGetNode<ElseBlockContext>(out var else_block))
             {
-                var then_block = else_block.GetNode<ThenBlockContext>(RuleType.Required);
+                var then_block = else_block.GetNode<ThenBlockContext>();
                 else_stmts = GetUnderlyingStatemts(then_block).Select(s => GenerateAbstractSyntaxTree(s)).ToList();
             }
             
