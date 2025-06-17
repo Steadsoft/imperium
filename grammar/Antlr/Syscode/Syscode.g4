@@ -2,12 +2,13 @@ grammar Syscode;
 
 // Parser rules
 
-source: ((statementSeparator? statements ) endOfFile) | endOfFile; 
-statement:  ((label | scope | enum | struct | if | procedure | assignment) statementSeparator emptyLines? ) | statementSeparator emptyLines? ;
-statements: (statement)*;
+source: ((statementSeparator? statement* ) endOfFile) | endOfFile; 
+statement:  (realStatement statementSeparator emptyLines? ) | statementSeparator emptyLines? ;
+realStatement : (label | scope | enum | struct | if | procedure | assignment);
+//statements: (statement)*;
 label: AT IDENTIFIER;
-scope:  scopeKeyword emptyLines? Name=scopeName emptyLines? statements emptyLines? endKeyword;
-procedure: procedureKeyword emptyLines? Name=identifier Params=paramList? Statements=statements emptyLines? endKeyword;
+scope:  scopeKeyword emptyLines? Name=scopeName emptyLines? statement* emptyLines? endKeyword;
+procedure: procedureKeyword emptyLines? Name=identifier Params=paramList? Statements=statement* emptyLines? endKeyword;
 struct: structKeyword structDefinition emptyLines? ;
 
 structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
@@ -16,7 +17,7 @@ enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSepara
 if: ifKeyword emptyLines? exprThenBlock elifBlock? elseBlock? emptyLines? endKeyword;
 assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
 
-thenBlock : statements;
+thenBlock : statement*;
 elseBlock : (elseKeyword emptyLines? thenBlock);
 elifBlock : (elifKeyword emptyLines? exprThenBlock)+;
 //elif_block : (elifKeyword expr_then_block);

@@ -16,7 +16,7 @@ namespace Syscode
                 if (context.children == null)
                     throw new InvalidOperationException("Expected child node is not present.");
 
-                var matches = context.children.Where(child => child.GetType() == typeof(T)).ToList();
+                var matches = context.children.Where(child => child is T).ToList();
 
                 if (matches.Any() == false)
                     throw new InvalidOperationException("Expected child node is not present.");
