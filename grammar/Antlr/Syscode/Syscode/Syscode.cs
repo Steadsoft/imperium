@@ -1,4 +1,5 @@
 ﻿using Antlr4.Runtime;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.RegularExpressions;
 using static SyscodeParser;
@@ -102,7 +103,6 @@ namespace Syscode
                         return new AstNode(context);
                 }
         }
-       
         private List<ParserRuleContext> GetUnderlyingStatemts(ParserRuleContext context)
         {
             return context.GetNodes<StatementContext>().SelectMany(s => s.GetNodes<RealStatementContext>().Select(n => n.GetNode<ParserRuleContext>(RuleType.Required))).ToList();
@@ -164,19 +164,22 @@ namespace Syscode
             List<AstNode> else_stmts = new();
             List<Elif> elifs = new();
 
-            var then_block = context.GetNode<ExprThenBlockContext>(RuleType.Required).GetNode<ThenBlockContext>(RuleType.Required);
-            var then_stmts = GetUnderlyingStatemts(then_block).Select(s => GenerateAbstractSyntaxTree(s)).ToList();
-            var else_block = context.GetNode<ElseBlockContext>(RuleType.Optional)?.GetNode<ThenBlockContext>(RuleType.Required);
-            
-            if (else_block != null) 
-                else_stmts = GetUnderlyingStatemts(else_block).Select(s => GenerateAbstractSyntaxTree(s)).ToList();
+            var if_then_block = context.GetNode<ExprThenBlockContext>(RuleType.Required).GetNode<ThenBlockContext>(RuleType.Required);
+            var if_then_stmts = GetUnderlyingStatemts(if_then_block).Select(s => GenerateAbstractSyntaxTree(s)).ToList();
 
-            var elif_blocks = context.GetNode<ElifBlockContext>(RuleType.Optional)?.GetNodes<ExprThenBlockContext>();
-
-            if (elif_blocks != null)
-                elifs = elif_blocks.Select(etb => CreateElif(etb)).ToList(); ;
+            if (context.TryGetNode<ElseBlockContext>(out var else_block))
+            {
+                var then_block = else_block.GetNode<ThenBlockContext>(RuleType.Required);
+                else_stmts = GetUnderlyingStatemts(then_block).Select(s => GenerateAbstractSyntaxTree(s)).ToList();
+            }
             
-            return new If(context) { ThenStatements = then_stmts, ElseStatements = else_stmts, ElifStatements = elifs };
+            if (context.TryGetNode<ElifBlockContext>(out var elif_block))
+            {
+                var then_blocks = elif_block.GetNodes<ExprThenBlockContext>();
+                elifs = then_blocks.Select(etb => CreateElif(etb)).ToList();
+            }
+
+            return new If(context) { ThenStatements = if_then_stmts, ElseStatements = else_stmts, ElifStatements = elifs };
         }
         public string GetText(Antlr4.Runtime.Tree.ITerminalNode Node)
         {

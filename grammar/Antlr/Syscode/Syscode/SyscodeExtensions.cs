@@ -1,4 +1,5 @@
 ﻿using Antlr4.Runtime;
+using System.Runtime.CompilerServices;
 
 namespace Syscode
 {
@@ -44,6 +45,30 @@ namespace Syscode
 
                 return (T)matches.Single();
             }
+
+        }
+
+        public static bool TryGetNode<T>(this ParserRuleContext context, out T node) where T : ParserRuleContext
+        {
+            node = null;
+
+            if (context == null)
+                return false;
+
+            if (context.children == null)
+                return false;
+
+            var matches = context.children.Where(child => child.GetType() == typeof(T)).ToList();
+
+            if (matches.Any() == false)
+                return false;
+
+            if (matches.Count() > 1)
+                throw new InvalidOperationException("More than one matching child node is present.");
+
+            node = (T)matches.Single();
+
+            return true;
 
         }
         public static bool HasNode<T>(this ParserRuleContext context) where T : ParserRuleContext
