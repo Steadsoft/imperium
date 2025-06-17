@@ -6,7 +6,7 @@ namespace Syscode
     {
         public string Spelling;
         public List<string> Parameters = new List<string>();
-        private List<AstNode> statements;
+        private List<AstNode> statements = new List<AstNode>();
 
         public Procedure(ParserRuleContext context) : base(context)
         {

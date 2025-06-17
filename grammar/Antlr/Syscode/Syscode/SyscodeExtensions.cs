@@ -8,7 +8,7 @@ namespace Syscode
         public static T GetNode<T>(this ParserRuleContext context) where T : ParserRuleContext
         {
             if (context == null)
-                return null; 
+                throw new ArgumentNullException("context");
 
             if (context.children == null)
                 throw new InvalidOperationException("Expected child node is not present.");
@@ -23,7 +23,6 @@ namespace Syscode
 
             return (T)matches.Single();
         }
-
         public static bool TryGetNode<T>(this ParserRuleContext context, out T node) where T : ParserRuleContext
         {
             node = null;
@@ -78,6 +77,12 @@ namespace Syscode
         {
             return ((ParserRuleContext)(context.GetType().GetField(Label).GetValue(context))).GetText();
         }
+        public static List<ParserRuleContext> GetChildren(this ParserRuleContext context, HashSet<Type> excludes)
+        {
+            if (context.children == null)
+                return new List<ParserRuleContext>();
 
+            return context.children.Where(c => (c is ParserRuleContext) && !excludes.Contains(c.GetType())).Cast<ParserRuleContext>().ToList();
+        }
     }
 }

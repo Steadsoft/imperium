@@ -11,7 +11,6 @@ namespace Syscode
 
         public If(ParserRuleContext context) : base(context)
         {
-            var children = SyscodeCompiler.GetChildren(context); ;
         }
 
         public override string ToString()
@@ -27,7 +26,6 @@ namespace Syscode
 
         public Elif(ParserRuleContext context) : base(context)
         {
-            var children = SyscodeCompiler.GetChildren(context); ;
         }
 
         public override string ToString()

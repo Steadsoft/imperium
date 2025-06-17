@@ -36,7 +36,6 @@ namespace Syscode
     public class SyscodeCompiler
     {
         private static HashSet<Type> excludedTypes;
-
         static SyscodeCompiler()
         {
             excludedTypes = new HashSet<Type>
@@ -53,7 +52,6 @@ namespace Syscode
                 typeof(EndOfFileContext)
             };
         }
-
         private SyscodeLexer lexer;
         private SourceContext cst;
         private IVocabulary vocabulary;
@@ -111,20 +109,13 @@ namespace Syscode
         {
             return input.Replace("Context", "");
         }
-        internal static List<ParserRuleContext> GetChildren(ParserRuleContext context)
-        {
-            if (context.children == null)
-                return new List<ParserRuleContext>();
-
-            return context.children.Where(c => (c is ParserRuleContext) && !excludedTypes.Contains(c.GetType())).Cast<ParserRuleContext>().ToList();
-        }
         private Program CreateProgram(SourceContext context)
         {
             return new Program(context) { Statements = GetUnderlyingStatemts(context).Select(s => GenerateAbstractSyntaxTree(s)).ToList() };
         }
         private Scope CreateScope(ScopeContext context)
         {
-            return new Scope(context) { Spelling = context.Name.GetText() };
+            return new Scope(context) { Spelling = context.GetNode<QualifiedNameContext>().GetText() };
         }
         private Structure CreateStructure(StructContext context)
         {
@@ -132,10 +123,17 @@ namespace Syscode
         }
         private Structure CreateStructure(StructDefinitionContext context)
         {
+            var bounds = new List<int>();
             var elements = new List<StructureMember>();
-            var name = context.GetNode<StructNameContext>();
-            var spelling = name.GetLabelText("Spelling");
-            var bounds = name.GetNode<ConstArrayListContext>().GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
+
+            var struct_name = context.GetNode<StructNameContext>();
+            var spelling = struct_name.GetLabelText(nameof(StructNameContext.Spelling));
+                
+            if (struct_name.TryGetNode<ConstArrayListContext>(out var constList))
+            {
+                bounds = constList.GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
+            }
+
             var members = context.GetNode<StructMembersContext>();
             var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => new Field(d)).ToList();
             var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructDefinitionContext>()).Select(s => CreateStructure(s)).ToList();
@@ -149,9 +147,14 @@ namespace Syscode
         {
             var node = new Procedure(context);
 
-            node.Spelling = context.Name.GetText(); 
-            node.Parameters = [.. GetChildren(context.Params).Select(p => p.GetChild(0).ToString())];
-            node.Statements = GetUnderlyingStatemts(context).Select(s => GenerateAbstractSyntaxTree(s)).ToList();
+            node.Spelling = context.GetLabelText(nameof(ProcedureContext.Spelling));
+
+            if (context.TryGetNode<ParamListContext>(out var parameters))
+            {
+                node.Parameters = [.. parameters.GetNodes<IdentifierContext>().Select(i => i.GetText())];   
+            }
+
+            node.Statements = [.. GetUnderlyingStatemts(context).Select(s => GenerateAbstractSyntaxTree(s))];
 
             return node;
         }
@@ -284,7 +287,7 @@ namespace Syscode
         {
             Console.WriteLine(depth.ToString().PadRight(depth) + " " + RemoveContext(context.GetType().Name));
 
-            var children = GetChildren(context);
+            var children = context.GetChildren(excludedTypes);
 
             if (children.Any())
             {

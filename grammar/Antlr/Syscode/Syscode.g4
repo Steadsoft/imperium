@@ -7,8 +7,8 @@ statement:  (realStatement statementSeparator emptyLines? ) | statementSeparator
 realStatement : (label | scope | enum | struct | if | procedure | assignment);
 //statements: (statement)*;
 label: AT IDENTIFIER;
-scope:  scopeKeyword emptyLines? Name=scopeName emptyLines? statement* emptyLines? endKeyword;
-procedure: procedureKeyword emptyLines? Name=identifier Params=paramList? Statements=statement* emptyLines? endKeyword;
+scope:  scopeKeyword emptyLines? Name=qualifiedName emptyLines? statement* emptyLines? endKeyword;
+procedure: procedureKeyword emptyLines? Spelling=identifier paramList? statement* emptyLines? endKeyword;
 struct: structKeyword structDefinition emptyLines? ;
 
 structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
@@ -26,13 +26,13 @@ exprThenBlock:  expression emptyLines? thenKeyword emptyLines? thenBlock;
 
 // Proc
 
-scopeName: identifier (DOT identifier)*;
+qualifiedName: identifier (DOT identifier)*;
 paramList: LPAR identifier (COMMA identifier)* RPAR;
-constArrayList: (LPAR numericConstant (COMMA numericConstant)* RPAR)?;
+constArrayList: (LPAR numericConstant (COMMA numericConstant)* RPAR);
 numericConstant: NUMBER;
 // struct
 //structMemberList: structMember+ ;
-structName: Spelling=identifier Bounds=constArrayList;
+structName: Spelling=identifier Bounds=constArrayList?;
 structMembers
     :  emptyLines? structMember emptyLines? (memberSeparator emptyLines? structMember emptyLines?)*  memberSeparator? emptyLines?;
 enumMembers: emptyLines? enumMember emptyLines? (memberSeparator emptyLines? enumMember emptyLines?)* memberSeparator? emptyLines?;
@@ -40,7 +40,7 @@ structMember
     : structField
     | structDefinition;
 
-structField:   (Name=identifier emptyLines? Type=typename);
+structField:   (Spelling=identifier emptyLines? Bounds=constArrayList? Type=typename );
 structStruct:  structDefinition; 
 
 enumMember: (Name=identifier);
