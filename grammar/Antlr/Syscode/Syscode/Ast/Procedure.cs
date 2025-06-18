@@ -2,7 +2,7 @@
 
 namespace Syscode
 {
-    public class Procedure : AstNode, IStatements
+    public class Procedure : AstNode, IStatementContainer
     {
         public string Spelling;
         public List<string> Parameters = new List<string>();

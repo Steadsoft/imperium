@@ -31,7 +31,7 @@ procedure: procedureKeyword emptyLines? Spelling=identifier paramList? statement
 struct: structKeyword structDefinition ;
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
 
-declare: dclKeyword Spelling=identifier constArrayList? typename statementSeparator ;
+declare: dclKeyword Spelling=identifier Bounds=constArrayList? typename statementSeparator ;
 
 if:             ifKeyword emptyLines? exprThenBlock emptyLines? elifBlock? emptyLines? elseBlock? emptyLines? endKeyword;
 exprThenBlock:  expression emptyLines? thenKeyword emptyLines? thenBlock;

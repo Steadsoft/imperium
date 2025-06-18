@@ -12,7 +12,7 @@ namespace Syscode
 
             var cst = compiler.CompileSourceFile(@"..\..\..\..\test1.sys");
 
-            compiler.PrintConcreteSyntaxTree(cst);
+            //compiler.PrintConcreteSyntaxTree(cst);
 
             var ast = compiler.GenerateAbstractSyntaxTree(cst);
 
@@ -91,13 +91,14 @@ namespace Syscode
         }
         private Program CreateProgram(SourceContext context)
         {
+
             return new Program(context) { Statements = GetUnderlyingStatemts(context).Select(s => GenerateAbstractSyntaxTree(s)).ToList() };
         }
         private Scope CreateScope(ScopeContext context)
         {
             if (context.TryGetNode<BlockScopeContext>(out var block))
             {
-                return new Scope(block) { Spelling = block.GetNode<QualifiedNameContext>().GetText() };
+                return new Scope(block) { Spelling = block.GetNode<QualifiedNameContext>().GetText(), Statements = GetUnderlyingStatemts(block).Select(s => GenerateAbstractSyntaxTree(s)).ToList() };
             }
             else
             {
@@ -341,7 +342,7 @@ namespace Syscode
                                 depth--;
                             }
                         }
-
+                        Console.WriteLine($"{LineDepthEnd(depth, ifstmt)} End");
                         break;
                     }
                 case Structure structure:
@@ -371,7 +372,7 @@ namespace Syscode
                     {
                         Console.WriteLine($"{LineDepth(depth, proc)} {proc.GetType().Name} '{proc.Spelling}'");
 
-                        var children = ((IStatements)(proc)).Statements;
+                        var children = ((IStatementContainer)(proc)).Statements;
 
                         if (children.Any())
                         {
@@ -391,11 +392,29 @@ namespace Syscode
                         Console.WriteLine($"{LineDepth(depth, dcl)} {node.GetType().Name} '{dcl.Spelling}'");
                         break;
                     }
-                case IStatements statement:
+
+                case Scope scope:
+                    {
+                        Console.WriteLine($"{LineDepth(depth, scope)} {node.GetType().Name} '{scope.Spelling}'");
+                        var children = ((IStatementContainer)(scope)).Statements;
+
+                        if (children.Any())
+                        {
+                            foreach (var child in children)
+                            {
+                                depth++;
+                                PrintAbstractSyntaxTree(child, depth);
+                                depth--;
+                            }
+                        }
+                        Console.WriteLine($"{LineDepthEnd(depth, scope)} End");
+                        break;
+                    }
+                case IStatementContainer statement:
                     {
                         Console.WriteLine(LineDepth(depth, node) + " " + node.GetType().Name);
 
-                        var children = ((IStatements)(node)).Statements;
+                        var children = ((IStatementContainer)(node)).Statements;
 
                         if (children.Any())
                         {
@@ -418,5 +437,6 @@ namespace Syscode
         {
             return $"{node.StopLine.ToString().PadRight(4)} {depth.ToString().PadRight(4 + depth)}";
         }
+
     }
 }
