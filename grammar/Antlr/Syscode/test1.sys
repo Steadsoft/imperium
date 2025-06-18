@@ -23,6 +23,8 @@ end
 
 scope path.scope end
 
+scope single.line.scope  ;
+
 ;
 
   if then = struct then

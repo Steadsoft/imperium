@@ -21,17 +21,19 @@ emptyLines: NEWLINE+;
 source: (statement* endOfFile); 
 statement:  preamble? realStatement ;
 realStatement : (label | scope | enum | struct | if | procedure | assignment);
+
 //statements: (statement)*;
 label: AT IDENTIFIER statementSeparator;
-scope:  scopeKeyword emptyLines? Name=qualifiedName emptyLines? statement* emptyLines? endKeyword;
+scope: lineScope | blockScope;
+lineScope:  (scopeKeyword emptyLines? Name=qualifiedName emptyLines? statementSeparator);
+blockScope: (scopeKeyword emptyLines? Name=qualifiedName emptyLines? statement* emptyLines? endKeyword)  ;
 procedure: procedureKeyword emptyLines? Spelling=identifier paramList? statement* emptyLines? endKeyword;
 struct: structKeyword structDefinition ;
-
-structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
-
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
 if: ifKeyword emptyLines? exprThenBlock emptyLines? elifBlock? emptyLines? elseBlock? emptyLines? endKeyword;
 assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier statementSeparator;
+
+structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 
 thenBlock : statement*;
 elseBlock : (elseKeyword emptyLines? thenBlock);

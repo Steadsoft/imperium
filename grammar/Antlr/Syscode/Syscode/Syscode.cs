@@ -115,7 +115,16 @@ namespace Syscode
         }
         private Scope CreateScope(ScopeContext context)
         {
-            return new Scope(context) { Spelling = context.GetNode<QualifiedNameContext>().GetText() };
+            if (context.TryGetNode<BlockScopeContext>(out var block))
+            {
+                return new Scope(block) { Spelling = block.GetNode<QualifiedNameContext>().GetText() };
+            }
+            else
+            {
+                var linescope = context.GetNode<LineScopeContext>();
+                return new Scope(linescope) { Spelling = linescope.GetNode<QualifiedNameContext>().GetText() };
+            }
+
         }
         private Structure CreateStructure(StructContext context)
         {
