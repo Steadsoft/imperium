@@ -407,7 +407,9 @@ namespace Syscode
                                 depth--;
                             }
                         }
-                        Console.WriteLine($"{LineDepthEnd(depth, scope)} End");
+                        
+                        if (scope.IsBlockScope)
+                            Console.WriteLine($"{LineDepthEnd(depth, scope)} End");
                         break;
                     }
                 case IStatementContainer statement:
