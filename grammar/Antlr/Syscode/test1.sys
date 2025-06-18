@@ -143,6 +143,7 @@ struct mapping_2,
 
             count = five
             label = yes;
+            tab_ptr->table.subset.f3 = counnter.rate
         end
             
         
