@@ -1,6 +1,7 @@
 
+;;
 
-/*
+
 scope 
 
 scopea end
@@ -56,7 +57,7 @@ end
 
 
 
-enum error_codes int16,
+enum error_codes bin16,
      code_0,
      code_1,
      code_2
@@ -74,7 +75,7 @@ struct mapping_2,
     status bin16,
     message string(16),
     end
-*/
+
     proc entry_point (input, output)
 
         struct outermost(32,32),
@@ -149,7 +150,7 @@ struct mapping_2,
 
 
 
-/*
+
 struct heap_header,
    free_space bin16,
    used_space bin16,
@@ -159,16 +160,17 @@ struct heap_header,
    end
 end
 
-dcl control heap_header;
+/* dcl control heap_header; 
 
 control.free_space = 0;
 
 control.map.type = 12;
 
-*/
 
-/* JUNK
 
-dcl register
 
-*/
+
+dcl register */
+
+
+

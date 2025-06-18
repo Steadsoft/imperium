@@ -2,20 +2,25 @@ grammar Syscode;
 
 // Parser rules
 
-source: ((statementSeparator? statement* ) endOfFile) | endOfFile; 
-statement:  (realStatement statementSeparator emptyLines? ) | statementSeparator emptyLines? ;
+preamble: (NEWLINE | SEMICOLON)+;
+statementSeparator : (SEMICOLON | NEWLINE);
+emptyLines: NEWLINE+;
+
+
+source: (statement* endOfFile); 
+statement:  preamble? realStatement ;
 realStatement : (label | scope | enum | struct | if | procedure | assignment);
 //statements: (statement)*;
-label: AT IDENTIFIER;
+label: AT IDENTIFIER statementSeparator;
 scope:  scopeKeyword emptyLines? Name=qualifiedName emptyLines? statement* emptyLines? endKeyword;
 procedure: procedureKeyword emptyLines? Spelling=identifier paramList? statement* emptyLines? endKeyword;
-struct: structKeyword structDefinition emptyLines? ;
+struct: structKeyword structDefinition ;
 
 structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
 if: ifKeyword emptyLines? exprThenBlock elifBlock? elseBlock? emptyLines? endKeyword;
-assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier ;
+assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier statementSeparator;
 
 thenBlock : statement*;
 elseBlock : (elseKeyword emptyLines? thenBlock);
@@ -78,12 +83,10 @@ endKeyword: END;
 
 
 // Punctuation rules
-statementSeparator : (SEMICOLON | NEWLINE);
 memberSeparator : COMMA;
 
 // Utility rules
 endOfFile: emptyLines? EOF;
-emptyLines: NEWLINE+;
 
 
 // Allow comment blocks slash/star TEXT star/slash to be nested 
