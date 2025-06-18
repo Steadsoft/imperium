@@ -20,27 +20,31 @@ emptyLines: NEWLINE+;
 
 source: (statement* endOfFile); 
 statement:  preamble? realStatement ;
-realStatement : (label | scope | enum | struct | if | procedure | assignment);
+realStatement : (assignment | label | scope | enum | struct | if | procedure );
 
 //statements: (statement)*;
-label: AT IDENTIFIER statementSeparator;
+label: AT identifier statementSeparator;
 scope: lineScope | blockScope;
 lineScope:  (scopeKeyword emptyLines? Name=qualifiedName emptyLines? statementSeparator);
 blockScope: (scopeKeyword emptyLines? Name=qualifiedName emptyLines? statement* emptyLines? endKeyword)  ;
 procedure: procedureKeyword emptyLines? Spelling=identifier paramList? statement* emptyLines? endKeyword;
 struct: structKeyword structDefinition ;
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
-if: ifKeyword emptyLines? exprThenBlock emptyLines? elifBlock? emptyLines? elseBlock? emptyLines? endKeyword;
+
+
+if:             ifKeyword emptyLines? exprThenBlock emptyLines? elifBlock? emptyLines? elseBlock? emptyLines? endKeyword;
+exprThenBlock:  expression emptyLines? thenKeyword emptyLines? thenBlock;
+thenBlock :     statement*;
+elseBlock :     (elseKeyword emptyLines? thenBlock);
+elifBlock :     (elifKeyword emptyLines? exprThenBlock)+;
+
 assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier statementSeparator;
 
 structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 
-thenBlock : statement*;
-elseBlock : (elseKeyword emptyLines? thenBlock);
-elifBlock : (elifKeyword emptyLines? exprThenBlock)+;
+ 
 //elif_block : (elifKeyword expr_then_block);
 
-exprThenBlock:  expression emptyLines? thenKeyword emptyLines? thenBlock;
 
 // Proc
 
@@ -62,7 +66,7 @@ structField:   (Spelling=identifier emptyLines? Bounds=constArrayList? Type=type
 structStruct:  structDefinition; 
 
 enumMember: (Name=identifier);
-identifier: THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
+identifier: ENUM | IF | ELSE | ELIF | THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
 typename 
     : binaryType
     | decimalType
