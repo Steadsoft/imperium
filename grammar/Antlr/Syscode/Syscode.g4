@@ -1,3 +1,14 @@
+
+/*
+    GRAMMAR OVERVIEW
+    This grammar has several important characteristics that reflect language design goals.
+    1. There are no reserved words, identfiers can be keywords, new keywords can be added over time with backward compatibility.
+    2. Statements are either block or single in nature. Block statements are terminated by 'end' and single by either Newline or Semicolon.
+    3. Staments may be preceded by any number of Newlines and or Semicolons which are simply ignored.
+    4. One or more newlines may appear inbetween the terms of a statement so that a statement can be split across lines.
+    5. Semicolons can nonly appear at the end of single statemenrs or in fron of statements (which are ignored like empty statements)
+ */
+
 grammar Syscode;
 
 // Parser rules
@@ -19,7 +30,7 @@ struct: structKeyword structDefinition ;
 structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
 
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
-if: ifKeyword emptyLines? exprThenBlock elifBlock? elseBlock? emptyLines? endKeyword;
+if: ifKeyword emptyLines? exprThenBlock emptyLines? elifBlock? emptyLines? elseBlock? emptyLines? endKeyword;
 assignment : identifier (EQUALS | ASSIGN | COMPASSIGN) identifier statementSeparator;
 
 thenBlock : statement*;

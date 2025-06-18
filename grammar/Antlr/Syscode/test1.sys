@@ -2,6 +2,7 @@
 ;;
 
 
+
 scope 
 
 scopea end
@@ -10,15 +11,12 @@ scope
 
 scopeb end ;
 
-scope scopec ;
-;;
+scope scopec 
 
-;;
 
-;
 end
 
-scope lastscope ; 
+scope lastscope 
 
 
 end
@@ -30,8 +28,8 @@ scope path.scope end
   if then = struct then
     scope my_test_scope end;
     scope my_test_scope end
-    
-    scope my_test_scope;
+    ;;;;
+    scope my_test_scope
 
     end
 
@@ -39,15 +37,15 @@ scope path.scope end
 
 scope main_code.system
 
-  if then = struct then
-    scope my_test_scope;
+  if then = cluct then
+    scope my_test_scope
 
     end
     scope my_test_scope end
     
-    scope my_test_scope; end;
+    scope my_test_scope end
     else
-        ;
+        
   end
 
 
@@ -136,7 +134,7 @@ struct mapping_2,
         then
             x = y
             b = c
-            large = small
+            large = small  ;
         else
 
             count = five
