@@ -1,7 +1,5 @@
 ﻿using Antlr4.Runtime;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
-using System.Text.RegularExpressions;
 using static SyscodeParser;
 
 namespace Syscode

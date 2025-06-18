@@ -1,5 +1,4 @@
 ﻿using Antlr4.Runtime;
-using System.Runtime.CompilerServices;
 
 namespace Syscode
 {
