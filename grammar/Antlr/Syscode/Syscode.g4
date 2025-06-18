@@ -20,7 +20,7 @@ emptyLines: NEWLINE+;
 
 source: (statement* endOfFile); 
 statement:  preamble? realStatement ;
-realStatement : (assignment | label | scope | enum | struct | if | procedure );
+realStatement : (assignment | label | scope | enum | struct | if | declare | procedure );
 
 //statements: (statement)*;
 label: AT identifier statementSeparator;
@@ -31,6 +31,7 @@ procedure: procedureKeyword emptyLines? Spelling=identifier paramList? statement
 struct: structKeyword structDefinition ;
 enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
 
+declare: dclKeyword Spelling=identifier constArrayList? typename statementSeparator ;
 
 if:             ifKeyword emptyLines? exprThenBlock emptyLines? elifBlock? emptyLines? elseBlock? emptyLines? endKeyword;
 exprThenBlock:  expression emptyLines? thenKeyword emptyLines? thenBlock;
@@ -66,7 +67,7 @@ structField:   (Spelling=identifier emptyLines? Bounds=constArrayList? Type=type
 structStruct:  structDefinition; 
 
 enumMember: (Name=identifier);
-identifier: ENUM | IF | ELSE | ELIF | THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
+identifier: DCL | ENUM | IF | ELSE | ELIF | THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
 typename 
     : binaryType
     | decimalType
@@ -86,7 +87,7 @@ expression: (identifier EQUALS identifier) | (identifier '<' identifier)  | (ide
 
 // Keywords
 
-keyword: (structKeyword | scopeKeyword | ifKeyword | thenKeyword | elifKeyword | elseKeyword | procedureKeyword | enumKeyword | endKeyword) ;
+keyword: (dclKeyword | structKeyword | scopeKeyword | ifKeyword | thenKeyword | elifKeyword | elseKeyword | procedureKeyword | enumKeyword | endKeyword) ;
 
 structKeyword: STRUCT;
 scopeKeyword: SCOPE;
@@ -97,6 +98,7 @@ elseKeyword: ELSE;
 procedureKeyword: PROC;
 enumKeyword: ENUM;
 endKeyword: END;
+dclKeyword: DCL;
 
 
 // Punctuation rules
@@ -147,7 +149,7 @@ UDEC: 'udec';
 
 STRING: 'string';
 ENUM: 'enum';
-DCL: 'dcl';
+DCL: 'dcl' ;
 EQUALS: '=' ;
 ASSIGN: '<-';
 COMPASSIGN: ('+=' | '-=' | '*=' | '/=');

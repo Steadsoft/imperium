@@ -71,35 +71,17 @@ namespace Syscode
         }
         public AstNode GenerateAbstractSyntaxTree(ParserRuleContext context)
         {
-                switch (context)
-                {
-                case SourceContext source:
-                    {
-                        return CreateProgram(source);
-                    }
-                case ProcedureContext procedure:
-                    {
-                        return CreateProcedure(procedure);
-                    }
-                case ScopeContext scope:
-                    {
-                        return CreateScope(scope);
-                    }
-                case StructContext structure:
-                    {
-                        return CreateStructure(structure);
-                    }
-                case IfContext ifContext:
-                    {
-                        return CreateIf(ifContext);
-                    }
-                case AssignmentContext assignment:
-                    {
-                        return new Assignment(assignment);
-                    }
-                default:
-                        return new AstNode(context);
-                }
+            return context switch
+            {
+                SourceContext source => CreateProgram(source),
+                ProcedureContext procedure => CreateProcedure(procedure),
+                ScopeContext scope => CreateScope(scope),
+                StructContext structure => CreateStructure(structure),
+                IfContext ifContext => CreateIf(ifContext),
+                AssignmentContext assignment => new Assignment(assignment),
+                DeclareContext declare => new Dcl(declare),
+                _ => new AstNode(context)
+            };
         }
         private List<ParserRuleContext> GetUnderlyingStatemts(ParserRuleContext context)
         {
@@ -405,6 +387,11 @@ namespace Syscode
                         Console.WriteLine($"{LineDepthEnd(depth, proc)} End");
                         break;
 
+                    }
+                case Dcl dcl:
+                    {
+                        Console.WriteLine($"{LineDepth(depth, dcl)} {node.GetType().Name} '{dcl.Spelling}'");
+                        break;
                     }
                 case IStatements statement:
                     {

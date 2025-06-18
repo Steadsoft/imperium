@@ -78,6 +78,8 @@ struct mapping_2,
 
     proc entry_point (input, output)
 
+        dcl counter bin8;
+        
         struct outermost(32,32),
             f0 bin32,
             f1 bin16,
