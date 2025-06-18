@@ -25,19 +25,19 @@ realStatement : (assignment | label | scope | enum | struct | if | declare | pro
 //statements: (statement)*;
 label: AT identifier statementSeparator;
 scope: lineScope | blockScope;
-lineScope:  (scopeKeyword emptyLines? Name=qualifiedName emptyLines? statementSeparator);
-blockScope: (scopeKeyword emptyLines? Name=qualifiedName emptyLines? statement* emptyLines? endKeyword)  ;
-procedure: procedureKeyword emptyLines? Spelling=identifier paramList? statement* emptyLines? endKeyword;
-struct: structKeyword structDefinition ;
-enum: enumKeyword emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? endKeyword;
+lineScope:  (SCOPE emptyLines? Name=qualifiedName emptyLines? statementSeparator);
+blockScope: (SCOPE emptyLines? Name=qualifiedName emptyLines? statement* emptyLines? END)  ;
+procedure: PROC emptyLines? Spelling=identifier paramList? statement* emptyLines? END;
+struct: STRUCT structDefinition ;
+enum: ENUM emptyLines? Name=identifier emptyLines? typename? memberSeparator emptyLines? Members=enumMembers emptyLines? END;
 
-declare: dclKeyword Spelling=identifier Bounds=constArrayList? typename statementSeparator ;
+declare: DCL Spelling=identifier Bounds=dimensionSuffix? typename statementSeparator ;
 
-if:             ifKeyword emptyLines? exprThenBlock emptyLines? elifBlock? emptyLines? elseBlock? emptyLines? endKeyword;
-exprThenBlock:  expression emptyLines? thenKeyword emptyLines? thenBlock;
+if:             IF emptyLines? exprThenBlock emptyLines? elifBlock? emptyLines? elseBlock? emptyLines? END;
+exprThenBlock:  expression emptyLines? THEN emptyLines? thenBlock;
 thenBlock :     statement*;
-elseBlock :     (elseKeyword emptyLines? thenBlock);
-elifBlock :     (elifKeyword emptyLines? exprThenBlock)+;
+elseBlock :     (ELSE emptyLines? thenBlock);
+elifBlock :     (ELIF emptyLines? exprThenBlock)+;
 
 assignment : Target=reference (EQUALS) Source=expression statementSeparator;
 
@@ -140,6 +140,31 @@ prefixExpression
   : prefixOperator expression
   ;
 
+dimensionSuffix
+  : LPAR boundPairCommalist RPAR
+  ;
+
+boundPair
+  : (lowerBound COLON)? upperBound
+  | TIMES
+  ;
+
+boundPairCommalist
+  : boundPair (COMMA boundPair)*
+  ;
+
+// See page 208 PL/I Subset G standard. Lower bound must be <= upper
+// (but this is not a grammar issue, just a note)
+
+lowerBound
+  : expression
+  ;
+
+upperBound
+  : expression
+  ;
+
+
 bitAdjustOperator
   : (L_ROTATE_U | R_ROTATE_U | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT)
   ;
@@ -181,23 +206,15 @@ prefixOperator
   | NOT
   ;
 
-
-
-structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? endKeyword;
-
+structDefinition: structName emptyLines? memberSeparator emptyLines? Members=structMembers emptyLines? END;
  
-//elif_block : (elifKeyword expr_then_block);
-
-
-// Proc
-
 qualifiedName: identifier (DOT identifier)*;
 paramList: LPAR identifier (COMMA identifier)* RPAR;
-constArrayList: (LPAR numericConstant (COMMA numericConstant)* RPAR);
-numericConstant: NUMBER;
+constArrayList: (LPAR INTEGER (COMMA INTEGER)* RPAR);
+//numericConstant: INTEGER;
 // struct
 //structMemberList: structMember+ ;
-structName: Spelling=identifier Bounds=constArrayList?;
+structName: Spelling=identifier Bounds=dimensionSuffix?;
 structMembers
     :  emptyLines? structMember emptyLines? (memberSeparator emptyLines? structMember emptyLines?)*  memberSeparator? emptyLines?;
 enumMembers: emptyLines? enumMember emptyLines? (memberSeparator emptyLines? enumMember emptyLines?)* memberSeparator? emptyLines?;
@@ -205,11 +222,11 @@ structMember
     : structField
     | structDefinition;
 
-structField:   (Spelling=identifier emptyLines? Bounds=constArrayList? Type=typename );
+structField:   (Spelling=identifier emptyLines? Bounds=dimensionSuffix? Type=typename );
 structStruct:  structDefinition; 
 
 enumMember: (Name=identifier);
-identifier: DCL | ENUM | IF | ELSE | ELIF | THEN | STRUCT | PATH | SCOPE | IDENTIFIER;
+identifier: keyword | IDENTIFIER;
 typename 
     : binaryType
     | decimalType
@@ -217,31 +234,11 @@ typename
     | bitstringType 
     ;
 
-binaryType: BIN8 | BIN16 | BIN32 | BIN64 | UBIN8 | UBIN16 | UBIN32 | UBIN64 | ((BIN | UBIN) LPAR NUMBER (COMMA NUMBER)? RPAR) ;
-decimalType:  ((DEC | UDEC) LPAR NUMBER (COMMA NUMBER)? RPAR) ;
+binaryType: BIN8 | BIN16 | BIN32 | BIN64 | UBIN8 | UBIN16 | UBIN32 | UBIN64 | ((BIN | UBIN) argumentsList?) ;
+decimalType:  ((DEC | UDEC) argumentsList) ;
 
-stringType: STRING '(' NUMBER ')';
-bitstringType: BIT '(' NUMBER ')';
-
-// Expresions
-
-//expression: (identifier EQUALS identifier) | (identifier '<' identifier)  | (identifier '>' identifier);
-
-// Keywords
-
-keyword: (dclKeyword | structKeyword | scopeKeyword | ifKeyword | thenKeyword | elifKeyword | elseKeyword | procedureKeyword | enumKeyword | endKeyword) ;
-
-structKeyword: STRUCT;
-scopeKeyword: SCOPE;
-ifKeyword: IF;
-thenKeyword: THEN;
-elifKeyword: ELIF;
-elseKeyword: ELSE;
-procedureKeyword: PROC;
-enumKeyword: ENUM;
-endKeyword: END;
-dclKeyword: DCL;
-
+stringType: STRING argumentsList? ; //'(' INTEGER ')';
+bitstringType: BIT argumentsList? ;//'(' INTEGER ')';
 
 // Punctuation rules
 memberSeparator : COMMA;
@@ -253,12 +250,14 @@ endOfFile: emptyLines? EOF;
 // Allow comment blocks slash/star TEXT star/slash to be nested 
 COMMENT: (BCOM (COMMENT | .)*? ECOM) -> skip; //channel(HIDDEN);
 
+fragment BINARY:     [0-1];
+fragment OCT:     [0-7];
+fragment DECIMAL:     [0-9];
+fragment HEX:     [0-9a-fA-F];
 fragment BCOM:    ('/*');
 fragment ECOM:    ('*/');
-fragment HEX:     [0-9a-fA-F];
 fragment FRAC_H:  ('.' [0-9a-fA-F]+);
 fragment BASE_H:  (':h' | ':H');
-fragment OCT:     [0-7];
 fragment FRAC_D:  ('.' [0-9]+);
 fragment BASE_D:  (':d' | ':D');
 fragment FRAC_O:  ('.' [0-7]+);
@@ -268,45 +267,47 @@ fragment BASE_B:  (':b' | ':B');
 
 HEXADECIMAL_PATTERN:  ((HEX (' ' HEX)*)+ | (HEX ('_' HEX)*)+) FRAC_H? BASE_H;
 OCTAL_PATTERN:        ((OCT (' ' OCT)*)+ | (OCT ('_' OCT)*)+) FRAC_O? BASE_O;
-DECIMAL_PATTERN:      (DEC (' ' DEC)*)+ FRAC_D? BASE_D?;
-BINARY_PATTERN:       ((BIN (' ' BIN)*)+ | (BIN ('_' BIN)*)+) FRAC_B? BASE_B;
+DECIMAL_PATTERN:      (DECIMAL (' ' DECIMAL)*)+ FRAC_D? BASE_D?;
+BINARY_PATTERN:       ((BINARY (' ' BINARY)*)+ | (BINARY ('_' BINARY)*)+) FRAC_B? BASE_B;
 
 INTEGER:              ([1-9] [0-9]*);
 
-// Lexer rules
-PROC: 'proc' | 'procedure';
-FUNC: 'func' | 'function';
-SCOPE: 'scope';
-PATH: 'path';
-STRUCT: 'struct';
-IF: 'if';
-THEN: 'then';
-ELIF: 'elif';
-ELSE: 'else';
-BIT: 'bit';
-FOR: 'for';
-WHILE: 'while';
-UNTIL:  'until';
-FOREVER: 'forever';
+keyword: BIN16|BIN32|BIN64|BIN8|BIN|BIT|DCL|DEC|ELIF|ELSE|ENUM|FOR|FOREVER|FUNC|IF|PATH|PROC|SCOPE|STRING|STRUCT|THEN|UBIN16|UBIN32|UBIN64|UBIN8|UBIN|UDEC|UNTIL|WHILE ;
 
-// Ints
-BIN: 'bin';
-BIN8: 'bin8';
+// Keyword Tokens
+
 BIN16: 'bin16';
 BIN32: 'bin32';
 BIN64: 'bin64';
-
-UBIN: 'ubin';
-UBIN8: 'ubin8';
+BIN8: 'bin8';
+BIN: 'bin';
+BIT: 'bit';
+DCL: 'dcl' ;
+DEC: 'dec';
+ELIF: 'elif';
+ELSE: 'else';
+ENUM: 'enum';
+FOR: 'for';
+FOREVER: 'forever';
+FUNC: 'func' | 'function';
+IF: 'if';
+PATH: 'path';
+PROC: 'proc' | 'procedure';
+SCOPE: 'scope';
+STRING: 'string';
+STRUCT: 'struct';
+THEN: 'then';
 UBIN16: 'ubin16';
 UBIN32: 'ubin32';
 UBIN64: 'ubin64';
-
-DEC: 'dec';
-
+UBIN8: 'ubin8';
+UBIN: 'ubin';
 UDEC: 'udec';
-CONC:           ('++');   // concatenate character strings or bit strings
+UNTIL:  'until';
+WHILE: 'while';
 
+COLON:          (':');
+CONC:           ('++');   // concatenate character strings or bit strings
 LOGAND:         ('&&');     // short-circuit, logical AND
 LOGOR:          ('||');     // short-circuit, logical OR
 AND:            ('&');
@@ -323,7 +324,6 @@ LTE_U:          ('<='|'≤');
 NGT:            ('~>');
 NLT:            ('~<');
 NE_U:           ('~='|'≠');
-
 POWER_U:        ('**' | '🠕');  // U+1F815
 STRING_LITERAL_1:     (QUOTE    (.)*? QUOTE);
 PLUS:           ('+');
@@ -345,9 +345,7 @@ R_ART_SHIFT:    ('>>>');  // arithmetic: rite bit lost left bit is copy of sign 
 L_ROTATE_U:     ('<@'|'⧀');  // U+29C0 rotate: left bit rotated out rite bit becomes that rotated left bit
 R_ROTATE_U:     ('@>'|'⧁');  // U+29C1 rotate: rite bit rotated out left bit becomes that rotated rite bit
 
-STRING: 'string';
-ENUM: 'enum';
-DCL: 'dcl' ;
+
 EQUALS: '=' ;
 ASSIGN: '<-';
 COMPASSIGN: ('+=' | '-=' | '*=' | '/=');
@@ -359,7 +357,7 @@ COMMA: ',';
 LPAR: '(';
 RPAR: ')';
 RARROW: '->';
-NUMBER: [0-9]+ ('.' [0-9]+)?;
+//NUMBER: [0-9]+ ('.' [0-9]+)?;
 IDENTIFIER:  [a-zA-Z_] [a-zA-Z0-9_]*;
 NEWLINE: ('\r' '\n'); 
 WS: [ \t]+ -> skip;
