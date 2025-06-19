@@ -43,8 +43,8 @@ assignment : Target=reference (EQUALS) Source=expression statementSeparator;
 
 
 reference
-  : reference RARROW basicReference argumentsList?    # PtrRef
-  | basicReference argumentsList?                     # BasicRef
+  : reference RARROW basicReference argumentsList?  
+  | basicReference argumentsList?                    
   ;
 
 basicReference

@@ -1,4 +1,5 @@
 ﻿using Antlr4.Runtime;
+using Syscode.Ast;
 using System.Text;
 using static SyscodeParser;
 
@@ -76,10 +77,23 @@ namespace Syscode
                 ScopeContext scope => CreateScope(scope),
                 StructContext structure => CreateStructure(structure),
                 IfContext ifContext => CreateIf(ifContext),
-                AssignmentContext assignment => new Assignment(assignment),
+                AssignmentContext assignment => CreateAssignment(assignment),
                 DeclareContext declare => new Dcl(declare),
                 _ => new AstNode(context)
             };
+        }
+        private Assignment CreateAssignment(AssignmentContext context)
+        {
+            var refContext = context.GetNode<ReferenceContext>();
+            var reference = CreateRefererence(refContext);
+
+            return new Assignment(context) {  Refrenece = reference };
+        }
+
+        private Reference CreateRefererence(ReferenceContext context)
+        {
+
+            return null;
         }
         private List<ParserRuleContext> GetUnderlyingStatemts(ParserRuleContext context)
         {
@@ -142,7 +156,6 @@ namespace Syscode
             }
 
             return new Field(context) { Bounds = bounds };
-
         }
         private List<BoundsPair> CreateBounds(DimensionSuffixContext context)
         {
@@ -156,7 +169,6 @@ namespace Syscode
             bounds = pairs.Select(p => new BoundsPair(p) { Lower = null /* lower */ , Upper = null /* upper */}).ToList();
 
             return bounds;
-
         }
         private Procedure CreateProcedure(ProcedureContext context)
         {
