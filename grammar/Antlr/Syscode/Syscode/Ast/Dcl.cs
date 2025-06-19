@@ -5,17 +5,40 @@ namespace Syscode
     public class Dcl : AstNode
     {
         public string TypeName;
-        public List<int> Bounds = new List<int>();
+        public List<BoundsPair> Bounds = new();
         public int Length;
         public string Spelling;
         public Dcl(ParserRuleContext context) : base(context)
         {
-            if (context.TryGetNode<SyscodeParser.ConstArrayListContext>(out var constList))
+            if (context.TryGetNode<SyscodeParser.DimensionSuffixContext>(out var dimensions))
             {
-                Bounds = constList.GetNodes<SyscodeParser.NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
+                var commalist = dimensions.GetNode<SyscodeParser.BoundPairCommalistContext>(); ;
+                var pairs = commalist.GetNodes<SyscodeParser.BoundPairContext>();
+
+                var lower = pairs.Select(p => p.GetNode<SyscodeParser.LowerBoundContext>().GetNode<SyscodeParser.ExpressionContext>());
+                var upper = pairs.Select(p => p.GetNode<SyscodeParser.UpperBoundContext>().GetNode<SyscodeParser.ExpressionContext>());
+
+                pairs.Select(p => new BoundsPair(p) { Lower = null /* lower */ , Upper = null /* upper */});
             }
 
             Spelling = context.GetLabelText(nameof(SyscodeParser.DeclareContext.Spelling));
+        }
+    }
+
+    public class BoundsPair : AstNode
+    {
+        public Expression Upper;
+        public Expression Lower;
+
+        public BoundsPair(ParserRuleContext context) : base(context)
+        {
+        }
+    }
+
+    public class Expression : AstNode
+    {
+        public Expression(ParserRuleContext context) : base(context)
+        {
         }
     }
 }

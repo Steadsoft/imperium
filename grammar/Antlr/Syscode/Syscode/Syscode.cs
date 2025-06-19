@@ -41,12 +41,12 @@ namespace Syscode
                 typeof(EmptyLinesContext),
                 typeof(StatementSeparatorContext),
                 typeof(MemberSeparatorContext) ,
-                typeof(IfKeywordContext),
-                typeof(ThenKeywordContext),
-                typeof(ElifKeywordContext),
-                typeof(ElseKeywordContext),
-                typeof(ScopeKeywordContext),
-                typeof(StructKeywordContext) ,
+                //typeof(IfKeywordContext),
+                //typeof(ThenKeywordContext),
+                //typeof(ElifKeywordContext),
+                //typeof(ElseKeywordContext),
+                //typeof(ScopeKeywordContext),
+                //typeof(StructKeywordContext) ,
                 typeof(EndOfFileContext)
             };
         }
@@ -113,25 +113,50 @@ namespace Syscode
         }
         private Structure CreateStructure(StructDefinitionContext context)
         {
-            var bounds = new List<int>();
             var elements = new List<StructureMember>();
-
+            var bounds = new List<BoundsPair>();
             var struct_name = context.GetNode<StructNameContext>();
             var spelling = struct_name.GetLabelText(nameof(StructNameContext.Spelling));
-                
-            if (struct_name.TryGetNode<ConstArrayListContext>(out var constList))
+
+            if (context.TryGetNode<DimensionSuffixContext>(out var dimensions))
             {
-                bounds = constList.GetNodes<NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
+                bounds = CreateBounds(dimensions);
             }
 
             var members = context.GetNode<StructMembersContext>();
-            var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => new Field(d)).ToList();
+            var fields = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructFieldContext>()).Select(d => CreateField(d)).ToList();
             var structs = members.GetNodes<StructMemberContext>().SelectMany(m => m.GetNodes<StructDefinitionContext>()).Select(s => CreateStructure(s)).ToList();
 
             elements.AddRange(fields);
             elements.AddRange(structs);
 
             return new Structure(context) { Spelling = spelling, Bounds = bounds, Members = elements };
+        }
+        private Field CreateField(StructFieldContext context)
+        {
+            var bounds = new List<BoundsPair>();
+
+            if (context.TryGetNode<SyscodeParser.DimensionSuffixContext>(out var dimensions))
+            {
+                bounds = CreateBounds(dimensions);
+            }
+
+            return new Field(context) { Bounds = bounds };
+
+        }
+        private List<BoundsPair> CreateBounds(DimensionSuffixContext context)
+        {
+            var bounds = new List<BoundsPair>();
+            var commalist = context.GetNode<BoundPairCommalistContext>(); ;
+            var pairs = commalist.GetNodes<BoundPairContext>();
+
+            var lower = pairs.Select(p => p.GetNode<LowerBoundContext>().GetNode<ExpressionContext>());
+            var upper = pairs.Select(p => p.GetNode<UpperBoundContext>().GetNode<ExpressionContext>());
+
+            bounds = pairs.Select(p => new BoundsPair(p) { Lower = null /* lower */ , Upper = null /* upper */}).ToList();
+
+            return bounds;
+
         }
         private Procedure CreateProcedure(ProcedureContext context)
         {

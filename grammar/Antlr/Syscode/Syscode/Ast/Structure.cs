@@ -5,7 +5,7 @@ namespace Syscode
     public class Structure : StructureMember
     {
         //public string Spelling;
-        public List<int> Bounds = new List<int>();
+        public List<BoundsPair> Bounds = new();
         public List<StructureMember> Members = new List<StructureMember>();
         public Structure(ParserRuleContext context) : base(context)
         {

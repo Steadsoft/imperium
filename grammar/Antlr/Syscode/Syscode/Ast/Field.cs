@@ -6,17 +6,14 @@ namespace Syscode
     {
 
         public string TypeName;
-        public List<int> Bounds = new List<int>();
+        public List<BoundsPair> Bounds = new();
         public int Length;
         public Field(SyscodeParser.StructFieldContext context) : base(context)
         {
+            var bounds = new List<BoundsPair>();
+
             Spelling = context.GetLabelText(nameof(SyscodeParser.StructFieldContext.Spelling));
             var type = context.Type.GetText();
-
-            if (context.TryGetNode<SyscodeParser.ConstArrayListContext>(out var constList))
-            {
-                Bounds = constList.GetNodes<SyscodeParser.NumericConstantContext>().Select(x => Convert.ToInt32(x.GetText())).ToList();
-            }
 
             if (type.Contains(',') ==  false )
             {
