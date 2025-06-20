@@ -11,5 +11,10 @@ namespace Syscode
         {
             Spelling = context.GetLabelText(nameof(StructureQualificationContext.Spelling));
         }
+
+        public override string ToString()
+        {
+            return Spelling;
+        }
     }
 }

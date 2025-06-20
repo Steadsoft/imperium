@@ -79,17 +79,19 @@ expression
   : primitiveExpression                                     # ExprPrimitive
   | parenthesizedExpression                                 # ExprParenthesized
   | prefixExpression                                        # ExprPrefixed
-  | <assoc=right> Left=expression POWER_U Rite=expression   # ExprRaise
-  | Left=expression mulDivOperator Rite=expression          # ExprMulDiv
-  | Left=expression addSubOperator Rite=expression          # ExprAddSub
-  | Left=expression bitAdjustOperator Rite=expression       # ExprBitAdjust
-  | Left=expression CONC Rite=expression                    # ExprConcat
-  | Left=expression comparisonOperator Rite=expression      # ExprCompare
-  | Left=expression boolAndOperator Rite=expression         # ExprBoolAnd
-  | Left=expression boolXorOperator Rite=expression         # ExprBoolXor
-  | Left=expression boolOrOperator Rite=expression          # ExprBoolOr
-  | Left=expression LOGAND Rite=expression                  # ExprLogAnd
-  | Left=expression LOGOR Rite=expression                   # ExprLogOr
+
+  | <assoc=right> 
+    Left=expression power Rite=expression       # ExprBinary
+  | Left=expression mulDiv Rite=expression      # ExprBinary
+  | Left=expression addSub Rite=expression      # ExprBinary
+  | Left=expression bitAdjust Rite=expression   # ExprBinary
+  | Left=expression concatenate Rite=expression # ExprBinary
+  | Left=expression comparison Rite=expression  # ExprBinary
+  | Left=expression boolAnd Rite=expression     # ExprBinary
+  | Left=expression boolXor Rite=expression     # ExprBinary
+  | Left=expression boolOr Rite=expression      # ExprBinary
+  | Left=expression logand Rite=expression      # ExprBinary
+  | Left=expression logor Rite=expression       # ExprBinary
   ;
 
 primitiveExpression
@@ -131,10 +133,10 @@ parenthesizedExpression
   : LPAR expression RPAR
   | REDAND expression RPAR
   | REDOR expression RPAR
-  | REDXOR_U expression RPAR
+  | REDXOR expression RPAR
   | REDNAND expression RPAR
   | REDNOR expression RPAR
-  | REDXNOR_U expression RPAR
+  | REDXNOR expression RPAR
   ;
 
 prefixExpression
@@ -165,39 +167,42 @@ upperBound
   : expression
   ;
 
-
-bitAdjustOperator
-  : (L_ROTATE_U | R_ROTATE_U | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT)
+logand: LOGAND;
+logor: LOGOR;
+concatenate: CONC;
+power: POWER;
+bitAdjust
+  : (L_ROTATE | R_ROTATE | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT)
   ;
 
-addSubOperator
+addSub
   : (PLUS | MINUS)
   ;
 
-mulDivOperator
-  : (TIMES | DIVIDE_U | PCNT)
+mulDiv
+  : (TIMES | DIVIDE | PCNT)
   ;
 
-boolAndOperator
+boolAnd
   : (AND | NAND)
   ;
 
-boolXorOperator
-  : (XOR_U | XNOR_U)
+boolXor
+  : (XOR | XNOR)
   ;
 
-boolOrOperator
+boolOr
   : (OR | NOR | NOT)
   ;
 
-comparisonOperator
+comparison
   : GT
-  | GTE_U
+  | GTE
   | EQUALS
   | LT
-  | LTE_U
+  | LTE
   | NGT
-  | NE_U 
+  | NE 
   | NLT
   ;
 
@@ -315,36 +320,36 @@ AND:            ('&');
 OR:             ('|');
 NAND:           ('~&');
 NOR:            ('~|');
-XOR_U:          ('^'|'⊕');    // U+2295 excluisve bitwise OR
-XNOR_U:         ('~^'|'~⊕');   // U+2295
+XOR:          ('^'|'⊕');    // U+2295 excluisve bitwise OR
+XNOR:         ('~^'|'~⊕');   // U+2295
 NOT:            ('~');
 GT:             ('>');
 LT:             ('<');
-GTE_U:          ('>='|'≥');
-LTE_U:          ('<='|'≤');
+GTE:          ('>='|'≥');
+LTE:          ('<='|'≤');
 NGT:            ('~>');
 NLT:            ('~<');
-NE_U:           ('~='|'≠');
-POWER_U:        ('**' | '🠕');  // U+1F815
+NE:           ('~='|'≠');
+POWER:        ('**' | '🠕');  // U+1F815
 STRING_LITERAL_1:     (QUOTE    (.)*? QUOTE);
 PLUS:           ('+');
 MINUS:          ('-');
 TIMES:          ('*');
-DIVIDE_U:       ('/' | '÷'); // U+00F7
+DIVIDE:       ('/' | '÷'); // U+00F7
 PCNT:           ('%');
 
 QUOTE:          ('"');
 REDAND:         ('&(');
 REDOR:          ('|(');
 REDNOR:         ('~|(');
-REDXOR_U:       ('^('|'⊕(');   // U+2295
-REDXNOR_U:      ('~^('|'~⊕('); // U+2295
+REDXOR:       ('^('|'⊕(');   // U+2295
+REDXNOR:      ('~^('|'~⊕('); // U+2295
 REDNAND:        ('~&(');
 L_LOG_SHIFT:    ('<<');   // logical: left bit lost rite bit becomes zero
 R_LOG_SHIFT:    ('>>');   // logical: rite bit lost left bit becomes zero
 R_ART_SHIFT:    ('>>>');  // arithmetic: rite bit lost left bit is copy of sign bit
-L_ROTATE_U:     ('<@'|'⧀');  // U+29C0 rotate: left bit rotated out rite bit becomes that rotated left bit
-R_ROTATE_U:     ('@>'|'⧁');  // U+29C1 rotate: rite bit rotated out left bit becomes that rotated rite bit
+L_ROTATE:     ('<@'|'⧀');  // U+29C0 rotate: left bit rotated out rite bit becomes that rotated left bit
+R_ROTATE:     ('@>'|'⧁');  // U+29C1 rotate: rite bit rotated out left bit becomes that rotated rite bit
 
 
 EQUALS: '=' ;

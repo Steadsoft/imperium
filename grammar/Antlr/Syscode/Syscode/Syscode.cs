@@ -1,4 +1,5 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
 using System.Text;
 using static SyscodeParser;
 
@@ -81,12 +82,90 @@ namespace Syscode
                 _ => new AstNode(context)
             };
         }
+        private Expression CreateExpression(ExpressionContext context)
+        {
+            Expression expr = new(context);
+
+
+            switch (context)
+            {
+                case ExprPrimitiveContext primContext:
+                    {
+                        var prim = primContext.GetNode<PrimitiveExpressionContext>();
+
+                        if (prim.TryGetNode<ReferenceContext>(out var refcontext))
+                        {
+                            expr.Reference = CreateRefererence(refcontext);
+                        }
+
+                        if (prim.TryGetNode<NumericLiteralContext>(out var numcontext))
+                        {
+                            var txt = numcontext.GetText();
+                            expr.Literal = new Literal(numcontext) { Value = txt };
+                        }
+
+                        if (prim.TryGetNode<StringLiteralContext>(out var strcontext))
+                        {
+                            var txt = strcontext.GetText();
+                            expr.Literal = new Literal(strcontext) { Value = txt };
+                        }
+
+                        return expr;
+                    }
+                case ExprParenthesizedContext paren:
+                    {
+                        var parenctxt = paren.GetNode<ParenthesizedExpressionContext>();
+                        var expression = parenctxt.GetNode<ExpressionContext>();
+                        return CreateExpression(expression);
+                    }
+                case ExprPrefixedContext prefixed:
+                    {
+                        break;
+                    }
+                case ExprBinaryContext binary:
+                    {
+                        expr.Left = CreateExpression(binary.Left);
+                        expr.Right = CreateExpression(binary.Rite);
+
+                        var op = binary.children.Where(c => c is not ExpressionContext).Cast<ParserRuleContext>().Single();
+
+                        expr.Operator = GetOperator(op);
+
+                        return expr; ;
+                    }
+                default:  // every other case always contains an operator and a left/right expression. 
+                    {
+                        throw new InvalidOperationException("Unexpected expression class encountered.");
+                    }
+            }
+
+            return expr;
+
+        }
+        private Operator GetOperator(ParserRuleContext context)
+        {
+            var terminal = (TerminalNodeImpl)context.children.Where(c => c is TerminalNodeImpl).Single();
+
+            var symbol = terminal.Symbol.Type;
+
+            return symbol switch
+            {
+                PLUS => Operator.PLUS,
+                MINUS => Operator.MINUS,
+                TIMES => Operator.TIMES,
+                DIVIDE => Operator.DIVIDE,
+                _ => Operator.Undefined
+            };
+
+        }
         private Assignment CreateAssignment(AssignmentContext context)
         {
             var refContext = context.GetNode<ReferenceContext>();
             var reference = CreateRefererence(refContext);
+            var exprContext = context.GetNode<ExpressionContext>();
+            var expression = CreateExpression(exprContext);
 
-            return new Assignment(context) {  Refrenece = reference };
+            return new Assignment(context) {  Refrenece = reference, Expression = expression };
         }
         private Reference CreateRefererence(ReferenceContext context)
         {

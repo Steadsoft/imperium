@@ -145,10 +145,9 @@ struct mapping_2,
             label = yes;
 */
 
-            main.tab_ptr->table.subset.f3 = counnter(x).rate->outermost.f0
+            main.tab_ptr->table.subset.f3 = 100 / 10  /* counnter(x).rate->outermost.f0 */
 
-            counter = a * b ** f - d / e
-
+            
 /*            
         end
             
