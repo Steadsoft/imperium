@@ -145,7 +145,7 @@ struct mapping_2,
             label = yes;
 */
 
-            tab_ptr->table.subset.f3 = counnter(x).rate->outermost.f0
+            main.tab_ptr->table.subset.f3 = counnter(x).rate->outermost.f0
 
 /*            
         end

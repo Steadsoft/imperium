@@ -48,7 +48,7 @@ reference
   ;
 
 basicReference
-  : structureQualificationList? identifier
+  : structureQualificationList? Spelling=identifier
   ;
 
 argumentsList
@@ -59,7 +59,7 @@ structureQualificationList
   ;
 
 structureQualification
-  : identifier arguments? DOT
+  : Spelling=identifier arguments? DOT
   ;
 
 arguments

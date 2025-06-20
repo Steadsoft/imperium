@@ -1,9 +1,23 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
 
 namespace Syscode
 {
     public static class SyscodeExtensions
     {
+        public static bool HasToken(this ParserRuleContext context, int tokenType)
+        {
+            if (context.children.Where(c => c is TerminalNodeImpl).Where(t => ((TerminalNodeImpl)(t)).Symbol.Type == tokenType).Count() == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        public static T GetTerminal<T>(this ParserRuleContext context) where T : TerminalNodeImpl
+        {
+            return (T)context.children.Where(child => child is T).Single();
+        }
         public static T GetNode<T>(this ParserRuleContext context) where T : ParserRuleContext
         {
             if (context == null)

@@ -1,4 +1,5 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
 using Syscode.Ast;
 using System.Text;
 using static SyscodeParser;
@@ -92,9 +93,34 @@ namespace Syscode
 
         private Reference CreateRefererence(ReferenceContext context)
         {
+            Reference reference = new(context);
 
-            return null;
+            // A Reference might contain another Reference...
+
+            if (context.TryGetNode<ReferenceContext>(out var inner))
+            {
+                reference.reference = CreateRefererence(inner);
+            }
+
+            // TODO: process the optional ArgList list..
+
+            reference.basic = CreateBasicReference(context.GetNode<BasicReferenceContext>());
+
+            return reference;
         }
+
+        private BasicReference CreateBasicReference(BasicReferenceContext context)
+        {
+            BasicReference basic = new BasicReference(context);
+
+            if (context.TryGetNode<StructureQualificationListContext>(out var qualification))
+            {
+                basic.qualifier = qualification.GetNodes<StructureQualificationContext>().Select(q => new Qualification(q)).ToList();
+            }
+
+            return basic;
+        }
+
         private List<ParserRuleContext> GetUnderlyingStatemts(ParserRuleContext context)
         {
             return context.GetNodes<StatementContext>().SelectMany(s => s.GetNodes<RealStatementContext>().Select(n => n.GetNode<ParserRuleContext>())).ToList();
