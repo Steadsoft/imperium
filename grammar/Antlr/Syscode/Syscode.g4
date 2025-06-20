@@ -19,7 +19,7 @@ statementSeparator : (SEMICOLON | NEWLINE);
 emptyLines: NEWLINE+;
 
 
-source: (statement* endOfFile); 
+compilation: (statement* endOfFile); 
 statement:  preamble? realStatement ;
 realStatement : (assignment | label | scope | enum | struct | if | declare | procedure );
 

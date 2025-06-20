@@ -14,7 +14,7 @@ REM ----------------------------------------------------------------------------
 
 javac *.java
 
-java org.antlr.v4.gui.TestRig %1 source %2 -gui -tokens -encoding utf8
+java org.antlr.v4.gui.TestRig %1 compilation %2 -gui -tokens -encoding utf8
 
 cd ..
 

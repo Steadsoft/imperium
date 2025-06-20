@@ -16,7 +16,7 @@ namespace Syscode
             Reference = null;
             Left = null;
             Right = null;
-            Operator = Operator.Undefined;
+            Operator = Operator.UNDEFINED;
         }
     }
 }

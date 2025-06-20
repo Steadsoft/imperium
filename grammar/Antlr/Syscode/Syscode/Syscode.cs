@@ -52,12 +52,12 @@ namespace Syscode
             };
         }
         private SyscodeLexer lexer;
-        private SourceContext cst;
+        private CompilationContext cst;
         private IVocabulary vocabulary;
         public SyscodeCompiler()
         {
         }
-        public SourceContext CompileSourceFile(string File)
+        public CompilationContext CompileSourceFile(string File)
         {
             var source = new StreamReader(File);
             var stream = new AntlrInputStream(source);
@@ -66,13 +66,13 @@ namespace Syscode
             var tokens = new CommonTokenStream(lexer);
             var parser = new SyscodeParser(tokens);
 
-            return parser.source();
+            return parser.compilation();
         }
         public AstNode GenerateAbstractSyntaxTree(ParserRuleContext context)
         {
             return context switch
             {
-                SourceContext source => CreateProgram(source),
+                CompilationContext compilation => CreateProgram(compilation),
                 ProcedureContext procedure => CreateProcedure(procedure),
                 ScopeContext scope => CreateScope(scope),
                 StructContext structure => CreateStructure(structure),
@@ -85,7 +85,6 @@ namespace Syscode
         private Expression CreateExpression(ExpressionContext context)
         {
             Expression expr = new(context);
-
 
             switch (context)
             {
@@ -126,11 +125,7 @@ namespace Syscode
                     {
                         expr.Left = CreateExpression(binary.Left);
                         expr.Right = CreateExpression(binary.Rite);
-
-                        var op = binary.children.Where(c => c is not ExpressionContext).Cast<ParserRuleContext>().Single();
-
-                        expr.Operator = GetOperator(op);
-
+                        expr.Operator = GetOperator(binary);
                         return expr; ;
                     }
                 default:  // every other case always contains an operator and a left/right expression. 
@@ -142,10 +137,10 @@ namespace Syscode
             return expr;
 
         }
-        private Operator GetOperator(ParserRuleContext context)
+        private Operator GetOperator(ExprBinaryContext context)
         {
-            var terminal = (TerminalNodeImpl)context.children.Where(c => c is TerminalNodeImpl).Single();
-
+            var operation = context.children.Where(c => c is not ExpressionContext).Cast<ParserRuleContext>().Single();
+            var terminal = (TerminalNodeImpl)operation.children.Where(c => c is TerminalNodeImpl).Single();
             var symbol = terminal.Symbol.Type;
 
             return symbol switch
@@ -154,9 +149,9 @@ namespace Syscode
                 MINUS => Operator.MINUS,
                 TIMES => Operator.TIMES,
                 DIVIDE => Operator.DIVIDE,
-                _ => Operator.Undefined
+                // TODO cover all remaining operators
+                _ => Operator.UNDEFINED
             };
-
         }
         private Assignment CreateAssignment(AssignmentContext context)
         {
@@ -203,10 +198,10 @@ namespace Syscode
         {
             return input.Replace("Context", "");
         }
-        private Program CreateProgram(SourceContext context)
+        private Compilation CreateProgram(CompilationContext context)
         {
 
-            return new Program(context) { Statements = GetUnderlyingStatemts(context).Select(s => GenerateAbstractSyntaxTree(s)).ToList() };
+            return new Compilation(context) { Statements = GetUnderlyingStatemts(context).Select(s => GenerateAbstractSyntaxTree(s)).ToList() };
         }
         private Scope CreateScope(ScopeContext context)
         {
@@ -329,7 +324,7 @@ namespace Syscode
                         }
                         break;
                     }
-                case Program prog:
+                case Compilation prog:
                     {
                         foreach (var n in prog.Statements)
                         {
@@ -585,6 +580,5 @@ namespace Syscode
         {
             return $"{node.StopLine.ToString().PadRight(4)} {depth.ToString().PadRight(4 + depth)}";
         }
-
     }
 }

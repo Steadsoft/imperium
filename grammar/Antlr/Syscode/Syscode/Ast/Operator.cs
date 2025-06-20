@@ -2,25 +2,25 @@
 {
     public enum Operator
     {
-        Undefined,
+        UNDEFINED,
         TIMES,
         DIVIDE,
         PLUS,
         MINUS,
-        Gt,
-        Gte,
-        Equals,
-        Lt,
-        Lte,
-        Ngt,
-        Ne,
-        Nl,
-        And,
-        Nand,
-        Xor,
-        Xnor,
-        Or,
-        Nor,
-        Not
+        GT,
+        GTE,
+        EQUALS,
+        LT,
+        LTE,
+        NGT,
+        NE,
+        NL,
+        AND,
+        NAND,
+        XOR,
+        XNOR,
+        OR,
+        NOR,
+        NOT
     }
 }

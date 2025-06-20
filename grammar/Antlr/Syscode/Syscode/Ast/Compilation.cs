@@ -2,10 +2,10 @@
 
 namespace Syscode
 {
-    public class Program : AstNode , IStatementContainer
+    public class Compilation : AstNode , IStatementContainer
     {
         private List<AstNode> statements = new();
-        public Program(ParserRuleContext context) : base(context)
+        public Compilation(ParserRuleContext context) : base(context)
         {
         }
 
