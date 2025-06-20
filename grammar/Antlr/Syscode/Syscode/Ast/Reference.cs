@@ -25,7 +25,20 @@ namespace Syscode.Ast
         public BasicReference(ParserRuleContext context) : base(context)
         {
             Spelling = context.GetLabelText(nameof(SyscodeParser.BasicReferenceContext.Spelling));
+        }
 
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            foreach (var qual in qualifier)
+            {
+                builder.Append($"{qual.Spelling}.");
+            }
+
+            builder.AppendLine(Spelling);
+
+            return builder.ToString();
         }
     }
 
@@ -36,7 +49,6 @@ namespace Syscode.Ast
         public Qualification(ParserRuleContext context) : base(context)
         {
             Spelling = context.GetLabelText(nameof(SyscodeParser.StructureQualificationContext.Spelling));
-
         }
     }
 
