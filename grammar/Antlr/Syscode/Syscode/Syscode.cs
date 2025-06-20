@@ -364,9 +364,18 @@ namespace Syscode
 
             switch (node)
             {
+                case Reference reference:
+                    {
+                        Console.WriteLine($"{LineDepth(depth, node)} {reference.ToString()}");
+                        break;
+                    }
                 case Assignment assign:
                     {
                         Console.WriteLine($"{LineDepth(depth, node)} {node.GetType().Name}");
+
+                        depth++;
+                        PrintAbstractSyntaxTree(assign.Refrenece, depth);
+                        depth--;
                         break;
                     }
                 case If ifstmt:

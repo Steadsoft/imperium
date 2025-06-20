@@ -10,11 +10,25 @@ namespace Syscode.Ast
     public class Reference : AstNode
     {
         public Reference reference = null; // only populated if this ref is the left of ref -> ref
-        public List<Arglist> ArgSet= new();
+        public List<Arguments> ArgSet= new();
         public BasicReference basic = null;
 
         public Reference(SyscodeParser.ReferenceContext context) : base(context)
         {
+        }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            if (reference != null)
+            {
+                builder.Append(reference.ToString());
+                builder.Append(" -> ");
+            }
+
+           builder.Append(basic.ToString());
+           return builder.ToString();
         }
     }
 
@@ -36,7 +50,7 @@ namespace Syscode.Ast
                 builder.Append($"{qual.Spelling}.");
             }
 
-            builder.AppendLine(Spelling);
+            builder.Append(Spelling);
 
             return builder.ToString();
         }
@@ -55,11 +69,11 @@ namespace Syscode.Ast
     /// <summary>
     /// Represents a paranthesized commalist of expression which might be array subscripts or func/proc arguments.
     /// </summary>
-    public class Arglist : AstNode
+    public class Arguments : AstNode
     {
-        public List<Expression> Arguments = new();
+        public List<Expression> ExpressionList = new();
 
-        public Arglist(ParserRuleContext context) : base(context)
+        public Arguments(ParserRuleContext context) : base(context)
         {
         }
     }
