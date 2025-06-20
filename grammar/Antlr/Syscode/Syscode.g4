@@ -1,6 +1,7 @@
 
 /*
     GRAMMAR OVERVIEW
+    This grammar is based in part on the concrete syntax of PL/I defined in ANSI standard X3.74-1987. 
     This grammar has several important characteristics that reflect language design goals.
     1. There are no reserved words, identfiers can be keywords, new keywords can be added over time with backward compatibility.
     2. Statements are either block or single in nature. Block statements are terminated by 'end' and single by either Newline or Semicolon.
@@ -79,8 +80,8 @@ expression
   | parenthesizedExpression                                 # ExprParenthesized
   | prefixExpression                                        # ExprPrefixed
   | <assoc=right> Left=expression POWER_U Rite=expression   # ExprRaise
-  | Left=expression multiplyOperator Rite=expression        # ExprMulDiv
-  | Left=expression additionOperator Rite=expression        # ExprAddSub
+  | Left=expression mulDivOperator Rite=expression        # ExprMulDiv
+  | Left=expression addSubOperator Rite=expression        # ExprAddSub
   | Left=expression bitAdjustOperator Rite=expression       # ExprBitAdjust
   | Left=expression CONC Rite=expression                    # ExprConcat
   | Left=expression comparisonOperator Rite=expression      # ExprCompare
@@ -169,11 +170,11 @@ bitAdjustOperator
   : (L_ROTATE_U | R_ROTATE_U | L_LOG_SHIFT | R_LOG_SHIFT | R_ART_SHIFT)
   ;
 
-additionOperator
+addSubOperator
   : (PLUS | MINUS)
   ;
 
-multiplyOperator
+mulDivOperator
   : (TIMES | DIVIDE_U | PCNT)
   ;
 

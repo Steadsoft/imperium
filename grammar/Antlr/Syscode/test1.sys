@@ -147,6 +147,8 @@ struct mapping_2,
 
             main.tab_ptr->table.subset.f3 = counnter(x).rate->outermost.f0
 
+            counter = a * b ** f - d / e
+
 /*            
         end
             

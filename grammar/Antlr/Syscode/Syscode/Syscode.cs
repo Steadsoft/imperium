@@ -1,6 +1,4 @@
 ﻿using Antlr4.Runtime;
-using Antlr4.Runtime.Tree;
-using Syscode.Ast;
 using System.Text;
 using static SyscodeParser;
 

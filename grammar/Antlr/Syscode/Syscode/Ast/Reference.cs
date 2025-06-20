@@ -1,11 +1,8 @@
 ﻿using Antlr4.Runtime;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using static SyscodeParser;
 
-namespace Syscode.Ast
+namespace Syscode
 {
     public class Reference : AstNode
     {
@@ -13,7 +10,7 @@ namespace Syscode.Ast
         public List<Arguments> ArgSet= new();
         public BasicReference basic = null;
 
-        public Reference(SyscodeParser.ReferenceContext context) : base(context)
+        public Reference(ReferenceContext context) : base(context)
         {
         }
 
@@ -38,7 +35,7 @@ namespace Syscode.Ast
         public List<Qualification> qualifier;
         public BasicReference(ParserRuleContext context) : base(context)
         {
-            Spelling = context.GetLabelText(nameof(SyscodeParser.BasicReferenceContext.Spelling));
+            Spelling = context.GetLabelText(nameof(BasicReferenceContext.Spelling));
         }
 
         public override string ToString()
@@ -62,7 +59,7 @@ namespace Syscode.Ast
         public List<Expression> arguments = new();
         public Qualification(ParserRuleContext context) : base(context)
         {
-            Spelling = context.GetLabelText(nameof(SyscodeParser.StructureQualificationContext.Spelling));
+            Spelling = context.GetLabelText(nameof(StructureQualificationContext.Spelling));
         }
     }
 
