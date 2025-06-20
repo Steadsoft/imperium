@@ -88,7 +88,6 @@ namespace Syscode
 
             return new Assignment(context) {  Refrenece = reference };
         }
-
         private Reference CreateRefererence(ReferenceContext context)
         {
             Reference reference = new(context);
@@ -106,7 +105,6 @@ namespace Syscode
 
             return reference;
         }
-
         private BasicReference CreateBasicReference(BasicReferenceContext context)
         {
             BasicReference basic = new BasicReference(context);
@@ -118,7 +116,6 @@ namespace Syscode
 
             return basic;
         }
-
         private List<ParserRuleContext> GetUnderlyingStatemts(ParserRuleContext context)
         {
             return context.GetNodes<StatementContext>().SelectMany(s => s.GetNodes<RealStatementContext>().Select(n => n.GetNode<ParserRuleContext>())).ToList();

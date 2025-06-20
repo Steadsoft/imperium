@@ -80,8 +80,8 @@ expression
   | parenthesizedExpression                                 # ExprParenthesized
   | prefixExpression                                        # ExprPrefixed
   | <assoc=right> Left=expression POWER_U Rite=expression   # ExprRaise
-  | Left=expression mulDivOperator Rite=expression        # ExprMulDiv
-  | Left=expression addSubOperator Rite=expression        # ExprAddSub
+  | Left=expression mulDivOperator Rite=expression          # ExprMulDiv
+  | Left=expression addSubOperator Rite=expression          # ExprAddSub
   | Left=expression bitAdjustOperator Rite=expression       # ExprBitAdjust
   | Left=expression CONC Rite=expression                    # ExprConcat
   | Left=expression comparisonOperator Rite=expression      # ExprCompare

@@ -25,21 +25,4 @@ namespace Syscode
             Spelling = context.GetLabelText(nameof(DeclareContext.Spelling));
         }
     }
-
-    public class BoundsPair : AstNode
-    {
-        public Expression Upper;
-        public Expression Lower;
-
-        public BoundsPair(ParserRuleContext context) : base(context)
-        {
-        }
-    }
-
-    public class Expression : AstNode
-    {
-        public Expression(ParserRuleContext context) : base(context)
-        {
-        }
-    }
 }

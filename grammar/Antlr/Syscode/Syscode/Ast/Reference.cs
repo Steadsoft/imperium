@@ -1,5 +1,4 @@
-﻿using Antlr4.Runtime;
-using System.Text;
+﻿using System.Text;
 using static SyscodeParser;
 
 namespace Syscode
@@ -26,52 +25,6 @@ namespace Syscode
 
            builder.Append(basic.ToString());
            return builder.ToString();
-        }
-    }
-
-    public class BasicReference : AstNode
-    {
-        public string Spelling;
-        public List<Qualification> qualifier;
-        public BasicReference(ParserRuleContext context) : base(context)
-        {
-            Spelling = context.GetLabelText(nameof(BasicReferenceContext.Spelling));
-        }
-
-        public override string ToString()
-        {
-            StringBuilder builder = new StringBuilder();
-
-            foreach (var qual in qualifier)
-            {
-                builder.Append($"{qual.Spelling}.");
-            }
-
-            builder.Append(Spelling);
-
-            return builder.ToString();
-        }
-    }
-
-    public class Qualification : AstNode
-    {
-        public string Spelling;
-        public List<Expression> arguments = new();
-        public Qualification(ParserRuleContext context) : base(context)
-        {
-            Spelling = context.GetLabelText(nameof(StructureQualificationContext.Spelling));
-        }
-    }
-
-    /// <summary>
-    /// Represents a paranthesized commalist of expression which might be array subscripts or func/proc arguments.
-    /// </summary>
-    public class Arguments : AstNode
-    {
-        public List<Expression> ExpressionList = new();
-
-        public Arguments(ParserRuleContext context) : base(context)
-        {
         }
     }
 }
